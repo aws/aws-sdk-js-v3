@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetTaxExemptionsRequest, BatchGetTaxExemptionsResponse } from "../models/models_0";
 import { BatchGetTaxExemptions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface BatchGetTaxExemptionsCommandOutput extends BatchGetTaxExemption
  *
  * @public
  */
-export class BatchGetTaxExemptionsCommand extends $Command
-  .classBuilder<
-    BatchGetTaxExemptionsCommandInput,
-    BatchGetTaxExemptionsCommandOutput,
-    TaxSettingsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TaxSettingsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TaxSettings", "BatchGetTaxExemptions", {})
-  .n("TaxSettingsClient", "BatchGetTaxExemptionsCommand")
-  .sc(BatchGetTaxExemptions$)
-  .build() {
+export class BatchGetTaxExemptionsCommand extends command<BatchGetTaxExemptionsCommandInput, BatchGetTaxExemptionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetTaxExemptions",
+  BatchGetTaxExemptions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

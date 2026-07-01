@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRouterConfigurationRequest, DescribeRouterConfigurationResponse } from "../models/models_0";
 import { DescribeRouterConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeRouterConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DescribeRouterConfigurationCommandOutput extends DescribeRouter
  *
  * @public
  */
-export class DescribeRouterConfigurationCommand extends $Command
-  .classBuilder<
-    DescribeRouterConfigurationCommandInput,
-    DescribeRouterConfigurationCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "DescribeRouterConfiguration", {})
-  .n("DirectConnectClient", "DescribeRouterConfigurationCommand")
-  .sc(DescribeRouterConfiguration$)
-  .build() {
+export class DescribeRouterConfigurationCommand extends command<DescribeRouterConfigurationCommandInput, DescribeRouterConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRouterConfiguration",
+  DescribeRouterConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

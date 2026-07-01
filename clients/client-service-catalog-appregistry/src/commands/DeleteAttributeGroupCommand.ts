@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAttributeGroupRequest, DeleteAttributeGroupResponse } from "../models/models_0";
 import { DeleteAttributeGroup$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogAppRegistryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogAppRegistryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface DeleteAttributeGroupCommandOutput extends DeleteAttributeGroupR
  *
  * @public
  */
-export class DeleteAttributeGroupCommand extends $Command
-  .classBuilder<
-    DeleteAttributeGroupCommandInput,
-    DeleteAttributeGroupCommandOutput,
-    ServiceCatalogAppRegistryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogAppRegistryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242AppRegistry", "DeleteAttributeGroup", {})
-  .n("ServiceCatalogAppRegistryClient", "DeleteAttributeGroupCommand")
-  .sc(DeleteAttributeGroup$)
-  .build() {
+export class DeleteAttributeGroupCommand extends command<DeleteAttributeGroupCommandInput, DeleteAttributeGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAttributeGroup",
+  DeleteAttributeGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

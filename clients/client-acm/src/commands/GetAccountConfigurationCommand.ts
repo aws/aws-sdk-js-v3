@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAccountConfigurationResponse } from "../models/models_0";
 import { GetAccountConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetAccountConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -65,25 +61,12 @@ export interface GetAccountConfigurationCommandOutput extends GetAccountConfigur
  *
  * @public
  */
-export class GetAccountConfigurationCommand extends $Command
-  .classBuilder<
-    GetAccountConfigurationCommandInput,
-    GetAccountConfigurationCommandOutput,
-    ACMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ServiceType: { type: "staticContextParams", value: `ACM` },
-  })
-  .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CertificateManager", "GetAccountConfiguration", {})
-  .n("ACMClient", "GetAccountConfigurationCommand")
-  .sc(GetAccountConfiguration$)
-  .build() {
+export class GetAccountConfigurationCommand extends command<GetAccountConfigurationCommandInput, GetAccountConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAccountConfiguration",
+  GetAccountConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

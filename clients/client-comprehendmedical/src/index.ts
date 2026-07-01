@@ -11,6 +11,7 @@ export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameter
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { ComprehendMedicalExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
+export { Command as $Command } from "@smithy/core/client";
 export * from "./schemas/schemas_0";
 
 export * from "./models/enums";

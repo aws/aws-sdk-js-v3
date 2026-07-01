@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddBridgeSourcesRequest, AddBridgeSourcesResponse } from "../models/models_0";
 import { AddBridgeSources$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AddBridgeSources$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface AddBridgeSourcesCommandOutput extends AddBridgeSourcesResponse,
  *
  * @public
  */
-export class AddBridgeSourcesCommand extends $Command
-  .classBuilder<
-    AddBridgeSourcesCommandInput,
-    AddBridgeSourcesCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "AddBridgeSources", {})
-  .n("MediaConnectClient", "AddBridgeSourcesCommand")
-  .sc(AddBridgeSources$)
-  .build() {
+export class AddBridgeSourcesCommand extends command<AddBridgeSourcesCommandInput, AddBridgeSourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddBridgeSources",
+  AddBridgeSources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

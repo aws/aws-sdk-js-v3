@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateLocationFsxOpenZfsRequest, CreateLocationFsxOpenZfsResponse } from "../models/models_0";
 import { CreateLocationFsxOpenZfs$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateLocationFsxOpenZfs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface CreateLocationFsxOpenZfsCommandOutput extends CreateLocationFsx
  *
  * @public
  */
-export class CreateLocationFsxOpenZfsCommand extends $Command
-  .classBuilder<
-    CreateLocationFsxOpenZfsCommandInput,
-    CreateLocationFsxOpenZfsCommandOutput,
-    DataSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FmrsService", "CreateLocationFsxOpenZfs", {})
-  .n("DataSyncClient", "CreateLocationFsxOpenZfsCommand")
-  .sc(CreateLocationFsxOpenZfs$)
-  .build() {
+export class CreateLocationFsxOpenZfsCommand extends command<CreateLocationFsxOpenZfsCommandInput, CreateLocationFsxOpenZfsCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateLocationFsxOpenZfs",
+  CreateLocationFsxOpenZfs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

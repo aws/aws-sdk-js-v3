@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MedicalImagingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MedicalImagingClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDatastoreRequest, DeleteDatastoreResponse } from "../models/models_0";
 import { DeleteDatastore$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteDatastore$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface DeleteDatastoreCommandOutput extends DeleteDatastoreResponse, _
  *
  * @public
  */
-export class DeleteDatastoreCommand extends $Command
-  .classBuilder<
-    DeleteDatastoreCommandInput,
-    DeleteDatastoreCommandOutput,
-    MedicalImagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AHIGatewayService", "DeleteDatastore", {})
-  .n("MedicalImagingClient", "DeleteDatastoreCommand")
-  .sc(DeleteDatastore$)
-  .build() {
+export class DeleteDatastoreCommand extends command<DeleteDatastoreCommandInput, DeleteDatastoreCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDatastore",
+  DeleteDatastore$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

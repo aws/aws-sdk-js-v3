@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSecurityConfigurationRequest, CreateSecurityConfigurationResponse } from "../models/models_0";
 import { CreateSecurityConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateSecurityConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface CreateSecurityConfigurationCommandOutput extends CreateSecurity
  *
  * @public
  */
-export class CreateSecurityConfigurationCommand extends $Command
-  .classBuilder<
-    CreateSecurityConfigurationCommandInput,
-    CreateSecurityConfigurationCommandOutput,
-    EMRContainersClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRContainersClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsChicagoWebService", "CreateSecurityConfiguration", {})
-  .n("EMRContainersClient", "CreateSecurityConfigurationCommand")
-  .sc(CreateSecurityConfiguration$)
-  .build() {
+export class CreateSecurityConfigurationCommand extends command<CreateSecurityConfigurationCommandInput, CreateSecurityConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSecurityConfiguration",
+  CreateSecurityConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

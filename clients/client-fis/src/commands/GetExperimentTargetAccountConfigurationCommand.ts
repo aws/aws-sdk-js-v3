@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetExperimentTargetAccountConfigurationRequest,
   GetExperimentTargetAccountConfigurationResponse,
@@ -15,7 +12,6 @@ import { GetExperimentTargetAccountConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface GetExperimentTargetAccountConfigurationCommandOutput extends Ge
  *
  * @public
  */
-export class GetExperimentTargetAccountConfigurationCommand extends $Command
-  .classBuilder<
-    GetExperimentTargetAccountConfigurationCommandInput,
-    GetExperimentTargetAccountConfigurationCommandOutput,
-    FisClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FisClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FaultInjectionSimulator", "GetExperimentTargetAccountConfiguration", {})
-  .n("FisClient", "GetExperimentTargetAccountConfigurationCommand")
-  .sc(GetExperimentTargetAccountConfiguration$)
-  .build() {
+export class GetExperimentTargetAccountConfigurationCommand extends command<GetExperimentTargetAccountConfigurationCommandInput, GetExperimentTargetAccountConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetExperimentTargetAccountConfiguration",
+  GetExperimentTargetAccountConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

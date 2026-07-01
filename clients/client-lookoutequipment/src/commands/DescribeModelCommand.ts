@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LookoutEquipmentClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LookoutEquipmentClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeModelRequest, DescribeModelResponse } from "../models/models_0";
 import { DescribeModel$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeModel$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -139,22 +131,12 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  *
  * @public
  */
-export class DescribeModelCommand extends $Command
-  .classBuilder<
-    DescribeModelCommandInput,
-    DescribeModelCommandOutput,
-    LookoutEquipmentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLookoutEquipmentFrontendService", "DescribeModel", {})
-  .n("LookoutEquipmentClient", "DescribeModelCommand")
-  .sc(DescribeModel$)
-  .build() {
+export class DescribeModelCommand extends command<DescribeModelCommandInput, DescribeModelCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeModel",
+  DescribeModel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

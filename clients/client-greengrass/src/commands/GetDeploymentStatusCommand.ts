@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDeploymentStatusRequest, GetDeploymentStatusResponse } from "../models/models_0";
 import { GetDeploymentStatus$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDeploymentStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface GetDeploymentStatusCommandOutput extends GetDeploymentStatusRes
  *
  * @public
  */
-export class GetDeploymentStatusCommand extends $Command
-  .classBuilder<
-    GetDeploymentStatusCommandInput,
-    GetDeploymentStatusCommandOutput,
-    GreengrassClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Greengrass", "GetDeploymentStatus", {})
-  .n("GreengrassClient", "GetDeploymentStatusCommand")
-  .sc(GetDeploymentStatus$)
-  .build() {
+export class GetDeploymentStatusCommand extends command<GetDeploymentStatusCommandInput, GetDeploymentStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDeploymentStatus",
+  GetDeploymentStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

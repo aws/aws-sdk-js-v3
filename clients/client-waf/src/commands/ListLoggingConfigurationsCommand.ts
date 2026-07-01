@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLoggingConfigurationsRequest, ListLoggingConfigurationsResponse } from "../models/models_0";
 import { ListLoggingConfigurations$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +124,12 @@ export interface ListLoggingConfigurationsCommandOutput extends ListLoggingConfi
  *
  * @public
  */
-export class ListLoggingConfigurationsCommand extends $Command
-  .classBuilder<
-    ListLoggingConfigurationsCommandInput,
-    ListLoggingConfigurationsCommandOutput,
-    WAFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20150824", "ListLoggingConfigurations", {})
-  .n("WAFClient", "ListLoggingConfigurationsCommand")
-  .sc(ListLoggingConfigurations$)
-  .build() {
+export class ListLoggingConfigurationsCommand extends command<ListLoggingConfigurationsCommandInput, ListLoggingConfigurationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLoggingConfigurations",
+  ListLoggingConfigurations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

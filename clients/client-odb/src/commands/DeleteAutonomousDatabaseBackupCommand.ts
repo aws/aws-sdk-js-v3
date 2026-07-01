@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAutonomousDatabaseBackupInput, DeleteAutonomousDatabaseBackupOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { DeleteAutonomousDatabaseBackup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteAutonomousDatabaseBackupCommandOutput extends DeleteAuton
  *
  * @public
  */
-export class DeleteAutonomousDatabaseBackupCommand extends $Command
-  .classBuilder<
-    DeleteAutonomousDatabaseBackupCommandInput,
-    DeleteAutonomousDatabaseBackupCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "DeleteAutonomousDatabaseBackup", {})
-  .n("OdbClient", "DeleteAutonomousDatabaseBackupCommand")
-  .sc(DeleteAutonomousDatabaseBackup$)
-  .build() {
+export class DeleteAutonomousDatabaseBackupCommand extends command<DeleteAutonomousDatabaseBackupCommandInput, DeleteAutonomousDatabaseBackupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAutonomousDatabaseBackup",
+  DeleteAutonomousDatabaseBackup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutRecordInput, PutRecordOutput } from "../models/models_0";
 import { PutRecord$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutRecord$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +121,12 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  *
  * @public
  */
-export class PutRecordCommand extends $Command
-  .classBuilder<
-    PutRecordCommandInput,
-    PutRecordCommandOutput,
-    FirehoseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FirehoseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Firehose_20150804", "PutRecord", {})
-  .n("FirehoseClient", "PutRecordCommand")
-  .sc(PutRecord$)
-  .build() {
+export class PutRecordCommand extends command<PutRecordCommandInput, PutRecordCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutRecord",
+  PutRecord$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

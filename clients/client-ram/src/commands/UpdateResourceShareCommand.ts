@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateResourceShareRequest, UpdateResourceShareResponse } from "../models/models_0";
-import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import { UpdateResourceShare$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface UpdateResourceShareCommandOutput extends UpdateResourceShareRes
  *
  * @public
  */
-export class UpdateResourceShareCommand extends $Command
-  .classBuilder<
-    UpdateResourceShareCommandInput,
-    UpdateResourceShareCommandOutput,
-    RAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonResourceSharing", "UpdateResourceShare", {})
-  .n("RAMClient", "UpdateResourceShareCommand")
-  .sc(UpdateResourceShare$)
-  .build() {
+export class UpdateResourceShareCommand extends command<UpdateResourceShareCommandInput, UpdateResourceShareCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateResourceShare",
+  UpdateResourceShare$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep9, _mw0, command } from "../commandBuilder";
 import type { ImportTableInput, ImportTableOutput } from "../models/models_0";
 import { ImportTable$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ImportTable$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -260,26 +256,12 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  *
  * @public
  */
-export class ImportTableCommand extends $Command
-  .classBuilder<
-    ImportTableCommandInput,
-    ImportTableCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "operationContextParams", get: (input?: any) => input?.TableCreationParameters?.TableName },
-
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "ImportTable", {})
-  .n("DynamoDBClient", "ImportTableCommand")
-  .sc(ImportTable$)
-  .build() {
+export class ImportTableCommand extends command<ImportTableCommandInput, ImportTableCommandOutput>(
+  _ep9,
+  _mw0,
+  "ImportTable",
+  ImportTable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

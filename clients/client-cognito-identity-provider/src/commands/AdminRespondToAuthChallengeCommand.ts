@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AdminRespondToAuthChallengeRequest, AdminRespondToAuthChallengeResponse } from "../models/models_0";
 import { AdminRespondToAuthChallenge$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AdminRespondToAuthChallenge$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -232,22 +224,12 @@ export interface AdminRespondToAuthChallengeCommandOutput extends AdminRespondTo
  *
  * @public
  */
-export class AdminRespondToAuthChallengeCommand extends $Command
-  .classBuilder<
-    AdminRespondToAuthChallengeCommandInput,
-    AdminRespondToAuthChallengeCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "AdminRespondToAuthChallenge", {})
-  .n("CognitoIdentityProviderClient", "AdminRespondToAuthChallengeCommand")
-  .sc(AdminRespondToAuthChallenge$)
-  .build() {
+export class AdminRespondToAuthChallengeCommand extends command<AdminRespondToAuthChallengeCommandInput, AdminRespondToAuthChallengeCommandOutput>(
+  _ep0,
+  _mw0,
+  "AdminRespondToAuthChallenge",
+  AdminRespondToAuthChallenge$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

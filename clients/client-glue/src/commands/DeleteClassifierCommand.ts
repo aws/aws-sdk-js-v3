@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteClassifierRequest, DeleteClassifierResponse } from "../models/models_1";
 import { DeleteClassifier$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteClassifier$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse,
  *
  * @public
  */
-export class DeleteClassifierCommand extends $Command
-  .classBuilder<
-    DeleteClassifierCommandInput,
-    DeleteClassifierCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "DeleteClassifier", {})
-  .n("GlueClient", "DeleteClassifierCommand")
-  .sc(DeleteClassifier$)
-  .build() {
+export class DeleteClassifierCommand extends command<DeleteClassifierCommandInput, DeleteClassifierCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteClassifier",
+  DeleteClassifier$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

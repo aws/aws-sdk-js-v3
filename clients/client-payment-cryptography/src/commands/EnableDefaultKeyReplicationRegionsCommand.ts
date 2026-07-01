@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   EnableDefaultKeyReplicationRegionsInput,
   EnableDefaultKeyReplicationRegionsOutput,
 } from "../models/models_0";
-import type {
-  PaymentCryptographyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PaymentCryptographyClient";
 import { EnableDefaultKeyReplicationRegions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface EnableDefaultKeyReplicationRegionsCommandOutput extends EnableD
  *
  * @public
  */
-export class EnableDefaultKeyReplicationRegionsCommand extends $Command
-  .classBuilder<
-    EnableDefaultKeyReplicationRegionsCommandInput,
-    EnableDefaultKeyReplicationRegionsCommandOutput,
-    PaymentCryptographyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PaymentCryptographyControlPlane", "EnableDefaultKeyReplicationRegions", {})
-  .n("PaymentCryptographyClient", "EnableDefaultKeyReplicationRegionsCommand")
-  .sc(EnableDefaultKeyReplicationRegions$)
-  .build() {
+export class EnableDefaultKeyReplicationRegionsCommand extends command<EnableDefaultKeyReplicationRegionsCommandInput, EnableDefaultKeyReplicationRegionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableDefaultKeyReplicationRegions",
+  EnableDefaultKeyReplicationRegions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

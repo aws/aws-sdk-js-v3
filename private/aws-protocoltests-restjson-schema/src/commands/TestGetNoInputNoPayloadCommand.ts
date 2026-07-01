@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TestNoPayloadInputOutput } from "../models/models_0";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
 import { TestGetNoInputNoPayload$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +58,12 @@ export interface TestGetNoInputNoPayloadCommandOutput extends TestNoPayloadInput
  *
  * @public
  */
-export class TestGetNoInputNoPayloadCommand extends $Command
-  .classBuilder<
-    TestGetNoInputNoPayloadCommandInput,
-    TestGetNoInputNoPayloadCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestJson", "TestGetNoInputNoPayload", {})
-  .n("RestJsonProtocolClient", "TestGetNoInputNoPayloadCommand")
-  .sc(TestGetNoInputNoPayload$)
-  .build() {
+export class TestGetNoInputNoPayloadCommand extends command<TestGetNoInputNoPayloadCommandInput, TestGetNoInputNoPayloadCommandOutput>(
+  _ep0,
+  _mw0,
+  "TestGetNoInputNoPayload",
+  TestGetNoInputNoPayload$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

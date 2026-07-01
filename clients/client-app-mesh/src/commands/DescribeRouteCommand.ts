@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRouteInput, DescribeRouteOutput } from "../models/models_0";
 import { DescribeRoute$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeRoute$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -301,22 +297,12 @@ export interface DescribeRouteCommandOutput extends DescribeRouteOutput, __Metad
  *
  * @public
  */
-export class DescribeRouteCommand extends $Command
-  .classBuilder<
-    DescribeRouteCommandInput,
-    DescribeRouteCommandOutput,
-    AppMeshClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppMeshClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppMesh", "DescribeRoute", {})
-  .n("AppMeshClient", "DescribeRouteCommand")
-  .sc(DescribeRoute$)
-  .build() {
+export class DescribeRouteCommand extends command<DescribeRouteCommandInput, DescribeRouteCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRoute",
+  DescribeRoute$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

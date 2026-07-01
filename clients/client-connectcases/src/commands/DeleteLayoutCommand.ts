@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteLayoutRequest, DeleteLayoutResponse } from "../models/models_0";
 import { DeleteLayout$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteLayout$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteLayoutCommandOutput extends DeleteLayoutResponse, __Metad
  *
  * @public
  */
-export class DeleteLayoutCommand extends $Command
-  .classBuilder<
-    DeleteLayoutCommandInput,
-    DeleteLayoutCommandOutput,
-    ConnectCasesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCases", "DeleteLayout", {})
-  .n("ConnectCasesClient", "DeleteLayoutCommand")
-  .sc(DeleteLayout$)
-  .build() {
+export class DeleteLayoutCommand extends command<DeleteLayoutCommandInput, DeleteLayoutCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteLayout",
+  DeleteLayout$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

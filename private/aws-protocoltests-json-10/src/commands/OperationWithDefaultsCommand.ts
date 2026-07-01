@@ -13,7 +13,6 @@ import { de_OperationWithDefaultsCommand, se_OperationWithDefaultsCommand } from
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

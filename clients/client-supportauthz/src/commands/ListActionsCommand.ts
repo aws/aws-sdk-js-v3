@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListActionsInput, ListActionsOutput } from "../models/models_0";
 import { ListActions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupportAuthZClientResolvedConfig } from "../SupportAuthZClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface ListActionsCommandOutput extends ListActionsOutput, __MetadataB
  *
  * @public
  */
-export class ListActionsCommand extends $Command
-  .classBuilder<
-    ListActionsCommandInput,
-    ListActionsCommandOutput,
-    SupportAuthZClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupportAuthZClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SupportAuthZ", "ListActions", {})
-  .n("SupportAuthZClient", "ListActionsCommand")
-  .sc(ListActions$)
-  .build() {
+export class ListActionsCommand extends command<ListActionsCommandInput, ListActionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListActions",
+  ListActions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

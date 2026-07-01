@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListProgramManagementAccountsRequest, ListProgramManagementAccountsResponse } from "../models/models_0";
-import type {
-  PartnerCentralChannelClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralChannelClient";
 import { ListProgramManagementAccounts$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -157,22 +149,12 @@ export interface ListProgramManagementAccountsCommandOutput extends ListProgramM
  *
  * @public
  */
-export class ListProgramManagementAccountsCommand extends $Command
-  .classBuilder<
-    ListProgramManagementAccountsCommandInput,
-    ListProgramManagementAccountsCommandOutput,
-    PartnerCentralChannelClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralChannelClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralChannel", "ListProgramManagementAccounts", {})
-  .n("PartnerCentralChannelClient", "ListProgramManagementAccountsCommand")
-  .sc(ListProgramManagementAccounts$)
-  .build() {
+export class ListProgramManagementAccountsCommand extends command<ListProgramManagementAccountsCommandInput, ListProgramManagementAccountsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListProgramManagementAccounts",
+  ListProgramManagementAccounts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKIdentityClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKIdentityClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAppInstanceUserEndpointRequest, UpdateAppInstanceUserEndpointResponse } from "../models/models_0";
 import { UpdateAppInstanceUserEndpoint$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateAppInstanceUserEndpoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface UpdateAppInstanceUserEndpointCommandOutput extends UpdateAppIns
  *
  * @public
  */
-export class UpdateAppInstanceUserEndpointCommand extends $Command
-  .classBuilder<
-    UpdateAppInstanceUserEndpointCommandInput,
-    UpdateAppInstanceUserEndpointCommandOutput,
-    ChimeSDKIdentityClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKIdentityClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeIdentityService", "UpdateAppInstanceUserEndpoint", {})
-  .n("ChimeSDKIdentityClient", "UpdateAppInstanceUserEndpointCommand")
-  .sc(UpdateAppInstanceUserEndpoint$)
-  .build() {
+export class UpdateAppInstanceUserEndpointCommand extends command<UpdateAppInstanceUserEndpointCommandInput, UpdateAppInstanceUserEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAppInstanceUserEndpoint",
+  UpdateAppInstanceUserEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

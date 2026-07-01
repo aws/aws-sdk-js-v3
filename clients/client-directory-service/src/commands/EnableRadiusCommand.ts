@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EnableRadiusRequest, EnableRadiusResult } from "../models/models_0";
 import { EnableRadius$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { EnableRadius$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +109,12 @@ export interface EnableRadiusCommandOutput extends EnableRadiusResult, __Metadat
  *
  * @public
  */
-export class EnableRadiusCommand extends $Command
-  .classBuilder<
-    EnableRadiusCommandInput,
-    EnableRadiusCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "EnableRadius", {})
-  .n("DirectoryServiceClient", "EnableRadiusCommand")
-  .sc(EnableRadius$)
-  .build() {
+export class EnableRadiusCommand extends command<EnableRadiusCommandInput, EnableRadiusCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableRadius",
+  EnableRadius$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

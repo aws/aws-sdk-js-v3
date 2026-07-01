@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTableRequest, GetTableResponse } from "../models/models_0";
-import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
 import { GetTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  *
  * @public
  */
-export class GetTableCommand extends $Command
-  .classBuilder<
-    GetTableCommandInput,
-    GetTableCommandOutput,
-    S3TablesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: S3TablesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("S3TableBuckets", "GetTable", {})
-  .n("S3TablesClient", "GetTableCommand")
-  .sc(GetTable$)
-  .build() {
+export class GetTableCommand extends command<GetTableCommandInput, GetTableCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTable",
+  GetTable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

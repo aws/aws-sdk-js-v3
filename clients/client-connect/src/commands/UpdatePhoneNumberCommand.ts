@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePhoneNumberRequest, UpdatePhoneNumberResponse } from "../models/models_3";
 import { UpdatePhoneNumber$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdatePhoneNumber$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  *
  * @public
  */
-export class UpdatePhoneNumberCommand extends $Command
-  .classBuilder<
-    UpdatePhoneNumberCommandInput,
-    UpdatePhoneNumberCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "UpdatePhoneNumber", {})
-  .n("ConnectClient", "UpdatePhoneNumberCommand")
-  .sc(UpdatePhoneNumber$)
-  .build() {
+export class UpdatePhoneNumberCommand extends command<UpdatePhoneNumberCommandInput, UpdatePhoneNumberCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePhoneNumber",
+  UpdatePhoneNumber$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

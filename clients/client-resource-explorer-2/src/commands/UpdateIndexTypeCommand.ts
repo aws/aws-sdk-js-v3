@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateIndexTypeInput, UpdateIndexTypeOutput } from "../models/models_0";
-import type {
-  ResourceExplorer2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceExplorer2Client";
 import { UpdateIndexType$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
  *
  * @public
  */
-export class UpdateIndexTypeCommand extends $Command
-  .classBuilder<
-    UpdateIndexTypeCommandInput,
-    UpdateIndexTypeCommandOutput,
-    ResourceExplorer2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ResourceExplorer", "UpdateIndexType", {})
-  .n("ResourceExplorer2Client", "UpdateIndexTypeCommand")
-  .sc(UpdateIndexType$)
-  .build() {
+export class UpdateIndexTypeCommand extends command<UpdateIndexTypeCommandInput, UpdateIndexTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateIndexType",
+  UpdateIndexType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

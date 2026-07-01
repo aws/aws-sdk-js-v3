@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeDBShardGroupsMessage, DescribeDBShardGroupsResponse } from "../models/models_0";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DescribeDBShardGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface DescribeDBShardGroupsCommandOutput extends DescribeDBShardGroup
  *
  * @public
  */
-export class DescribeDBShardGroupsCommand extends $Command
-  .classBuilder<
-    DescribeDBShardGroupsCommandInput,
-    DescribeDBShardGroupsCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DescribeDBShardGroups", {})
-  .n("RDSClient", "DescribeDBShardGroupsCommand")
-  .sc(DescribeDBShardGroups$)
-  .build() {
+export class DescribeDBShardGroupsCommand extends command<DescribeDBShardGroupsCommandInput, DescribeDBShardGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDBShardGroups",
+  DescribeDBShardGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

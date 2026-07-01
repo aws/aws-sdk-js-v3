@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLocalDisksInput, ListLocalDisksOutput } from "../models/models_0";
 import { ListLocalDisks$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +118,12 @@ export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __Met
  *
  * @public
  */
-export class ListLocalDisksCommand extends $Command
-  .classBuilder<
-    ListLocalDisksCommandInput,
-    ListLocalDisksCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "ListLocalDisks", {})
-  .n("StorageGatewayClient", "ListLocalDisksCommand")
-  .sc(ListLocalDisks$)
-  .build() {
+export class ListLocalDisksCommand extends command<ListLocalDisksCommandInput, ListLocalDisksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLocalDisks",
+  ListLocalDisks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

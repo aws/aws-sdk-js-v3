@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateSiteRequest, UpdateSiteResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { UpdateSite$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +100,12 @@ export interface UpdateSiteCommandOutput extends UpdateSiteResponse, __MetadataB
  *
  * @public
  */
-export class UpdateSiteCommand extends $Command
-  .classBuilder<
-    UpdateSiteCommandInput,
-    UpdateSiteCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "UpdateSite", {})
-  .n("NetworkManagerClient", "UpdateSiteCommand")
-  .sc(UpdateSite$)
-  .build() {
+export class UpdateSiteCommand extends command<UpdateSiteCommandInput, UpdateSiteCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSite",
+  UpdateSite$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

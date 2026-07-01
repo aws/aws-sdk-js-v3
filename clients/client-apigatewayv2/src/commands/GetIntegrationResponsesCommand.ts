@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetIntegrationResponsesRequest, GetIntegrationResponsesResponse } from "../models/models_0";
 import { GetIntegrationResponses$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetIntegrationResponses$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface GetIntegrationResponsesCommandOutput extends GetIntegrationResp
  *
  * @public
  */
-export class GetIntegrationResponsesCommand extends $Command
-  .classBuilder<
-    GetIntegrationResponsesCommandInput,
-    GetIntegrationResponsesCommandOutput,
-    ApiGatewayV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApiGatewayV2", "GetIntegrationResponses", {})
-  .n("ApiGatewayV2Client", "GetIntegrationResponsesCommand")
-  .sc(GetIntegrationResponses$)
-  .build() {
+export class GetIntegrationResponsesCommand extends command<GetIntegrationResponsesCommandInput, GetIntegrationResponsesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIntegrationResponses",
+  GetIntegrationResponses$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

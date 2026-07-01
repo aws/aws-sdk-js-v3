@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopResourceRequest } from "../models/models_0";
 import { StopResource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface StopResourceCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class StopResourceCommand extends $Command
-  .classBuilder<
-    StopResourceCommandInput,
-    StopResourceCommandOutput,
-    ForecastClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonForecast", "StopResource", {})
-  .n("ForecastClient", "StopResourceCommand")
-  .sc(StopResource$)
-  .build() {
+export class StopResourceCommand extends command<StopResourceCommandInput, StopResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopResource",
+  StopResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LexModelBuildingServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LexModelBuildingServiceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateIntentVersionRequest, CreateIntentVersionResponse } from "../models/models_0";
 import { CreateIntentVersion$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateIntentVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -205,22 +197,12 @@ export interface CreateIntentVersionCommandOutput extends CreateIntentVersionRes
  *
  * @public
  */
-export class CreateIntentVersionCommand extends $Command
-  .classBuilder<
-    CreateIntentVersionCommandInput,
-    CreateIntentVersionCommandOutput,
-    LexModelBuildingServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepSenseModelBuildingService", "CreateIntentVersion", {})
-  .n("LexModelBuildingServiceClient", "CreateIntentVersionCommand")
-  .sc(CreateIntentVersion$)
-  .build() {
+export class CreateIntentVersionCommand extends command<CreateIntentVersionCommandInput, CreateIntentVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateIntentVersion",
+  CreateIntentVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

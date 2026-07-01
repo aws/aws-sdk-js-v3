@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateContactWithUserRequest, AssociateContactWithUserResponse } from "../models/models_0";
 import { AssociateContactWithUser$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateContactWithUser$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +114,12 @@ export interface AssociateContactWithUserCommandOutput extends AssociateContactW
  *
  * @public
  */
-export class AssociateContactWithUserCommand extends $Command
-  .classBuilder<
-    AssociateContactWithUserCommandInput,
-    AssociateContactWithUserCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "AssociateContactWithUser", {})
-  .n("ConnectClient", "AssociateContactWithUserCommand")
-  .sc(AssociateContactWithUser$)
-  .build() {
+export class AssociateContactWithUserCommand extends command<AssociateContactWithUserCommandInput, AssociateContactWithUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateContactWithUser",
+  AssociateContactWithUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

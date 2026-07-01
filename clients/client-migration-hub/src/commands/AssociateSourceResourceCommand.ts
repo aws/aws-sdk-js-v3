@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateSourceResourceRequest, AssociateSourceResourceResult } from "../models/models_0";
 import { AssociateSourceResource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateSourceResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface AssociateSourceResourceCommandOutput extends AssociateSourceRes
  *
  * @public
  */
-export class AssociateSourceResourceCommand extends $Command
-  .classBuilder<
-    AssociateSourceResourceCommandInput,
-    AssociateSourceResourceCommandOutput,
-    MigrationHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHub", "AssociateSourceResource", {})
-  .n("MigrationHubClient", "AssociateSourceResourceCommand")
-  .sc(AssociateSourceResource$)
-  .build() {
+export class AssociateSourceResourceCommand extends command<AssociateSourceResourceCommandInput, AssociateSourceResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateSourceResource",
+  AssociateSourceResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

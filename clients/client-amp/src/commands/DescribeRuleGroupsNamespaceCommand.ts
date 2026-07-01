@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRuleGroupsNamespaceRequest, DescribeRuleGroupsNamespaceResponse } from "../models/models_0";
 import { DescribeRuleGroupsNamespace$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeRuleGroupsNamespace$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface DescribeRuleGroupsNamespaceCommandOutput extends DescribeRuleGr
  *
  * @public
  */
-export class DescribeRuleGroupsNamespaceCommand extends $Command
-  .classBuilder<
-    DescribeRuleGroupsNamespaceCommandInput,
-    DescribeRuleGroupsNamespaceCommandOutput,
-    AmpClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPrometheusService", "DescribeRuleGroupsNamespace", {})
-  .n("AmpClient", "DescribeRuleGroupsNamespaceCommand")
-  .sc(DescribeRuleGroupsNamespace$)
-  .build() {
+export class DescribeRuleGroupsNamespaceCommand extends command<DescribeRuleGroupsNamespaceCommandInput, DescribeRuleGroupsNamespaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRuleGroupsNamespace",
+  DescribeRuleGroupsNamespace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

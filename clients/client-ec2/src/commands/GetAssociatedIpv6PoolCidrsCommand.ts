@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAssociatedIpv6PoolCidrsRequest, GetAssociatedIpv6PoolCidrsResult } from "../models/models_5";
 import { GetAssociatedIpv6PoolCidrs$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetAssociatedIpv6PoolCidrs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIp
  *
  * @public
  */
-export class GetAssociatedIpv6PoolCidrsCommand extends $Command
-  .classBuilder<
-    GetAssociatedIpv6PoolCidrsCommandInput,
-    GetAssociatedIpv6PoolCidrsCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "GetAssociatedIpv6PoolCidrs", {})
-  .n("EC2Client", "GetAssociatedIpv6PoolCidrsCommand")
-  .sc(GetAssociatedIpv6PoolCidrs$)
-  .build() {
+export class GetAssociatedIpv6PoolCidrsCommand extends command<GetAssociatedIpv6PoolCidrsCommandInput, GetAssociatedIpv6PoolCidrsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAssociatedIpv6PoolCidrs",
+  GetAssociatedIpv6PoolCidrs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

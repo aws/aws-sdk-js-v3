@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateNetworkRequest, UpdateNetworkResponse } from "../models/models_1";
 import { UpdateNetwork$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateNetwork$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface UpdateNetworkCommandOutput extends UpdateNetworkResponse, __Met
  *
  * @public
  */
-export class UpdateNetworkCommand extends $Command
-  .classBuilder<
-    UpdateNetworkCommandInput,
-    UpdateNetworkCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "UpdateNetwork", {})
-  .n("MediaLiveClient", "UpdateNetworkCommand")
-  .sc(UpdateNetwork$)
-  .build() {
+export class UpdateNetworkCommand extends command<UpdateNetworkCommandInput, UpdateNetworkCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateNetwork",
+  UpdateNetwork$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

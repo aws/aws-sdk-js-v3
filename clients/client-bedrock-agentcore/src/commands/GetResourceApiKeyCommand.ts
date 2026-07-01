@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetResourceApiKeyRequest, GetResourceApiKeyResponse } from "../models/models_0";
 import { GetResourceApiKey$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetResourceApiKey$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface GetResourceApiKeyCommandOutput extends GetResourceApiKeyRespons
  *
  * @public
  */
-export class GetResourceApiKeyCommand extends $Command
-  .classBuilder<
-    GetResourceApiKeyCommandInput,
-    GetResourceApiKeyCommandOutput,
-    BedrockAgentCoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCore", "GetResourceApiKey", {})
-  .n("BedrockAgentCoreClient", "GetResourceApiKeyCommand")
-  .sc(GetResourceApiKey$)
-  .build() {
+export class GetResourceApiKeyCommand extends command<GetResourceApiKeyCommandInput, GetResourceApiKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetResourceApiKey",
+  GetResourceApiKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

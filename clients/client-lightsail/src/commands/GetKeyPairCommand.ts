@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetKeyPairRequest, GetKeyPairResult } from "../models/models_0";
 import { GetKeyPair$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetKeyPair$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface GetKeyPairCommandOutput extends GetKeyPairResult, __MetadataBea
  *
  * @public
  */
-export class GetKeyPairCommand extends $Command
-  .classBuilder<
-    GetKeyPairCommandInput,
-    GetKeyPairCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "GetKeyPair", {})
-  .n("LightsailClient", "GetKeyPairCommand")
-  .sc(GetKeyPair$)
-  .build() {
+export class GetKeyPairCommand extends command<GetKeyPairCommandInput, GetKeyPairCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetKeyPair",
+  GetKeyPair$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

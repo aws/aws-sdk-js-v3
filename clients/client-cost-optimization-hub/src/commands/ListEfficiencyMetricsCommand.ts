@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CostOptimizationHubClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CostOptimizationHubClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListEfficiencyMetricsRequest, ListEfficiencyMetricsResponse } from "../models/models_0";
 import { ListEfficiencyMetrics$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListEfficiencyMetrics$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +92,12 @@ export interface ListEfficiencyMetricsCommandOutput extends ListEfficiencyMetric
  *
  * @public
  */
-export class ListEfficiencyMetricsCommand extends $Command
-  .classBuilder<
-    ListEfficiencyMetricsCommandInput,
-    ListEfficiencyMetricsCommandOutput,
-    CostOptimizationHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostOptimizationHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CostOptimizationHubService", "ListEfficiencyMetrics", {})
-  .n("CostOptimizationHubClient", "ListEfficiencyMetricsCommand")
-  .sc(ListEfficiencyMetrics$)
-  .build() {
+export class ListEfficiencyMetricsCommand extends command<ListEfficiencyMetricsCommandInput, ListEfficiencyMetricsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEfficiencyMetrics",
+  ListEfficiencyMetrics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

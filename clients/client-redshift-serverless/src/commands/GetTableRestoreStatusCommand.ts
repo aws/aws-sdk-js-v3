@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTableRestoreStatusRequest, GetTableRestoreStatusResponse } from "../models/models_0";
-import type {
-  RedshiftServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RedshiftServerlessClient";
 import { GetTableRestoreStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface GetTableRestoreStatusCommandOutput extends GetTableRestoreStatu
  *
  * @public
  */
-export class GetTableRestoreStatusCommand extends $Command
-  .classBuilder<
-    GetTableRestoreStatusCommandInput,
-    GetTableRestoreStatusCommandOutput,
-    RedshiftServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServerless", "GetTableRestoreStatus", {})
-  .n("RedshiftServerlessClient", "GetTableRestoreStatusCommand")
-  .sc(GetTableRestoreStatus$)
-  .build() {
+export class GetTableRestoreStatusCommand extends command<GetTableRestoreStatusCommandInput, GetTableRestoreStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTableRestoreStatus",
+  GetTableRestoreStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

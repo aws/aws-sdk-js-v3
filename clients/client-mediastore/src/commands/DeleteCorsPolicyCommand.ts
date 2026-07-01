@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCorsPolicyInput, DeleteCorsPolicyOutput } from "../models/models_0";
 import { DeleteCorsPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteCorsPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DeleteCorsPolicyCommandOutput extends DeleteCorsPolicyOutput, _
  *
  * @public
  */
-export class DeleteCorsPolicyCommand extends $Command
-  .classBuilder<
-    DeleteCorsPolicyCommandInput,
-    DeleteCorsPolicyCommandOutput,
-    MediaStoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaStoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaStore_20170901", "DeleteCorsPolicy", {})
-  .n("MediaStoreClient", "DeleteCorsPolicyCommand")
-  .sc(DeleteCorsPolicy$)
-  .build() {
+export class DeleteCorsPolicyCommand extends command<DeleteCorsPolicyCommandInput, DeleteCorsPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCorsPolicy",
+  DeleteCorsPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

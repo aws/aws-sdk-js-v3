@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutWarmPoolAnswer, PutWarmPoolType } from "../models/models_0";
 import { PutWarmPool$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutWarmPool$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface PutWarmPoolCommandOutput extends PutWarmPoolAnswer, __MetadataB
  *
  * @public
  */
-export class PutWarmPoolCommand extends $Command
-  .classBuilder<
-    PutWarmPoolCommandInput,
-    PutWarmPoolCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "PutWarmPool", {})
-  .n("AutoScalingClient", "PutWarmPoolCommand")
-  .sc(PutWarmPool$)
-  .build() {
+export class PutWarmPoolCommand extends command<PutWarmPoolCommandInput, PutWarmPoolCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutWarmPool",
+  PutWarmPool$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

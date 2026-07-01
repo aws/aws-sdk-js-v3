@@ -1,17 +1,13 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import { OnlyHttpApiKeyAuth$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -54,22 +50,12 @@ export interface OnlyHttpApiKeyAuthCommandOutput extends __MetadataBearer {}
  *
  *
  */
-export class OnlyHttpApiKeyAuthCommand extends $Command
-  .classBuilder<
-    OnlyHttpApiKeyAuthCommandInput,
-    OnlyHttpApiKeyAuthCommandOutput,
-    WeatherClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Weather", "OnlyHttpApiKeyAuth", {})
-  .n("WeatherClient", "OnlyHttpApiKeyAuthCommand")
-  .sc(OnlyHttpApiKeyAuth$)
-  .build() {
+export class OnlyHttpApiKeyAuthCommand extends command<OnlyHttpApiKeyAuthCommandInput, OnlyHttpApiKeyAuthCommandOutput>(
+  _ep0,
+  _mw0,
+  "OnlyHttpApiKeyAuth",
+  OnlyHttpApiKeyAuth$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

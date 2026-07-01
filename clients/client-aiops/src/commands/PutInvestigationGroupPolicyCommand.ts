@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AIOpsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AIOpsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutInvestigationGroupPolicyRequest, PutInvestigationGroupPolicyResponse } from "../models/models_0";
 import { PutInvestigationGroupPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutInvestigationGroupPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface PutInvestigationGroupPolicyCommandOutput extends PutInvestigati
  *
  * @public
  */
-export class PutInvestigationGroupPolicyCommand extends $Command
-  .classBuilder<
-    PutInvestigationGroupPolicyCommandInput,
-    PutInvestigationGroupPolicyCommandOutput,
-    AIOpsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AIOpsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AIOps", "PutInvestigationGroupPolicy", {})
-  .n("AIOpsClient", "PutInvestigationGroupPolicyCommand")
-  .sc(PutInvestigationGroupPolicy$)
-  .build() {
+export class PutInvestigationGroupPolicyCommand extends command<PutInvestigationGroupPolicyCommandInput, PutInvestigationGroupPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutInvestigationGroupPolicy",
+  PutInvestigationGroupPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
+import { _ep3, _mw0, command } from "../commandBuilder";
 import type { DeregisterStreamConsumerInput } from "../models/models_0";
 import { DeregisterStreamConsumer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeregisterStreamConsumer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,28 +75,12 @@ export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class DeregisterStreamConsumerCommand extends $Command
-  .classBuilder<
-    DeregisterStreamConsumerCommandInput,
-    DeregisterStreamConsumerCommandOutput,
-    KinesisClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    OperationType: { type: "staticContextParams", value: `control` },
-    StreamId: { type: "contextParams", name: "StreamId" },
-    ConsumerARN: { type: "contextParams", name: "ConsumerARN" },
-    StreamARN: { type: "contextParams", name: "StreamARN" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kinesis_20131202", "DeregisterStreamConsumer", {})
-  .n("KinesisClient", "DeregisterStreamConsumerCommand")
-  .sc(DeregisterStreamConsumer$)
-  .build() {
+export class DeregisterStreamConsumerCommand extends command<DeregisterStreamConsumerCommandInput, DeregisterStreamConsumerCommandOutput>(
+  _ep3,
+  _mw0,
+  "DeregisterStreamConsumer",
+  DeregisterStreamConsumer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

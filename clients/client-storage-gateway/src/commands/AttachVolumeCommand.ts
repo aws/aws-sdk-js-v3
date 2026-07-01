@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AttachVolumeInput, AttachVolumeOutput } from "../models/models_0";
 import { AttachVolume$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface AttachVolumeCommandOutput extends AttachVolumeOutput, __Metadat
  *
  * @public
  */
-export class AttachVolumeCommand extends $Command
-  .classBuilder<
-    AttachVolumeCommandInput,
-    AttachVolumeCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "AttachVolume", {})
-  .n("StorageGatewayClient", "AttachVolumeCommand")
-  .sc(AttachVolume$)
-  .build() {
+export class AttachVolumeCommand extends command<AttachVolumeCommandInput, AttachVolumeCommandOutput>(
+  _ep0,
+  _mw0,
+  "AttachVolume",
+  AttachVolume$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

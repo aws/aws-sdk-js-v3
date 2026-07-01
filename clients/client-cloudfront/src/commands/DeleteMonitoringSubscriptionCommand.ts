@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMonitoringSubscriptionRequest, DeleteMonitoringSubscriptionResult } from "../models/models_0";
 import { DeleteMonitoringSubscription$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteMonitoringSubscription$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteMonitoringSubscriptionCommandOutput extends DeleteMonitor
  *
  * @public
  */
-export class DeleteMonitoringSubscriptionCommand extends $Command
-  .classBuilder<
-    DeleteMonitoringSubscriptionCommandInput,
-    DeleteMonitoringSubscriptionCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "DeleteMonitoringSubscription", {})
-  .n("CloudFrontClient", "DeleteMonitoringSubscriptionCommand")
-  .sc(DeleteMonitoringSubscription$)
-  .build() {
+export class DeleteMonitoringSubscriptionCommand extends command<DeleteMonitoringSubscriptionCommandInput, DeleteMonitoringSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMonitoringSubscription",
+  DeleteMonitoringSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

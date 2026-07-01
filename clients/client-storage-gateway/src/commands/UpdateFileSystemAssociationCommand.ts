@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateFileSystemAssociationInput, UpdateFileSystemAssociationOutput } from "../models/models_0";
 import { UpdateFileSystemAssociation$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +70,12 @@ export interface UpdateFileSystemAssociationCommandOutput extends UpdateFileSyst
  *
  * @public
  */
-export class UpdateFileSystemAssociationCommand extends $Command
-  .classBuilder<
-    UpdateFileSystemAssociationCommandInput,
-    UpdateFileSystemAssociationCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "UpdateFileSystemAssociation", {})
-  .n("StorageGatewayClient", "UpdateFileSystemAssociationCommand")
-  .sc(UpdateFileSystemAssociation$)
-  .build() {
+export class UpdateFileSystemAssociationCommand extends command<UpdateFileSystemAssociationCommandInput, UpdateFileSystemAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateFileSystemAssociation",
+  UpdateFileSystemAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

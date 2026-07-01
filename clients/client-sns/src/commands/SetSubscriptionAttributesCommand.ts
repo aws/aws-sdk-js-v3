@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SetSubscriptionAttributesInput } from "../models/models_0";
 import { SetSubscriptionAttributes$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface SetSubscriptionAttributesCommandOutput extends __MetadataBearer
  *
  * @public
  */
-export class SetSubscriptionAttributesCommand extends $Command
-  .classBuilder<
-    SetSubscriptionAttributesCommandInput,
-    SetSubscriptionAttributesCommandOutput,
-    SNSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSimpleNotificationService", "SetSubscriptionAttributes", {})
-  .n("SNSClient", "SetSubscriptionAttributesCommand")
-  .sc(SetSubscriptionAttributes$)
-  .build() {
+export class SetSubscriptionAttributesCommand extends command<SetSubscriptionAttributesCommandInput, SetSubscriptionAttributesCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetSubscriptionAttributes",
+  SetSubscriptionAttributes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

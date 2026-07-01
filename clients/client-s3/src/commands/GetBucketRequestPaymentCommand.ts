@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep3, _mw0, command } from "../commandBuilder";
 import type { GetBucketRequestPaymentOutput, GetBucketRequestPaymentRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { GetBucketRequestPayment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,29 +86,12 @@ export interface GetBucketRequestPaymentCommandOutput extends GetBucketRequestPa
  *
  * @public
  */
-export class GetBucketRequestPaymentCommand extends $Command
-  .classBuilder<
-    GetBucketRequestPaymentCommandInput,
-    GetBucketRequestPaymentCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "GetBucketRequestPayment", {})
-  .n("S3Client", "GetBucketRequestPaymentCommand")
-  .sc(GetBucketRequestPayment$)
-  .build() {
+export class GetBucketRequestPaymentCommand extends command<GetBucketRequestPaymentCommandInput, GetBucketRequestPaymentCommandOutput>(
+  _ep3,
+  _mw0,
+  "GetBucketRequestPayment",
+  GetBucketRequestPayment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

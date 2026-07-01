@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveFromGlobalClusterMessage, RemoveFromGlobalClusterResult } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { RemoveFromGlobalCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -148,22 +144,12 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  *
  * @public
  */
-export class RemoveFromGlobalClusterCommand extends $Command
-  .classBuilder<
-    RemoveFromGlobalClusterCommandInput,
-    RemoveFromGlobalClusterCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "RemoveFromGlobalCluster", {})
-  .n("RDSClient", "RemoveFromGlobalClusterCommand")
-  .sc(RemoveFromGlobalCluster$)
-  .build() {
+export class RemoveFromGlobalClusterCommand extends command<RemoveFromGlobalClusterCommandInput, RemoveFromGlobalClusterCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveFromGlobalCluster",
+  RemoveFromGlobalCluster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

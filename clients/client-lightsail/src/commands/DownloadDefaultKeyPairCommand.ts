@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DownloadDefaultKeyPairRequest, DownloadDefaultKeyPairResult } from "../models/models_0";
 import { DownloadDefaultKeyPair$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DownloadDefaultKeyPair$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyP
  *
  * @public
  */
-export class DownloadDefaultKeyPairCommand extends $Command
-  .classBuilder<
-    DownloadDefaultKeyPairCommandInput,
-    DownloadDefaultKeyPairCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "DownloadDefaultKeyPair", {})
-  .n("LightsailClient", "DownloadDefaultKeyPairCommand")
-  .sc(DownloadDefaultKeyPair$)
-  .build() {
+export class DownloadDefaultKeyPairCommand extends command<DownloadDefaultKeyPairCommandInput, DownloadDefaultKeyPairCommandOutput>(
+  _ep0,
+  _mw0,
+  "DownloadDefaultKeyPair",
+  DownloadDefaultKeyPair$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

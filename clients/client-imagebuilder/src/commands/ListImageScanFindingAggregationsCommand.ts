@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListImageScanFindingAggregationsRequest,
   ListImageScanFindingAggregationsResponse,
@@ -15,7 +12,6 @@ import { ListImageScanFindingAggregations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -161,22 +157,12 @@ export interface ListImageScanFindingAggregationsCommandOutput extends ListImage
  *
  * @public
  */
-export class ListImageScanFindingAggregationsCommand extends $Command
-  .classBuilder<
-    ListImageScanFindingAggregationsCommandInput,
-    ListImageScanFindingAggregationsCommandOutput,
-    ImagebuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("imagebuilder", "ListImageScanFindingAggregations", {})
-  .n("ImagebuilderClient", "ListImageScanFindingAggregationsCommand")
-  .sc(ListImageScanFindingAggregations$)
-  .build() {
+export class ListImageScanFindingAggregationsCommand extends command<ListImageScanFindingAggregationsCommandInput, ListImageScanFindingAggregationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListImageScanFindingAggregations",
+  ListImageScanFindingAggregations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

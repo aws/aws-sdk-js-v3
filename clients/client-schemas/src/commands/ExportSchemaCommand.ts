@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExportSchemaRequest, ExportSchemaResponse } from "../models/models_0";
 import { ExportSchema$ } from "../schemas/schemas_0";
-import type { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface ExportSchemaCommandOutput extends ExportSchemaResponse, __Metad
  *
  *
  */
-export class ExportSchemaCommand extends $Command
-  .classBuilder<
-    ExportSchemaCommandInput,
-    ExportSchemaCommandOutput,
-    SchemasClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SchemasClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("schemas", "ExportSchema", {})
-  .n("SchemasClient", "ExportSchemaCommand")
-  .sc(ExportSchema$)
-  .build() {
+export class ExportSchemaCommand extends command<ExportSchemaCommandInput, ExportSchemaCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExportSchema",
+  ExportSchema$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

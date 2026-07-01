@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateVariableRequest, UpdateVariableResult } from "../models/models_0";
 import { UpdateVariable$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateVariable$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface UpdateVariableCommandOutput extends UpdateVariableResult, __Met
  *
  * @public
  */
-export class UpdateVariableCommand extends $Command
-  .classBuilder<
-    UpdateVariableCommandInput,
-    UpdateVariableCommandOutput,
-    FraudDetectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHawksNestServiceFacade", "UpdateVariable", {})
-  .n("FraudDetectorClient", "UpdateVariableCommand")
-  .sc(UpdateVariable$)
-  .build() {
+export class UpdateVariableCommand extends command<UpdateVariableCommandInput, UpdateVariableCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateVariable",
+  UpdateVariable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

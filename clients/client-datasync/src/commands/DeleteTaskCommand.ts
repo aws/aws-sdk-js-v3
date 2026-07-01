@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTaskRequest, DeleteTaskResponse } from "../models/models_0";
 import { DeleteTask$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -64,22 +60,12 @@ export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataB
  *
  * @public
  */
-export class DeleteTaskCommand extends $Command
-  .classBuilder<
-    DeleteTaskCommandInput,
-    DeleteTaskCommandOutput,
-    DataSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FmrsService", "DeleteTask", {})
-  .n("DataSyncClient", "DeleteTaskCommand")
-  .sc(DeleteTask$)
-  .build() {
+export class DeleteTaskCommand extends command<DeleteTaskCommandInput, DeleteTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTask",
+  DeleteTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

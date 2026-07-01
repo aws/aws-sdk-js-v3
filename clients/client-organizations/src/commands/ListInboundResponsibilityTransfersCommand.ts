@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListInboundResponsibilityTransfersRequest,
   ListInboundResponsibilityTransfersResponse,
 } from "../models/models_0";
-import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { ListInboundResponsibilityTransfers$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -514,22 +510,12 @@ export interface ListInboundResponsibilityTransfersCommandOutput extends ListInb
  *
  * @public
  */
-export class ListInboundResponsibilityTransfersCommand extends $Command
-  .classBuilder<
-    ListInboundResponsibilityTransfersCommandInput,
-    ListInboundResponsibilityTransfersCommandOutput,
-    OrganizationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrganizationsV20161128", "ListInboundResponsibilityTransfers", {})
-  .n("OrganizationsClient", "ListInboundResponsibilityTransfersCommand")
-  .sc(ListInboundResponsibilityTransfers$)
-  .build() {
+export class ListInboundResponsibilityTransfersCommand extends command<ListInboundResponsibilityTransfersCommandInput, ListInboundResponsibilityTransfersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListInboundResponsibilityTransfers",
+  ListInboundResponsibilityTransfers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

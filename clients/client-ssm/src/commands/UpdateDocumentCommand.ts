@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDocumentRequest, UpdateDocumentResult } from "../models/models_1";
 import { UpdateDocument$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -174,22 +170,12 @@ export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __Met
  *
  * @public
  */
-export class UpdateDocumentCommand extends $Command
-  .classBuilder<
-    UpdateDocumentCommandInput,
-    UpdateDocumentCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "UpdateDocument", {})
-  .n("SSMClient", "UpdateDocumentCommand")
-  .sc(UpdateDocument$)
-  .build() {
+export class UpdateDocumentCommand extends command<UpdateDocumentCommandInput, UpdateDocumentCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDocument",
+  UpdateDocument$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

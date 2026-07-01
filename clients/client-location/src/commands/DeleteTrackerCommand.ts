@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTrackerRequest, DeleteTrackerResponse } from "../models/models_0";
 import { DeleteTracker$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteTracker$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteTrackerCommandOutput extends DeleteTrackerResponse, __Met
  *
  * @public
  */
-export class DeleteTrackerCommand extends $Command
-  .classBuilder<
-    DeleteTrackerCommandInput,
-    DeleteTrackerCommandOutput,
-    LocationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LocationService", "DeleteTracker", {})
-  .n("LocationClient", "DeleteTrackerCommand")
-  .sc(DeleteTracker$)
-  .build() {
+export class DeleteTrackerCommand extends command<DeleteTrackerCommandInput, DeleteTrackerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTracker",
+  DeleteTracker$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

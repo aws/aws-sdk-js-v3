@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSubscriberRequest, CreateSubscriberResponse } from "../models/models_0";
 import { CreateSubscriber$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateSubscriber$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
  *
  * @public
  */
-export class CreateSubscriberCommand extends $Command
-  .classBuilder<
-    CreateSubscriberCommandInput,
-    CreateSubscriberCommandOutput,
-    BudgetsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BudgetsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBudgetServiceGateway", "CreateSubscriber", {})
-  .n("BudgetsClient", "CreateSubscriberCommand")
-  .sc(CreateSubscriber$)
-  .build() {
+export class CreateSubscriberCommand extends command<CreateSubscriberCommandInput, CreateSubscriberCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSubscriber",
+  CreateSubscriber$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

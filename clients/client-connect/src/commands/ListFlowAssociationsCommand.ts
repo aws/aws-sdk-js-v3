@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListFlowAssociationsRequest, ListFlowAssociationsResponse } from "../models/models_2";
 import { ListFlowAssociations$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListFlowAssociations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface ListFlowAssociationsCommandOutput extends ListFlowAssociationsR
  *
  * @public
  */
-export class ListFlowAssociationsCommand extends $Command
-  .classBuilder<
-    ListFlowAssociationsCommandInput,
-    ListFlowAssociationsCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "ListFlowAssociations", {})
-  .n("ConnectClient", "ListFlowAssociationsCommand")
-  .sc(ListFlowAssociations$)
-  .build() {
+export class ListFlowAssociationsCommand extends command<ListFlowAssociationsCommandInput, ListFlowAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFlowAssociations",
+  ListFlowAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

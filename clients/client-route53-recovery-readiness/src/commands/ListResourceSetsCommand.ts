@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListResourceSetsRequest, ListResourceSetsResponse } from "../models/models_0";
-import type {
-  Route53RecoveryReadinessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryReadinessClient";
 import { ListResourceSets$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +102,12 @@ export interface ListResourceSetsCommandOutput extends ListResourceSetsResponse,
  *
  * @public
  */
-export class ListResourceSetsCommand extends $Command
-  .classBuilder<
-    ListResourceSetsCommandInput,
-    ListResourceSetsCommandOutput,
-    Route53RecoveryReadinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryReadinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53RecoveryReadiness", "ListResourceSets", {})
-  .n("Route53RecoveryReadinessClient", "ListResourceSetsCommand")
-  .sc(ListResourceSets$)
-  .build() {
+export class ListResourceSetsCommand extends command<ListResourceSetsCommandInput, ListResourceSetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListResourceSets",
+  ListResourceSets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

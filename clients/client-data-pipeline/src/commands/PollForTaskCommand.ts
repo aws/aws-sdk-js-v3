@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PollForTaskInput, PollForTaskOutput } from "../models/models_0";
 import { PollForTask$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PollForTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -168,22 +164,12 @@ export interface PollForTaskCommandOutput extends PollForTaskOutput, __MetadataB
  *
  * @public
  */
-export class PollForTaskCommand extends $Command
-  .classBuilder<
-    PollForTaskCommandInput,
-    PollForTaskCommandOutput,
-    DataPipelineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataPipelineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataPipeline", "PollForTask", {})
-  .n("DataPipelineClient", "PollForTaskCommand")
-  .sc(PollForTask$)
-  .build() {
+export class PollForTaskCommand extends command<PollForTaskCommandInput, PollForTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "PollForTask",
+  PollForTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

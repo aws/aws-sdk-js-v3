@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetInAppTemplateRequest, GetInAppTemplateResponse } from "../models/models_0";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { GetInAppTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -153,22 +149,12 @@ export interface GetInAppTemplateCommandOutput extends GetInAppTemplateResponse,
  *
  * @public
  */
-export class GetInAppTemplateCommand extends $Command
-  .classBuilder<
-    GetInAppTemplateCommandInput,
-    GetInAppTemplateCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "GetInAppTemplate", {})
-  .n("PinpointClient", "GetInAppTemplateCommand")
-  .sc(GetInAppTemplate$)
-  .build() {
+export class GetInAppTemplateCommand extends command<GetInAppTemplateCommandInput, GetInAppTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetInAppTemplate",
+  GetInAppTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

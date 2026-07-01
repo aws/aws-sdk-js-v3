@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterContainerImageRequest, RegisterContainerImageResult } from "../models/models_1";
 import { RegisterContainerImage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RegisterContainerImage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface RegisterContainerImageCommandOutput extends RegisterContainerIm
  *
  * @public
  */
-export class RegisterContainerImageCommand extends $Command
-  .classBuilder<
-    RegisterContainerImageCommandInput,
-    RegisterContainerImageCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "RegisterContainerImage", {})
-  .n("LightsailClient", "RegisterContainerImageCommand")
-  .sc(RegisterContainerImage$)
-  .build() {
+export class RegisterContainerImageCommand extends command<RegisterContainerImageCommandInput, RegisterContainerImageCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterContainerImage",
+  RegisterContainerImage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

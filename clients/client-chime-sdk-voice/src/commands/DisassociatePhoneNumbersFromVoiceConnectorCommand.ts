@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociatePhoneNumbersFromVoiceConnectorRequest,
   DisassociatePhoneNumbersFromVoiceConnectorResponse,
@@ -15,7 +12,6 @@ import { DisassociatePhoneNumbersFromVoiceConnector$ } from "../schemas/schemas_
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorCommandOutput extends
  *
  * @public
  */
-export class DisassociatePhoneNumbersFromVoiceConnectorCommand extends $Command
-  .classBuilder<
-    DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
-    DisassociatePhoneNumbersFromVoiceConnectorCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "DisassociatePhoneNumbersFromVoiceConnector", {})
-  .n("ChimeSDKVoiceClient", "DisassociatePhoneNumbersFromVoiceConnectorCommand")
-  .sc(DisassociatePhoneNumbersFromVoiceConnector$)
-  .build() {
+export class DisassociatePhoneNumbersFromVoiceConnectorCommand extends command<DisassociatePhoneNumbersFromVoiceConnectorCommandInput, DisassociatePhoneNumbersFromVoiceConnectorCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociatePhoneNumbersFromVoiceConnector",
+  DisassociatePhoneNumbersFromVoiceConnector$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

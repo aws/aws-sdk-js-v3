@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTerminologyRequest, GetTerminologyResponse } from "../models/models_0";
 import { GetTerminology$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface GetTerminologyCommandOutput extends GetTerminologyResponse, __M
  *
  * @public
  */
-export class GetTerminologyCommand extends $Command
-  .classBuilder<
-    GetTerminologyCommandInput,
-    GetTerminologyCommandOutput,
-    TranslateClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TranslateClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShineFrontendService_20170701", "GetTerminology", {})
-  .n("TranslateClient", "GetTerminologyCommand")
-  .sc(GetTerminology$)
-  .build() {
+export class GetTerminologyCommand extends command<GetTerminologyCommandInput, GetTerminologyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTerminology",
+  GetTerminology$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { InvokeWithResponseStreamRequest, InvokeWithResponseStreamResponse } from "../models/models_0";
 import { InvokeWithResponseStream$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { InvokeWithResponseStream$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  */
@@ -195,29 +191,12 @@ export interface InvokeWithResponseStreamCommandOutput extends InvokeWithRespons
  *
  * @public
  */
-export class InvokeWithResponseStreamCommand extends $Command
-  .classBuilder<
-    InvokeWithResponseStreamCommandInput,
-    InvokeWithResponseStreamCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "InvokeWithResponseStream", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      output: true,
-    },
-  })
-  .n("LambdaClient", "InvokeWithResponseStreamCommand")
-  .sc(InvokeWithResponseStream$)
-  .build() {
+export class InvokeWithResponseStreamCommand extends command<InvokeWithResponseStreamCommandInput, InvokeWithResponseStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "InvokeWithResponseStream",
+  InvokeWithResponseStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

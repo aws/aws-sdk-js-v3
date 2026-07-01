@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListOperationsRequest, ListOperationsResponse } from "../models/models_0";
-import type {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53DomainsClient";
 import { ListOperations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface ListOperationsCommandOutput extends ListOperationsResponse, __M
  *
  * @public
  */
-export class ListOperationsCommand extends $Command
-  .classBuilder<
-    ListOperationsCommandInput,
-    ListOperationsCommandOutput,
-    Route53DomainsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Domains_v20140515", "ListOperations", {})
-  .n("Route53DomainsClient", "ListOperationsCommand")
-  .sc(ListOperations$)
-  .build() {
+export class ListOperationsCommand extends command<ListOperationsCommandInput, ListOperationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListOperations",
+  ListOperations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RebootInstancesRequest } from "../models/models_7";
 import { RebootInstances$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RebootInstances$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface RebootInstancesCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class RebootInstancesCommand extends $Command
-  .classBuilder<
-    RebootInstancesCommandInput,
-    RebootInstancesCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "RebootInstances", {})
-  .n("EC2Client", "RebootInstancesCommand")
-  .sc(RebootInstances$)
-  .build() {
+export class RebootInstancesCommand extends command<RebootInstancesCommandInput, RebootInstancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "RebootInstances",
+  RebootInstances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

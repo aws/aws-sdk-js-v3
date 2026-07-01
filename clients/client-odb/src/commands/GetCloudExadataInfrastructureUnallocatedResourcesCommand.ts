@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetCloudExadataInfrastructureUnallocatedResourcesInput,
   GetCloudExadataInfrastructureUnallocatedResourcesOutput,
 } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { GetCloudExadataInfrastructureUnallocatedResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface GetCloudExadataInfrastructureUnallocatedResourcesCommandOutput 
  *
  * @public
  */
-export class GetCloudExadataInfrastructureUnallocatedResourcesCommand extends $Command
-  .classBuilder<
-    GetCloudExadataInfrastructureUnallocatedResourcesCommandInput,
-    GetCloudExadataInfrastructureUnallocatedResourcesCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "GetCloudExadataInfrastructureUnallocatedResources", {})
-  .n("OdbClient", "GetCloudExadataInfrastructureUnallocatedResourcesCommand")
-  .sc(GetCloudExadataInfrastructureUnallocatedResources$)
-  .build() {
+export class GetCloudExadataInfrastructureUnallocatedResourcesCommand extends command<GetCloudExadataInfrastructureUnallocatedResourcesCommandInput, GetCloudExadataInfrastructureUnallocatedResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCloudExadataInfrastructureUnallocatedResources",
+  GetCloudExadataInfrastructureUnallocatedResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

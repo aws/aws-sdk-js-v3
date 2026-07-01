@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetApplicationSettingsRequest, GetApplicationSettingsResponse } from "../models/models_0";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { GetApplicationSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface GetApplicationSettingsCommandOutput extends GetApplicationSetti
  *
  * @public
  */
-export class GetApplicationSettingsCommand extends $Command
-  .classBuilder<
-    GetApplicationSettingsCommandInput,
-    GetApplicationSettingsCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "GetApplicationSettings", {})
-  .n("PinpointClient", "GetApplicationSettingsCommand")
-  .sc(GetApplicationSettings$)
-  .build() {
+export class GetApplicationSettingsCommand extends command<GetApplicationSettingsCommandInput, GetApplicationSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetApplicationSettings",
+  GetApplicationSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

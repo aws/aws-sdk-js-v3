@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCACertificatesRequest, ListCACertificatesResponse } from "../models/models_1";
 import { ListCACertificates$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListCACertificates$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface ListCACertificatesCommandOutput extends ListCACertificatesRespo
  *
  * @public
  */
-export class ListCACertificatesCommand extends $Command
-  .classBuilder<
-    ListCACertificatesCommandInput,
-    ListCACertificatesCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "ListCACertificates", {})
-  .n("IoTClient", "ListCACertificatesCommand")
-  .sc(ListCACertificates$)
-  .build() {
+export class ListCACertificatesCommand extends command<ListCACertificatesCommandInput, ListCACertificatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCACertificates",
+  ListCACertificates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

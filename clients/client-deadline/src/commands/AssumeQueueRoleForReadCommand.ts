@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssumeQueueRoleForReadRequest, AssumeQueueRoleForReadResponse } from "../models/models_0";
 import { AssumeQueueRoleForRead$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssumeQueueRoleForRead$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface AssumeQueueRoleForReadCommandOutput extends AssumeQueueRoleForR
  *
  * @public
  */
-export class AssumeQueueRoleForReadCommand extends $Command
-  .classBuilder<
-    AssumeQueueRoleForReadCommandInput,
-    AssumeQueueRoleForReadCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "AssumeQueueRoleForRead", {})
-  .n("DeadlineClient", "AssumeQueueRoleForReadCommand")
-  .sc(AssumeQueueRoleForRead$)
-  .build() {
+export class AssumeQueueRoleForReadCommand extends command<AssumeQueueRoleForReadCommandInput, AssumeQueueRoleForReadCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssumeQueueRoleForRead",
+  AssumeQueueRoleForRead$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopAddressListImportJobRequest, StopAddressListImportJobResponse } from "../models/models_0";
 import { StopAddressListImportJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopAddressListImportJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface StopAddressListImportJobCommandOutput extends StopAddressListIm
  *
  * @public
  */
-export class StopAddressListImportJobCommand extends $Command
-  .classBuilder<
-    StopAddressListImportJobCommandInput,
-    StopAddressListImportJobCommandOutput,
-    MailManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MailManagerSvc", "StopAddressListImportJob", {})
-  .n("MailManagerClient", "StopAddressListImportJobCommand")
-  .sc(StopAddressListImportJob$)
-  .build() {
+export class StopAddressListImportJobCommand extends command<StopAddressListImportJobCommandInput, StopAddressListImportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopAddressListImportJob",
+  StopAddressListImportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

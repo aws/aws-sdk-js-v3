@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetJourneyRequest } from "../models/models_0";
 import type { GetJourneyResponse } from "../models/models_1";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { GetJourney$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -467,22 +463,12 @@ export interface GetJourneyCommandOutput extends GetJourneyResponse, __MetadataB
  *
  * @public
  */
-export class GetJourneyCommand extends $Command
-  .classBuilder<
-    GetJourneyCommandInput,
-    GetJourneyCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "GetJourney", {})
-  .n("PinpointClient", "GetJourneyCommand")
-  .sc(GetJourney$)
-  .build() {
+export class GetJourneyCommand extends command<GetJourneyCommandInput, GetJourneyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetJourney",
+  GetJourney$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

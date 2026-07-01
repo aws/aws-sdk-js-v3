@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CacheEngineVersionMessage, DescribeCacheEngineVersionsMessage } from "../models/models_0";
 import { DescribeCacheEngineVersions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeCacheEngineVersions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -246,22 +242,12 @@ export interface DescribeCacheEngineVersionsCommandOutput extends CacheEngineVer
  *
  * @public
  */
-export class DescribeCacheEngineVersionsCommand extends $Command
-  .classBuilder<
-    DescribeCacheEngineVersionsCommandInput,
-    DescribeCacheEngineVersionsCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "DescribeCacheEngineVersions", {})
-  .n("ElastiCacheClient", "DescribeCacheEngineVersionsCommand")
-  .sc(DescribeCacheEngineVersions$)
-  .build() {
+export class DescribeCacheEngineVersionsCommand extends command<DescribeCacheEngineVersionsCommandInput, DescribeCacheEngineVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCacheEngineVersions",
+  DescribeCacheEngineVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

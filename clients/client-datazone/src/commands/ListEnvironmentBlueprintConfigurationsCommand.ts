@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListEnvironmentBlueprintConfigurationsInput,
   ListEnvironmentBlueprintConfigurationsOutput,
@@ -15,7 +12,6 @@ import { ListEnvironmentBlueprintConfigurations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface ListEnvironmentBlueprintConfigurationsCommandOutput extends Lis
  *
  * @public
  */
-export class ListEnvironmentBlueprintConfigurationsCommand extends $Command
-  .classBuilder<
-    ListEnvironmentBlueprintConfigurationsCommandInput,
-    ListEnvironmentBlueprintConfigurationsCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "ListEnvironmentBlueprintConfigurations", {})
-  .n("DataZoneClient", "ListEnvironmentBlueprintConfigurationsCommand")
-  .sc(ListEnvironmentBlueprintConfigurations$)
-  .build() {
+export class ListEnvironmentBlueprintConfigurationsCommand extends command<ListEnvironmentBlueprintConfigurationsCommandInput, ListEnvironmentBlueprintConfigurationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEnvironmentBlueprintConfigurations",
+  ListEnvironmentBlueprintConfigurations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

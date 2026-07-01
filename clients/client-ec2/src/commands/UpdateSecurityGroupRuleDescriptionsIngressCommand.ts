@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateSecurityGroupRuleDescriptionsIngressRequest,
   UpdateSecurityGroupRuleDescriptionsIngressResult,
@@ -15,7 +12,6 @@ import { UpdateSecurityGroupRuleDescriptionsIngress$ } from "../schemas/schemas_
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -135,22 +131,12 @@ export interface UpdateSecurityGroupRuleDescriptionsIngressCommandOutput extends
  *
  * @public
  */
-export class UpdateSecurityGroupRuleDescriptionsIngressCommand extends $Command
-  .classBuilder<
-    UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
-    UpdateSecurityGroupRuleDescriptionsIngressCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "UpdateSecurityGroupRuleDescriptionsIngress", {})
-  .n("EC2Client", "UpdateSecurityGroupRuleDescriptionsIngressCommand")
-  .sc(UpdateSecurityGroupRuleDescriptionsIngress$)
-  .build() {
+export class UpdateSecurityGroupRuleDescriptionsIngressCommand extends command<UpdateSecurityGroupRuleDescriptionsIngressCommandInput, UpdateSecurityGroupRuleDescriptionsIngressCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSecurityGroupRuleDescriptionsIngress",
+  UpdateSecurityGroupRuleDescriptionsIngress$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

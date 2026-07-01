@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeComplianceByResourceRequest, DescribeComplianceByResourceResponse } from "../models/models_0";
 import { DescribeComplianceByResource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeComplianceByResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +115,12 @@ export interface DescribeComplianceByResourceCommandOutput extends DescribeCompl
  *
  * @public
  */
-export class DescribeComplianceByResourceCommand extends $Command
-  .classBuilder<
-    DescribeComplianceByResourceCommandInput,
-    DescribeComplianceByResourceCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DescribeComplianceByResource", {})
-  .n("ConfigServiceClient", "DescribeComplianceByResourceCommand")
-  .sc(DescribeComplianceByResource$)
-  .build() {
+export class DescribeComplianceByResourceCommand extends command<DescribeComplianceByResourceCommandInput, DescribeComplianceByResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeComplianceByResource",
+  DescribeComplianceByResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { DescribeLimitsInput, DescribeLimitsOutput } from "../models/models_0";
 import { DescribeLimits$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeLimits$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  *
  * @public
  */
-export class DescribeLimitsCommand extends $Command
-  .classBuilder<
-    DescribeLimitsCommandInput,
-    DescribeLimitsCommandOutput,
-    KinesisClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kinesis_20131202", "DescribeLimits", {})
-  .n("KinesisClient", "DescribeLimitsCommand")
-  .sc(DescribeLimits$)
-  .build() {
+export class DescribeLimitsCommand extends command<DescribeLimitsCommandInput, DescribeLimitsCommandOutput>(
+  _ep1,
+  _mw0,
+  "DescribeLimits",
+  DescribeLimits$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

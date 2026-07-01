@@ -1,20 +1,14 @@
 // smithy-typescript generated code
-import { getFlexibleChecksumsPlugin } from "@aws-sdk/checksums/flexible-checksums";
-import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep5, _mw5, command } from "../commandBuilder";
 import type { PutObjectRetentionOutput, PutObjectRetentionRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { PutObjectRetention$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,32 +76,12 @@ export interface PutObjectRetentionCommandOutput extends PutObjectRetentionOutpu
  *
  * @public
  */
-export class PutObjectRetentionCommand extends $Command
-  .classBuilder<
-    PutObjectRetentionCommandInput,
-    PutObjectRetentionCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
-        requestChecksumRequired: true,
-      }),
-      getThrow200ExceptionsPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "PutObjectRetention", {})
-  .n("S3Client", "PutObjectRetentionCommand")
-  .sc(PutObjectRetention$)
-  .build() {
+export class PutObjectRetentionCommand extends command<PutObjectRetentionCommandInput, PutObjectRetentionCommandOutput>(
+  _ep5,
+  _mw5,
+  "PutObjectRetention",
+  PutObjectRetention$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteChannelPolicyRequest, DeleteChannelPolicyResponse } from "../models/models_0";
 import { DeleteChannelPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteChannelPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -57,22 +53,12 @@ export interface DeleteChannelPolicyCommandOutput extends DeleteChannelPolicyRes
  *
  * @public
  */
-export class DeleteChannelPolicyCommand extends $Command
-  .classBuilder<
-    DeleteChannelPolicyCommandInput,
-    DeleteChannelPolicyCommandOutput,
-    MediaTailorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaTailor", "DeleteChannelPolicy", {})
-  .n("MediaTailorClient", "DeleteChannelPolicyCommand")
-  .sc(DeleteChannelPolicy$)
-  .build() {
+export class DeleteChannelPolicyCommand extends command<DeleteChannelPolicyCommandInput, DeleteChannelPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteChannelPolicy",
+  DeleteChannelPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

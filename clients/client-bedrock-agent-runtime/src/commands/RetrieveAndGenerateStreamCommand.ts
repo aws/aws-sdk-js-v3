@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentRuntimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RetrieveAndGenerateStreamResponse } from "../models/models_0";
 import type { RetrieveAndGenerateStreamRequest } from "../models/models_1";
 import { RetrieveAndGenerateStream$ } from "../schemas/schemas_0";
@@ -17,7 +10,6 @@ import { RetrieveAndGenerateStream$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -504,29 +496,12 @@ export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGener
  *
  * @public
  */
-export class RetrieveAndGenerateStreamCommand extends $Command
-  .classBuilder<
-    RetrieveAndGenerateStreamCommandInput,
-    RetrieveAndGenerateStreamCommandOutput,
-    BedrockAgentRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentRunTimeService", "RetrieveAndGenerateStream", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      output: true,
-    },
-  })
-  .n("BedrockAgentRuntimeClient", "RetrieveAndGenerateStreamCommand")
-  .sc(RetrieveAndGenerateStream$)
-  .build() {
+export class RetrieveAndGenerateStreamCommand extends command<RetrieveAndGenerateStreamCommandInput, RetrieveAndGenerateStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "RetrieveAndGenerateStream",
+  RetrieveAndGenerateStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

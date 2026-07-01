@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CostOptimizationHubClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CostOptimizationHubClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPreferencesRequest, GetPreferencesResponse } from "../models/models_0";
 import { GetPreferences$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetPreferences$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +70,12 @@ export interface GetPreferencesCommandOutput extends GetPreferencesResponse, __M
  *
  * @public
  */
-export class GetPreferencesCommand extends $Command
-  .classBuilder<
-    GetPreferencesCommandInput,
-    GetPreferencesCommandOutput,
-    CostOptimizationHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostOptimizationHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CostOptimizationHubService", "GetPreferences", {})
-  .n("CostOptimizationHubClient", "GetPreferencesCommand")
-  .sc(GetPreferences$)
-  .build() {
+export class GetPreferencesCommand extends command<GetPreferencesCommandInput, GetPreferencesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPreferences",
+  GetPreferences$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

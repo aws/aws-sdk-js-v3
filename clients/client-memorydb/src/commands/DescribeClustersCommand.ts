@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeClustersRequest, DescribeClustersResponse } from "../models/models_0";
 import { DescribeClusters$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeClusters$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -150,22 +146,12 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  *
  * @public
  */
-export class DescribeClustersCommand extends $Command
-  .classBuilder<
-    DescribeClustersCommandInput,
-    DescribeClustersCommandOutput,
-    MemoryDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMemoryDB", "DescribeClusters", {})
-  .n("MemoryDBClient", "DescribeClustersCommand")
-  .sc(DescribeClusters$)
-  .build() {
+export class DescribeClustersCommand extends command<DescribeClustersCommandInput, DescribeClustersCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeClusters",
+  DescribeClusters$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

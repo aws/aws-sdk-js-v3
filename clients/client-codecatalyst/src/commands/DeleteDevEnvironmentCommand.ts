@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDevEnvironmentRequest, DeleteDevEnvironmentResponse } from "../models/models_0";
 import { DeleteDevEnvironment$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteDevEnvironment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DeleteDevEnvironmentCommandOutput extends DeleteDevEnvironmentR
  *
  * @public
  */
-export class DeleteDevEnvironmentCommand extends $Command
-  .classBuilder<
-    DeleteDevEnvironmentCommandInput,
-    DeleteDevEnvironmentCommandOutput,
-    CodeCatalystClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCatalyst", "DeleteDevEnvironment", {})
-  .n("CodeCatalystClient", "DeleteDevEnvironmentCommand")
-  .sc(DeleteDevEnvironment$)
-  .build() {
+export class DeleteDevEnvironmentCommand extends command<DeleteDevEnvironmentCommandInput, DeleteDevEnvironmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDevEnvironment",
+  DeleteDevEnvironment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

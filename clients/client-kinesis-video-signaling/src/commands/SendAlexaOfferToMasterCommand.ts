@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  KinesisVideoSignalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../KinesisVideoSignalingClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendAlexaOfferToMasterRequest, SendAlexaOfferToMasterResponse } from "../models/models_0";
 import { SendAlexaOfferToMaster$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { SendAlexaOfferToMaster$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMas
  *
  * @public
  */
-export class SendAlexaOfferToMasterCommand extends $Command
-  .classBuilder<
-    SendAlexaOfferToMasterCommandInput,
-    SendAlexaOfferToMasterCommandOutput,
-    KinesisVideoSignalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisVideoSignalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSAcuitySignalingService", "SendAlexaOfferToMaster", {})
-  .n("KinesisVideoSignalingClient", "SendAlexaOfferToMasterCommand")
-  .sc(SendAlexaOfferToMaster$)
-  .build() {
+export class SendAlexaOfferToMasterCommand extends command<SendAlexaOfferToMasterCommandInput, SendAlexaOfferToMasterCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendAlexaOfferToMaster",
+  SendAlexaOfferToMaster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

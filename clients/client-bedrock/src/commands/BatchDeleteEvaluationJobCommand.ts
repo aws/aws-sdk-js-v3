@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchDeleteEvaluationJobRequest, BatchDeleteEvaluationJobResponse } from "../models/models_0";
 import { BatchDeleteEvaluationJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchDeleteEvaluationJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface BatchDeleteEvaluationJobCommandOutput extends BatchDeleteEvalua
  *
  * @public
  */
-export class BatchDeleteEvaluationJobCommand extends $Command
-  .classBuilder<
-    BatchDeleteEvaluationJobCommandInput,
-    BatchDeleteEvaluationJobCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "BatchDeleteEvaluationJob", {})
-  .n("BedrockClient", "BatchDeleteEvaluationJobCommand")
-  .sc(BatchDeleteEvaluationJob$)
-  .build() {
+export class BatchDeleteEvaluationJobCommand extends command<BatchDeleteEvaluationJobCommandInput, BatchDeleteEvaluationJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDeleteEvaluationJob",
+  BatchDeleteEvaluationJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

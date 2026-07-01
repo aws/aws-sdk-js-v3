@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetJobUnlockCodeRequest, GetJobUnlockCodeResult } from "../models/models_0";
 import { GetJobUnlockCode$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface GetJobUnlockCodeCommandOutput extends GetJobUnlockCodeResult, _
  *
  * @public
  */
-export class GetJobUnlockCodeCommand extends $Command
-  .classBuilder<
-    GetJobUnlockCodeCommandInput,
-    GetJobUnlockCodeCommandOutput,
-    SnowballClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIESnowballJobManagementService", "GetJobUnlockCode", {})
-  .n("SnowballClient", "GetJobUnlockCodeCommand")
-  .sc(GetJobUnlockCode$)
-  .build() {
+export class GetJobUnlockCodeCommand extends command<GetJobUnlockCodeCommandInput, GetJobUnlockCodeCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetJobUnlockCode",
+  GetJobUnlockCode$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

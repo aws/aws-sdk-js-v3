@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterJobDefinitionRequest, RegisterJobDefinitionResponse } from "../models/models_0";
 import { RegisterJobDefinition$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RegisterJobDefinition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -767,22 +763,12 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *
  * @public
  */
-export class RegisterJobDefinitionCommand extends $Command
-  .classBuilder<
-    RegisterJobDefinitionCommandInput,
-    RegisterJobDefinitionCommandOutput,
-    BatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBatchV20160810", "RegisterJobDefinition", {})
-  .n("BatchClient", "RegisterJobDefinitionCommand")
-  .sc(RegisterJobDefinition$)
-  .build() {
+export class RegisterJobDefinitionCommand extends command<RegisterJobDefinitionCommandInput, RegisterJobDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterJobDefinition",
+  RegisterJobDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

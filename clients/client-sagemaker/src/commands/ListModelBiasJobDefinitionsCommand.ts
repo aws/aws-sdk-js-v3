@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListModelBiasJobDefinitionsRequest, ListModelBiasJobDefinitionsResponse } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListModelBiasJobDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface ListModelBiasJobDefinitionsCommandOutput extends ListModelBiasJ
  *
  * @public
  */
-export class ListModelBiasJobDefinitionsCommand extends $Command
-  .classBuilder<
-    ListModelBiasJobDefinitionsCommandInput,
-    ListModelBiasJobDefinitionsCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "ListModelBiasJobDefinitions", {})
-  .n("SageMakerClient", "ListModelBiasJobDefinitionsCommand")
-  .sc(ListModelBiasJobDefinitions$)
-  .build() {
+export class ListModelBiasJobDefinitionsCommand extends command<ListModelBiasJobDefinitionsCommandInput, ListModelBiasJobDefinitionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListModelBiasJobDefinitions",
+  ListModelBiasJobDefinitions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

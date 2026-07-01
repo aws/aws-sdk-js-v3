@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListResourceDelegatesRequest, ListResourceDelegatesResponse } from "../models/models_0";
 import { ListResourceDelegates$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface ListResourceDelegatesCommandOutput extends ListResourceDelegate
  *
  * @public
  */
-export class ListResourceDelegatesCommand extends $Command
-  .classBuilder<
-    ListResourceDelegatesCommandInput,
-    ListResourceDelegatesCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "ListResourceDelegates", {})
-  .n("WorkMailClient", "ListResourceDelegatesCommand")
-  .sc(ListResourceDelegates$)
-  .build() {
+export class ListResourceDelegatesCommand extends command<ListResourceDelegatesCommandInput, ListResourceDelegatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListResourceDelegates",
+  ListResourceDelegates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

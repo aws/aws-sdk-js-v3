@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { InsertAdBreakRequest, InsertAdBreakResponse } from "../models/models_0";
 import { InsertAdBreak$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { InsertAdBreak$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface InsertAdBreakCommandOutput extends InsertAdBreakResponse, __Met
  *
  * @public
  */
-export class InsertAdBreakCommand extends $Command
-  .classBuilder<
-    InsertAdBreakCommandInput,
-    InsertAdBreakCommandOutput,
-    IvsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoService", "InsertAdBreak", {})
-  .n("IvsClient", "InsertAdBreakCommand")
-  .sc(InsertAdBreak$)
-  .build() {
+export class InsertAdBreakCommand extends command<InsertAdBreakCommandInput, InsertAdBreakCommandOutput>(
+  _ep0,
+  _mw0,
+  "InsertAdBreak",
+  InsertAdBreak$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

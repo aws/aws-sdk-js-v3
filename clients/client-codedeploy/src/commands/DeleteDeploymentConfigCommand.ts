@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDeploymentConfigInput } from "../models/models_0";
 import { DeleteDeploymentConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteDeploymentConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteDeploymentConfigCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteDeploymentConfigCommand extends $Command
-  .classBuilder<
-    DeleteDeploymentConfigCommandInput,
-    DeleteDeploymentConfigCommandOutput,
-    CodeDeployClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeDeploy_20141006", "DeleteDeploymentConfig", {})
-  .n("CodeDeployClient", "DeleteDeploymentConfigCommand")
-  .sc(DeleteDeploymentConfig$)
-  .build() {
+export class DeleteDeploymentConfigCommand extends command<DeleteDeploymentConfigCommandInput, DeleteDeploymentConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDeploymentConfig",
+  DeleteDeploymentConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

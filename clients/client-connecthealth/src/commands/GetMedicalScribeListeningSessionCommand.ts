@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectHealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectHealthClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMedicalScribeListeningSessionInput, GetMedicalScribeListeningSessionOutput } from "../models/models_0";
 import { GetMedicalScribeListeningSession$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetMedicalScribeListeningSession$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +121,12 @@ export interface GetMedicalScribeListeningSessionCommandOutput extends GetMedica
  *
  * @public
  */
-export class GetMedicalScribeListeningSessionCommand extends $Command
-  .classBuilder<
-    GetMedicalScribeListeningSessionCommandInput,
-    GetMedicalScribeListeningSessionCommandOutput,
-    ConnectHealthClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectHealthClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ConnectHealth", "GetMedicalScribeListeningSession", {})
-  .n("ConnectHealthClient", "GetMedicalScribeListeningSessionCommand")
-  .sc(GetMedicalScribeListeningSession$)
-  .build() {
+export class GetMedicalScribeListeningSessionCommand extends command<GetMedicalScribeListeningSessionCommandInput, GetMedicalScribeListeningSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMedicalScribeListeningSession",
+  GetMedicalScribeListeningSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

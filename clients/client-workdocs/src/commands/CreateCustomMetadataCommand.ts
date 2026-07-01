@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCustomMetadataRequest, CreateCustomMetadataResponse } from "../models/models_0";
 import { CreateCustomMetadata$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface CreateCustomMetadataCommandOutput extends CreateCustomMetadataR
  *
  * @public
  */
-export class CreateCustomMetadataCommand extends $Command
-  .classBuilder<
-    CreateCustomMetadataCommandInput,
-    CreateCustomMetadataCommandOutput,
-    WorkDocsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGorillaBoyService", "CreateCustomMetadata", {})
-  .n("WorkDocsClient", "CreateCustomMetadataCommand")
-  .sc(CreateCustomMetadata$)
-  .build() {
+export class CreateCustomMetadataCommand extends command<CreateCustomMetadataCommandInput, CreateCustomMetadataCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCustomMetadata",
+  CreateCustomMetadata$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

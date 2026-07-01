@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeConnectorProfilesRequest, DescribeConnectorProfilesResponse } from "../models/models_0";
 import { DescribeConnectorProfiles$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeConnectorProfiles$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -182,22 +178,12 @@ export interface DescribeConnectorProfilesCommandOutput extends DescribeConnecto
  *
  * @public
  */
-export class DescribeConnectorProfilesCommand extends $Command
-  .classBuilder<
-    DescribeConnectorProfilesCommandInput,
-    DescribeConnectorProfilesCommandOutput,
-    AppflowClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SandstoneConfigurationServiceLambda", "DescribeConnectorProfiles", {})
-  .n("AppflowClient", "DescribeConnectorProfilesCommand")
-  .sc(DescribeConnectorProfiles$)
-  .build() {
+export class DescribeConnectorProfilesCommand extends command<DescribeConnectorProfilesCommandInput, DescribeConnectorProfilesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeConnectorProfiles",
+  DescribeConnectorProfiles$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

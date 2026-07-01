@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateClassifierRequest, CreateClassifierResponse } from "../models/models_0";
 import { CreateClassifier$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateClassifier$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface CreateClassifierCommandOutput extends CreateClassifierResponse,
  *
  * @public
  */
-export class CreateClassifierCommand extends $Command
-  .classBuilder<
-    CreateClassifierCommandInput,
-    CreateClassifierCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "CreateClassifier", {})
-  .n("GlueClient", "CreateClassifierCommand")
-  .sc(CreateClassifier$)
-  .build() {
+export class CreateClassifierCommand extends command<CreateClassifierCommandInput, CreateClassifierCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateClassifier",
+  CreateClassifier$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

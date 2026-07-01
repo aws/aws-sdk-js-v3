@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetArchiveSearchResultsRequest, GetArchiveSearchResultsResponse } from "../models/models_0";
 import { GetArchiveSearchResults$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetArchiveSearchResults$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface GetArchiveSearchResultsCommandOutput extends GetArchiveSearchRe
  *
  * @public
  */
-export class GetArchiveSearchResultsCommand extends $Command
-  .classBuilder<
-    GetArchiveSearchResultsCommandInput,
-    GetArchiveSearchResultsCommandOutput,
-    MailManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MailManagerSvc", "GetArchiveSearchResults", {})
-  .n("MailManagerClient", "GetArchiveSearchResultsCommand")
-  .sc(GetArchiveSearchResults$)
-  .build() {
+export class GetArchiveSearchResultsCommand extends command<GetArchiveSearchResultsCommandInput, GetArchiveSearchResultsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetArchiveSearchResults",
+  GetArchiveSearchResults$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ImportSshPublicKeyRequest, ImportSshPublicKeyResponse } from "../models/models_0";
 import { ImportSshPublicKey$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface ImportSshPublicKeyCommandOutput extends ImportSshPublicKeyRespo
  *
  * @public
  */
-export class ImportSshPublicKeyCommand extends $Command
-  .classBuilder<
-    ImportSshPublicKeyCommandInput,
-    ImportSshPublicKeyCommandOutput,
-    TransferClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TransferService", "ImportSshPublicKey", {})
-  .n("TransferClient", "ImportSshPublicKeyCommand")
-  .sc(ImportSshPublicKey$)
-  .build() {
+export class ImportSshPublicKeyCommand extends command<ImportSshPublicKeyCommandInput, ImportSshPublicKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "ImportSshPublicKey",
+  ImportSshPublicKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

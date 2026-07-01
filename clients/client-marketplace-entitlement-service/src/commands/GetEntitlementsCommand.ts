@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceEntitlementServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceEntitlementServiceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEntitlementsRequest, GetEntitlementsResult } from "../models/models_0";
 import { GetEntitlements$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetEntitlements$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +89,12 @@ export interface GetEntitlementsCommandOutput extends GetEntitlementsResult, __M
  *
  * @public
  */
-export class GetEntitlementsCommand extends $Command
-  .classBuilder<
-    GetEntitlementsCommandInput,
-    GetEntitlementsCommandOutput,
-    MarketplaceEntitlementServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceEntitlementServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMPEntitlementService", "GetEntitlements", {})
-  .n("MarketplaceEntitlementServiceClient", "GetEntitlementsCommand")
-  .sc(GetEntitlements$)
-  .build() {
+export class GetEntitlementsCommand extends command<GetEntitlementsCommandInput, GetEntitlementsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEntitlements",
+  GetEntitlements$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

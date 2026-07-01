@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDataProtectionSettingsRequest, DeleteDataProtectionSettingsResponse } from "../models/models_0";
 import { DeleteDataProtectionSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteDataProtectionSettingsCommandOutput extends DeleteDataPro
  *
  * @public
  */
-export class DeleteDataProtectionSettingsCommand extends $Command
-  .classBuilder<
-    DeleteDataProtectionSettingsCommandInput,
-    DeleteDataProtectionSettingsCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "DeleteDataProtectionSettings", {})
-  .n("WorkSpacesWebClient", "DeleteDataProtectionSettingsCommand")
-  .sc(DeleteDataProtectionSettings$)
-  .build() {
+export class DeleteDataProtectionSettingsCommand extends command<DeleteDataProtectionSettingsCommandInput, DeleteDataProtectionSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDataProtectionSettings",
+  DeleteDataProtectionSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

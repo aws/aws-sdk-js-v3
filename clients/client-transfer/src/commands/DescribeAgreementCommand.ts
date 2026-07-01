@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAgreementRequest, DescribeAgreementResponse } from "../models/models_0";
 import { DescribeAgreement$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface DescribeAgreementCommandOutput extends DescribeAgreementRespons
  *
  * @public
  */
-export class DescribeAgreementCommand extends $Command
-  .classBuilder<
-    DescribeAgreementCommandInput,
-    DescribeAgreementCommandOutput,
-    TransferClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TransferService", "DescribeAgreement", {})
-  .n("TransferClient", "DescribeAgreementCommand")
-  .sc(DescribeAgreement$)
-  .build() {
+export class DescribeAgreementCommand extends command<DescribeAgreementCommandInput, DescribeAgreementCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAgreement",
+  DescribeAgreement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

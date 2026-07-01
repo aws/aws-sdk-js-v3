@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteImageRecipeRequest, DeleteImageRecipeResponse } from "../models/models_0";
 import { DeleteImageRecipe$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteImageRecipe$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface DeleteImageRecipeCommandOutput extends DeleteImageRecipeRespons
  *
  * @public
  */
-export class DeleteImageRecipeCommand extends $Command
-  .classBuilder<
-    DeleteImageRecipeCommandInput,
-    DeleteImageRecipeCommandOutput,
-    ImagebuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("imagebuilder", "DeleteImageRecipe", {})
-  .n("ImagebuilderClient", "DeleteImageRecipeCommand")
-  .sc(DeleteImageRecipe$)
-  .build() {
+export class DeleteImageRecipeCommand extends command<DeleteImageRecipeCommandInput, DeleteImageRecipeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteImageRecipe",
+  DeleteImageRecipe$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

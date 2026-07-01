@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTargetsForPolicyRequest } from "../models/models_1";
 import type { ListTargetsForPolicyResponse } from "../models/models_2";
 import { ListTargetsForPolicy$ } from "../schemas/schemas_0";
@@ -13,7 +10,6 @@ import { ListTargetsForPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  *
  * @public
  */
-export class ListTargetsForPolicyCommand extends $Command
-  .classBuilder<
-    ListTargetsForPolicyCommandInput,
-    ListTargetsForPolicyCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "ListTargetsForPolicy", {})
-  .n("IoTClient", "ListTargetsForPolicyCommand")
-  .sc(ListTargetsForPolicy$)
-  .build() {
+export class ListTargetsForPolicyCommand extends command<ListTargetsForPolicyCommandInput, ListTargetsForPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTargetsForPolicy",
+  ListTargetsForPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

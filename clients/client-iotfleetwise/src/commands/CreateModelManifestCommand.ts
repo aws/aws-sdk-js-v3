@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateModelManifestRequest, CreateModelManifestResponse } from "../models/models_0";
 import { CreateModelManifest$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateModelManifest$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface CreateModelManifestCommandOutput extends CreateModelManifestRes
  *
  * @public
  */
-export class CreateModelManifestCommand extends $Command
-  .classBuilder<
-    CreateModelManifestCommandInput,
-    CreateModelManifestCommandOutput,
-    IoTFleetWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IoTAutobahnControlPlane", "CreateModelManifest", {})
-  .n("IoTFleetWiseClient", "CreateModelManifestCommand")
-  .sc(CreateModelManifest$)
-  .build() {
+export class CreateModelManifestCommand extends command<CreateModelManifestCommandInput, CreateModelManifestCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateModelManifest",
+  CreateModelManifest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

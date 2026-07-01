@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateConfiguredTableAssociationInput, UpdateConfiguredTableAssociationOutput } from "../models/models_0";
 import { UpdateConfiguredTableAssociation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateConfiguredTableAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface UpdateConfiguredTableAssociationCommandOutput extends UpdateCon
  *
  * @public
  */
-export class UpdateConfiguredTableAssociationCommand extends $Command
-  .classBuilder<
-    UpdateConfiguredTableAssociationCommandInput,
-    UpdateConfiguredTableAssociationCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "UpdateConfiguredTableAssociation", {})
-  .n("CleanRoomsClient", "UpdateConfiguredTableAssociationCommand")
-  .sc(UpdateConfiguredTableAssociation$)
-  .build() {
+export class UpdateConfiguredTableAssociationCommand extends command<UpdateConfiguredTableAssociationCommandInput, UpdateConfiguredTableAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateConfiguredTableAssociation",
+  UpdateConfiguredTableAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

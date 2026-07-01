@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSignalMapRequest } from "../models/models_1";
 import { DeleteSignalMap$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteSignalMap$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteSignalMapCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteSignalMapCommand extends $Command
-  .classBuilder<
-    DeleteSignalMapCommandInput,
-    DeleteSignalMapCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "DeleteSignalMap", {})
-  .n("MediaLiveClient", "DeleteSignalMapCommand")
-  .sc(DeleteSignalMap$)
-  .build() {
+export class DeleteSignalMapCommand extends command<DeleteSignalMapCommandInput, DeleteSignalMapCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSignalMap",
+  DeleteSignalMap$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

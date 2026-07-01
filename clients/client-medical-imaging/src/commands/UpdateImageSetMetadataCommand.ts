@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MedicalImagingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MedicalImagingClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateImageSetMetadataRequest, UpdateImageSetMetadataResponse } from "../models/models_0";
 import { UpdateImageSetMetadata$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateImageSetMetadata$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface UpdateImageSetMetadataCommandOutput extends UpdateImageSetMetad
  *
  * @public
  */
-export class UpdateImageSetMetadataCommand extends $Command
-  .classBuilder<
-    UpdateImageSetMetadataCommandInput,
-    UpdateImageSetMetadataCommandOutput,
-    MedicalImagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AHIGatewayService", "UpdateImageSetMetadata", {})
-  .n("MedicalImagingClient", "UpdateImageSetMetadataCommand")
-  .sc(UpdateImageSetMetadata$)
-  .build() {
+export class UpdateImageSetMetadataCommand extends command<UpdateImageSetMetadataCommandInput, UpdateImageSetMetadataCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateImageSetMetadata",
+  UpdateImageSetMetadata$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

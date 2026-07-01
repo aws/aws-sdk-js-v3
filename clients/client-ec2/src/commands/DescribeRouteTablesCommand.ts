@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRouteTablesRequest, DescribeRouteTablesResult } from "../models/models_4";
 import { DescribeRouteTables$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeRouteTables$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -169,22 +165,12 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  *
  * @public
  */
-export class DescribeRouteTablesCommand extends $Command
-  .classBuilder<
-    DescribeRouteTablesCommandInput,
-    DescribeRouteTablesCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeRouteTables", {})
-  .n("EC2Client", "DescribeRouteTablesCommand")
-  .sc(DescribeRouteTables$)
-  .build() {
+export class DescribeRouteTablesCommand extends command<DescribeRouteTablesCommandInput, DescribeRouteTablesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRouteTables",
+  DescribeRouteTables$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

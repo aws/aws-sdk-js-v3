@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFileSystemRequest, DeleteFileSystemResponse } from "../models/models_0";
 import { DeleteFileSystem$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteFileSystem$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -194,22 +190,12 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  *
  * @public
  */
-export class DeleteFileSystemCommand extends $Command
-  .classBuilder<
-    DeleteFileSystemCommandInput,
-    DeleteFileSystemCommandOutput,
-    FSxClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSimbaAPIService_v20180301", "DeleteFileSystem", {})
-  .n("FSxClient", "DeleteFileSystemCommand")
-  .sc(DeleteFileSystem$)
-  .build() {
+export class DeleteFileSystemCommand extends command<DeleteFileSystemCommandInput, DeleteFileSystemCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFileSystem",
+  DeleteFileSystem$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockRuntimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ConverseStreamRequest, ConverseStreamResponse } from "../models/models_0";
 import { ConverseStream$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ConverseStream$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -971,29 +963,12 @@ export interface ConverseStreamCommandOutput extends ConverseStreamResponse, __M
  *
  * @public
  */
-export class ConverseStreamCommand extends $Command
-  .classBuilder<
-    ConverseStreamCommandInput,
-    ConverseStreamCommandOutput,
-    BedrockRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockFrontendService", "ConverseStream", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      output: true,
-    },
-  })
-  .n("BedrockRuntimeClient", "ConverseStreamCommand")
-  .sc(ConverseStream$)
-  .build() {
+export class ConverseStreamCommand extends command<ConverseStreamCommandInput, ConverseStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "ConverseStream",
+  ConverseStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

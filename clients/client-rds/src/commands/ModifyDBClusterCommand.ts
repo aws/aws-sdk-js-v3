@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyDBClusterMessage, ModifyDBClusterResult } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { ModifyDBCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -454,22 +450,12 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *
  * @public
  */
-export class ModifyDBClusterCommand extends $Command
-  .classBuilder<
-    ModifyDBClusterCommandInput,
-    ModifyDBClusterCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "ModifyDBCluster", {})
-  .n("RDSClient", "ModifyDBClusterCommand")
-  .sc(ModifyDBCluster$)
-  .build() {
+export class ModifyDBClusterCommand extends command<ModifyDBClusterCommandInput, ModifyDBClusterCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyDBCluster",
+  ModifyDBCluster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

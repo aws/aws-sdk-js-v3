@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListInvitationsRequest, ListInvitationsResponse } from "../models/models_2";
 import { ListInvitations$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  *
  * @public
  */
-export class ListInvitationsCommand extends $Command
-  .classBuilder<
-    ListInvitationsCommandInput,
-    ListInvitationsCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "ListInvitations", {})
-  .n("SecurityHubClient", "ListInvitationsCommand")
-  .sc(ListInvitations$)
-  .build() {
+export class ListInvitationsCommand extends command<ListInvitationsCommandInput, ListInvitationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListInvitations",
+  ListInvitations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

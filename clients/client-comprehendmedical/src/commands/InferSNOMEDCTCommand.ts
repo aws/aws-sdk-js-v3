@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComprehendMedicalClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComprehendMedicalClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { InferSNOMEDCTRequest, InferSNOMEDCTResponse } from "../models/models_0";
 import { InferSNOMEDCT$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { InferSNOMEDCT$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -147,22 +139,12 @@ export interface InferSNOMEDCTCommandOutput extends InferSNOMEDCTResponse, __Met
  *
  * @public
  */
-export class InferSNOMEDCTCommand extends $Command
-  .classBuilder<
-    InferSNOMEDCTCommandInput,
-    InferSNOMEDCTCommandOutput,
-    ComprehendMedicalClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComprehendMedical_20181030", "InferSNOMEDCT", {})
-  .n("ComprehendMedicalClient", "InferSNOMEDCTCommand")
-  .sc(InferSNOMEDCT$)
-  .build() {
+export class InferSNOMEDCTCommand extends command<InferSNOMEDCTCommandInput, InferSNOMEDCTCommandOutput>(
+  _ep0,
+  _mw0,
+  "InferSNOMEDCT",
+  InferSNOMEDCT$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

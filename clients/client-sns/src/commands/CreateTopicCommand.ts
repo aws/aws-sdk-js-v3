@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateTopicInput, CreateTopicResponse } from "../models/models_0";
 import { CreateTopic$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *
  * @public
  */
-export class CreateTopicCommand extends $Command
-  .classBuilder<
-    CreateTopicCommandInput,
-    CreateTopicCommandOutput,
-    SNSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSimpleNotificationService", "CreateTopic", {})
-  .n("SNSClient", "CreateTopicCommand")
-  .sc(CreateTopic$)
-  .build() {
+export class CreateTopicCommand extends command<CreateTopicCommandInput, CreateTopicCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTopic",
+  CreateTopic$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

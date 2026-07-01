@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListServerCertificatesRequest, ListServerCertificatesResponse } from "../models/models_0";
 import { ListServerCertificates$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListServerCertificates$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface ListServerCertificatesCommandOutput extends ListServerCertifica
  *
  * @public
  */
-export class ListServerCertificatesCommand extends $Command
-  .classBuilder<
-    ListServerCertificatesCommandInput,
-    ListServerCertificatesCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "ListServerCertificates", {})
-  .n("IAMClient", "ListServerCertificatesCommand")
-  .sc(ListServerCertificates$)
-  .build() {
+export class ListServerCertificatesCommand extends command<ListServerCertificatesCommandInput, ListServerCertificatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListServerCertificates",
+  ListServerCertificates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

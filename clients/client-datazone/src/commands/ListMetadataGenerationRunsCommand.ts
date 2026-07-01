@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListMetadataGenerationRunsInput, ListMetadataGenerationRunsOutput } from "../models/models_1";
 import { ListMetadataGenerationRuns$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListMetadataGenerationRuns$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface ListMetadataGenerationRunsCommandOutput extends ListMetadataGen
  *
  * @public
  */
-export class ListMetadataGenerationRunsCommand extends $Command
-  .classBuilder<
-    ListMetadataGenerationRunsCommandInput,
-    ListMetadataGenerationRunsCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "ListMetadataGenerationRuns", {})
-  .n("DataZoneClient", "ListMetadataGenerationRunsCommand")
-  .sc(ListMetadataGenerationRuns$)
-  .build() {
+export class ListMetadataGenerationRunsCommand extends command<ListMetadataGenerationRunsCommandInput, ListMetadataGenerationRunsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMetadataGenerationRuns",
+  ListMetadataGenerationRuns$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

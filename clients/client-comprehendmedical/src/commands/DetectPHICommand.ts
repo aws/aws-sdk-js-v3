@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComprehendMedicalClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComprehendMedicalClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DetectPHIRequest, DetectPHIResponse } from "../models/models_0";
 import { DetectPHI$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DetectPHI$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +118,12 @@ export interface DetectPHICommandOutput extends DetectPHIResponse, __MetadataBea
  *
  * @public
  */
-export class DetectPHICommand extends $Command
-  .classBuilder<
-    DetectPHICommandInput,
-    DetectPHICommandOutput,
-    ComprehendMedicalClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComprehendMedical_20181030", "DetectPHI", {})
-  .n("ComprehendMedicalClient", "DetectPHICommand")
-  .sc(DetectPHI$)
-  .build() {
+export class DetectPHICommand extends command<DetectPHICommandInput, DetectPHICommandOutput>(
+  _ep0,
+  _mw0,
+  "DetectPHI",
+  DetectPHI$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

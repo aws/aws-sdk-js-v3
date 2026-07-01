@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutCoreNetworkPolicyRequest, PutCoreNetworkPolicyResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { PutCoreNetworkPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface PutCoreNetworkPolicyCommandOutput extends PutCoreNetworkPolicyR
  *
  * @public
  */
-export class PutCoreNetworkPolicyCommand extends $Command
-  .classBuilder<
-    PutCoreNetworkPolicyCommandInput,
-    PutCoreNetworkPolicyCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "PutCoreNetworkPolicy", {})
-  .n("NetworkManagerClient", "PutCoreNetworkPolicyCommand")
-  .sc(PutCoreNetworkPolicy$)
-  .build() {
+export class PutCoreNetworkPolicyCommand extends command<PutCoreNetworkPolicyCommandInput, PutCoreNetworkPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutCoreNetworkPolicy",
+  PutCoreNetworkPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

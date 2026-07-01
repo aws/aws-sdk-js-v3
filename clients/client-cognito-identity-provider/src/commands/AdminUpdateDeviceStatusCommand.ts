@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AdminUpdateDeviceStatusRequest, AdminUpdateDeviceStatusResponse } from "../models/models_0";
 import { AdminUpdateDeviceStatus$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AdminUpdateDeviceStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +108,12 @@ export interface AdminUpdateDeviceStatusCommandOutput extends AdminUpdateDeviceS
  *
  * @public
  */
-export class AdminUpdateDeviceStatusCommand extends $Command
-  .classBuilder<
-    AdminUpdateDeviceStatusCommandInput,
-    AdminUpdateDeviceStatusCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "AdminUpdateDeviceStatus", {})
-  .n("CognitoIdentityProviderClient", "AdminUpdateDeviceStatusCommand")
-  .sc(AdminUpdateDeviceStatus$)
-  .build() {
+export class AdminUpdateDeviceStatusCommand extends command<AdminUpdateDeviceStatusCommandInput, AdminUpdateDeviceStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "AdminUpdateDeviceStatus",
+  AdminUpdateDeviceStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePatchBaselineRequest, CreatePatchBaselineResult } from "../models/models_0";
 import { CreatePatchBaseline$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -134,22 +130,12 @@ export interface CreatePatchBaselineCommandOutput extends CreatePatchBaselineRes
  *
  * @public
  */
-export class CreatePatchBaselineCommand extends $Command
-  .classBuilder<
-    CreatePatchBaselineCommandInput,
-    CreatePatchBaselineCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "CreatePatchBaseline", {})
-  .n("SSMClient", "CreatePatchBaselineCommand")
-  .sc(CreatePatchBaseline$)
-  .build() {
+export class CreatePatchBaselineCommand extends command<CreatePatchBaselineCommandInput, CreatePatchBaselineCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePatchBaseline",
+  CreatePatchBaseline$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

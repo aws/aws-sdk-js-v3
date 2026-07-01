@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ConnectParticipantClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ConnectParticipantClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAuthenticationUrlRequest, GetAuthenticationUrlResponse } from "../models/models_0";
 import { GetAuthenticationUrl$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetAuthenticationUrl$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +90,12 @@ export interface GetAuthenticationUrlCommandOutput extends GetAuthenticationUrlR
  *
  * @public
  */
-export class GetAuthenticationUrlCommand extends $Command
-  .classBuilder<
-    GetAuthenticationUrlCommandInput,
-    GetAuthenticationUrlCommandOutput,
-    ConnectParticipantClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectParticipantClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectParticipantServiceLambda", "GetAuthenticationUrl", {})
-  .n("ConnectParticipantClient", "GetAuthenticationUrlCommand")
-  .sc(GetAuthenticationUrl$)
-  .build() {
+export class GetAuthenticationUrlCommand extends command<GetAuthenticationUrlCommandInput, GetAuthenticationUrlCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAuthenticationUrl",
+  GetAuthenticationUrl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

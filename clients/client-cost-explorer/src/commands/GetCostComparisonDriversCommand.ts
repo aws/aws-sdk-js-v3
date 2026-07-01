@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCostComparisonDriversRequest, GetCostComparisonDriversResponse } from "../models/models_0";
 import { GetCostComparisonDrivers$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetCostComparisonDrivers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -255,22 +251,12 @@ export interface GetCostComparisonDriversCommandOutput extends GetCostComparison
  *
  * @public
  */
-export class GetCostComparisonDriversCommand extends $Command
-  .classBuilder<
-    GetCostComparisonDriversCommandInput,
-    GetCostComparisonDriversCommandOutput,
-    CostExplorerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSInsightsIndexService", "GetCostComparisonDrivers", {})
-  .n("CostExplorerClient", "GetCostComparisonDriversCommand")
-  .sc(GetCostComparisonDrivers$)
-  .build() {
+export class GetCostComparisonDriversCommand extends command<GetCostComparisonDriversCommandInput, GetCostComparisonDriversCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCostComparisonDrivers",
+  GetCostComparisonDrivers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

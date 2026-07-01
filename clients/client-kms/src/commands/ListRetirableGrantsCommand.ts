@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListGrantsResponse, ListRetirableGrantsRequest } from "../models/models_0";
 import { ListRetirableGrants$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListRetirableGrants$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -165,22 +161,12 @@ export interface ListRetirableGrantsCommandOutput extends ListGrantsResponse, __
  *
  * @public
  */
-export class ListRetirableGrantsCommand extends $Command
-  .classBuilder<
-    ListRetirableGrantsCommandInput,
-    ListRetirableGrantsCommandOutput,
-    KMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrentService", "ListRetirableGrants", {})
-  .n("KMSClient", "ListRetirableGrantsCommand")
-  .sc(ListRetirableGrants$)
-  .build() {
+export class ListRetirableGrantsCommand extends command<ListRetirableGrantsCommandInput, ListRetirableGrantsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRetirableGrants",
+  ListRetirableGrants$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

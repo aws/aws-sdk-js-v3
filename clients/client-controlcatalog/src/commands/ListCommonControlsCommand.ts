@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ControlCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ControlCatalogClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCommonControlsRequest, ListCommonControlsResponse } from "../models/models_0";
 import { ListCommonControls$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListCommonControls$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +92,12 @@ export interface ListCommonControlsCommandOutput extends ListCommonControlsRespo
  *
  * @public
  */
-export class ListCommonControlsCommand extends $Command
-  .classBuilder<
-    ListCommonControlsCommandInput,
-    ListCommonControlsCommandOutput,
-    ControlCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ControlCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ControlCatalog", "ListCommonControls", {})
-  .n("ControlCatalogClient", "ListCommonControlsCommand")
-  .sc(ListCommonControls$)
-  .build() {
+export class ListCommonControlsCommand extends command<ListCommonControlsCommandInput, ListCommonControlsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCommonControls",
+  ListCommonControls$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

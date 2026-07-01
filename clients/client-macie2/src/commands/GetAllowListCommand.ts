@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAllowListRequest, GetAllowListResponse } from "../models/models_0";
 import { GetAllowList$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetAllowList$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface GetAllowListCommandOutput extends GetAllowListResponse, __Metad
  *
  * @public
  */
-export class GetAllowListCommand extends $Command
-  .classBuilder<
-    GetAllowListCommandInput,
-    GetAllowListCommandOutput,
-    Macie2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Macie2", "GetAllowList", {})
-  .n("Macie2Client", "GetAllowListCommand")
-  .sc(GetAllowList$)
-  .build() {
+export class GetAllowListCommand extends command<GetAllowListCommandInput, GetAllowListCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAllowList",
+  GetAllowList$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTimeSeriesDataPointInput, GetTimeSeriesDataPointOutput } from "../models/models_1";
 import { GetTimeSeriesDataPoint$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetTimeSeriesDataPoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface GetTimeSeriesDataPointCommandOutput extends GetTimeSeriesDataPo
  *
  * @public
  */
-export class GetTimeSeriesDataPointCommand extends $Command
-  .classBuilder<
-    GetTimeSeriesDataPointCommandInput,
-    GetTimeSeriesDataPointCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "GetTimeSeriesDataPoint", {})
-  .n("DataZoneClient", "GetTimeSeriesDataPointCommand")
-  .sc(GetTimeSeriesDataPoint$)
-  .build() {
+export class GetTimeSeriesDataPointCommand extends command<GetTimeSeriesDataPointCommandInput, GetTimeSeriesDataPointCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTimeSeriesDataPoint",
+  GetTimeSeriesDataPoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

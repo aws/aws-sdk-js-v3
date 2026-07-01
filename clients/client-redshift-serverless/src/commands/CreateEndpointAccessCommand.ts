@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateEndpointAccessRequest, CreateEndpointAccessResponse } from "../models/models_0";
-import type {
-  RedshiftServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RedshiftServerlessClient";
 import { CreateEndpointAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +111,12 @@ export interface CreateEndpointAccessCommandOutput extends CreateEndpointAccessR
  *
  * @public
  */
-export class CreateEndpointAccessCommand extends $Command
-  .classBuilder<
-    CreateEndpointAccessCommandInput,
-    CreateEndpointAccessCommandOutput,
-    RedshiftServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServerless", "CreateEndpointAccess", {})
-  .n("RedshiftServerlessClient", "CreateEndpointAccessCommand")
-  .sc(CreateEndpointAccess$)
-  .build() {
+export class CreateEndpointAccessCommand extends command<CreateEndpointAccessCommandInput, CreateEndpointAccessCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateEndpointAccess",
+  CreateEndpointAccess$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAudienceModelsRequest, ListAudienceModelsResponse } from "../models/models_0";
 import { ListAudienceModels$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAudienceModels$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface ListAudienceModelsCommandOutput extends ListAudienceModelsRespo
  *
  * @public
  */
-export class ListAudienceModelsCommand extends $Command
-  .classBuilder<
-    ListAudienceModelsCommandInput,
-    ListAudienceModelsCommandOutput,
-    CleanRoomsMLClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStarkControlService", "ListAudienceModels", {})
-  .n("CleanRoomsMLClient", "ListAudienceModelsCommand")
-  .sc(ListAudienceModels$)
-  .build() {
+export class ListAudienceModelsCommand extends command<ListAudienceModelsCommandInput, ListAudienceModelsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAudienceModels",
+  ListAudienceModels$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

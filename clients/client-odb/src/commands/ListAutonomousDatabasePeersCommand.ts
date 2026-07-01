@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAutonomousDatabasePeersInput, ListAutonomousDatabasePeersOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { ListAutonomousDatabasePeers$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface ListAutonomousDatabasePeersCommandOutput extends ListAutonomous
  *
  * @public
  */
-export class ListAutonomousDatabasePeersCommand extends $Command
-  .classBuilder<
-    ListAutonomousDatabasePeersCommandInput,
-    ListAutonomousDatabasePeersCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "ListAutonomousDatabasePeers", {})
-  .n("OdbClient", "ListAutonomousDatabasePeersCommand")
-  .sc(ListAutonomousDatabasePeers$)
-  .build() {
+export class ListAutonomousDatabasePeersCommand extends command<ListAutonomousDatabasePeersCommandInput, ListAutonomousDatabasePeersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAutonomousDatabasePeers",
+  ListAutonomousDatabasePeers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

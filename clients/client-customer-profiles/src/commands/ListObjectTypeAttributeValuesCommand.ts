@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListObjectTypeAttributeValuesRequest, ListObjectTypeAttributeValuesResponse } from "../models/models_0";
 import { ListObjectTypeAttributeValues$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListObjectTypeAttributeValues$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface ListObjectTypeAttributeValuesCommandOutput extends ListObjectTy
  *
  * @public
  */
-export class ListObjectTypeAttributeValuesCommand extends $Command
-  .classBuilder<
-    ListObjectTypeAttributeValuesCommandInput,
-    ListObjectTypeAttributeValuesCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "ListObjectTypeAttributeValues", {})
-  .n("CustomerProfilesClient", "ListObjectTypeAttributeValuesCommand")
-  .sc(ListObjectTypeAttributeValues$)
-  .build() {
+export class ListObjectTypeAttributeValuesCommand extends command<ListObjectTypeAttributeValuesCommandInput, ListObjectTypeAttributeValuesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListObjectTypeAttributeValues",
+  ListObjectTypeAttributeValues$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

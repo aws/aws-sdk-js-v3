@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutChannelPolicyRequest, PutChannelPolicyResponse } from "../models/models_0";
 import { PutChannelPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutChannelPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -58,22 +54,12 @@ export interface PutChannelPolicyCommandOutput extends PutChannelPolicyResponse,
  *
  * @public
  */
-export class PutChannelPolicyCommand extends $Command
-  .classBuilder<
-    PutChannelPolicyCommandInput,
-    PutChannelPolicyCommandOutput,
-    MediaTailorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaTailor", "PutChannelPolicy", {})
-  .n("MediaTailorClient", "PutChannelPolicyCommand")
-  .sc(PutChannelPolicy$)
-  .build() {
+export class PutChannelPolicyCommand extends command<PutChannelPolicyCommandInput, PutChannelPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutChannelPolicy",
+  PutChannelPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

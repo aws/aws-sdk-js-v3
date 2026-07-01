@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDomainUnitInput, GetDomainUnitOutput } from "../models/models_1";
 import { GetDomainUnit$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDomainUnit$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface GetDomainUnitCommandOutput extends GetDomainUnitOutput, __Metad
  *
  * @public
  */
-export class GetDomainUnitCommand extends $Command
-  .classBuilder<
-    GetDomainUnitCommandInput,
-    GetDomainUnitCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "GetDomainUnit", {})
-  .n("DataZoneClient", "GetDomainUnitCommand")
-  .sc(GetDomainUnit$)
-  .build() {
+export class GetDomainUnitCommand extends command<GetDomainUnitCommandInput, GetDomainUnitCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDomainUnit",
+  GetDomainUnit$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

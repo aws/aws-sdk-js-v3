@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListConfigurationCheckDefinitionsInput,
   ListConfigurationCheckDefinitionsOutput,
 } from "../models/models_0";
 import { ListConfigurationCheckDefinitions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface ListConfigurationCheckDefinitionsCommandOutput extends ListConf
  *
  * @public
  */
-export class ListConfigurationCheckDefinitionsCommand extends $Command
-  .classBuilder<
-    ListConfigurationCheckDefinitionsCommandInput,
-    ListConfigurationCheckDefinitionsCommandOutput,
-    SsmSapClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SsmSapClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SsmSap", "ListConfigurationCheckDefinitions", {})
-  .n("SsmSapClient", "ListConfigurationCheckDefinitionsCommand")
-  .sc(ListConfigurationCheckDefinitions$)
-  .build() {
+export class ListConfigurationCheckDefinitionsCommand extends command<ListConfigurationCheckDefinitionsCommandInput, ListConfigurationCheckDefinitionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListConfigurationCheckDefinitions",
+  ListConfigurationCheckDefinitions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

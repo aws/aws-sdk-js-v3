@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCustomVerificationEmailTemplateRequest } from "../models/models_0";
 import { DeleteCustomVerificationEmailTemplate$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -61,22 +57,12 @@ export interface DeleteCustomVerificationEmailTemplateCommandOutput extends __Me
  *
  * @public
  */
-export class DeleteCustomVerificationEmailTemplateCommand extends $Command
-  .classBuilder<
-    DeleteCustomVerificationEmailTemplateCommandInput,
-    DeleteCustomVerificationEmailTemplateCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "DeleteCustomVerificationEmailTemplate", {})
-  .n("SESClient", "DeleteCustomVerificationEmailTemplateCommand")
-  .sc(DeleteCustomVerificationEmailTemplate$)
-  .build() {
+export class DeleteCustomVerificationEmailTemplateCommand extends command<DeleteCustomVerificationEmailTemplateCommandInput, DeleteCustomVerificationEmailTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCustomVerificationEmailTemplate",
+  DeleteCustomVerificationEmailTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

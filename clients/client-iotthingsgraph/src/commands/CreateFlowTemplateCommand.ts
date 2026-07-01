@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTThingsGraphClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTThingsGraphClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFlowTemplateRequest, CreateFlowTemplateResponse } from "../models/models_0";
 import { CreateFlowTemplate$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateFlowTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface CreateFlowTemplateCommandOutput extends CreateFlowTemplateRespo
  *
  * @public
  */
-export class CreateFlowTemplateCommand extends $Command
-  .classBuilder<
-    CreateFlowTemplateCommandInput,
-    CreateFlowTemplateCommandOutput,
-    IoTThingsGraphClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotThingsGraphFrontEndService", "CreateFlowTemplate", {})
-  .n("IoTThingsGraphClient", "CreateFlowTemplateCommand")
-  .sc(CreateFlowTemplate$)
-  .build() {
+export class CreateFlowTemplateCommand extends command<CreateFlowTemplateCommandInput, CreateFlowTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateFlowTemplate",
+  CreateFlowTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRoutingControlRequest, DeleteRoutingControlResponse } from "../models/models_0";
-import type {
-  Route53RecoveryControlConfigClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryControlConfigClient";
 import { DeleteRoutingControl$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeleteRoutingControlCommandOutput extends DeleteRoutingControlR
  *
  * @public
  */
-export class DeleteRoutingControlCommand extends $Command
-  .classBuilder<
-    DeleteRoutingControlCommandInput,
-    DeleteRoutingControlCommandOutput,
-    Route53RecoveryControlConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53RecoveryControlConfig", "DeleteRoutingControl", {})
-  .n("Route53RecoveryControlConfigClient", "DeleteRoutingControlCommand")
-  .sc(DeleteRoutingControl$)
-  .build() {
+export class DeleteRoutingControlCommand extends command<DeleteRoutingControlCommandInput, DeleteRoutingControlCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRoutingControl",
+  DeleteRoutingControl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

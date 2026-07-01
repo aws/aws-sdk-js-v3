@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteOpenIDConnectProviderRequest } from "../models/models_0";
 import { DeleteOpenIDConnectProvider$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteOpenIDConnectProvider$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DeleteOpenIDConnectProviderCommandOutput extends __MetadataBear
  *
  * @public
  */
-export class DeleteOpenIDConnectProviderCommand extends $Command
-  .classBuilder<
-    DeleteOpenIDConnectProviderCommandInput,
-    DeleteOpenIDConnectProviderCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "DeleteOpenIDConnectProvider", {})
-  .n("IAMClient", "DeleteOpenIDConnectProviderCommand")
-  .sc(DeleteOpenIDConnectProvider$)
-  .build() {
+export class DeleteOpenIDConnectProviderCommand extends command<DeleteOpenIDConnectProviderCommandInput, DeleteOpenIDConnectProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteOpenIDConnectProvider",
+  DeleteOpenIDConnectProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

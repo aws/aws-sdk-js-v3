@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTerminologyRequest } from "../models/models_0";
 import { DeleteTerminology$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteTerminologyCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteTerminologyCommand extends $Command
-  .classBuilder<
-    DeleteTerminologyCommandInput,
-    DeleteTerminologyCommandOutput,
-    TranslateClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TranslateClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShineFrontendService_20170701", "DeleteTerminology", {})
-  .n("TranslateClient", "DeleteTerminologyCommand")
-  .sc(DeleteTerminology$)
-  .build() {
+export class DeleteTerminologyCommand extends command<DeleteTerminologyCommandInput, DeleteTerminologyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTerminology",
+  DeleteTerminology$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

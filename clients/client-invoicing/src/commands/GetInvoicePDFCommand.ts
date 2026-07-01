@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InvoicingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InvoicingClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetInvoicePDFRequest, GetInvoicePDFResponse } from "../models/models_0";
 import { GetInvoicePDF$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetInvoicePDF$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +129,12 @@ export interface GetInvoicePDFCommandOutput extends GetInvoicePDFResponse, __Met
  *
  * @public
  */
-export class GetInvoicePDFCommand extends $Command
-  .classBuilder<
-    GetInvoicePDFCommandInput,
-    GetInvoicePDFCommandOutput,
-    InvoicingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InvoicingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Invoicing", "GetInvoicePDF", {})
-  .n("InvoicingClient", "GetInvoicePDFCommand")
-  .sc(GetInvoicePDF$)
-  .build() {
+export class GetInvoicePDFCommand extends command<GetInvoicePDFCommandInput, GetInvoicePDFCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetInvoicePDF",
+  GetInvoicePDF$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

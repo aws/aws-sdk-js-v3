@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFolderMembershipRequest, DeleteFolderMembershipResponse } from "../models/models_3";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DeleteFolderMembership$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface DeleteFolderMembershipCommandOutput extends DeleteFolderMembers
  *
  * @public
  */
-export class DeleteFolderMembershipCommand extends $Command
-  .classBuilder<
-    DeleteFolderMembershipCommandInput,
-    DeleteFolderMembershipCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "DeleteFolderMembership", {})
-  .n("QuickSightClient", "DeleteFolderMembershipCommand")
-  .sc(DeleteFolderMembership$)
-  .build() {
+export class DeleteFolderMembershipCommand extends command<DeleteFolderMembershipCommandInput, DeleteFolderMembershipCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFolderMembership",
+  DeleteFolderMembership$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

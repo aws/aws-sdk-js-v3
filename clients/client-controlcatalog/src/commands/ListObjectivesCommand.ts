@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ControlCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ControlCatalogClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListObjectivesRequest, ListObjectivesResponse } from "../models/models_0";
 import { ListObjectives$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListObjectives$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface ListObjectivesCommandOutput extends ListObjectivesResponse, __M
  *
  * @public
  */
-export class ListObjectivesCommand extends $Command
-  .classBuilder<
-    ListObjectivesCommandInput,
-    ListObjectivesCommandOutput,
-    ControlCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ControlCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ControlCatalog", "ListObjectives", {})
-  .n("ControlCatalogClient", "ListObjectivesCommand")
-  .sc(ListObjectives$)
-  .build() {
+export class ListObjectivesCommand extends command<ListObjectivesCommandInput, ListObjectivesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListObjectives",
+  ListObjectives$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

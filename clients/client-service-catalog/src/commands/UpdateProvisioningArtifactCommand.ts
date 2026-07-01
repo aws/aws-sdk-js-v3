@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateProvisioningArtifactInput, UpdateProvisioningArtifactOutput } from "../models/models_0";
 import { UpdateProvisioningArtifact$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface UpdateProvisioningArtifactCommandOutput extends UpdateProvision
  *
  * @public
  */
-export class UpdateProvisioningArtifactCommand extends $Command
-  .classBuilder<
-    UpdateProvisioningArtifactCommandInput,
-    UpdateProvisioningArtifactCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "UpdateProvisioningArtifact", {})
-  .n("ServiceCatalogClient", "UpdateProvisioningArtifactCommand")
-  .sc(UpdateProvisioningArtifact$)
-  .build() {
+export class UpdateProvisioningArtifactCommand extends command<UpdateProvisioningArtifactCommandInput, UpdateProvisioningArtifactCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateProvisioningArtifact",
+  UpdateProvisioningArtifact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

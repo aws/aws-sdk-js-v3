@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListCoreNetworkPrefixListAssociationsRequest,
   ListCoreNetworkPrefixListAssociationsResponse,
 } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { ListCoreNetworkPrefixListAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface ListCoreNetworkPrefixListAssociationsCommandOutput extends List
  *
  * @public
  */
-export class ListCoreNetworkPrefixListAssociationsCommand extends $Command
-  .classBuilder<
-    ListCoreNetworkPrefixListAssociationsCommandInput,
-    ListCoreNetworkPrefixListAssociationsCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "ListCoreNetworkPrefixListAssociations", {})
-  .n("NetworkManagerClient", "ListCoreNetworkPrefixListAssociationsCommand")
-  .sc(ListCoreNetworkPrefixListAssociations$)
-  .build() {
+export class ListCoreNetworkPrefixListAssociationsCommand extends command<ListCoreNetworkPrefixListAssociationsCommandInput, ListCoreNetworkPrefixListAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCoreNetworkPrefixListAssociations",
+  ListCoreNetworkPrefixListAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

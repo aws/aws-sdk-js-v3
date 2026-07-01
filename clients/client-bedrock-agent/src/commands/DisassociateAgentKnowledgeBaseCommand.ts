@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateAgentKnowledgeBaseRequest, DisassociateAgentKnowledgeBaseResponse } from "../models/models_1";
 import { DisassociateAgentKnowledgeBase$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateAgentKnowledgeBase$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DisassociateAgentKnowledgeBaseCommandOutput extends Disassociat
  *
  * @public
  */
-export class DisassociateAgentKnowledgeBaseCommand extends $Command
-  .classBuilder<
-    DisassociateAgentKnowledgeBaseCommandInput,
-    DisassociateAgentKnowledgeBaseCommandOutput,
-    BedrockAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentBuildTimeLambda", "DisassociateAgentKnowledgeBase", {})
-  .n("BedrockAgentClient", "DisassociateAgentKnowledgeBaseCommand")
-  .sc(DisassociateAgentKnowledgeBase$)
-  .build() {
+export class DisassociateAgentKnowledgeBaseCommand extends command<DisassociateAgentKnowledgeBaseCommandInput, DisassociateAgentKnowledgeBaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateAgentKnowledgeBase",
+  DisassociateAgentKnowledgeBase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

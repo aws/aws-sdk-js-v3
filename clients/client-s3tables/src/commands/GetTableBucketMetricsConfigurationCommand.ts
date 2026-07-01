@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetTableBucketMetricsConfigurationRequest,
   GetTableBucketMetricsConfigurationResponse,
 } from "../models/models_0";
-import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
 import { GetTableBucketMetricsConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface GetTableBucketMetricsConfigurationCommandOutput extends GetTabl
  *
  * @public
  */
-export class GetTableBucketMetricsConfigurationCommand extends $Command
-  .classBuilder<
-    GetTableBucketMetricsConfigurationCommandInput,
-    GetTableBucketMetricsConfigurationCommandOutput,
-    S3TablesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: S3TablesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("S3TableBuckets", "GetTableBucketMetricsConfiguration", {})
-  .n("S3TablesClient", "GetTableBucketMetricsConfigurationCommand")
-  .sc(GetTableBucketMetricsConfiguration$)
-  .build() {
+export class GetTableBucketMetricsConfigurationCommand extends command<GetTableBucketMetricsConfigurationCommandInput, GetTableBucketMetricsConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTableBucketMetricsConfiguration",
+  GetTableBucketMetricsConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

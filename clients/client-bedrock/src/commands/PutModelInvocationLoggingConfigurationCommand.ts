@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutModelInvocationLoggingConfigurationRequest,
   PutModelInvocationLoggingConfigurationResponse,
@@ -15,7 +12,6 @@ import { PutModelInvocationLoggingConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface PutModelInvocationLoggingConfigurationCommandOutput extends Put
  *
  * @public
  */
-export class PutModelInvocationLoggingConfigurationCommand extends $Command
-  .classBuilder<
-    PutModelInvocationLoggingConfigurationCommandInput,
-    PutModelInvocationLoggingConfigurationCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "PutModelInvocationLoggingConfiguration", {})
-  .n("BedrockClient", "PutModelInvocationLoggingConfigurationCommand")
-  .sc(PutModelInvocationLoggingConfiguration$)
-  .build() {
+export class PutModelInvocationLoggingConfigurationCommand extends command<PutModelInvocationLoggingConfigurationCommandInput, PutModelInvocationLoggingConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutModelInvocationLoggingConfiguration",
+  PutModelInvocationLoggingConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

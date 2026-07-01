@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListApisRequest, ListApisResponse } from "../models/models_0";
 import { ListApis$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListApis$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +128,12 @@ export interface ListApisCommandOutput extends ListApisResponse, __MetadataBeare
  *
  * @public
  */
-export class ListApisCommand extends $Command
-  .classBuilder<
-    ListApisCommandInput,
-    ListApisCommandOutput,
-    AppSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepdishControlPlaneService", "ListApis", {})
-  .n("AppSyncClient", "ListApisCommand")
-  .sc(ListApis$)
-  .build() {
+export class ListApisCommand extends command<ListApisCommandInput, ListApisCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListApis",
+  ListApis$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

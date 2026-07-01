@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMonitoringScheduleRequest } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DeleteMonitoringSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -60,22 +56,12 @@ export interface DeleteMonitoringScheduleCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class DeleteMonitoringScheduleCommand extends $Command
-  .classBuilder<
-    DeleteMonitoringScheduleCommandInput,
-    DeleteMonitoringScheduleCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DeleteMonitoringSchedule", {})
-  .n("SageMakerClient", "DeleteMonitoringScheduleCommand")
-  .sc(DeleteMonitoringSchedule$)
-  .build() {
+export class DeleteMonitoringScheduleCommand extends command<DeleteMonitoringScheduleCommandInput, DeleteMonitoringScheduleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMonitoringSchedule",
+  DeleteMonitoringSchedule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

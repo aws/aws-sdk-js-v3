@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteWorkloadIdentityRequest, DeleteWorkloadIdentityResponse } from "../models/models_2";
 import { DeleteWorkloadIdentity$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteWorkloadIdentity$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeleteWorkloadIdentityCommandOutput extends DeleteWorkloadIdent
  *
  * @public
  */
-export class DeleteWorkloadIdentityCommand extends $Command
-  .classBuilder<
-    DeleteWorkloadIdentityCommandInput,
-    DeleteWorkloadIdentityCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "DeleteWorkloadIdentity", {})
-  .n("BedrockAgentCoreControlClient", "DeleteWorkloadIdentityCommand")
-  .sc(DeleteWorkloadIdentity$)
-  .build() {
+export class DeleteWorkloadIdentityCommand extends command<DeleteWorkloadIdentityCommandInput, DeleteWorkloadIdentityCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteWorkloadIdentity",
+  DeleteWorkloadIdentity$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

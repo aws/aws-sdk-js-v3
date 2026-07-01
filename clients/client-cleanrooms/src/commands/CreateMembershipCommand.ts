@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateMembershipInput, CreateMembershipOutput } from "../models/models_1";
 import { CreateMembership$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateMembership$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -186,22 +182,12 @@ export interface CreateMembershipCommandOutput extends CreateMembershipOutput, _
  *
  * @public
  */
-export class CreateMembershipCommand extends $Command
-  .classBuilder<
-    CreateMembershipCommandInput,
-    CreateMembershipCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "CreateMembership", {})
-  .n("CleanRoomsClient", "CreateMembershipCommand")
-  .sc(CreateMembership$)
-  .build() {
+export class CreateMembershipCommand extends command<CreateMembershipCommandInput, CreateMembershipCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateMembership",
+  CreateMembership$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

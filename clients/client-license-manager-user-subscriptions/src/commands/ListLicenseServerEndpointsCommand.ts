@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerUserSubscriptionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerUserSubscriptionsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLicenseServerEndpointsRequest, ListLicenseServerEndpointsResponse } from "../models/models_0";
 import { ListLicenseServerEndpoints$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListLicenseServerEndpoints$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +103,12 @@ export interface ListLicenseServerEndpointsCommandOutput extends ListLicenseServ
  *
  * @public
  */
-export class ListLicenseServerEndpointsCommand extends $Command
-  .classBuilder<
-    ListLicenseServerEndpointsCommandInput,
-    ListLicenseServerEndpointsCommandOutput,
-    LicenseManagerUserSubscriptionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerUserSubscriptionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LicenseManagerUserSubscriptions", "ListLicenseServerEndpoints", {})
-  .n("LicenseManagerUserSubscriptionsClient", "ListLicenseServerEndpointsCommand")
-  .sc(ListLicenseServerEndpoints$)
-  .build() {
+export class ListLicenseServerEndpointsCommand extends command<ListLicenseServerEndpointsCommandInput, ListLicenseServerEndpointsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLicenseServerEndpoints",
+  ListLicenseServerEndpoints$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

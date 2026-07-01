@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchStopUpdateActionMessage, UpdateActionResultsMessage } from "../models/models_0";
 import { BatchStopUpdateAction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchStopUpdateAction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface BatchStopUpdateActionCommandOutput extends UpdateActionResultsM
  *
  * @public
  */
-export class BatchStopUpdateActionCommand extends $Command
-  .classBuilder<
-    BatchStopUpdateActionCommandInput,
-    BatchStopUpdateActionCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "BatchStopUpdateAction", {})
-  .n("ElastiCacheClient", "BatchStopUpdateActionCommand")
-  .sc(BatchStopUpdateAction$)
-  .build() {
+export class BatchStopUpdateActionCommand extends command<BatchStopUpdateActionCommandInput, BatchStopUpdateActionCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchStopUpdateAction",
+  BatchStopUpdateAction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

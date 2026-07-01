@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceDiscoveryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceDiscoveryClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetListingInput, GetListingOutput } from "../models/models_0";
 import { GetListing$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetListing$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -568,22 +560,12 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  *
  * @public
  */
-export class GetListingCommand extends $Command
-  .classBuilder<
-    GetListingCommandInput,
-    GetListingCommandOutput,
-    MarketplaceDiscoveryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceDiscoveryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMarketplaceDiscovery", "GetListing", {})
-  .n("MarketplaceDiscoveryClient", "GetListingCommand")
-  .sc(GetListing$)
-  .build() {
+export class GetListingCommand extends command<GetListingCommandInput, GetListingCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetListing",
+  GetListing$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePublicIpv4PoolRequest, DeletePublicIpv4PoolResult } from "../models/models_2";
 import { DeletePublicIpv4Pool$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeletePublicIpv4Pool$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -61,22 +57,12 @@ export interface DeletePublicIpv4PoolCommandOutput extends DeletePublicIpv4PoolR
  *
  * @public
  */
-export class DeletePublicIpv4PoolCommand extends $Command
-  .classBuilder<
-    DeletePublicIpv4PoolCommandInput,
-    DeletePublicIpv4PoolCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeletePublicIpv4Pool", {})
-  .n("EC2Client", "DeletePublicIpv4PoolCommand")
-  .sc(DeletePublicIpv4Pool$)
-  .build() {
+export class DeletePublicIpv4PoolCommand extends command<DeletePublicIpv4PoolCommandInput, DeletePublicIpv4PoolCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePublicIpv4Pool",
+  DeletePublicIpv4Pool$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

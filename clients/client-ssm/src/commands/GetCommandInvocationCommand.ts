@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCommandInvocationRequest, GetCommandInvocationResult } from "../models/models_0";
 import { GetCommandInvocation$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface GetCommandInvocationCommandOutput extends GetCommandInvocationR
  *
  * @public
  */
-export class GetCommandInvocationCommand extends $Command
-  .classBuilder<
-    GetCommandInvocationCommandInput,
-    GetCommandInvocationCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "GetCommandInvocation", {})
-  .n("SSMClient", "GetCommandInvocationCommand")
-  .sc(GetCommandInvocation$)
-  .build() {
+export class GetCommandInvocationCommand extends command<GetCommandInvocationCommandInput, GetCommandInvocationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCommandInvocation",
+  GetCommandInvocation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

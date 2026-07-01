@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartReportCreationInput, StartReportCreationOutput } from "../models/models_0";
-import type {
-  ResourceGroupsTaggingAPIClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceGroupsTaggingAPIClient";
 import { StartReportCreation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -136,22 +128,12 @@ export interface StartReportCreationCommandOutput extends StartReportCreationOut
  *
  * @public
  */
-export class StartReportCreationCommand extends $Command
-  .classBuilder<
-    StartReportCreationCommandInput,
-    StartReportCreationCommandOutput,
-    ResourceGroupsTaggingAPIClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceGroupsTaggingAPIClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ResourceGroupsTaggingAPI_20170126", "StartReportCreation", {})
-  .n("ResourceGroupsTaggingAPIClient", "StartReportCreationCommand")
-  .sc(StartReportCreation$)
-  .build() {
+export class StartReportCreationCommand extends command<StartReportCreationCommandInput, StartReportCreationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartReportCreation",
+  StartReportCreation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

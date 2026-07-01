@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRoutingControlRequest, CreateRoutingControlResponse } from "../models/models_0";
-import type {
-  Route53RecoveryControlConfigClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryControlConfigClient";
 import { CreateRoutingControl$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface CreateRoutingControlCommandOutput extends CreateRoutingControlR
  *
  * @public
  */
-export class CreateRoutingControlCommand extends $Command
-  .classBuilder<
-    CreateRoutingControlCommandInput,
-    CreateRoutingControlCommandOutput,
-    Route53RecoveryControlConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53RecoveryControlConfig", "CreateRoutingControl", {})
-  .n("Route53RecoveryControlConfigClient", "CreateRoutingControlCommand")
-  .sc(CreateRoutingControl$)
-  .build() {
+export class CreateRoutingControlCommand extends command<CreateRoutingControlCommandInput, CreateRoutingControlCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRoutingControl",
+  CreateRoutingControl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

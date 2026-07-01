@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFolderPathRequest, GetFolderPathResponse } from "../models/models_0";
 import { GetFolderPath$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface GetFolderPathCommandOutput extends GetFolderPathResponse, __Met
  *
  * @public
  */
-export class GetFolderPathCommand extends $Command
-  .classBuilder<
-    GetFolderPathCommandInput,
-    GetFolderPathCommandOutput,
-    WorkDocsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGorillaBoyService", "GetFolderPath", {})
-  .n("WorkDocsClient", "GetFolderPathCommand")
-  .sc(GetFolderPath$)
-  .build() {
+export class GetFolderPathCommand extends command<GetFolderPathCommandInput, GetFolderPathCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFolderPath",
+  GetFolderPath$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

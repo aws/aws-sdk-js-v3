@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListControlDomainInsightsRequest, ListControlDomainInsightsResponse } from "../models/models_0";
 import { ListControlDomainInsights$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListControlDomainInsights$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface ListControlDomainInsightsCommandOutput extends ListControlDomai
  *
  * @public
  */
-export class ListControlDomainInsightsCommand extends $Command
-  .classBuilder<
-    ListControlDomainInsightsCommandInput,
-    ListControlDomainInsightsCommandOutput,
-    AuditManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BedrockAssessmentManagerLambda", "ListControlDomainInsights", {})
-  .n("AuditManagerClient", "ListControlDomainInsightsCommand")
-  .sc(ListControlDomainInsights$)
-  .build() {
+export class ListControlDomainInsightsCommand extends command<ListControlDomainInsightsCommandInput, ListControlDomainInsightsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListControlDomainInsights",
+  ListControlDomainInsights$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

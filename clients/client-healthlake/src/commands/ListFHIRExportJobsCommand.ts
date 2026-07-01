@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListFHIRExportJobsRequest, ListFHIRExportJobsResponse } from "../models/models_0";
 import { ListFHIRExportJobs$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListFHIRExportJobs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface ListFHIRExportJobsCommandOutput extends ListFHIRExportJobsRespo
  *
  * @public
  */
-export class ListFHIRExportJobsCommand extends $Command
-  .classBuilder<
-    ListFHIRExportJobsCommandInput,
-    ListFHIRExportJobsCommandOutput,
-    HealthLakeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: HealthLakeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("HealthLake", "ListFHIRExportJobs", {})
-  .n("HealthLakeClient", "ListFHIRExportJobsCommand")
-  .sc(ListFHIRExportJobs$)
-  .build() {
+export class ListFHIRExportJobsCommand extends command<ListFHIRExportJobsCommandInput, ListFHIRExportJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFHIRExportJobs",
+  ListFHIRExportJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListWorkteamsRequest, ListWorkteamsResponse } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListWorkteams$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __Met
  *
  * @public
  */
-export class ListWorkteamsCommand extends $Command
-  .classBuilder<
-    ListWorkteamsCommandInput,
-    ListWorkteamsCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "ListWorkteams", {})
-  .n("SageMakerClient", "ListWorkteamsCommand")
-  .sc(ListWorkteams$)
-  .build() {
+export class ListWorkteamsCommand extends command<ListWorkteamsCommandInput, ListWorkteamsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListWorkteams",
+  ListWorkteams$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSessionRequest, DeleteSessionResponse } from "../models/models_0";
 import { DeleteSession$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteSession$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface DeleteSessionCommandOutput extends DeleteSessionResponse, __Met
  *
  * @public
  */
-export class DeleteSessionCommand extends $Command
-  .classBuilder<
-    DeleteSessionCommandInput,
-    DeleteSessionCommandOutput,
-    LexRuntimeV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexRuntimeV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepSenseRunTimeServiceApi2_0", "DeleteSession", {})
-  .n("LexRuntimeV2Client", "DeleteSessionCommand")
-  .sc(DeleteSession$)
-  .build() {
+export class DeleteSessionCommand extends command<DeleteSessionCommandInput, DeleteSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSession",
+  DeleteSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

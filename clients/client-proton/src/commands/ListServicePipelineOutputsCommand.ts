@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListServicePipelineOutputsInput, ListServicePipelineOutputsOutput } from "../models/models_0";
-import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 import { ListServicePipelineOutputs$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface ListServicePipelineOutputsCommandOutput extends ListServicePipe
  *
  * @public
  */
-export class ListServicePipelineOutputsCommand extends $Command
-  .classBuilder<
-    ListServicePipelineOutputsCommandInput,
-    ListServicePipelineOutputsCommandOutput,
-    ProtonClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsProton20200720", "ListServicePipelineOutputs", {})
-  .n("ProtonClient", "ListServicePipelineOutputsCommand")
-  .sc(ListServicePipelineOutputs$)
-  .build() {
+export class ListServicePipelineOutputsCommand extends command<ListServicePipelineOutputsCommandInput, ListServicePipelineOutputsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListServicePipelineOutputs",
+  ListServicePipelineOutputs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

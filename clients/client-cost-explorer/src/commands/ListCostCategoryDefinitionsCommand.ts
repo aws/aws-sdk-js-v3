@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCostCategoryDefinitionsRequest, ListCostCategoryDefinitionsResponse } from "../models/models_0";
 import { ListCostCategoryDefinitions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListCostCategoryDefinitions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface ListCostCategoryDefinitionsCommandOutput extends ListCostCatego
  *
  * @public
  */
-export class ListCostCategoryDefinitionsCommand extends $Command
-  .classBuilder<
-    ListCostCategoryDefinitionsCommandInput,
-    ListCostCategoryDefinitionsCommandOutput,
-    CostExplorerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSInsightsIndexService", "ListCostCategoryDefinitions", {})
-  .n("CostExplorerClient", "ListCostCategoryDefinitionsCommand")
-  .sc(ListCostCategoryDefinitions$)
-  .build() {
+export class ListCostCategoryDefinitionsCommand extends command<ListCostCategoryDefinitionsCommandInput, ListCostCategoryDefinitionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCostCategoryDefinitions",
+  ListCostCategoryDefinitions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

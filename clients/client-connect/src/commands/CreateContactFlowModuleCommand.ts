@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateContactFlowModuleRequest, CreateContactFlowModuleResponse } from "../models/models_0";
 import { CreateContactFlowModule$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateContactFlowModule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface CreateContactFlowModuleCommandOutput extends CreateContactFlowM
  *
  * @public
  */
-export class CreateContactFlowModuleCommand extends $Command
-  .classBuilder<
-    CreateContactFlowModuleCommandInput,
-    CreateContactFlowModuleCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "CreateContactFlowModule", {})
-  .n("ConnectClient", "CreateContactFlowModuleCommand")
-  .sc(CreateContactFlowModule$)
-  .build() {
+export class CreateContactFlowModuleCommand extends command<CreateContactFlowModuleCommandInput, CreateContactFlowModuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateContactFlowModule",
+  CreateContactFlowModule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

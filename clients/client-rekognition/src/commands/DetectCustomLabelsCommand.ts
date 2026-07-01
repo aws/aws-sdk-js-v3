@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DetectCustomLabelsRequest, DetectCustomLabelsResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { DetectCustomLabels$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -198,22 +194,12 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  *
  * @public
  */
-export class DetectCustomLabelsCommand extends $Command
-  .classBuilder<
-    DetectCustomLabelsCommandInput,
-    DetectCustomLabelsCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "DetectCustomLabels", {})
-  .n("RekognitionClient", "DetectCustomLabelsCommand")
-  .sc(DetectCustomLabels$)
-  .build() {
+export class DetectCustomLabelsCommand extends command<DetectCustomLabelsCommandInput, DetectCustomLabelsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DetectCustomLabels",
+  DetectCustomLabels$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

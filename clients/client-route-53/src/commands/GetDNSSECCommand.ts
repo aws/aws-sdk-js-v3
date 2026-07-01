@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDNSSECRequest, GetDNSSECResponse } from "../models/models_0";
-import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 import { GetDNSSEC$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,25 +88,12 @@ export interface GetDNSSECCommandOutput extends GetDNSSECResponse, __MetadataBea
  *
  * @public
  */
-export class GetDNSSECCommand extends $Command
-  .classBuilder<
-    GetDNSSECCommandInput,
-    GetDNSSECCommandOutput,
-    Route53ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getIdNormalizerPlugin(config),
-    ];
-  })
-  .s("AWSDnsV20130401", "GetDNSSEC", {})
-  .n("Route53Client", "GetDNSSECCommand")
-  .sc(GetDNSSEC$)
-  .build() {
+export class GetDNSSECCommand extends command<GetDNSSECCommandInput, GetDNSSECCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDNSSEC",
+  GetDNSSEC$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

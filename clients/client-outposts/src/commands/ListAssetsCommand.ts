@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAssetsInput, ListAssetsOutput } from "../models/models_0";
-import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import { ListAssets$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  *
  * @public
  */
-export class ListAssetsCommand extends $Command
-  .classBuilder<
-    ListAssetsCommandInput,
-    ListAssetsCommandOutput,
-    OutpostsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OutpostsOlafService", "ListAssets", {})
-  .n("OutpostsClient", "ListAssetsCommand")
-  .sc(ListAssets$)
-  .build() {
+export class ListAssetsCommand extends command<ListAssetsCommandInput, ListAssetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAssets",
+  ListAssets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

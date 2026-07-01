@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetInsightRequest, GetInsightResult } from "../models/models_0";
 import { GetInsight$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface GetInsightCommandOutput extends GetInsightResult, __MetadataBea
  *
  * @public
  */
-export class GetInsightCommand extends $Command
-  .classBuilder<
-    GetInsightCommandInput,
-    GetInsightCommandOutput,
-    XRayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSXRay", "GetInsight", {})
-  .n("XRayClient", "GetInsightCommand")
-  .sc(GetInsight$)
-  .build() {
+export class GetInsightCommand extends command<GetInsightCommandInput, GetInsightCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetInsight",
+  GetInsight$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

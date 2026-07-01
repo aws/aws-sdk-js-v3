@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDirectorySetupRequest, UpdateDirectorySetupResult } from "../models/models_0";
 import { UpdateDirectorySetup$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateDirectorySetup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface UpdateDirectorySetupCommandOutput extends UpdateDirectorySetupR
  *
  * @public
  */
-export class UpdateDirectorySetupCommand extends $Command
-  .classBuilder<
-    UpdateDirectorySetupCommandInput,
-    UpdateDirectorySetupCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "UpdateDirectorySetup", {})
-  .n("DirectoryServiceClient", "UpdateDirectorySetupCommand")
-  .sc(UpdateDirectorySetup$)
-  .build() {
+export class UpdateDirectorySetupCommand extends command<UpdateDirectorySetupCommandInput, UpdateDirectorySetupCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDirectorySetup",
+  UpdateDirectorySetup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

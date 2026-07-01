@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePlaceIndexRequest, UpdatePlaceIndexResponse } from "../models/models_0";
 import { UpdatePlaceIndex$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdatePlaceIndex$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface UpdatePlaceIndexCommandOutput extends UpdatePlaceIndexResponse,
  *
  * @public
  */
-export class UpdatePlaceIndexCommand extends $Command
-  .classBuilder<
-    UpdatePlaceIndexCommandInput,
-    UpdatePlaceIndexCommandOutput,
-    LocationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LocationService", "UpdatePlaceIndex", {})
-  .n("LocationClient", "UpdatePlaceIndexCommand")
-  .sc(UpdatePlaceIndex$)
-  .build() {
+export class UpdatePlaceIndexCommand extends command<UpdatePlaceIndexCommandInput, UpdatePlaceIndexCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePlaceIndex",
+  UpdatePlaceIndex$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

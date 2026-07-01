@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSamplingRuleRequest, DeleteSamplingRuleResult } from "../models/models_0";
 import { DeleteSamplingRule$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface DeleteSamplingRuleCommandOutput extends DeleteSamplingRuleResul
  *
  * @public
  */
-export class DeleteSamplingRuleCommand extends $Command
-  .classBuilder<
-    DeleteSamplingRuleCommandInput,
-    DeleteSamplingRuleCommandOutput,
-    XRayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSXRay", "DeleteSamplingRule", {})
-  .n("XRayClient", "DeleteSamplingRuleCommand")
-  .sc(DeleteSamplingRule$)
-  .build() {
+export class DeleteSamplingRuleCommand extends command<DeleteSamplingRuleCommandInput, DeleteSamplingRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSamplingRule",
+  DeleteSamplingRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

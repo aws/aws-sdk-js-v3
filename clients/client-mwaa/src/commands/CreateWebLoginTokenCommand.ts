@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateWebLoginTokenRequest, CreateWebLoginTokenResponse } from "../models/models_0";
-import type { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
 import { CreateWebLoginToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface CreateWebLoginTokenCommandOutput extends CreateWebLoginTokenRes
  *
  * @public
  */
-export class CreateWebLoginTokenCommand extends $Command
-  .classBuilder<
-    CreateWebLoginTokenCommandInput,
-    CreateWebLoginTokenCommandOutput,
-    MWAAClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MWAAClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMWAA", "CreateWebLoginToken", {})
-  .n("MWAAClient", "CreateWebLoginTokenCommand")
-  .sc(CreateWebLoginToken$)
-  .build() {
+export class CreateWebLoginTokenCommand extends command<CreateWebLoginTokenCommandInput, CreateWebLoginTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateWebLoginToken",
+  CreateWebLoginToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

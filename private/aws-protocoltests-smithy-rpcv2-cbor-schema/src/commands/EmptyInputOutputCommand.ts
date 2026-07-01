@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EmptyStructure } from "../models/models_0";
-import type { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RpcV2ProtocolClient";
 import { EmptyInputOutput$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -55,22 +51,12 @@ export interface EmptyInputOutputCommandOutput extends EmptyStructure, __Metadat
  *
  *
  */
-export class EmptyInputOutputCommand extends $Command
-  .classBuilder<
-    EmptyInputOutputCommandInput,
-    EmptyInputOutputCommandOutput,
-    RpcV2ProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RpcV2ProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RpcV2Protocol", "EmptyInputOutput", {})
-  .n("RpcV2ProtocolClient", "EmptyInputOutputCommand")
-  .sc(EmptyInputOutput$)
-  .build() {
+export class EmptyInputOutputCommand extends command<EmptyInputOutputCommandInput, EmptyInputOutputCommandOutput>(
+  _ep0,
+  _mw0,
+  "EmptyInputOutput",
+  EmptyInputOutput$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

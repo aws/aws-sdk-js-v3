@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDataGrantRequest, CreateDataGrantResponse } from "../models/models_0";
 import { CreateDataGrant$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateDataGrant$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface CreateDataGrantCommandOutput extends CreateDataGrantResponse, _
  *
  * @public
  */
-export class CreateDataGrantCommand extends $Command
-  .classBuilder<
-    CreateDataGrantCommandInput,
-    CreateDataGrantCommandOutput,
-    DataExchangeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataExchange", "CreateDataGrant", {})
-  .n("DataExchangeClient", "CreateDataGrantCommand")
-  .sc(CreateDataGrant$)
-  .build() {
+export class CreateDataGrantCommand extends command<CreateDataGrantCommandInput, CreateDataGrantCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDataGrant",
+  CreateDataGrant$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

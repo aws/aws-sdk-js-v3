@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateServiceSpecificCredentialRequest,
   CreateServiceSpecificCredentialResponse,
@@ -15,7 +12,6 @@ import { CreateServiceSpecificCredential$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface CreateServiceSpecificCredentialCommandOutput extends CreateServ
  *
  * @public
  */
-export class CreateServiceSpecificCredentialCommand extends $Command
-  .classBuilder<
-    CreateServiceSpecificCredentialCommandInput,
-    CreateServiceSpecificCredentialCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "CreateServiceSpecificCredential", {})
-  .n("IAMClient", "CreateServiceSpecificCredentialCommand")
-  .sc(CreateServiceSpecificCredential$)
-  .build() {
+export class CreateServiceSpecificCredentialCommand extends command<CreateServiceSpecificCredentialCommandInput, CreateServiceSpecificCredentialCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateServiceSpecificCredential",
+  CreateServiceSpecificCredential$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

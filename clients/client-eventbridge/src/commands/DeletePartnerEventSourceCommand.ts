@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePartnerEventSourceRequest } from "../models/models_0";
 import { DeletePartnerEventSource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeletePartnerEventSource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface DeletePartnerEventSourceCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class DeletePartnerEventSourceCommand extends $Command
-  .classBuilder<
-    DeletePartnerEventSourceCommandInput,
-    DeletePartnerEventSourceCommandOutput,
-    EventBridgeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSEvents", "DeletePartnerEventSource", {})
-  .n("EventBridgeClient", "DeletePartnerEventSourceCommand")
-  .sc(DeletePartnerEventSource$)
-  .build() {
+export class DeletePartnerEventSourceCommand extends command<DeletePartnerEventSourceCommandInput, DeletePartnerEventSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePartnerEventSource",
+  DeletePartnerEventSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

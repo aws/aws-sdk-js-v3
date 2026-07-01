@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEventInput, DeleteEventOutput } from "../models/models_0";
 import { DeleteEvent$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteEvent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface DeleteEventCommandOutput extends DeleteEventOutput, __MetadataB
  *
  * @public
  */
-export class DeleteEventCommand extends $Command
-  .classBuilder<
-    DeleteEventCommandInput,
-    DeleteEventCommandOutput,
-    BedrockAgentCoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCore", "DeleteEvent", {})
-  .n("BedrockAgentCoreClient", "DeleteEventCommand")
-  .sc(DeleteEvent$)
-  .build() {
+export class DeleteEventCommand extends command<DeleteEventCommandInput, DeleteEventCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEvent",
+  DeleteEvent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

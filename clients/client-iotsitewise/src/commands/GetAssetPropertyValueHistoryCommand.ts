@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAssetPropertyValueHistoryRequest, GetAssetPropertyValueHistoryResponse } from "../models/models_0";
 import { GetAssetPropertyValueHistory$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetAssetPropertyValueHistory$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface GetAssetPropertyValueHistoryCommandOutput extends GetAssetPrope
  *
  * @public
  */
-export class GetAssetPropertyValueHistoryCommand extends $Command
-  .classBuilder<
-    GetAssetPropertyValueHistoryCommandInput,
-    GetAssetPropertyValueHistoryCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "GetAssetPropertyValueHistory", {})
-  .n("IoTSiteWiseClient", "GetAssetPropertyValueHistoryCommand")
-  .sc(GetAssetPropertyValueHistory$)
-  .build() {
+export class GetAssetPropertyValueHistoryCommand extends command<GetAssetPropertyValueHistoryCommandInput, GetAssetPropertyValueHistoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAssetPropertyValueHistory",
+  GetAssetPropertyValueHistory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

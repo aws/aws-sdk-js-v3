@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UnregisterConnectorRequest, UnregisterConnectorResponse } from "../models/models_0";
 import { UnregisterConnector$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UnregisterConnector$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface UnregisterConnectorCommandOutput extends UnregisterConnectorRes
  *
  * @public
  */
-export class UnregisterConnectorCommand extends $Command
-  .classBuilder<
-    UnregisterConnectorCommandInput,
-    UnregisterConnectorCommandOutput,
-    AppflowClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SandstoneConfigurationServiceLambda", "UnregisterConnector", {})
-  .n("AppflowClient", "UnregisterConnectorCommand")
-  .sc(UnregisterConnector$)
-  .build() {
+export class UnregisterConnectorCommand extends command<UnregisterConnectorCommandInput, UnregisterConnectorCommandOutput>(
+  _ep0,
+  _mw0,
+  "UnregisterConnector",
+  UnregisterConnector$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteApplicationAccessScopeRequest } from "../models/models_0";
 import { DeleteApplicationAccessScope$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteApplicationAccessScopeCommandOutput extends __MetadataBea
  *
  * @public
  */
-export class DeleteApplicationAccessScopeCommand extends $Command
-  .classBuilder<
-    DeleteApplicationAccessScopeCommandInput,
-    DeleteApplicationAccessScopeCommandOutput,
-    SSOAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBExternalService", "DeleteApplicationAccessScope", {})
-  .n("SSOAdminClient", "DeleteApplicationAccessScopeCommand")
-  .sc(DeleteApplicationAccessScope$)
-  .build() {
+export class DeleteApplicationAccessScopeCommand extends command<DeleteApplicationAccessScopeCommandInput, DeleteApplicationAccessScopeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteApplicationAccessScope",
+  DeleteApplicationAccessScope$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

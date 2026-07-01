@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListResourcesInProtectionGroupRequest, ListResourcesInProtectionGroupResponse } from "../models/models_0";
 import { ListResourcesInProtectionGroup$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface ListResourcesInProtectionGroupCommandOutput extends ListResourc
  *
  * @public
  */
-export class ListResourcesInProtectionGroupCommand extends $Command
-  .classBuilder<
-    ListResourcesInProtectionGroupCommandInput,
-    ListResourcesInProtectionGroupCommandOutput,
-    ShieldClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShield_20160616", "ListResourcesInProtectionGroup", {})
-  .n("ShieldClient", "ListResourcesInProtectionGroupCommand")
-  .sc(ListResourcesInProtectionGroup$)
-  .build() {
+export class ListResourcesInProtectionGroupCommand extends command<ListResourcesInProtectionGroupCommandInput, ListResourcesInProtectionGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListResourcesInProtectionGroup",
+  ListResourcesInProtectionGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

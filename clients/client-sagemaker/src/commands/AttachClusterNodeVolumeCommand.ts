@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AttachClusterNodeVolumeRequest, AttachClusterNodeVolumeResponse } from "../models/models_0";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { AttachClusterNodeVolume$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface AttachClusterNodeVolumeCommandOutput extends AttachClusterNodeV
  *
  * @public
  */
-export class AttachClusterNodeVolumeCommand extends $Command
-  .classBuilder<
-    AttachClusterNodeVolumeCommandInput,
-    AttachClusterNodeVolumeCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "AttachClusterNodeVolume", {})
-  .n("SageMakerClient", "AttachClusterNodeVolumeCommand")
-  .sc(AttachClusterNodeVolume$)
-  .build() {
+export class AttachClusterNodeVolumeCommand extends command<AttachClusterNodeVolumeCommandInput, AttachClusterNodeVolumeCommandOutput>(
+  _ep0,
+  _mw0,
+  "AttachClusterNodeVolume",
+  AttachClusterNodeVolume$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEventTriggerRequest, GetEventTriggerResponse } from "../models/models_0";
 import { GetEventTrigger$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetEventTrigger$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +109,12 @@ export interface GetEventTriggerCommandOutput extends GetEventTriggerResponse, _
  *
  * @public
  */
-export class GetEventTriggerCommand extends $Command
-  .classBuilder<
-    GetEventTriggerCommandInput,
-    GetEventTriggerCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "GetEventTrigger", {})
-  .n("CustomerProfilesClient", "GetEventTriggerCommand")
-  .sc(GetEventTrigger$)
-  .build() {
+export class GetEventTriggerCommand extends command<GetEventTriggerCommandInput, GetEventTriggerCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEventTrigger",
+  GetEventTrigger$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

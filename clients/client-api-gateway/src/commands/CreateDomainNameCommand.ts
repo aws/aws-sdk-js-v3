@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDomainNameRequest, DomainName } from "../models/models_0";
 import { CreateDomainName$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateDomainName$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +136,12 @@ export interface CreateDomainNameCommandOutput extends DomainName, __MetadataBea
  *
  * @public
  */
-export class CreateDomainNameCommand extends $Command
-  .classBuilder<
-    CreateDomainNameCommandInput,
-    CreateDomainNameCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "CreateDomainName", {})
-  .n("APIGatewayClient", "CreateDomainNameCommand")
-  .sc(CreateDomainName$)
-  .build() {
+export class CreateDomainNameCommand extends command<CreateDomainNameCommandInput, CreateDomainNameCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDomainName",
+  CreateDomainName$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

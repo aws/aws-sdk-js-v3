@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListEngagementsRequest, ListEngagementsResponse } from "../models/models_0";
-import type {
-  PartnerCentralSellingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralSellingClient";
 import { ListEngagements$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +106,12 @@ export interface ListEngagementsCommandOutput extends ListEngagementsResponse, _
  *
  * @public
  */
-export class ListEngagementsCommand extends $Command
-  .classBuilder<
-    ListEngagementsCommandInput,
-    ListEngagementsCommandOutput,
-    PartnerCentralSellingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPartnerCentralSelling", "ListEngagements", {})
-  .n("PartnerCentralSellingClient", "ListEngagementsCommand")
-  .sc(ListEngagements$)
-  .build() {
+export class ListEngagementsCommand extends command<ListEngagementsCommandInput, ListEngagementsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEngagements",
+  ListEngagements$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

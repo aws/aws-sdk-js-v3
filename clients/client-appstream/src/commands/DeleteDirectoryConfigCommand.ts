@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDirectoryConfigRequest, DeleteDirectoryConfigResult } from "../models/models_0";
 import { DeleteDirectoryConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteDirectoryConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface DeleteDirectoryConfigCommandOutput extends DeleteDirectoryConfi
  *
  * @public
  */
-export class DeleteDirectoryConfigCommand extends $Command
-  .classBuilder<
-    DeleteDirectoryConfigCommandInput,
-    DeleteDirectoryConfigCommandOutput,
-    AppStreamClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PhotonAdminProxyService", "DeleteDirectoryConfig", {})
-  .n("AppStreamClient", "DeleteDirectoryConfigCommand")
-  .sc(DeleteDirectoryConfig$)
-  .build() {
+export class DeleteDirectoryConfigCommand extends command<DeleteDirectoryConfigCommandInput, DeleteDirectoryConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDirectoryConfig",
+  DeleteDirectoryConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

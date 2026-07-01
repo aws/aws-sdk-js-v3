@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TagGlobalResourceRequest } from "../models/models_1";
 import { TagGlobalResource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { TagGlobalResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface TagGlobalResourceCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class TagGlobalResourceCommand extends $Command
-  .classBuilder<
-    TagGlobalResourceCommandInput,
-    TagGlobalResourceCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "TagGlobalResource", {})
-  .n("MediaConnectClient", "TagGlobalResourceCommand")
-  .sc(TagGlobalResource$)
-  .build() {
+export class TagGlobalResourceCommand extends command<TagGlobalResourceCommandInput, TagGlobalResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "TagGlobalResource",
+  TagGlobalResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

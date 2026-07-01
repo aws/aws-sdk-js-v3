@@ -1,20 +1,14 @@
 // smithy-typescript generated code
-import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3/s3-control";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
-import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAccessGrantsRequest, ListAccessGrantsResult } from "../models/models_0";
-import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { ListAccessGrants$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,30 +86,12 @@ export interface ListAccessGrantsCommandOutput extends ListAccessGrantsResult, _
  *
  * @public
  */
-export class ListAccessGrantsCommand extends $Command
-  .classBuilder<
-    ListAccessGrantsCommandInput,
-    ListAccessGrantsCommandOutput,
-    S3ControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    RequiresAccountId: { type: "staticContextParams", value: true },
-    AccountId: { type: "contextParams", name: "AccountId" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getProcessArnablesPlugin(config),
-      getApplyMd5BodyChecksumPlugin(config),
-    ];
-  })
-  .s("AWSS3ControlServiceV20180820", "ListAccessGrants", {})
-  .n("S3ControlClient", "ListAccessGrantsCommand")
-  .sc(ListAccessGrants$)
-  .build() {
+export class ListAccessGrantsCommand extends command<ListAccessGrantsCommandInput, ListAccessGrantsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAccessGrants",
+  ListAccessGrants$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

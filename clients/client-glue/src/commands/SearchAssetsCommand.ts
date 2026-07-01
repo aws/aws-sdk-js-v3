@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchAssetsOutput } from "../models/models_2";
 import type { SearchAssetsInput } from "../models/models_3";
 import { SearchAssets$ } from "../schemas/schemas_0";
@@ -13,7 +10,6 @@ import { SearchAssets$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +128,12 @@ export interface SearchAssetsCommandOutput extends SearchAssetsOutput, __Metadat
  *
  * @public
  */
-export class SearchAssetsCommand extends $Command
-  .classBuilder<
-    SearchAssetsCommandInput,
-    SearchAssetsCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "SearchAssets", {})
-  .n("GlueClient", "SearchAssetsCommand")
-  .sc(SearchAssets$)
-  .build() {
+export class SearchAssetsCommand extends command<SearchAssetsCommandInput, SearchAssetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchAssets",
+  SearchAssets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListBotsRequest, ListBotsResponse } from "../models/models_0";
 import { ListBots$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -177,22 +173,12 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  *
  * @public
  */
-export class ListBotsCommand extends $Command
-  .classBuilder<
-    ListBotsCommandInput,
-    ListBotsCommandOutput,
-    WickrClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WickrAdminApi", "ListBots", {})
-  .n("WickrClient", "ListBotsCommand")
-  .sc(ListBots$)
-  .build() {
+export class ListBotsCommand extends command<ListBotsCommandInput, ListBotsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBots",
+  ListBots$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

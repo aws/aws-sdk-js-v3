@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTriggersRequest, ListTriggersResponse } from "../models/models_0";
 import { ListTriggers$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListTriggers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface ListTriggersCommandOutput extends ListTriggersResponse, __Metad
  *
  * @public
  */
-export class ListTriggersCommand extends $Command
-  .classBuilder<
-    ListTriggersCommandInput,
-    ListTriggersCommandOutput,
-    DevOpsAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DevOpsAgent", "ListTriggers", {})
-  .n("DevOpsAgentClient", "ListTriggersCommand")
-  .sc(ListTriggers$)
-  .build() {
+export class ListTriggersCommand extends command<ListTriggersCommandInput, ListTriggersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTriggers",
+  ListTriggers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

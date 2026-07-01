@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DynamoDBStreamsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DynamoDBStreamsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetShardIteratorInput, GetShardIteratorOutput } from "../models/models_0";
 import { GetShardIterator$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetShardIterator$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +104,12 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  *
  * @public
  */
-export class GetShardIteratorCommand extends $Command
-  .classBuilder<
-    GetShardIteratorCommandInput,
-    GetShardIteratorCommandOutput,
-    DynamoDBStreamsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBStreamsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDBStreams_20120810", "GetShardIterator", {})
-  .n("DynamoDBStreamsClient", "GetShardIteratorCommand")
-  .sc(GetShardIterator$)
-  .build() {
+export class GetShardIteratorCommand extends command<GetShardIteratorCommandInput, GetShardIteratorCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetShardIterator",
+  GetShardIterator$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

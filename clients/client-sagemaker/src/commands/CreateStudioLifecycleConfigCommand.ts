@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateStudioLifecycleConfigRequest, CreateStudioLifecycleConfigResponse } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreateStudioLifecycleConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface CreateStudioLifecycleConfigCommandOutput extends CreateStudioLi
  *
  * @public
  */
-export class CreateStudioLifecycleConfigCommand extends $Command
-  .classBuilder<
-    CreateStudioLifecycleConfigCommandInput,
-    CreateStudioLifecycleConfigCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "CreateStudioLifecycleConfig", {})
-  .n("SageMakerClient", "CreateStudioLifecycleConfigCommand")
-  .sc(CreateStudioLifecycleConfig$)
-  .build() {
+export class CreateStudioLifecycleConfigCommand extends command<CreateStudioLifecycleConfigCommandInput, CreateStudioLifecycleConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateStudioLifecycleConfig",
+  CreateStudioLifecycleConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

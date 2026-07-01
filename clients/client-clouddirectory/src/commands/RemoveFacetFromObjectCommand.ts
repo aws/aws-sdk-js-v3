@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudDirectoryClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveFacetFromObjectRequest, RemoveFacetFromObjectResponse } from "../models/models_0";
 import { RemoveFacetFromObject$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { RemoveFacetFromObject$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +89,12 @@ export interface RemoveFacetFromObjectCommandOutput extends RemoveFacetFromObjec
  *
  * @public
  */
-export class RemoveFacetFromObjectCommand extends $Command
-  .classBuilder<
-    RemoveFacetFromObjectCommandInput,
-    RemoveFacetFromObjectCommandOutput,
-    CloudDirectoryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonCloudDirectory_20170111", "RemoveFacetFromObject", {})
-  .n("CloudDirectoryClient", "RemoveFacetFromObjectCommand")
-  .sc(RemoveFacetFromObject$)
-  .build() {
+export class RemoveFacetFromObjectCommand extends command<RemoveFacetFromObjectCommandInput, RemoveFacetFromObjectCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveFacetFromObject",
+  RemoveFacetFromObject$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

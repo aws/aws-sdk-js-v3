@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDistributionConfigurationRequest, GetDistributionConfigurationResponse } from "../models/models_0";
 import { GetDistributionConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDistributionConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -169,22 +165,12 @@ export interface GetDistributionConfigurationCommandOutput extends GetDistributi
  *
  * @public
  */
-export class GetDistributionConfigurationCommand extends $Command
-  .classBuilder<
-    GetDistributionConfigurationCommandInput,
-    GetDistributionConfigurationCommandOutput,
-    ImagebuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("imagebuilder", "GetDistributionConfiguration", {})
-  .n("ImagebuilderClient", "GetDistributionConfigurationCommand")
-  .sc(GetDistributionConfiguration$)
-  .build() {
+export class GetDistributionConfigurationCommand extends command<GetDistributionConfigurationCommandInput, GetDistributionConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDistributionConfiguration",
+  GetDistributionConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

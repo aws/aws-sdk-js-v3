@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DetachDataSourceRequest, DetachDataSourceResponse } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { DetachDataSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface DetachDataSourceCommandOutput extends DetachDataSourceResponse,
  *
  * @public
  */
-export class DetachDataSourceCommand extends $Command
-  .classBuilder<
-    DetachDataSourceCommandInput,
-    DetachDataSourceCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "DetachDataSource", {})
-  .n("OpenSearchClient", "DetachDataSourceCommand")
-  .sc(DetachDataSource$)
-  .build() {
+export class DetachDataSourceCommand extends command<DetachDataSourceCommandInput, DetachDataSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DetachDataSource",
+  DetachDataSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

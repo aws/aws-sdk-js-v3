@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteConnectorDestinationRequest } from "../models/models_0";
 import { DeleteConnectorDestination$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteConnectorDestination$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +68,12 @@ export interface DeleteConnectorDestinationCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class DeleteConnectorDestinationCommand extends $Command
-  .classBuilder<
-    DeleteConnectorDestinationCommandInput,
-    DeleteConnectorDestinationCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "DeleteConnectorDestination", {})
-  .n("IoTManagedIntegrationsClient", "DeleteConnectorDestinationCommand")
-  .sc(DeleteConnectorDestination$)
-  .build() {
+export class DeleteConnectorDestinationCommand extends command<DeleteConnectorDestinationCommandInput, DeleteConnectorDestinationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteConnectorDestination",
+  DeleteConnectorDestination$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

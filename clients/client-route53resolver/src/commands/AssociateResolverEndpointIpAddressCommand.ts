@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AssociateResolverEndpointIpAddressRequest,
   AssociateResolverEndpointIpAddressResponse,
 } from "../models/models_0";
-import type {
-  Route53ResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ResolverClient";
 import { AssociateResolverEndpointIpAddress$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +114,12 @@ export interface AssociateResolverEndpointIpAddressCommandOutput extends Associa
  *
  * @public
  */
-export class AssociateResolverEndpointIpAddressCommand extends $Command
-  .classBuilder<
-    AssociateResolverEndpointIpAddressCommandInput,
-    AssociateResolverEndpointIpAddressCommandOutput,
-    Route53ResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Resolver", "AssociateResolverEndpointIpAddress", {})
-  .n("Route53ResolverClient", "AssociateResolverEndpointIpAddressCommand")
-  .sc(AssociateResolverEndpointIpAddress$)
-  .build() {
+export class AssociateResolverEndpointIpAddressCommand extends command<AssociateResolverEndpointIpAddressCommandInput, AssociateResolverEndpointIpAddressCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateResolverEndpointIpAddress",
+  AssociateResolverEndpointIpAddress$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

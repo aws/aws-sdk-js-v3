@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListXssMatchSetsRequest, ListXssMatchSetsResponse } from "../models/models_0";
 import { ListXssMatchSets$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface ListXssMatchSetsCommandOutput extends ListXssMatchSetsResponse,
  *
  * @public
  */
-export class ListXssMatchSetsCommand extends $Command
-  .classBuilder<
-    ListXssMatchSetsCommandInput,
-    ListXssMatchSetsCommandOutput,
-    WAFRegionalClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_Regional_20161128", "ListXssMatchSets", {})
-  .n("WAFRegionalClient", "ListXssMatchSetsCommand")
-  .sc(ListXssMatchSets$)
-  .build() {
+export class ListXssMatchSetsCommand extends command<ListXssMatchSetsCommandInput, ListXssMatchSetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListXssMatchSets",
+  ListXssMatchSets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

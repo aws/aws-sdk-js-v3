@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeConnectionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeConnectionsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateSyncConfigurationInput, UpdateSyncConfigurationOutput } from "../models/models_0";
 import { UpdateSyncConfiguration$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateSyncConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +97,12 @@ export interface UpdateSyncConfigurationCommandOutput extends UpdateSyncConfigur
  *
  * @public
  */
-export class UpdateSyncConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateSyncConfigurationCommandInput,
-    UpdateSyncConfigurationCommandOutput,
-    CodeConnectionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeConnectionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeConnections_20231201", "UpdateSyncConfiguration", {})
-  .n("CodeConnectionsClient", "UpdateSyncConfigurationCommand")
-  .sc(UpdateSyncConfiguration$)
-  .build() {
+export class UpdateSyncConfigurationCommand extends command<UpdateSyncConfigurationCommandInput, UpdateSyncConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSyncConfiguration",
+  UpdateSyncConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

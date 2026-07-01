@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetLinkInput, GetLinkOutput } from "../models/models_0";
-import type { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
 import { GetLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
  *
  * @public
  */
-export class GetLinkCommand extends $Command
-  .classBuilder<
-    GetLinkCommandInput,
-    GetLinkCommandOutput,
-    OAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("oamservice", "GetLink", {})
-  .n("OAMClient", "GetLinkCommand")
-  .sc(GetLink$)
-  .build() {
+export class GetLinkCommand extends command<GetLinkCommandInput, GetLinkCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetLink",
+  GetLink$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

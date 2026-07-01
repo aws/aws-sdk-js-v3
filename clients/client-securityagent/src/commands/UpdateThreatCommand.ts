@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateThreatInput, UpdateThreatOutput } from "../models/models_0";
 import { UpdateThreat$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface UpdateThreatCommandOutput extends UpdateThreatOutput, __Metadat
  *
  * @public
  */
-export class UpdateThreatCommand extends $Command
-  .classBuilder<
-    UpdateThreatCommandInput,
-    UpdateThreatCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "UpdateThreat", {})
-  .n("SecurityAgentClient", "UpdateThreatCommand")
-  .sc(UpdateThreat$)
-  .build() {
+export class UpdateThreatCommand extends command<UpdateThreatCommandInput, UpdateThreatCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateThreat",
+  UpdateThreat$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

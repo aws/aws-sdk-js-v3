@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListMonitoredResourcesRequest, ListMonitoredResourcesResponse } from "../models/models_0";
 import { ListMonitoredResources$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListMonitoredResources$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface ListMonitoredResourcesCommandOutput extends ListMonitoredResour
  *
  * @public
  */
-export class ListMonitoredResourcesCommand extends $Command
-  .classBuilder<
-    ListMonitoredResourcesCommandInput,
-    ListMonitoredResourcesCommandOutput,
-    DevOpsGuruClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CapstoneControlPlaneService", "ListMonitoredResources", {})
-  .n("DevOpsGuruClient", "ListMonitoredResourcesCommand")
-  .sc(ListMonitoredResources$)
-  .build() {
+export class ListMonitoredResourcesCommand extends command<ListMonitoredResourcesCommandInput, ListMonitoredResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMonitoredResources",
+  ListMonitoredResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

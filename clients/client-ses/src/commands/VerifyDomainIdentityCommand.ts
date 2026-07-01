@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { VerifyDomainIdentityRequest, VerifyDomainIdentityResponse } from "../models/models_0";
 import { VerifyDomainIdentity$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface VerifyDomainIdentityCommandOutput extends VerifyDomainIdentityR
  *
  * @public
  */
-export class VerifyDomainIdentityCommand extends $Command
-  .classBuilder<
-    VerifyDomainIdentityCommandInput,
-    VerifyDomainIdentityCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "VerifyDomainIdentity", {})
-  .n("SESClient", "VerifyDomainIdentityCommand")
-  .sc(VerifyDomainIdentity$)
-  .build() {
+export class VerifyDomainIdentityCommand extends command<VerifyDomainIdentityCommandInput, VerifyDomainIdentityCommandOutput>(
+  _ep0,
+  _mw0,
+  "VerifyDomainIdentity",
+  VerifyDomainIdentity$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

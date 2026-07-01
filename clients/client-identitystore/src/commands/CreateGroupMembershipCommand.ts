@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateGroupMembershipRequest, CreateGroupMembershipResponse } from "../models/models_0";
 import { CreateGroupMembership$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateGroupMembership$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface CreateGroupMembershipCommandOutput extends CreateGroupMembershi
  *
  * @public
  */
-export class CreateGroupMembershipCommand extends $Command
-  .classBuilder<
-    CreateGroupMembershipCommandInput,
-    CreateGroupMembershipCommandOutput,
-    IdentitystoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IdentitystoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityStore", "CreateGroupMembership", {})
-  .n("IdentitystoreClient", "CreateGroupMembershipCommand")
-  .sc(CreateGroupMembership$)
-  .build() {
+export class CreateGroupMembershipCommand extends command<CreateGroupMembershipCommandInput, CreateGroupMembershipCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateGroupMembership",
+  CreateGroupMembership$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RespondActivityTaskFailedInput } from "../models/models_0";
 import { RespondActivityTaskFailed$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface RespondActivityTaskFailedCommandOutput extends __MetadataBearer
  *
  * @public
  */
-export class RespondActivityTaskFailedCommand extends $Command
-  .classBuilder<
-    RespondActivityTaskFailedCommandInput,
-    RespondActivityTaskFailedCommandOutput,
-    SWFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleWorkflowService", "RespondActivityTaskFailed", {})
-  .n("SWFClient", "RespondActivityTaskFailedCommand")
-  .sc(RespondActivityTaskFailed$)
-  .build() {
+export class RespondActivityTaskFailedCommand extends command<RespondActivityTaskFailedCommandInput, RespondActivityTaskFailedCommandOutput>(
+  _ep0,
+  _mw0,
+  "RespondActivityTaskFailed",
+  RespondActivityTaskFailed$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

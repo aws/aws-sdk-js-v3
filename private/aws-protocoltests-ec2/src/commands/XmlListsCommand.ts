@@ -13,7 +13,6 @@ import { de_XmlListsCommand, se_XmlListsCommand } from "../protocols/Aws_ec2";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

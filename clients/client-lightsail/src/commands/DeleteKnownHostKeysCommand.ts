@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteKnownHostKeysRequest, DeleteKnownHostKeysResult } from "../models/models_0";
 import { DeleteKnownHostKeys$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteKnownHostKeys$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +115,12 @@ export interface DeleteKnownHostKeysCommandOutput extends DeleteKnownHostKeysRes
  *
  * @public
  */
-export class DeleteKnownHostKeysCommand extends $Command
-  .classBuilder<
-    DeleteKnownHostKeysCommandInput,
-    DeleteKnownHostKeysCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "DeleteKnownHostKeys", {})
-  .n("LightsailClient", "DeleteKnownHostKeysCommand")
-  .sc(DeleteKnownHostKeys$)
-  .build() {
+export class DeleteKnownHostKeysCommand extends command<DeleteKnownHostKeysCommandInput, DeleteKnownHostKeysCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteKnownHostKeys",
+  DeleteKnownHostKeys$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

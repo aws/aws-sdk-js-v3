@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { FinalizeCutoverRequest, SourceServer } from "../models/models_0";
 import { FinalizeCutover$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { FinalizeCutover$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -198,22 +194,12 @@ export interface FinalizeCutoverCommandOutput extends SourceServer, __MetadataBe
  *
  * @public
  */
-export class FinalizeCutoverCommand extends $Command
-  .classBuilder<
-    FinalizeCutoverCommandInput,
-    FinalizeCutoverCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "FinalizeCutover", {})
-  .n("MgnClient", "FinalizeCutoverCommand")
-  .sc(FinalizeCutover$)
-  .build() {
+export class FinalizeCutoverCommand extends command<FinalizeCutoverCommandInput, FinalizeCutoverCommandOutput>(
+  _ep0,
+  _mw0,
+  "FinalizeCutover",
+  FinalizeCutover$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

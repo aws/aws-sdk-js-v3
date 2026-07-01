@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutResourceConfigRequest } from "../models/models_0";
 import { PutResourceConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutResourceConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -145,22 +141,12 @@ export interface PutResourceConfigCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutResourceConfigCommand extends $Command
-  .classBuilder<
-    PutResourceConfigCommandInput,
-    PutResourceConfigCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "PutResourceConfig", {})
-  .n("ConfigServiceClient", "PutResourceConfigCommand")
-  .sc(PutResourceConfig$)
-  .build() {
+export class PutResourceConfigCommand extends command<PutResourceConfigCommandInput, PutResourceConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutResourceConfig",
+  PutResourceConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

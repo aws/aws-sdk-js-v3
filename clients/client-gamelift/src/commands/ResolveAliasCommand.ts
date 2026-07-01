@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ResolveAliasInput, ResolveAliasOutput } from "../models/models_0";
 import { ResolveAlias$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ResolveAlias$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __Metadat
  *
  * @public
  */
-export class ResolveAliasCommand extends $Command
-  .classBuilder<
-    ResolveAliasCommandInput,
-    ResolveAliasCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "ResolveAlias", {})
-  .n("GameLiftClient", "ResolveAliasCommand")
-  .sc(ResolveAlias$)
-  .build() {
+export class ResolveAliasCommand extends command<ResolveAliasCommandInput, ResolveAliasCommandOutput>(
+  _ep0,
+  _mw0,
+  "ResolveAlias",
+  ResolveAlias$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

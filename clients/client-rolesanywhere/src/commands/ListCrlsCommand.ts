@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCrlsResponse, ListRequest } from "../models/models_0";
-import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { ListCrls$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface ListCrlsCommandOutput extends ListCrlsResponse, __MetadataBeare
  *
  * @public
  */
-export class ListCrlsCommand extends $Command
-  .classBuilder<
-    ListCrlsCommandInput,
-    ListCrlsCommandOutput,
-    RolesAnywhereClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RolesAnywhereClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RolesAnywhere", "ListCrls", {})
-  .n("RolesAnywhereClient", "ListCrlsCommand")
-  .sc(ListCrls$)
-  .build() {
+export class ListCrlsCommand extends command<ListCrlsCommandInput, ListCrlsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCrls",
+  ListCrls$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

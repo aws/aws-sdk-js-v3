@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRateBasedRuleRequest, CreateRateBasedRuleResponse } from "../models/models_0";
 import { CreateRateBasedRule$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -239,22 +235,12 @@ export interface CreateRateBasedRuleCommandOutput extends CreateRateBasedRuleRes
  *
  * @public
  */
-export class CreateRateBasedRuleCommand extends $Command
-  .classBuilder<
-    CreateRateBasedRuleCommandInput,
-    CreateRateBasedRuleCommandOutput,
-    WAFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20150824", "CreateRateBasedRule", {})
-  .n("WAFClient", "CreateRateBasedRuleCommand")
-  .sc(CreateRateBasedRule$)
-  .build() {
+export class CreateRateBasedRuleCommand extends command<CreateRateBasedRuleCommandInput, CreateRateBasedRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRateBasedRule",
+  CreateRateBasedRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

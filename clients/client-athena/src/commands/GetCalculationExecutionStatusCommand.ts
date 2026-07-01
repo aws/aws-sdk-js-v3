@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCalculationExecutionStatusRequest, GetCalculationExecutionStatusResponse } from "../models/models_0";
 import { GetCalculationExecutionStatus$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetCalculationExecutionStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface GetCalculationExecutionStatusCommandOutput extends GetCalculati
  *
  * @public
  */
-export class GetCalculationExecutionStatusCommand extends $Command
-  .classBuilder<
-    GetCalculationExecutionStatusCommandInput,
-    GetCalculationExecutionStatusCommandOutput,
-    AthenaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAthena", "GetCalculationExecutionStatus", {})
-  .n("AthenaClient", "GetCalculationExecutionStatusCommand")
-  .sc(GetCalculationExecutionStatus$)
-  .build() {
+export class GetCalculationExecutionStatusCommand extends command<GetCalculationExecutionStatusCommandInput, GetCalculationExecutionStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCalculationExecutionStatus",
+  GetCalculationExecutionStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerUserSubscriptionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerUserSubscriptionsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateIdentityProviderSettingsRequest, UpdateIdentityProviderSettingsResponse } from "../models/models_0";
 import { UpdateIdentityProviderSettings$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateIdentityProviderSettings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -149,22 +141,12 @@ export interface UpdateIdentityProviderSettingsCommandOutput extends UpdateIdent
  *
  * @public
  */
-export class UpdateIdentityProviderSettingsCommand extends $Command
-  .classBuilder<
-    UpdateIdentityProviderSettingsCommandInput,
-    UpdateIdentityProviderSettingsCommandOutput,
-    LicenseManagerUserSubscriptionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerUserSubscriptionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LicenseManagerUserSubscriptions", "UpdateIdentityProviderSettings", {})
-  .n("LicenseManagerUserSubscriptionsClient", "UpdateIdentityProviderSettingsCommand")
-  .sc(UpdateIdentityProviderSettings$)
-  .build() {
+export class UpdateIdentityProviderSettingsCommand extends command<UpdateIdentityProviderSettingsCommandInput, UpdateIdentityProviderSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateIdentityProviderSettings",
+  UpdateIdentityProviderSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

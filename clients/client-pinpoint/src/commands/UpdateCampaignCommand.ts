@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateCampaignRequest, UpdateCampaignResponse } from "../models/models_1";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { UpdateCampaign$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -852,22 +848,12 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *
  * @public
  */
-export class UpdateCampaignCommand extends $Command
-  .classBuilder<
-    UpdateCampaignCommandInput,
-    UpdateCampaignCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "UpdateCampaign", {})
-  .n("PinpointClient", "UpdateCampaignCommand")
-  .sc(UpdateCampaign$)
-  .build() {
+export class UpdateCampaignCommand extends command<UpdateCampaignCommandInput, UpdateCampaignCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateCampaign",
+  UpdateCampaign$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

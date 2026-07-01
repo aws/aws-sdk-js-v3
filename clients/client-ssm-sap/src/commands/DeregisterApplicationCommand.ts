@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeregisterApplicationInput, DeregisterApplicationOutput } from "../models/models_0";
 import { DeregisterApplication$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +62,12 @@ export interface DeregisterApplicationCommandOutput extends DeregisterApplicatio
  *
  * @public
  */
-export class DeregisterApplicationCommand extends $Command
-  .classBuilder<
-    DeregisterApplicationCommandInput,
-    DeregisterApplicationCommandOutput,
-    SsmSapClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SsmSapClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SsmSap", "DeregisterApplication", {})
-  .n("SsmSapClient", "DeregisterApplicationCommand")
-  .sc(DeregisterApplication$)
-  .build() {
+export class DeregisterApplicationCommand extends command<DeregisterApplicationCommandInput, DeregisterApplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeregisterApplication",
+  DeregisterApplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

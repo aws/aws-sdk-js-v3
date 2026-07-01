@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   RevokePipelineEndpointConnectionsRequest,
   RevokePipelineEndpointConnectionsResponse,
 } from "../models/models_0";
-import type { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
 import { RevokePipelineEndpointConnections$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface RevokePipelineEndpointConnectionsCommandOutput extends RevokePi
  *
  * @public
  */
-export class RevokePipelineEndpointConnectionsCommand extends $Command
-  .classBuilder<
-    RevokePipelineEndpointConnectionsCommandInput,
-    RevokePipelineEndpointConnectionsCommandOutput,
-    OSISClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OSISClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchIngestionService", "RevokePipelineEndpointConnections", {})
-  .n("OSISClient", "RevokePipelineEndpointConnectionsCommand")
-  .sc(RevokePipelineEndpointConnections$)
-  .build() {
+export class RevokePipelineEndpointConnectionsCommand extends command<RevokePipelineEndpointConnectionsCommandInput, RevokePipelineEndpointConnectionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "RevokePipelineEndpointConnections",
+  RevokePipelineEndpointConnections$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

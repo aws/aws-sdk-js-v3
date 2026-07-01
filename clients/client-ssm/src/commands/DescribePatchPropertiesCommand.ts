@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribePatchPropertiesRequest, DescribePatchPropertiesResult } from "../models/models_0";
 import { DescribePatchProperties$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +136,12 @@ export interface DescribePatchPropertiesCommandOutput extends DescribePatchPrope
  *
  * @public
  */
-export class DescribePatchPropertiesCommand extends $Command
-  .classBuilder<
-    DescribePatchPropertiesCommandInput,
-    DescribePatchPropertiesCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "DescribePatchProperties", {})
-  .n("SSMClient", "DescribePatchPropertiesCommand")
-  .sc(DescribePatchProperties$)
-  .build() {
+export class DescribePatchPropertiesCommand extends command<DescribePatchPropertiesCommandInput, DescribePatchPropertiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribePatchProperties",
+  DescribePatchProperties$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

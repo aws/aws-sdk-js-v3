@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeGuruReviewerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeGuruReviewerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateRepositoryRequest, AssociateRepositoryResponse } from "../models/models_0";
 import { AssociateRepository$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AssociateRepository$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -150,22 +142,12 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
  *
  * @public
  */
-export class AssociateRepositoryCommand extends $Command
-  .classBuilder<
-    AssociateRepositoryCommandInput,
-    AssociateRepositoryCommandOutput,
-    CodeGuruReviewerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeGuruReviewerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGuruFrontendService", "AssociateRepository", {})
-  .n("CodeGuruReviewerClient", "AssociateRepositoryCommand")
-  .sc(AssociateRepository$)
-  .build() {
+export class AssociateRepositoryCommand extends command<AssociateRepositoryCommandInput, AssociateRepositoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateRepository",
+  AssociateRepository$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

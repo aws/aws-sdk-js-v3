@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopDataSourceSyncJobRequest } from "../models/models_0";
 import { StopDataSourceSyncJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopDataSourceSyncJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface StopDataSourceSyncJobCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class StopDataSourceSyncJobCommand extends $Command
-  .classBuilder<
-    StopDataSourceSyncJobCommandInput,
-    StopDataSourceSyncJobCommandOutput,
-    KendraClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSKendraFrontendService", "StopDataSourceSyncJob", {})
-  .n("KendraClient", "StopDataSourceSyncJobCommand")
-  .sc(StopDataSourceSyncJob$)
-  .build() {
+export class StopDataSourceSyncJobCommand extends command<StopDataSourceSyncJobCommandInput, StopDataSourceSyncJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopDataSourceSyncJob",
+  StopDataSourceSyncJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

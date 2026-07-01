@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAccountRequest, DescribeAccountResponse } from "../models/models_0";
-import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { DescribeAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -267,22 +263,12 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  *
  * @public
  */
-export class DescribeAccountCommand extends $Command
-  .classBuilder<
-    DescribeAccountCommandInput,
-    DescribeAccountCommandOutput,
-    OrganizationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrganizationsV20161128", "DescribeAccount", {})
-  .n("OrganizationsClient", "DescribeAccountCommand")
-  .sc(DescribeAccount$)
-  .build() {
+export class DescribeAccountCommand extends command<DescribeAccountCommandInput, DescribeAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAccount",
+  DescribeAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

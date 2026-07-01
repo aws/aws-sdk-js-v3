@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCloudFormationTemplateRequest, CreateCloudFormationTemplateResponse } from "../models/models_0";
 import { CreateCloudFormationTemplate$ } from "../schemas/schemas_0";
-import type {
-  ServerlessApplicationRepositoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServerlessApplicationRepositoryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface CreateCloudFormationTemplateCommandOutput extends CreateCloudFo
  *
  * @public
  */
-export class CreateCloudFormationTemplateCommand extends $Command
-  .classBuilder<
-    CreateCloudFormationTemplateCommandInput,
-    CreateCloudFormationTemplateCommandOutput,
-    ServerlessApplicationRepositoryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServerlessApplicationRepositoryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ServerlessApplicationRepository", "CreateCloudFormationTemplate", {})
-  .n("ServerlessApplicationRepositoryClient", "CreateCloudFormationTemplateCommand")
-  .sc(CreateCloudFormationTemplate$)
-  .build() {
+export class CreateCloudFormationTemplateCommand extends command<CreateCloudFormationTemplateCommandInput, CreateCloudFormationTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCloudFormationTemplate",
+  CreateCloudFormationTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateGatewaySoftwareNowInput, UpdateGatewaySoftwareNowOutput } from "../models/models_0";
 import { UpdateGatewaySoftwareNow$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  *
  * @public
  */
-export class UpdateGatewaySoftwareNowCommand extends $Command
-  .classBuilder<
-    UpdateGatewaySoftwareNowCommandInput,
-    UpdateGatewaySoftwareNowCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "UpdateGatewaySoftwareNow", {})
-  .n("StorageGatewayClient", "UpdateGatewaySoftwareNowCommand")
-  .sc(UpdateGatewaySoftwareNow$)
-  .build() {
+export class UpdateGatewaySoftwareNowCommand extends command<UpdateGatewaySoftwareNowCommandInput, UpdateGatewaySoftwareNowCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateGatewaySoftwareNow",
+  UpdateGatewaySoftwareNow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

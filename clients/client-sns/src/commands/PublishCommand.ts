@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PublishInput, PublishResponse } from "../models/models_0";
 import { Publish$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -146,22 +142,12 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  *
  * @public
  */
-export class PublishCommand extends $Command
-  .classBuilder<
-    PublishCommandInput,
-    PublishCommandOutput,
-    SNSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSimpleNotificationService", "Publish", {})
-  .n("SNSClient", "PublishCommand")
-  .sc(Publish$)
-  .build() {
+export class PublishCommand extends command<PublishCommandInput, PublishCommandOutput>(
+  _ep0,
+  _mw0,
+  "Publish",
+  Publish$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

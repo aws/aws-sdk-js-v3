@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSecretsRequest, ListSecretsResponse } from "../models/models_0";
 import { ListSecrets$ } from "../schemas/schemas_0";
-import type {
-  SecretsManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SecretsManagerClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -197,22 +189,12 @@ export interface ListSecretsCommandOutput extends ListSecretsResponse, __Metadat
  *
  * @public
  */
-export class ListSecretsCommand extends $Command
-  .classBuilder<
-    ListSecretsCommandInput,
-    ListSecretsCommandOutput,
-    SecretsManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("secretsmanager", "ListSecrets", {})
-  .n("SecretsManagerClient", "ListSecretsCommand")
-  .sc(ListSecrets$)
-  .build() {
+export class ListSecretsCommand extends command<ListSecretsCommandInput, ListSecretsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSecrets",
+  ListSecrets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

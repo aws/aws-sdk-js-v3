@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateQAppPermissionsInput, UpdateQAppPermissionsOutput } from "../models/models_0";
-import type { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
 import { UpdateQAppPermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -172,22 +168,12 @@ export interface UpdateQAppPermissionsCommandOutput extends UpdateQAppPermission
  *
  * @public
  */
-export class UpdateQAppPermissionsCommand extends $Command
-  .classBuilder<
-    UpdateQAppPermissionsCommandInput,
-    UpdateQAppPermissionsCommandOutput,
-    QAppsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QAppsService", "UpdateQAppPermissions", {})
-  .n("QAppsClient", "UpdateQAppPermissionsCommand")
-  .sc(UpdateQAppPermissions$)
-  .build() {
+export class UpdateQAppPermissionsCommand extends command<UpdateQAppPermissionsCommandInput, UpdateQAppPermissionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateQAppPermissions",
+  UpdateQAppPermissions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

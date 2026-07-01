@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPagesByContactRequest, ListPagesByContactResult } from "../models/models_0";
 import { ListPagesByContact$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ListPagesByContactCommandOutput extends ListPagesByContactResul
  *
  * @public
  */
-export class ListPagesByContactCommand extends $Command
-  .classBuilder<
-    ListPagesByContactCommandInput,
-    ListPagesByContactCommandOutput,
-    SSMContactsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMContacts", "ListPagesByContact", {})
-  .n("SSMContactsClient", "ListPagesByContactCommand")
-  .sc(ListPagesByContact$)
-  .build() {
+export class ListPagesByContactCommand extends command<ListPagesByContactCommandInput, ListPagesByContactCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPagesByContact",
+  ListPagesByContact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

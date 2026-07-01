@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartOutpostDecommissionInput, StartOutpostDecommissionOutput } from "../models/models_0";
-import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import { StartOutpostDecommission$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface StartOutpostDecommissionCommandOutput extends StartOutpostDecom
  *
  * @public
  */
-export class StartOutpostDecommissionCommand extends $Command
-  .classBuilder<
-    StartOutpostDecommissionCommandInput,
-    StartOutpostDecommissionCommandOutput,
-    OutpostsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OutpostsOlafService", "StartOutpostDecommission", {})
-  .n("OutpostsClient", "StartOutpostDecommissionCommand")
-  .sc(StartOutpostDecommission$)
-  .build() {
+export class StartOutpostDecommissionCommand extends command<StartOutpostDecommissionCommandInput, StartOutpostDecommissionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartOutpostDecommission",
+  StartOutpostDecommission$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

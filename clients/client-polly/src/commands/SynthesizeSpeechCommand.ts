@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SynthesizeSpeechInput, SynthesizeSpeechOutput } from "../models/models_0";
-import type { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
 import { SynthesizeSpeech$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -157,22 +153,12 @@ export interface SynthesizeSpeechCommandOutput extends Omit<SynthesizeSpeechOutp
  *
  * @public
  */
-export class SynthesizeSpeechCommand extends $Command
-  .classBuilder<
-    SynthesizeSpeechCommandInput,
-    SynthesizeSpeechCommandOutput,
-    PollyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PollyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Parrot_v1", "SynthesizeSpeech", {})
-  .n("PollyClient", "SynthesizeSpeechCommand")
-  .sc(SynthesizeSpeech$)
-  .build() {
+export class SynthesizeSpeechCommand extends command<SynthesizeSpeechCommandInput, SynthesizeSpeechCommandOutput>(
+  _ep0,
+  _mw0,
+  "SynthesizeSpeech",
+  SynthesizeSpeech$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

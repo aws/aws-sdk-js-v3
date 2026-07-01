@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAliasInput, UpdateAliasOutput } from "../models/models_0";
-import type {
-  PaymentCryptographyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PaymentCryptographyClient";
 import { UpdateAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface UpdateAliasCommandOutput extends UpdateAliasOutput, __MetadataB
  *
  * @public
  */
-export class UpdateAliasCommand extends $Command
-  .classBuilder<
-    UpdateAliasCommandInput,
-    UpdateAliasCommandOutput,
-    PaymentCryptographyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PaymentCryptographyControlPlane", "UpdateAlias", {})
-  .n("PaymentCryptographyClient", "UpdateAliasCommand")
-  .sc(UpdateAlias$)
-  .build() {
+export class UpdateAliasCommand extends command<UpdateAliasCommandInput, UpdateAliasCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAlias",
+  UpdateAlias$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

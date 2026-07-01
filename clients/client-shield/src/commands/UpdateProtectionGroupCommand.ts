@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateProtectionGroupRequest, UpdateProtectionGroupResponse } from "../models/models_0";
 import { UpdateProtectionGroup$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface UpdateProtectionGroupCommandOutput extends UpdateProtectionGrou
  *
  * @public
  */
-export class UpdateProtectionGroupCommand extends $Command
-  .classBuilder<
-    UpdateProtectionGroupCommandInput,
-    UpdateProtectionGroupCommandOutput,
-    ShieldClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShield_20160616", "UpdateProtectionGroup", {})
-  .n("ShieldClient", "UpdateProtectionGroupCommand")
-  .sc(UpdateProtectionGroup$)
-  .build() {
+export class UpdateProtectionGroupCommand extends command<UpdateProtectionGroupCommandInput, UpdateProtectionGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateProtectionGroup",
+  UpdateProtectionGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

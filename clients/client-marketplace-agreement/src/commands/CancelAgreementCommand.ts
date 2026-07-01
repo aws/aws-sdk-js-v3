@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceAgreementClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceAgreementClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelAgreementInput, CancelAgreementOutput } from "../models/models_0";
 import { CancelAgreement$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CancelAgreement$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface CancelAgreementCommandOutput extends CancelAgreementOutput, __M
  *
  * @public
  */
-export class CancelAgreementCommand extends $Command
-  .classBuilder<
-    CancelAgreementCommandInput,
-    CancelAgreementCommandOutput,
-    MarketplaceAgreementClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceAgreementClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMPCommerceService_v20200301", "CancelAgreement", {})
-  .n("MarketplaceAgreementClient", "CancelAgreementCommand")
-  .sc(CancelAgreement$)
-  .build() {
+export class CancelAgreementCommand extends command<CancelAgreementCommandInput, CancelAgreementCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelAgreement",
+  CancelAgreement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

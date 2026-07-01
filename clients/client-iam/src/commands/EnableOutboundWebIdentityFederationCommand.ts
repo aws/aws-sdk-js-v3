@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EnableOutboundWebIdentityFederationResponse } from "../models/models_0";
 import { EnableOutboundWebIdentityFederation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { EnableOutboundWebIdentityFederation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface EnableOutboundWebIdentityFederationCommandOutput extends Enable
  *
  * @public
  */
-export class EnableOutboundWebIdentityFederationCommand extends $Command
-  .classBuilder<
-    EnableOutboundWebIdentityFederationCommandInput,
-    EnableOutboundWebIdentityFederationCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "EnableOutboundWebIdentityFederation", {})
-  .n("IAMClient", "EnableOutboundWebIdentityFederationCommand")
-  .sc(EnableOutboundWebIdentityFederation$)
-  .build() {
+export class EnableOutboundWebIdentityFederationCommand extends command<EnableOutboundWebIdentityFederationCommandInput, EnableOutboundWebIdentityFederationCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableOutboundWebIdentityFederation",
+  EnableOutboundWebIdentityFederation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

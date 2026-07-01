@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListViewVersionsRequest, ListViewVersionsResponse } from "../models/models_2";
 import { ListViewVersions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListViewVersions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface ListViewVersionsCommandOutput extends ListViewVersionsResponse,
  *
  * @public
  */
-export class ListViewVersionsCommand extends $Command
-  .classBuilder<
-    ListViewVersionsCommandInput,
-    ListViewVersionsCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "ListViewVersions", {})
-  .n("ConnectClient", "ListViewVersionsCommand")
-  .sc(ListViewVersions$)
-  .build() {
+export class ListViewVersionsCommand extends command<ListViewVersionsCommandInput, ListViewVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListViewVersions",
+  ListViewVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

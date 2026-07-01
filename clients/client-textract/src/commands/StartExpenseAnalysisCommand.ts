@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartExpenseAnalysisRequest, StartExpenseAnalysisResponse } from "../models/models_0";
 import { StartExpenseAnalysis$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -146,22 +142,12 @@ export interface StartExpenseAnalysisCommandOutput extends StartExpenseAnalysisR
  *
  * @public
  */
-export class StartExpenseAnalysisCommand extends $Command
-  .classBuilder<
-    StartExpenseAnalysisCommandInput,
-    StartExpenseAnalysisCommandOutput,
-    TextractClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Textract", "StartExpenseAnalysis", {})
-  .n("TextractClient", "StartExpenseAnalysisCommand")
-  .sc(StartExpenseAnalysis$)
-  .build() {
+export class StartExpenseAnalysisCommand extends command<StartExpenseAnalysisCommandInput, StartExpenseAnalysisCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartExpenseAnalysis",
+  StartExpenseAnalysis$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

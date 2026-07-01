@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAccessTokenRequest, GetAccessTokenResponse } from "../models/models_0";
 import { GetAccessToken$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __M
  *
  * @public
  */
-export class GetAccessTokenCommand extends $Command
-  .classBuilder<
-    GetAccessTokenCommandInput,
-    GetAccessTokenCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "GetAccessToken", {})
-  .n("SSMClient", "GetAccessTokenCommand")
-  .sc(GetAccessToken$)
-  .build() {
+export class GetAccessTokenCommand extends command<GetAccessTokenCommandInput, GetAccessTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAccessToken",
+  GetAccessToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

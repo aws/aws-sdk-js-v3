@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListSlackWorkspaceConfigurationsRequest,
   ListSlackWorkspaceConfigurationsResult,
 } from "../models/models_0";
 import { ListSlackWorkspaceConfigurations$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface ListSlackWorkspaceConfigurationsCommandOutput extends ListSlack
  *
  * @public
  */
-export class ListSlackWorkspaceConfigurationsCommand extends $Command
-  .classBuilder<
-    ListSlackWorkspaceConfigurationsCommandInput,
-    ListSlackWorkspaceConfigurationsCommandOutput,
-    SupportAppClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupportAppClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SupportApp", "ListSlackWorkspaceConfigurations", {})
-  .n("SupportAppClient", "ListSlackWorkspaceConfigurationsCommand")
-  .sc(ListSlackWorkspaceConfigurations$)
-  .build() {
+export class ListSlackWorkspaceConfigurationsCommand extends command<ListSlackWorkspaceConfigurationsCommandInput, ListSlackWorkspaceConfigurationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSlackWorkspaceConfigurations",
+  ListSlackWorkspaceConfigurations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

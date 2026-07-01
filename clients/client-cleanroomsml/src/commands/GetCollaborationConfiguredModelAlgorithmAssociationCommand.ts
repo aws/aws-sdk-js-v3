@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetCollaborationConfiguredModelAlgorithmAssociationRequest,
   GetCollaborationConfiguredModelAlgorithmAssociationResponse,
@@ -15,7 +12,6 @@ import { GetCollaborationConfiguredModelAlgorithmAssociation$ } from "../schemas
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -149,22 +145,12 @@ export interface GetCollaborationConfiguredModelAlgorithmAssociationCommandOutpu
  *
  * @public
  */
-export class GetCollaborationConfiguredModelAlgorithmAssociationCommand extends $Command
-  .classBuilder<
-    GetCollaborationConfiguredModelAlgorithmAssociationCommandInput,
-    GetCollaborationConfiguredModelAlgorithmAssociationCommandOutput,
-    CleanRoomsMLClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStarkControlService", "GetCollaborationConfiguredModelAlgorithmAssociation", {})
-  .n("CleanRoomsMLClient", "GetCollaborationConfiguredModelAlgorithmAssociationCommand")
-  .sc(GetCollaborationConfiguredModelAlgorithmAssociation$)
-  .build() {
+export class GetCollaborationConfiguredModelAlgorithmAssociationCommand extends command<GetCollaborationConfiguredModelAlgorithmAssociationCommandInput, GetCollaborationConfiguredModelAlgorithmAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCollaborationConfiguredModelAlgorithmAssociation",
+  GetCollaborationConfiguredModelAlgorithmAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

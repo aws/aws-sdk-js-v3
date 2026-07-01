@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAppBlocksRequest, DescribeAppBlocksResult } from "../models/models_0";
 import { DescribeAppBlocks$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeAppBlocks$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface DescribeAppBlocksCommandOutput extends DescribeAppBlocksResult,
  *
  * @public
  */
-export class DescribeAppBlocksCommand extends $Command
-  .classBuilder<
-    DescribeAppBlocksCommandInput,
-    DescribeAppBlocksCommandOutput,
-    AppStreamClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PhotonAdminProxyService", "DescribeAppBlocks", {})
-  .n("AppStreamClient", "DescribeAppBlocksCommand")
-  .sc(DescribeAppBlocks$)
-  .build() {
+export class DescribeAppBlocksCommand extends command<DescribeAppBlocksCommandInput, DescribeAppBlocksCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAppBlocks",
+  DescribeAppBlocks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

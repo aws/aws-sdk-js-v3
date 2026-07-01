@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCatalogItemsInput, ListCatalogItemsOutput } from "../models/models_0";
-import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import { ListCatalogItems$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface ListCatalogItemsCommandOutput extends ListCatalogItemsOutput, _
  *
  * @public
  */
-export class ListCatalogItemsCommand extends $Command
-  .classBuilder<
-    ListCatalogItemsCommandInput,
-    ListCatalogItemsCommandOutput,
-    OutpostsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OutpostsOlafService", "ListCatalogItems", {})
-  .n("OutpostsClient", "ListCatalogItemsCommand")
-  .sc(ListCatalogItems$)
-  .build() {
+export class ListCatalogItemsCommand extends command<ListCatalogItemsCommandInput, ListCatalogItemsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCatalogItems",
+  ListCatalogItems$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

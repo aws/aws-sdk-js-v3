@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteImportedModelRequest, DeleteImportedModelResponse } from "../models/models_1";
 import { DeleteImportedModel$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteImportedModel$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteImportedModelCommandOutput extends DeleteImportedModelRes
  *
  * @public
  */
-export class DeleteImportedModelCommand extends $Command
-  .classBuilder<
-    DeleteImportedModelCommandInput,
-    DeleteImportedModelCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "DeleteImportedModel", {})
-  .n("BedrockClient", "DeleteImportedModelCommand")
-  .sc(DeleteImportedModel$)
-  .build() {
+export class DeleteImportedModelCommand extends command<DeleteImportedModelCommandInput, DeleteImportedModelCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteImportedModel",
+  DeleteImportedModel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

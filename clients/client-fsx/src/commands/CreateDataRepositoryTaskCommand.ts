@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDataRepositoryTaskRequest, CreateDataRepositoryTaskResponse } from "../models/models_0";
 import { CreateDataRepositoryTask$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateDataRepositoryTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -164,22 +160,12 @@ export interface CreateDataRepositoryTaskCommandOutput extends CreateDataReposit
  *
  * @public
  */
-export class CreateDataRepositoryTaskCommand extends $Command
-  .classBuilder<
-    CreateDataRepositoryTaskCommandInput,
-    CreateDataRepositoryTaskCommandOutput,
-    FSxClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSimbaAPIService_v20180301", "CreateDataRepositoryTask", {})
-  .n("FSxClient", "CreateDataRepositoryTaskCommand")
-  .sc(CreateDataRepositoryTask$)
-  .build() {
+export class CreateDataRepositoryTaskCommand extends command<CreateDataRepositoryTaskCommandInput, CreateDataRepositoryTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDataRepositoryTask",
+  CreateDataRepositoryTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

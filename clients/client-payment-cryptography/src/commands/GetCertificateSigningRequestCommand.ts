@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCertificateSigningRequestInput, GetCertificateSigningRequestOutput } from "../models/models_0";
-import type {
-  PaymentCryptographyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PaymentCryptographyClient";
 import { GetCertificateSigningRequest$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface GetCertificateSigningRequestCommandOutput extends GetCertificat
  *
  * @public
  */
-export class GetCertificateSigningRequestCommand extends $Command
-  .classBuilder<
-    GetCertificateSigningRequestCommandInput,
-    GetCertificateSigningRequestCommandOutput,
-    PaymentCryptographyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PaymentCryptographyControlPlane", "GetCertificateSigningRequest", {})
-  .n("PaymentCryptographyClient", "GetCertificateSigningRequestCommand")
-  .sc(GetCertificateSigningRequest$)
-  .build() {
+export class GetCertificateSigningRequestCommand extends command<GetCertificateSigningRequestCommandInput, GetCertificateSigningRequestCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCertificateSigningRequest",
+  GetCertificateSigningRequest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getLocationConstraintPlugin, getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep2, _mw2, command } from "../commandBuilder";
 import type { CreateBucketOutput, CreateBucketRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { CreateBucket$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -277,31 +272,12 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *
  * @public
  */
-export class CreateBucketCommand extends $Command
-  .classBuilder<
-    CreateBucketCommandInput,
-    CreateBucketCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
-    DisableAccessPoints: { type: "staticContextParams", value: true },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-      getLocationConstraintPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "CreateBucket", {})
-  .n("S3Client", "CreateBucketCommand")
-  .sc(CreateBucket$)
-  .build() {
+export class CreateBucketCommand extends command<CreateBucketCommandInput, CreateBucketCommandOutput>(
+  _ep2,
+  _mw2,
+  "CreateBucket",
+  CreateBucket$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

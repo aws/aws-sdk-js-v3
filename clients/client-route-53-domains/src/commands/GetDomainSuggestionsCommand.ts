@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDomainSuggestionsRequest, GetDomainSuggestionsResponse } from "../models/models_0";
-import type {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53DomainsClient";
 import { GetDomainSuggestions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface GetDomainSuggestionsCommandOutput extends GetDomainSuggestionsR
  *
  * @public
  */
-export class GetDomainSuggestionsCommand extends $Command
-  .classBuilder<
-    GetDomainSuggestionsCommandInput,
-    GetDomainSuggestionsCommandOutput,
-    Route53DomainsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Domains_v20140515", "GetDomainSuggestions", {})
-  .n("Route53DomainsClient", "GetDomainSuggestionsCommand")
-  .sc(GetDomainSuggestions$)
-  .build() {
+export class GetDomainSuggestionsCommand extends command<GetDomainSuggestionsCommandInput, GetDomainSuggestionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDomainSuggestions",
+  GetDomainSuggestions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

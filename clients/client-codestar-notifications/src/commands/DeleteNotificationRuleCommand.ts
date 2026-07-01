@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodestarNotificationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodestarNotificationsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteNotificationRuleRequest, DeleteNotificationRuleResult } from "../models/models_0";
 import { DeleteNotificationRule$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteNotificationRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +67,12 @@ export interface DeleteNotificationRuleCommandOutput extends DeleteNotificationR
  *
  * @public
  */
-export class DeleteNotificationRuleCommand extends $Command
-  .classBuilder<
-    DeleteNotificationRuleCommandInput,
-    DeleteNotificationRuleCommandOutput,
-    CodestarNotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodestarNotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeStarNotifications_20191015", "DeleteNotificationRule", {})
-  .n("CodestarNotificationsClient", "DeleteNotificationRuleCommand")
-  .sc(DeleteNotificationRule$)
-  .build() {
+export class DeleteNotificationRuleCommand extends command<DeleteNotificationRuleCommandInput, DeleteNotificationRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteNotificationRule",
+  DeleteNotificationRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

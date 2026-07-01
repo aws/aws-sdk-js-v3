@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisableApplicationLayerAutomaticResponseRequest,
   DisableApplicationLayerAutomaticResponseResponse,
 } from "../models/models_0";
 import { DisableApplicationLayerAutomaticResponse$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DisableApplicationLayerAutomaticResponseCommandOutput extends D
  *
  * @public
  */
-export class DisableApplicationLayerAutomaticResponseCommand extends $Command
-  .classBuilder<
-    DisableApplicationLayerAutomaticResponseCommandInput,
-    DisableApplicationLayerAutomaticResponseCommandOutput,
-    ShieldClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShield_20160616", "DisableApplicationLayerAutomaticResponse", {})
-  .n("ShieldClient", "DisableApplicationLayerAutomaticResponseCommand")
-  .sc(DisableApplicationLayerAutomaticResponse$)
-  .build() {
+export class DisableApplicationLayerAutomaticResponseCommand extends command<DisableApplicationLayerAutomaticResponseCommandInput, DisableApplicationLayerAutomaticResponseCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableApplicationLayerAutomaticResponse",
+  DisableApplicationLayerAutomaticResponse$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

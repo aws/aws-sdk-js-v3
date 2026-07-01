@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAndAttachS3AccessPointRequest, CreateAndAttachS3AccessPointResponse } from "../models/models_0";
 import { CreateAndAttachS3AccessPoint$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateAndAttachS3AccessPoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -207,22 +203,12 @@ export interface CreateAndAttachS3AccessPointCommandOutput extends CreateAndAtta
  *
  * @public
  */
-export class CreateAndAttachS3AccessPointCommand extends $Command
-  .classBuilder<
-    CreateAndAttachS3AccessPointCommandInput,
-    CreateAndAttachS3AccessPointCommandOutput,
-    FSxClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSimbaAPIService_v20180301", "CreateAndAttachS3AccessPoint", {})
-  .n("FSxClient", "CreateAndAttachS3AccessPointCommand")
-  .sc(CreateAndAttachS3AccessPoint$)
-  .build() {
+export class CreateAndAttachS3AccessPointCommand extends command<CreateAndAttachS3AccessPointCommandInput, CreateAndAttachS3AccessPointCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAndAttachS3AccessPoint",
+  CreateAndAttachS3AccessPoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

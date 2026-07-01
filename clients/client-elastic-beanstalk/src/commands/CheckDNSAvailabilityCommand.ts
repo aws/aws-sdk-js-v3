@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CheckDNSAvailabilityMessage, CheckDNSAvailabilityResultMessage } from "../models/models_0";
 import { CheckDNSAvailability$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CheckDNSAvailability$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface CheckDNSAvailabilityCommandOutput extends CheckDNSAvailabilityR
  *
  * @public
  */
-export class CheckDNSAvailabilityCommand extends $Command
-  .classBuilder<
-    CheckDNSAvailabilityCommandInput,
-    CheckDNSAvailabilityCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "CheckDNSAvailability", {})
-  .n("ElasticBeanstalkClient", "CheckDNSAvailabilityCommand")
-  .sc(CheckDNSAvailability$)
-  .build() {
+export class CheckDNSAvailabilityCommand extends command<CheckDNSAvailabilityCommandInput, CheckDNSAvailabilityCommandOutput>(
+  _ep0,
+  _mw0,
+  "CheckDNSAvailability",
+  CheckDNSAvailability$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

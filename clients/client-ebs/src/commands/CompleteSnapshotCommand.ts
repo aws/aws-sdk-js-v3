@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CompleteSnapshotRequest, CompleteSnapshotResponse } from "../models/models_0";
 import { CompleteSnapshot$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CompleteSnapshot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface CompleteSnapshotCommandOutput extends CompleteSnapshotResponse,
  *
  * @public
  */
-export class CompleteSnapshotCommand extends $Command
-  .classBuilder<
-    CompleteSnapshotCommandInput,
-    CompleteSnapshotCommandOutput,
-    EBSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EBSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Ebs", "CompleteSnapshot", {})
-  .n("EBSClient", "CompleteSnapshotCommand")
-  .sc(CompleteSnapshot$)
-  .build() {
+export class CompleteSnapshotCommand extends command<CompleteSnapshotCommandInput, CompleteSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "CompleteSnapshot",
+  CompleteSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

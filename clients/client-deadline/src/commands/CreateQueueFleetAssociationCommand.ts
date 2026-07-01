@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateQueueFleetAssociationRequest, CreateQueueFleetAssociationResponse } from "../models/models_0";
 import { CreateQueueFleetAssociation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateQueueFleetAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface CreateQueueFleetAssociationCommandOutput extends CreateQueueFle
  *
  * @public
  */
-export class CreateQueueFleetAssociationCommand extends $Command
-  .classBuilder<
-    CreateQueueFleetAssociationCommandInput,
-    CreateQueueFleetAssociationCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "CreateQueueFleetAssociation", {})
-  .n("DeadlineClient", "CreateQueueFleetAssociationCommand")
-  .sc(CreateQueueFleetAssociation$)
-  .build() {
+export class CreateQueueFleetAssociationCommand extends command<CreateQueueFleetAssociationCommandInput, CreateQueueFleetAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateQueueFleetAssociation",
+  CreateQueueFleetAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

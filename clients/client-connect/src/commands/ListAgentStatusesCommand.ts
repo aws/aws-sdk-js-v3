@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAgentStatusRequest, ListAgentStatusResponse } from "../models/models_2";
 import { ListAgentStatuses$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAgentStatuses$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ListAgentStatusesCommandOutput extends ListAgentStatusResponse,
  *
  * @public
  */
-export class ListAgentStatusesCommand extends $Command
-  .classBuilder<
-    ListAgentStatusesCommandInput,
-    ListAgentStatusesCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "ListAgentStatuses", {})
-  .n("ConnectClient", "ListAgentStatusesCommand")
-  .sc(ListAgentStatuses$)
-  .build() {
+export class ListAgentStatusesCommand extends command<ListAgentStatusesCommandInput, ListAgentStatusesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAgentStatuses",
+  ListAgentStatuses$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

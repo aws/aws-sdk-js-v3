@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RestoreDBClusterFromS3Message, RestoreDBClusterFromS3Result } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { RestoreDBClusterFromS3$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -429,22 +425,12 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  *
  * @public
  */
-export class RestoreDBClusterFromS3Command extends $Command
-  .classBuilder<
-    RestoreDBClusterFromS3CommandInput,
-    RestoreDBClusterFromS3CommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "RestoreDBClusterFromS3", {})
-  .n("RDSClient", "RestoreDBClusterFromS3Command")
-  .sc(RestoreDBClusterFromS3$)
-  .build() {
+export class RestoreDBClusterFromS3Command extends command<RestoreDBClusterFromS3CommandInput, RestoreDBClusterFromS3CommandOutput>(
+  _ep0,
+  _mw0,
+  "RestoreDBClusterFromS3",
+  RestoreDBClusterFromS3$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

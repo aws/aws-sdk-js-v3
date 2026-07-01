@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchContentRequest, SearchContentResponse } from "../models/models_1";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { SearchContent$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface SearchContentCommandOutput extends SearchContentResponse, __Met
  *
  * @public
  */
-export class SearchContentCommand extends $Command
-  .classBuilder<
-    SearchContentCommandInput,
-    SearchContentCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "SearchContent", {})
-  .n("QConnectClient", "SearchContentCommand")
-  .sc(SearchContent$)
-  .build() {
+export class SearchContentCommand extends command<SearchContentCommandInput, SearchContentCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchContent",
+  SearchContent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

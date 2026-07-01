@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateTimelineEventInput, CreateTimelineEventOutput } from "../models/models_0";
 import { CreateTimelineEvent$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface CreateTimelineEventCommandOutput extends CreateTimelineEventOut
  *
  * @public
  */
-export class CreateTimelineEventCommand extends $Command
-  .classBuilder<
-    CreateTimelineEventCommandInput,
-    CreateTimelineEventCommandOutput,
-    SSMIncidentsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMIncidentsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMIncidents", "CreateTimelineEvent", {})
-  .n("SSMIncidentsClient", "CreateTimelineEventCommand")
-  .sc(CreateTimelineEvent$)
-  .build() {
+export class CreateTimelineEventCommand extends command<CreateTimelineEventCommandInput, CreateTimelineEventCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTimelineEvent",
+  CreateTimelineEvent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

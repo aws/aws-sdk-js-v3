@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCoverageStatisticsRequest, GetCoverageStatisticsResponse } from "../models/models_0";
 import { GetCoverageStatistics$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetCoverageStatistics$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface GetCoverageStatisticsCommandOutput extends GetCoverageStatistic
  *
  * @public
  */
-export class GetCoverageStatisticsCommand extends $Command
-  .classBuilder<
-    GetCoverageStatisticsCommandInput,
-    GetCoverageStatisticsCommandOutput,
-    GuardDutyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GuardDutyAPIService", "GetCoverageStatistics", {})
-  .n("GuardDutyClient", "GetCoverageStatisticsCommand")
-  .sc(GetCoverageStatistics$)
-  .build() {
+export class GetCoverageStatisticsCommand extends command<GetCoverageStatisticsCommandInput, GetCoverageStatisticsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCoverageStatistics",
+  GetCoverageStatistics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

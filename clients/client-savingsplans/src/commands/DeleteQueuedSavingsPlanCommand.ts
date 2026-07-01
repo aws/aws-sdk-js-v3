@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteQueuedSavingsPlanRequest, DeleteQueuedSavingsPlanResponse } from "../models/models_0";
-import type { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 import { DeleteQueuedSavingsPlan$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteQueuedSavingsPlanCommandOutput extends DeleteQueuedSaving
  *
  * @public
  */
-export class DeleteQueuedSavingsPlanCommand extends $Command
-  .classBuilder<
-    DeleteQueuedSavingsPlanCommandInput,
-    DeleteQueuedSavingsPlanCommandOutput,
-    SavingsplansClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SavingsplansClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSavingsPlan", "DeleteQueuedSavingsPlan", {})
-  .n("SavingsplansClient", "DeleteQueuedSavingsPlanCommand")
-  .sc(DeleteQueuedSavingsPlan$)
-  .build() {
+export class DeleteQueuedSavingsPlanCommand extends command<DeleteQueuedSavingsPlanCommandInput, DeleteQueuedSavingsPlanCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteQueuedSavingsPlan",
+  DeleteQueuedSavingsPlan$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

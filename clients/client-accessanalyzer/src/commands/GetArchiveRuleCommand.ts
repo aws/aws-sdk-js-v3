@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AccessAnalyzerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AccessAnalyzerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetArchiveRuleRequest, GetArchiveRuleResponse } from "../models/models_0";
 import { GetArchiveRule$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetArchiveRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +89,12 @@ export interface GetArchiveRuleCommandOutput extends GetArchiveRuleResponse, __M
  *
  * @public
  */
-export class GetArchiveRuleCommand extends $Command
-  .classBuilder<
-    GetArchiveRuleCommandInput,
-    GetArchiveRuleCommandOutput,
-    AccessAnalyzerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AccessAnalyzer", "GetArchiveRule", {})
-  .n("AccessAnalyzerClient", "GetArchiveRuleCommand")
-  .sc(GetArchiveRule$)
-  .build() {
+export class GetArchiveRuleCommand extends command<GetArchiveRuleCommandInput, GetArchiveRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetArchiveRule",
+  GetArchiveRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

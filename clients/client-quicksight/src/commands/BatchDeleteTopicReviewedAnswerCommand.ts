@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchDeleteTopicReviewedAnswerRequest, BatchDeleteTopicReviewedAnswerResponse } from "../models/models_2";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { BatchDeleteTopicReviewedAnswer$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface BatchDeleteTopicReviewedAnswerCommandOutput extends BatchDelete
  *
  * @public
  */
-export class BatchDeleteTopicReviewedAnswerCommand extends $Command
-  .classBuilder<
-    BatchDeleteTopicReviewedAnswerCommandInput,
-    BatchDeleteTopicReviewedAnswerCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "BatchDeleteTopicReviewedAnswer", {})
-  .n("QuickSightClient", "BatchDeleteTopicReviewedAnswerCommand")
-  .sc(BatchDeleteTopicReviewedAnswer$)
-  .build() {
+export class BatchDeleteTopicReviewedAnswerCommand extends command<BatchDeleteTopicReviewedAnswerCommandInput, BatchDeleteTopicReviewedAnswerCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDeleteTopicReviewedAnswer",
+  BatchDeleteTopicReviewedAnswer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDataViewRequest, GetDataViewResponse } from "../models/models_0";
 import { GetDataView$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDataView$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface GetDataViewCommandOutput extends GetDataViewResponse, __Metadat
  *
  * @public
  */
-export class GetDataViewCommand extends $Command
-  .classBuilder<
-    GetDataViewCommandInput,
-    GetDataViewCommandOutput,
-    FinspaceDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHabaneroPublicAPI", "GetDataView", {})
-  .n("FinspaceDataClient", "GetDataViewCommand")
-  .sc(GetDataView$)
-  .build() {
+export class GetDataViewCommand extends command<GetDataViewCommandInput, GetDataViewCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDataView",
+  GetDataView$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,11 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type {
   MetadataBearer as __MetadataBearer,
   StreamingBlobPayloadInputTypes,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RecognizeUtteranceRequest, RecognizeUtteranceResponse } from "../models/models_0";
 import { RecognizeUtterance$ } from "../schemas/schemas_0";
 
@@ -16,7 +13,6 @@ import { RecognizeUtterance$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -176,22 +172,12 @@ export interface RecognizeUtteranceCommandOutput extends Omit<RecognizeUtterance
  *
  * @public
  */
-export class RecognizeUtteranceCommand extends $Command
-  .classBuilder<
-    RecognizeUtteranceCommandInput,
-    RecognizeUtteranceCommandOutput,
-    LexRuntimeV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexRuntimeV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepSenseRunTimeServiceApi2_0", "RecognizeUtterance", {})
-  .n("LexRuntimeV2Client", "RecognizeUtteranceCommand")
-  .sc(RecognizeUtterance$)
-  .build() {
+export class RecognizeUtteranceCommand extends command<RecognizeUtteranceCommandInput, RecognizeUtteranceCommandOutput>(
+  _ep0,
+  _mw0,
+  "RecognizeUtterance",
+  RecognizeUtterance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

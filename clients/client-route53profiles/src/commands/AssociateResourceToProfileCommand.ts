@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateResourceToProfileRequest, AssociateResourceToProfileResponse } from "../models/models_0";
-import type {
-  Route53ProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ProfilesClient";
 import { AssociateResourceToProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +112,12 @@ export interface AssociateResourceToProfileCommandOutput extends AssociateResour
  *
  * @public
  */
-export class AssociateResourceToProfileCommand extends $Command
-  .classBuilder<
-    AssociateResourceToProfileCommandInput,
-    AssociateResourceToProfileCommandOutput,
-    Route53ProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Profiles", "AssociateResourceToProfile", {})
-  .n("Route53ProfilesClient", "AssociateResourceToProfileCommand")
-  .sc(AssociateResourceToProfile$)
-  .build() {
+export class AssociateResourceToProfileCommand extends command<AssociateResourceToProfileCommandInput, AssociateResourceToProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateResourceToProfile",
+  AssociateResourceToProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

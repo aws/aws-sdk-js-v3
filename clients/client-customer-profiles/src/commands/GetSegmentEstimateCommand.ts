@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSegmentEstimateRequest, GetSegmentEstimateResponse } from "../models/models_0";
 import { GetSegmentEstimate$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetSegmentEstimate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface GetSegmentEstimateCommandOutput extends GetSegmentEstimateRespo
  *
  * @public
  */
-export class GetSegmentEstimateCommand extends $Command
-  .classBuilder<
-    GetSegmentEstimateCommandInput,
-    GetSegmentEstimateCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "GetSegmentEstimate", {})
-  .n("CustomerProfilesClient", "GetSegmentEstimateCommand")
-  .sc(GetSegmentEstimate$)
-  .build() {
+export class GetSegmentEstimateCommand extends command<GetSegmentEstimateCommandInput, GetSegmentEstimateCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSegmentEstimate",
+  GetSegmentEstimate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

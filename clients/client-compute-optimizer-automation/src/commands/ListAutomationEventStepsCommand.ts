@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerAutomationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerAutomationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAutomationEventStepsRequest, ListAutomationEventStepsResponse } from "../models/models_0";
 import { ListAutomationEventSteps$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListAutomationEventSteps$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface ListAutomationEventStepsCommandOutput extends ListAutomationEve
  *
  * @public
  */
-export class ListAutomationEventStepsCommand extends $Command
-  .classBuilder<
-    ListAutomationEventStepsCommandInput,
-    ListAutomationEventStepsCommandOutput,
-    ComputeOptimizerAutomationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerAutomationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerAutomationService", "ListAutomationEventSteps", {})
-  .n("ComputeOptimizerAutomationClient", "ListAutomationEventStepsCommand")
-  .sc(ListAutomationEventSteps$)
-  .build() {
+export class ListAutomationEventStepsCommand extends command<ListAutomationEventStepsCommandInput, ListAutomationEventStepsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAutomationEventSteps",
+  ListAutomationEventSteps$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

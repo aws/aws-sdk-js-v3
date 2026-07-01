@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteVoiceProfileDomainRequest } from "../models/models_0";
 import { DeleteVoiceProfileDomain$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteVoiceProfileDomain$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DeleteVoiceProfileDomainCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class DeleteVoiceProfileDomainCommand extends $Command
-  .classBuilder<
-    DeleteVoiceProfileDomainCommandInput,
-    DeleteVoiceProfileDomainCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "DeleteVoiceProfileDomain", {})
-  .n("ChimeSDKVoiceClient", "DeleteVoiceProfileDomainCommand")
-  .sc(DeleteVoiceProfileDomain$)
-  .build() {
+export class DeleteVoiceProfileDomainCommand extends command<DeleteVoiceProfileDomainCommandInput, DeleteVoiceProfileDomainCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteVoiceProfileDomain",
+  DeleteVoiceProfileDomain$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteVpcEndpointsRequest, DeleteVpcEndpointsResult } from "../models/models_3";
 import { DeleteVpcEndpoints$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteVpcEndpoints$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DeleteVpcEndpointsCommandOutput extends DeleteVpcEndpointsResul
  *
  * @public
  */
-export class DeleteVpcEndpointsCommand extends $Command
-  .classBuilder<
-    DeleteVpcEndpointsCommandInput,
-    DeleteVpcEndpointsCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeleteVpcEndpoints", {})
-  .n("EC2Client", "DeleteVpcEndpointsCommand")
-  .sc(DeleteVpcEndpoints$)
-  .build() {
+export class DeleteVpcEndpointsCommand extends command<DeleteVpcEndpointsCommandInput, DeleteVpcEndpointsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteVpcEndpoints",
+  DeleteVpcEndpoints$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

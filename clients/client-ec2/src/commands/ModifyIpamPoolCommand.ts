@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyIpamPoolRequest, ModifyIpamPoolResult } from "../models/models_6";
 import { ModifyIpamPool$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ModifyIpamPool$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +116,12 @@ export interface ModifyIpamPoolCommandOutput extends ModifyIpamPoolResult, __Met
  *
  * @public
  */
-export class ModifyIpamPoolCommand extends $Command
-  .classBuilder<
-    ModifyIpamPoolCommandInput,
-    ModifyIpamPoolCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "ModifyIpamPool", {})
-  .n("EC2Client", "ModifyIpamPoolCommand")
-  .sc(ModifyIpamPool$)
-  .build() {
+export class ModifyIpamPoolCommand extends command<ModifyIpamPoolCommandInput, ModifyIpamPoolCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyIpamPool",
+  ModifyIpamPool$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

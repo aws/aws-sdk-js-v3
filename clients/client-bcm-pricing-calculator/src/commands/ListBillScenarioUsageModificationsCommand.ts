@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BCMPricingCalculatorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BCMPricingCalculatorClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListBillScenarioUsageModificationsRequest,
   ListBillScenarioUsageModificationsResponse,
@@ -19,7 +12,6 @@ import { ListBillScenarioUsageModifications$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -178,22 +170,12 @@ export interface ListBillScenarioUsageModificationsCommandOutput extends ListBil
  *
  * @public
  */
-export class ListBillScenarioUsageModificationsCommand extends $Command
-  .classBuilder<
-    ListBillScenarioUsageModificationsCommandInput,
-    ListBillScenarioUsageModificationsCommandOutput,
-    BCMPricingCalculatorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BCMPricingCalculatorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBCMPricingCalculator", "ListBillScenarioUsageModifications", {})
-  .n("BCMPricingCalculatorClient", "ListBillScenarioUsageModificationsCommand")
-  .sc(ListBillScenarioUsageModifications$)
-  .build() {
+export class ListBillScenarioUsageModificationsCommand extends command<ListBillScenarioUsageModificationsCommandInput, ListBillScenarioUsageModificationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBillScenarioUsageModifications",
+  ListBillScenarioUsageModifications$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

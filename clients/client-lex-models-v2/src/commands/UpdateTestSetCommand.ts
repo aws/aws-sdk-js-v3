@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateTestSetRequest, UpdateTestSetResponse } from "../models/models_1";
 import { UpdateTestSet$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateTestSet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface UpdateTestSetCommandOutput extends UpdateTestSetResponse, __Met
  *
  * @public
  */
-export class UpdateTestSetCommand extends $Command
-  .classBuilder<
-    UpdateTestSetCommandInput,
-    UpdateTestSetCommandOutput,
-    LexModelsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LexModelBuildingServiceV2", "UpdateTestSet", {})
-  .n("LexModelsV2Client", "UpdateTestSetCommand")
-  .sc(UpdateTestSet$)
-  .build() {
+export class UpdateTestSetCommand extends command<UpdateTestSetCommandInput, UpdateTestSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateTestSet",
+  UpdateTestSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveFlowSourceRequest, RemoveFlowSourceResponse } from "../models/models_0";
 import { RemoveFlowSource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RemoveFlowSource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface RemoveFlowSourceCommandOutput extends RemoveFlowSourceResponse,
  *
  * @public
  */
-export class RemoveFlowSourceCommand extends $Command
-  .classBuilder<
-    RemoveFlowSourceCommandInput,
-    RemoveFlowSourceCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "RemoveFlowSource", {})
-  .n("MediaConnectClient", "RemoveFlowSourceCommand")
-  .sc(RemoveFlowSource$)
-  .build() {
+export class RemoveFlowSourceCommand extends command<RemoveFlowSourceCommandInput, RemoveFlowSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveFlowSource",
+  RemoveFlowSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

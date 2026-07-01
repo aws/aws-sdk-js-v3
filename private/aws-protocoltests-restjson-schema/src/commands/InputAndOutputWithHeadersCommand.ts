@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { InputAndOutputWithHeadersIO } from "../models/models_0";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
 import { InputAndOutputWithHeaders$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +118,12 @@ export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWi
  *
  * @public
  */
-export class InputAndOutputWithHeadersCommand extends $Command
-  .classBuilder<
-    InputAndOutputWithHeadersCommandInput,
-    InputAndOutputWithHeadersCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestJson", "InputAndOutputWithHeaders", {})
-  .n("RestJsonProtocolClient", "InputAndOutputWithHeadersCommand")
-  .sc(InputAndOutputWithHeaders$)
-  .build() {
+export class InputAndOutputWithHeadersCommand extends command<InputAndOutputWithHeadersCommandInput, InputAndOutputWithHeadersCommandOutput>(
+  _ep0,
+  _mw0,
+  "InputAndOutputWithHeaders",
+  InputAndOutputWithHeaders$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

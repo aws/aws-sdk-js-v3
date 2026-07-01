@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListActionTypesInput, ListActionTypesOutput } from "../models/models_0";
 import { ListActionTypes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListActionTypes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __M
  *
  * @public
  */
-export class ListActionTypesCommand extends $Command
-  .classBuilder<
-    ListActionTypesCommandInput,
-    ListActionTypesCommandOutput,
-    CodePipelineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodePipeline_20150709", "ListActionTypes", {})
-  .n("CodePipelineClient", "ListActionTypesCommand")
-  .sc(ListActionTypes$)
-  .build() {
+export class ListActionTypesCommand extends command<ListActionTypesCommandInput, ListActionTypesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListActionTypes",
+  ListActionTypes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

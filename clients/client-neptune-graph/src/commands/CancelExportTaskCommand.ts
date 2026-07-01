@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelExportTaskInput, CancelExportTaskOutput } from "../models/models_0";
-import type { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
 import { CancelExportTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,25 +78,12 @@ export interface CancelExportTaskCommandOutput extends CancelExportTaskOutput, _
  *
  * @public
  */
-export class CancelExportTaskCommand extends $Command
-  .classBuilder<
-    CancelExportTaskCommandInput,
-    CancelExportTaskCommandOutput,
-    NeptuneGraphClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ApiType: { type: "staticContextParams", value: `ControlPlane` },
-  })
-  .m(function (this: any, Command: any, cs: any, config: NeptuneGraphClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneGraph", "CancelExportTask", {})
-  .n("NeptuneGraphClient", "CancelExportTaskCommand")
-  .sc(CancelExportTask$)
-  .build() {
+export class CancelExportTaskCommand extends command<CancelExportTaskCommandInput, CancelExportTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelExportTask",
+  CancelExportTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

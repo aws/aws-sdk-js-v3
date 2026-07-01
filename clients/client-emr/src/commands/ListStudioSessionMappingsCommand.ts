@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListStudioSessionMappingsInput, ListStudioSessionMappingsOutput } from "../models/models_0";
 import { ListStudioSessionMappings$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListStudioSessionMappings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface ListStudioSessionMappingsCommandOutput extends ListStudioSessio
  *
  * @public
  */
-export class ListStudioSessionMappingsCommand extends $Command
-  .classBuilder<
-    ListStudioSessionMappingsCommandInput,
-    ListStudioSessionMappingsCommandOutput,
-    EMRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticMapReduce", "ListStudioSessionMappings", {})
-  .n("EMRClient", "ListStudioSessionMappingsCommand")
-  .sc(ListStudioSessionMappings$)
-  .build() {
+export class ListStudioSessionMappingsCommand extends command<ListStudioSessionMappingsCommandInput, ListStudioSessionMappingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListStudioSessionMappings",
+  ListStudioSessionMappings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateNetworkMigrationDefinitionRequest, NetworkMigrationDefinition } from "../models/models_0";
 import { CreateNetworkMigrationDefinition$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateNetworkMigrationDefinition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -183,22 +179,12 @@ export interface CreateNetworkMigrationDefinitionCommandOutput extends NetworkMi
  *
  * @public
  */
-export class CreateNetworkMigrationDefinitionCommand extends $Command
-  .classBuilder<
-    CreateNetworkMigrationDefinitionCommandInput,
-    CreateNetworkMigrationDefinitionCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "CreateNetworkMigrationDefinition", {})
-  .n("MgnClient", "CreateNetworkMigrationDefinitionCommand")
-  .sc(CreateNetworkMigrationDefinition$)
-  .build() {
+export class CreateNetworkMigrationDefinitionCommand extends command<CreateNetworkMigrationDefinitionCommandInput, CreateNetworkMigrationDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateNetworkMigrationDefinition",
+  CreateNetworkMigrationDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

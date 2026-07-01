@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetContactRequest, GetContactResult } from "../models/models_0";
 import { GetContact$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface GetContactCommandOutput extends GetContactResult, __MetadataBea
  *
  * @public
  */
-export class GetContactCommand extends $Command
-  .classBuilder<
-    GetContactCommandInput,
-    GetContactCommandOutput,
-    SSMContactsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMContacts", "GetContact", {})
-  .n("SSMContactsClient", "GetContactCommand")
-  .sc(GetContact$)
-  .build() {
+export class GetContactCommand extends command<GetContactCommandInput, GetContactCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetContact",
+  GetContact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateCreatedArtifactRequest, DisassociateCreatedArtifactResult } from "../models/models_0";
 import { DisassociateCreatedArtifact$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateCreatedArtifact$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface DisassociateCreatedArtifactCommandOutput extends DisassociateCr
  *
  * @public
  */
-export class DisassociateCreatedArtifactCommand extends $Command
-  .classBuilder<
-    DisassociateCreatedArtifactCommandInput,
-    DisassociateCreatedArtifactCommandOutput,
-    MigrationHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHub", "DisassociateCreatedArtifact", {})
-  .n("MigrationHubClient", "DisassociateCreatedArtifactCommand")
-  .sc(DisassociateCreatedArtifact$)
-  .build() {
+export class DisassociateCreatedArtifactCommand extends command<DisassociateCreatedArtifactCommandInput, DisassociateCreatedArtifactCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateCreatedArtifact",
+  DisassociateCreatedArtifact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

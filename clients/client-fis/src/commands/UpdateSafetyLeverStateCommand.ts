@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateSafetyLeverStateRequest, UpdateSafetyLeverStateResponse } from "../models/models_0";
 import { UpdateSafetyLeverState$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateSafetyLeverState$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface UpdateSafetyLeverStateCommandOutput extends UpdateSafetyLeverSt
  *
  * @public
  */
-export class UpdateSafetyLeverStateCommand extends $Command
-  .classBuilder<
-    UpdateSafetyLeverStateCommandInput,
-    UpdateSafetyLeverStateCommandOutput,
-    FisClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FisClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FaultInjectionSimulator", "UpdateSafetyLeverState", {})
-  .n("FisClient", "UpdateSafetyLeverStateCommand")
-  .sc(UpdateSafetyLeverState$)
-  .build() {
+export class UpdateSafetyLeverStateCommand extends command<UpdateSafetyLeverStateCommandInput, UpdateSafetyLeverStateCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSafetyLeverState",
+  UpdateSafetyLeverState$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

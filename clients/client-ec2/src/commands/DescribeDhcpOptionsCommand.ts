@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeDhcpOptionsRequest, DescribeDhcpOptionsResult } from "../models/models_3";
 import { DescribeDhcpOptions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeDhcpOptions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +128,12 @@ export interface DescribeDhcpOptionsCommandOutput extends DescribeDhcpOptionsRes
  *
  * @public
  */
-export class DescribeDhcpOptionsCommand extends $Command
-  .classBuilder<
-    DescribeDhcpOptionsCommandInput,
-    DescribeDhcpOptionsCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeDhcpOptions", {})
-  .n("EC2Client", "DescribeDhcpOptionsCommand")
-  .sc(DescribeDhcpOptions$)
-  .build() {
+export class DescribeDhcpOptionsCommand extends command<DescribeDhcpOptionsCommandInput, DescribeDhcpOptionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDhcpOptions",
+  DescribeDhcpOptions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteConfigurationSetTrackingOptionsRequest,
   DeleteConfigurationSetTrackingOptionsResponse,
 } from "../models/models_0";
 import { DeleteConfigurationSetTrackingOptions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteConfigurationSetTrackingOptionsCommandOutput extends Dele
  *
  * @public
  */
-export class DeleteConfigurationSetTrackingOptionsCommand extends $Command
-  .classBuilder<
-    DeleteConfigurationSetTrackingOptionsCommandInput,
-    DeleteConfigurationSetTrackingOptionsCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "DeleteConfigurationSetTrackingOptions", {})
-  .n("SESClient", "DeleteConfigurationSetTrackingOptionsCommand")
-  .sc(DeleteConfigurationSetTrackingOptions$)
-  .build() {
+export class DeleteConfigurationSetTrackingOptionsCommand extends command<DeleteConfigurationSetTrackingOptionsCommandInput, DeleteConfigurationSetTrackingOptionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteConfigurationSetTrackingOptions",
+  DeleteConfigurationSetTrackingOptions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

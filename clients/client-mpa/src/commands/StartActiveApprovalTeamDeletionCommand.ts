@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StartActiveApprovalTeamDeletionRequest,
   StartActiveApprovalTeamDeletionResponse,
 } from "../models/models_0";
-import type { MPAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MPAClient";
 import { StartActiveApprovalTeamDeletion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface StartActiveApprovalTeamDeletionCommandOutput extends StartActiv
  *
  * @public
  */
-export class StartActiveApprovalTeamDeletionCommand extends $Command
-  .classBuilder<
-    StartActiveApprovalTeamDeletionCommandInput,
-    StartActiveApprovalTeamDeletionCommandOutput,
-    MPAClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MPAClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSFluffyCoreService", "StartActiveApprovalTeamDeletion", {})
-  .n("MPAClient", "StartActiveApprovalTeamDeletionCommand")
-  .sc(StartActiveApprovalTeamDeletion$)
-  .build() {
+export class StartActiveApprovalTeamDeletionCommand extends command<StartActiveApprovalTeamDeletionCommandInput, StartActiveApprovalTeamDeletionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartActiveApprovalTeamDeletion",
+  StartActiveApprovalTeamDeletion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteRepositoryCreationTemplateRequest,
   DeleteRepositoryCreationTemplateResponse,
@@ -15,7 +12,6 @@ import { DeleteRepositoryCreationTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface DeleteRepositoryCreationTemplateCommandOutput extends DeleteRep
  *
  * @public
  */
-export class DeleteRepositoryCreationTemplateCommand extends $Command
-  .classBuilder<
-    DeleteRepositoryCreationTemplateCommandInput,
-    DeleteRepositoryCreationTemplateCommandOutput,
-    ECRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerRegistry_V20150921", "DeleteRepositoryCreationTemplate", {})
-  .n("ECRClient", "DeleteRepositoryCreationTemplateCommand")
-  .sc(DeleteRepositoryCreationTemplate$)
-  .build() {
+export class DeleteRepositoryCreationTemplateCommand extends command<DeleteRepositoryCreationTemplateCommandInput, DeleteRepositoryCreationTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRepositoryCreationTemplate",
+  DeleteRepositoryCreationTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

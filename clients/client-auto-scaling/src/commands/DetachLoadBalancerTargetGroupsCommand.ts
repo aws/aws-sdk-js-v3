@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DetachLoadBalancerTargetGroupsResultType, DetachLoadBalancerTargetGroupsType } from "../models/models_0";
 import { DetachLoadBalancerTargetGroups$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DetachLoadBalancerTargetGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface DetachLoadBalancerTargetGroupsCommandOutput extends DetachLoadB
  *
  * @public
  */
-export class DetachLoadBalancerTargetGroupsCommand extends $Command
-  .classBuilder<
-    DetachLoadBalancerTargetGroupsCommandInput,
-    DetachLoadBalancerTargetGroupsCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "DetachLoadBalancerTargetGroups", {})
-  .n("AutoScalingClient", "DetachLoadBalancerTargetGroupsCommand")
-  .sc(DetachLoadBalancerTargetGroups$)
-  .build() {
+export class DetachLoadBalancerTargetGroupsCommand extends command<DetachLoadBalancerTargetGroupsCommandInput, DetachLoadBalancerTargetGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DetachLoadBalancerTargetGroups",
+  DetachLoadBalancerTargetGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

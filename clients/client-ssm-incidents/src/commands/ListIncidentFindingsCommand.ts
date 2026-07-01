@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListIncidentFindingsInput, ListIncidentFindingsOutput } from "../models/models_0";
 import { ListIncidentFindings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface ListIncidentFindingsCommandOutput extends ListIncidentFindingsO
  *
  * @public
  */
-export class ListIncidentFindingsCommand extends $Command
-  .classBuilder<
-    ListIncidentFindingsCommandInput,
-    ListIncidentFindingsCommandOutput,
-    SSMIncidentsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMIncidentsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMIncidents", "ListIncidentFindings", {})
-  .n("SSMIncidentsClient", "ListIncidentFindingsCommand")
-  .sc(ListIncidentFindings$)
-  .build() {
+export class ListIncidentFindingsCommand extends command<ListIncidentFindingsCommandInput, ListIncidentFindingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListIncidentFindings",
+  ListIncidentFindings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

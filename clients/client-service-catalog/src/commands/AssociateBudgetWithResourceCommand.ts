@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateBudgetWithResourceInput, AssociateBudgetWithResourceOutput } from "../models/models_0";
 import { AssociateBudgetWithResource$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +67,12 @@ export interface AssociateBudgetWithResourceCommandOutput extends AssociateBudge
  *
  * @public
  */
-export class AssociateBudgetWithResourceCommand extends $Command
-  .classBuilder<
-    AssociateBudgetWithResourceCommandInput,
-    AssociateBudgetWithResourceCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "AssociateBudgetWithResource", {})
-  .n("ServiceCatalogClient", "AssociateBudgetWithResourceCommand")
-  .sc(AssociateBudgetWithResource$)
-  .build() {
+export class AssociateBudgetWithResourceCommand extends command<AssociateBudgetWithResourceCommandInput, AssociateBudgetWithResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateBudgetWithResource",
+  AssociateBudgetWithResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EchoServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EchoServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EchoInput, EchoOutput } from "../models/models_0";
 import { Echo$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { Echo$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -62,22 +58,12 @@ export interface EchoCommandOutput extends EchoOutput, __MetadataBearer {}
  *
  *
  */
-export class EchoCommand extends $Command
-  .classBuilder<
-    EchoCommandInput,
-    EchoCommandOutput,
-    EchoServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EchoServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EchoService", "Echo", {})
-  .n("EchoServiceClient", "EchoCommand")
-  .sc(Echo$)
-  .build() {
+export class EchoCommand extends command<EchoCommandInput, EchoCommandOutput>(
+  _ep0,
+  _mw0,
+  "Echo",
+  Echo$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

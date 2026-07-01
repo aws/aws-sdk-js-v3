@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateProvisionedProductPropertiesInput,
   UpdateProvisionedProductPropertiesOutput,
 } from "../models/models_0";
 import { UpdateProvisionedProductProperties$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface UpdateProvisionedProductPropertiesCommandOutput extends UpdateP
  *
  * @public
  */
-export class UpdateProvisionedProductPropertiesCommand extends $Command
-  .classBuilder<
-    UpdateProvisionedProductPropertiesCommandInput,
-    UpdateProvisionedProductPropertiesCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "UpdateProvisionedProductProperties", {})
-  .n("ServiceCatalogClient", "UpdateProvisionedProductPropertiesCommand")
-  .sc(UpdateProvisionedProductProperties$)
-  .build() {
+export class UpdateProvisionedProductPropertiesCommand extends command<UpdateProvisionedProductPropertiesCommandInput, UpdateProvisionedProductPropertiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateProvisionedProductProperties",
+  UpdateProvisionedProductProperties$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

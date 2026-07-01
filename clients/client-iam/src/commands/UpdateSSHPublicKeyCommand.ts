@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateSSHPublicKeyRequest } from "../models/models_1";
 import { UpdateSSHPublicKey$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateSSHPublicKey$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface UpdateSSHPublicKeyCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdateSSHPublicKeyCommand extends $Command
-  .classBuilder<
-    UpdateSSHPublicKeyCommandInput,
-    UpdateSSHPublicKeyCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "UpdateSSHPublicKey", {})
-  .n("IAMClient", "UpdateSSHPublicKeyCommand")
-  .sc(UpdateSSHPublicKey$)
-  .build() {
+export class UpdateSSHPublicKeyCommand extends command<UpdateSSHPublicKeyCommandInput, UpdateSSHPublicKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSSHPublicKey",
+  UpdateSSHPublicKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

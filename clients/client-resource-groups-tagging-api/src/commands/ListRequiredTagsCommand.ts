@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRequiredTagsInput, ListRequiredTagsOutput } from "../models/models_0";
-import type {
-  ResourceGroupsTaggingAPIClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceGroupsTaggingAPIClient";
 import { ListRequiredTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +105,12 @@ export interface ListRequiredTagsCommandOutput extends ListRequiredTagsOutput, _
  *
  * @public
  */
-export class ListRequiredTagsCommand extends $Command
-  .classBuilder<
-    ListRequiredTagsCommandInput,
-    ListRequiredTagsCommandOutput,
-    ResourceGroupsTaggingAPIClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceGroupsTaggingAPIClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ResourceGroupsTaggingAPI_20170126", "ListRequiredTags", {})
-  .n("ResourceGroupsTaggingAPIClient", "ListRequiredTagsCommand")
-  .sc(ListRequiredTags$)
-  .build() {
+export class ListRequiredTagsCommand extends command<ListRequiredTagsCommandInput, ListRequiredTagsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRequiredTags",
+  ListRequiredTags$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

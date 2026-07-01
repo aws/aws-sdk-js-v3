@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartSessionInput, StartSessionOutput } from "../models/models_0";
 import { StartSession$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartSession$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface StartSessionCommandOutput extends StartSessionOutput, __Metadat
  *
  * @public
  */
-export class StartSessionCommand extends $Command
-  .classBuilder<
-    StartSessionCommandInput,
-    StartSessionCommandOutput,
-    EMRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticMapReduce", "StartSession", {})
-  .n("EMRClient", "StartSessionCommand")
-  .sc(StartSession$)
-  .build() {
+export class StartSessionCommand extends command<StartSessionCommandInput, StartSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartSession",
+  StartSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

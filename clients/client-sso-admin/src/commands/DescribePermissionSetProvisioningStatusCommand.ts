@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribePermissionSetProvisioningStatusRequest,
   DescribePermissionSetProvisioningStatusResponse,
 } from "../models/models_0";
 import { DescribePermissionSetProvisioningStatus$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface DescribePermissionSetProvisioningStatusCommandOutput extends De
  *
  * @public
  */
-export class DescribePermissionSetProvisioningStatusCommand extends $Command
-  .classBuilder<
-    DescribePermissionSetProvisioningStatusCommandInput,
-    DescribePermissionSetProvisioningStatusCommandOutput,
-    SSOAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBExternalService", "DescribePermissionSetProvisioningStatus", {})
-  .n("SSOAdminClient", "DescribePermissionSetProvisioningStatusCommand")
-  .sc(DescribePermissionSetProvisioningStatus$)
-  .build() {
+export class DescribePermissionSetProvisioningStatusCommand extends command<DescribePermissionSetProvisioningStatusCommandInput, DescribePermissionSetProvisioningStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribePermissionSetProvisioningStatus",
+  DescribePermissionSetProvisioningStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

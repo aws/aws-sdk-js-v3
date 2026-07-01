@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutPermissionPolicyRequest, PutPermissionPolicyResponse } from "../models/models_0";
 import { PutPermissionPolicy$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +129,12 @@ export interface PutPermissionPolicyCommandOutput extends PutPermissionPolicyRes
  *
  * @public
  */
-export class PutPermissionPolicyCommand extends $Command
-  .classBuilder<
-    PutPermissionPolicyCommandInput,
-    PutPermissionPolicyCommandOutput,
-    WAFV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20190729", "PutPermissionPolicy", {})
-  .n("WAFV2Client", "PutPermissionPolicyCommand")
-  .sc(PutPermissionPolicy$)
-  .build() {
+export class PutPermissionPolicyCommand extends command<PutPermissionPolicyCommandInput, PutPermissionPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutPermissionPolicy",
+  PutPermissionPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

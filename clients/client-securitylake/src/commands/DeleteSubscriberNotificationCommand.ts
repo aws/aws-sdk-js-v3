@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSubscriberNotificationRequest, DeleteSubscriberNotificationResponse } from "../models/models_0";
 import { DeleteSubscriberNotification$ } from "../schemas/schemas_0";
-import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DeleteSubscriberNotificationCommandOutput extends DeleteSubscri
  *
  * @public
  */
-export class DeleteSubscriberNotificationCommand extends $Command
-  .classBuilder<
-    DeleteSubscriberNotificationCommandInput,
-    DeleteSubscriberNotificationCommandOutput,
-    SecurityLakeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityLake", "DeleteSubscriberNotification", {})
-  .n("SecurityLakeClient", "DeleteSubscriberNotificationCommand")
-  .sc(DeleteSubscriberNotification$)
-  .build() {
+export class DeleteSubscriberNotificationCommand extends command<DeleteSubscriberNotificationCommandInput, DeleteSubscriberNotificationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSubscriberNotification",
+  DeleteSubscriberNotification$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

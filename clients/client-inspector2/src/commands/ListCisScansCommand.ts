@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCisScansRequest, ListCisScansResponse } from "../models/models_0";
 import { ListCisScans$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListCisScans$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -196,22 +192,12 @@ export interface ListCisScansCommandOutput extends ListCisScansResponse, __Metad
  *
  * @public
  */
-export class ListCisScansCommand extends $Command
-  .classBuilder<
-    ListCisScansCommandInput,
-    ListCisScansCommandOutput,
-    Inspector2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Inspector2", "ListCisScans", {})
-  .n("Inspector2Client", "ListCisScansCommand")
-  .sc(ListCisScans$)
-  .build() {
+export class ListCisScansCommand extends command<ListCisScansCommandInput, ListCisScansCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCisScans",
+  ListCisScans$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

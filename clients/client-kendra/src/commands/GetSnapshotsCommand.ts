@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSnapshotsRequest, GetSnapshotsResponse } from "../models/models_0";
 import { GetSnapshots$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetSnapshots$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface GetSnapshotsCommandOutput extends GetSnapshotsResponse, __Metad
  *
  * @public
  */
-export class GetSnapshotsCommand extends $Command
-  .classBuilder<
-    GetSnapshotsCommandInput,
-    GetSnapshotsCommandOutput,
-    KendraClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSKendraFrontendService", "GetSnapshots", {})
-  .n("KendraClient", "GetSnapshotsCommand")
-  .sc(GetSnapshots$)
-  .build() {
+export class GetSnapshotsCommand extends command<GetSnapshotsCommandInput, GetSnapshotsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSnapshots",
+  GetSnapshots$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

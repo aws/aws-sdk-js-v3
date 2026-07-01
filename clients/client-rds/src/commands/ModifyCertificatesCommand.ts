@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyCertificatesMessage, ModifyCertificatesResult } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { ModifyCertificates$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface ModifyCertificatesCommandOutput extends ModifyCertificatesResul
  *
  * @public
  */
-export class ModifyCertificatesCommand extends $Command
-  .classBuilder<
-    ModifyCertificatesCommandInput,
-    ModifyCertificatesCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "ModifyCertificates", {})
-  .n("RDSClient", "ModifyCertificatesCommand")
-  .sc(ModifyCertificates$)
-  .build() {
+export class ModifyCertificatesCommand extends command<ModifyCertificatesCommandInput, ModifyCertificatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyCertificates",
+  ModifyCertificates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

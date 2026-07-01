@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListHostKeysRequest, ListHostKeysResponse } from "../models/models_0";
 import { ListHostKeys$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface ListHostKeysCommandOutput extends ListHostKeysResponse, __Metad
  *
  * @public
  */
-export class ListHostKeysCommand extends $Command
-  .classBuilder<
-    ListHostKeysCommandInput,
-    ListHostKeysCommandOutput,
-    TransferClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TransferService", "ListHostKeys", {})
-  .n("TransferClient", "ListHostKeysCommand")
-  .sc(ListHostKeys$)
-  .build() {
+export class ListHostKeysCommand extends command<ListHostKeysCommandInput, ListHostKeysCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListHostKeys",
+  ListHostKeys$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

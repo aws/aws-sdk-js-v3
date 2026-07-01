@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartChatContactResponse } from "../models/models_3";
 import type { StartChatContactRequest } from "../models/models_4";
 import { StartChatContact$ } from "../schemas/schemas_0";
@@ -13,7 +10,6 @@ import { StartChatContact$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -159,22 +155,12 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  *
  * @public
  */
-export class StartChatContactCommand extends $Command
-  .classBuilder<
-    StartChatContactCommandInput,
-    StartChatContactCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "StartChatContact", {})
-  .n("ConnectClient", "StartChatContactCommand")
-  .sc(StartChatContact$)
-  .build() {
+export class StartChatContactCommand extends command<StartChatContactCommandInput, StartChatContactCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartChatContact",
+  StartChatContact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

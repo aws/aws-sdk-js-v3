@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAIRecommendationJobRequest, DeleteAIRecommendationJobResponse } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DeleteAIRecommendationJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -62,22 +58,12 @@ export interface DeleteAIRecommendationJobCommandOutput extends DeleteAIRecommen
  *
  * @public
  */
-export class DeleteAIRecommendationJobCommand extends $Command
-  .classBuilder<
-    DeleteAIRecommendationJobCommandInput,
-    DeleteAIRecommendationJobCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DeleteAIRecommendationJob", {})
-  .n("SageMakerClient", "DeleteAIRecommendationJobCommand")
-  .sc(DeleteAIRecommendationJob$)
-  .build() {
+export class DeleteAIRecommendationJobCommand extends command<DeleteAIRecommendationJobCommandInput, DeleteAIRecommendationJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAIRecommendationJob",
+  DeleteAIRecommendationJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

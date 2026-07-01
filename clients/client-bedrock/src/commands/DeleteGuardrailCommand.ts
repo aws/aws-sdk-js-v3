@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteGuardrailRequest, DeleteGuardrailResponse } from "../models/models_1";
 import { DeleteGuardrail$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteGuardrail$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DeleteGuardrailCommandOutput extends DeleteGuardrailResponse, _
  *
  * @public
  */
-export class DeleteGuardrailCommand extends $Command
-  .classBuilder<
-    DeleteGuardrailCommandInput,
-    DeleteGuardrailCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "DeleteGuardrail", {})
-  .n("BedrockClient", "DeleteGuardrailCommand")
-  .sc(DeleteGuardrail$)
-  .build() {
+export class DeleteGuardrailCommand extends command<DeleteGuardrailCommandInput, DeleteGuardrailCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteGuardrail",
+  DeleteGuardrail$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

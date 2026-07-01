@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RejectSubscriptionRequestInput, RejectSubscriptionRequestOutput } from "../models/models_2";
 import { RejectSubscriptionRequest$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RejectSubscriptionRequest$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -187,22 +183,12 @@ export interface RejectSubscriptionRequestCommandOutput extends RejectSubscripti
  *
  * @public
  */
-export class RejectSubscriptionRequestCommand extends $Command
-  .classBuilder<
-    RejectSubscriptionRequestCommandInput,
-    RejectSubscriptionRequestCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "RejectSubscriptionRequest", {})
-  .n("DataZoneClient", "RejectSubscriptionRequestCommand")
-  .sc(RejectSubscriptionRequest$)
-  .build() {
+export class RejectSubscriptionRequestCommand extends command<RejectSubscriptionRequestCommandInput, RejectSubscriptionRequestCommandOutput>(
+  _ep0,
+  _mw0,
+  "RejectSubscriptionRequest",
+  RejectSubscriptionRequest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

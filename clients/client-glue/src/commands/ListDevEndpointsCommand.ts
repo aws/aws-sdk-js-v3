@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDevEndpointsRequest, ListDevEndpointsResponse } from "../models/models_2";
 import { ListDevEndpoints$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDevEndpoints$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface ListDevEndpointsCommandOutput extends ListDevEndpointsResponse,
  *
  * @public
  */
-export class ListDevEndpointsCommand extends $Command
-  .classBuilder<
-    ListDevEndpointsCommandInput,
-    ListDevEndpointsCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "ListDevEndpoints", {})
-  .n("GlueClient", "ListDevEndpointsCommand")
-  .sc(ListDevEndpoints$)
-  .build() {
+export class ListDevEndpointsCommand extends command<ListDevEndpointsCommandInput, ListDevEndpointsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDevEndpoints",
+  ListDevEndpoints$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

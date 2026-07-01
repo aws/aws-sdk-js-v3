@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListInferenceProfilesRequest, ListInferenceProfilesResponse } from "../models/models_1";
 import { ListInferenceProfiles$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListInferenceProfiles$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface ListInferenceProfilesCommandOutput extends ListInferenceProfile
  *
  * @public
  */
-export class ListInferenceProfilesCommand extends $Command
-  .classBuilder<
-    ListInferenceProfilesCommandInput,
-    ListInferenceProfilesCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "ListInferenceProfiles", {})
-  .n("BedrockClient", "ListInferenceProfilesCommand")
-  .sc(ListInferenceProfiles$)
-  .build() {
+export class ListInferenceProfilesCommand extends command<ListInferenceProfilesCommandInput, ListInferenceProfilesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListInferenceProfiles",
+  ListInferenceProfiles$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

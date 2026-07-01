@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SubmitContactEvaluationRequest, SubmitContactEvaluationResponse } from "../models/models_3";
 import { SubmitContactEvaluation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SubmitContactEvaluation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface SubmitContactEvaluationCommandOutput extends SubmitContactEvalu
  *
  * @public
  */
-export class SubmitContactEvaluationCommand extends $Command
-  .classBuilder<
-    SubmitContactEvaluationCommandInput,
-    SubmitContactEvaluationCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "SubmitContactEvaluation", {})
-  .n("ConnectClient", "SubmitContactEvaluationCommand")
-  .sc(SubmitContactEvaluation$)
-  .build() {
+export class SubmitContactEvaluationCommand extends command<SubmitContactEvaluationCommandInput, SubmitContactEvaluationCommandOutput>(
+  _ep0,
+  _mw0,
+  "SubmitContactEvaluation",
+  SubmitContactEvaluation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

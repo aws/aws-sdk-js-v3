@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRegexPatternSetRequest, CreateRegexPatternSetResponse } from "../models/models_0";
 import { CreateRegexPatternSet$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -129,22 +125,12 @@ export interface CreateRegexPatternSetCommandOutput extends CreateRegexPatternSe
  *
  * @public
  */
-export class CreateRegexPatternSetCommand extends $Command
-  .classBuilder<
-    CreateRegexPatternSetCommandInput,
-    CreateRegexPatternSetCommandOutput,
-    WAFV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20190729", "CreateRegexPatternSet", {})
-  .n("WAFV2Client", "CreateRegexPatternSetCommand")
-  .sc(CreateRegexPatternSet$)
-  .build() {
+export class CreateRegexPatternSetCommand extends command<CreateRegexPatternSetCommandInput, CreateRegexPatternSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRegexPatternSet",
+  CreateRegexPatternSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

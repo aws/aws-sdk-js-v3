@@ -1,20 +1,14 @@
 // smithy-typescript generated code
-import { getFlexibleChecksumsPlugin } from "@aws-sdk/checksums/flexible-checksums";
-import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw10, command } from "../commandBuilder";
 import type { PutObjectAnnotationOutput, PutObjectAnnotationRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { PutObjectAnnotation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -153,33 +147,12 @@ export interface PutObjectAnnotationCommandOutput extends PutObjectAnnotationOut
  *
  * @public
  */
-export class PutObjectAnnotationCommand extends $Command
-  .classBuilder<
-    PutObjectAnnotationCommandInput,
-    PutObjectAnnotationCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    Bucket: { type: "contextParams", name: "Bucket" },
-    Key: { type: "contextParams", name: "Key" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
-        requestChecksumRequired: false,
-      }),
-      getThrow200ExceptionsPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "PutObjectAnnotation", {})
-  .n("S3Client", "PutObjectAnnotationCommand")
-  .sc(PutObjectAnnotation$)
-  .build() {
+export class PutObjectAnnotationCommand extends command<PutObjectAnnotationCommandInput, PutObjectAnnotationCommandOutput>(
+  _ep0,
+  _mw10,
+  "PutObjectAnnotation",
+  PutObjectAnnotation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

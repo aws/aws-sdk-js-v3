@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ConnectCampaignsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ConnectCampaignsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateCampaignDialerConfigRequest } from "../models/models_0";
 import { UpdateCampaignDialerConfig$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateCampaignDialerConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface UpdateCampaignDialerConfigCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class UpdateCampaignDialerConfigCommand extends $Command
-  .classBuilder<
-    UpdateCampaignDialerConfigCommandInput,
-    UpdateCampaignDialerConfigCommandOutput,
-    ConnectCampaignsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCampaignService", "UpdateCampaignDialerConfig", {})
-  .n("ConnectCampaignsClient", "UpdateCampaignDialerConfigCommand")
-  .sc(UpdateCampaignDialerConfig$)
-  .build() {
+export class UpdateCampaignDialerConfigCommand extends command<UpdateCampaignDialerConfigCommandInput, UpdateCampaignDialerConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateCampaignDialerConfig",
+  UpdateCampaignDialerConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

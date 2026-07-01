@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ResumeReplicationRequest, SourceServer } from "../models/models_0";
 import { ResumeReplication$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ResumeReplication$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -201,22 +197,12 @@ export interface ResumeReplicationCommandOutput extends SourceServer, __Metadata
  *
  * @public
  */
-export class ResumeReplicationCommand extends $Command
-  .classBuilder<
-    ResumeReplicationCommandInput,
-    ResumeReplicationCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "ResumeReplication", {})
-  .n("MgnClient", "ResumeReplicationCommand")
-  .sc(ResumeReplication$)
-  .build() {
+export class ResumeReplicationCommand extends command<ResumeReplicationCommandInput, ResumeReplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "ResumeReplication",
+  ResumeReplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

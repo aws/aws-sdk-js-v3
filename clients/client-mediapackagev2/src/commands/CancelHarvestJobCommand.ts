@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MediaPackageV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MediaPackageV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelHarvestJobRequest, CancelHarvestJobResponse } from "../models/models_0";
 import { CancelHarvestJob$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CancelHarvestJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface CancelHarvestJobCommandOutput extends CancelHarvestJobResponse,
  *
  * @public
  */
-export class CancelHarvestJobCommand extends $Command
-  .classBuilder<
-    CancelHarvestJobCommandInput,
-    CancelHarvestJobCommandOutput,
-    MediaPackageV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("mediapackagev2", "CancelHarvestJob", {})
-  .n("MediaPackageV2Client", "CancelHarvestJobCommand")
-  .sc(CancelHarvestJob$)
-  .build() {
+export class CancelHarvestJobCommand extends command<CancelHarvestJobCommandInput, CancelHarvestJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelHarvestJob",
+  CancelHarvestJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

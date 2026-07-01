@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AcceptInvitationRequest } from "../models/models_0";
 import { AcceptInvitation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AcceptInvitation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface AcceptInvitationCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class AcceptInvitationCommand extends $Command
-  .classBuilder<
-    AcceptInvitationCommandInput,
-    AcceptInvitationCommandOutput,
-    DetectiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDetective", "AcceptInvitation", {})
-  .n("DetectiveClient", "AcceptInvitationCommand")
-  .sc(AcceptInvitation$)
-  .build() {
+export class AcceptInvitationCommand extends command<AcceptInvitationCommandInput, AcceptInvitationCommandOutput>(
+  _ep0,
+  _mw0,
+  "AcceptInvitation",
+  AcceptInvitation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

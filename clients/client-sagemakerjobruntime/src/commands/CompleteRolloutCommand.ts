@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CompleteRolloutRequest, CompleteRolloutResponse } from "../models/models_0";
-import type {
-  SagemakerJobRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SagemakerJobRuntimeClient";
 import { CompleteRollout$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface CompleteRolloutCommandOutput extends CompleteRolloutResponse, _
  *
  * @public
  */
-export class CompleteRolloutCommand extends $Command
-  .classBuilder<
-    CompleteRolloutCommandInput,
-    CompleteRolloutCommandOutput,
-    SagemakerJobRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SagemakerJobRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AgenticRFTRuntimeService", "CompleteRollout", {})
-  .n("SagemakerJobRuntimeClient", "CompleteRolloutCommand")
-  .sc(CompleteRollout$)
-  .build() {
+export class CompleteRolloutCommand extends command<CompleteRolloutCommandInput, CompleteRolloutCommandOutput>(
+  _ep0,
+  _mw0,
+  "CompleteRollout",
+  CompleteRollout$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

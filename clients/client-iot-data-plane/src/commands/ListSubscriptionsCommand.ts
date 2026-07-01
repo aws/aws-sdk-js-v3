@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSubscriptionsRequest, ListSubscriptionsResponse } from "../models/models_0";
 import { ListSubscriptions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListSubscriptions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface ListSubscriptionsCommandOutput extends ListSubscriptionsRespons
  *
  * @public
  */
-export class ListSubscriptionsCommand extends $Command
-  .classBuilder<
-    ListSubscriptionsCommandInput,
-    ListSubscriptionsCommandOutput,
-    IoTDataPlaneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTDataPlaneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotMoonrakerService", "ListSubscriptions", {})
-  .n("IoTDataPlaneClient", "ListSubscriptionsCommand")
-  .sc(ListSubscriptions$)
-  .build() {
+export class ListSubscriptionsCommand extends command<ListSubscriptionsCommandInput, ListSubscriptionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSubscriptions",
+  ListSubscriptions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

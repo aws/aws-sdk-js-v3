@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetProvisionedModelThroughputRequest, GetProvisionedModelThroughputResponse } from "../models/models_1";
 import { GetProvisionedModelThroughput$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetProvisionedModelThroughput$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface GetProvisionedModelThroughputCommandOutput extends GetProvision
  *
  * @public
  */
-export class GetProvisionedModelThroughputCommand extends $Command
-  .classBuilder<
-    GetProvisionedModelThroughputCommandInput,
-    GetProvisionedModelThroughputCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "GetProvisionedModelThroughput", {})
-  .n("BedrockClient", "GetProvisionedModelThroughputCommand")
-  .sc(GetProvisionedModelThroughput$)
-  .build() {
+export class GetProvisionedModelThroughputCommand extends command<GetProvisionedModelThroughputCommandInput, GetProvisionedModelThroughputCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetProvisionedModelThroughput",
+  GetProvisionedModelThroughput$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

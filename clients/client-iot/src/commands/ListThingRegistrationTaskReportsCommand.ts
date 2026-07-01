@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListThingRegistrationTaskReportsRequest,
   ListThingRegistrationTaskReportsResponse,
@@ -15,7 +12,6 @@ import { ListThingRegistrationTaskReports$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface ListThingRegistrationTaskReportsCommandOutput extends ListThing
  *
  * @public
  */
-export class ListThingRegistrationTaskReportsCommand extends $Command
-  .classBuilder<
-    ListThingRegistrationTaskReportsCommandInput,
-    ListThingRegistrationTaskReportsCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "ListThingRegistrationTaskReports", {})
-  .n("IoTClient", "ListThingRegistrationTaskReportsCommand")
-  .sc(ListThingRegistrationTaskReports$)
-  .build() {
+export class ListThingRegistrationTaskReportsCommand extends command<ListThingRegistrationTaskReportsCommandInput, ListThingRegistrationTaskReportsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListThingRegistrationTaskReports",
+  ListThingRegistrationTaskReports$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

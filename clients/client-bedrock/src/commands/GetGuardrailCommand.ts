@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetGuardrailRequest, GetGuardrailResponse } from "../models/models_1";
 import { GetGuardrail$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetGuardrail$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -196,22 +192,12 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  *
  * @public
  */
-export class GetGuardrailCommand extends $Command
-  .classBuilder<
-    GetGuardrailCommandInput,
-    GetGuardrailCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "GetGuardrail", {})
-  .n("BedrockClient", "GetGuardrailCommand")
-  .sc(GetGuardrail$)
-  .build() {
+export class GetGuardrailCommand extends command<GetGuardrailCommandInput, GetGuardrailCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetGuardrail",
+  GetGuardrail$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

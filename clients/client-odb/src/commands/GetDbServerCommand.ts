@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDbServerInput, GetDbServerOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { GetDbServer$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface GetDbServerCommandOutput extends GetDbServerOutput, __MetadataB
  *
  * @public
  */
-export class GetDbServerCommand extends $Command
-  .classBuilder<
-    GetDbServerCommandInput,
-    GetDbServerCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "GetDbServer", {})
-  .n("OdbClient", "GetDbServerCommand")
-  .sc(GetDbServer$)
-  .build() {
+export class GetDbServerCommand extends command<GetDbServerCommandInput, GetDbServerCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDbServer",
+  GetDbServer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

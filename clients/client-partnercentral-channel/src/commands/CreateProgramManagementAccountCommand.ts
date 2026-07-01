@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateProgramManagementAccountRequest, CreateProgramManagementAccountResponse } from "../models/models_0";
-import type {
-  PartnerCentralChannelClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralChannelClient";
 import { CreateProgramManagementAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +111,12 @@ export interface CreateProgramManagementAccountCommandOutput extends CreateProgr
  *
  * @public
  */
-export class CreateProgramManagementAccountCommand extends $Command
-  .classBuilder<
-    CreateProgramManagementAccountCommandInput,
-    CreateProgramManagementAccountCommandOutput,
-    PartnerCentralChannelClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralChannelClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralChannel", "CreateProgramManagementAccount", {})
-  .n("PartnerCentralChannelClient", "CreateProgramManagementAccountCommand")
-  .sc(CreateProgramManagementAccount$)
-  .build() {
+export class CreateProgramManagementAccountCommand extends command<CreateProgramManagementAccountCommandInput, CreateProgramManagementAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateProgramManagementAccount",
+  CreateProgramManagementAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

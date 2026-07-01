@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCommitmentPurchaseAnalysisRequest, GetCommitmentPurchaseAnalysisResponse } from "../models/models_0";
 import { GetCommitmentPurchaseAnalysis$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetCommitmentPurchaseAnalysis$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -134,22 +130,12 @@ export interface GetCommitmentPurchaseAnalysisCommandOutput extends GetCommitmen
  *
  * @public
  */
-export class GetCommitmentPurchaseAnalysisCommand extends $Command
-  .classBuilder<
-    GetCommitmentPurchaseAnalysisCommandInput,
-    GetCommitmentPurchaseAnalysisCommandOutput,
-    CostExplorerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSInsightsIndexService", "GetCommitmentPurchaseAnalysis", {})
-  .n("CostExplorerClient", "GetCommitmentPurchaseAnalysisCommand")
-  .sc(GetCommitmentPurchaseAnalysis$)
-  .build() {
+export class GetCommitmentPurchaseAnalysisCommand extends command<GetCommitmentPurchaseAnalysisCommandInput, GetCommitmentPurchaseAnalysisCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCommitmentPurchaseAnalysis",
+  GetCommitmentPurchaseAnalysis$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

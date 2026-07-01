@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GeoRoutesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoRoutesClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { OptimizeWaypointsRequest, OptimizeWaypointsResponse } from "../models/models_0";
 import { OptimizeWaypoints$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { OptimizeWaypoints$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -244,22 +240,12 @@ export interface OptimizeWaypointsCommandOutput extends OptimizeWaypointsRespons
  *
  * @public
  */
-export class OptimizeWaypointsCommand extends $Command
-  .classBuilder<
-    OptimizeWaypointsCommandInput,
-    OptimizeWaypointsCommandOutput,
-    GeoRoutesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GeoRoutesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RoutesService", "OptimizeWaypoints", {})
-  .n("GeoRoutesClient", "OptimizeWaypointsCommand")
-  .sc(OptimizeWaypoints$)
-  .build() {
+export class OptimizeWaypointsCommand extends command<OptimizeWaypointsCommandInput, OptimizeWaypointsCommandOutput>(
+  _ep0,
+  _mw0,
+  "OptimizeWaypoints",
+  OptimizeWaypoints$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

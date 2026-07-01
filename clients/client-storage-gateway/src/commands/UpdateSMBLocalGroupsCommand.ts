@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateSMBLocalGroupsInput, UpdateSMBLocalGroupsOutput } from "../models/models_0";
 import { UpdateSMBLocalGroups$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +69,12 @@ export interface UpdateSMBLocalGroupsCommandOutput extends UpdateSMBLocalGroupsO
  *
  * @public
  */
-export class UpdateSMBLocalGroupsCommand extends $Command
-  .classBuilder<
-    UpdateSMBLocalGroupsCommandInput,
-    UpdateSMBLocalGroupsCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "UpdateSMBLocalGroups", {})
-  .n("StorageGatewayClient", "UpdateSMBLocalGroupsCommand")
-  .sc(UpdateSMBLocalGroups$)
-  .build() {
+export class UpdateSMBLocalGroupsCommand extends command<UpdateSMBLocalGroupsCommandInput, UpdateSMBLocalGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSMBLocalGroups",
+  UpdateSMBLocalGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

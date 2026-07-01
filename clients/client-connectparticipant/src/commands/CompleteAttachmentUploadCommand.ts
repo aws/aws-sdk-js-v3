@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ConnectParticipantClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ConnectParticipantClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CompleteAttachmentUploadRequest, CompleteAttachmentUploadResponse } from "../models/models_0";
 import { CompleteAttachmentUpload$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CompleteAttachmentUpload$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +86,12 @@ export interface CompleteAttachmentUploadCommandOutput extends CompleteAttachmen
  *
  * @public
  */
-export class CompleteAttachmentUploadCommand extends $Command
-  .classBuilder<
-    CompleteAttachmentUploadCommandInput,
-    CompleteAttachmentUploadCommandOutput,
-    ConnectParticipantClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectParticipantClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectParticipantServiceLambda", "CompleteAttachmentUpload", {})
-  .n("ConnectParticipantClient", "CompleteAttachmentUploadCommand")
-  .sc(CompleteAttachmentUpload$)
-  .build() {
+export class CompleteAttachmentUploadCommand extends command<CompleteAttachmentUploadCommandInput, CompleteAttachmentUploadCommandOutput>(
+  _ep0,
+  _mw0,
+  "CompleteAttachmentUpload",
+  CompleteAttachmentUpload$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EnableOrganizationAdminAccountRequest, EnableOrganizationAdminAccountResponse } from "../models/models_2";
 import { EnableOrganizationAdminAccount$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface EnableOrganizationAdminAccountCommandOutput extends EnableOrgan
  *
  * @public
  */
-export class EnableOrganizationAdminAccountCommand extends $Command
-  .classBuilder<
-    EnableOrganizationAdminAccountCommandInput,
-    EnableOrganizationAdminAccountCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "EnableOrganizationAdminAccount", {})
-  .n("SecurityHubClient", "EnableOrganizationAdminAccountCommand")
-  .sc(EnableOrganizationAdminAccount$)
-  .build() {
+export class EnableOrganizationAdminAccountCommand extends command<EnableOrganizationAdminAccountCommandInput, EnableOrganizationAdminAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableOrganizationAdminAccount",
+  EnableOrganizationAdminAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

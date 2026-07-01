@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeEnvironmentManagedActionsRequest,
   DescribeEnvironmentManagedActionsResult,
@@ -19,7 +12,6 @@ import { DescribeEnvironmentManagedActions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DescribeEnvironmentManagedActionsCommandOutput extends Describe
  *
  * @public
  */
-export class DescribeEnvironmentManagedActionsCommand extends $Command
-  .classBuilder<
-    DescribeEnvironmentManagedActionsCommandInput,
-    DescribeEnvironmentManagedActionsCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "DescribeEnvironmentManagedActions", {})
-  .n("ElasticBeanstalkClient", "DescribeEnvironmentManagedActionsCommand")
-  .sc(DescribeEnvironmentManagedActions$)
-  .build() {
+export class DescribeEnvironmentManagedActionsCommand extends command<DescribeEnvironmentManagedActionsCommandInput, DescribeEnvironmentManagedActionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEnvironmentManagedActions",
+  DescribeEnvironmentManagedActions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

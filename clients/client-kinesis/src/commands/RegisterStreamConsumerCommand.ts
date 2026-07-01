@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterStreamConsumerInput, RegisterStreamConsumerOutput } from "../models/models_0";
 import { RegisterStreamConsumer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RegisterStreamConsumer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,27 +95,12 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  *
  * @public
  */
-export class RegisterStreamConsumerCommand extends $Command
-  .classBuilder<
-    RegisterStreamConsumerCommandInput,
-    RegisterStreamConsumerCommandOutput,
-    KinesisClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    OperationType: { type: "staticContextParams", value: `control` },
-    StreamId: { type: "contextParams", name: "StreamId" },
-    StreamARN: { type: "contextParams", name: "StreamARN" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kinesis_20131202", "RegisterStreamConsumer", {})
-  .n("KinesisClient", "RegisterStreamConsumerCommand")
-  .sc(RegisterStreamConsumer$)
-  .build() {
+export class RegisterStreamConsumerCommand extends command<RegisterStreamConsumerCommandInput, RegisterStreamConsumerCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterStreamConsumer",
+  RegisterStreamConsumer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateEnvironmentOperationsRoleMessage } from "../models/models_0";
 import { AssociateEnvironmentOperationsRole$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AssociateEnvironmentOperationsRole$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +61,12 @@ export interface AssociateEnvironmentOperationsRoleCommandOutput extends __Metad
  *
  * @public
  */
-export class AssociateEnvironmentOperationsRoleCommand extends $Command
-  .classBuilder<
-    AssociateEnvironmentOperationsRoleCommandInput,
-    AssociateEnvironmentOperationsRoleCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "AssociateEnvironmentOperationsRole", {})
-  .n("ElasticBeanstalkClient", "AssociateEnvironmentOperationsRoleCommand")
-  .sc(AssociateEnvironmentOperationsRole$)
-  .build() {
+export class AssociateEnvironmentOperationsRoleCommand extends command<AssociateEnvironmentOperationsRoleCommandInput, AssociateEnvironmentOperationsRoleCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateEnvironmentOperationsRole",
+  AssociateEnvironmentOperationsRole$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

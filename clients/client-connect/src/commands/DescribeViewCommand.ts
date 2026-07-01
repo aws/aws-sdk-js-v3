@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeViewRequest, DescribeViewResponse } from "../models/models_1";
 import { DescribeView$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeView$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface DescribeViewCommandOutput extends DescribeViewResponse, __Metad
  *
  * @public
  */
-export class DescribeViewCommand extends $Command
-  .classBuilder<
-    DescribeViewCommandInput,
-    DescribeViewCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DescribeView", {})
-  .n("ConnectClient", "DescribeViewCommand")
-  .sc(DescribeView$)
-  .build() {
+export class DescribeViewCommand extends command<DescribeViewCommandInput, DescribeViewCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeView",
+  DescribeView$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchCreateSecurityRequirementsInput, BatchCreateSecurityRequirementsOutput } from "../models/models_0";
 import { BatchCreateSecurityRequirements$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface BatchCreateSecurityRequirementsCommandOutput extends BatchCreat
  *
  * @public
  */
-export class BatchCreateSecurityRequirementsCommand extends $Command
-  .classBuilder<
-    BatchCreateSecurityRequirementsCommandInput,
-    BatchCreateSecurityRequirementsCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "BatchCreateSecurityRequirements", {})
-  .n("SecurityAgentClient", "BatchCreateSecurityRequirementsCommand")
-  .sc(BatchCreateSecurityRequirements$)
-  .build() {
+export class BatchCreateSecurityRequirementsCommand extends command<BatchCreateSecurityRequirementsCommandInput, BatchCreateSecurityRequirementsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchCreateSecurityRequirements",
+  BatchCreateSecurityRequirements$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

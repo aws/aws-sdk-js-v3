@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateApprovalRuleTemplateDescriptionInput,
   UpdateApprovalRuleTemplateDescriptionOutput,
@@ -15,7 +12,6 @@ import { UpdateApprovalRuleTemplateDescription$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface UpdateApprovalRuleTemplateDescriptionCommandOutput extends Upda
  *
  * @public
  */
-export class UpdateApprovalRuleTemplateDescriptionCommand extends $Command
-  .classBuilder<
-    UpdateApprovalRuleTemplateDescriptionCommandInput,
-    UpdateApprovalRuleTemplateDescriptionCommandOutput,
-    CodeCommitClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCommit_20150413", "UpdateApprovalRuleTemplateDescription", {})
-  .n("CodeCommitClient", "UpdateApprovalRuleTemplateDescriptionCommand")
-  .sc(UpdateApprovalRuleTemplateDescription$)
-  .build() {
+export class UpdateApprovalRuleTemplateDescriptionCommand extends command<UpdateApprovalRuleTemplateDescriptionCommandInput, UpdateApprovalRuleTemplateDescriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateApprovalRuleTemplateDescription",
+  UpdateApprovalRuleTemplateDescription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

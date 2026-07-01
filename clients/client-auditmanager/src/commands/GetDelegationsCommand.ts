@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDelegationsRequest, GetDelegationsResponse } from "../models/models_0";
 import { GetDelegations$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDelegations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface GetDelegationsCommandOutput extends GetDelegationsResponse, __M
  *
  * @public
  */
-export class GetDelegationsCommand extends $Command
-  .classBuilder<
-    GetDelegationsCommandInput,
-    GetDelegationsCommandOutput,
-    AuditManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BedrockAssessmentManagerLambda", "GetDelegations", {})
-  .n("AuditManagerClient", "GetDelegationsCommand")
-  .sc(GetDelegations$)
-  .build() {
+export class GetDelegationsCommand extends command<GetDelegationsCommandInput, GetDelegationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDelegations",
+  GetDelegations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

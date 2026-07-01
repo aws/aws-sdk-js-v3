@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetBotRequest, GetBotResponse } from "../models/models_0";
 import { GetBot$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -129,22 +125,12 @@ export interface GetBotCommandOutput extends GetBotResponse, __MetadataBearer {}
  *
  * @public
  */
-export class GetBotCommand extends $Command
-  .classBuilder<
-    GetBotCommandInput,
-    GetBotCommandOutput,
-    WickrClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WickrAdminApi", "GetBot", {})
-  .n("WickrClient", "GetBotCommand")
-  .sc(GetBot$)
-  .build() {
+export class GetBotCommand extends command<GetBotCommandInput, GetBotCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetBot",
+  GetBot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

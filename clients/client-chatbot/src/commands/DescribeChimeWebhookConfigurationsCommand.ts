@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeChimeWebhookConfigurationsRequest,
   DescribeChimeWebhookConfigurationsResult,
@@ -15,7 +12,6 @@ import { DescribeChimeWebhookConfigurations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface DescribeChimeWebhookConfigurationsCommandOutput extends Describ
  *
  * @public
  */
-export class DescribeChimeWebhookConfigurationsCommand extends $Command
-  .classBuilder<
-    DescribeChimeWebhookConfigurationsCommandInput,
-    DescribeChimeWebhookConfigurationsCommandOutput,
-    ChatbotClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WheatleyOrchestration_20171011", "DescribeChimeWebhookConfigurations", {})
-  .n("ChatbotClient", "DescribeChimeWebhookConfigurationsCommand")
-  .sc(DescribeChimeWebhookConfigurations$)
-  .build() {
+export class DescribeChimeWebhookConfigurationsCommand extends command<DescribeChimeWebhookConfigurationsCommandInput, DescribeChimeWebhookConfigurationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeChimeWebhookConfigurations",
+  DescribeChimeWebhookConfigurations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

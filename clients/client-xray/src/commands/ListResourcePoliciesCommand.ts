@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListResourcePoliciesRequest, ListResourcePoliciesResult } from "../models/models_0";
 import { ListResourcePolicies$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface ListResourcePoliciesCommandOutput extends ListResourcePoliciesR
  *
  * @public
  */
-export class ListResourcePoliciesCommand extends $Command
-  .classBuilder<
-    ListResourcePoliciesCommandInput,
-    ListResourcePoliciesCommandOutput,
-    XRayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSXRay", "ListResourcePolicies", {})
-  .n("XRayClient", "ListResourcePoliciesCommand")
-  .sc(ListResourcePolicies$)
-  .build() {
+export class ListResourcePoliciesCommand extends command<ListResourcePoliciesCommandInput, ListResourcePoliciesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListResourcePolicies",
+  ListResourcePolicies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

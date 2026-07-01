@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StopQueryWorkloadInsightsTopContributorsDataInput,
   StopQueryWorkloadInsightsTopContributorsDataOutput,
 } from "../models/models_0";
-import type {
-  NetworkFlowMonitorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFlowMonitorClient";
 import { StopQueryWorkloadInsightsTopContributorsData$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface StopQueryWorkloadInsightsTopContributorsDataCommandOutput exten
  *
  * @public
  */
-export class StopQueryWorkloadInsightsTopContributorsDataCommand extends $Command
-  .classBuilder<
-    StopQueryWorkloadInsightsTopContributorsDataCommandInput,
-    StopQueryWorkloadInsightsTopContributorsDataCommandOutput,
-    NetworkFlowMonitorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFlowMonitorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFlowMonitor", "StopQueryWorkloadInsightsTopContributorsData", {})
-  .n("NetworkFlowMonitorClient", "StopQueryWorkloadInsightsTopContributorsDataCommand")
-  .sc(StopQueryWorkloadInsightsTopContributorsData$)
-  .build() {
+export class StopQueryWorkloadInsightsTopContributorsDataCommand extends command<StopQueryWorkloadInsightsTopContributorsDataCommandInput, StopQueryWorkloadInsightsTopContributorsDataCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopQueryWorkloadInsightsTopContributorsData",
+  StopQueryWorkloadInsightsTopContributorsData$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

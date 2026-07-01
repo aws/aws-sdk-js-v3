@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudDirectoryClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpgradeAppliedSchemaRequest, UpgradeAppliedSchemaResponse } from "../models/models_0";
 import { UpgradeAppliedSchema$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpgradeAppliedSchema$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface UpgradeAppliedSchemaCommandOutput extends UpgradeAppliedSchemaR
  *
  * @public
  */
-export class UpgradeAppliedSchemaCommand extends $Command
-  .classBuilder<
-    UpgradeAppliedSchemaCommandInput,
-    UpgradeAppliedSchemaCommandOutput,
-    CloudDirectoryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonCloudDirectory_20170111", "UpgradeAppliedSchema", {})
-  .n("CloudDirectoryClient", "UpgradeAppliedSchemaCommand")
-  .sc(UpgradeAppliedSchema$)
-  .build() {
+export class UpgradeAppliedSchemaCommand extends command<UpgradeAppliedSchemaCommandInput, UpgradeAppliedSchemaCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpgradeAppliedSchema",
+  UpgradeAppliedSchema$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

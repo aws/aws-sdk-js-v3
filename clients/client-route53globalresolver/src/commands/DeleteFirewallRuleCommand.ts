@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFirewallRuleInput, DeleteFirewallRuleOutput } from "../models/models_0";
-import type {
-  Route53GlobalResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53GlobalResolverClient";
 import { DeleteFirewallRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +89,12 @@ export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleOutpu
  *
  * @public
  */
-export class DeleteFirewallRuleCommand extends $Command
-  .classBuilder<
-    DeleteFirewallRuleCommandInput,
-    DeleteFirewallRuleCommandOutput,
-    Route53GlobalResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53GlobalResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EC2DNSGlobalResolverCustomerAPI", "DeleteFirewallRule", {})
-  .n("Route53GlobalResolverClient", "DeleteFirewallRuleCommand")
-  .sc(DeleteFirewallRule$)
-  .build() {
+export class DeleteFirewallRuleCommand extends command<DeleteFirewallRuleCommandInput, DeleteFirewallRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFirewallRule",
+  DeleteFirewallRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

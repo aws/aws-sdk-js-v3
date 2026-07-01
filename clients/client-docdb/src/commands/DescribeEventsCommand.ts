@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeEventsMessage, EventsMessage } from "../models/models_0";
 import { DescribeEvents$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeEvents$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  *
  * @public
  */
-export class DescribeEventsCommand extends $Command
-  .classBuilder<
-    DescribeEventsCommandInput,
-    DescribeEventsCommandOutput,
-    DocDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DescribeEvents", {})
-  .n("DocDBClient", "DescribeEventsCommand")
-  .sc(DescribeEvents$)
-  .build() {
+export class DescribeEventsCommand extends command<DescribeEventsCommandInput, DescribeEventsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEvents",
+  DescribeEvents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

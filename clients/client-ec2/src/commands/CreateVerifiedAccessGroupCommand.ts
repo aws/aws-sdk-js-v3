@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateVerifiedAccessGroupRequest, CreateVerifiedAccessGroupResult } from "../models/models_2";
 import { CreateVerifiedAccessGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateVerifiedAccessGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface CreateVerifiedAccessGroupCommandOutput extends CreateVerifiedAc
  *
  * @public
  */
-export class CreateVerifiedAccessGroupCommand extends $Command
-  .classBuilder<
-    CreateVerifiedAccessGroupCommandInput,
-    CreateVerifiedAccessGroupCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "CreateVerifiedAccessGroup", {})
-  .n("EC2Client", "CreateVerifiedAccessGroupCommand")
-  .sc(CreateVerifiedAccessGroup$)
-  .build() {
+export class CreateVerifiedAccessGroupCommand extends command<CreateVerifiedAccessGroupCommandInput, CreateVerifiedAccessGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateVerifiedAccessGroup",
+  CreateVerifiedAccessGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

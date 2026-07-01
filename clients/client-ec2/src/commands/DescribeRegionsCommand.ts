@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRegionsRequest, DescribeRegionsResult } from "../models/models_4";
 import { DescribeRegions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeRegions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -147,22 +143,12 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  *
  * @public
  */
-export class DescribeRegionsCommand extends $Command
-  .classBuilder<
-    DescribeRegionsCommandInput,
-    DescribeRegionsCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeRegions", {})
-  .n("EC2Client", "DescribeRegionsCommand")
-  .sc(DescribeRegions$)
-  .build() {
+export class DescribeRegionsCommand extends command<DescribeRegionsCommandInput, DescribeRegionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRegions",
+  DescribeRegions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

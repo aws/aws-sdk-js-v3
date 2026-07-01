@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteIdentityProviderRequest } from "../models/models_0";
 import { DeleteIdentityProvider$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteIdentityProvider$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +101,12 @@ export interface DeleteIdentityProviderCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteIdentityProviderCommand extends $Command
-  .classBuilder<
-    DeleteIdentityProviderCommandInput,
-    DeleteIdentityProviderCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "DeleteIdentityProvider", {})
-  .n("CognitoIdentityProviderClient", "DeleteIdentityProviderCommand")
-  .sc(DeleteIdentityProvider$)
-  .build() {
+export class DeleteIdentityProviderCommand extends command<DeleteIdentityProviderCommandInput, DeleteIdentityProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteIdentityProvider",
+  DeleteIdentityProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

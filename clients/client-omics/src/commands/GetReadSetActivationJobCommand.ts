@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetReadSetActivationJobRequest, GetReadSetActivationJobResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { GetReadSetActivationJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface GetReadSetActivationJobCommandOutput extends GetReadSetActivati
  *
  * @public
  */
-export class GetReadSetActivationJobCommand extends $Command
-  .classBuilder<
-    GetReadSetActivationJobCommandInput,
-    GetReadSetActivationJobCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "GetReadSetActivationJob", {})
-  .n("OmicsClient", "GetReadSetActivationJobCommand")
-  .sc(GetReadSetActivationJob$)
-  .build() {
+export class GetReadSetActivationJobCommand extends command<GetReadSetActivationJobCommandInput, GetReadSetActivationJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetReadSetActivationJob",
+  GetReadSetActivationJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

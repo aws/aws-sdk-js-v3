@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateSubscriptionRequest, UpdateSubscriptionResponse } from "../models/models_1";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { UpdateSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface UpdateSubscriptionCommandOutput extends UpdateSubscriptionRespo
  *
  * @public
  */
-export class UpdateSubscriptionCommand extends $Command
-  .classBuilder<
-    UpdateSubscriptionCommandInput,
-    UpdateSubscriptionCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "UpdateSubscription", {})
-  .n("QBusinessClient", "UpdateSubscriptionCommand")
-  .sc(UpdateSubscription$)
-  .build() {
+export class UpdateSubscriptionCommand extends command<UpdateSubscriptionCommandInput, UpdateSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSubscription",
+  UpdateSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

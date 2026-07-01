@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeInsightsRefreshRequest, DescribeInsightsRefreshResponse } from "../models/models_0";
 import { DescribeInsightsRefresh$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeInsightsRefresh$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DescribeInsightsRefreshCommandOutput extends DescribeInsightsRe
  *
  * @public
  */
-export class DescribeInsightsRefreshCommand extends $Command
-  .classBuilder<
-    DescribeInsightsRefreshCommandInput,
-    DescribeInsightsRefreshCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "DescribeInsightsRefresh", {})
-  .n("EKSClient", "DescribeInsightsRefreshCommand")
-  .sc(DescribeInsightsRefresh$)
-  .build() {
+export class DescribeInsightsRefreshCommand extends command<DescribeInsightsRefreshCommandInput, DescribeInsightsRefreshCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeInsightsRefresh",
+  DescribeInsightsRefresh$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

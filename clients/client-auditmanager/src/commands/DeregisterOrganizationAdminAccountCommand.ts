@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeregisterOrganizationAdminAccountRequest,
   DeregisterOrganizationAdminAccountResponse,
@@ -15,7 +12,6 @@ import { DeregisterOrganizationAdminAccount$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +129,12 @@ export interface DeregisterOrganizationAdminAccountCommandOutput extends Deregis
  *
  * @public
  */
-export class DeregisterOrganizationAdminAccountCommand extends $Command
-  .classBuilder<
-    DeregisterOrganizationAdminAccountCommandInput,
-    DeregisterOrganizationAdminAccountCommandOutput,
-    AuditManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BedrockAssessmentManagerLambda", "DeregisterOrganizationAdminAccount", {})
-  .n("AuditManagerClient", "DeregisterOrganizationAdminAccountCommand")
-  .sc(DeregisterOrganizationAdminAccount$)
-  .build() {
+export class DeregisterOrganizationAdminAccountCommand extends command<DeregisterOrganizationAdminAccountCommandInput, DeregisterOrganizationAdminAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeregisterOrganizationAdminAccount",
+  DeregisterOrganizationAdminAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExpireSessionRequest, ExpireSessionResult } from "../models/models_0";
 import { ExpireSession$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ExpireSession$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -57,22 +53,12 @@ export interface ExpireSessionCommandOutput extends ExpireSessionResult, __Metad
  *
  * @public
  */
-export class ExpireSessionCommand extends $Command
-  .classBuilder<
-    ExpireSessionCommandInput,
-    ExpireSessionCommandOutput,
-    AppStreamClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PhotonAdminProxyService", "ExpireSession", {})
-  .n("AppStreamClient", "ExpireSessionCommand")
-  .sc(ExpireSession$)
-  .build() {
+export class ExpireSessionCommand extends command<ExpireSessionCommandInput, ExpireSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExpireSession",
+  ExpireSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

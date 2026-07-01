@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutAccessControlRuleRequest, PutAccessControlRuleResponse } from "../models/models_0";
 import { PutAccessControlRule$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface PutAccessControlRuleCommandOutput extends PutAccessControlRuleR
  *
  * @public
  */
-export class PutAccessControlRuleCommand extends $Command
-  .classBuilder<
-    PutAccessControlRuleCommandInput,
-    PutAccessControlRuleCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "PutAccessControlRule", {})
-  .n("WorkMailClient", "PutAccessControlRuleCommand")
-  .sc(PutAccessControlRule$)
-  .build() {
+export class PutAccessControlRuleCommand extends command<PutAccessControlRuleCommandInput, PutAccessControlRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAccessControlRule",
+  PutAccessControlRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

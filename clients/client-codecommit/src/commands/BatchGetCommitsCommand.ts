@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetCommitsInput, BatchGetCommitsOutput } from "../models/models_0";
 import { BatchGetCommits$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetCommits$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface BatchGetCommitsCommandOutput extends BatchGetCommitsOutput, __M
  *
  * @public
  */
-export class BatchGetCommitsCommand extends $Command
-  .classBuilder<
-    BatchGetCommitsCommandInput,
-    BatchGetCommitsCommandOutput,
-    CodeCommitClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCommit_20150413", "BatchGetCommits", {})
-  .n("CodeCommitClient", "BatchGetCommitsCommand")
-  .sc(BatchGetCommits$)
-  .build() {
+export class BatchGetCommitsCommand extends command<BatchGetCommitsCommandInput, BatchGetCommitsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetCommits",
+  BatchGetCommits$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

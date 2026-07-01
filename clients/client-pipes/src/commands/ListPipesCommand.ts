@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPipesRequest, ListPipesResponse } from "../models/models_0";
-import type { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
 import { ListPipes$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface ListPipesCommandOutput extends ListPipesResponse, __MetadataBea
  *
  * @public
  */
-export class ListPipesCommand extends $Command
-  .classBuilder<
-    ListPipesCommandInput,
-    ListPipesCommandOutput,
-    PipesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PipesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pipes", "ListPipes", {})
-  .n("PipesClient", "ListPipesCommand")
-  .sc(ListPipes$)
-  .build() {
+export class ListPipesCommand extends command<ListPipesCommandInput, ListPipesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPipes",
+  ListPipes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAIAgentVersionRequest, CreateAIAgentVersionResponse } from "../models/models_0";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { CreateAIAgentVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -321,22 +317,12 @@ export interface CreateAIAgentVersionCommandOutput extends CreateAIAgentVersionR
  *
  * @public
  */
-export class CreateAIAgentVersionCommand extends $Command
-  .classBuilder<
-    CreateAIAgentVersionCommandInput,
-    CreateAIAgentVersionCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "CreateAIAgentVersion", {})
-  .n("QConnectClient", "CreateAIAgentVersionCommand")
-  .sc(CreateAIAgentVersion$)
-  .build() {
+export class CreateAIAgentVersionCommand extends command<CreateAIAgentVersionCommandInput, CreateAIAgentVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAIAgentVersion",
+  CreateAIAgentVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

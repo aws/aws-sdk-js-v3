@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeStarConnectionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeStarConnectionsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSyncConfigurationsInput, ListSyncConfigurationsOutput } from "../models/models_0";
 import { ListSyncConfigurations$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListSyncConfigurations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface ListSyncConfigurationsCommandOutput extends ListSyncConfigurati
  *
  * @public
  */
-export class ListSyncConfigurationsCommand extends $Command
-  .classBuilder<
-    ListSyncConfigurationsCommandInput,
-    ListSyncConfigurationsCommandOutput,
-    CodeStarConnectionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeStarConnectionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeStar_connections_20191201", "ListSyncConfigurations", {})
-  .n("CodeStarConnectionsClient", "ListSyncConfigurationsCommand")
-  .sc(ListSyncConfigurations$)
-  .build() {
+export class ListSyncConfigurationsCommand extends command<ListSyncConfigurationsCommandInput, ListSyncConfigurationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSyncConfigurations",
+  ListSyncConfigurations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

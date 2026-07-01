@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeNotebookInstanceLifecycleConfigInput,
   DescribeNotebookInstanceLifecycleConfigOutput,
 } from "../models/models_3";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeNotebookInstanceLifecycleConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DescribeNotebookInstanceLifecycleConfigCommandOutput extends De
  *
  * @public
  */
-export class DescribeNotebookInstanceLifecycleConfigCommand extends $Command
-  .classBuilder<
-    DescribeNotebookInstanceLifecycleConfigCommandInput,
-    DescribeNotebookInstanceLifecycleConfigCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DescribeNotebookInstanceLifecycleConfig", {})
-  .n("SageMakerClient", "DescribeNotebookInstanceLifecycleConfigCommand")
-  .sc(DescribeNotebookInstanceLifecycleConfig$)
-  .build() {
+export class DescribeNotebookInstanceLifecycleConfigCommand extends command<DescribeNotebookInstanceLifecycleConfigCommandInput, DescribeNotebookInstanceLifecycleConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeNotebookInstanceLifecycleConfig",
+  DescribeNotebookInstanceLifecycleConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

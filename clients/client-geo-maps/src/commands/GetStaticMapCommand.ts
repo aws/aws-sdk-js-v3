@@ -1,11 +1,8 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import { Uint8ArrayBlobAdapter } from "@smithy/core/serde";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GeoMapsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoMapsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetStaticMapRequest, GetStaticMapResponse } from "../models/models_0";
 import { GetStaticMap$ } from "../schemas/schemas_0";
 
@@ -13,7 +10,6 @@ import { GetStaticMap$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface GetStaticMapCommandOutput extends GetStaticMapCommandOutputType
  *
  * @public
  */
-export class GetStaticMapCommand extends $Command
-  .classBuilder<
-    GetStaticMapCommandInput,
-    GetStaticMapCommandOutput,
-    GeoMapsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GeoMapsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MapsService", "GetStaticMap", {})
-  .n("GeoMapsClient", "GetStaticMapCommand")
-  .sc(GetStaticMap$)
-  .build() {
+export class GetStaticMapCommand extends command<GetStaticMapCommandInput, GetStaticMapCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetStaticMap",
+  GetStaticMap$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

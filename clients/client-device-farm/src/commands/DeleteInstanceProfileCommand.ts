@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteInstanceProfileRequest, DeleteInstanceProfileResult } from "../models/models_0";
 import { DeleteInstanceProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteInstanceProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteInstanceProfileCommandOutput extends DeleteInstanceProfil
  *
  * @public
  */
-export class DeleteInstanceProfileCommand extends $Command
-  .classBuilder<
-    DeleteInstanceProfileCommandInput,
-    DeleteInstanceProfileCommandOutput,
-    DeviceFarmClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DeviceFarm_20150623", "DeleteInstanceProfile", {})
-  .n("DeviceFarmClient", "DeleteInstanceProfileCommand")
-  .sc(DeleteInstanceProfile$)
-  .build() {
+export class DeleteInstanceProfileCommand extends command<DeleteInstanceProfileCommandInput, DeleteInstanceProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteInstanceProfile",
+  DeleteInstanceProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFrontKeyValueStoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFrontKeyValueStoreClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateKeysRequest, UpdateKeysResponse } from "../models/models_0";
 import { UpdateKeys$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateKeys$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -185,25 +177,12 @@ export interface UpdateKeysCommandOutput extends UpdateKeysResponse, __MetadataB
  *
  * @public
  */
-export class UpdateKeysCommand extends $Command
-  .classBuilder<
-    UpdateKeysCommandInput,
-    UpdateKeysCommandOutput,
-    CloudFrontKeyValueStoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    KvsARN: { type: "contextParams", name: "KvsARN" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontKeyValueStoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFrontKeyValueStore", "UpdateKeys", {})
-  .n("CloudFrontKeyValueStoreClient", "UpdateKeysCommand")
-  .sc(UpdateKeys$)
-  .build() {
+export class UpdateKeysCommand extends command<UpdateKeysCommandInput, UpdateKeysCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateKeys",
+  UpdateKeys$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

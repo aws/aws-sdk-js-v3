@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DefineSuggesterRequest, DefineSuggesterResponse } from "../models/models_0";
 import { DefineSuggester$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DefineSuggester$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface DefineSuggesterCommandOutput extends DefineSuggesterResponse, _
  *
  * @public
  */
-export class DefineSuggesterCommand extends $Command
-  .classBuilder<
-    DefineSuggesterCommandInput,
-    DefineSuggesterCommandOutput,
-    CloudSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("A9SearchCloudConfigService2013", "DefineSuggester", {})
-  .n("CloudSearchClient", "DefineSuggesterCommand")
-  .sc(DefineSuggester$)
-  .build() {
+export class DefineSuggesterCommand extends command<DefineSuggesterCommandInput, DefineSuggesterCommandOutput>(
+  _ep0,
+  _mw0,
+  "DefineSuggester",
+  DefineSuggester$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

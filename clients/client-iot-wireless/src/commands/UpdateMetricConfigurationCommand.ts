@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateMetricConfigurationRequest, UpdateMetricConfigurationResponse } from "../models/models_1";
 import { UpdateMetricConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateMetricConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface UpdateMetricConfigurationCommandOutput extends UpdateMetricConf
  *
  * @public
  */
-export class UpdateMetricConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateMetricConfigurationCommandInput,
-    UpdateMetricConfigurationCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "UpdateMetricConfiguration", {})
-  .n("IoTWirelessClient", "UpdateMetricConfigurationCommand")
-  .sc(UpdateMetricConfiguration$)
-  .build() {
+export class UpdateMetricConfigurationCommand extends command<UpdateMetricConfigurationCommandInput, UpdateMetricConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateMetricConfiguration",
+  UpdateMetricConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

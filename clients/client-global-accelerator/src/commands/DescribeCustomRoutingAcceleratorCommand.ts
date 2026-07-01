@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  GlobalAcceleratorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../GlobalAcceleratorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeCustomRoutingAcceleratorRequest,
   DescribeCustomRoutingAcceleratorResponse,
@@ -19,7 +12,6 @@ import { DescribeCustomRoutingAccelerator$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface DescribeCustomRoutingAcceleratorCommandOutput extends DescribeC
  *
  * @public
  */
-export class DescribeCustomRoutingAcceleratorCommand extends $Command
-  .classBuilder<
-    DescribeCustomRoutingAcceleratorCommandInput,
-    DescribeCustomRoutingAcceleratorCommandOutput,
-    GlobalAcceleratorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GlobalAccelerator_V20180706", "DescribeCustomRoutingAccelerator", {})
-  .n("GlobalAcceleratorClient", "DescribeCustomRoutingAcceleratorCommand")
-  .sc(DescribeCustomRoutingAccelerator$)
-  .build() {
+export class DescribeCustomRoutingAcceleratorCommand extends command<DescribeCustomRoutingAcceleratorCommandInput, DescribeCustomRoutingAcceleratorCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCustomRoutingAccelerator",
+  DescribeCustomRoutingAccelerator$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

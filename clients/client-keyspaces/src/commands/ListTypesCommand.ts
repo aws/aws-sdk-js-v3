@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTypesRequest, ListTypesResponse } from "../models/models_0";
 import { ListTypes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListTypes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface ListTypesCommandOutput extends ListTypesResponse, __MetadataBea
  *
  * @public
  */
-export class ListTypesCommand extends $Command
-  .classBuilder<
-    ListTypesCommandInput,
-    ListTypesCommandOutput,
-    KeyspacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KeyspacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KeyspacesService", "ListTypes", {})
-  .n("KeyspacesClient", "ListTypesCommand")
-  .sc(ListTypes$)
-  .build() {
+export class ListTypesCommand extends command<ListTypesCommandInput, ListTypesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTypes",
+  ListTypes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

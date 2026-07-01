@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSourceRepositoryRequest, GetSourceRepositoryResponse } from "../models/models_0";
 import { GetSourceRepository$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetSourceRepository$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface GetSourceRepositoryCommandOutput extends GetSourceRepositoryRes
  *
  * @public
  */
-export class GetSourceRepositoryCommand extends $Command
-  .classBuilder<
-    GetSourceRepositoryCommandInput,
-    GetSourceRepositoryCommandOutput,
-    CodeCatalystClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCatalyst", "GetSourceRepository", {})
-  .n("CodeCatalystClient", "GetSourceRepositoryCommand")
-  .sc(GetSourceRepository$)
-  .build() {
+export class GetSourceRepositoryCommand extends command<GetSourceRepositoryCommandInput, GetSourceRepositoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSourceRepository",
+  GetSourceRepository$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

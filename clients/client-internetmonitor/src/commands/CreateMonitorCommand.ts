@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  InternetMonitorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../InternetMonitorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateMonitorInput, CreateMonitorOutput } from "../models/models_0";
 import { CreateMonitor$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateMonitor$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +112,12 @@ export interface CreateMonitorCommandOutput extends CreateMonitorOutput, __Metad
  *
  * @public
  */
-export class CreateMonitorCommand extends $Command
-  .classBuilder<
-    CreateMonitorCommandInput,
-    CreateMonitorCommandOutput,
-    InternetMonitorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InternetMonitorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("InternetMonitor20210603", "CreateMonitor", {})
-  .n("InternetMonitorClient", "CreateMonitorCommand")
-  .sc(CreateMonitor$)
-  .build() {
+export class CreateMonitorCommand extends command<CreateMonitorCommandInput, CreateMonitorCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateMonitor",
+  CreateMonitor$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

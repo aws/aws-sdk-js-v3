@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateSegmentRequest, UpdateSegmentResponse } from "../models/models_1";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { UpdateSegment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -369,22 +365,12 @@ export interface UpdateSegmentCommandOutput extends UpdateSegmentResponse, __Met
  *
  * @public
  */
-export class UpdateSegmentCommand extends $Command
-  .classBuilder<
-    UpdateSegmentCommandInput,
-    UpdateSegmentCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "UpdateSegment", {})
-  .n("PinpointClient", "UpdateSegmentCommand")
-  .sc(UpdateSegment$)
-  .build() {
+export class UpdateSegmentCommand extends command<UpdateSegmentCommandInput, UpdateSegmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSegment",
+  UpdateSegment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

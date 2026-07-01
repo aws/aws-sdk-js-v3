@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  KinesisAnalyticsV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../KinesisAnalyticsV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateApplicationSnapshotRequest, CreateApplicationSnapshotResponse } from "../models/models_0";
 import { CreateApplicationSnapshot$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateApplicationSnapshot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface CreateApplicationSnapshotCommandOutput extends CreateApplicatio
  *
  * @public
  */
-export class CreateApplicationSnapshotCommand extends $Command
-  .classBuilder<
-    CreateApplicationSnapshotCommandInput,
-    CreateApplicationSnapshotCommandOutput,
-    KinesisAnalyticsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KinesisAnalytics_20180523", "CreateApplicationSnapshot", {})
-  .n("KinesisAnalyticsV2Client", "CreateApplicationSnapshotCommand")
-  .sc(CreateApplicationSnapshot$)
-  .build() {
+export class CreateApplicationSnapshotCommand extends command<CreateApplicationSnapshotCommandInput, CreateApplicationSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateApplicationSnapshot",
+  CreateApplicationSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

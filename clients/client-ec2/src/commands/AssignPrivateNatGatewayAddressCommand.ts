@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssignPrivateNatGatewayAddressRequest, AssignPrivateNatGatewayAddressResult } from "../models/models_0";
 import { AssignPrivateNatGatewayAddress$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssignPrivateNatGatewayAddress$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface AssignPrivateNatGatewayAddressCommandOutput extends AssignPriva
  *
  * @public
  */
-export class AssignPrivateNatGatewayAddressCommand extends $Command
-  .classBuilder<
-    AssignPrivateNatGatewayAddressCommandInput,
-    AssignPrivateNatGatewayAddressCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "AssignPrivateNatGatewayAddress", {})
-  .n("EC2Client", "AssignPrivateNatGatewayAddressCommand")
-  .sc(AssignPrivateNatGatewayAddress$)
-  .build() {
+export class AssignPrivateNatGatewayAddressCommand extends command<AssignPrivateNatGatewayAddressCommandInput, AssignPrivateNatGatewayAddressCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssignPrivateNatGatewayAddress",
+  AssignPrivateNatGatewayAddress$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

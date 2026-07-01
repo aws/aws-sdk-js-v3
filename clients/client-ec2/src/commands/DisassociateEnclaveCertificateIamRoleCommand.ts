@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateEnclaveCertificateIamRoleRequest,
   DisassociateEnclaveCertificateIamRoleResult,
@@ -15,7 +12,6 @@ import { DisassociateEnclaveCertificateIamRole$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface DisassociateEnclaveCertificateIamRoleCommandOutput extends Disa
  *
  * @public
  */
-export class DisassociateEnclaveCertificateIamRoleCommand extends $Command
-  .classBuilder<
-    DisassociateEnclaveCertificateIamRoleCommandInput,
-    DisassociateEnclaveCertificateIamRoleCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DisassociateEnclaveCertificateIamRole", {})
-  .n("EC2Client", "DisassociateEnclaveCertificateIamRoleCommand")
-  .sc(DisassociateEnclaveCertificateIamRole$)
-  .build() {
+export class DisassociateEnclaveCertificateIamRoleCommand extends command<DisassociateEnclaveCertificateIamRoleCommandInput, DisassociateEnclaveCertificateIamRoleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateEnclaveCertificateIamRole",
+  DisassociateEnclaveCertificateIamRole$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

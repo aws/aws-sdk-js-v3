@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListFailureModeAssessmentsRequest, ListFailureModeAssessmentsResponse } from "../models/models_0";
-import type {
-  Resiliencehubv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Resiliencehubv2Client";
 import { ListFailureModeAssessments$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +92,12 @@ export interface ListFailureModeAssessmentsCommandOutput extends ListFailureMode
  *
  * @public
  */
-export class ListFailureModeAssessmentsCommand extends $Command
-  .classBuilder<
-    ListFailureModeAssessmentsCommandInput,
-    ListFailureModeAssessmentsCommandOutput,
-    Resiliencehubv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Resiliencehubv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NGRHServiceCore", "ListFailureModeAssessments", {})
-  .n("Resiliencehubv2Client", "ListFailureModeAssessmentsCommand")
-  .sc(ListFailureModeAssessments$)
-  .build() {
+export class ListFailureModeAssessmentsCommand extends command<ListFailureModeAssessmentsCommandInput, ListFailureModeAssessmentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFailureModeAssessments",
+  ListFailureModeAssessments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

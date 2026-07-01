@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSourceRepositoryRequest, DeleteSourceRepositoryResponse } from "../models/models_0";
 import { DeleteSourceRepository$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteSourceRepository$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DeleteSourceRepositoryCommandOutput extends DeleteSourceReposit
  *
  * @public
  */
-export class DeleteSourceRepositoryCommand extends $Command
-  .classBuilder<
-    DeleteSourceRepositoryCommandInput,
-    DeleteSourceRepositoryCommandOutput,
-    CodeCatalystClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCatalyst", "DeleteSourceRepository", {})
-  .n("CodeCatalystClient", "DeleteSourceRepositoryCommand")
-  .sc(DeleteSourceRepository$)
-  .build() {
+export class DeleteSourceRepositoryCommand extends command<DeleteSourceRepositoryCommandInput, DeleteSourceRepositoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSourceRepository",
+  DeleteSourceRepository$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRecommendationsRequest, ListRecommendationsResponse } from "../models/models_0";
 import { ListRecommendations$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListRecommendations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  *
  * @public
  */
-export class ListRecommendationsCommand extends $Command
-  .classBuilder<
-    ListRecommendationsCommandInput,
-    ListRecommendationsCommandOutput,
-    DevOpsAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DevOpsAgent", "ListRecommendations", {})
-  .n("DevOpsAgentClient", "ListRecommendationsCommand")
-  .sc(ListRecommendations$)
-  .build() {
+export class ListRecommendationsCommand extends command<ListRecommendationsCommandInput, ListRecommendationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRecommendations",
+  ListRecommendations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

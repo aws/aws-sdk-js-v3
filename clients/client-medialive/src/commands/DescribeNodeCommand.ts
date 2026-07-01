@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeNodeRequest, DescribeNodeResponse } from "../models/models_1";
 import { DescribeNode$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeNode$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface DescribeNodeCommandOutput extends DescribeNodeResponse, __Metad
  *
  * @public
  */
-export class DescribeNodeCommand extends $Command
-  .classBuilder<
-    DescribeNodeCommandInput,
-    DescribeNodeCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "DescribeNode", {})
-  .n("MediaLiveClient", "DescribeNodeCommand")
-  .sc(DescribeNode$)
-  .build() {
+export class DescribeNodeCommand extends command<DescribeNodeCommandInput, DescribeNodeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeNode",
+  DescribeNode$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

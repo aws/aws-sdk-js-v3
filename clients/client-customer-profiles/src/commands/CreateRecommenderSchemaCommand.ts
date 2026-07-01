@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRecommenderSchemaRequest, CreateRecommenderSchemaResponse } from "../models/models_0";
 import { CreateRecommenderSchema$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateRecommenderSchema$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface CreateRecommenderSchemaCommandOutput extends CreateRecommenderS
  *
  * @public
  */
-export class CreateRecommenderSchemaCommand extends $Command
-  .classBuilder<
-    CreateRecommenderSchemaCommandInput,
-    CreateRecommenderSchemaCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "CreateRecommenderSchema", {})
-  .n("CustomerProfilesClient", "CreateRecommenderSchemaCommand")
-  .sc(CreateRecommenderSchema$)
-  .build() {
+export class CreateRecommenderSchemaCommand extends command<CreateRecommenderSchemaCommandInput, CreateRecommenderSchemaCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRecommenderSchema",
+  CreateRecommenderSchema$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

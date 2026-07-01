@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteActivityTypeInput } from "../models/models_0";
 import { DeleteActivityType$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface DeleteActivityTypeCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteActivityTypeCommand extends $Command
-  .classBuilder<
-    DeleteActivityTypeCommandInput,
-    DeleteActivityTypeCommandOutput,
-    SWFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleWorkflowService", "DeleteActivityType", {})
-  .n("SWFClient", "DeleteActivityTypeCommand")
-  .sc(DeleteActivityType$)
-  .build() {
+export class DeleteActivityTypeCommand extends command<DeleteActivityTypeCommandInput, DeleteActivityTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteActivityType",
+  DeleteActivityType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

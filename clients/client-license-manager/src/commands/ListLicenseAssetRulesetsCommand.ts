@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLicenseAssetRulesetsRequest, ListLicenseAssetRulesetsResponse } from "../models/models_0";
 import { ListLicenseAssetRulesets$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListLicenseAssetRulesets$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -204,22 +196,12 @@ export interface ListLicenseAssetRulesetsCommandOutput extends ListLicenseAssetR
  *
  * @public
  */
-export class ListLicenseAssetRulesetsCommand extends $Command
-  .classBuilder<
-    ListLicenseAssetRulesetsCommandInput,
-    ListLicenseAssetRulesetsCommandOutput,
-    LicenseManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLicenseManager", "ListLicenseAssetRulesets", {})
-  .n("LicenseManagerClient", "ListLicenseAssetRulesetsCommand")
-  .sc(ListLicenseAssetRulesets$)
-  .build() {
+export class ListLicenseAssetRulesetsCommand extends command<ListLicenseAssetRulesetsCommandInput, ListLicenseAssetRulesetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLicenseAssetRulesets",
+  ListLicenseAssetRulesets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

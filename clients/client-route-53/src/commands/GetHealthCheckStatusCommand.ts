@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw2, command } from "../commandBuilder";
 import type { GetHealthCheckStatusRequest, GetHealthCheckStatusResponse } from "../models/models_0";
-import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 import { GetHealthCheckStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface GetHealthCheckStatusCommandOutput extends GetHealthCheckStatusR
  *
  * @public
  */
-export class GetHealthCheckStatusCommand extends $Command
-  .classBuilder<
-    GetHealthCheckStatusCommandInput,
-    GetHealthCheckStatusCommandOutput,
-    Route53ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDnsV20130401", "GetHealthCheckStatus", {})
-  .n("Route53Client", "GetHealthCheckStatusCommand")
-  .sc(GetHealthCheckStatus$)
-  .build() {
+export class GetHealthCheckStatusCommand extends command<GetHealthCheckStatusCommandInput, GetHealthCheckStatusCommandOutput>(
+  _ep0,
+  _mw2,
+  "GetHealthCheckStatus",
+  GetHealthCheckStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

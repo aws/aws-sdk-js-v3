@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LexModelBuildingServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LexModelBuildingServiceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSlotTypeRequest } from "../models/models_0";
 import { DeleteSlotType$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteSlotType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +108,12 @@ export interface DeleteSlotTypeCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteSlotTypeCommand extends $Command
-  .classBuilder<
-    DeleteSlotTypeCommandInput,
-    DeleteSlotTypeCommandOutput,
-    LexModelBuildingServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepSenseModelBuildingService", "DeleteSlotType", {})
-  .n("LexModelBuildingServiceClient", "DeleteSlotTypeCommand")
-  .sc(DeleteSlotType$)
-  .build() {
+export class DeleteSlotTypeCommand extends command<DeleteSlotTypeCommandInput, DeleteSlotTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSlotType",
+  DeleteSlotType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

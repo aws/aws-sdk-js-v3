@@ -13,7 +13,6 @@ import { de_IgnoresWrappingXmlNameCommand, se_IgnoresWrappingXmlNameCommand } fr
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

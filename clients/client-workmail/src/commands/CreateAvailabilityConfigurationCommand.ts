@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateAvailabilityConfigurationRequest,
   CreateAvailabilityConfigurationResponse,
 } from "../models/models_0";
 import { CreateAvailabilityConfiguration$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface CreateAvailabilityConfigurationCommandOutput extends CreateAvai
  *
  * @public
  */
-export class CreateAvailabilityConfigurationCommand extends $Command
-  .classBuilder<
-    CreateAvailabilityConfigurationCommandInput,
-    CreateAvailabilityConfigurationCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "CreateAvailabilityConfiguration", {})
-  .n("WorkMailClient", "CreateAvailabilityConfigurationCommand")
-  .sc(CreateAvailabilityConfiguration$)
-  .build() {
+export class CreateAvailabilityConfigurationCommand extends command<CreateAvailabilityConfigurationCommandInput, CreateAvailabilityConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAvailabilityConfiguration",
+  CreateAvailabilityConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

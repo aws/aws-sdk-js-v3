@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeregisterTransitGatewayRequest, DeregisterTransitGatewayResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { DeregisterTransitGateway$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface DeregisterTransitGatewayCommandOutput extends DeregisterTransit
  *
  * @public
  */
-export class DeregisterTransitGatewayCommand extends $Command
-  .classBuilder<
-    DeregisterTransitGatewayCommandInput,
-    DeregisterTransitGatewayCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "DeregisterTransitGateway", {})
-  .n("NetworkManagerClient", "DeregisterTransitGatewayCommand")
-  .sc(DeregisterTransitGateway$)
-  .build() {
+export class DeregisterTransitGatewayCommand extends command<DeregisterTransitGatewayCommandInput, DeregisterTransitGatewayCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeregisterTransitGateway",
+  DeregisterTransitGateway$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

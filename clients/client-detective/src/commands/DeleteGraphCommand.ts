@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteGraphRequest } from "../models/models_0";
 import { DeleteGraph$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteGraph$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DeleteGraphCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteGraphCommand extends $Command
-  .classBuilder<
-    DeleteGraphCommandInput,
-    DeleteGraphCommandOutput,
-    DetectiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDetective", "DeleteGraph", {})
-  .n("DetectiveClient", "DeleteGraphCommand")
-  .sc(DeleteGraph$)
-  .build() {
+export class DeleteGraphCommand extends command<DeleteGraphCommandInput, DeleteGraphCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteGraph",
+  DeleteGraph$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

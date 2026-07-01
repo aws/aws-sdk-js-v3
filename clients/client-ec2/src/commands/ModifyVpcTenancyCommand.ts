@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyVpcTenancyRequest, ModifyVpcTenancyResult } from "../models/models_7";
 import { ModifyVpcTenancy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ModifyVpcTenancy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface ModifyVpcTenancyCommandOutput extends ModifyVpcTenancyResult, _
  *
  * @public
  */
-export class ModifyVpcTenancyCommand extends $Command
-  .classBuilder<
-    ModifyVpcTenancyCommandInput,
-    ModifyVpcTenancyCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "ModifyVpcTenancy", {})
-  .n("EC2Client", "ModifyVpcTenancyCommand")
-  .sc(ModifyVpcTenancy$)
-  .build() {
+export class ModifyVpcTenancyCommand extends command<ModifyVpcTenancyCommandInput, ModifyVpcTenancyCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyVpcTenancy",
+  ModifyVpcTenancy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

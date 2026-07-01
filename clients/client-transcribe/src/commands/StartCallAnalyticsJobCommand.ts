@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartCallAnalyticsJobRequest, StartCallAnalyticsJobResponse } from "../models/models_0";
 import { StartCallAnalyticsJob$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -235,22 +231,12 @@ export interface StartCallAnalyticsJobCommandOutput extends StartCallAnalyticsJo
  *
  * @public
  */
-export class StartCallAnalyticsJobCommand extends $Command
-  .classBuilder<
-    StartCallAnalyticsJobCommandInput,
-    StartCallAnalyticsJobCommandOutput,
-    TranscribeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Transcribe", "StartCallAnalyticsJob", {})
-  .n("TranscribeClient", "StartCallAnalyticsJobCommand")
-  .sc(StartCallAnalyticsJob$)
-  .build() {
+export class StartCallAnalyticsJobCommand extends command<StartCallAnalyticsJobCommandInput, StartCallAnalyticsJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartCallAnalyticsJob",
+  StartCallAnalyticsJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDomainUnitsForParentInput, ListDomainUnitsForParentOutput } from "../models/models_1";
 import { ListDomainUnitsForParent$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDomainUnitsForParent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface ListDomainUnitsForParentCommandOutput extends ListDomainUnitsFo
  *
  * @public
  */
-export class ListDomainUnitsForParentCommand extends $Command
-  .classBuilder<
-    ListDomainUnitsForParentCommandInput,
-    ListDomainUnitsForParentCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "ListDomainUnitsForParent", {})
-  .n("DataZoneClient", "ListDomainUnitsForParentCommand")
-  .sc(ListDomainUnitsForParent$)
-  .build() {
+export class ListDomainUnitsForParentCommand extends command<ListDomainUnitsForParentCommandInput, ListDomainUnitsForParentCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDomainUnitsForParent",
+  ListDomainUnitsForParent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

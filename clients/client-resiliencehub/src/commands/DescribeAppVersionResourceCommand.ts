@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAppVersionResourceRequest, DescribeAppVersionResourceResponse } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { DescribeAppVersionResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -153,22 +149,12 @@ export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVers
  *
  * @public
  */
-export class DescribeAppVersionResourceCommand extends $Command
-  .classBuilder<
-    DescribeAppVersionResourceCommandInput,
-    DescribeAppVersionResourceCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "DescribeAppVersionResource", {})
-  .n("ResiliencehubClient", "DescribeAppVersionResourceCommand")
-  .sc(DescribeAppVersionResource$)
-  .build() {
+export class DescribeAppVersionResourceCommand extends command<DescribeAppVersionResourceCommandInput, DescribeAppVersionResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAppVersionResource",
+  DescribeAppVersionResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAutoshiftsRequest, ListAutoshiftsResponse } from "../models/models_0";
 import { ListAutoshifts$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAutoshifts$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface ListAutoshiftsCommandOutput extends ListAutoshiftsResponse, __M
  *
  * @public
  */
-export class ListAutoshiftsCommand extends $Command
-  .classBuilder<
-    ListAutoshiftsCommandInput,
-    ListAutoshiftsCommandOutput,
-    ARCZonalShiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PercDataPlane", "ListAutoshifts", {})
-  .n("ARCZonalShiftClient", "ListAutoshiftsCommand")
-  .sc(ListAutoshifts$)
-  .build() {
+export class ListAutoshiftsCommand extends command<ListAutoshiftsCommandInput, ListAutoshiftsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAutoshifts",
+  ListAutoshifts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

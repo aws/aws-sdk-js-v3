@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRoomRequest, CreateRoomResponse } from "../models/models_0";
 import { CreateRoom$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateRoom$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
  *
  * @public
  */
-export class CreateRoomCommand extends $Command
-  .classBuilder<
-    CreateRoomCommandInput,
-    CreateRoomCommandOutput,
-    IvschatClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IvschatClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoServiceChat", "CreateRoom", {})
-  .n("IvschatClient", "CreateRoomCommand")
-  .sc(CreateRoom$)
-  .build() {
+export class CreateRoomCommand extends command<CreateRoomCommandInput, CreateRoomCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRoom",
+  CreateRoom$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

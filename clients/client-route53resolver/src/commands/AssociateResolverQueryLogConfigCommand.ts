@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AssociateResolverQueryLogConfigRequest,
   AssociateResolverQueryLogConfigResponse,
 } from "../models/models_0";
-import type {
-  Route53ResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ResolverClient";
 import { AssociateResolverQueryLogConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +101,12 @@ export interface AssociateResolverQueryLogConfigCommandOutput extends AssociateR
  *
  * @public
  */
-export class AssociateResolverQueryLogConfigCommand extends $Command
-  .classBuilder<
-    AssociateResolverQueryLogConfigCommandInput,
-    AssociateResolverQueryLogConfigCommandOutput,
-    Route53ResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Resolver", "AssociateResolverQueryLogConfig", {})
-  .n("Route53ResolverClient", "AssociateResolverQueryLogConfigCommand")
-  .sc(AssociateResolverQueryLogConfig$)
-  .build() {
+export class AssociateResolverQueryLogConfigCommand extends command<AssociateResolverQueryLogConfigCommandInput, AssociateResolverQueryLogConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateResolverQueryLogConfig",
+  AssociateResolverQueryLogConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

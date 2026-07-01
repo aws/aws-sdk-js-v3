@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeImageGenerationConfigurationInput,
   DescribeImageGenerationConfigurationOutput,
@@ -15,7 +12,6 @@ import { DescribeImageGenerationConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface DescribeImageGenerationConfigurationCommandOutput extends Descr
  *
  * @public
  */
-export class DescribeImageGenerationConfigurationCommand extends $Command
-  .classBuilder<
-    DescribeImageGenerationConfigurationCommandInput,
-    DescribeImageGenerationConfigurationCommandOutput,
-    KinesisVideoClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KinesisVideo_20170930", "DescribeImageGenerationConfiguration", {})
-  .n("KinesisVideoClient", "DescribeImageGenerationConfigurationCommand")
-  .sc(DescribeImageGenerationConfiguration$)
-  .build() {
+export class DescribeImageGenerationConfigurationCommand extends command<DescribeImageGenerationConfigurationCommandInput, DescribeImageGenerationConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeImageGenerationConfiguration",
+  DescribeImageGenerationConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

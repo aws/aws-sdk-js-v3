@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ARCRegionSwitchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ARCRegionSwitchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPlansInRegionRequest, ListPlansInRegionResponse } from "../models/models_0";
 import { ListPlansInRegion$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListPlansInRegion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface ListPlansInRegionCommandOutput extends ListPlansInRegionRespons
  *
  * @public
  */
-export class ListPlansInRegionCommand extends $Command
-  .classBuilder<
-    ListPlansInRegionCommandInput,
-    ListPlansInRegionCommandOutput,
-    ARCRegionSwitchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ARCRegionSwitchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ArcRegionSwitch", "ListPlansInRegion", {})
-  .n("ARCRegionSwitchClient", "ListPlansInRegionCommand")
-  .sc(ListPlansInRegion$)
-  .build() {
+export class ListPlansInRegionCommand extends command<ListPlansInRegionCommandInput, ListPlansInRegionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPlansInRegion",
+  ListPlansInRegion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

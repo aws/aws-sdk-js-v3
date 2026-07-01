@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePrivacyBudgetTemplateInput, CreatePrivacyBudgetTemplateOutput } from "../models/models_1";
 import { CreatePrivacyBudgetTemplate$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreatePrivacyBudgetTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +124,12 @@ export interface CreatePrivacyBudgetTemplateCommandOutput extends CreatePrivacyB
  *
  * @public
  */
-export class CreatePrivacyBudgetTemplateCommand extends $Command
-  .classBuilder<
-    CreatePrivacyBudgetTemplateCommandInput,
-    CreatePrivacyBudgetTemplateCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "CreatePrivacyBudgetTemplate", {})
-  .n("CleanRoomsClient", "CreatePrivacyBudgetTemplateCommand")
-  .sc(CreatePrivacyBudgetTemplate$)
-  .build() {
+export class CreatePrivacyBudgetTemplateCommand extends command<CreatePrivacyBudgetTemplateCommandInput, CreatePrivacyBudgetTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePrivacyBudgetTemplate",
+  CreatePrivacyBudgetTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

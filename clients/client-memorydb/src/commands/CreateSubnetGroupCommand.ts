@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSubnetGroupRequest, CreateSubnetGroupResponse } from "../models/models_0";
 import { CreateSubnetGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateSubnetGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface CreateSubnetGroupCommandOutput extends CreateSubnetGroupRespons
  *
  * @public
  */
-export class CreateSubnetGroupCommand extends $Command
-  .classBuilder<
-    CreateSubnetGroupCommandInput,
-    CreateSubnetGroupCommandOutput,
-    MemoryDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMemoryDB", "CreateSubnetGroup", {})
-  .n("MemoryDBClient", "CreateSubnetGroupCommand")
-  .sc(CreateSubnetGroup$)
-  .build() {
+export class CreateSubnetGroupCommand extends command<CreateSubnetGroupCommandInput, CreateSubnetGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSubnetGroup",
+  CreateSubnetGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudDirectoryClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchWriteRequest, BatchWriteResponse } from "../models/models_0";
 import { BatchWrite$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { BatchWrite$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -368,22 +360,12 @@ export interface BatchWriteCommandOutput extends BatchWriteResponse, __MetadataB
  *
  * @public
  */
-export class BatchWriteCommand extends $Command
-  .classBuilder<
-    BatchWriteCommandInput,
-    BatchWriteCommandOutput,
-    CloudDirectoryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonCloudDirectory_20170111", "BatchWrite", {})
-  .n("CloudDirectoryClient", "BatchWriteCommand")
-  .sc(BatchWrite$)
-  .build() {
+export class BatchWriteCommand extends command<BatchWriteCommandInput, BatchWriteCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchWrite",
+  BatchWrite$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

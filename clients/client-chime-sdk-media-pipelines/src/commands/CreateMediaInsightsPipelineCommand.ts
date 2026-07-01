@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMediaPipelinesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMediaPipelinesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateMediaInsightsPipelineRequest, CreateMediaInsightsPipelineResponse } from "../models/models_0";
 import { CreateMediaInsightsPipeline$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateMediaInsightsPipeline$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -186,22 +178,12 @@ export interface CreateMediaInsightsPipelineCommandOutput extends CreateMediaIns
  *
  * @public
  */
-export class CreateMediaInsightsPipelineCommand extends $Command
-  .classBuilder<
-    CreateMediaInsightsPipelineCommandInput,
-    CreateMediaInsightsPipelineCommandOutput,
-    ChimeSDKMediaPipelinesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKMediaPipelinesService", "CreateMediaInsightsPipeline", {})
-  .n("ChimeSDKMediaPipelinesClient", "CreateMediaInsightsPipelineCommand")
-  .sc(CreateMediaInsightsPipeline$)
-  .build() {
+export class CreateMediaInsightsPipelineCommand extends command<CreateMediaInsightsPipelineCommandInput, CreateMediaInsightsPipelineCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateMediaInsightsPipeline",
+  CreateMediaInsightsPipeline$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

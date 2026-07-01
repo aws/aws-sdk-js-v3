@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeValidDBInstanceModificationsMessage,
   DescribeValidDBInstanceModificationsResult,
 } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DescribeValidDBInstanceModifications$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -190,22 +186,12 @@ export interface DescribeValidDBInstanceModificationsCommandOutput extends Descr
  *
  * @public
  */
-export class DescribeValidDBInstanceModificationsCommand extends $Command
-  .classBuilder<
-    DescribeValidDBInstanceModificationsCommandInput,
-    DescribeValidDBInstanceModificationsCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DescribeValidDBInstanceModifications", {})
-  .n("RDSClient", "DescribeValidDBInstanceModificationsCommand")
-  .sc(DescribeValidDBInstanceModifications$)
-  .build() {
+export class DescribeValidDBInstanceModificationsCommand extends command<DescribeValidDBInstanceModificationsCommandInput, DescribeValidDBInstanceModificationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeValidDBInstanceModifications",
+  DescribeValidDBInstanceModifications$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

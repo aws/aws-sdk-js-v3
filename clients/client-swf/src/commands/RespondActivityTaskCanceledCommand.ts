@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RespondActivityTaskCanceledInput } from "../models/models_0";
 import { RespondActivityTaskCanceled$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface RespondActivityTaskCanceledCommandOutput extends __MetadataBear
  *
  * @public
  */
-export class RespondActivityTaskCanceledCommand extends $Command
-  .classBuilder<
-    RespondActivityTaskCanceledCommandInput,
-    RespondActivityTaskCanceledCommandOutput,
-    SWFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleWorkflowService", "RespondActivityTaskCanceled", {})
-  .n("SWFClient", "RespondActivityTaskCanceledCommand")
-  .sc(RespondActivityTaskCanceled$)
-  .build() {
+export class RespondActivityTaskCanceledCommand extends command<RespondActivityTaskCanceledCommandInput, RespondActivityTaskCanceledCommandOutput>(
+  _ep0,
+  _mw0,
+  "RespondActivityTaskCanceled",
+  RespondActivityTaskCanceled$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

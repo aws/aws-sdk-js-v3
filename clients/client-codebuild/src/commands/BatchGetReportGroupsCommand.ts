@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetReportGroupsInput, BatchGetReportGroupsOutput } from "../models/models_0";
 import { BatchGetReportGroups$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetReportGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface BatchGetReportGroupsCommandOutput extends BatchGetReportGroupsO
  *
  * @public
  */
-export class BatchGetReportGroupsCommand extends $Command
-  .classBuilder<
-    BatchGetReportGroupsCommandInput,
-    BatchGetReportGroupsCommandOutput,
-    CodeBuildClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeBuild_20161006", "BatchGetReportGroups", {})
-  .n("CodeBuildClient", "BatchGetReportGroupsCommand")
-  .sc(BatchGetReportGroups$)
-  .build() {
+export class BatchGetReportGroupsCommand extends command<BatchGetReportGroupsCommandInput, BatchGetReportGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetReportGroups",
+  BatchGetReportGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

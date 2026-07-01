@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAutomationRuleV2Request, DeleteAutomationRuleV2Response } from "../models/models_2";
 import { DeleteAutomationRuleV2$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DeleteAutomationRuleV2CommandOutput extends DeleteAutomationRul
  *
  * @public
  */
-export class DeleteAutomationRuleV2Command extends $Command
-  .classBuilder<
-    DeleteAutomationRuleV2CommandInput,
-    DeleteAutomationRuleV2CommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "DeleteAutomationRuleV2", {})
-  .n("SecurityHubClient", "DeleteAutomationRuleV2Command")
-  .sc(DeleteAutomationRuleV2$)
-  .build() {
+export class DeleteAutomationRuleV2Command extends command<DeleteAutomationRuleV2CommandInput, DeleteAutomationRuleV2CommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAutomationRuleV2",
+  DeleteAutomationRuleV2$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

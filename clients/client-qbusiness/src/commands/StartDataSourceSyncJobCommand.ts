@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartDataSourceSyncJobRequest, StartDataSourceSyncJobResponse } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { StartDataSourceSyncJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface StartDataSourceSyncJobCommandOutput extends StartDataSourceSync
  *
  * @public
  */
-export class StartDataSourceSyncJobCommand extends $Command
-  .classBuilder<
-    StartDataSourceSyncJobCommandInput,
-    StartDataSourceSyncJobCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "StartDataSourceSyncJob", {})
-  .n("QBusinessClient", "StartDataSourceSyncJobCommand")
-  .sc(StartDataSourceSyncJob$)
-  .build() {
+export class StartDataSourceSyncJobCommand extends command<StartDataSourceSyncJobCommandInput, StartDataSourceSyncJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartDataSourceSyncJob",
+  StartDataSourceSyncJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateNatGatewayAddressRequest, AssociateNatGatewayAddressResult } from "../models/models_0";
 import { AssociateNatGatewayAddress$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateNatGatewayAddress$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface AssociateNatGatewayAddressCommandOutput extends AssociateNatGat
  *
  * @public
  */
-export class AssociateNatGatewayAddressCommand extends $Command
-  .classBuilder<
-    AssociateNatGatewayAddressCommandInput,
-    AssociateNatGatewayAddressCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "AssociateNatGatewayAddress", {})
-  .n("EC2Client", "AssociateNatGatewayAddressCommand")
-  .sc(AssociateNatGatewayAddress$)
-  .build() {
+export class AssociateNatGatewayAddressCommand extends command<AssociateNatGatewayAddressCommandInput, AssociateNatGatewayAddressCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateNatGatewayAddress",
+  AssociateNatGatewayAddress$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

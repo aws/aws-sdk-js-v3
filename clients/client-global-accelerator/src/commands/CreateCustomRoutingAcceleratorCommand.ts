@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  GlobalAcceleratorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../GlobalAcceleratorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCustomRoutingAcceleratorRequest, CreateCustomRoutingAcceleratorResponse } from "../models/models_0";
 import { CreateCustomRoutingAccelerator$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateCustomRoutingAccelerator$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +110,12 @@ export interface CreateCustomRoutingAcceleratorCommandOutput extends CreateCusto
  *
  * @public
  */
-export class CreateCustomRoutingAcceleratorCommand extends $Command
-  .classBuilder<
-    CreateCustomRoutingAcceleratorCommandInput,
-    CreateCustomRoutingAcceleratorCommandOutput,
-    GlobalAcceleratorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GlobalAccelerator_V20180706", "CreateCustomRoutingAccelerator", {})
-  .n("GlobalAcceleratorClient", "CreateCustomRoutingAcceleratorCommand")
-  .sc(CreateCustomRoutingAccelerator$)
-  .build() {
+export class CreateCustomRoutingAcceleratorCommand extends command<CreateCustomRoutingAcceleratorCommandInput, CreateCustomRoutingAcceleratorCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCustomRoutingAccelerator",
+  CreateCustomRoutingAccelerator$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DefineAnalysisSchemeRequest, DefineAnalysisSchemeResponse } from "../models/models_0";
 import { DefineAnalysisScheme$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DefineAnalysisScheme$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface DefineAnalysisSchemeCommandOutput extends DefineAnalysisSchemeR
  *
  * @public
  */
-export class DefineAnalysisSchemeCommand extends $Command
-  .classBuilder<
-    DefineAnalysisSchemeCommandInput,
-    DefineAnalysisSchemeCommandOutput,
-    CloudSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("A9SearchCloudConfigService2013", "DefineAnalysisScheme", {})
-  .n("CloudSearchClient", "DefineAnalysisSchemeCommand")
-  .sc(DefineAnalysisScheme$)
-  .build() {
+export class DefineAnalysisSchemeCommand extends command<DefineAnalysisSchemeCommandInput, DefineAnalysisSchemeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DefineAnalysisScheme",
+  DefineAnalysisScheme$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

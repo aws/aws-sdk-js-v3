@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateStackSetInput, UpdateStackSetOutput } from "../models/models_0";
 import { UpdateStackSet$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateStackSet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -168,22 +160,12 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  *
  * @public
  */
-export class UpdateStackSetCommand extends $Command
-  .classBuilder<
-    UpdateStackSetCommandInput,
-    UpdateStackSetCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "UpdateStackSet", {})
-  .n("CloudFormationClient", "UpdateStackSetCommand")
-  .sc(UpdateStackSet$)
-  .build() {
+export class UpdateStackSetCommand extends command<UpdateStackSetCommandInput, UpdateStackSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateStackSet",
+  UpdateStackSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

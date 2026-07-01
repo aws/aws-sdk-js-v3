@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UploadLayerPartRequest, UploadLayerPartResponse } from "../models/models_0";
 import { UploadLayerPart$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UploadLayerPart$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  *
  * @public
  */
-export class UploadLayerPartCommand extends $Command
-  .classBuilder<
-    UploadLayerPartCommandInput,
-    UploadLayerPartCommandOutput,
-    ECRPUBLICClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRPUBLICClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SpencerFrontendService", "UploadLayerPart", {})
-  .n("ECRPUBLICClient", "UploadLayerPartCommand")
-  .sc(UploadLayerPart$)
-  .build() {
+export class UploadLayerPartCommand extends command<UploadLayerPartCommandInput, UploadLayerPartCommandOutput>(
+  _ep0,
+  _mw0,
+  "UploadLayerPart",
+  UploadLayerPart$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

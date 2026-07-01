@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InvoicingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InvoicingClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListProcurementPortalPreferencesRequest,
   ListProcurementPortalPreferencesResponse,
@@ -15,7 +12,6 @@ import { ListProcurementPortalPreferences$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -217,22 +213,12 @@ export interface ListProcurementPortalPreferencesCommandOutput extends ListProcu
  *
  * @public
  */
-export class ListProcurementPortalPreferencesCommand extends $Command
-  .classBuilder<
-    ListProcurementPortalPreferencesCommandInput,
-    ListProcurementPortalPreferencesCommandOutput,
-    InvoicingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InvoicingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Invoicing", "ListProcurementPortalPreferences", {})
-  .n("InvoicingClient", "ListProcurementPortalPreferencesCommand")
-  .sc(ListProcurementPortalPreferences$)
-  .build() {
+export class ListProcurementPortalPreferencesCommand extends command<ListProcurementPortalPreferencesCommandInput, ListProcurementPortalPreferencesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListProcurementPortalPreferences",
+  ListProcurementPortalPreferences$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

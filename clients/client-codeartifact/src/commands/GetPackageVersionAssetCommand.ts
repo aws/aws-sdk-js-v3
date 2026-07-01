@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
-import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPackageVersionAssetRequest, GetPackageVersionAssetResult } from "../models/models_0";
 import { GetPackageVersionAsset$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetPackageVersionAsset$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface GetPackageVersionAssetCommandOutput extends Omit<GetPackageVers
  *
  * @public
  */
-export class GetPackageVersionAssetCommand extends $Command
-  .classBuilder<
-    GetPackageVersionAssetCommandInput,
-    GetPackageVersionAssetCommandOutput,
-    CodeartifactClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeArtifactControlPlaneService", "GetPackageVersionAsset", {})
-  .n("CodeartifactClient", "GetPackageVersionAssetCommand")
-  .sc(GetPackageVersionAsset$)
-  .build() {
+export class GetPackageVersionAssetCommand extends command<GetPackageVersionAssetCommandInput, GetPackageVersionAssetCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPackageVersionAsset",
+  GetPackageVersionAsset$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

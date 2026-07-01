@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudDirectoryClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAppliedSchemaVersionRequest, GetAppliedSchemaVersionResponse } from "../models/models_0";
 import { GetAppliedSchemaVersion$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetAppliedSchemaVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface GetAppliedSchemaVersionCommandOutput extends GetAppliedSchemaVe
  *
  * @public
  */
-export class GetAppliedSchemaVersionCommand extends $Command
-  .classBuilder<
-    GetAppliedSchemaVersionCommandInput,
-    GetAppliedSchemaVersionCommandOutput,
-    CloudDirectoryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonCloudDirectory_20170111", "GetAppliedSchemaVersion", {})
-  .n("CloudDirectoryClient", "GetAppliedSchemaVersionCommand")
-  .sc(GetAppliedSchemaVersion$)
-  .build() {
+export class GetAppliedSchemaVersionCommand extends command<GetAppliedSchemaVersionCommandInput, GetAppliedSchemaVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAppliedSchemaVersion",
+  GetAppliedSchemaVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

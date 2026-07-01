@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePromptRouterRequest, CreatePromptRouterResponse } from "../models/models_1";
 import { CreatePromptRouter$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreatePromptRouter$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface CreatePromptRouterCommandOutput extends CreatePromptRouterRespo
  *
  * @public
  */
-export class CreatePromptRouterCommand extends $Command
-  .classBuilder<
-    CreatePromptRouterCommandInput,
-    CreatePromptRouterCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "CreatePromptRouter", {})
-  .n("BedrockClient", "CreatePromptRouterCommand")
-  .sc(CreatePromptRouter$)
-  .build() {
+export class CreatePromptRouterCommand extends command<CreatePromptRouterCommandInput, CreatePromptRouterCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePromptRouter",
+  CreatePromptRouter$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

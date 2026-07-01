@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeJobRequest, DescribeJobResponse } from "../models/models_0";
 import { DescribeJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -211,22 +207,12 @@ export interface DescribeJobCommandOutput extends DescribeJobResponse, __Metadat
  *
  * @public
  */
-export class DescribeJobCommand extends $Command
-  .classBuilder<
-    DescribeJobCommandInput,
-    DescribeJobCommandOutput,
-    DataBrewClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlueDataBrew", "DescribeJob", {})
-  .n("DataBrewClient", "DescribeJobCommand")
-  .sc(DescribeJob$)
-  .build() {
+export class DescribeJobCommand extends command<DescribeJobCommandInput, DescribeJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeJob",
+  DescribeJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

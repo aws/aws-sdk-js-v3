@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeReplicationTaskAssessmentResultsMessage,
   DescribeReplicationTaskAssessmentResultsResponse,
@@ -19,7 +12,6 @@ import { DescribeReplicationTaskAssessmentResults$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface DescribeReplicationTaskAssessmentResultsCommandOutput extends D
  *
  * @public
  */
-export class DescribeReplicationTaskAssessmentResultsCommand extends $Command
-  .classBuilder<
-    DescribeReplicationTaskAssessmentResultsCommandInput,
-    DescribeReplicationTaskAssessmentResultsCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "DescribeReplicationTaskAssessmentResults", {})
-  .n("DatabaseMigrationServiceClient", "DescribeReplicationTaskAssessmentResultsCommand")
-  .sc(DescribeReplicationTaskAssessmentResults$)
-  .build() {
+export class DescribeReplicationTaskAssessmentResultsCommand extends command<DescribeReplicationTaskAssessmentResultsCommandInput, DescribeReplicationTaskAssessmentResultsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeReplicationTaskAssessmentResults",
+  DescribeReplicationTaskAssessmentResults$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

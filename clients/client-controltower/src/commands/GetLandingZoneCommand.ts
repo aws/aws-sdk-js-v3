@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetLandingZoneInput, GetLandingZoneOutput } from "../models/models_0";
 import { GetLandingZone$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetLandingZone$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface GetLandingZoneCommandOutput extends GetLandingZoneOutput, __Met
  *
  * @public
  */
-export class GetLandingZoneCommand extends $Command
-  .classBuilder<
-    GetLandingZoneCommandInput,
-    GetLandingZoneCommandOutput,
-    ControlTowerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSControlTowerApis", "GetLandingZone", {})
-  .n("ControlTowerClient", "GetLandingZoneCommand")
-  .sc(GetLandingZone$)
-  .build() {
+export class GetLandingZoneCommand extends command<GetLandingZoneCommandInput, GetLandingZoneCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetLandingZone",
+  GetLandingZone$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

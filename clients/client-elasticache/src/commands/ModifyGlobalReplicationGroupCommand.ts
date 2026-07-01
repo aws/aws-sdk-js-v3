@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyGlobalReplicationGroupMessage, ModifyGlobalReplicationGroupResult } from "../models/models_0";
 import { ModifyGlobalReplicationGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ModifyGlobalReplicationGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface ModifyGlobalReplicationGroupCommandOutput extends ModifyGlobalR
  *
  * @public
  */
-export class ModifyGlobalReplicationGroupCommand extends $Command
-  .classBuilder<
-    ModifyGlobalReplicationGroupCommandInput,
-    ModifyGlobalReplicationGroupCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "ModifyGlobalReplicationGroup", {})
-  .n("ElastiCacheClient", "ModifyGlobalReplicationGroupCommand")
-  .sc(ModifyGlobalReplicationGroup$)
-  .build() {
+export class ModifyGlobalReplicationGroupCommand extends command<ModifyGlobalReplicationGroupCommandInput, ModifyGlobalReplicationGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyGlobalReplicationGroup",
+  ModifyGlobalReplicationGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

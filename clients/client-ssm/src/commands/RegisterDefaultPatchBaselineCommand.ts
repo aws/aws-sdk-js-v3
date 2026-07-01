@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterDefaultPatchBaselineRequest, RegisterDefaultPatchBaselineResult } from "../models/models_1";
 import { RegisterDefaultPatchBaseline$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface RegisterDefaultPatchBaselineCommandOutput extends RegisterDefau
  *
  * @public
  */
-export class RegisterDefaultPatchBaselineCommand extends $Command
-  .classBuilder<
-    RegisterDefaultPatchBaselineCommandInput,
-    RegisterDefaultPatchBaselineCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "RegisterDefaultPatchBaseline", {})
-  .n("SSMClient", "RegisterDefaultPatchBaselineCommand")
-  .sc(RegisterDefaultPatchBaseline$)
-  .build() {
+export class RegisterDefaultPatchBaselineCommand extends command<RegisterDefaultPatchBaselineCommandInput, RegisterDefaultPatchBaselineCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterDefaultPatchBaseline",
+  RegisterDefaultPatchBaseline$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

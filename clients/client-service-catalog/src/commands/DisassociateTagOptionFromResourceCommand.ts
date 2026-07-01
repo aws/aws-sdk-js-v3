@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateTagOptionFromResourceInput,
   DisassociateTagOptionFromResourceOutput,
 } from "../models/models_0";
 import { DisassociateTagOptionFromResource$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +65,12 @@ export interface DisassociateTagOptionFromResourceCommandOutput extends Disassoc
  *
  * @public
  */
-export class DisassociateTagOptionFromResourceCommand extends $Command
-  .classBuilder<
-    DisassociateTagOptionFromResourceCommandInput,
-    DisassociateTagOptionFromResourceCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "DisassociateTagOptionFromResource", {})
-  .n("ServiceCatalogClient", "DisassociateTagOptionFromResourceCommand")
-  .sc(DisassociateTagOptionFromResource$)
-  .build() {
+export class DisassociateTagOptionFromResourceCommand extends command<DisassociateTagOptionFromResourceCommandInput, DisassociateTagOptionFromResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateTagOptionFromResource",
+  DisassociateTagOptionFromResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

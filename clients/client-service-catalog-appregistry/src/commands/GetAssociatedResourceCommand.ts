@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAssociatedResourceRequest, GetAssociatedResourceResponse } from "../models/models_0";
 import { GetAssociatedResource$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogAppRegistryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogAppRegistryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface GetAssociatedResourceCommandOutput extends GetAssociatedResourc
  *
  * @public
  */
-export class GetAssociatedResourceCommand extends $Command
-  .classBuilder<
-    GetAssociatedResourceCommandInput,
-    GetAssociatedResourceCommandOutput,
-    ServiceCatalogAppRegistryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogAppRegistryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242AppRegistry", "GetAssociatedResource", {})
-  .n("ServiceCatalogAppRegistryClient", "GetAssociatedResourceCommand")
-  .sc(GetAssociatedResource$)
-  .build() {
+export class GetAssociatedResourceCommand extends command<GetAssociatedResourceCommandInput, GetAssociatedResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAssociatedResource",
+  GetAssociatedResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

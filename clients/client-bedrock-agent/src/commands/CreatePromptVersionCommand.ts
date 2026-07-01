@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePromptVersionRequest, CreatePromptVersionResponse } from "../models/models_1";
 import { CreatePromptVersion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreatePromptVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -183,22 +179,12 @@ export interface CreatePromptVersionCommandOutput extends CreatePromptVersionRes
  *
  * @public
  */
-export class CreatePromptVersionCommand extends $Command
-  .classBuilder<
-    CreatePromptVersionCommandInput,
-    CreatePromptVersionCommandOutput,
-    BedrockAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentBuildTimeLambda", "CreatePromptVersion", {})
-  .n("BedrockAgentClient", "CreatePromptVersionCommand")
-  .sc(CreatePromptVersion$)
-  .build() {
+export class CreatePromptVersionCommand extends command<CreatePromptVersionCommandInput, CreatePromptVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePromptVersion",
+  CreatePromptVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

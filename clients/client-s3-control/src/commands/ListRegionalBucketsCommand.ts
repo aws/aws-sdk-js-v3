@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getRedirectFromPostIdPlugin } from "@aws-sdk/middleware-sdk-s3/s3-control";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep7, _mw3, command } from "../commandBuilder";
 import type { ListRegionalBucketsRequest, ListRegionalBucketsResult } from "../models/models_0";
-import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { ListRegionalBuckets$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,30 +74,12 @@ export interface ListRegionalBucketsCommandOutput extends ListRegionalBucketsRes
  *
  * @public
  */
-export class ListRegionalBucketsCommand extends $Command
-  .classBuilder<
-    ListRegionalBucketsCommandInput,
-    ListRegionalBucketsCommandOutput,
-    S3ControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    RequiresAccountId: { type: "staticContextParams", value: true },
-    OutpostId: { type: "contextParams", name: "OutpostId" },
-    AccountId: { type: "contextParams", name: "AccountId" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getRedirectFromPostIdPlugin(config),
-    ];
-  })
-  .s("AWSS3ControlServiceV20180820", "ListRegionalBuckets", {})
-  .n("S3ControlClient", "ListRegionalBucketsCommand")
-  .sc(ListRegionalBuckets$)
-  .build() {
+export class ListRegionalBucketsCommand extends command<ListRegionalBucketsCommandInput, ListRegionalBucketsCommandOutput>(
+  _ep7,
+  _mw3,
+  "ListRegionalBuckets",
+  ListRegionalBuckets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

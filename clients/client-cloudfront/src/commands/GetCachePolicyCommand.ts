@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCachePolicyRequest, GetCachePolicyResult } from "../models/models_0";
 import { GetCachePolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetCachePolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface GetCachePolicyCommandOutput extends GetCachePolicyResult, __Met
  *
  * @public
  */
-export class GetCachePolicyCommand extends $Command
-  .classBuilder<
-    GetCachePolicyCommandInput,
-    GetCachePolicyCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "GetCachePolicy", {})
-  .n("CloudFrontClient", "GetCachePolicyCommand")
-  .sc(GetCachePolicy$)
-  .build() {
+export class GetCachePolicyCommand extends command<GetCachePolicyCommandInput, GetCachePolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCachePolicy",
+  GetCachePolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

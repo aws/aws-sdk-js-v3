@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelServiceSoftwareUpdateRequest, CancelServiceSoftwareUpdateResponse } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { CancelServiceSoftwareUpdate$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface CancelServiceSoftwareUpdateCommandOutput extends CancelServiceS
  *
  * @public
  */
-export class CancelServiceSoftwareUpdateCommand extends $Command
-  .classBuilder<
-    CancelServiceSoftwareUpdateCommandInput,
-    CancelServiceSoftwareUpdateCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "CancelServiceSoftwareUpdate", {})
-  .n("OpenSearchClient", "CancelServiceSoftwareUpdateCommand")
-  .sc(CancelServiceSoftwareUpdate$)
-  .build() {
+export class CancelServiceSoftwareUpdateCommand extends command<CancelServiceSoftwareUpdateCommandInput, CancelServiceSoftwareUpdateCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelServiceSoftwareUpdate",
+  CancelServiceSoftwareUpdate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

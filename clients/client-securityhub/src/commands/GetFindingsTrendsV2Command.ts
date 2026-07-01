@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFindingsTrendsV2Response } from "../models/models_2";
 import type { GetFindingsTrendsV2Request } from "../models/models_3";
 import { GetFindingsTrendsV2$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -129,22 +125,12 @@ export interface GetFindingsTrendsV2CommandOutput extends GetFindingsTrendsV2Res
  *
  * @public
  */
-export class GetFindingsTrendsV2Command extends $Command
-  .classBuilder<
-    GetFindingsTrendsV2CommandInput,
-    GetFindingsTrendsV2CommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "GetFindingsTrendsV2", {})
-  .n("SecurityHubClient", "GetFindingsTrendsV2Command")
-  .sc(GetFindingsTrendsV2$)
-  .build() {
+export class GetFindingsTrendsV2Command extends command<GetFindingsTrendsV2CommandInput, GetFindingsTrendsV2CommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFindingsTrendsV2",
+  GetFindingsTrendsV2$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

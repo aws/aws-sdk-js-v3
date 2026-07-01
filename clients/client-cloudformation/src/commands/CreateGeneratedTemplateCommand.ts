@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateGeneratedTemplateInput, CreateGeneratedTemplateOutput } from "../models/models_0";
 import { CreateGeneratedTemplate$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateGeneratedTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +113,12 @@ export interface CreateGeneratedTemplateCommandOutput extends CreateGeneratedTem
  *
  * @public
  */
-export class CreateGeneratedTemplateCommand extends $Command
-  .classBuilder<
-    CreateGeneratedTemplateCommandInput,
-    CreateGeneratedTemplateCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "CreateGeneratedTemplate", {})
-  .n("CloudFormationClient", "CreateGeneratedTemplateCommand")
-  .sc(CreateGeneratedTemplate$)
-  .build() {
+export class CreateGeneratedTemplateCommand extends command<CreateGeneratedTemplateCommandInput, CreateGeneratedTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateGeneratedTemplate",
+  CreateGeneratedTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopQueryMonitorTopContributorsInput, StopQueryMonitorTopContributorsOutput } from "../models/models_0";
-import type {
-  NetworkFlowMonitorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFlowMonitorClient";
 import { StopQueryMonitorTopContributors$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +69,12 @@ export interface StopQueryMonitorTopContributorsCommandOutput extends StopQueryM
  *
  * @public
  */
-export class StopQueryMonitorTopContributorsCommand extends $Command
-  .classBuilder<
-    StopQueryMonitorTopContributorsCommandInput,
-    StopQueryMonitorTopContributorsCommandOutput,
-    NetworkFlowMonitorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFlowMonitorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFlowMonitor", "StopQueryMonitorTopContributors", {})
-  .n("NetworkFlowMonitorClient", "StopQueryMonitorTopContributorsCommand")
-  .sc(StopQueryMonitorTopContributors$)
-  .build() {
+export class StopQueryMonitorTopContributorsCommand extends command<StopQueryMonitorTopContributorsCommandInput, StopQueryMonitorTopContributorsCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopQueryMonitorTopContributors",
+  StopQueryMonitorTopContributors$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

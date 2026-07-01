@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFileCacheRequest, CreateFileCacheResponse } from "../models/models_0";
 import { CreateFileCache$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateFileCache$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -190,22 +186,12 @@ export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, _
  *
  * @public
  */
-export class CreateFileCacheCommand extends $Command
-  .classBuilder<
-    CreateFileCacheCommandInput,
-    CreateFileCacheCommandOutput,
-    FSxClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSimbaAPIService_v20180301", "CreateFileCache", {})
-  .n("FSxClient", "CreateFileCacheCommand")
-  .sc(CreateFileCache$)
-  .build() {
+export class CreateFileCacheCommand extends command<CreateFileCacheCommandInput, CreateFileCacheCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateFileCache",
+  CreateFileCache$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeSharedResourcesRequest, DescribeSharedResourcesResponse } from "../models/models_0";
-import type { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import { DescribeSharedResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface DescribeSharedResourcesCommandOutput extends DescribeSharedReso
  *
  * @public
  */
-export class DescribeSharedResourcesCommand extends $Command
-  .classBuilder<
-    DescribeSharedResourcesCommandInput,
-    DescribeSharedResourcesCommandOutput,
-    MqClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MqClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("mq", "DescribeSharedResources", {})
-  .n("MqClient", "DescribeSharedResourcesCommand")
-  .sc(DescribeSharedResources$)
-  .build() {
+export class DescribeSharedResourcesCommand extends command<DescribeSharedResourcesCommandInput, DescribeSharedResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSharedResources",
+  DescribeSharedResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

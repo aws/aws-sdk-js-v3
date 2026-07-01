@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateOriginAccessControlRequest, UpdateOriginAccessControlResult } from "../models/models_1";
 import { UpdateOriginAccessControl$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateOriginAccessControl$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface UpdateOriginAccessControlCommandOutput extends UpdateOriginAcce
  *
  * @public
  */
-export class UpdateOriginAccessControlCommand extends $Command
-  .classBuilder<
-    UpdateOriginAccessControlCommandInput,
-    UpdateOriginAccessControlCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "UpdateOriginAccessControl", {})
-  .n("CloudFrontClient", "UpdateOriginAccessControlCommand")
-  .sc(UpdateOriginAccessControl$)
-  .build() {
+export class UpdateOriginAccessControlCommand extends command<UpdateOriginAccessControlCommandInput, UpdateOriginAccessControlCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateOriginAccessControl",
+  UpdateOriginAccessControl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

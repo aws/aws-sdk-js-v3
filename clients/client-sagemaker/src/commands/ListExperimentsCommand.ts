@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListExperimentsRequest, ListExperimentsResponse } from "../models/models_3";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListExperiments$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  *
  * @public
  */
-export class ListExperimentsCommand extends $Command
-  .classBuilder<
-    ListExperimentsCommandInput,
-    ListExperimentsCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "ListExperiments", {})
-  .n("SageMakerClient", "ListExperimentsCommand")
-  .sc(ListExperiments$)
-  .build() {
+export class ListExperimentsCommand extends command<ListExperimentsCommandInput, ListExperimentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListExperiments",
+  ListExperiments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

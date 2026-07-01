@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StartDetectMitigationActionsTaskRequest,
   StartDetectMitigationActionsTaskResponse,
@@ -15,7 +12,6 @@ import { StartDetectMitigationActionsTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface StartDetectMitigationActionsTaskCommandOutput extends StartDete
  *
  * @public
  */
-export class StartDetectMitigationActionsTaskCommand extends $Command
-  .classBuilder<
-    StartDetectMitigationActionsTaskCommandInput,
-    StartDetectMitigationActionsTaskCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "StartDetectMitigationActionsTask", {})
-  .n("IoTClient", "StartDetectMitigationActionsTaskCommand")
-  .sc(StartDetectMitigationActionsTask$)
-  .build() {
+export class StartDetectMitigationActionsTaskCommand extends command<StartDetectMitigationActionsTaskCommandInput, StartDetectMitigationActionsTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartDetectMitigationActionsTask",
+  StartDetectMitigationActionsTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

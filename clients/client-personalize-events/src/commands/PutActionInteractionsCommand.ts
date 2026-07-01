@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutActionInteractionsRequest } from "../models/models_0";
-import type {
-  PersonalizeEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PersonalizeEventsClient";
 import { PutActionInteractions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface PutActionInteractionsCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutActionInteractionsCommand extends $Command
-  .classBuilder<
-    PutActionInteractionsCommandInput,
-    PutActionInteractionsCommandOutput,
-    PersonalizeEventsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PersonalizeEventsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPersonalizeEvents", "PutActionInteractions", {})
-  .n("PersonalizeEventsClient", "PutActionInteractionsCommand")
-  .sc(PutActionInteractions$)
-  .build() {
+export class PutActionInteractionsCommand extends command<PutActionInteractionsCommandInput, PutActionInteractionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutActionInteractions",
+  PutActionInteractions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

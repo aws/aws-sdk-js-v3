@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutAccountPolicyRequest, PutAccountPolicyResponse } from "../models/models_0";
 import { PutAccountPolicy$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { PutAccountPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -546,22 +538,12 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  *
  * @public
  */
-export class PutAccountPolicyCommand extends $Command
-  .classBuilder<
-    PutAccountPolicyCommandInput,
-    PutAccountPolicyCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "PutAccountPolicy", {})
-  .n("CloudWatchLogsClient", "PutAccountPolicyCommand")
-  .sc(PutAccountPolicy$)
-  .build() {
+export class PutAccountPolicyCommand extends command<PutAccountPolicyCommandInput, PutAccountPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAccountPolicy",
+  PutAccountPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

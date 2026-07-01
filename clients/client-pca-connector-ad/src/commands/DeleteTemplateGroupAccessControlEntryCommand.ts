@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTemplateGroupAccessControlEntryRequest } from "../models/models_0";
-import type {
-  PcaConnectorAdClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PcaConnectorAdClient";
 import { DeleteTemplateGroupAccessControlEntry$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface DeleteTemplateGroupAccessControlEntryCommandOutput extends __Me
  *
  * @public
  */
-export class DeleteTemplateGroupAccessControlEntryCommand extends $Command
-  .classBuilder<
-    DeleteTemplateGroupAccessControlEntryCommandInput,
-    DeleteTemplateGroupAccessControlEntryCommandOutput,
-    PcaConnectorAdClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PcaConnectorAdClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PcaConnectorAd", "DeleteTemplateGroupAccessControlEntry", {})
-  .n("PcaConnectorAdClient", "DeleteTemplateGroupAccessControlEntryCommand")
-  .sc(DeleteTemplateGroupAccessControlEntry$)
-  .build() {
+export class DeleteTemplateGroupAccessControlEntryCommand extends command<DeleteTemplateGroupAccessControlEntryCommandInput, DeleteTemplateGroupAccessControlEntryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTemplateGroupAccessControlEntry",
+  DeleteTemplateGroupAccessControlEntry$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

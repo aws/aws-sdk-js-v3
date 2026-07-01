@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelTaskInput, CancelTaskOutput } from "../models/models_0";
 import { CancelTask$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SnowDeviceManagementClientResolvedConfig,
-} from "../SnowDeviceManagementClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface CancelTaskCommandOutput extends CancelTaskOutput, __MetadataBea
  *
  * @public
  */
-export class CancelTaskCommand extends $Command
-  .classBuilder<
-    CancelTaskCommandInput,
-    CancelTaskCommandOutput,
-    SnowDeviceManagementClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SnowDeviceManagementClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SnowDeviceManagement", "CancelTask", {})
-  .n("SnowDeviceManagementClient", "CancelTaskCommand")
-  .sc(CancelTask$)
-  .build() {
+export class CancelTaskCommand extends command<CancelTaskCommandInput, CancelTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelTask",
+  CancelTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

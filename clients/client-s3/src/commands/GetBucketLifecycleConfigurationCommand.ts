@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep3, _mw0, command } from "../commandBuilder";
 import type { GetBucketLifecycleConfigurationOutput, GetBucketLifecycleConfigurationRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { GetBucketLifecycleConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -236,29 +231,12 @@ export interface GetBucketLifecycleConfigurationCommandOutput extends GetBucketL
  *
  * @public
  */
-export class GetBucketLifecycleConfigurationCommand extends $Command
-  .classBuilder<
-    GetBucketLifecycleConfigurationCommandInput,
-    GetBucketLifecycleConfigurationCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "GetBucketLifecycleConfiguration", {})
-  .n("S3Client", "GetBucketLifecycleConfigurationCommand")
-  .sc(GetBucketLifecycleConfiguration$)
-  .build() {
+export class GetBucketLifecycleConfigurationCommand extends command<GetBucketLifecycleConfigurationCommandInput, GetBucketLifecycleConfigurationCommandOutput>(
+  _ep3,
+  _mw0,
+  "GetBucketLifecycleConfiguration",
+  GetBucketLifecycleConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

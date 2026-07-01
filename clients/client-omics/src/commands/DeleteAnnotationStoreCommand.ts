@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAnnotationStoreRequest, DeleteAnnotationStoreResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { DeleteAnnotationStore$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DeleteAnnotationStoreCommandOutput extends DeleteAnnotationStor
  *
  * @public
  */
-export class DeleteAnnotationStoreCommand extends $Command
-  .classBuilder<
-    DeleteAnnotationStoreCommandInput,
-    DeleteAnnotationStoreCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "DeleteAnnotationStore", {})
-  .n("OmicsClient", "DeleteAnnotationStoreCommand")
-  .sc(DeleteAnnotationStore$)
-  .build() {
+export class DeleteAnnotationStoreCommand extends command<DeleteAnnotationStoreCommandInput, DeleteAnnotationStoreCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAnnotationStore",
+  DeleteAnnotationStore$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

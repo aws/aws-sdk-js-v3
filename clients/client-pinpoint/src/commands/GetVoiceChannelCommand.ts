@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetVoiceChannelRequest, GetVoiceChannelResponse } from "../models/models_1";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { GetVoiceChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface GetVoiceChannelCommandOutput extends GetVoiceChannelResponse, _
  *
  * @public
  */
-export class GetVoiceChannelCommand extends $Command
-  .classBuilder<
-    GetVoiceChannelCommandInput,
-    GetVoiceChannelCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "GetVoiceChannel", {})
-  .n("PinpointClient", "GetVoiceChannelCommand")
-  .sc(GetVoiceChannel$)
-  .build() {
+export class GetVoiceChannelCommand extends command<GetVoiceChannelCommandInput, GetVoiceChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetVoiceChannel",
+  GetVoiceChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

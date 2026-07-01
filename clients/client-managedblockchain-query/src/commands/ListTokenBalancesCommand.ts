@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  ManagedBlockchainQueryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ManagedBlockchainQueryClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTokenBalancesInput, ListTokenBalancesOutput } from "../models/models_0";
 import { ListTokenBalances$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListTokenBalances$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +117,12 @@ export interface ListTokenBalancesCommandOutput extends ListTokenBalancesOutput,
  *
  * @public
  */
-export class ListTokenBalancesCommand extends $Command
-  .classBuilder<
-    ListTokenBalancesCommandInput,
-    ListTokenBalancesCommandOutput,
-    ManagedBlockchainQueryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainQueryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TietonChainQueryService", "ListTokenBalances", {})
-  .n("ManagedBlockchainQueryClient", "ListTokenBalancesCommand")
-  .sc(ListTokenBalances$)
-  .build() {
+export class ListTokenBalancesCommand extends command<ListTokenBalancesCommandInput, ListTokenBalancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTokenBalances",
+  ListTokenBalances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

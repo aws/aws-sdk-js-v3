@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartReferenceImportJobRequest, StartReferenceImportJobResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { StartReferenceImportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface StartReferenceImportJobCommandOutput extends StartReferenceImpo
  *
  * @public
  */
-export class StartReferenceImportJobCommand extends $Command
-  .classBuilder<
-    StartReferenceImportJobCommandInput,
-    StartReferenceImportJobCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "StartReferenceImportJob", {})
-  .n("OmicsClient", "StartReferenceImportJobCommand")
-  .sc(StartReferenceImportJob$)
-  .build() {
+export class StartReferenceImportJobCommand extends command<StartReferenceImportJobCommandInput, StartReferenceImportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartReferenceImportJob",
+  StartReferenceImportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListActsRequest, ListActsResponse } from "../models/models_0";
-import type { NovaActClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NovaActClient";
 import { ListActs$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface ListActsCommandOutput extends ListActsResponse, __MetadataBeare
  *
  * @public
  */
-export class ListActsCommand extends $Command
-  .classBuilder<
-    ListActsCommandInput,
-    ListActsCommandOutput,
-    NovaActClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NovaActClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNovaAgentsDataPlane", "ListActs", {})
-  .n("NovaActClient", "ListActsCommand")
-  .sc(ListActs$)
-  .build() {
+export class ListActsCommand extends command<ListActsCommandInput, ListActsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListActs",
+  ListActs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

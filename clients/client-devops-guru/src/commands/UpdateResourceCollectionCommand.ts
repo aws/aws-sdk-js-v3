@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateResourceCollectionRequest, UpdateResourceCollectionResponse } from "../models/models_0";
 import { UpdateResourceCollection$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateResourceCollection$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface UpdateResourceCollectionCommandOutput extends UpdateResourceCol
  *
  * @public
  */
-export class UpdateResourceCollectionCommand extends $Command
-  .classBuilder<
-    UpdateResourceCollectionCommandInput,
-    UpdateResourceCollectionCommandOutput,
-    DevOpsGuruClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CapstoneControlPlaneService", "UpdateResourceCollection", {})
-  .n("DevOpsGuruClient", "UpdateResourceCollectionCommand")
-  .sc(UpdateResourceCollection$)
-  .build() {
+export class UpdateResourceCollectionCommand extends command<UpdateResourceCollectionCommandInput, UpdateResourceCollectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateResourceCollection",
+  UpdateResourceCollection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetInstanceStateRequest, GetInstanceStateResult } from "../models/models_0";
 import { GetInstanceState$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetInstanceState$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface GetInstanceStateCommandOutput extends GetInstanceStateResult, _
  *
  * @public
  */
-export class GetInstanceStateCommand extends $Command
-  .classBuilder<
-    GetInstanceStateCommandInput,
-    GetInstanceStateCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "GetInstanceState", {})
-  .n("LightsailClient", "GetInstanceStateCommand")
-  .sc(GetInstanceState$)
-  .build() {
+export class GetInstanceStateCommand extends command<GetInstanceStateCommandInput, GetInstanceStateCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetInstanceState",
+  GetInstanceState$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

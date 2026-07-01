@@ -13,7 +13,6 @@ import { de_KitchenSinkOperationCommand, se_KitchenSinkOperationCommand } from "
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

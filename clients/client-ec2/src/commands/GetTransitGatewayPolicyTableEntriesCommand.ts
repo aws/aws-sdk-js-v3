@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetTransitGatewayPolicyTableEntriesRequest,
   GetTransitGatewayPolicyTableEntriesResult,
@@ -15,7 +12,6 @@ import { GetTransitGatewayPolicyTableEntries$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface GetTransitGatewayPolicyTableEntriesCommandOutput extends GetTra
  *
  * @public
  */
-export class GetTransitGatewayPolicyTableEntriesCommand extends $Command
-  .classBuilder<
-    GetTransitGatewayPolicyTableEntriesCommandInput,
-    GetTransitGatewayPolicyTableEntriesCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "GetTransitGatewayPolicyTableEntries", {})
-  .n("EC2Client", "GetTransitGatewayPolicyTableEntriesCommand")
-  .sc(GetTransitGatewayPolicyTableEntries$)
-  .build() {
+export class GetTransitGatewayPolicyTableEntriesCommand extends command<GetTransitGatewayPolicyTableEntriesCommandInput, GetTransitGatewayPolicyTableEntriesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTransitGatewayPolicyTableEntries",
+  GetTransitGatewayPolicyTableEntries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

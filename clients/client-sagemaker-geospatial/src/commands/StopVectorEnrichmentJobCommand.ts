@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopVectorEnrichmentJobInput, StopVectorEnrichmentJobOutput } from "../models/models_0";
-import type {
-  SageMakerGeospatialClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SageMakerGeospatialClient";
 import { StopVectorEnrichmentJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface StopVectorEnrichmentJobCommandOutput extends StopVectorEnrichme
  *
  * @public
  */
-export class StopVectorEnrichmentJobCommand extends $Command
-  .classBuilder<
-    StopVectorEnrichmentJobCommandInput,
-    StopVectorEnrichmentJobCommandOutput,
-    SageMakerGeospatialClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerGeospatialClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMakerGeospatial", "StopVectorEnrichmentJob", {})
-  .n("SageMakerGeospatialClient", "StopVectorEnrichmentJobCommand")
-  .sc(StopVectorEnrichmentJob$)
-  .build() {
+export class StopVectorEnrichmentJobCommand extends command<StopVectorEnrichmentJobCommandInput, StopVectorEnrichmentJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopVectorEnrichmentJob",
+  StopVectorEnrichmentJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

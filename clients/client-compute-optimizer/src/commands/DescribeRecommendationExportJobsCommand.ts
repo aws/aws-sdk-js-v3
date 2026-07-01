@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeRecommendationExportJobsRequest,
   DescribeRecommendationExportJobsResponse,
@@ -19,7 +12,6 @@ import { DescribeRecommendationExportJobs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +115,12 @@ export interface DescribeRecommendationExportJobsCommandOutput extends DescribeR
  *
  * @public
  */
-export class DescribeRecommendationExportJobsCommand extends $Command
-  .classBuilder<
-    DescribeRecommendationExportJobsCommandInput,
-    DescribeRecommendationExportJobsCommandOutput,
-    ComputeOptimizerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerService", "DescribeRecommendationExportJobs", {})
-  .n("ComputeOptimizerClient", "DescribeRecommendationExportJobsCommand")
-  .sc(DescribeRecommendationExportJobs$)
-  .build() {
+export class DescribeRecommendationExportJobsCommand extends command<DescribeRecommendationExportJobsCommandInput, DescribeRecommendationExportJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRecommendationExportJobs",
+  DescribeRecommendationExportJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

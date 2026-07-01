@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendWhatsAppMessageInput, SendWhatsAppMessageOutput } from "../models/models_0";
 import { SendWhatsAppMessage$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SocialMessagingClientResolvedConfig,
-} from "../SocialMessagingClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface SendWhatsAppMessageCommandOutput extends SendWhatsAppMessageOut
  *
  * @public
  */
-export class SendWhatsAppMessageCommand extends $Command
-  .classBuilder<
-    SendWhatsAppMessageCommandInput,
-    SendWhatsAppMessageCommandOutput,
-    SocialMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SocialMessaging", "SendWhatsAppMessage", {})
-  .n("SocialMessagingClient", "SendWhatsAppMessageCommand")
-  .sc(SendWhatsAppMessage$)
-  .build() {
+export class SendWhatsAppMessageCommand extends command<SendWhatsAppMessageCommandInput, SendWhatsAppMessageCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendWhatsAppMessage",
+  SendWhatsAppMessage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

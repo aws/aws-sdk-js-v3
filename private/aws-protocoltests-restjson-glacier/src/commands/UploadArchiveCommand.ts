@@ -17,7 +17,6 @@ import { de_UploadArchiveCommand, se_UploadArchiveCommand } from "../protocols/A
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

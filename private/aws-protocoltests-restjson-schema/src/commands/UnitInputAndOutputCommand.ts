@@ -1,21 +1,13 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import { UnitInputAndOutput$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -58,22 +50,12 @@ export interface UnitInputAndOutputCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UnitInputAndOutputCommand extends $Command
-  .classBuilder<
-    UnitInputAndOutputCommandInput,
-    UnitInputAndOutputCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestJson", "UnitInputAndOutput", {})
-  .n("RestJsonProtocolClient", "UnitInputAndOutputCommand")
-  .sc(UnitInputAndOutput$)
-  .build() {
+export class UnitInputAndOutputCommand extends command<UnitInputAndOutputCommandInput, UnitInputAndOutputCommandOutput>(
+  _ep0,
+  _mw0,
+  "UnitInputAndOutput",
+  UnitInputAndOutput$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

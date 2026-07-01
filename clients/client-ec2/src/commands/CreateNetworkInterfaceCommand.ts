@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateNetworkInterfaceRequest, CreateNetworkInterfaceResult } from "../models/models_1";
 import { CreateNetworkInterface$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateNetworkInterface$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -229,22 +225,12 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  *
  * @public
  */
-export class CreateNetworkInterfaceCommand extends $Command
-  .classBuilder<
-    CreateNetworkInterfaceCommandInput,
-    CreateNetworkInterfaceCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "CreateNetworkInterface", {})
-  .n("EC2Client", "CreateNetworkInterfaceCommand")
-  .sc(CreateNetworkInterface$)
-  .build() {
+export class CreateNetworkInterfaceCommand extends command<CreateNetworkInterfaceCommandInput, CreateNetworkInterfaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateNetworkInterface",
+  CreateNetworkInterface$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

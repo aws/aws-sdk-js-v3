@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRelationalDatabaseRequest, UpdateRelationalDatabaseResult } from "../models/models_1";
 import { UpdateRelationalDatabase$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateRelationalDatabase$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +122,12 @@ export interface UpdateRelationalDatabaseCommandOutput extends UpdateRelationalD
  *
  * @public
  */
-export class UpdateRelationalDatabaseCommand extends $Command
-  .classBuilder<
-    UpdateRelationalDatabaseCommandInput,
-    UpdateRelationalDatabaseCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "UpdateRelationalDatabase", {})
-  .n("LightsailClient", "UpdateRelationalDatabaseCommand")
-  .sc(UpdateRelationalDatabase$)
-  .build() {
+export class UpdateRelationalDatabaseCommand extends command<UpdateRelationalDatabaseCommandInput, UpdateRelationalDatabaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRelationalDatabase",
+  UpdateRelationalDatabase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

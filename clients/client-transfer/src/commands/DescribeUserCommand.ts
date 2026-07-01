@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeUserRequest, DescribeUserResponse } from "../models/models_0";
 import { DescribeUser$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  *
  * @public
  */
-export class DescribeUserCommand extends $Command
-  .classBuilder<
-    DescribeUserCommandInput,
-    DescribeUserCommandOutput,
-    TransferClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TransferService", "DescribeUser", {})
-  .n("TransferClient", "DescribeUserCommand")
-  .sc(DescribeUser$)
-  .build() {
+export class DescribeUserCommand extends command<DescribeUserCommandInput, DescribeUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeUser",
+  DescribeUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

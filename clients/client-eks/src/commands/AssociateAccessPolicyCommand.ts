@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateAccessPolicyRequest, AssociateAccessPolicyResponse } from "../models/models_0";
 import { AssociateAccessPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateAccessPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface AssociateAccessPolicyCommandOutput extends AssociateAccessPolic
  *
  * @public
  */
-export class AssociateAccessPolicyCommand extends $Command
-  .classBuilder<
-    AssociateAccessPolicyCommandInput,
-    AssociateAccessPolicyCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "AssociateAccessPolicy", {})
-  .n("EKSClient", "AssociateAccessPolicyCommand")
-  .sc(AssociateAccessPolicy$)
-  .build() {
+export class AssociateAccessPolicyCommand extends command<AssociateAccessPolicyCommandInput, AssociateAccessPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateAccessPolicy",
+  AssociateAccessPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

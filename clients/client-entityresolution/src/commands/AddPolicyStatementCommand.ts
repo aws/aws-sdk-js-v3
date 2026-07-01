@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  EntityResolutionClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../EntityResolutionClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddPolicyStatementInput, AddPolicyStatementOutput } from "../models/models_0";
 import { AddPolicyStatement$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AddPolicyStatement$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +84,12 @@ export interface AddPolicyStatementCommandOutput extends AddPolicyStatementOutpu
  *
  * @public
  */
-export class AddPolicyStatementCommand extends $Command
-  .classBuilder<
-    AddPolicyStatementCommandInput,
-    AddPolicyStatementCommandOutput,
-    EntityResolutionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EntityResolutionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSVeniceService", "AddPolicyStatement", {})
-  .n("EntityResolutionClient", "AddPolicyStatementCommand")
-  .sc(AddPolicyStatement$)
-  .build() {
+export class AddPolicyStatementCommand extends command<AddPolicyStatementCommandInput, AddPolicyStatementCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddPolicyStatement",
+  AddPolicyStatement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAppBlockRequest, DeleteAppBlockResult } from "../models/models_0";
 import { DeleteAppBlock$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAppBlock$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +62,12 @@ export interface DeleteAppBlockCommandOutput extends DeleteAppBlockResult, __Met
  *
  * @public
  */
-export class DeleteAppBlockCommand extends $Command
-  .classBuilder<
-    DeleteAppBlockCommandInput,
-    DeleteAppBlockCommandOutput,
-    AppStreamClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PhotonAdminProxyService", "DeleteAppBlock", {})
-  .n("AppStreamClient", "DeleteAppBlockCommand")
-  .sc(DeleteAppBlock$)
-  .build() {
+export class DeleteAppBlockCommand extends command<DeleteAppBlockCommandInput, DeleteAppBlockCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAppBlock",
+  DeleteAppBlock$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

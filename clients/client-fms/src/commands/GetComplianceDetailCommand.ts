@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetComplianceDetailRequest, GetComplianceDetailResponse } from "../models/models_0";
 import { GetComplianceDetail$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetComplianceDetail$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface GetComplianceDetailCommandOutput extends GetComplianceDetailRes
  *
  * @public
  */
-export class GetComplianceDetailCommand extends $Command
-  .classBuilder<
-    GetComplianceDetailCommandInput,
-    GetComplianceDetailCommandOutput,
-    FMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSFMS_20180101", "GetComplianceDetail", {})
-  .n("FMSClient", "GetComplianceDetailCommand")
-  .sc(GetComplianceDetail$)
-  .build() {
+export class GetComplianceDetailCommand extends command<GetComplianceDetailCommandInput, GetComplianceDetailCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetComplianceDetail",
+  GetComplianceDetail$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

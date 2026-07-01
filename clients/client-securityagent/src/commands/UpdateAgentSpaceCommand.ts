@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAgentSpaceInput, UpdateAgentSpaceOutput } from "../models/models_0";
 import { UpdateAgentSpace$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -135,22 +131,12 @@ export interface UpdateAgentSpaceCommandOutput extends UpdateAgentSpaceOutput, _
  *
  * @public
  */
-export class UpdateAgentSpaceCommand extends $Command
-  .classBuilder<
-    UpdateAgentSpaceCommandInput,
-    UpdateAgentSpaceCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "UpdateAgentSpace", {})
-  .n("SecurityAgentClient", "UpdateAgentSpaceCommand")
-  .sc(UpdateAgentSpace$)
-  .build() {
+export class UpdateAgentSpaceCommand extends command<UpdateAgentSpaceCommandInput, UpdateAgentSpaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAgentSpace",
+  UpdateAgentSpace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteLoadBalancerTlsCertificateRequest,
   DeleteLoadBalancerTlsCertificateResult,
@@ -15,7 +12,6 @@ import { DeleteLoadBalancerTlsCertificate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +115,12 @@ export interface DeleteLoadBalancerTlsCertificateCommandOutput extends DeleteLoa
  *
  * @public
  */
-export class DeleteLoadBalancerTlsCertificateCommand extends $Command
-  .classBuilder<
-    DeleteLoadBalancerTlsCertificateCommandInput,
-    DeleteLoadBalancerTlsCertificateCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "DeleteLoadBalancerTlsCertificate", {})
-  .n("LightsailClient", "DeleteLoadBalancerTlsCertificateCommand")
-  .sc(DeleteLoadBalancerTlsCertificate$)
-  .build() {
+export class DeleteLoadBalancerTlsCertificateCommand extends command<DeleteLoadBalancerTlsCertificateCommandInput, DeleteLoadBalancerTlsCertificateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteLoadBalancerTlsCertificate",
+  DeleteLoadBalancerTlsCertificate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisconnectRecoveryInstanceRequest } from "../models/models_0";
 import { DisconnectRecoveryInstance$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisconnectRecoveryInstance$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DisconnectRecoveryInstanceCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class DisconnectRecoveryInstanceCommand extends $Command
-  .classBuilder<
-    DisconnectRecoveryInstanceCommandInput,
-    DisconnectRecoveryInstanceCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "DisconnectRecoveryInstance", {})
-  .n("DrsClient", "DisconnectRecoveryInstanceCommand")
-  .sc(DisconnectRecoveryInstance$)
-  .build() {
+export class DisconnectRecoveryInstanceCommand extends command<DisconnectRecoveryInstanceCommandInput, DisconnectRecoveryInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisconnectRecoveryInstance",
+  DisconnectRecoveryInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

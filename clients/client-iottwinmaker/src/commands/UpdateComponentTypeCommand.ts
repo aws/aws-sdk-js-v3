@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateComponentTypeRequest, UpdateComponentTypeResponse } from "../models/models_0";
 import { UpdateComponentType$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateComponentType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -180,22 +176,12 @@ export interface UpdateComponentTypeCommandOutput extends UpdateComponentTypeRes
  *
  * @public
  */
-export class UpdateComponentTypeCommand extends $Command
-  .classBuilder<
-    UpdateComponentTypeCommandInput,
-    UpdateComponentTypeCommandOutput,
-    IoTTwinMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTTwinMaker", "UpdateComponentType", {})
-  .n("IoTTwinMakerClient", "UpdateComponentTypeCommand")
-  .sc(UpdateComponentType$)
-  .build() {
+export class UpdateComponentTypeCommand extends command<UpdateComponentTypeCommandInput, UpdateComponentTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateComponentType",
+  UpdateComponentType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

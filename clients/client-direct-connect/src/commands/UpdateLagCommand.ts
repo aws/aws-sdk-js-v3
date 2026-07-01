@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { Lag, UpdateLagRequest } from "../models/models_0";
 import { UpdateLag$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateLag$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -172,22 +168,12 @@ export interface UpdateLagCommandOutput extends Lag, __MetadataBearer {}
  *
  * @public
  */
-export class UpdateLagCommand extends $Command
-  .classBuilder<
-    UpdateLagCommandInput,
-    UpdateLagCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "UpdateLag", {})
-  .n("DirectConnectClient", "UpdateLagCommand")
-  .sc(UpdateLag$)
-  .build() {
+export class UpdateLagCommand extends command<UpdateLagCommandInput, UpdateLagCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateLag",
+  UpdateLag$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

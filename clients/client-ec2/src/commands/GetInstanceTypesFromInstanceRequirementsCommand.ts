@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetInstanceTypesFromInstanceRequirementsRequest,
   GetInstanceTypesFromInstanceRequirementsResult,
@@ -15,7 +12,6 @@ import { GetInstanceTypesFromInstanceRequirements$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -164,22 +160,12 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput extends G
  *
  * @public
  */
-export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command
-  .classBuilder<
-    GetInstanceTypesFromInstanceRequirementsCommandInput,
-    GetInstanceTypesFromInstanceRequirementsCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "GetInstanceTypesFromInstanceRequirements", {})
-  .n("EC2Client", "GetInstanceTypesFromInstanceRequirementsCommand")
-  .sc(GetInstanceTypesFromInstanceRequirements$)
-  .build() {
+export class GetInstanceTypesFromInstanceRequirementsCommand extends command<GetInstanceTypesFromInstanceRequirementsCommandInput, GetInstanceTypesFromInstanceRequirementsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetInstanceTypesFromInstanceRequirements",
+  GetInstanceTypesFromInstanceRequirements$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

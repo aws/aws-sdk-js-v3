@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteTextMessageSpendLimitOverrideRequest,
   DeleteTextMessageSpendLimitOverrideResult,
 } from "../models/models_0";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { DeleteTextMessageSpendLimitOverride$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +68,12 @@ export interface DeleteTextMessageSpendLimitOverrideCommandOutput extends Delete
  *
  * @public
  */
-export class DeleteTextMessageSpendLimitOverrideCommand extends $Command
-  .classBuilder<
-    DeleteTextMessageSpendLimitOverrideCommandInput,
-    DeleteTextMessageSpendLimitOverrideCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "DeleteTextMessageSpendLimitOverride", {})
-  .n("PinpointSMSVoiceV2Client", "DeleteTextMessageSpendLimitOverrideCommand")
-  .sc(DeleteTextMessageSpendLimitOverride$)
-  .build() {
+export class DeleteTextMessageSpendLimitOverrideCommand extends command<DeleteTextMessageSpendLimitOverrideCommandInput, DeleteTextMessageSpendLimitOverrideCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTextMessageSpendLimitOverride",
+  DeleteTextMessageSpendLimitOverride$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

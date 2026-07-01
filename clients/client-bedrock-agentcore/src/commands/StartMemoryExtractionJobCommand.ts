@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartMemoryExtractionJobInput, StartMemoryExtractionJobOutput } from "../models/models_1";
 import { StartMemoryExtractionJob$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartMemoryExtractionJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface StartMemoryExtractionJobCommandOutput extends StartMemoryExtrac
  *
  * @public
  */
-export class StartMemoryExtractionJobCommand extends $Command
-  .classBuilder<
-    StartMemoryExtractionJobCommandInput,
-    StartMemoryExtractionJobCommandOutput,
-    BedrockAgentCoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCore", "StartMemoryExtractionJob", {})
-  .n("BedrockAgentCoreClient", "StartMemoryExtractionJobCommand")
-  .sc(StartMemoryExtractionJob$)
-  .build() {
+export class StartMemoryExtractionJobCommand extends command<StartMemoryExtractionJobCommandInput, StartMemoryExtractionJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartMemoryExtractionJob",
+  StartMemoryExtractionJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

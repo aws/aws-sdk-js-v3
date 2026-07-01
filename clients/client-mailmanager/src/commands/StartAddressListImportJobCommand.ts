@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartAddressListImportJobRequest, StartAddressListImportJobResponse } from "../models/models_0";
 import { StartAddressListImportJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartAddressListImportJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface StartAddressListImportJobCommandOutput extends StartAddressList
  *
  * @public
  */
-export class StartAddressListImportJobCommand extends $Command
-  .classBuilder<
-    StartAddressListImportJobCommandInput,
-    StartAddressListImportJobCommandOutput,
-    MailManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MailManagerSvc", "StartAddressListImportJob", {})
-  .n("MailManagerClient", "StartAddressListImportJobCommand")
-  .sc(StartAddressListImportJob$)
-  .build() {
+export class StartAddressListImportJobCommand extends command<StartAddressListImportJobCommandInput, StartAddressListImportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartAddressListImportJob",
+  StartAddressListImportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

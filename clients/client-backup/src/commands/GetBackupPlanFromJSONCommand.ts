@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetBackupPlanFromJSONInput, GetBackupPlanFromJSONOutput } from "../models/models_0";
 import { GetBackupPlanFromJSON$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetBackupPlanFromJSON$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -142,22 +138,12 @@ export interface GetBackupPlanFromJSONCommandOutput extends GetBackupPlanFromJSO
  *
  * @public
  */
-export class GetBackupPlanFromJSONCommand extends $Command
-  .classBuilder<
-    GetBackupPlanFromJSONCommandInput,
-    GetBackupPlanFromJSONCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "GetBackupPlanFromJSON", {})
-  .n("BackupClient", "GetBackupPlanFromJSONCommand")
-  .sc(GetBackupPlanFromJSON$)
-  .build() {
+export class GetBackupPlanFromJSONCommand extends command<GetBackupPlanFromJSONCommandInput, GetBackupPlanFromJSONCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetBackupPlanFromJSON",
+  GetBackupPlanFromJSON$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

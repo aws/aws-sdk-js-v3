@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateInstanceRequest, CreateInstanceResponse } from "../models/models_0";
 import { CreateInstance$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -152,22 +148,12 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  *
  * @public
  */
-export class CreateInstanceCommand extends $Command
-  .classBuilder<
-    CreateInstanceCommandInput,
-    CreateInstanceCommandOutput,
-    SupplyChainClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupplyChainClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GalaxyPublicAPIGateway", "CreateInstance", {})
-  .n("SupplyChainClient", "CreateInstanceCommand")
-  .sc(CreateInstance$)
-  .build() {
+export class CreateInstanceCommand extends command<CreateInstanceCommandInput, CreateInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateInstance",
+  CreateInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

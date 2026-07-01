@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCommentRequest } from "../models/models_0";
 import { DeleteComment$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DeleteCommentCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteCommentCommand extends $Command
-  .classBuilder<
-    DeleteCommentCommandInput,
-    DeleteCommentCommandOutput,
-    WorkDocsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGorillaBoyService", "DeleteComment", {})
-  .n("WorkDocsClient", "DeleteCommentCommand")
-  .sc(DeleteComment$)
-  .build() {
+export class DeleteCommentCommand extends command<DeleteCommentCommandInput, DeleteCommentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteComment",
+  DeleteComment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

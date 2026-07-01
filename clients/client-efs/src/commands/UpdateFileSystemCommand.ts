@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { FileSystemDescription, UpdateFileSystemRequest } from "../models/models_0";
 import { UpdateFileSystem$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateFileSystem$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface UpdateFileSystemCommandOutput extends FileSystemDescription, __
  *
  * @public
  */
-export class UpdateFileSystemCommand extends $Command
-  .classBuilder<
-    UpdateFileSystemCommandInput,
-    UpdateFileSystemCommandOutput,
-    EFSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MagnolioAPIService_v20150201", "UpdateFileSystem", {})
-  .n("EFSClient", "UpdateFileSystemCommand")
-  .sc(UpdateFileSystem$)
-  .build() {
+export class UpdateFileSystemCommand extends command<UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateFileSystem",
+  UpdateFileSystem$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

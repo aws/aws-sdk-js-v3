@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetClassifierRequest, GetClassifierResponse } from "../models/models_1";
 import { GetClassifier$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetClassifier$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface GetClassifierCommandOutput extends GetClassifierResponse, __Met
  *
  * @public
  */
-export class GetClassifierCommand extends $Command
-  .classBuilder<
-    GetClassifierCommandInput,
-    GetClassifierCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "GetClassifier", {})
-  .n("GlueClient", "GetClassifierCommand")
-  .sc(GetClassifier$)
-  .build() {
+export class GetClassifierCommand extends command<GetClassifierCommandInput, GetClassifierCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetClassifier",
+  GetClassifier$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

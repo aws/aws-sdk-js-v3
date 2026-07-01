@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticsearchServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticsearchServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListElasticsearchVersionsRequest, ListElasticsearchVersionsResponse } from "../models/models_0";
 import { ListElasticsearchVersions$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListElasticsearchVersions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface ListElasticsearchVersionsCommandOutput extends ListElasticsearc
  *
  * @public
  */
-export class ListElasticsearchVersionsCommand extends $Command
-  .classBuilder<
-    ListElasticsearchVersionsCommandInput,
-    ListElasticsearchVersionsCommandOutput,
-    ElasticsearchServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticsearchService2015", "ListElasticsearchVersions", {})
-  .n("ElasticsearchServiceClient", "ListElasticsearchVersionsCommand")
-  .sc(ListElasticsearchVersions$)
-  .build() {
+export class ListElasticsearchVersionsCommand extends command<ListElasticsearchVersionsCommandInput, ListElasticsearchVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListElasticsearchVersions",
+  ListElasticsearchVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

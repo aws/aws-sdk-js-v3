@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEnvironmentRequest, GetEnvironmentResponse } from "../models/models_0";
 import { GetEnvironment$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetEnvironment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  *
  * @public
  */
-export class GetEnvironmentCommand extends $Command
-  .classBuilder<
-    GetEnvironmentCommandInput,
-    GetEnvironmentCommandOutput,
-    M2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: M2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsSupernovaControlPlaneService", "GetEnvironment", {})
-  .n("M2Client", "GetEnvironmentCommand")
-  .sc(GetEnvironment$)
-  .build() {
+export class GetEnvironmentCommand extends command<GetEnvironmentCommandInput, GetEnvironmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEnvironment",
+  GetEnvironment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

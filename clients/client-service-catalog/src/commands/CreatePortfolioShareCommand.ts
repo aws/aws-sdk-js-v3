@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePortfolioShareInput, CreatePortfolioShareOutput } from "../models/models_0";
 import { CreatePortfolioShare$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface CreatePortfolioShareCommandOutput extends CreatePortfolioShareO
  *
  * @public
  */
-export class CreatePortfolioShareCommand extends $Command
-  .classBuilder<
-    CreatePortfolioShareCommandInput,
-    CreatePortfolioShareCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "CreatePortfolioShare", {})
-  .n("ServiceCatalogClient", "CreatePortfolioShareCommand")
-  .sc(CreatePortfolioShare$)
-  .build() {
+export class CreatePortfolioShareCommand extends command<CreatePortfolioShareCommandInput, CreatePortfolioShareCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePortfolioShare",
+  CreatePortfolioShare$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateServiceAttributesRequest, UpdateServiceAttributesResponse } from "../models/models_0";
 import { UpdateServiceAttributes$ } from "../schemas/schemas_0";
-import type {
-  ServiceDiscoveryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceDiscoveryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +101,12 @@ export interface UpdateServiceAttributesCommandOutput extends UpdateServiceAttri
  *
  * @public
  */
-export class UpdateServiceAttributesCommand extends $Command
-  .classBuilder<
-    UpdateServiceAttributesCommandInput,
-    UpdateServiceAttributesCommandOutput,
-    ServiceDiscoveryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53AutoNaming_v20170314", "UpdateServiceAttributes", {})
-  .n("ServiceDiscoveryClient", "UpdateServiceAttributesCommand")
-  .sc(UpdateServiceAttributes$)
-  .build() {
+export class UpdateServiceAttributesCommand extends command<UpdateServiceAttributesCommandInput, UpdateServiceAttributesCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateServiceAttributes",
+  UpdateServiceAttributes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

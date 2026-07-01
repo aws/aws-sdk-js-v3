@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationAutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationAutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutScheduledActionRequest, PutScheduledActionResponse } from "../models/models_0";
 import { PutScheduledAction$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { PutScheduledAction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -127,22 +119,12 @@ export interface PutScheduledActionCommandOutput extends PutScheduledActionRespo
  *
  * @public
  */
-export class PutScheduledActionCommand extends $Command
-  .classBuilder<
-    PutScheduledActionCommandInput,
-    PutScheduledActionCommandOutput,
-    ApplicationAutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationAutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AnyScaleFrontendService", "PutScheduledAction", {})
-  .n("ApplicationAutoScalingClient", "PutScheduledActionCommand")
-  .sc(PutScheduledAction$)
-  .build() {
+export class PutScheduledActionCommand extends command<PutScheduledActionCommandInput, PutScheduledActionCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutScheduledAction",
+  PutScheduledAction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

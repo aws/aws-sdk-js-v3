@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListXssMatchSetsRequest, ListXssMatchSetsResponse } from "../models/models_0";
 import { ListXssMatchSets$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface ListXssMatchSetsCommandOutput extends ListXssMatchSetsResponse,
  *
  * @public
  */
-export class ListXssMatchSetsCommand extends $Command
-  .classBuilder<
-    ListXssMatchSetsCommandInput,
-    ListXssMatchSetsCommandOutput,
-    WAFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20150824", "ListXssMatchSets", {})
-  .n("WAFClient", "ListXssMatchSetsCommand")
-  .sc(ListXssMatchSets$)
-  .build() {
+export class ListXssMatchSetsCommand extends command<ListXssMatchSetsCommandInput, ListXssMatchSetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListXssMatchSets",
+  ListXssMatchSets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

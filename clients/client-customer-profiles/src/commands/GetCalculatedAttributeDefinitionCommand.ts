@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetCalculatedAttributeDefinitionRequest,
   GetCalculatedAttributeDefinitionResponse,
@@ -19,7 +12,6 @@ import { GetCalculatedAttributeDefinition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -142,22 +134,12 @@ export interface GetCalculatedAttributeDefinitionCommandOutput extends GetCalcul
  *
  * @public
  */
-export class GetCalculatedAttributeDefinitionCommand extends $Command
-  .classBuilder<
-    GetCalculatedAttributeDefinitionCommandInput,
-    GetCalculatedAttributeDefinitionCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "GetCalculatedAttributeDefinition", {})
-  .n("CustomerProfilesClient", "GetCalculatedAttributeDefinitionCommand")
-  .sc(GetCalculatedAttributeDefinition$)
-  .build() {
+export class GetCalculatedAttributeDefinitionCommand extends command<GetCalculatedAttributeDefinitionCommandInput, GetCalculatedAttributeDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCalculatedAttributeDefinition",
+  GetCalculatedAttributeDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

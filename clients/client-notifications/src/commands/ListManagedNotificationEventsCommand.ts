@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListManagedNotificationEventsRequest, ListManagedNotificationEventsResponse } from "../models/models_0";
-import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
 import { ListManagedNotificationEvents$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -143,22 +139,12 @@ export interface ListManagedNotificationEventsCommandOutput extends ListManagedN
  *
  * @public
  */
-export class ListManagedNotificationEventsCommand extends $Command
-  .classBuilder<
-    ListManagedNotificationEventsCommandInput,
-    ListManagedNotificationEventsCommandOutput,
-    NotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Notifications", "ListManagedNotificationEvents", {})
-  .n("NotificationsClient", "ListManagedNotificationEventsCommand")
-  .sc(ListManagedNotificationEvents$)
-  .build() {
+export class ListManagedNotificationEventsCommand extends command<ListManagedNotificationEventsCommandInput, ListManagedNotificationEventsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListManagedNotificationEvents",
+  ListManagedNotificationEvents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

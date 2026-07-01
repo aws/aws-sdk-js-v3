@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMeetingsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMeetingsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateMeetingRequest, CreateMeetingResponse } from "../models/models_0";
 import { CreateMeeting$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateMeeting$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -173,22 +165,12 @@ export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __Met
  *
  * @public
  */
-export class CreateMeetingCommand extends $Command
-  .classBuilder<
-    CreateMeetingCommandInput,
-    CreateMeetingCommandOutput,
-    ChimeSDKMeetingsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMeetingsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeMeetingsSDKService", "CreateMeeting", {})
-  .n("ChimeSDKMeetingsClient", "CreateMeetingCommand")
-  .sc(CreateMeeting$)
-  .build() {
+export class CreateMeetingCommand extends command<CreateMeetingCommandInput, CreateMeetingCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateMeeting",
+  CreateMeeting$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateScriptInput, UpdateScriptOutput } from "../models/models_1";
 import { UpdateScript$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateScript$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +115,12 @@ export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __Metadat
  *
  * @public
  */
-export class UpdateScriptCommand extends $Command
-  .classBuilder<
-    UpdateScriptCommandInput,
-    UpdateScriptCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "UpdateScript", {})
-  .n("GameLiftClient", "UpdateScriptCommand")
-  .sc(UpdateScript$)
-  .build() {
+export class UpdateScriptCommand extends command<UpdateScriptCommandInput, UpdateScriptCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateScript",
+  UpdateScript$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

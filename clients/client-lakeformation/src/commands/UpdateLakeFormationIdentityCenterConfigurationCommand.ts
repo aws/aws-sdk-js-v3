@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateLakeFormationIdentityCenterConfigurationRequest,
   UpdateLakeFormationIdentityCenterConfigurationResponse,
@@ -15,7 +12,6 @@ import { UpdateLakeFormationIdentityCenterConfiguration$ } from "../schemas/sche
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface UpdateLakeFormationIdentityCenterConfigurationCommandOutput ext
  *
  * @public
  */
-export class UpdateLakeFormationIdentityCenterConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateLakeFormationIdentityCenterConfigurationCommandInput,
-    UpdateLakeFormationIdentityCenterConfigurationCommandOutput,
-    LakeFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLakeFormation", "UpdateLakeFormationIdentityCenterConfiguration", {})
-  .n("LakeFormationClient", "UpdateLakeFormationIdentityCenterConfigurationCommand")
-  .sc(UpdateLakeFormationIdentityCenterConfiguration$)
-  .build() {
+export class UpdateLakeFormationIdentityCenterConfigurationCommand extends command<UpdateLakeFormationIdentityCenterConfigurationCommandInput, UpdateLakeFormationIdentityCenterConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateLakeFormationIdentityCenterConfiguration",
+  UpdateLakeFormationIdentityCenterConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

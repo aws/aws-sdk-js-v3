@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep3, _mw4, command } from "../commandBuilder";
 import type { DeleteBucketTaggingRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { DeleteBucketTagging$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,26 +88,12 @@ export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteBucketTaggingCommand extends $Command
-  .classBuilder<
-    DeleteBucketTaggingCommandInput,
-    DeleteBucketTaggingCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonS3", "DeleteBucketTagging", {})
-  .n("S3Client", "DeleteBucketTaggingCommand")
-  .sc(DeleteBucketTagging$)
-  .build() {
+export class DeleteBucketTaggingCommand extends command<DeleteBucketTaggingCommandInput, DeleteBucketTaggingCommandOutput>(
+  _ep3,
+  _mw4,
+  "DeleteBucketTagging",
+  DeleteBucketTagging$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

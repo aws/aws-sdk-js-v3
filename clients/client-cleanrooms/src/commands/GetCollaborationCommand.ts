@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCollaborationInput, GetCollaborationOutput } from "../models/models_0";
 import { GetCollaboration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetCollaboration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface GetCollaborationCommandOutput extends GetCollaborationOutput, _
  *
  * @public
  */
-export class GetCollaborationCommand extends $Command
-  .classBuilder<
-    GetCollaborationCommandInput,
-    GetCollaborationCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "GetCollaboration", {})
-  .n("CleanRoomsClient", "GetCollaborationCommand")
-  .sc(GetCollaboration$)
-  .build() {
+export class GetCollaborationCommand extends command<GetCollaborationCommandInput, GetCollaborationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCollaboration",
+  GetCollaboration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GeoRoutesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoRoutesClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CalculateIsolinesRequest, CalculateIsolinesResponse } from "../models/models_0";
 import { CalculateIsolines$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CalculateIsolines$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -302,22 +298,12 @@ export interface CalculateIsolinesCommandOutput extends CalculateIsolinesRespons
  *
  * @public
  */
-export class CalculateIsolinesCommand extends $Command
-  .classBuilder<
-    CalculateIsolinesCommandInput,
-    CalculateIsolinesCommandOutput,
-    GeoRoutesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GeoRoutesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RoutesService", "CalculateIsolines", {})
-  .n("GeoRoutesClient", "CalculateIsolinesCommand")
-  .sc(CalculateIsolines$)
-  .build() {
+export class CalculateIsolinesCommand extends command<CalculateIsolinesCommandInput, CalculateIsolinesCommandOutput>(
+  _ep0,
+  _mw0,
+  "CalculateIsolines",
+  CalculateIsolines$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

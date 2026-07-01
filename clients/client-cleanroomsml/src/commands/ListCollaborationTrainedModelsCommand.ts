@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCollaborationTrainedModelsRequest, ListCollaborationTrainedModelsResponse } from "../models/models_0";
 import { ListCollaborationTrainedModels$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListCollaborationTrainedModels$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface ListCollaborationTrainedModelsCommandOutput extends ListCollabo
  *
  * @public
  */
-export class ListCollaborationTrainedModelsCommand extends $Command
-  .classBuilder<
-    ListCollaborationTrainedModelsCommandInput,
-    ListCollaborationTrainedModelsCommandOutput,
-    CleanRoomsMLClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStarkControlService", "ListCollaborationTrainedModels", {})
-  .n("CleanRoomsMLClient", "ListCollaborationTrainedModelsCommand")
-  .sc(ListCollaborationTrainedModels$)
-  .build() {
+export class ListCollaborationTrainedModelsCommand extends command<ListCollaborationTrainedModelsCommandInput, ListCollaborationTrainedModelsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCollaborationTrainedModels",
+  ListCollaborationTrainedModels$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

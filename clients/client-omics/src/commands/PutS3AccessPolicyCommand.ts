@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutS3AccessPolicyRequest, PutS3AccessPolicyResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { PutS3AccessPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface PutS3AccessPolicyCommandOutput extends PutS3AccessPolicyRespons
  *
  * @public
  */
-export class PutS3AccessPolicyCommand extends $Command
-  .classBuilder<
-    PutS3AccessPolicyCommandInput,
-    PutS3AccessPolicyCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "PutS3AccessPolicy", {})
-  .n("OmicsClient", "PutS3AccessPolicyCommand")
-  .sc(PutS3AccessPolicy$)
-  .build() {
+export class PutS3AccessPolicyCommand extends command<PutS3AccessPolicyCommandInput, PutS3AccessPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutS3AccessPolicy",
+  PutS3AccessPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

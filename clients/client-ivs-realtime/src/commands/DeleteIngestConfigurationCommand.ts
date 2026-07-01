@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteIngestConfigurationRequest, DeleteIngestConfigurationResponse } from "../models/models_0";
 import { DeleteIngestConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteIngestConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteIngestConfigurationCommandOutput extends DeleteIngestConf
  *
  * @public
  */
-export class DeleteIngestConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteIngestConfigurationCommandInput,
-    DeleteIngestConfigurationCommandOutput,
-    IVSRealTimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoServiceRealTime", "DeleteIngestConfiguration", {})
-  .n("IVSRealTimeClient", "DeleteIngestConfigurationCommand")
-  .sc(DeleteIngestConfiguration$)
-  .build() {
+export class DeleteIngestConfigurationCommand extends command<DeleteIngestConfigurationCommandInput, DeleteIngestConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteIngestConfiguration",
+  DeleteIngestConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

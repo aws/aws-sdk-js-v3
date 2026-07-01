@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListConnectorsRequest, ListConnectorsResponse } from "../models/models_0";
 import { ListConnectors$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  *
  * @public
  */
-export class ListConnectorsCommand extends $Command
-  .classBuilder<
-    ListConnectorsCommandInput,
-    ListConnectorsCommandOutput,
-    TransferClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TransferService", "ListConnectors", {})
-  .n("TransferClient", "ListConnectorsCommand")
-  .sc(ListConnectors$)
-  .build() {
+export class ListConnectorsCommand extends command<ListConnectorsCommandInput, ListConnectorsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListConnectors",
+  ListConnectors$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

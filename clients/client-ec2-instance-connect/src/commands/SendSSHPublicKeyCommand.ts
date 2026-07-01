@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  EC2InstanceConnectClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../EC2InstanceConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendSSHPublicKeyRequest, SendSSHPublicKeyResponse } from "../models/models_0";
 import { SendSSHPublicKey$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { SendSSHPublicKey$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +105,12 @@ export interface SendSSHPublicKeyCommandOutput extends SendSSHPublicKeyResponse,
  *
  * @public
  */
-export class SendSSHPublicKeyCommand extends $Command
-  .classBuilder<
-    SendSSHPublicKeyCommandInput,
-    SendSSHPublicKeyCommandOutput,
-    EC2InstanceConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2InstanceConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSEC2InstanceConnectService", "SendSSHPublicKey", {})
-  .n("EC2InstanceConnectClient", "SendSSHPublicKeyCommand")
-  .sc(SendSSHPublicKey$)
-  .build() {
+export class SendSSHPublicKeyCommand extends command<SendSSHPublicKeyCommandInput, SendSSHPublicKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendSSHPublicKey",
+  SendSSHPublicKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AcceptDomainTransferFromAnotherAwsAccountRequest,
   AcceptDomainTransferFromAnotherAwsAccountResponse,
 } from "../models/models_0";
-import type {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53DomainsClient";
 import { AcceptDomainTransferFromAnotherAwsAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface AcceptDomainTransferFromAnotherAwsAccountCommandOutput extends 
  *
  * @public
  */
-export class AcceptDomainTransferFromAnotherAwsAccountCommand extends $Command
-  .classBuilder<
-    AcceptDomainTransferFromAnotherAwsAccountCommandInput,
-    AcceptDomainTransferFromAnotherAwsAccountCommandOutput,
-    Route53DomainsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Domains_v20140515", "AcceptDomainTransferFromAnotherAwsAccount", {})
-  .n("Route53DomainsClient", "AcceptDomainTransferFromAnotherAwsAccountCommand")
-  .sc(AcceptDomainTransferFromAnotherAwsAccount$)
-  .build() {
+export class AcceptDomainTransferFromAnotherAwsAccountCommand extends command<AcceptDomainTransferFromAnotherAwsAccountCommandInput, AcceptDomainTransferFromAnotherAwsAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "AcceptDomainTransferFromAnotherAwsAccount",
+  AcceptDomainTransferFromAnotherAwsAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

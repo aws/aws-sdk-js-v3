@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteOpsItemRequest, DeleteOpsItemResponse } from "../models/models_0";
 import { DeleteOpsItem$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface DeleteOpsItemCommandOutput extends DeleteOpsItemResponse, __Met
  *
  * @public
  */
-export class DeleteOpsItemCommand extends $Command
-  .classBuilder<
-    DeleteOpsItemCommandInput,
-    DeleteOpsItemCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "DeleteOpsItem", {})
-  .n("SSMClient", "DeleteOpsItemCommand")
-  .sc(DeleteOpsItem$)
-  .build() {
+export class DeleteOpsItemCommand extends command<DeleteOpsItemCommandInput, DeleteOpsItemCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteOpsItem",
+  DeleteOpsItem$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

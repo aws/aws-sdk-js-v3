@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ConnectCampaignsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ConnectCampaignsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCampaignStateBatchRequest, GetCampaignStateBatchResponse } from "../models/models_0";
 import { GetCampaignStateBatch$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetCampaignStateBatch$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface GetCampaignStateBatchCommandOutput extends GetCampaignStateBatc
  *
  * @public
  */
-export class GetCampaignStateBatchCommand extends $Command
-  .classBuilder<
-    GetCampaignStateBatchCommandInput,
-    GetCampaignStateBatchCommandOutput,
-    ConnectCampaignsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCampaignService", "GetCampaignStateBatch", {})
-  .n("ConnectCampaignsClient", "GetCampaignStateBatchCommand")
-  .sc(GetCampaignStateBatch$)
-  .build() {
+export class GetCampaignStateBatchCommand extends command<GetCampaignStateBatchCommandInput, GetCampaignStateBatchCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCampaignStateBatch",
+  GetCampaignStateBatch$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

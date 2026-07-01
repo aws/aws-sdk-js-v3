@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateUsagePlanRequest, UsagePlan } from "../models/models_0";
 import { CreateUsagePlan$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateUsagePlan$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -129,22 +125,12 @@ export interface CreateUsagePlanCommandOutput extends UsagePlan, __MetadataBeare
  *
  * @public
  */
-export class CreateUsagePlanCommand extends $Command
-  .classBuilder<
-    CreateUsagePlanCommandInput,
-    CreateUsagePlanCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "CreateUsagePlan", {})
-  .n("APIGatewayClient", "CreateUsagePlanCommand")
-  .sc(CreateUsagePlan$)
-  .build() {
+export class CreateUsagePlanCommand extends command<CreateUsagePlanCommandInput, CreateUsagePlanCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateUsagePlan",
+  CreateUsagePlan$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

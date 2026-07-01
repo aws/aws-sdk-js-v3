@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetTemporaryGluePartitionCredentialsRequest,
   GetTemporaryGluePartitionCredentialsResponse,
@@ -15,7 +12,6 @@ import { GetTemporaryGluePartitionCredentials$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface GetTemporaryGluePartitionCredentialsCommandOutput extends GetTe
  *
  * @public
  */
-export class GetTemporaryGluePartitionCredentialsCommand extends $Command
-  .classBuilder<
-    GetTemporaryGluePartitionCredentialsCommandInput,
-    GetTemporaryGluePartitionCredentialsCommandOutput,
-    LakeFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLakeFormation", "GetTemporaryGluePartitionCredentials", {})
-  .n("LakeFormationClient", "GetTemporaryGluePartitionCredentialsCommand")
-  .sc(GetTemporaryGluePartitionCredentials$)
-  .build() {
+export class GetTemporaryGluePartitionCredentialsCommand extends command<GetTemporaryGluePartitionCredentialsCommandInput, GetTemporaryGluePartitionCredentialsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTemporaryGluePartitionCredentials",
+  GetTemporaryGluePartitionCredentials$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

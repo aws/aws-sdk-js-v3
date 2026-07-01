@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateLinkInput, UpdateLinkOutput } from "../models/models_0";
-import type { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
 import { UpdateLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBea
  *
  * @public
  */
-export class UpdateLinkCommand extends $Command
-  .classBuilder<
-    UpdateLinkCommandInput,
-    UpdateLinkCommandOutput,
-    OAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("oamservice", "UpdateLink", {})
-  .n("OAMClient", "UpdateLinkCommand")
-  .sc(UpdateLink$)
-  .build() {
+export class UpdateLinkCommand extends command<UpdateLinkCommandInput, UpdateLinkCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateLink",
+  UpdateLink$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

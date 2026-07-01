@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockDataAutomationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockDataAutomationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteBlueprintRequest, DeleteBlueprintResponse } from "../models/models_0";
 import { DeleteBlueprint$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteBlueprint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +69,12 @@ export interface DeleteBlueprintCommandOutput extends DeleteBlueprintResponse, _
  *
  * @public
  */
-export class DeleteBlueprintCommand extends $Command
-  .classBuilder<
-    DeleteBlueprintCommandInput,
-    DeleteBlueprintCommandOutput,
-    BedrockDataAutomationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockDataAutomationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockKeystoneBuildTimeService", "DeleteBlueprint", {})
-  .n("BedrockDataAutomationClient", "DeleteBlueprintCommand")
-  .sc(DeleteBlueprint$)
-  .build() {
+export class DeleteBlueprintCommand extends command<DeleteBlueprintCommandInput, DeleteBlueprintCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteBlueprint",
+  DeleteBlueprint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

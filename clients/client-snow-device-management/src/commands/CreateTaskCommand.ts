@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateTaskInput, CreateTaskOutput } from "../models/models_0";
 import { CreateTask$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SnowDeviceManagementClientResolvedConfig,
-} from "../SnowDeviceManagementClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface CreateTaskCommandOutput extends CreateTaskOutput, __MetadataBea
  *
  * @public
  */
-export class CreateTaskCommand extends $Command
-  .classBuilder<
-    CreateTaskCommandInput,
-    CreateTaskCommandOutput,
-    SnowDeviceManagementClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SnowDeviceManagementClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SnowDeviceManagement", "CreateTask", {})
-  .n("SnowDeviceManagementClient", "CreateTaskCommand")
-  .sc(CreateTask$)
-  .build() {
+export class CreateTaskCommand extends command<CreateTaskCommandInput, CreateTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTask",
+  CreateTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

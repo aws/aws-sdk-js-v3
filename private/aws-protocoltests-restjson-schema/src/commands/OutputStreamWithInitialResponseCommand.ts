@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { OutputStreamWithInitialResponseOutput } from "../models/models_0";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
 import { OutputStreamWithInitialResponse$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,29 +94,12 @@ export interface OutputStreamWithInitialResponseCommandOutput extends OutputStre
  *
  *
  */
-export class OutputStreamWithInitialResponseCommand extends $Command
-  .classBuilder<
-    OutputStreamWithInitialResponseCommandInput,
-    OutputStreamWithInitialResponseCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestJson", "OutputStreamWithInitialResponse", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      output: true,
-    },
-  })
-  .n("RestJsonProtocolClient", "OutputStreamWithInitialResponseCommand")
-  .sc(OutputStreamWithInitialResponse$)
-  .build() {
+export class OutputStreamWithInitialResponseCommand extends command<OutputStreamWithInitialResponseCommandInput, OutputStreamWithInitialResponseCommandOutput>(
+  _ep0,
+  _mw0,
+  "OutputStreamWithInitialResponse",
+  OutputStreamWithInitialResponse$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateProfileRequest, ProfileDetailResponse } from "../models/models_0";
-import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { CreateProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface CreateProfileCommandOutput extends ProfileDetailResponse, __Met
  *
  * @public
  */
-export class CreateProfileCommand extends $Command
-  .classBuilder<
-    CreateProfileCommandInput,
-    CreateProfileCommandOutput,
-    RolesAnywhereClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RolesAnywhereClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RolesAnywhere", "CreateProfile", {})
-  .n("RolesAnywhereClient", "CreateProfileCommand")
-  .sc(CreateProfile$)
-  .build() {
+export class CreateProfileCommand extends command<CreateProfileCommandInput, CreateProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateProfile",
+  CreateProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateConnectionAliasRequest, AssociateConnectionAliasResult } from "../models/models_0";
 import { AssociateConnectionAlias$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface AssociateConnectionAliasCommandOutput extends AssociateConnecti
  *
  * @public
  */
-export class AssociateConnectionAliasCommand extends $Command
-  .classBuilder<
-    AssociateConnectionAliasCommandInput,
-    AssociateConnectionAliasCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "AssociateConnectionAlias", {})
-  .n("WorkSpacesClient", "AssociateConnectionAliasCommand")
-  .sc(AssociateConnectionAlias$)
-  .build() {
+export class AssociateConnectionAliasCommand extends command<AssociateConnectionAliasCommandInput, AssociateConnectionAliasCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateConnectionAlias",
+  AssociateConnectionAlias$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

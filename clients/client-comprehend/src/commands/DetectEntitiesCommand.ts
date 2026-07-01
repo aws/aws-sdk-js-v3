@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DetectEntitiesRequest, DetectEntitiesResponse } from "../models/models_0";
 import { DetectEntities$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DetectEntities$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -176,22 +172,12 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  *
  * @public
  */
-export class DetectEntitiesCommand extends $Command
-  .classBuilder<
-    DetectEntitiesCommandInput,
-    DetectEntitiesCommandOutput,
-    ComprehendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Comprehend_20171127", "DetectEntities", {})
-  .n("ComprehendClient", "DetectEntitiesCommand")
-  .sc(DetectEntities$)
-  .build() {
+export class DetectEntitiesCommand extends command<DetectEntitiesCommandInput, DetectEntitiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DetectEntities",
+  DetectEntities$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

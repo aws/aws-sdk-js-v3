@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteBrokerRequest, DeleteBrokerResponse } from "../models/models_0";
-import type { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import { DeleteBroker$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface DeleteBrokerCommandOutput extends DeleteBrokerResponse, __Metad
  *
  * @public
  */
-export class DeleteBrokerCommand extends $Command
-  .classBuilder<
-    DeleteBrokerCommandInput,
-    DeleteBrokerCommandOutput,
-    MqClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MqClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("mq", "DeleteBroker", {})
-  .n("MqClient", "DeleteBrokerCommand")
-  .sc(DeleteBroker$)
-  .build() {
+export class DeleteBrokerCommand extends command<DeleteBrokerCommandInput, DeleteBrokerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteBroker",
+  DeleteBroker$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

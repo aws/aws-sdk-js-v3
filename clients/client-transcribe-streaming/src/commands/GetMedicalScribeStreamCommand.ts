@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMedicalScribeStreamRequest, GetMedicalScribeStreamResponse } from "../models/models_0";
 import { GetMedicalScribeStream$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TranscribeStreamingClientResolvedConfig,
-} from "../TranscribeStreamingClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +114,12 @@ export interface GetMedicalScribeStreamCommandOutput extends GetMedicalScribeStr
  *
  * @public
  */
-export class GetMedicalScribeStreamCommand extends $Command
-  .classBuilder<
-    GetMedicalScribeStreamCommandInput,
-    GetMedicalScribeStreamCommandOutput,
-    TranscribeStreamingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TranscribeStreamingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Transcribe", "GetMedicalScribeStream", {})
-  .n("TranscribeStreamingClient", "GetMedicalScribeStreamCommand")
-  .sc(GetMedicalScribeStream$)
-  .build() {
+export class GetMedicalScribeStreamCommand extends command<GetMedicalScribeStreamCommandInput, GetMedicalScribeStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMedicalScribeStream",
+  GetMedicalScribeStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

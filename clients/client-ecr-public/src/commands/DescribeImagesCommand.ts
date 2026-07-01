@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeImagesRequest, DescribeImagesResponse } from "../models/models_0";
 import { DescribeImages$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeImages$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResponse, __M
  *
  * @public
  */
-export class DescribeImagesCommand extends $Command
-  .classBuilder<
-    DescribeImagesCommandInput,
-    DescribeImagesCommandOutput,
-    ECRPUBLICClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRPUBLICClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SpencerFrontendService", "DescribeImages", {})
-  .n("ECRPUBLICClient", "DescribeImagesCommand")
-  .sc(DescribeImages$)
-  .build() {
+export class DescribeImagesCommand extends command<DescribeImagesCommandInput, DescribeImagesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeImages",
+  DescribeImages$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

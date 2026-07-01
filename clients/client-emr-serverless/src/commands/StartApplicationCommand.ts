@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartApplicationRequest, StartApplicationResponse } from "../models/models_0";
 import { StartApplication$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartApplication$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  *
  * @public
  */
-export class StartApplicationCommand extends $Command
-  .classBuilder<
-    StartApplicationCommandInput,
-    StartApplicationCommandOutput,
-    EMRServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsToledoWebService", "StartApplication", {})
-  .n("EMRServerlessClient", "StartApplicationCommand")
-  .sc(StartApplication$)
-  .build() {
+export class StartApplicationCommand extends command<StartApplicationCommandInput, StartApplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartApplication",
+  StartApplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

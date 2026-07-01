@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCustomModelRequest, GetCustomModelResponse } from "../models/models_0";
 import { GetCustomModel$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetCustomModel$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -164,22 +160,12 @@ export interface GetCustomModelCommandOutput extends GetCustomModelResponse, __M
  *
  * @public
  */
-export class GetCustomModelCommand extends $Command
-  .classBuilder<
-    GetCustomModelCommandInput,
-    GetCustomModelCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "GetCustomModel", {})
-  .n("BedrockClient", "GetCustomModelCommand")
-  .sc(GetCustomModel$)
-  .build() {
+export class GetCustomModelCommand extends command<GetCustomModelCommandInput, GetCustomModelCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCustomModel",
+  GetCustomModel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

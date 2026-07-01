@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetActionInput, GetActionOutput } from "../models/models_0";
 import { GetAction$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupportAuthZClientResolvedConfig } from "../SupportAuthZClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface GetActionCommandOutput extends GetActionOutput, __MetadataBeare
  *
  * @public
  */
-export class GetActionCommand extends $Command
-  .classBuilder<
-    GetActionCommandInput,
-    GetActionCommandOutput,
-    SupportAuthZClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupportAuthZClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SupportAuthZ", "GetAction", {})
-  .n("SupportAuthZClient", "GetActionCommand")
-  .sc(GetAction$)
-  .build() {
+export class GetActionCommand extends command<GetActionCommandInput, GetActionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAction",
+  GetAction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

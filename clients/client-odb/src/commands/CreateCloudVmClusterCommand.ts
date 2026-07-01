@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCloudVmClusterInput, CreateCloudVmClusterOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { CreateCloudVmCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface CreateCloudVmClusterCommandOutput extends CreateCloudVmClusterO
  *
  * @public
  */
-export class CreateCloudVmClusterCommand extends $Command
-  .classBuilder<
-    CreateCloudVmClusterCommandInput,
-    CreateCloudVmClusterCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "CreateCloudVmCluster", {})
-  .n("OdbClient", "CreateCloudVmClusterCommand")
-  .sc(CreateCloudVmCluster$)
-  .build() {
+export class CreateCloudVmClusterCommand extends command<CreateCloudVmClusterCommandInput, CreateCloudVmClusterCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCloudVmCluster",
+  CreateCloudVmCluster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

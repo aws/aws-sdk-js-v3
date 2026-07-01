@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMeteredProductRequest, DeleteMeteredProductResponse } from "../models/models_1";
 import { DeleteMeteredProduct$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteMeteredProduct$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteMeteredProductCommandOutput extends DeleteMeteredProductR
  *
  * @public
  */
-export class DeleteMeteredProductCommand extends $Command
-  .classBuilder<
-    DeleteMeteredProductCommandInput,
-    DeleteMeteredProductCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "DeleteMeteredProduct", {})
-  .n("DeadlineClient", "DeleteMeteredProductCommand")
-  .sc(DeleteMeteredProduct$)
-  .build() {
+export class DeleteMeteredProductCommand extends command<DeleteMeteredProductCommandInput, DeleteMeteredProductCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMeteredProduct",
+  DeleteMeteredProduct$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

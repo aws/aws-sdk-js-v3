@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSdiSourceRequest, DeleteSdiSourceResponse } from "../models/models_1";
 import { DeleteSdiSource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteSdiSource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface DeleteSdiSourceCommandOutput extends DeleteSdiSourceResponse, _
  *
  * @public
  */
-export class DeleteSdiSourceCommand extends $Command
-  .classBuilder<
-    DeleteSdiSourceCommandInput,
-    DeleteSdiSourceCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "DeleteSdiSource", {})
-  .n("MediaLiveClient", "DeleteSdiSourceCommand")
-  .sc(DeleteSdiSource$)
-  .build() {
+export class DeleteSdiSourceCommand extends command<DeleteSdiSourceCommandInput, DeleteSdiSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSdiSource",
+  DeleteSdiSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

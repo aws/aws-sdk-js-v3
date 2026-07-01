@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AccessAnalyzerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AccessAnalyzerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAnalyzersRequest, ListAnalyzersResponse } from "../models/models_0";
 import { ListAnalyzers$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListAnalyzers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -131,22 +123,12 @@ export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __Met
  *
  * @public
  */
-export class ListAnalyzersCommand extends $Command
-  .classBuilder<
-    ListAnalyzersCommandInput,
-    ListAnalyzersCommandOutput,
-    AccessAnalyzerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AccessAnalyzer", "ListAnalyzers", {})
-  .n("AccessAnalyzerClient", "ListAnalyzersCommand")
-  .sc(ListAnalyzers$)
-  .build() {
+export class ListAnalyzersCommand extends command<ListAnalyzersCommandInput, ListAnalyzersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAnalyzers",
+  ListAnalyzers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

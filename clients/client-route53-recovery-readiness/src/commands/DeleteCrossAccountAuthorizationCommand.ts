@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteCrossAccountAuthorizationRequest,
   DeleteCrossAccountAuthorizationResponse,
 } from "../models/models_0";
-import type {
-  Route53RecoveryReadinessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryReadinessClient";
 import { DeleteCrossAccountAuthorization$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +68,12 @@ export interface DeleteCrossAccountAuthorizationCommandOutput extends DeleteCros
  *
  * @public
  */
-export class DeleteCrossAccountAuthorizationCommand extends $Command
-  .classBuilder<
-    DeleteCrossAccountAuthorizationCommandInput,
-    DeleteCrossAccountAuthorizationCommandOutput,
-    Route53RecoveryReadinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryReadinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53RecoveryReadiness", "DeleteCrossAccountAuthorization", {})
-  .n("Route53RecoveryReadinessClient", "DeleteCrossAccountAuthorizationCommand")
-  .sc(DeleteCrossAccountAuthorization$)
-  .build() {
+export class DeleteCrossAccountAuthorizationCommand extends command<DeleteCrossAccountAuthorizationCommandInput, DeleteCrossAccountAuthorizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCrossAccountAuthorization",
+  DeleteCrossAccountAuthorization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

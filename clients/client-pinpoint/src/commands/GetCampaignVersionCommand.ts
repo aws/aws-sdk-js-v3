@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCampaignVersionRequest, GetCampaignVersionResponse } from "../models/models_0";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { GetCampaignVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -475,22 +471,12 @@ export interface GetCampaignVersionCommandOutput extends GetCampaignVersionRespo
  *
  * @public
  */
-export class GetCampaignVersionCommand extends $Command
-  .classBuilder<
-    GetCampaignVersionCommandInput,
-    GetCampaignVersionCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "GetCampaignVersion", {})
-  .n("PinpointClient", "GetCampaignVersionCommand")
-  .sc(GetCampaignVersion$)
-  .build() {
+export class GetCampaignVersionCommand extends command<GetCampaignVersionCommandInput, GetCampaignVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCampaignVersion",
+  GetCampaignVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

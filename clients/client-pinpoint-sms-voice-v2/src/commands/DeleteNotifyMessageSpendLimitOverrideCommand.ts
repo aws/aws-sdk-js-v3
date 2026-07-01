@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteNotifyMessageSpendLimitOverrideRequest,
   DeleteNotifyMessageSpendLimitOverrideResult,
 } from "../models/models_0";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { DeleteNotifyMessageSpendLimitOverride$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface DeleteNotifyMessageSpendLimitOverrideCommandOutput extends Dele
  *
  * @public
  */
-export class DeleteNotifyMessageSpendLimitOverrideCommand extends $Command
-  .classBuilder<
-    DeleteNotifyMessageSpendLimitOverrideCommandInput,
-    DeleteNotifyMessageSpendLimitOverrideCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "DeleteNotifyMessageSpendLimitOverride", {})
-  .n("PinpointSMSVoiceV2Client", "DeleteNotifyMessageSpendLimitOverrideCommand")
-  .sc(DeleteNotifyMessageSpendLimitOverride$)
-  .build() {
+export class DeleteNotifyMessageSpendLimitOverrideCommand extends command<DeleteNotifyMessageSpendLimitOverrideCommandInput, DeleteNotifyMessageSpendLimitOverrideCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteNotifyMessageSpendLimitOverride",
+  DeleteNotifyMessageSpendLimitOverride$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

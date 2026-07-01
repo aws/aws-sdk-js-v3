@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AIOpsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AIOpsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteInvestigationGroupRequest } from "../models/models_0";
 import { DeleteInvestigationGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteInvestigationGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DeleteInvestigationGroupCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class DeleteInvestigationGroupCommand extends $Command
-  .classBuilder<
-    DeleteInvestigationGroupCommandInput,
-    DeleteInvestigationGroupCommandOutput,
-    AIOpsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AIOpsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AIOps", "DeleteInvestigationGroup", {})
-  .n("AIOpsClient", "DeleteInvestigationGroupCommand")
-  .sc(DeleteInvestigationGroup$)
-  .build() {
+export class DeleteInvestigationGroupCommand extends command<DeleteInvestigationGroupCommandInput, DeleteInvestigationGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteInvestigationGroup",
+  DeleteInvestigationGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

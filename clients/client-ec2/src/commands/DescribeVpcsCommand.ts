@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeVpcsRequest, DescribeVpcsResult } from "../models/models_5";
 import { DescribeVpcs$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeVpcs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -188,22 +184,12 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  *
  * @public
  */
-export class DescribeVpcsCommand extends $Command
-  .classBuilder<
-    DescribeVpcsCommandInput,
-    DescribeVpcsCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeVpcs", {})
-  .n("EC2Client", "DescribeVpcsCommand")
-  .sc(DescribeVpcs$)
-  .build() {
+export class DescribeVpcsCommand extends command<DescribeVpcsCommandInput, DescribeVpcsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeVpcs",
+  DescribeVpcs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchPutContactRequest, BatchPutContactResponse } from "../models/models_0";
 import { BatchPutContact$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchPutContact$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +128,12 @@ export interface BatchPutContactCommandOutput extends BatchPutContactResponse, _
  *
  * @public
  */
-export class BatchPutContactCommand extends $Command
-  .classBuilder<
-    BatchPutContactCommandInput,
-    BatchPutContactCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "BatchPutContact", {})
-  .n("ConnectClient", "BatchPutContactCommand")
-  .sc(BatchPutContact$)
-  .build() {
+export class BatchPutContactCommand extends command<BatchPutContactCommandInput, BatchPutContactCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchPutContact",
+  BatchPutContact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  GameLiftStreamsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../GameLiftStreamsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteStreamGroupInput } from "../models/models_0";
 import { DeleteStreamGroup$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteStreamGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeleteStreamGroupCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteStreamGroupCommand extends $Command
-  .classBuilder<
-    DeleteStreamGroupCommandInput,
-    DeleteStreamGroupCommandOutput,
-    GameLiftStreamsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftStreamsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLiftStreams", "DeleteStreamGroup", {})
-  .n("GameLiftStreamsClient", "DeleteStreamGroupCommand")
-  .sc(DeleteStreamGroup$)
-  .build() {
+export class DeleteStreamGroupCommand extends command<DeleteStreamGroupCommandInput, DeleteStreamGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteStreamGroup",
+  DeleteStreamGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

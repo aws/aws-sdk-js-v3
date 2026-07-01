@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListWaitingWorkflowStepsRequest, ListWaitingWorkflowStepsResponse } from "../models/models_0";
 import { ListWaitingWorkflowSteps$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListWaitingWorkflowSteps$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface ListWaitingWorkflowStepsCommandOutput extends ListWaitingWorkfl
  *
  * @public
  */
-export class ListWaitingWorkflowStepsCommand extends $Command
-  .classBuilder<
-    ListWaitingWorkflowStepsCommandInput,
-    ListWaitingWorkflowStepsCommandOutput,
-    ImagebuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("imagebuilder", "ListWaitingWorkflowSteps", {})
-  .n("ImagebuilderClient", "ListWaitingWorkflowStepsCommand")
-  .sc(ListWaitingWorkflowSteps$)
-  .build() {
+export class ListWaitingWorkflowStepsCommand extends command<ListWaitingWorkflowStepsCommandInput, ListWaitingWorkflowStepsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListWaitingWorkflowSteps",
+  ListWaitingWorkflowSteps$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

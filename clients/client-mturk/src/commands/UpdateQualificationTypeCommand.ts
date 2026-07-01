@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateQualificationTypeRequest, UpdateQualificationTypeResponse } from "../models/models_0";
-import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { UpdateQualificationType$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +115,12 @@ export interface UpdateQualificationTypeCommandOutput extends UpdateQualificatio
  *
  * @public
  */
-export class UpdateQualificationTypeCommand extends $Command
-  .classBuilder<
-    UpdateQualificationTypeCommandInput,
-    UpdateQualificationTypeCommandOutput,
-    MTurkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MTurkRequesterServiceV20170117", "UpdateQualificationType", {})
-  .n("MTurkClient", "UpdateQualificationTypeCommand")
-  .sc(UpdateQualificationType$)
-  .build() {
+export class UpdateQualificationTypeCommand extends command<UpdateQualificationTypeCommandInput, UpdateQualificationTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateQualificationType",
+  UpdateQualificationType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

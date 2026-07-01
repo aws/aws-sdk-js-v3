@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateInstanceRequest, UpdateInstanceResponse } from "../models/models_0";
 import { UpdateInstance$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface UpdateInstanceCommandOutput extends UpdateInstanceResponse, __M
  *
  * @public
  */
-export class UpdateInstanceCommand extends $Command
-  .classBuilder<
-    UpdateInstanceCommandInput,
-    UpdateInstanceCommandOutput,
-    SupplyChainClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupplyChainClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GalaxyPublicAPIGateway", "UpdateInstance", {})
-  .n("SupplyChainClient", "UpdateInstanceCommand")
-  .sc(UpdateInstance$)
-  .build() {
+export class UpdateInstanceCommand extends command<UpdateInstanceCommandInput, UpdateInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateInstance",
+  UpdateInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

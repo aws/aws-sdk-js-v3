@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeInboundDmarcSettingsRequest, DescribeInboundDmarcSettingsResponse } from "../models/models_0";
 import { DescribeInboundDmarcSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface DescribeInboundDmarcSettingsCommandOutput extends DescribeInbou
  *
  * @public
  */
-export class DescribeInboundDmarcSettingsCommand extends $Command
-  .classBuilder<
-    DescribeInboundDmarcSettingsCommandInput,
-    DescribeInboundDmarcSettingsCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "DescribeInboundDmarcSettings", {})
-  .n("WorkMailClient", "DescribeInboundDmarcSettingsCommand")
-  .sc(DescribeInboundDmarcSettings$)
-  .build() {
+export class DescribeInboundDmarcSettingsCommand extends command<DescribeInboundDmarcSettingsCommandInput, DescribeInboundDmarcSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeInboundDmarcSettings",
+  DescribeInboundDmarcSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

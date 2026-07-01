@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartMailboxExportJobRequest, StartMailboxExportJobResponse } from "../models/models_0";
 import { StartMailboxExportJob$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface StartMailboxExportJobCommandOutput extends StartMailboxExportJo
  *
  * @public
  */
-export class StartMailboxExportJobCommand extends $Command
-  .classBuilder<
-    StartMailboxExportJobCommandInput,
-    StartMailboxExportJobCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "StartMailboxExportJob", {})
-  .n("WorkMailClient", "StartMailboxExportJobCommand")
-  .sc(StartMailboxExportJob$)
-  .build() {
+export class StartMailboxExportJobCommand extends command<StartMailboxExportJobCommandInput, StartMailboxExportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartMailboxExportJob",
+  StartMailboxExportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

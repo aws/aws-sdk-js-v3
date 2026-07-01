@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyVpcEncryptionControlRequest, ModifyVpcEncryptionControlResult } from "../models/models_7";
 import { ModifyVpcEncryptionControl$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ModifyVpcEncryptionControl$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface ModifyVpcEncryptionControlCommandOutput extends ModifyVpcEncryp
  *
  * @public
  */
-export class ModifyVpcEncryptionControlCommand extends $Command
-  .classBuilder<
-    ModifyVpcEncryptionControlCommandInput,
-    ModifyVpcEncryptionControlCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "ModifyVpcEncryptionControl", {})
-  .n("EC2Client", "ModifyVpcEncryptionControlCommand")
-  .sc(ModifyVpcEncryptionControl$)
-  .build() {
+export class ModifyVpcEncryptionControlCommand extends command<ModifyVpcEncryptionControlCommandInput, ModifyVpcEncryptionControlCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyVpcEncryptionControl",
+  ModifyVpcEncryptionControl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BCMDataExportsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BCMDataExportsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteExportRequest, DeleteExportResponse } from "../models/models_0";
 import { DeleteExport$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteExport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +67,12 @@ export interface DeleteExportCommandOutput extends DeleteExportResponse, __Metad
  *
  * @public
  */
-export class DeleteExportCommand extends $Command
-  .classBuilder<
-    DeleteExportCommandInput,
-    DeleteExportCommandOutput,
-    BCMDataExportsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BCMDataExportsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBillingAndCostManagementDataExports", "DeleteExport", {})
-  .n("BCMDataExportsClient", "DeleteExportCommand")
-  .sc(DeleteExport$)
-  .build() {
+export class DeleteExportCommand extends command<DeleteExportCommandInput, DeleteExportCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteExport",
+  DeleteExport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

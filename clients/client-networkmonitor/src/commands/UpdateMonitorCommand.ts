@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateMonitorInput, UpdateMonitorOutput } from "../models/models_0";
-import type {
-  NetworkMonitorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkMonitorClient";
 import { UpdateMonitor$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface UpdateMonitorCommandOutput extends UpdateMonitorOutput, __Metad
  *
  * @public
  */
-export class UpdateMonitorCommand extends $Command
-  .classBuilder<
-    UpdateMonitorCommandInput,
-    UpdateMonitorCommandOutput,
-    NetworkMonitorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkMonitorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkMonitor", "UpdateMonitor", {})
-  .n("NetworkMonitorClient", "UpdateMonitorCommand")
-  .sc(UpdateMonitor$)
-  .build() {
+export class UpdateMonitorCommand extends command<UpdateMonitorCommandInput, UpdateMonitorCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateMonitor",
+  UpdateMonitor$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

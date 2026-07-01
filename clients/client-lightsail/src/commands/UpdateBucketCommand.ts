@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateBucketRequest, UpdateBucketResult } from "../models/models_1";
 import { UpdateBucket$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateBucket$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -202,22 +198,12 @@ export interface UpdateBucketCommandOutput extends UpdateBucketResult, __Metadat
  *
  * @public
  */
-export class UpdateBucketCommand extends $Command
-  .classBuilder<
-    UpdateBucketCommandInput,
-    UpdateBucketCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "UpdateBucket", {})
-  .n("LightsailClient", "UpdateBucketCommand")
-  .sc(UpdateBucket$)
-  .build() {
+export class UpdateBucketCommand extends command<UpdateBucketCommandInput, UpdateBucketCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateBucket",
+  UpdateBucket$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

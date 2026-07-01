@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMonitoringSubscriptionRequest, GetMonitoringSubscriptionResult } from "../models/models_1";
 import { GetMonitoringSubscription$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetMonitoringSubscription$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface GetMonitoringSubscriptionCommandOutput extends GetMonitoringSub
  *
  * @public
  */
-export class GetMonitoringSubscriptionCommand extends $Command
-  .classBuilder<
-    GetMonitoringSubscriptionCommandInput,
-    GetMonitoringSubscriptionCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "GetMonitoringSubscription", {})
-  .n("CloudFrontClient", "GetMonitoringSubscriptionCommand")
-  .sc(GetMonitoringSubscription$)
-  .build() {
+export class GetMonitoringSubscriptionCommand extends command<GetMonitoringSubscriptionCommandInput, GetMonitoringSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMonitoringSubscription",
+  GetMonitoringSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

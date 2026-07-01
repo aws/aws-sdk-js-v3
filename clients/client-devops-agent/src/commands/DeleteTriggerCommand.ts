@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTriggerRequest, DeleteTriggerResponse } from "../models/models_0";
 import { DeleteTrigger$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteTrigger$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface DeleteTriggerCommandOutput extends DeleteTriggerResponse, __Met
  *
  * @public
  */
-export class DeleteTriggerCommand extends $Command
-  .classBuilder<
-    DeleteTriggerCommandInput,
-    DeleteTriggerCommandOutput,
-    DevOpsAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DevOpsAgent", "DeleteTrigger", {})
-  .n("DevOpsAgentClient", "DeleteTriggerCommand")
-  .sc(DeleteTrigger$)
-  .build() {
+export class DeleteTriggerCommand extends command<DeleteTriggerCommandInput, DeleteTriggerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTrigger",
+  DeleteTrigger$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

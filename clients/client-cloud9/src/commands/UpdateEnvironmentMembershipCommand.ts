@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateEnvironmentMembershipRequest, UpdateEnvironmentMembershipResult } from "../models/models_0";
 import { UpdateEnvironmentMembership$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateEnvironmentMembership$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface UpdateEnvironmentMembershipCommandOutput extends UpdateEnvironm
  *
  * @public
  */
-export class UpdateEnvironmentMembershipCommand extends $Command
-  .classBuilder<
-    UpdateEnvironmentMembershipCommandInput,
-    UpdateEnvironmentMembershipCommandOutput,
-    Cloud9ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Cloud9ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCloud9WorkspaceManagementService", "UpdateEnvironmentMembership", {})
-  .n("Cloud9Client", "UpdateEnvironmentMembershipCommand")
-  .sc(UpdateEnvironmentMembership$)
-  .build() {
+export class UpdateEnvironmentMembershipCommand extends command<UpdateEnvironmentMembershipCommandInput, UpdateEnvironmentMembershipCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateEnvironmentMembership",
+  UpdateEnvironmentMembership$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

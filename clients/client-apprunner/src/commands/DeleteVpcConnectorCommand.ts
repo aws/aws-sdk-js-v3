@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteVpcConnectorRequest, DeleteVpcConnectorResponse } from "../models/models_0";
 import { DeleteVpcConnector$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteVpcConnector$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface DeleteVpcConnectorCommandOutput extends DeleteVpcConnectorRespo
  *
  * @public
  */
-export class DeleteVpcConnectorCommand extends $Command
-  .classBuilder<
-    DeleteVpcConnectorCommandInput,
-    DeleteVpcConnectorCommandOutput,
-    AppRunnerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppRunner", "DeleteVpcConnector", {})
-  .n("AppRunnerClient", "DeleteVpcConnectorCommand")
-  .sc(DeleteVpcConnector$)
-  .build() {
+export class DeleteVpcConnectorCommand extends command<DeleteVpcConnectorCommandInput, DeleteVpcConnectorCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteVpcConnector",
+  DeleteVpcConnector$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

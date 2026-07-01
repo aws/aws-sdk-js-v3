@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeVTLDevicesInput, DescribeVTLDevicesOutput } from "../models/models_0";
 import { DescribeVTLDevices$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -150,22 +142,12 @@ export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutpu
  *
  * @public
  */
-export class DescribeVTLDevicesCommand extends $Command
-  .classBuilder<
-    DescribeVTLDevicesCommandInput,
-    DescribeVTLDevicesCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "DescribeVTLDevices", {})
-  .n("StorageGatewayClient", "DescribeVTLDevicesCommand")
-  .sc(DescribeVTLDevices$)
-  .build() {
+export class DescribeVTLDevicesCommand extends command<DescribeVTLDevicesCommandInput, DescribeVTLDevicesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeVTLDevices",
+  DescribeVTLDevices$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

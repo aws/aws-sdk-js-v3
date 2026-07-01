@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAccountLimitsRequest, DescribeAccountLimitsResult } from "../models/models_0";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { DescribeAccountLimits$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  *
  * @public
  */
-export class DescribeAccountLimitsCommand extends $Command
-  .classBuilder<
-    DescribeAccountLimitsCommandInput,
-    DescribeAccountLimitsCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "DescribeAccountLimits", {})
-  .n("PinpointSMSVoiceV2Client", "DescribeAccountLimitsCommand")
-  .sc(DescribeAccountLimits$)
-  .build() {
+export class DescribeAccountLimitsCommand extends command<DescribeAccountLimitsCommandInput, DescribeAccountLimitsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAccountLimits",
+  DescribeAccountLimits$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

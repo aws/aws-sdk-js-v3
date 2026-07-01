@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSamplingRuleRequest, CreateSamplingRuleResult } from "../models/models_0";
 import { CreateSamplingRule$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface CreateSamplingRuleCommandOutput extends CreateSamplingRuleResul
  *
  * @public
  */
-export class CreateSamplingRuleCommand extends $Command
-  .classBuilder<
-    CreateSamplingRuleCommandInput,
-    CreateSamplingRuleCommandOutput,
-    XRayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSXRay", "CreateSamplingRule", {})
-  .n("XRayClient", "CreateSamplingRuleCommand")
-  .sc(CreateSamplingRule$)
-  .build() {
+export class CreateSamplingRuleCommand extends command<CreateSamplingRuleCommandInput, CreateSamplingRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSamplingRule",
+  CreateSamplingRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

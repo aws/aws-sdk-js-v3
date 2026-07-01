@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeEnvironmentResourcesMessage, EnvironmentResourceDescriptionsMessage } from "../models/models_0";
 import { DescribeEnvironmentResources$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeEnvironmentResources$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -145,22 +137,12 @@ export interface DescribeEnvironmentResourcesCommandOutput extends EnvironmentRe
  *
  * @public
  */
-export class DescribeEnvironmentResourcesCommand extends $Command
-  .classBuilder<
-    DescribeEnvironmentResourcesCommandInput,
-    DescribeEnvironmentResourcesCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "DescribeEnvironmentResources", {})
-  .n("ElasticBeanstalkClient", "DescribeEnvironmentResourcesCommand")
-  .sc(DescribeEnvironmentResources$)
-  .build() {
+export class DescribeEnvironmentResourcesCommand extends command<DescribeEnvironmentResourcesCommandInput, DescribeEnvironmentResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEnvironmentResources",
+  DescribeEnvironmentResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ConnectCampaignsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ConnectCampaignsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartInstanceOnboardingJobRequest, StartInstanceOnboardingJobResponse } from "../models/models_0";
 import { StartInstanceOnboardingJob$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartInstanceOnboardingJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface StartInstanceOnboardingJobCommandOutput extends StartInstanceOn
  *
  * @public
  */
-export class StartInstanceOnboardingJobCommand extends $Command
-  .classBuilder<
-    StartInstanceOnboardingJobCommandInput,
-    StartInstanceOnboardingJobCommandOutput,
-    ConnectCampaignsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCampaignService", "StartInstanceOnboardingJob", {})
-  .n("ConnectCampaignsClient", "StartInstanceOnboardingJobCommand")
-  .sc(StartInstanceOnboardingJob$)
-  .build() {
+export class StartInstanceOnboardingJobCommand extends command<StartInstanceOnboardingJobCommandInput, StartInstanceOnboardingJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartInstanceOnboardingJob",
+  StartInstanceOnboardingJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

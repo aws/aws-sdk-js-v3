@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartReplicationTaskMessage, StartReplicationTaskResponse } from "../models/models_1";
 import { StartReplicationTask$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartReplicationTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +132,12 @@ export interface StartReplicationTaskCommandOutput extends StartReplicationTaskR
  *
  * @public
  */
-export class StartReplicationTaskCommand extends $Command
-  .classBuilder<
-    StartReplicationTaskCommandInput,
-    StartReplicationTaskCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "StartReplicationTask", {})
-  .n("DatabaseMigrationServiceClient", "StartReplicationTaskCommand")
-  .sc(StartReplicationTask$)
-  .build() {
+export class StartReplicationTaskCommand extends command<StartReplicationTaskCommandInput, StartReplicationTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartReplicationTask",
+  StartReplicationTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

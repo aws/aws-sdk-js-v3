@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAutonomousDatabaseWalletInput, CreateAutonomousDatabaseWalletOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { CreateAutonomousDatabaseWallet$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface CreateAutonomousDatabaseWalletCommandOutput extends CreateAuton
  *
  * @public
  */
-export class CreateAutonomousDatabaseWalletCommand extends $Command
-  .classBuilder<
-    CreateAutonomousDatabaseWalletCommandInput,
-    CreateAutonomousDatabaseWalletCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "CreateAutonomousDatabaseWallet", {})
-  .n("OdbClient", "CreateAutonomousDatabaseWalletCommand")
-  .sc(CreateAutonomousDatabaseWallet$)
-  .build() {
+export class CreateAutonomousDatabaseWalletCommand extends command<CreateAutonomousDatabaseWalletCommandInput, CreateAutonomousDatabaseWalletCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAutonomousDatabaseWallet",
+  CreateAutonomousDatabaseWallet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

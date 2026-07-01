@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDevicesRequest, GetDevicesResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { GetDevices$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +106,12 @@ export interface GetDevicesCommandOutput extends GetDevicesResponse, __MetadataB
  *
  * @public
  */
-export class GetDevicesCommand extends $Command
-  .classBuilder<
-    GetDevicesCommandInput,
-    GetDevicesCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "GetDevices", {})
-  .n("NetworkManagerClient", "GetDevicesCommand")
-  .sc(GetDevices$)
-  .build() {
+export class GetDevicesCommand extends command<GetDevicesCommandInput, GetDevicesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDevices",
+  GetDevices$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

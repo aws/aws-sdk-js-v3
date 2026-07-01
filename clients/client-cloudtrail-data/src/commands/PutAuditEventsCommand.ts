@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudTrailDataClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudTrailDataClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutAuditEventsRequest, PutAuditEventsResponse } from "../models/models_0";
 import { PutAuditEvents$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { PutAuditEvents$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __M
  *
  * @public
  */
-export class PutAuditEventsCommand extends $Command
-  .classBuilder<
-    PutAuditEventsCommandInput,
-    PutAuditEventsCommandOutput,
-    CloudTrailDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudTrailDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudTrailDataService", "PutAuditEvents", {})
-  .n("CloudTrailDataClient", "PutAuditEventsCommand")
-  .sc(PutAuditEvents$)
-  .build() {
+export class PutAuditEventsCommand extends command<PutAuditEventsCommandInput, PutAuditEventsCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAuditEvents",
+  PutAuditEvents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

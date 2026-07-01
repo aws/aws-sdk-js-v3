@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeWorkspaceRequest, DescribeWorkspaceResponse } from "../models/models_0";
 import { DescribeWorkspace$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeWorkspace$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceRespons
  *
  * @public
  */
-export class DescribeWorkspaceCommand extends $Command
-  .classBuilder<
-    DescribeWorkspaceCommandInput,
-    DescribeWorkspaceCommandOutput,
-    AmpClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPrometheusService", "DescribeWorkspace", {})
-  .n("AmpClient", "DescribeWorkspaceCommand")
-  .sc(DescribeWorkspace$)
-  .build() {
+export class DescribeWorkspaceCommand extends command<DescribeWorkspaceCommandInput, DescribeWorkspaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeWorkspace",
+  DescribeWorkspace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

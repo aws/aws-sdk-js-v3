@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEmailAddressRequest, DeleteEmailAddressResponse } from "../models/models_1";
 import { DeleteEmailAddress$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteEmailAddress$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DeleteEmailAddressCommandOutput extends DeleteEmailAddressRespo
  *
  * @public
  */
-export class DeleteEmailAddressCommand extends $Command
-  .classBuilder<
-    DeleteEmailAddressCommandInput,
-    DeleteEmailAddressCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DeleteEmailAddress", {})
-  .n("ConnectClient", "DeleteEmailAddressCommand")
-  .sc(DeleteEmailAddress$)
-  .build() {
+export class DeleteEmailAddressCommand extends command<DeleteEmailAddressCommandInput, DeleteEmailAddressCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEmailAddress",
+  DeleteEmailAddress$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

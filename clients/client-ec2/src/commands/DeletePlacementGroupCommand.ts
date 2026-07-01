@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePlacementGroupRequest } from "../models/models_2";
 import { DeletePlacementGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeletePlacementGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeletePlacementGroupCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeletePlacementGroupCommand extends $Command
-  .classBuilder<
-    DeletePlacementGroupCommandInput,
-    DeletePlacementGroupCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeletePlacementGroup", {})
-  .n("EC2Client", "DeletePlacementGroupCommand")
-  .sc(DeletePlacementGroup$)
-  .build() {
+export class DeletePlacementGroupCommand extends command<DeletePlacementGroupCommandInput, DeletePlacementGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePlacementGroup",
+  DeletePlacementGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

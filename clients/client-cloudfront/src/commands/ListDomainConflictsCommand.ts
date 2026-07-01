@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDomainConflictsRequest, ListDomainConflictsResult } from "../models/models_1";
 import { ListDomainConflicts$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDomainConflicts$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface ListDomainConflictsCommandOutput extends ListDomainConflictsRes
  *
  * @public
  */
-export class ListDomainConflictsCommand extends $Command
-  .classBuilder<
-    ListDomainConflictsCommandInput,
-    ListDomainConflictsCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "ListDomainConflicts", {})
-  .n("CloudFrontClient", "ListDomainConflictsCommand")
-  .sc(ListDomainConflicts$)
-  .build() {
+export class ListDomainConflictsCommand extends command<ListDomainConflictsCommandInput, ListDomainConflictsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDomainConflicts",
+  ListDomainConflicts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

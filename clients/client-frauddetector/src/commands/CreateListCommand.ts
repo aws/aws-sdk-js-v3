@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateListRequest, CreateListResult } from "../models/models_0";
 import { CreateList$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateList$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface CreateListCommandOutput extends CreateListResult, __MetadataBea
  *
  * @public
  */
-export class CreateListCommand extends $Command
-  .classBuilder<
-    CreateListCommandInput,
-    CreateListCommandOutput,
-    FraudDetectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHawksNestServiceFacade", "CreateList", {})
-  .n("FraudDetectorClient", "CreateListCommand")
-  .sc(CreateList$)
-  .build() {
+export class CreateListCommand extends command<CreateListCommandInput, CreateListCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateList",
+  CreateList$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

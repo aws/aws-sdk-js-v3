@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UntagOpenIDConnectProviderRequest } from "../models/models_0";
 import { UntagOpenIDConnectProvider$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UntagOpenIDConnectProvider$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface UntagOpenIDConnectProviderCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class UntagOpenIDConnectProviderCommand extends $Command
-  .classBuilder<
-    UntagOpenIDConnectProviderCommandInput,
-    UntagOpenIDConnectProviderCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "UntagOpenIDConnectProvider", {})
-  .n("IAMClient", "UntagOpenIDConnectProviderCommand")
-  .sc(UntagOpenIDConnectProvider$)
-  .build() {
+export class UntagOpenIDConnectProviderCommand extends command<UntagOpenIDConnectProviderCommandInput, UntagOpenIDConnectProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "UntagOpenIDConnectProvider",
+  UntagOpenIDConnectProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateWorkflowVersionRequest, CreateWorkflowVersionResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { CreateWorkflowVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -142,22 +138,12 @@ export interface CreateWorkflowVersionCommandOutput extends CreateWorkflowVersio
  *
  * @public
  */
-export class CreateWorkflowVersionCommand extends $Command
-  .classBuilder<
-    CreateWorkflowVersionCommandInput,
-    CreateWorkflowVersionCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "CreateWorkflowVersion", {})
-  .n("OmicsClient", "CreateWorkflowVersionCommand")
-  .sc(CreateWorkflowVersion$)
-  .build() {
+export class CreateWorkflowVersionCommand extends command<CreateWorkflowVersionCommandInput, CreateWorkflowVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateWorkflowVersion",
+  CreateWorkflowVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeConnectionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeConnectionsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRepositoryLinksInput, ListRepositoryLinksOutput } from "../models/models_0";
 import { ListRepositoryLinks$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListRepositoryLinks$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface ListRepositoryLinksCommandOutput extends ListRepositoryLinksOut
  *
  * @public
  */
-export class ListRepositoryLinksCommand extends $Command
-  .classBuilder<
-    ListRepositoryLinksCommandInput,
-    ListRepositoryLinksCommandOutput,
-    CodeConnectionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeConnectionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeConnections_20231201", "ListRepositoryLinks", {})
-  .n("CodeConnectionsClient", "ListRepositoryLinksCommand")
-  .sc(ListRepositoryLinks$)
-  .build() {
+export class ListRepositoryLinksCommand extends command<ListRepositoryLinksCommandInput, ListRepositoryLinksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRepositoryLinks",
+  ListRepositoryLinks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

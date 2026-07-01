@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCoverageRequest, ListCoverageResponse } from "../models/models_0";
 import { ListCoverage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListCoverage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -228,22 +224,12 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *
  * @public
  */
-export class ListCoverageCommand extends $Command
-  .classBuilder<
-    ListCoverageCommandInput,
-    ListCoverageCommandOutput,
-    Inspector2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Inspector2", "ListCoverage", {})
-  .n("Inspector2Client", "ListCoverageCommand")
-  .sc(ListCoverage$)
-  .build() {
+export class ListCoverageCommand extends command<ListCoverageCommandInput, ListCoverageCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCoverage",
+  ListCoverage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

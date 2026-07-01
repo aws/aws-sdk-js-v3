@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSafetyRuleRequest, CreateSafetyRuleResponse } from "../models/models_0";
-import type {
-  Route53RecoveryControlConfigClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryControlConfigClient";
 import { CreateSafetyRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -135,22 +127,12 @@ export interface CreateSafetyRuleCommandOutput extends CreateSafetyRuleResponse,
  *
  * @public
  */
-export class CreateSafetyRuleCommand extends $Command
-  .classBuilder<
-    CreateSafetyRuleCommandInput,
-    CreateSafetyRuleCommandOutput,
-    Route53RecoveryControlConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53RecoveryControlConfig", "CreateSafetyRule", {})
-  .n("Route53RecoveryControlConfigClient", "CreateSafetyRuleCommand")
-  .sc(CreateSafetyRule$)
-  .build() {
+export class CreateSafetyRuleCommand extends command<CreateSafetyRuleCommandInput, CreateSafetyRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSafetyRule",
+  CreateSafetyRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

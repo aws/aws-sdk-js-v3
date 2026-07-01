@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListOpenCypherQueriesInput, ListOpenCypherQueriesOutput } from "../models/models_0";
-import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
 import { ListOpenCypherQueries$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface ListOpenCypherQueriesCommandOutput extends ListOpenCypherQuerie
  *
  * @public
  */
-export class ListOpenCypherQueriesCommand extends $Command
-  .classBuilder<
-    ListOpenCypherQueriesCommandInput,
-    ListOpenCypherQueriesCommandOutput,
-    NeptunedataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneDataplane", "ListOpenCypherQueries", {})
-  .n("NeptunedataClient", "ListOpenCypherQueriesCommand")
-  .sc(ListOpenCypherQueries$)
-  .build() {
+export class ListOpenCypherQueriesCommand extends command<ListOpenCypherQueriesCommandInput, ListOpenCypherQueriesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListOpenCypherQueries",
+  ListOpenCypherQueries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

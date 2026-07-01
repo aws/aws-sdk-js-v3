@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRecipeRequest, CreateRecipeResponse } from "../models/models_0";
 import { CreateRecipe$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateRecipe$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface CreateRecipeCommandOutput extends CreateRecipeResponse, __Metad
  *
  * @public
  */
-export class CreateRecipeCommand extends $Command
-  .classBuilder<
-    CreateRecipeCommandInput,
-    CreateRecipeCommandOutput,
-    DataBrewClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlueDataBrew", "CreateRecipe", {})
-  .n("DataBrewClient", "CreateRecipeCommand")
-  .sc(CreateRecipe$)
-  .build() {
+export class CreateRecipeCommand extends command<CreateRecipeCommandInput, CreateRecipeCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRecipe",
+  CreateRecipe$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

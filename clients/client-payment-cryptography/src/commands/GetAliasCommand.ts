@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAliasInput, GetAliasOutput } from "../models/models_0";
-import type {
-  PaymentCryptographyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PaymentCryptographyClient";
 import { GetAlias$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface GetAliasCommandOutput extends GetAliasOutput, __MetadataBearer 
  *
  * @public
  */
-export class GetAliasCommand extends $Command
-  .classBuilder<
-    GetAliasCommandInput,
-    GetAliasCommandOutput,
-    PaymentCryptographyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PaymentCryptographyControlPlane", "GetAlias", {})
-  .n("PaymentCryptographyClient", "GetAliasCommand")
-  .sc(GetAlias$)
-  .build() {
+export class GetAliasCommand extends command<GetAliasCommandInput, GetAliasCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAlias",
+  GetAlias$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

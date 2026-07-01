@@ -1,21 +1,13 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import { HostWithPathOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -58,22 +50,12 @@ export interface HostWithPathOperationCommandOutput extends __MetadataBearer {}
  *
  *
  */
-export class HostWithPathOperationCommand extends $Command
-  .classBuilder<
-    HostWithPathOperationCommandInput,
-    HostWithPathOperationCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestJson", "HostWithPathOperation", {})
-  .n("RestJsonProtocolClient", "HostWithPathOperationCommand")
-  .sc(HostWithPathOperation$)
-  .build() {
+export class HostWithPathOperationCommand extends command<HostWithPathOperationCommandInput, HostWithPathOperationCommandOutput>(
+  _ep0,
+  _mw0,
+  "HostWithPathOperation",
+  HostWithPathOperation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

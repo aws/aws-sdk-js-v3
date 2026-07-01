@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LexModelBuildingServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LexModelBuildingServiceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSlotTypeRequest, GetSlotTypeResponse } from "../models/models_0";
 import { GetSlotType$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetSlotType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -136,22 +128,12 @@ export interface GetSlotTypeCommandOutput extends GetSlotTypeResponse, __Metadat
  *
  * @public
  */
-export class GetSlotTypeCommand extends $Command
-  .classBuilder<
-    GetSlotTypeCommandInput,
-    GetSlotTypeCommandOutput,
-    LexModelBuildingServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepSenseModelBuildingService", "GetSlotType", {})
-  .n("LexModelBuildingServiceClient", "GetSlotTypeCommand")
-  .sc(GetSlotType$)
-  .build() {
+export class GetSlotTypeCommand extends command<GetSlotTypeCommandInput, GetSlotTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSlotType",
+  GetSlotType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

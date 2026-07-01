@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { NotifyWhenUploadedInput, NotifyWhenUploadedOutput } from "../models/models_0";
 import { NotifyWhenUploaded$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
  *
  * @public
  */
-export class NotifyWhenUploadedCommand extends $Command
-  .classBuilder<
-    NotifyWhenUploadedCommandInput,
-    NotifyWhenUploadedCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "NotifyWhenUploaded", {})
-  .n("StorageGatewayClient", "NotifyWhenUploadedCommand")
-  .sc(NotifyWhenUploaded$)
-  .build() {
+export class NotifyWhenUploadedCommand extends command<NotifyWhenUploadedCommandInput, NotifyWhenUploadedCommandOutput>(
+  _ep0,
+  _mw0,
+  "NotifyWhenUploaded",
+  NotifyWhenUploaded$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

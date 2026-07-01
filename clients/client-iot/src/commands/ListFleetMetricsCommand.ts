@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListFleetMetricsRequest, ListFleetMetricsResponse } from "../models/models_1";
 import { ListFleetMetrics$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListFleetMetrics$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface ListFleetMetricsCommandOutput extends ListFleetMetricsResponse,
  *
  * @public
  */
-export class ListFleetMetricsCommand extends $Command
-  .classBuilder<
-    ListFleetMetricsCommandInput,
-    ListFleetMetricsCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "ListFleetMetrics", {})
-  .n("IoTClient", "ListFleetMetricsCommand")
-  .sc(ListFleetMetrics$)
-  .build() {
+export class ListFleetMetricsCommand extends command<ListFleetMetricsCommandInput, ListFleetMetricsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFleetMetrics",
+  ListFleetMetrics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAnycastIpListRequest, UpdateAnycastIpListResult } from "../models/models_1";
 import { UpdateAnycastIpList$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateAnycastIpList$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface UpdateAnycastIpListCommandOutput extends UpdateAnycastIpListRes
  *
  * @public
  */
-export class UpdateAnycastIpListCommand extends $Command
-  .classBuilder<
-    UpdateAnycastIpListCommandInput,
-    UpdateAnycastIpListCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "UpdateAnycastIpList", {})
-  .n("CloudFrontClient", "UpdateAnycastIpListCommand")
-  .sc(UpdateAnycastIpList$)
-  .build() {
+export class UpdateAnycastIpListCommand extends command<UpdateAnycastIpListCommandInput, UpdateAnycastIpListCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAnycastIpList",
+  UpdateAnycastIpList$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

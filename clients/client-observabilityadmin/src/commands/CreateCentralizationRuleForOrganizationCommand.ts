@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateCentralizationRuleForOrganizationInput,
   CreateCentralizationRuleForOrganizationOutput,
 } from "../models/models_0";
-import type {
-  ObservabilityAdminClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ObservabilityAdminClient";
 import { CreateCentralizationRuleForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +118,12 @@ export interface CreateCentralizationRuleForOrganizationCommandOutput extends Cr
  *
  * @public
  */
-export class CreateCentralizationRuleForOrganizationCommand extends $Command
-  .classBuilder<
-    CreateCentralizationRuleForOrganizationCommandInput,
-    CreateCentralizationRuleForOrganizationCommandOutput,
-    ObservabilityAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ObservabilityAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ObservabilityAdmin", "CreateCentralizationRuleForOrganization", {})
-  .n("ObservabilityAdminClient", "CreateCentralizationRuleForOrganizationCommand")
-  .sc(CreateCentralizationRuleForOrganization$)
-  .build() {
+export class CreateCentralizationRuleForOrganizationCommand extends command<CreateCentralizationRuleForOrganizationCommandInput, CreateCentralizationRuleForOrganizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCentralizationRuleForOrganization",
+  CreateCentralizationRuleForOrganization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

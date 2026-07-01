@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteReplicationSetInput, DeleteReplicationSetOutput } from "../models/models_0";
 import { DeleteReplicationSet$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteReplicationSetCommandOutput extends DeleteReplicationSetO
  *
  * @public
  */
-export class DeleteReplicationSetCommand extends $Command
-  .classBuilder<
-    DeleteReplicationSetCommandInput,
-    DeleteReplicationSetCommandOutput,
-    SSMIncidentsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMIncidentsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMIncidents", "DeleteReplicationSet", {})
-  .n("SSMIncidentsClient", "DeleteReplicationSetCommand")
-  .sc(DeleteReplicationSet$)
-  .build() {
+export class DeleteReplicationSetCommand extends command<DeleteReplicationSetCommandInput, DeleteReplicationSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteReplicationSet",
+  DeleteReplicationSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

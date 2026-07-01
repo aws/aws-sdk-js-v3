@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CopyPackageVersionsRequest, CopyPackageVersionsResult } from "../models/models_0";
 import { CopyPackageVersions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CopyPackageVersions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface CopyPackageVersionsCommandOutput extends CopyPackageVersionsRes
  *
  * @public
  */
-export class CopyPackageVersionsCommand extends $Command
-  .classBuilder<
-    CopyPackageVersionsCommandInput,
-    CopyPackageVersionsCommandOutput,
-    CodeartifactClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeArtifactControlPlaneService", "CopyPackageVersions", {})
-  .n("CodeartifactClient", "CopyPackageVersionsCommand")
-  .sc(CopyPackageVersions$)
-  .build() {
+export class CopyPackageVersionsCommand extends command<CopyPackageVersionsCommandInput, CopyPackageVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "CopyPackageVersions",
+  CopyPackageVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

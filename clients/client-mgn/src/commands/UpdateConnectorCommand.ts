@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { Connector, UpdateConnectorRequest } from "../models/models_0";
 import { UpdateConnector$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateConnector$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface UpdateConnectorCommandOutput extends Connector, __MetadataBeare
  *
  * @public
  */
-export class UpdateConnectorCommand extends $Command
-  .classBuilder<
-    UpdateConnectorCommandInput,
-    UpdateConnectorCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "UpdateConnector", {})
-  .n("MgnClient", "UpdateConnectorCommand")
-  .sc(UpdateConnector$)
-  .build() {
+export class UpdateConnectorCommand extends command<UpdateConnectorCommandInput, UpdateConnectorCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateConnector",
+  UpdateConnector$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

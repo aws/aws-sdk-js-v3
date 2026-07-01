@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDomainRequest, UpdateDomainResponse } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { UpdateDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -421,22 +417,12 @@ export interface UpdateDomainCommandOutput extends UpdateDomainResponse, __Metad
  *
  * @public
  */
-export class UpdateDomainCommand extends $Command
-  .classBuilder<
-    UpdateDomainCommandInput,
-    UpdateDomainCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "UpdateDomain", {})
-  .n("SageMakerClient", "UpdateDomainCommand")
-  .sc(UpdateDomain$)
-  .build() {
+export class UpdateDomainCommand extends command<UpdateDomainCommandInput, UpdateDomainCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDomain",
+  UpdateDomain$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

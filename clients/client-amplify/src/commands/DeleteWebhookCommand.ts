@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteWebhookRequest, DeleteWebhookResult } from "../models/models_0";
 import { DeleteWebhook$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteWebhook$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookResult, __Metad
  *
  * @public
  */
-export class DeleteWebhookCommand extends $Command
-  .classBuilder<
-    DeleteWebhookCommandInput,
-    DeleteWebhookCommandOutput,
-    AmplifyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Amplify", "DeleteWebhook", {})
-  .n("AmplifyClient", "DeleteWebhookCommand")
-  .sc(DeleteWebhook$)
-  .build() {
+export class DeleteWebhookCommand extends command<DeleteWebhookCommandInput, DeleteWebhookCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteWebhook",
+  DeleteWebhook$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

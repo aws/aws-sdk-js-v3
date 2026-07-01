@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeMediaStorageConfigurationInput,
   DescribeMediaStorageConfigurationOutput,
@@ -15,7 +12,6 @@ import { DescribeMediaStorageConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface DescribeMediaStorageConfigurationCommandOutput extends Describe
  *
  * @public
  */
-export class DescribeMediaStorageConfigurationCommand extends $Command
-  .classBuilder<
-    DescribeMediaStorageConfigurationCommandInput,
-    DescribeMediaStorageConfigurationCommandOutput,
-    KinesisVideoClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KinesisVideo_20170930", "DescribeMediaStorageConfiguration", {})
-  .n("KinesisVideoClient", "DescribeMediaStorageConfigurationCommand")
-  .sc(DescribeMediaStorageConfiguration$)
-  .build() {
+export class DescribeMediaStorageConfigurationCommand extends command<DescribeMediaStorageConfigurationCommandInput, DescribeMediaStorageConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeMediaStorageConfiguration",
+  DescribeMediaStorageConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

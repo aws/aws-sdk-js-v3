@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateSecretVersionStageRequest, UpdateSecretVersionStageResponse } from "../models/models_0";
 import { UpdateSecretVersionStage$ } from "../schemas/schemas_0";
-import type {
-  SecretsManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SecretsManagerClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -176,22 +168,12 @@ export interface UpdateSecretVersionStageCommandOutput extends UpdateSecretVersi
  *
  * @public
  */
-export class UpdateSecretVersionStageCommand extends $Command
-  .classBuilder<
-    UpdateSecretVersionStageCommandInput,
-    UpdateSecretVersionStageCommandOutput,
-    SecretsManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("secretsmanager", "UpdateSecretVersionStage", {})
-  .n("SecretsManagerClient", "UpdateSecretVersionStageCommand")
-  .sc(UpdateSecretVersionStage$)
-  .build() {
+export class UpdateSecretVersionStageCommand extends command<UpdateSecretVersionStageCommandInput, UpdateSecretVersionStageCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSecretVersionStage",
+  UpdateSecretVersionStage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

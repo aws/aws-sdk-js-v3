@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFunctionEventInvokeConfigRequest } from "../models/models_0";
 import { DeleteFunctionEventInvokeConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteFunctionEventInvokeConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface DeleteFunctionEventInvokeConfigCommandOutput extends __Metadata
  *
  * @public
  */
-export class DeleteFunctionEventInvokeConfigCommand extends $Command
-  .classBuilder<
-    DeleteFunctionEventInvokeConfigCommandInput,
-    DeleteFunctionEventInvokeConfigCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "DeleteFunctionEventInvokeConfig", {})
-  .n("LambdaClient", "DeleteFunctionEventInvokeConfigCommand")
-  .sc(DeleteFunctionEventInvokeConfig$)
-  .build() {
+export class DeleteFunctionEventInvokeConfigCommand extends command<DeleteFunctionEventInvokeConfigCommandInput, DeleteFunctionEventInvokeConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFunctionEventInvokeConfig",
+  DeleteFunctionEventInvokeConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PostUnionWithJsonNameInput, PostUnionWithJsonNameOutput } from "../models/models_0";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
 import { PostUnionWithJsonName$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +63,12 @@ export interface PostUnionWithJsonNameCommandOutput extends PostUnionWithJsonNam
  *
  * @public
  */
-export class PostUnionWithJsonNameCommand extends $Command
-  .classBuilder<
-    PostUnionWithJsonNameCommandInput,
-    PostUnionWithJsonNameCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestJson", "PostUnionWithJsonName", {})
-  .n("RestJsonProtocolClient", "PostUnionWithJsonNameCommand")
-  .sc(PostUnionWithJsonName$)
-  .build() {
+export class PostUnionWithJsonNameCommand extends command<PostUnionWithJsonNameCommandInput, PostUnionWithJsonNameCommandOutput>(
+  _ep0,
+  _mw0,
+  "PostUnionWithJsonName",
+  PostUnionWithJsonName$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

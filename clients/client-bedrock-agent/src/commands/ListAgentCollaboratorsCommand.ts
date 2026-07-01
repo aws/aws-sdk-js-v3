@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAgentCollaboratorsRequest, ListAgentCollaboratorsResponse } from "../models/models_0";
 import { ListAgentCollaborators$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAgentCollaborators$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface ListAgentCollaboratorsCommandOutput extends ListAgentCollaborat
  *
  * @public
  */
-export class ListAgentCollaboratorsCommand extends $Command
-  .classBuilder<
-    ListAgentCollaboratorsCommandInput,
-    ListAgentCollaboratorsCommandOutput,
-    BedrockAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentBuildTimeLambda", "ListAgentCollaborators", {})
-  .n("BedrockAgentClient", "ListAgentCollaboratorsCommand")
-  .sc(ListAgentCollaborators$)
-  .build() {
+export class ListAgentCollaboratorsCommand extends command<ListAgentCollaboratorsCommandInput, ListAgentCollaboratorsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAgentCollaborators",
+  ListAgentCollaborators$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

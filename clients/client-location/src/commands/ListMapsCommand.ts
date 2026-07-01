@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListMapsRequest, ListMapsResponse } from "../models/models_0";
 import { ListMaps$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListMaps$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface ListMapsCommandOutput extends ListMapsResponse, __MetadataBeare
  *
  * @public
  */
-export class ListMapsCommand extends $Command
-  .classBuilder<
-    ListMapsCommandInput,
-    ListMapsCommandOutput,
-    LocationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LocationService", "ListMaps", {})
-  .n("LocationClient", "ListMapsCommand")
-  .sc(ListMaps$)
-  .build() {
+export class ListMapsCommand extends command<ListMapsCommandInput, ListMapsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMaps",
+  ListMaps$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

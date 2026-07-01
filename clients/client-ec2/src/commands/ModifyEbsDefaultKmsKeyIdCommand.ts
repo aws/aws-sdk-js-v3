@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyEbsDefaultKmsKeyIdRequest, ModifyEbsDefaultKmsKeyIdResult } from "../models/models_6";
 import { ModifyEbsDefaultKmsKeyId$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ModifyEbsDefaultKmsKeyId$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface ModifyEbsDefaultKmsKeyIdCommandOutput extends ModifyEbsDefaultK
  *
  * @public
  */
-export class ModifyEbsDefaultKmsKeyIdCommand extends $Command
-  .classBuilder<
-    ModifyEbsDefaultKmsKeyIdCommandInput,
-    ModifyEbsDefaultKmsKeyIdCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "ModifyEbsDefaultKmsKeyId", {})
-  .n("EC2Client", "ModifyEbsDefaultKmsKeyIdCommand")
-  .sc(ModifyEbsDefaultKmsKeyId$)
-  .build() {
+export class ModifyEbsDefaultKmsKeyIdCommand extends command<ModifyEbsDefaultKmsKeyIdCommandInput, ModifyEbsDefaultKmsKeyIdCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyEbsDefaultKmsKeyId",
+  ModifyEbsDefaultKmsKeyId$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

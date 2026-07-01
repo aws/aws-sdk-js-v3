@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteGroupRequest, DeleteGroupResponse } from "../models/models_0";
 import { DeleteGroup$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  *
  * @public
  */
-export class DeleteGroupCommand extends $Command
-  .classBuilder<
-    DeleteGroupCommandInput,
-    DeleteGroupCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "DeleteGroup", {})
-  .n("WorkMailClient", "DeleteGroupCommand")
-  .sc(DeleteGroup$)
-  .build() {
+export class DeleteGroupCommand extends command<DeleteGroupCommandInput, DeleteGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteGroup",
+  DeleteGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

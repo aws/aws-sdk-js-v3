@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFolderContentsRequest } from "../models/models_0";
 import { DeleteFolderContents$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface DeleteFolderContentsCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteFolderContentsCommand extends $Command
-  .classBuilder<
-    DeleteFolderContentsCommandInput,
-    DeleteFolderContentsCommandOutput,
-    WorkDocsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGorillaBoyService", "DeleteFolderContents", {})
-  .n("WorkDocsClient", "DeleteFolderContentsCommand")
-  .sc(DeleteFolderContents$)
-  .build() {
+export class DeleteFolderContentsCommand extends command<DeleteFolderContentsCommandInput, DeleteFolderContentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFolderContents",
+  DeleteFolderContents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

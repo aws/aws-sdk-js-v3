@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationAutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationAutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeScalableTargetsRequest, DescribeScalableTargetsResponse } from "../models/models_0";
 import { DescribeScalableTargets$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeScalableTargets$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +125,12 @@ export interface DescribeScalableTargetsCommandOutput extends DescribeScalableTa
  *
  * @public
  */
-export class DescribeScalableTargetsCommand extends $Command
-  .classBuilder<
-    DescribeScalableTargetsCommandInput,
-    DescribeScalableTargetsCommandOutput,
-    ApplicationAutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationAutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AnyScaleFrontendService", "DescribeScalableTargets", {})
-  .n("ApplicationAutoScalingClient", "DescribeScalableTargetsCommand")
-  .sc(DescribeScalableTargets$)
-  .build() {
+export class DescribeScalableTargetsCommand extends command<DescribeScalableTargetsCommandInput, DescribeScalableTargetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeScalableTargets",
+  DescribeScalableTargets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

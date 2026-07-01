@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MachineLearningClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MachineLearningClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDataSourceFromRedshiftInput, CreateDataSourceFromRedshiftOutput } from "../models/models_0";
 import { CreateDataSourceFromRedshift$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateDataSourceFromRedshift$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +114,12 @@ export interface CreateDataSourceFromRedshiftCommandOutput extends CreateDataSou
  *
  * @public
  */
-export class CreateDataSourceFromRedshiftCommand extends $Command
-  .classBuilder<
-    CreateDataSourceFromRedshiftCommandInput,
-    CreateDataSourceFromRedshiftCommandOutput,
-    MachineLearningClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonML_20141212", "CreateDataSourceFromRedshift", {})
-  .n("MachineLearningClient", "CreateDataSourceFromRedshiftCommand")
-  .sc(CreateDataSourceFromRedshift$)
-  .build() {
+export class CreateDataSourceFromRedshiftCommand extends command<CreateDataSourceFromRedshiftCommandInput, CreateDataSourceFromRedshiftCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDataSourceFromRedshift",
+  CreateDataSourceFromRedshift$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

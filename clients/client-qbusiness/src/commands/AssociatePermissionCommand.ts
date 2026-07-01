@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociatePermissionRequest, AssociatePermissionResponse } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { AssociatePermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface AssociatePermissionCommandOutput extends AssociatePermissionRes
  *
  * @public
  */
-export class AssociatePermissionCommand extends $Command
-  .classBuilder<
-    AssociatePermissionCommandInput,
-    AssociatePermissionCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "AssociatePermission", {})
-  .n("QBusinessClient", "AssociatePermissionCommand")
-  .sc(AssociatePermission$)
-  .build() {
+export class AssociatePermissionCommand extends command<AssociatePermissionCommandInput, AssociatePermissionCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociatePermission",
+  AssociatePermission$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

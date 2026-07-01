@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
-import type {
-  CloudSearchDomainClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudSearchDomainClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UploadDocumentsRequest, UploadDocumentsResponse } from "../models/models_0";
 import { UploadDocuments$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UploadDocuments$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface UploadDocumentsCommandOutput extends UploadDocumentsResponse, _
  *
  * @public
  */
-export class UploadDocumentsCommand extends $Command
-  .classBuilder<
-    UploadDocumentsCommandInput,
-    UploadDocumentsCommandOutput,
-    CloudSearchDomainClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudSearchDomainClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonCloudSearch2013", "UploadDocuments", {})
-  .n("CloudSearchDomainClient", "UploadDocumentsCommand")
-  .sc(UploadDocuments$)
-  .build() {
+export class UploadDocumentsCommand extends command<UploadDocumentsCommandInput, UploadDocumentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UploadDocuments",
+  UploadDocuments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

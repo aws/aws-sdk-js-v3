@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeClusterOperationV2Request, DescribeClusterOperationV2Response } from "../models/models_0";
 import { DescribeClusterOperationV2$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeClusterOperationV2$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -350,22 +346,12 @@ export interface DescribeClusterOperationV2CommandOutput extends DescribeCluster
  *
  * @public
  */
-export class DescribeClusterOperationV2Command extends $Command
-  .classBuilder<
-    DescribeClusterOperationV2CommandInput,
-    DescribeClusterOperationV2CommandOutput,
-    KafkaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kafka", "DescribeClusterOperationV2", {})
-  .n("KafkaClient", "DescribeClusterOperationV2Command")
-  .sc(DescribeClusterOperationV2$)
-  .build() {
+export class DescribeClusterOperationV2Command extends command<DescribeClusterOperationV2CommandInput, DescribeClusterOperationV2CommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeClusterOperationV2",
+  DescribeClusterOperationV2$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

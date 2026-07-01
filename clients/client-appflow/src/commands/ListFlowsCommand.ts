@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListFlowsRequest, ListFlowsResponse } from "../models/models_0";
 import { ListFlows$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListFlows$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface ListFlowsCommandOutput extends ListFlowsResponse, __MetadataBea
  *
  * @public
  */
-export class ListFlowsCommand extends $Command
-  .classBuilder<
-    ListFlowsCommandInput,
-    ListFlowsCommandOutput,
-    AppflowClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SandstoneConfigurationServiceLambda", "ListFlows", {})
-  .n("AppflowClient", "ListFlowsCommand")
-  .sc(ListFlows$)
-  .build() {
+export class ListFlowsCommand extends command<ListFlowsCommandInput, ListFlowsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFlows",
+  ListFlows$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

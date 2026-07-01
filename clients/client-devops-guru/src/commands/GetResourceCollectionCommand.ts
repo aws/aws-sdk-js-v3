@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetResourceCollectionRequest, GetResourceCollectionResponse } from "../models/models_0";
 import { GetResourceCollection$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetResourceCollection$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface GetResourceCollectionCommandOutput extends GetResourceCollectio
  *
  * @public
  */
-export class GetResourceCollectionCommand extends $Command
-  .classBuilder<
-    GetResourceCollectionCommandInput,
-    GetResourceCollectionCommandOutput,
-    DevOpsGuruClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CapstoneControlPlaneService", "GetResourceCollection", {})
-  .n("DevOpsGuruClient", "GetResourceCollectionCommand")
-  .sc(GetResourceCollection$)
-  .build() {
+export class GetResourceCollectionCommand extends command<GetResourceCollectionCommandInput, GetResourceCollectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetResourceCollection",
+  GetResourceCollection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

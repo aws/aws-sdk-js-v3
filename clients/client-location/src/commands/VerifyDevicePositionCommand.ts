@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { VerifyDevicePositionRequest, VerifyDevicePositionResponse } from "../models/models_0";
 import { VerifyDevicePosition$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { VerifyDevicePosition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +128,12 @@ export interface VerifyDevicePositionCommandOutput extends VerifyDevicePositionR
  *
  * @public
  */
-export class VerifyDevicePositionCommand extends $Command
-  .classBuilder<
-    VerifyDevicePositionCommandInput,
-    VerifyDevicePositionCommandOutput,
-    LocationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LocationService", "VerifyDevicePosition", {})
-  .n("LocationClient", "VerifyDevicePositionCommand")
-  .sc(VerifyDevicePosition$)
-  .build() {
+export class VerifyDevicePositionCommand extends command<VerifyDevicePositionCommandInput, VerifyDevicePositionCommandOutput>(
+  _ep0,
+  _mw0,
+  "VerifyDevicePosition",
+  VerifyDevicePosition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

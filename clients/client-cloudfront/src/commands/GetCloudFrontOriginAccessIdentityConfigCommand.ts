@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetCloudFrontOriginAccessIdentityConfigRequest,
   GetCloudFrontOriginAccessIdentityConfigResult,
@@ -15,7 +12,6 @@ import { GetCloudFrontOriginAccessIdentityConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface GetCloudFrontOriginAccessIdentityConfigCommandOutput extends Ge
  *
  * @public
  */
-export class GetCloudFrontOriginAccessIdentityConfigCommand extends $Command
-  .classBuilder<
-    GetCloudFrontOriginAccessIdentityConfigCommandInput,
-    GetCloudFrontOriginAccessIdentityConfigCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "GetCloudFrontOriginAccessIdentityConfig", {})
-  .n("CloudFrontClient", "GetCloudFrontOriginAccessIdentityConfigCommand")
-  .sc(GetCloudFrontOriginAccessIdentityConfig$)
-  .build() {
+export class GetCloudFrontOriginAccessIdentityConfigCommand extends command<GetCloudFrontOriginAccessIdentityConfigCommandInput, GetCloudFrontOriginAccessIdentityConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCloudFrontOriginAccessIdentityConfig",
+  GetCloudFrontOriginAccessIdentityConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

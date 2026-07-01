@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartDocumentAnalysisRequest, StartDocumentAnalysisResponse } from "../models/models_0";
 import { StartDocumentAnalysis$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -173,22 +169,12 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  *
  * @public
  */
-export class StartDocumentAnalysisCommand extends $Command
-  .classBuilder<
-    StartDocumentAnalysisCommandInput,
-    StartDocumentAnalysisCommandOutput,
-    TextractClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Textract", "StartDocumentAnalysis", {})
-  .n("TextractClient", "StartDocumentAnalysisCommand")
-  .sc(StartDocumentAnalysis$)
-  .build() {
+export class StartDocumentAnalysisCommand extends command<StartDocumentAnalysisCommandInput, StartDocumentAnalysisCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartDocumentAnalysis",
+  StartDocumentAnalysis$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateTopicRequest, UpdateTopicResponse } from "../models/models_0";
 import { UpdateTopic$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateTopic$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface UpdateTopicCommandOutput extends UpdateTopicResponse, __Metadat
  *
  * @public
  */
-export class UpdateTopicCommand extends $Command
-  .classBuilder<
-    UpdateTopicCommandInput,
-    UpdateTopicCommandOutput,
-    KafkaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kafka", "UpdateTopic", {})
-  .n("KafkaClient", "UpdateTopicCommand")
-  .sc(UpdateTopic$)
-  .build() {
+export class UpdateTopicCommand extends command<UpdateTopicCommandInput, UpdateTopicCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateTopic",
+  UpdateTopic$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

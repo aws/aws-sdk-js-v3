@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceAgreementClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceAgreementClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AcceptAgreementRequestInput, AcceptAgreementRequestOutput } from "../models/models_0";
 import { AcceptAgreementRequest$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AcceptAgreementRequest$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface AcceptAgreementRequestCommandOutput extends AcceptAgreementRequ
  *
  * @public
  */
-export class AcceptAgreementRequestCommand extends $Command
-  .classBuilder<
-    AcceptAgreementRequestCommandInput,
-    AcceptAgreementRequestCommandOutput,
-    MarketplaceAgreementClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceAgreementClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMPCommerceService_v20200301", "AcceptAgreementRequest", {})
-  .n("MarketplaceAgreementClient", "AcceptAgreementRequestCommand")
-  .sc(AcceptAgreementRequest$)
-  .build() {
+export class AcceptAgreementRequestCommand extends command<AcceptAgreementRequestCommandInput, AcceptAgreementRequestCommandOutput>(
+  _ep0,
+  _mw0,
+  "AcceptAgreementRequest",
+  AcceptAgreementRequest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

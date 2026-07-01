@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartInstanceRefreshAnswer, StartInstanceRefreshType } from "../models/models_0";
 import { StartInstanceRefresh$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartInstanceRefresh$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -257,22 +253,12 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  *
  * @public
  */
-export class StartInstanceRefreshCommand extends $Command
-  .classBuilder<
-    StartInstanceRefreshCommandInput,
-    StartInstanceRefreshCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "StartInstanceRefresh", {})
-  .n("AutoScalingClient", "StartInstanceRefreshCommand")
-  .sc(StartInstanceRefresh$)
-  .build() {
+export class StartInstanceRefreshCommand extends command<StartInstanceRefreshCommandInput, StartInstanceRefreshCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartInstanceRefresh",
+  StartInstanceRefresh$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

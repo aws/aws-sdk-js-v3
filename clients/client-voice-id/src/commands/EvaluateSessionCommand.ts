@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EvaluateSessionRequest, EvaluateSessionResponse } from "../models/models_0";
 import { EvaluateSession$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface EvaluateSessionCommandOutput extends EvaluateSessionResponse, _
  *
  * @public
  */
-export class EvaluateSessionCommand extends $Command
-  .classBuilder<
-    EvaluateSessionCommandInput,
-    EvaluateSessionCommandOutput,
-    VoiceIDClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("VoiceID", "EvaluateSession", {})
-  .n("VoiceIDClient", "EvaluateSessionCommand")
-  .sc(EvaluateSession$)
-  .build() {
+export class EvaluateSessionCommand extends command<EvaluateSessionCommandInput, EvaluateSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "EvaluateSession",
+  EvaluateSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

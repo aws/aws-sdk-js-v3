@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateLocationSmbRequest, UpdateLocationSmbResponse } from "../models/models_0";
 import { UpdateLocationSmb$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateLocationSmb$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbRespons
  *
  * @public
  */
-export class UpdateLocationSmbCommand extends $Command
-  .classBuilder<
-    UpdateLocationSmbCommandInput,
-    UpdateLocationSmbCommandOutput,
-    DataSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FmrsService", "UpdateLocationSmb", {})
-  .n("DataSyncClient", "UpdateLocationSmbCommand")
-  .sc(UpdateLocationSmb$)
-  .build() {
+export class UpdateLocationSmbCommand extends command<UpdateLocationSmbCommandInput, UpdateLocationSmbCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateLocationSmb",
+  UpdateLocationSmb$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

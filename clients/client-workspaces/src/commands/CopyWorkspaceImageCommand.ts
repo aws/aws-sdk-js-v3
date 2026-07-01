@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CopyWorkspaceImageRequest, CopyWorkspaceImageResult } from "../models/models_0";
 import { CopyWorkspaceImage$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResul
  *
  * @public
  */
-export class CopyWorkspaceImageCommand extends $Command
-  .classBuilder<
-    CopyWorkspaceImageCommandInput,
-    CopyWorkspaceImageCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "CopyWorkspaceImage", {})
-  .n("WorkSpacesClient", "CopyWorkspaceImageCommand")
-  .sc(CopyWorkspaceImage$)
-  .build() {
+export class CopyWorkspaceImageCommand extends command<CopyWorkspaceImageCommandInput, CopyWorkspaceImageCommandOutput>(
+  _ep0,
+  _mw0,
+  "CopyWorkspaceImage",
+  CopyWorkspaceImage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

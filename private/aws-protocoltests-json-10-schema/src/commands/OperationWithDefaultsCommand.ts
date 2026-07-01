@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { OperationWithDefaultsInput, OperationWithDefaultsOutput } from "../models/models_0";
 import { OperationWithDefaults$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { OperationWithDefaults$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +124,12 @@ export interface OperationWithDefaultsCommandOutput extends OperationWithDefault
  *
  *
  */
-export class OperationWithDefaultsCommand extends $Command
-  .classBuilder<
-    OperationWithDefaultsCommandInput,
-    OperationWithDefaultsCommandOutput,
-    JSONRPC10ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: JSONRPC10ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("JsonRpc10", "OperationWithDefaults", {})
-  .n("JSONRPC10Client", "OperationWithDefaultsCommand")
-  .sc(OperationWithDefaults$)
-  .build() {
+export class OperationWithDefaultsCommand extends command<OperationWithDefaultsCommandInput, OperationWithDefaultsCommandOutput>(
+  _ep0,
+  _mw0,
+  "OperationWithDefaults",
+  OperationWithDefaults$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAddonInstancesRequest, ListAddonInstancesResponse } from "../models/models_0";
 import { ListAddonInstances$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAddonInstances$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface ListAddonInstancesCommandOutput extends ListAddonInstancesRespo
  *
  * @public
  */
-export class ListAddonInstancesCommand extends $Command
-  .classBuilder<
-    ListAddonInstancesCommandInput,
-    ListAddonInstancesCommandOutput,
-    MailManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MailManagerSvc", "ListAddonInstances", {})
-  .n("MailManagerClient", "ListAddonInstancesCommand")
-  .sc(ListAddonInstances$)
-  .build() {
+export class ListAddonInstancesCommand extends command<ListAddonInstancesCommandInput, ListAddonInstancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAddonInstances",
+  ListAddonInstances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

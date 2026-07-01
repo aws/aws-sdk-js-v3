@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateFileSystemInput, DisassociateFileSystemOutput } from "../models/models_0";
 import { DisassociateFileSystem$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +66,12 @@ export interface DisassociateFileSystemCommandOutput extends DisassociateFileSys
  *
  * @public
  */
-export class DisassociateFileSystemCommand extends $Command
-  .classBuilder<
-    DisassociateFileSystemCommandInput,
-    DisassociateFileSystemCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "DisassociateFileSystem", {})
-  .n("StorageGatewayClient", "DisassociateFileSystemCommand")
-  .sc(DisassociateFileSystem$)
-  .build() {
+export class DisassociateFileSystemCommand extends command<DisassociateFileSystemCommandInput, DisassociateFileSystemCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateFileSystem",
+  DisassociateFileSystem$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

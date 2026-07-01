@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeInputDeviceThumbnailRequest, DescribeInputDeviceThumbnailResponse } from "../models/models_1";
 import { DescribeInputDeviceThumbnail$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeInputDeviceThumbnail$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface DescribeInputDeviceThumbnailCommandOutput extends Omit<Describe
  *
  * @public
  */
-export class DescribeInputDeviceThumbnailCommand extends $Command
-  .classBuilder<
-    DescribeInputDeviceThumbnailCommandInput,
-    DescribeInputDeviceThumbnailCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "DescribeInputDeviceThumbnail", {})
-  .n("MediaLiveClient", "DescribeInputDeviceThumbnailCommand")
-  .sc(DescribeInputDeviceThumbnail$)
-  .build() {
+export class DescribeInputDeviceThumbnailCommand extends command<DescribeInputDeviceThumbnailCommandInput, DescribeInputDeviceThumbnailCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeInputDeviceThumbnail",
+  DescribeInputDeviceThumbnail$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

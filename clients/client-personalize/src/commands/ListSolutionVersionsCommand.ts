@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSolutionVersionsRequest, ListSolutionVersionsResponse } from "../models/models_0";
-import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { ListSolutionVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface ListSolutionVersionsCommandOutput extends ListSolutionVersionsR
  *
  * @public
  */
-export class ListSolutionVersionsCommand extends $Command
-  .classBuilder<
-    ListSolutionVersionsCommandInput,
-    ListSolutionVersionsCommandOutput,
-    PersonalizeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPersonalize", "ListSolutionVersions", {})
-  .n("PersonalizeClient", "ListSolutionVersionsCommand")
-  .sc(ListSolutionVersions$)
-  .build() {
+export class ListSolutionVersionsCommand extends command<ListSolutionVersionsCommandInput, ListSolutionVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSolutionVersions",
+  ListSolutionVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

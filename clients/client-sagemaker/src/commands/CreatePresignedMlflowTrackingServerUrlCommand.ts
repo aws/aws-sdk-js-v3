@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreatePresignedMlflowTrackingServerUrlRequest,
   CreatePresignedMlflowTrackingServerUrlResponse,
 } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreatePresignedMlflowTrackingServerUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface CreatePresignedMlflowTrackingServerUrlCommandOutput extends Cre
  *
  * @public
  */
-export class CreatePresignedMlflowTrackingServerUrlCommand extends $Command
-  .classBuilder<
-    CreatePresignedMlflowTrackingServerUrlCommandInput,
-    CreatePresignedMlflowTrackingServerUrlCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "CreatePresignedMlflowTrackingServerUrl", {})
-  .n("SageMakerClient", "CreatePresignedMlflowTrackingServerUrlCommand")
-  .sc(CreatePresignedMlflowTrackingServerUrl$)
-  .build() {
+export class CreatePresignedMlflowTrackingServerUrlCommand extends command<CreatePresignedMlflowTrackingServerUrlCommandInput, CreatePresignedMlflowTrackingServerUrlCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePresignedMlflowTrackingServerUrl",
+  CreatePresignedMlflowTrackingServerUrl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

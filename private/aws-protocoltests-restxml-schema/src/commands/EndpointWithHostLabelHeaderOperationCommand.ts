@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { HostLabelHeaderInput } from "../models/models_0";
-import type {
-  RestXmlProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestXmlProtocolClient";
 import { EndpointWithHostLabelHeaderOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -61,22 +53,12 @@ export interface EndpointWithHostLabelHeaderOperationCommandOutput extends __Met
  *
  *
  */
-export class EndpointWithHostLabelHeaderOperationCommand extends $Command
-  .classBuilder<
-    EndpointWithHostLabelHeaderOperationCommandInput,
-    EndpointWithHostLabelHeaderOperationCommandOutput,
-    RestXmlProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestXml", "EndpointWithHostLabelHeaderOperation", {})
-  .n("RestXmlProtocolClient", "EndpointWithHostLabelHeaderOperationCommand")
-  .sc(EndpointWithHostLabelHeaderOperation$)
-  .build() {
+export class EndpointWithHostLabelHeaderOperationCommand extends command<EndpointWithHostLabelHeaderOperationCommandInput, EndpointWithHostLabelHeaderOperationCommandOutput>(
+  _ep0,
+  _mw0,
+  "EndpointWithHostLabelHeaderOperation",
+  EndpointWithHostLabelHeaderOperation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

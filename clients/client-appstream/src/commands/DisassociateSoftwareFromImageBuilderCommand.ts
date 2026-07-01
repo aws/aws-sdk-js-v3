@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateSoftwareFromImageBuilderRequest,
   DisassociateSoftwareFromImageBuilderResult,
@@ -15,7 +12,6 @@ import { DisassociateSoftwareFromImageBuilder$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DisassociateSoftwareFromImageBuilderCommandOutput extends Disas
  *
  * @public
  */
-export class DisassociateSoftwareFromImageBuilderCommand extends $Command
-  .classBuilder<
-    DisassociateSoftwareFromImageBuilderCommandInput,
-    DisassociateSoftwareFromImageBuilderCommandOutput,
-    AppStreamClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PhotonAdminProxyService", "DisassociateSoftwareFromImageBuilder", {})
-  .n("AppStreamClient", "DisassociateSoftwareFromImageBuilderCommand")
-  .sc(DisassociateSoftwareFromImageBuilder$)
-  .build() {
+export class DisassociateSoftwareFromImageBuilderCommand extends command<DisassociateSoftwareFromImageBuilderCommandInput, DisassociateSoftwareFromImageBuilderCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateSoftwareFromImageBuilder",
+  DisassociateSoftwareFromImageBuilder$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

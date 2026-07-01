@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterDomainRequest, RegisterDomainResponse } from "../models/models_0";
-import type {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53DomainsClient";
 import { RegisterDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -210,22 +202,12 @@ export interface RegisterDomainCommandOutput extends RegisterDomainResponse, __M
  *
  * @public
  */
-export class RegisterDomainCommand extends $Command
-  .classBuilder<
-    RegisterDomainCommandInput,
-    RegisterDomainCommandOutput,
-    Route53DomainsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Domains_v20140515", "RegisterDomain", {})
-  .n("Route53DomainsClient", "RegisterDomainCommand")
-  .sc(RegisterDomain$)
-  .build() {
+export class RegisterDomainCommand extends command<RegisterDomainCommandInput, RegisterDomainCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterDomain",
+  RegisterDomain$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

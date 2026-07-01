@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTableRequest, GetTableResponse } from "../models/models_0";
 import { GetTable$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetTable$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -154,22 +150,12 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  *
  * @public
  */
-export class GetTableCommand extends $Command
-  .classBuilder<
-    GetTableCommandInput,
-    GetTableCommandOutput,
-    KeyspacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KeyspacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KeyspacesService", "GetTable", {})
-  .n("KeyspacesClient", "GetTableCommand")
-  .sc(GetTable$)
-  .build() {
+export class GetTableCommand extends command<GetTableCommandInput, GetTableCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTable",
+  GetTable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

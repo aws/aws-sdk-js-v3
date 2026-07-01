@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeOrganizationOverviewRequest, DescribeOrganizationOverviewResponse } from "../models/models_0";
 import { DescribeOrganizationOverview$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeOrganizationOverview$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DescribeOrganizationOverviewCommandOutput extends DescribeOrgan
  *
  * @public
  */
-export class DescribeOrganizationOverviewCommand extends $Command
-  .classBuilder<
-    DescribeOrganizationOverviewCommandInput,
-    DescribeOrganizationOverviewCommandOutput,
-    DevOpsGuruClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CapstoneControlPlaneService", "DescribeOrganizationOverview", {})
-  .n("DevOpsGuruClient", "DescribeOrganizationOverviewCommand")
-  .sc(DescribeOrganizationOverview$)
-  .build() {
+export class DescribeOrganizationOverviewCommand extends command<DescribeOrganizationOverviewCommandInput, DescribeOrganizationOverviewCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeOrganizationOverview",
+  DescribeOrganizationOverview$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

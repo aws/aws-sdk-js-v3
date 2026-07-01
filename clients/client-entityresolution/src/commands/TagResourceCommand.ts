@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  EntityResolutionClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../EntityResolutionClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TagResourceInput, TagResourceOutput } from "../models/models_0";
 import { TagResource$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { TagResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +65,12 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *
  * @public
  */
-export class TagResourceCommand extends $Command
-  .classBuilder<
-    TagResourceCommandInput,
-    TagResourceCommandOutput,
-    EntityResolutionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EntityResolutionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSVeniceService", "TagResource", {})
-  .n("EntityResolutionClient", "TagResourceCommand")
-  .sc(TagResource$)
-  .build() {
+export class TagResourceCommand extends command<TagResourceCommandInput, TagResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "TagResource",
+  TagResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

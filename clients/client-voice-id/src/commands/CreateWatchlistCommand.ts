@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateWatchlistRequest, CreateWatchlistResponse } from "../models/models_0";
 import { CreateWatchlist$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface CreateWatchlistCommandOutput extends CreateWatchlistResponse, _
  *
  * @public
  */
-export class CreateWatchlistCommand extends $Command
-  .classBuilder<
-    CreateWatchlistCommandInput,
-    CreateWatchlistCommandOutput,
-    VoiceIDClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("VoiceID", "CreateWatchlist", {})
-  .n("VoiceIDClient", "CreateWatchlistCommand")
-  .sc(CreateWatchlist$)
-  .build() {
+export class CreateWatchlistCommand extends command<CreateWatchlistCommandInput, CreateWatchlistCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateWatchlist",
+  CreateWatchlist$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

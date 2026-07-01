@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelMembershipRequest, CancelMembershipResponse } from "../models/models_0";
 import { CancelMembership$ } from "../schemas/schemas_0";
-import type { SecurityIRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityIRClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface CancelMembershipCommandOutput extends CancelMembershipResponse,
  *
  * @public
  */
-export class CancelMembershipCommand extends $Command
-  .classBuilder<
-    CancelMembershipCommandInput,
-    CancelMembershipCommandOutput,
-    SecurityIRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityIRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityIncidentResponse", "CancelMembership", {})
-  .n("SecurityIRClient", "CancelMembershipCommand")
-  .sc(CancelMembership$)
-  .build() {
+export class CancelMembershipCommand extends command<CancelMembershipCommandInput, CancelMembershipCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelMembership",
+  CancelMembership$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

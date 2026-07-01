@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetOTelEnrichmentInput, GetOTelEnrichmentOutput } from "../models/models_0";
 import { GetOTelEnrichment$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetOTelEnrichment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -59,22 +55,12 @@ export interface GetOTelEnrichmentCommandOutput extends GetOTelEnrichmentOutput,
  *
  * @public
  */
-export class GetOTelEnrichmentCommand extends $Command
-  .classBuilder<
-    GetOTelEnrichmentCommandInput,
-    GetOTelEnrichmentCommandOutput,
-    CloudWatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GraniteServiceVersion20100801", "GetOTelEnrichment", {})
-  .n("CloudWatchClient", "GetOTelEnrichmentCommand")
-  .sc(GetOTelEnrichment$)
-  .build() {
+export class GetOTelEnrichmentCommand extends command<GetOTelEnrichmentCommandInput, GetOTelEnrichmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetOTelEnrichment",
+  GetOTelEnrichment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

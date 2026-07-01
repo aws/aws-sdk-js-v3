@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetScheduleGroupInput, GetScheduleGroupOutput } from "../models/models_0";
-import type { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 import { GetScheduleGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface GetScheduleGroupCommandOutput extends GetScheduleGroupOutput, _
  *
  * @public
  */
-export class GetScheduleGroupCommand extends $Command
-  .classBuilder<
-    GetScheduleGroupCommandInput,
-    GetScheduleGroupCommandOutput,
-    SchedulerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SchedulerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSChronosService", "GetScheduleGroup", {})
-  .n("SchedulerClient", "GetScheduleGroupCommand")
-  .sc(GetScheduleGroup$)
-  .build() {
+export class GetScheduleGroupCommand extends command<GetScheduleGroupCommandInput, GetScheduleGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetScheduleGroup",
+  GetScheduleGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

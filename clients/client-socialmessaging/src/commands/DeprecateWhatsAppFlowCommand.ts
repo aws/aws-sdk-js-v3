@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeprecateWhatsAppFlowInput, DeprecateWhatsAppFlowOutput } from "../models/models_0";
 import { DeprecateWhatsAppFlow$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SocialMessagingClientResolvedConfig,
-} from "../SocialMessagingClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface DeprecateWhatsAppFlowCommandOutput extends DeprecateWhatsAppFlo
  *
  * @public
  */
-export class DeprecateWhatsAppFlowCommand extends $Command
-  .classBuilder<
-    DeprecateWhatsAppFlowCommandInput,
-    DeprecateWhatsAppFlowCommandOutput,
-    SocialMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SocialMessaging", "DeprecateWhatsAppFlow", {})
-  .n("SocialMessagingClient", "DeprecateWhatsAppFlowCommand")
-  .sc(DeprecateWhatsAppFlow$)
-  .build() {
+export class DeprecateWhatsAppFlowCommand extends command<DeprecateWhatsAppFlowCommandInput, DeprecateWhatsAppFlowCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeprecateWhatsAppFlow",
+  DeprecateWhatsAppFlow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

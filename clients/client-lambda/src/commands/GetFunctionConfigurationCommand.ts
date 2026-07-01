@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { FunctionConfiguration, GetFunctionConfigurationRequest } from "../models/models_0";
 import { GetFunctionConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetFunctionConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -231,22 +227,12 @@ export interface GetFunctionConfigurationCommandOutput extends FunctionConfigura
  *
  * @public
  */
-export class GetFunctionConfigurationCommand extends $Command
-  .classBuilder<
-    GetFunctionConfigurationCommandInput,
-    GetFunctionConfigurationCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "GetFunctionConfiguration", {})
-  .n("LambdaClient", "GetFunctionConfigurationCommand")
-  .sc(GetFunctionConfiguration$)
-  .build() {
+export class GetFunctionConfigurationCommand extends command<GetFunctionConfigurationCommandInput, GetFunctionConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFunctionConfiguration",
+  GetFunctionConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

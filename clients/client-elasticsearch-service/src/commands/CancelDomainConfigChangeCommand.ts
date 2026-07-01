@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticsearchServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticsearchServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelDomainConfigChangeRequest, CancelDomainConfigChangeResponse } from "../models/models_0";
 import { CancelDomainConfigChange$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CancelDomainConfigChange$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface CancelDomainConfigChangeCommandOutput extends CancelDomainConfi
  *
  * @public
  */
-export class CancelDomainConfigChangeCommand extends $Command
-  .classBuilder<
-    CancelDomainConfigChangeCommandInput,
-    CancelDomainConfigChangeCommandOutput,
-    ElasticsearchServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticsearchService2015", "CancelDomainConfigChange", {})
-  .n("ElasticsearchServiceClient", "CancelDomainConfigChangeCommand")
-  .sc(CancelDomainConfigChange$)
-  .build() {
+export class CancelDomainConfigChangeCommand extends command<CancelDomainConfigChangeCommandInput, CancelDomainConfigChangeCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelDomainConfigChange",
+  CancelDomainConfigChange$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelHandshakeRequest, CancelHandshakeResponse } from "../models/models_0";
-import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { CancelHandshake$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -271,22 +267,12 @@ export interface CancelHandshakeCommandOutput extends CancelHandshakeResponse, _
  *
  * @public
  */
-export class CancelHandshakeCommand extends $Command
-  .classBuilder<
-    CancelHandshakeCommandInput,
-    CancelHandshakeCommandOutput,
-    OrganizationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrganizationsV20161128", "CancelHandshake", {})
-  .n("OrganizationsClient", "CancelHandshakeCommand")
-  .sc(CancelHandshake$)
-  .build() {
+export class CancelHandshakeCommand extends command<CancelHandshakeCommandInput, CancelHandshakeCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelHandshake",
+  CancelHandshake$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

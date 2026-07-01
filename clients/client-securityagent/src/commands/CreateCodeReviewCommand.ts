@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCodeReviewInput, CreateCodeReviewOutput } from "../models/models_0";
 import { CreateCodeReview$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -160,22 +156,12 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewOutput, _
  *
  * @public
  */
-export class CreateCodeReviewCommand extends $Command
-  .classBuilder<
-    CreateCodeReviewCommandInput,
-    CreateCodeReviewCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "CreateCodeReview", {})
-  .n("SecurityAgentClient", "CreateCodeReviewCommand")
-  .sc(CreateCodeReview$)
-  .build() {
+export class CreateCodeReviewCommand extends command<CreateCodeReviewCommandInput, CreateCodeReviewCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCodeReview",
+  CreateCodeReview$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

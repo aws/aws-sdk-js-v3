@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetGraphMemberDatasourcesRequest, BatchGetGraphMemberDatasourcesResponse } from "../models/models_0";
 import { BatchGetGraphMemberDatasources$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetGraphMemberDatasources$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface BatchGetGraphMemberDatasourcesCommandOutput extends BatchGetGra
  *
  * @public
  */
-export class BatchGetGraphMemberDatasourcesCommand extends $Command
-  .classBuilder<
-    BatchGetGraphMemberDatasourcesCommandInput,
-    BatchGetGraphMemberDatasourcesCommandOutput,
-    DetectiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDetective", "BatchGetGraphMemberDatasources", {})
-  .n("DetectiveClient", "BatchGetGraphMemberDatasourcesCommand")
-  .sc(BatchGetGraphMemberDatasources$)
-  .build() {
+export class BatchGetGraphMemberDatasourcesCommand extends command<BatchGetGraphMemberDatasourcesCommandInput, BatchGetGraphMemberDatasourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetGraphMemberDatasources",
+  BatchGetGraphMemberDatasources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

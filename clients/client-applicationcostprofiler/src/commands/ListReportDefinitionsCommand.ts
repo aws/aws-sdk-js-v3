@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationCostProfilerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationCostProfilerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListReportDefinitionsRequest, ListReportDefinitionsResult } from "../models/models_0";
 import { ListReportDefinitions$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListReportDefinitions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface ListReportDefinitionsCommandOutput extends ListReportDefinition
  *
  * @public
  */
-export class ListReportDefinitionsCommand extends $Command
-  .classBuilder<
-    ListReportDefinitionsCommandInput,
-    ListReportDefinitionsCommandOutput,
-    ApplicationCostProfilerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationCostProfilerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSApplicationCostProfiler", "ListReportDefinitions", {})
-  .n("ApplicationCostProfilerClient", "ListReportDefinitionsCommand")
-  .sc(ListReportDefinitions$)
-  .build() {
+export class ListReportDefinitionsCommand extends command<ListReportDefinitionsCommandInput, ListReportDefinitionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListReportDefinitions",
+  ListReportDefinitions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

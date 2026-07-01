@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetProfileUpdateTaskRequest, GetProfileUpdateTaskResponse } from "../models/models_0";
-import type {
-  PartnerCentralAccountClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralAccountClient";
 import { GetProfileUpdateTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +104,12 @@ export interface GetProfileUpdateTaskCommandOutput extends GetProfileUpdateTaskR
  *
  * @public
  */
-export class GetProfileUpdateTaskCommand extends $Command
-  .classBuilder<
-    GetProfileUpdateTaskCommandInput,
-    GetProfileUpdateTaskCommandOutput,
-    PartnerCentralAccountClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralAccountClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralAccount", "GetProfileUpdateTask", {})
-  .n("PartnerCentralAccountClient", "GetProfileUpdateTaskCommand")
-  .sc(GetProfileUpdateTask$)
-  .build() {
+export class GetProfileUpdateTaskCommand extends command<GetProfileUpdateTaskCommandInput, GetProfileUpdateTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetProfileUpdateTask",
+  GetProfileUpdateTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

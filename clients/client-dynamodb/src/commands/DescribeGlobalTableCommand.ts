@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep3, _mw0, command } from "../commandBuilder";
 import type { DescribeGlobalTableInput, DescribeGlobalTableOutput } from "../models/models_0";
 import { DescribeGlobalTable$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeGlobalTable$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,25 +115,12 @@ export interface DescribeGlobalTableCommandOutput extends DescribeGlobalTableOut
  *
  * @public
  */
-export class DescribeGlobalTableCommand extends $Command
-  .classBuilder<
-    DescribeGlobalTableCommandInput,
-    DescribeGlobalTableCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "contextParams", name: "GlobalTableName" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "DescribeGlobalTable", {})
-  .n("DynamoDBClient", "DescribeGlobalTableCommand")
-  .sc(DescribeGlobalTable$)
-  .build() {
+export class DescribeGlobalTableCommand extends command<DescribeGlobalTableCommandInput, DescribeGlobalTableCommandOutput>(
+  _ep3,
+  _mw0,
+  "DescribeGlobalTable",
+  DescribeGlobalTable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

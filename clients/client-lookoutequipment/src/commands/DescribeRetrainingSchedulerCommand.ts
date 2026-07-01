@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LookoutEquipmentClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LookoutEquipmentClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRetrainingSchedulerRequest, DescribeRetrainingSchedulerResponse } from "../models/models_0";
 import { DescribeRetrainingScheduler$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeRetrainingScheduler$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +106,12 @@ export interface DescribeRetrainingSchedulerCommandOutput extends DescribeRetrai
  *
  * @public
  */
-export class DescribeRetrainingSchedulerCommand extends $Command
-  .classBuilder<
-    DescribeRetrainingSchedulerCommandInput,
-    DescribeRetrainingSchedulerCommandOutput,
-    LookoutEquipmentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLookoutEquipmentFrontendService", "DescribeRetrainingScheduler", {})
-  .n("LookoutEquipmentClient", "DescribeRetrainingSchedulerCommand")
-  .sc(DescribeRetrainingScheduler$)
-  .build() {
+export class DescribeRetrainingSchedulerCommand extends command<DescribeRetrainingSchedulerCommandInput, DescribeRetrainingSchedulerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRetrainingScheduler",
+  DescribeRetrainingScheduler$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchPutScheduledUpdateGroupActionAnswer,
   BatchPutScheduledUpdateGroupActionType,
@@ -15,7 +12,6 @@ import { BatchPutScheduledUpdateGroupAction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface BatchPutScheduledUpdateGroupActionCommandOutput extends BatchPu
  *
  * @public
  */
-export class BatchPutScheduledUpdateGroupActionCommand extends $Command
-  .classBuilder<
-    BatchPutScheduledUpdateGroupActionCommandInput,
-    BatchPutScheduledUpdateGroupActionCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "BatchPutScheduledUpdateGroupAction", {})
-  .n("AutoScalingClient", "BatchPutScheduledUpdateGroupActionCommand")
-  .sc(BatchPutScheduledUpdateGroupAction$)
-  .build() {
+export class BatchPutScheduledUpdateGroupActionCommand extends command<BatchPutScheduledUpdateGroupActionCommandInput, BatchPutScheduledUpdateGroupActionCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchPutScheduledUpdateGroupAction",
+  BatchPutScheduledUpdateGroupAction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

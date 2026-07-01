@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   EnableSagemakerServicecatalogPortfolioInput,
   EnableSagemakerServicecatalogPortfolioOutput,
 } from "../models/models_3";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { EnableSagemakerServicecatalogPortfolio$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -58,22 +54,12 @@ export interface EnableSagemakerServicecatalogPortfolioCommandOutput extends Ena
  *
  * @public
  */
-export class EnableSagemakerServicecatalogPortfolioCommand extends $Command
-  .classBuilder<
-    EnableSagemakerServicecatalogPortfolioCommandInput,
-    EnableSagemakerServicecatalogPortfolioCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "EnableSagemakerServicecatalogPortfolio", {})
-  .n("SageMakerClient", "EnableSagemakerServicecatalogPortfolioCommand")
-  .sc(EnableSagemakerServicecatalogPortfolio$)
-  .build() {
+export class EnableSagemakerServicecatalogPortfolioCommand extends command<EnableSagemakerServicecatalogPortfolioCommandInput, EnableSagemakerServicecatalogPortfolioCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableSagemakerServicecatalogPortfolio",
+  EnableSagemakerServicecatalogPortfolio$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

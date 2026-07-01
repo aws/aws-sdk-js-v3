@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopDeliveryStreamEncryptionInput, StopDeliveryStreamEncryptionOutput } from "../models/models_0";
 import { StopDeliveryStreamEncryption$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopDeliveryStreamEncryption$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface StopDeliveryStreamEncryptionCommandOutput extends StopDeliveryS
  *
  * @public
  */
-export class StopDeliveryStreamEncryptionCommand extends $Command
-  .classBuilder<
-    StopDeliveryStreamEncryptionCommandInput,
-    StopDeliveryStreamEncryptionCommandOutput,
-    FirehoseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FirehoseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Firehose_20150804", "StopDeliveryStreamEncryption", {})
-  .n("FirehoseClient", "StopDeliveryStreamEncryptionCommand")
-  .sc(StopDeliveryStreamEncryption$)
-  .build() {
+export class StopDeliveryStreamEncryptionCommand extends command<StopDeliveryStreamEncryptionCommandInput, StopDeliveryStreamEncryptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopDeliveryStreamEncryption",
+  StopDeliveryStreamEncryption$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

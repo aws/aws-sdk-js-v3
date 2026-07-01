@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutResolverQueryLogConfigPolicyRequest,
   PutResolverQueryLogConfigPolicyResponse,
 } from "../models/models_0";
-import type {
-  Route53ResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ResolverClient";
 import { PutResolverQueryLogConfigPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface PutResolverQueryLogConfigPolicyCommandOutput extends PutResolve
  *
  * @public
  */
-export class PutResolverQueryLogConfigPolicyCommand extends $Command
-  .classBuilder<
-    PutResolverQueryLogConfigPolicyCommandInput,
-    PutResolverQueryLogConfigPolicyCommandOutput,
-    Route53ResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Resolver", "PutResolverQueryLogConfigPolicy", {})
-  .n("Route53ResolverClient", "PutResolverQueryLogConfigPolicyCommand")
-  .sc(PutResolverQueryLogConfigPolicy$)
-  .build() {
+export class PutResolverQueryLogConfigPolicyCommand extends command<PutResolverQueryLogConfigPolicyCommandInput, PutResolverQueryLogConfigPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutResolverQueryLogConfigPolicy",
+  PutResolverQueryLogConfigPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

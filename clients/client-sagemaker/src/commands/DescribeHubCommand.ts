@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeHubRequest, DescribeHubResponse } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeHub$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
  *
  * @public
  */
-export class DescribeHubCommand extends $Command
-  .classBuilder<
-    DescribeHubCommandInput,
-    DescribeHubCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DescribeHub", {})
-  .n("SageMakerClient", "DescribeHubCommand")
-  .sc(DescribeHub$)
-  .build() {
+export class DescribeHubCommand extends command<DescribeHubCommandInput, DescribeHubCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeHub",
+  DescribeHub$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateEventConfigurationsRequest, UpdateEventConfigurationsResponse } from "../models/models_2";
 import { UpdateEventConfigurations$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateEventConfigurations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface UpdateEventConfigurationsCommandOutput extends UpdateEventConfi
  *
  * @public
  */
-export class UpdateEventConfigurationsCommand extends $Command
-  .classBuilder<
-    UpdateEventConfigurationsCommandInput,
-    UpdateEventConfigurationsCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "UpdateEventConfigurations", {})
-  .n("IoTClient", "UpdateEventConfigurationsCommand")
-  .sc(UpdateEventConfigurations$)
-  .build() {
+export class UpdateEventConfigurationsCommand extends command<UpdateEventConfigurationsCommandInput, UpdateEventConfigurationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateEventConfigurations",
+  UpdateEventConfigurations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

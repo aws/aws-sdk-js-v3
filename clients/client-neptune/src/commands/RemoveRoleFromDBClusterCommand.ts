@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveRoleFromDBClusterMessage } from "../models/models_0";
-import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import { RemoveRoleFromDBCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  *
  * @public
  */
-export class RemoveRoleFromDBClusterCommand extends $Command
-  .classBuilder<
-    RemoveRoleFromDBClusterCommandInput,
-    RemoveRoleFromDBClusterCommandOutput,
-    NeptuneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "RemoveRoleFromDBCluster", {})
-  .n("NeptuneClient", "RemoveRoleFromDBClusterCommand")
-  .sc(RemoveRoleFromDBCluster$)
-  .build() {
+export class RemoveRoleFromDBClusterCommand extends command<RemoveRoleFromDBClusterCommandInput, RemoveRoleFromDBClusterCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveRoleFromDBCluster",
+  RemoveRoleFromDBCluster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

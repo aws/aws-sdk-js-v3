@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListUserPoliciesRequest, ListUserPoliciesResponse } from "../models/models_0";
 import { ListUserPolicies$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListUserPolicies$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface ListUserPoliciesCommandOutput extends ListUserPoliciesResponse,
  *
  * @public
  */
-export class ListUserPoliciesCommand extends $Command
-  .classBuilder<
-    ListUserPoliciesCommandInput,
-    ListUserPoliciesCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "ListUserPolicies", {})
-  .n("IAMClient", "ListUserPoliciesCommand")
-  .sc(ListUserPolicies$)
-  .build() {
+export class ListUserPoliciesCommand extends command<ListUserPoliciesCommandInput, ListUserPoliciesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListUserPolicies",
+  ListUserPolicies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { GetQueryInput, GetQueryOutput } from "../models/models_0";
-import type { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
 import { GetQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,25 +75,12 @@ export interface GetQueryCommandOutput extends GetQueryOutput, __MetadataBearer 
  *
  * @public
  */
-export class GetQueryCommand extends $Command
-  .classBuilder<
-    GetQueryCommandInput,
-    GetQueryCommandOutput,
-    NeptuneGraphClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ApiType: { type: "staticContextParams", value: `DataPlane` },
-  })
-  .m(function (this: any, Command: any, cs: any, config: NeptuneGraphClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneGraph", "GetQuery", {})
-  .n("NeptuneGraphClient", "GetQueryCommand")
-  .sc(GetQuery$)
-  .build() {
+export class GetQueryCommand extends command<GetQueryCommandInput, GetQueryCommandOutput>(
+  _ep1,
+  _mw0,
+  "GetQuery",
+  GetQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

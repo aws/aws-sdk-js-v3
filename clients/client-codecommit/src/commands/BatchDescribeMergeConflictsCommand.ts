@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchDescribeMergeConflictsInput, BatchDescribeMergeConflictsOutput } from "../models/models_0";
 import { BatchDescribeMergeConflicts$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchDescribeMergeConflicts$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -204,22 +200,12 @@ export interface BatchDescribeMergeConflictsCommandOutput extends BatchDescribeM
  *
  * @public
  */
-export class BatchDescribeMergeConflictsCommand extends $Command
-  .classBuilder<
-    BatchDescribeMergeConflictsCommandInput,
-    BatchDescribeMergeConflictsCommandOutput,
-    CodeCommitClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCommit_20150413", "BatchDescribeMergeConflicts", {})
-  .n("CodeCommitClient", "BatchDescribeMergeConflictsCommand")
-  .sc(BatchDescribeMergeConflicts$)
-  .build() {
+export class BatchDescribeMergeConflictsCommand extends command<BatchDescribeMergeConflictsCommandInput, BatchDescribeMergeConflictsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDescribeMergeConflicts",
+  BatchDescribeMergeConflicts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

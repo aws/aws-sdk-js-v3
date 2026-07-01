@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticsearchServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticsearchServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeElasticsearchDomainConfigRequest,
   DescribeElasticsearchDomainConfigResponse,
@@ -19,7 +12,6 @@ import { DescribeElasticsearchDomainConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -289,22 +281,12 @@ export interface DescribeElasticsearchDomainConfigCommandOutput extends Describe
  *
  * @public
  */
-export class DescribeElasticsearchDomainConfigCommand extends $Command
-  .classBuilder<
-    DescribeElasticsearchDomainConfigCommandInput,
-    DescribeElasticsearchDomainConfigCommandOutput,
-    ElasticsearchServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticsearchService2015", "DescribeElasticsearchDomainConfig", {})
-  .n("ElasticsearchServiceClient", "DescribeElasticsearchDomainConfigCommand")
-  .sc(DescribeElasticsearchDomainConfig$)
-  .build() {
+export class DescribeElasticsearchDomainConfigCommand extends command<DescribeElasticsearchDomainConfigCommandInput, DescribeElasticsearchDomainConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeElasticsearchDomainConfig",
+  DescribeElasticsearchDomainConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

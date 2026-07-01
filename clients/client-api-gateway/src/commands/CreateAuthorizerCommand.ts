@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { Authorizer, CreateAuthorizerRequest } from "../models/models_0";
 import { CreateAuthorizer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateAuthorizer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface CreateAuthorizerCommandOutput extends Authorizer, __MetadataBea
  *
  * @public
  */
-export class CreateAuthorizerCommand extends $Command
-  .classBuilder<
-    CreateAuthorizerCommandInput,
-    CreateAuthorizerCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "CreateAuthorizer", {})
-  .n("APIGatewayClient", "CreateAuthorizerCommand")
-  .sc(CreateAuthorizer$)
-  .build() {
+export class CreateAuthorizerCommand extends command<CreateAuthorizerCommandInput, CreateAuthorizerCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAuthorizer",
+  CreateAuthorizer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

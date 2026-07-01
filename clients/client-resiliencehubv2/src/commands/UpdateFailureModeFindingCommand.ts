@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateFailureModeFindingRequest, UpdateFailureModeFindingResponse } from "../models/models_0";
-import type {
-  Resiliencehubv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Resiliencehubv2Client";
 import { UpdateFailureModeFinding$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +108,12 @@ export interface UpdateFailureModeFindingCommandOutput extends UpdateFailureMode
  *
  * @public
  */
-export class UpdateFailureModeFindingCommand extends $Command
-  .classBuilder<
-    UpdateFailureModeFindingCommandInput,
-    UpdateFailureModeFindingCommandOutput,
-    Resiliencehubv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Resiliencehubv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NGRHServiceCore", "UpdateFailureModeFinding", {})
-  .n("Resiliencehubv2Client", "UpdateFailureModeFindingCommand")
-  .sc(UpdateFailureModeFinding$)
-  .build() {
+export class UpdateFailureModeFindingCommand extends command<UpdateFailureModeFindingCommandInput, UpdateFailureModeFindingCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateFailureModeFinding",
+  UpdateFailureModeFinding$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

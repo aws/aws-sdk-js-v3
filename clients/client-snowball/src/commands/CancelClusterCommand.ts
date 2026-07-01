@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelClusterRequest, CancelClusterResult } from "../models/models_0";
 import { CancelCluster$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface CancelClusterCommandOutput extends CancelClusterResult, __Metad
  *
  * @public
  */
-export class CancelClusterCommand extends $Command
-  .classBuilder<
-    CancelClusterCommandInput,
-    CancelClusterCommandOutput,
-    SnowballClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIESnowballJobManagementService", "CancelCluster", {})
-  .n("SnowballClient", "CancelClusterCommand")
-  .sc(CancelCluster$)
-  .build() {
+export class CancelClusterCommand extends command<CancelClusterCommandInput, CancelClusterCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelCluster",
+  CancelCluster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

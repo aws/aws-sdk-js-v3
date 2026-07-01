@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTagsInput, DeleteTagsOutput } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DeleteTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -60,22 +56,12 @@ export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBea
  *
  * @public
  */
-export class DeleteTagsCommand extends $Command
-  .classBuilder<
-    DeleteTagsCommandInput,
-    DeleteTagsCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DeleteTags", {})
-  .n("SageMakerClient", "DeleteTagsCommand")
-  .sc(DeleteTags$)
-  .build() {
+export class DeleteTagsCommand extends command<DeleteTagsCommandInput, DeleteTagsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTags",
+  DeleteTags$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAccountAssociationRequest } from "../models/models_0";
 import { UpdateAccountAssociation$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateAccountAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface UpdateAccountAssociationCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class UpdateAccountAssociationCommand extends $Command
-  .classBuilder<
-    UpdateAccountAssociationCommandInput,
-    UpdateAccountAssociationCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "UpdateAccountAssociation", {})
-  .n("IoTManagedIntegrationsClient", "UpdateAccountAssociationCommand")
-  .sc(UpdateAccountAssociation$)
-  .build() {
+export class UpdateAccountAssociationCommand extends command<UpdateAccountAssociationCommandInput, UpdateAccountAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAccountAssociation",
+  UpdateAccountAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

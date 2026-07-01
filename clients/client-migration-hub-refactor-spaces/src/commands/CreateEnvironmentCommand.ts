@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MigrationHubRefactorSpacesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MigrationHubRefactorSpacesClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateEnvironmentRequest, CreateEnvironmentResponse } from "../models/models_0";
 import { CreateEnvironment$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateEnvironment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +103,12 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *
  * @public
  */
-export class CreateEnvironmentCommand extends $Command
-  .classBuilder<
-    CreateEnvironmentCommandInput,
-    CreateEnvironmentCommandOutput,
-    MigrationHubRefactorSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubRefactorSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RefactorSpaces", "CreateEnvironment", {})
-  .n("MigrationHubRefactorSpacesClient", "CreateEnvironmentCommand")
-  .sc(CreateEnvironment$)
-  .build() {
+export class CreateEnvironmentCommand extends command<CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateEnvironment",
+  CreateEnvironment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

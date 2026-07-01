@@ -1,18 +1,13 @@
 // smithy-typescript generated code
-import { getSigV4AuthPlugin } from "@aws-sdk/middleware-signing";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import { OnlyCustomAuth$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -55,25 +50,12 @@ export interface OnlyCustomAuthCommandOutput extends __MetadataBearer {}
  *
  *
  */
-export class OnlyCustomAuthCommand extends $Command
-  .classBuilder<
-    OnlyCustomAuthCommandInput,
-    OnlyCustomAuthCommandOutput,
-    WeatherClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getSigV4AuthPlugin(config),
-    ];
-  })
-  .s("Weather", "OnlyCustomAuth", {})
-  .n("WeatherClient", "OnlyCustomAuthCommand")
-  .sc(OnlyCustomAuth$)
-  .build() {
+export class OnlyCustomAuthCommand extends command<OnlyCustomAuthCommandInput, OnlyCustomAuthCommandOutput>(
+  _ep0,
+  _mw0,
+  "OnlyCustomAuth",
+  OnlyCustomAuth$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

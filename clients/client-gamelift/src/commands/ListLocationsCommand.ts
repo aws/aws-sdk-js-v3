@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLocationsInput, ListLocationsOutput } from "../models/models_0";
 import { ListLocations$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListLocations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface ListLocationsCommandOutput extends ListLocationsOutput, __Metad
  *
  * @public
  */
-export class ListLocationsCommand extends $Command
-  .classBuilder<
-    ListLocationsCommandInput,
-    ListLocationsCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "ListLocations", {})
-  .n("GameLiftClient", "ListLocationsCommand")
-  .sc(ListLocations$)
-  .build() {
+export class ListLocationsCommand extends command<ListLocationsCommandInput, ListLocationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLocations",
+  ListLocations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

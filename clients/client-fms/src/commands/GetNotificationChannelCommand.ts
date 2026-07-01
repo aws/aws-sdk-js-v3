@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetNotificationChannelRequest, GetNotificationChannelResponse } from "../models/models_0";
 import { GetNotificationChannel$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetNotificationChannel$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface GetNotificationChannelCommandOutput extends GetNotificationChan
  *
  * @public
  */
-export class GetNotificationChannelCommand extends $Command
-  .classBuilder<
-    GetNotificationChannelCommandInput,
-    GetNotificationChannelCommandOutput,
-    FMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSFMS_20180101", "GetNotificationChannel", {})
-  .n("FMSClient", "GetNotificationChannelCommand")
-  .sc(GetNotificationChannel$)
-  .build() {
+export class GetNotificationChannelCommand extends command<GetNotificationChannelCommandInput, GetNotificationChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetNotificationChannel",
+  GetNotificationChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

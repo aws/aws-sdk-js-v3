@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteParameterRequest, DeleteParameterResult } from "../models/models_0";
 import { DeleteParameter$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteParameterCommandOutput extends DeleteParameterResult, __M
  *
  * @public
  */
-export class DeleteParameterCommand extends $Command
-  .classBuilder<
-    DeleteParameterCommandInput,
-    DeleteParameterCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "DeleteParameter", {})
-  .n("SSMClient", "DeleteParameterCommand")
-  .sc(DeleteParameter$)
-  .build() {
+export class DeleteParameterCommand extends command<DeleteParameterCommandInput, DeleteParameterCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteParameter",
+  DeleteParameter$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

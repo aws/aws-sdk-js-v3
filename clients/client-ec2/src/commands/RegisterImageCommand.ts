@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterImageRequest, RegisterImageResult } from "../models/models_7";
 import { RegisterImage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RegisterImage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -146,22 +142,12 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  *
  * @public
  */
-export class RegisterImageCommand extends $Command
-  .classBuilder<
-    RegisterImageCommandInput,
-    RegisterImageCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "RegisterImage", {})
-  .n("EC2Client", "RegisterImageCommand")
-  .sc(RegisterImage$)
-  .build() {
+export class RegisterImageCommand extends command<RegisterImageCommandInput, RegisterImageCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterImage",
+  RegisterImage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

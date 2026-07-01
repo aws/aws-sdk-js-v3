@@ -1,17 +1,13 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import { EmptyOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -54,22 +50,12 @@ export interface EmptyOperationCommandOutput extends __MetadataBearer {}
  *
  *
  */
-export class EmptyOperationCommand extends $Command
-  .classBuilder<
-    EmptyOperationCommandInput,
-    EmptyOperationCommandOutput,
-    JsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("JsonProtocol", "EmptyOperation", {})
-  .n("JsonProtocolClient", "EmptyOperationCommand")
-  .sc(EmptyOperation$)
-  .build() {
+export class EmptyOperationCommand extends command<EmptyOperationCommandInput, EmptyOperationCommandOutput>(
+  _ep0,
+  _mw0,
+  "EmptyOperation",
+  EmptyOperation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

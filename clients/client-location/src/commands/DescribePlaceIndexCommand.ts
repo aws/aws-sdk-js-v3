@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribePlaceIndexRequest, DescribePlaceIndexResponse } from "../models/models_0";
 import { DescribePlaceIndex$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribePlaceIndex$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface DescribePlaceIndexCommandOutput extends DescribePlaceIndexRespo
  *
  * @public
  */
-export class DescribePlaceIndexCommand extends $Command
-  .classBuilder<
-    DescribePlaceIndexCommandInput,
-    DescribePlaceIndexCommandOutput,
-    LocationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LocationService", "DescribePlaceIndex", {})
-  .n("LocationClient", "DescribePlaceIndexCommand")
-  .sc(DescribePlaceIndex$)
-  .build() {
+export class DescribePlaceIndexCommand extends command<DescribePlaceIndexCommandInput, DescribePlaceIndexCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribePlaceIndex",
+  DescribePlaceIndex$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

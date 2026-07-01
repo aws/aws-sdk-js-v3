@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListEventStreamsRequest, ListEventStreamsResponse } from "../models/models_0";
 import { ListEventStreams$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListEventStreams$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +89,12 @@ export interface ListEventStreamsCommandOutput extends ListEventStreamsResponse,
  *
  * @public
  */
-export class ListEventStreamsCommand extends $Command
-  .classBuilder<
-    ListEventStreamsCommandInput,
-    ListEventStreamsCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "ListEventStreams", {})
-  .n("CustomerProfilesClient", "ListEventStreamsCommand")
-  .sc(ListEventStreams$)
-  .build() {
+export class ListEventStreamsCommand extends command<ListEventStreamsCommandInput, ListEventStreamsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEventStreams",
+  ListEventStreams$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

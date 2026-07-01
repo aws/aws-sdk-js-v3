@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTestsRequest, ListTestsResult } from "../models/models_0";
 import { ListTests$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListTests$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +111,12 @@ export interface ListTestsCommandOutput extends ListTestsResult, __MetadataBeare
  *
  * @public
  */
-export class ListTestsCommand extends $Command
-  .classBuilder<
-    ListTestsCommandInput,
-    ListTestsCommandOutput,
-    DeviceFarmClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DeviceFarm_20150623", "ListTests", {})
-  .n("DeviceFarmClient", "ListTestsCommand")
-  .sc(ListTests$)
-  .build() {
+export class ListTestsCommand extends command<ListTestsCommandInput, ListTestsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTests",
+  ListTests$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

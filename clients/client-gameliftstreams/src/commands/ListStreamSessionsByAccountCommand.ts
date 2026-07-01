@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  GameLiftStreamsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../GameLiftStreamsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListStreamSessionsByAccountInput, ListStreamSessionsByAccountOutput } from "../models/models_0";
 import { ListStreamSessionsByAccount$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListStreamSessionsByAccount$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface ListStreamSessionsByAccountCommandOutput extends ListStreamSess
  *
  * @public
  */
-export class ListStreamSessionsByAccountCommand extends $Command
-  .classBuilder<
-    ListStreamSessionsByAccountCommandInput,
-    ListStreamSessionsByAccountCommandOutput,
-    GameLiftStreamsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftStreamsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLiftStreams", "ListStreamSessionsByAccount", {})
-  .n("GameLiftStreamsClient", "ListStreamSessionsByAccountCommand")
-  .sc(ListStreamSessionsByAccount$)
-  .build() {
+export class ListStreamSessionsByAccountCommand extends command<ListStreamSessionsByAccountCommandInput, ListStreamSessionsByAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListStreamSessionsByAccount",
+  ListStreamSessionsByAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

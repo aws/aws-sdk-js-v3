@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateConfigurationRequest, CreateConfigurationResponse } from "../models/models_0";
-import type { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import { CreateConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  *
  * @public
  */
-export class CreateConfigurationCommand extends $Command
-  .classBuilder<
-    CreateConfigurationCommandInput,
-    CreateConfigurationCommandOutput,
-    MqClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MqClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("mq", "CreateConfiguration", {})
-  .n("MqClient", "CreateConfigurationCommand")
-  .sc(CreateConfiguration$)
-  .build() {
+export class CreateConfigurationCommand extends command<CreateConfigurationCommandInput, CreateConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateConfiguration",
+  CreateConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

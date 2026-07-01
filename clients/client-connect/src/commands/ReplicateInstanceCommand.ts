@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ReplicateInstanceRequest, ReplicateInstanceResponse } from "../models/models_2";
 import { ReplicateInstance$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ReplicateInstance$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface ReplicateInstanceCommandOutput extends ReplicateInstanceRespons
  *
  * @public
  */
-export class ReplicateInstanceCommand extends $Command
-  .classBuilder<
-    ReplicateInstanceCommandInput,
-    ReplicateInstanceCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "ReplicateInstance", {})
-  .n("ConnectClient", "ReplicateInstanceCommand")
-  .sc(ReplicateInstance$)
-  .build() {
+export class ReplicateInstanceCommand extends command<ReplicateInstanceCommandInput, ReplicateInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "ReplicateInstance",
+  ReplicateInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

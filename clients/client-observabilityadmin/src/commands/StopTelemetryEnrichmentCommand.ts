@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopTelemetryEnrichmentOutput } from "../models/models_0";
-import type {
-  ObservabilityAdminClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ObservabilityAdminClient";
 import { StopTelemetryEnrichment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +65,12 @@ export interface StopTelemetryEnrichmentCommandOutput extends StopTelemetryEnric
  *
  * @public
  */
-export class StopTelemetryEnrichmentCommand extends $Command
-  .classBuilder<
-    StopTelemetryEnrichmentCommandInput,
-    StopTelemetryEnrichmentCommandOutput,
-    ObservabilityAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ObservabilityAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ObservabilityAdmin", "StopTelemetryEnrichment", {})
-  .n("ObservabilityAdminClient", "StopTelemetryEnrichmentCommand")
-  .sc(StopTelemetryEnrichment$)
-  .build() {
+export class StopTelemetryEnrichmentCommand extends command<StopTelemetryEnrichmentCommandInput, StopTelemetryEnrichmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopTelemetryEnrichment",
+  StopTelemetryEnrichment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

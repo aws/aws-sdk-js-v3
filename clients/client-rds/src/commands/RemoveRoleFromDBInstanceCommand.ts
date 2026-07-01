@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveRoleFromDBInstanceMessage } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { RemoveRoleFromDBInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface RemoveRoleFromDBInstanceCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class RemoveRoleFromDBInstanceCommand extends $Command
-  .classBuilder<
-    RemoveRoleFromDBInstanceCommandInput,
-    RemoveRoleFromDBInstanceCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "RemoveRoleFromDBInstance", {})
-  .n("RDSClient", "RemoveRoleFromDBInstanceCommand")
-  .sc(RemoveRoleFromDBInstance$)
-  .build() {
+export class RemoveRoleFromDBInstanceCommand extends command<RemoveRoleFromDBInstanceCommandInput, RemoveRoleFromDBInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveRoleFromDBInstance",
+  RemoveRoleFromDBInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

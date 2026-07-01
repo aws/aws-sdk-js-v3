@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListProfileResourceAssociationsRequest,
   ListProfileResourceAssociationsResponse,
 } from "../models/models_0";
-import type {
-  Route53ProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ProfilesClient";
 import { ListProfileResourceAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +113,12 @@ export interface ListProfileResourceAssociationsCommandOutput extends ListProfil
  *
  * @public
  */
-export class ListProfileResourceAssociationsCommand extends $Command
-  .classBuilder<
-    ListProfileResourceAssociationsCommandInput,
-    ListProfileResourceAssociationsCommandOutput,
-    Route53ProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Profiles", "ListProfileResourceAssociations", {})
-  .n("Route53ProfilesClient", "ListProfileResourceAssociationsCommand")
-  .sc(ListProfileResourceAssociations$)
-  .build() {
+export class ListProfileResourceAssociationsCommand extends command<ListProfileResourceAssociationsCommandInput, ListProfileResourceAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListProfileResourceAssociations",
+  ListProfileResourceAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

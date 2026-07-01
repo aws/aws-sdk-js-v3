@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateFindingsFeedbackRequest, UpdateFindingsFeedbackResponse } from "../models/models_1";
 import { UpdateFindingsFeedback$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateFindingsFeedback$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface UpdateFindingsFeedbackCommandOutput extends UpdateFindingsFeedb
  *
  * @public
  */
-export class UpdateFindingsFeedbackCommand extends $Command
-  .classBuilder<
-    UpdateFindingsFeedbackCommandInput,
-    UpdateFindingsFeedbackCommandOutput,
-    GuardDutyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GuardDutyAPIService", "UpdateFindingsFeedback", {})
-  .n("GuardDutyClient", "UpdateFindingsFeedbackCommand")
-  .sc(UpdateFindingsFeedback$)
-  .build() {
+export class UpdateFindingsFeedbackCommand extends command<UpdateFindingsFeedbackCommandInput, UpdateFindingsFeedbackCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateFindingsFeedback",
+  UpdateFindingsFeedback$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveAutoScalingPolicyInput, RemoveAutoScalingPolicyOutput } from "../models/models_0";
 import { RemoveAutoScalingPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RemoveAutoScalingPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -58,22 +54,12 @@ export interface RemoveAutoScalingPolicyCommandOutput extends RemoveAutoScalingP
  *
  * @public
  */
-export class RemoveAutoScalingPolicyCommand extends $Command
-  .classBuilder<
-    RemoveAutoScalingPolicyCommandInput,
-    RemoveAutoScalingPolicyCommandOutput,
-    EMRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticMapReduce", "RemoveAutoScalingPolicy", {})
-  .n("EMRClient", "RemoveAutoScalingPolicyCommand")
-  .sc(RemoveAutoScalingPolicy$)
-  .build() {
+export class RemoveAutoScalingPolicyCommand extends command<RemoveAutoScalingPolicyCommandInput, RemoveAutoScalingPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveAutoScalingPolicy",
+  RemoveAutoScalingPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

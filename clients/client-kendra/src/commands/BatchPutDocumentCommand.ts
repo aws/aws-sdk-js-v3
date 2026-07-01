@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchPutDocumentRequest, BatchPutDocumentResponse } from "../models/models_0";
 import { BatchPutDocument$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchPutDocument$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -219,22 +215,12 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  *
  * @public
  */
-export class BatchPutDocumentCommand extends $Command
-  .classBuilder<
-    BatchPutDocumentCommandInput,
-    BatchPutDocumentCommandOutput,
-    KendraClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSKendraFrontendService", "BatchPutDocument", {})
-  .n("KendraClient", "BatchPutDocumentCommand")
-  .sc(BatchPutDocument$)
-  .build() {
+export class BatchPutDocumentCommand extends command<BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchPutDocument",
+  BatchPutDocument$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateEmailIdentityPolicyRequest, UpdateEmailIdentityPolicyResponse } from "../models/models_1";
 import { UpdateEmailIdentityPolicy$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface UpdateEmailIdentityPolicyCommandOutput extends UpdateEmailIdent
  *
  * @public
  */
-export class UpdateEmailIdentityPolicyCommand extends $Command
-  .classBuilder<
-    UpdateEmailIdentityPolicyCommandInput,
-    UpdateEmailIdentityPolicyCommandOutput,
-    SESv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService_v2", "UpdateEmailIdentityPolicy", {})
-  .n("SESv2Client", "UpdateEmailIdentityPolicyCommand")
-  .sc(UpdateEmailIdentityPolicy$)
-  .build() {
+export class UpdateEmailIdentityPolicyCommand extends command<UpdateEmailIdentityPolicyCommandInput, UpdateEmailIdentityPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateEmailIdentityPolicy",
+  UpdateEmailIdentityPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

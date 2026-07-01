@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateFromAdministratorAccountRequest,
   DisassociateFromAdministratorAccountResponse,
@@ -15,7 +12,6 @@ import { DisassociateFromAdministratorAccount$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +62,12 @@ export interface DisassociateFromAdministratorAccountCommandOutput extends Disas
  *
  * @public
  */
-export class DisassociateFromAdministratorAccountCommand extends $Command
-  .classBuilder<
-    DisassociateFromAdministratorAccountCommandInput,
-    DisassociateFromAdministratorAccountCommandOutput,
-    GuardDutyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GuardDutyAPIService", "DisassociateFromAdministratorAccount", {})
-  .n("GuardDutyClient", "DisassociateFromAdministratorAccountCommand")
-  .sc(DisassociateFromAdministratorAccount$)
-  .build() {
+export class DisassociateFromAdministratorAccountCommand extends command<DisassociateFromAdministratorAccountCommandInput, DisassociateFromAdministratorAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateFromAdministratorAccount",
+  DisassociateFromAdministratorAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDeliverabilityTestReportsRequest, ListDeliverabilityTestReportsResponse } from "../models/models_0";
-import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import { ListDeliverabilityTestReports$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface ListDeliverabilityTestReportsCommandOutput extends ListDelivera
  *
  * @public
  */
-export class ListDeliverabilityTestReportsCommand extends $Command
-  .classBuilder<
-    ListDeliverabilityTestReportsCommandInput,
-    ListDeliverabilityTestReportsCommandOutput,
-    PinpointEmailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPinpointEmailService", "ListDeliverabilityTestReports", {})
-  .n("PinpointEmailClient", "ListDeliverabilityTestReportsCommand")
-  .sc(ListDeliverabilityTestReports$)
-  .build() {
+export class ListDeliverabilityTestReportsCommand extends command<ListDeliverabilityTestReportsCommandInput, ListDeliverabilityTestReportsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDeliverabilityTestReports",
+  ListDeliverabilityTestReports$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

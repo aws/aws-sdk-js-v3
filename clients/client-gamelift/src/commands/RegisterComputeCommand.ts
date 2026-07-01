@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterComputeInput, RegisterComputeOutput } from "../models/models_0";
 import { RegisterCompute$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RegisterCompute$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -148,22 +144,12 @@ export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __M
  *
  * @public
  */
-export class RegisterComputeCommand extends $Command
-  .classBuilder<
-    RegisterComputeCommandInput,
-    RegisterComputeCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "RegisterCompute", {})
-  .n("GameLiftClient", "RegisterComputeCommand")
-  .sc(RegisterCompute$)
-  .build() {
+export class RegisterComputeCommand extends command<RegisterComputeCommandInput, RegisterComputeCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterCompute",
+  RegisterCompute$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

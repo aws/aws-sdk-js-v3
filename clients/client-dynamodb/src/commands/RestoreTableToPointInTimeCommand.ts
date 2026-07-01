@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep10, _mw0, command } from "../commandBuilder";
 import type { RestoreTableToPointInTimeInput, RestoreTableToPointInTimeOutput } from "../models/models_0";
 import { RestoreTableToPointInTime$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RestoreTableToPointInTime$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -393,25 +389,12 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  *
  * @public
  */
-export class RestoreTableToPointInTimeCommand extends $Command
-  .classBuilder<
-    RestoreTableToPointInTimeCommandInput,
-    RestoreTableToPointInTimeCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "contextParams", name: "TargetTableName" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "RestoreTableToPointInTime", {})
-  .n("DynamoDBClient", "RestoreTableToPointInTimeCommand")
-  .sc(RestoreTableToPointInTime$)
-  .build() {
+export class RestoreTableToPointInTimeCommand extends command<RestoreTableToPointInTimeCommandInput, RestoreTableToPointInTimeCommandOutput>(
+  _ep10,
+  _mw0,
+  "RestoreTableToPointInTime",
+  RestoreTableToPointInTime$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

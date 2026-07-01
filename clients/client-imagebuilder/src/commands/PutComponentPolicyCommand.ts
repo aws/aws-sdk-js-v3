@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutComponentPolicyRequest, PutComponentPolicyResponse } from "../models/models_0";
 import { PutComponentPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutComponentPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface PutComponentPolicyCommandOutput extends PutComponentPolicyRespo
  *
  * @public
  */
-export class PutComponentPolicyCommand extends $Command
-  .classBuilder<
-    PutComponentPolicyCommandInput,
-    PutComponentPolicyCommandOutput,
-    ImagebuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("imagebuilder", "PutComponentPolicy", {})
-  .n("ImagebuilderClient", "PutComponentPolicyCommand")
-  .sc(PutComponentPolicy$)
-  .build() {
+export class PutComponentPolicyCommand extends command<PutComponentPolicyCommandInput, PutComponentPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutComponentPolicy",
+  PutComponentPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

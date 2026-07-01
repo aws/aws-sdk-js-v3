@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTagSyncTasksInput, ListTagSyncTasksOutput } from "../models/models_0";
-import type {
-  ResourceGroupsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceGroupsClient";
 import { ListTagSyncTasks$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +110,12 @@ export interface ListTagSyncTasksCommandOutput extends ListTagSyncTasksOutput, _
  *
  * @public
  */
-export class ListTagSyncTasksCommand extends $Command
-  .classBuilder<
-    ListTagSyncTasksCommandInput,
-    ListTagSyncTasksCommandOutput,
-    ResourceGroupsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceGroupsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Ardi", "ListTagSyncTasks", {})
-  .n("ResourceGroupsClient", "ListTagSyncTasksCommand")
-  .sc(ListTagSyncTasks$)
-  .build() {
+export class ListTagSyncTasksCommand extends command<ListTagSyncTasksCommandInput, ListTagSyncTasksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTagSyncTasks",
+  ListTagSyncTasks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

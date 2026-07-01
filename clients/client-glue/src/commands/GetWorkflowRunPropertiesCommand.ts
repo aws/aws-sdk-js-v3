@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetWorkflowRunPropertiesRequest, GetWorkflowRunPropertiesResponse } from "../models/models_2";
 import { GetWorkflowRunProperties$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetWorkflowRunProperties$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface GetWorkflowRunPropertiesCommandOutput extends GetWorkflowRunPro
  *
  * @public
  */
-export class GetWorkflowRunPropertiesCommand extends $Command
-  .classBuilder<
-    GetWorkflowRunPropertiesCommandInput,
-    GetWorkflowRunPropertiesCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "GetWorkflowRunProperties", {})
-  .n("GlueClient", "GetWorkflowRunPropertiesCommand")
-  .sc(GetWorkflowRunProperties$)
-  .build() {
+export class GetWorkflowRunPropertiesCommand extends command<GetWorkflowRunPropertiesCommandInput, GetWorkflowRunPropertiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetWorkflowRunProperties",
+  GetWorkflowRunProperties$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

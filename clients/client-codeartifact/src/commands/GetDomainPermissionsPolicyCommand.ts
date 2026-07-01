@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDomainPermissionsPolicyRequest, GetDomainPermissionsPolicyResult } from "../models/models_0";
 import { GetDomainPermissionsPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDomainPermissionsPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface GetDomainPermissionsPolicyCommandOutput extends GetDomainPermis
  *
  * @public
  */
-export class GetDomainPermissionsPolicyCommand extends $Command
-  .classBuilder<
-    GetDomainPermissionsPolicyCommandInput,
-    GetDomainPermissionsPolicyCommandOutput,
-    CodeartifactClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeArtifactControlPlaneService", "GetDomainPermissionsPolicy", {})
-  .n("CodeartifactClient", "GetDomainPermissionsPolicyCommand")
-  .sc(GetDomainPermissionsPolicy$)
-  .build() {
+export class GetDomainPermissionsPolicyCommand extends command<GetDomainPermissionsPolicyCommandInput, GetDomainPermissionsPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDomainPermissionsPolicy",
+  GetDomainPermissionsPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

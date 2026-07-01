@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterCustomEndpointRequest, RegisterCustomEndpointResponse } from "../models/models_0";
 import { RegisterCustomEndpoint$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { RegisterCustomEndpoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface RegisterCustomEndpointCommandOutput extends RegisterCustomEndpo
  *
  * @public
  */
-export class RegisterCustomEndpointCommand extends $Command
-  .classBuilder<
-    RegisterCustomEndpointCommandInput,
-    RegisterCustomEndpointCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "RegisterCustomEndpoint", {})
-  .n("IoTManagedIntegrationsClient", "RegisterCustomEndpointCommand")
-  .sc(RegisterCustomEndpoint$)
-  .build() {
+export class RegisterCustomEndpointCommand extends command<RegisterCustomEndpointCommandInput, RegisterCustomEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterCustomEndpoint",
+  RegisterCustomEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

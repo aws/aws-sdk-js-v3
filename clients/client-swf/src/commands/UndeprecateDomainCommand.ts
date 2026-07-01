@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UndeprecateDomainInput } from "../models/models_0";
 import { UndeprecateDomain$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface UndeprecateDomainCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UndeprecateDomainCommand extends $Command
-  .classBuilder<
-    UndeprecateDomainCommandInput,
-    UndeprecateDomainCommandOutput,
-    SWFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleWorkflowService", "UndeprecateDomain", {})
-  .n("SWFClient", "UndeprecateDomainCommand")
-  .sc(UndeprecateDomain$)
-  .build() {
+export class UndeprecateDomainCommand extends command<UndeprecateDomainCommandInput, UndeprecateDomainCommandOutput>(
+  _ep0,
+  _mw0,
+  "UndeprecateDomain",
+  UndeprecateDomain$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

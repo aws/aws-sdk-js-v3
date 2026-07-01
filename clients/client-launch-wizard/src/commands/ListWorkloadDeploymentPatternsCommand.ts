@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LaunchWizardClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LaunchWizardClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListWorkloadDeploymentPatternsInput, ListWorkloadDeploymentPatternsOutput } from "../models/models_0";
 import { ListWorkloadDeploymentPatterns$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListWorkloadDeploymentPatterns$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface ListWorkloadDeploymentPatternsCommandOutput extends ListWorkloa
  *
  * @public
  */
-export class ListWorkloadDeploymentPatternsCommand extends $Command
-  .classBuilder<
-    ListWorkloadDeploymentPatternsCommandInput,
-    ListWorkloadDeploymentPatternsCommandOutput,
-    LaunchWizardClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LaunchWizardClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LaunchWizard", "ListWorkloadDeploymentPatterns", {})
-  .n("LaunchWizardClient", "ListWorkloadDeploymentPatternsCommand")
-  .sc(ListWorkloadDeploymentPatterns$)
-  .build() {
+export class ListWorkloadDeploymentPatternsCommand extends command<ListWorkloadDeploymentPatternsCommandInput, ListWorkloadDeploymentPatternsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListWorkloadDeploymentPatterns",
+  ListWorkloadDeploymentPatterns$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

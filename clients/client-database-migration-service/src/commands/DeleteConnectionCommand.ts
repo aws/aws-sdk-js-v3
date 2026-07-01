@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteConnectionMessage, DeleteConnectionResponse } from "../models/models_0";
 import { DeleteConnection$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteConnection$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +89,12 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  *
  * @public
  */
-export class DeleteConnectionCommand extends $Command
-  .classBuilder<
-    DeleteConnectionCommandInput,
-    DeleteConnectionCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "DeleteConnection", {})
-  .n("DatabaseMigrationServiceClient", "DeleteConnectionCommand")
-  .sc(DeleteConnection$)
-  .build() {
+export class DeleteConnectionCommand extends command<DeleteConnectionCommandInput, DeleteConnectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteConnection",
+  DeleteConnection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

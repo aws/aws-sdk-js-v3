@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BCMDashboardsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BCMDashboardsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetScheduledReportRequest, GetScheduledReportResponse } from "../models/models_0";
 import { GetScheduledReport$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetScheduledReport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface GetScheduledReportCommandOutput extends GetScheduledReportRespo
  *
  * @public
  */
-export class GetScheduledReportCommand extends $Command
-  .classBuilder<
-    GetScheduledReportCommandInput,
-    GetScheduledReportCommandOutput,
-    BCMDashboardsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BCMDashboardsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBCMDashboardsService", "GetScheduledReport", {})
-  .n("BCMDashboardsClient", "GetScheduledReportCommand")
-  .sc(GetScheduledReport$)
-  .build() {
+export class GetScheduledReportCommand extends command<GetScheduledReportCommandInput, GetScheduledReportCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetScheduledReport",
+  GetScheduledReport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetServiceRoleForAccountRequest, GetServiceRoleForAccountResponse } from "../models/models_0";
 import { GetServiceRoleForAccount$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetServiceRoleForAccount$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -64,22 +60,12 @@ export interface GetServiceRoleForAccountCommandOutput extends GetServiceRoleFor
  *
  * @public
  */
-export class GetServiceRoleForAccountCommand extends $Command
-  .classBuilder<
-    GetServiceRoleForAccountCommandInput,
-    GetServiceRoleForAccountCommandOutput,
-    GreengrassV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GreengrassV2", "GetServiceRoleForAccount", {})
-  .n("GreengrassV2Client", "GetServiceRoleForAccountCommand")
-  .sc(GetServiceRoleForAccount$)
-  .build() {
+export class GetServiceRoleForAccountCommand extends command<GetServiceRoleForAccountCommandInput, GetServiceRoleForAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetServiceRoleForAccount",
+  GetServiceRoleForAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

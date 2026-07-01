@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchAssociateApprovalRuleTemplateWithRepositoriesInput,
   BatchAssociateApprovalRuleTemplateWithRepositoriesOutput,
@@ -15,7 +12,6 @@ import { BatchAssociateApprovalRuleTemplateWithRepositories$ } from "../schemas/
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput
  *
  * @public
  */
-export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends $Command
-  .classBuilder<
-    BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput,
-    BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput,
-    CodeCommitClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCommit_20150413", "BatchAssociateApprovalRuleTemplateWithRepositories", {})
-  .n("CodeCommitClient", "BatchAssociateApprovalRuleTemplateWithRepositoriesCommand")
-  .sc(BatchAssociateApprovalRuleTemplateWithRepositories$)
-  .build() {
+export class BatchAssociateApprovalRuleTemplateWithRepositoriesCommand extends command<BatchAssociateApprovalRuleTemplateWithRepositoriesCommandInput, BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchAssociateApprovalRuleTemplateWithRepositories",
+  BatchAssociateApprovalRuleTemplateWithRepositories$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

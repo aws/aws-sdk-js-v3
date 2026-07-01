@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRegexPatternSetRequest, UpdateRegexPatternSetResponse } from "../models/models_0";
 import { UpdateRegexPatternSet$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -174,22 +170,12 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  *
  * @public
  */
-export class UpdateRegexPatternSetCommand extends $Command
-  .classBuilder<
-    UpdateRegexPatternSetCommandInput,
-    UpdateRegexPatternSetCommandOutput,
-    WAFRegionalClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_Regional_20161128", "UpdateRegexPatternSet", {})
-  .n("WAFRegionalClient", "UpdateRegexPatternSetCommand")
-  .sc(UpdateRegexPatternSet$)
-  .build() {
+export class UpdateRegexPatternSetCommand extends command<UpdateRegexPatternSetCommandInput, UpdateRegexPatternSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRegexPatternSet",
+  UpdateRegexPatternSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

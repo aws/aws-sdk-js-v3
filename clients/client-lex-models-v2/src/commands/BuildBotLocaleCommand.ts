@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BuildBotLocaleRequest, BuildBotLocaleResponse } from "../models/models_0";
 import { BuildBotLocale$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BuildBotLocale$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface BuildBotLocaleCommandOutput extends BuildBotLocaleResponse, __M
  *
  * @public
  */
-export class BuildBotLocaleCommand extends $Command
-  .classBuilder<
-    BuildBotLocaleCommandInput,
-    BuildBotLocaleCommandOutput,
-    LexModelsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LexModelBuildingServiceV2", "BuildBotLocale", {})
-  .n("LexModelsV2Client", "BuildBotLocaleCommand")
-  .sc(BuildBotLocale$)
-  .build() {
+export class BuildBotLocaleCommand extends command<BuildBotLocaleCommandInput, BuildBotLocaleCommandOutput>(
+  _ep0,
+  _mw0,
+  "BuildBotLocale",
+  BuildBotLocale$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

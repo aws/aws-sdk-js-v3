@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeVerifiedDestinationNumbersRequest,
   DescribeVerifiedDestinationNumbersResult,
 } from "../models/models_0";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { DescribeVerifiedDestinationNumbers$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface DescribeVerifiedDestinationNumbersCommandOutput extends Describ
  *
  * @public
  */
-export class DescribeVerifiedDestinationNumbersCommand extends $Command
-  .classBuilder<
-    DescribeVerifiedDestinationNumbersCommandInput,
-    DescribeVerifiedDestinationNumbersCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "DescribeVerifiedDestinationNumbers", {})
-  .n("PinpointSMSVoiceV2Client", "DescribeVerifiedDestinationNumbersCommand")
-  .sc(DescribeVerifiedDestinationNumbers$)
-  .build() {
+export class DescribeVerifiedDestinationNumbersCommand extends command<DescribeVerifiedDestinationNumbersCommandInput, DescribeVerifiedDestinationNumbersCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeVerifiedDestinationNumbers",
+  DescribeVerifiedDestinationNumbers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

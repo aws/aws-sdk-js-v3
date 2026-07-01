@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDestinationRequest } from "../models/models_0";
 import { DeleteDestination$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteDestination$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +67,12 @@ export interface DeleteDestinationCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteDestinationCommand extends $Command
-  .classBuilder<
-    DeleteDestinationCommandInput,
-    DeleteDestinationCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "DeleteDestination", {})
-  .n("CloudWatchLogsClient", "DeleteDestinationCommand")
-  .sc(DeleteDestination$)
-  .build() {
+export class DeleteDestinationCommand extends command<DeleteDestinationCommandInput, DeleteDestinationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDestination",
+  DeleteDestination$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

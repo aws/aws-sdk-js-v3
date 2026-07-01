@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutTableBucketStorageClassRequest } from "../models/models_0";
-import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
 import { PutTableBucketStorageClass$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface PutTableBucketStorageClassCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class PutTableBucketStorageClassCommand extends $Command
-  .classBuilder<
-    PutTableBucketStorageClassCommandInput,
-    PutTableBucketStorageClassCommandOutput,
-    S3TablesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: S3TablesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("S3TableBuckets", "PutTableBucketStorageClass", {})
-  .n("S3TablesClient", "PutTableBucketStorageClassCommand")
-  .sc(PutTableBucketStorageClass$)
-  .build() {
+export class PutTableBucketStorageClassCommand extends command<PutTableBucketStorageClassCommandInput, PutTableBucketStorageClassCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutTableBucketStorageClass",
+  PutTableBucketStorageClass$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

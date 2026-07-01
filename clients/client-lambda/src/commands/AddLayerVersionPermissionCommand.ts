@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddLayerVersionPermissionRequest, AddLayerVersionPermissionResponse } from "../models/models_0";
 import { AddLayerVersionPermission$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AddLayerVersionPermission$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface AddLayerVersionPermissionCommandOutput extends AddLayerVersionP
  *
  * @public
  */
-export class AddLayerVersionPermissionCommand extends $Command
-  .classBuilder<
-    AddLayerVersionPermissionCommandInput,
-    AddLayerVersionPermissionCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "AddLayerVersionPermission", {})
-  .n("LambdaClient", "AddLayerVersionPermissionCommand")
-  .sc(AddLayerVersionPermission$)
-  .build() {
+export class AddLayerVersionPermissionCommand extends command<AddLayerVersionPermissionCommandInput, AddLayerVersionPermissionCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddLayerVersionPermission",
+  AddLayerVersionPermission$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

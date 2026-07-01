@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopCodeReviewJobInput, StopCodeReviewJobOutput } from "../models/models_0";
 import { StopCodeReviewJob$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -58,22 +54,12 @@ export interface StopCodeReviewJobCommandOutput extends StopCodeReviewJobOutput,
  *
  * @public
  */
-export class StopCodeReviewJobCommand extends $Command
-  .classBuilder<
-    StopCodeReviewJobCommandInput,
-    StopCodeReviewJobCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "StopCodeReviewJob", {})
-  .n("SecurityAgentClient", "StopCodeReviewJobCommand")
-  .sc(StopCodeReviewJob$)
-  .build() {
+export class StopCodeReviewJobCommand extends command<StopCodeReviewJobCommandInput, StopCodeReviewJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopCodeReviewJob",
+  StopCodeReviewJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

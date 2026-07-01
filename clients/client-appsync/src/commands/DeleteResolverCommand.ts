@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteResolverRequest, DeleteResolverResponse } from "../models/models_0";
 import { DeleteResolver$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteResolver$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DeleteResolverCommandOutput extends DeleteResolverResponse, __M
  *
  * @public
  */
-export class DeleteResolverCommand extends $Command
-  .classBuilder<
-    DeleteResolverCommandInput,
-    DeleteResolverCommandOutput,
-    AppSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepdishControlPlaneService", "DeleteResolver", {})
-  .n("AppSyncClient", "DeleteResolverCommand")
-  .sc(DeleteResolver$)
-  .build() {
+export class DeleteResolverCommand extends command<DeleteResolverCommandInput, DeleteResolverCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteResolver",
+  DeleteResolver$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

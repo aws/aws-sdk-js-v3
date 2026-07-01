@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeOrganizationConfigRuleStatusesRequest,
   DescribeOrganizationConfigRuleStatusesResponse,
@@ -15,7 +12,6 @@ import { DescribeOrganizationConfigRuleStatuses$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface DescribeOrganizationConfigRuleStatusesCommandOutput extends Des
  *
  * @public
  */
-export class DescribeOrganizationConfigRuleStatusesCommand extends $Command
-  .classBuilder<
-    DescribeOrganizationConfigRuleStatusesCommandInput,
-    DescribeOrganizationConfigRuleStatusesCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DescribeOrganizationConfigRuleStatuses", {})
-  .n("ConfigServiceClient", "DescribeOrganizationConfigRuleStatusesCommand")
-  .sc(DescribeOrganizationConfigRuleStatuses$)
-  .build() {
+export class DescribeOrganizationConfigRuleStatusesCommand extends command<DescribeOrganizationConfigRuleStatusesCommandInput, DescribeOrganizationConfigRuleStatusesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeOrganizationConfigRuleStatuses",
+  DescribeOrganizationConfigRuleStatuses$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

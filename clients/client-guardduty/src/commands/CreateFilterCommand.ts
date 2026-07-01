@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFilterRequest, CreateFilterResponse } from "../models/models_0";
 import { CreateFilter$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateFilter$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface CreateFilterCommandOutput extends CreateFilterResponse, __Metad
  *
  * @public
  */
-export class CreateFilterCommand extends $Command
-  .classBuilder<
-    CreateFilterCommandInput,
-    CreateFilterCommandOutput,
-    GuardDutyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GuardDutyAPIService", "CreateFilter", {})
-  .n("GuardDutyClient", "CreateFilterCommand")
-  .sc(CreateFilter$)
-  .build() {
+export class CreateFilterCommand extends command<CreateFilterCommandInput, CreateFilterCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateFilter",
+  CreateFilter$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

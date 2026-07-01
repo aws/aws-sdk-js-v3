@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { XmlListsOutput } from "../models/models_0";
-import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 import { XmlLists$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface XmlListsCommandOutput extends XmlListsOutput, __MetadataBearer 
  *
  * @public
  */
-export class XmlListsCommand extends $Command
-  .classBuilder<
-    XmlListsCommandInput,
-    XmlListsCommandOutput,
-    QueryProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QueryProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsQuery", "XmlLists", {})
-  .n("QueryProtocolClient", "XmlListsCommand")
-  .sc(XmlLists$)
-  .build() {
+export class XmlListsCommand extends command<XmlListsCommandInput, XmlListsCommandOutput>(
+  _ep0,
+  _mw0,
+  "XmlLists",
+  XmlLists$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

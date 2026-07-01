@@ -1,11 +1,8 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import { Uint8ArrayBlobAdapter } from "@smithy/core/serde";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateThingShadowRequest, UpdateThingShadowResponse } from "../models/models_0";
 import { UpdateThingShadow$ } from "../schemas/schemas_0";
 
@@ -13,7 +10,6 @@ import { UpdateThingShadow$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  */
@@ -106,22 +102,12 @@ export interface UpdateThingShadowCommandOutput extends UpdateThingShadowCommand
  *
  * @public
  */
-export class UpdateThingShadowCommand extends $Command
-  .classBuilder<
-    UpdateThingShadowCommandInput,
-    UpdateThingShadowCommandOutput,
-    IoTDataPlaneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTDataPlaneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotMoonrakerService", "UpdateThingShadow", {})
-  .n("IoTDataPlaneClient", "UpdateThingShadowCommand")
-  .sc(UpdateThingShadow$)
-  .build() {
+export class UpdateThingShadowCommand extends command<UpdateThingShadowCommandInput, UpdateThingShadowCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateThingShadow",
+  UpdateThingShadow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

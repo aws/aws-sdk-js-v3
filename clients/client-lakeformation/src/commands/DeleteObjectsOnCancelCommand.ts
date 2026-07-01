@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteObjectsOnCancelRequest, DeleteObjectsOnCancelResponse } from "../models/models_0";
 import { DeleteObjectsOnCancel$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteObjectsOnCancel$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface DeleteObjectsOnCancelCommandOutput extends DeleteObjectsOnCance
  *
  * @public
  */
-export class DeleteObjectsOnCancelCommand extends $Command
-  .classBuilder<
-    DeleteObjectsOnCancelCommandInput,
-    DeleteObjectsOnCancelCommandOutput,
-    LakeFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLakeFormation", "DeleteObjectsOnCancel", {})
-  .n("LakeFormationClient", "DeleteObjectsOnCancelCommand")
-  .sc(DeleteObjectsOnCancel$)
-  .build() {
+export class DeleteObjectsOnCancelCommand extends command<DeleteObjectsOnCancelCommandInput, DeleteObjectsOnCancelCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteObjectsOnCancel",
+  DeleteObjectsOnCancel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

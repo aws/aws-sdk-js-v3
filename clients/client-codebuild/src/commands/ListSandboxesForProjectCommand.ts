@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSandboxesForProjectInput, ListSandboxesForProjectOutput } from "../models/models_0";
 import { ListSandboxesForProject$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListSandboxesForProject$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface ListSandboxesForProjectCommandOutput extends ListSandboxesForPr
  *
  * @public
  */
-export class ListSandboxesForProjectCommand extends $Command
-  .classBuilder<
-    ListSandboxesForProjectCommandInput,
-    ListSandboxesForProjectCommandOutput,
-    CodeBuildClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeBuild_20161006", "ListSandboxesForProject", {})
-  .n("CodeBuildClient", "ListSandboxesForProjectCommand")
-  .sc(ListSandboxesForProject$)
-  .build() {
+export class ListSandboxesForProjectCommand extends command<ListSandboxesForProjectCommandInput, ListSandboxesForProjectCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSandboxesForProject",
+  ListSandboxesForProject$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

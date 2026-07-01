@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFindingsRequest, GetFindingsResponse } from "../models/models_0";
 import { GetFindings$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetFindings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -1137,22 +1133,12 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  *
  * @public
  */
-export class GetFindingsCommand extends $Command
-  .classBuilder<
-    GetFindingsCommandInput,
-    GetFindingsCommandOutput,
-    GuardDutyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GuardDutyAPIService", "GetFindings", {})
-  .n("GuardDutyClient", "GetFindingsCommand")
-  .sc(GetFindings$)
-  .build() {
+export class GetFindingsCommand extends command<GetFindingsCommandInput, GetFindingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFindings",
+  GetFindings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

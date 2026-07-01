@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListVocabulariesRequest, ListVocabulariesResponse } from "../models/models_0";
 import { ListVocabularies$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface ListVocabulariesCommandOutput extends ListVocabulariesResponse,
  *
  * @public
  */
-export class ListVocabulariesCommand extends $Command
-  .classBuilder<
-    ListVocabulariesCommandInput,
-    ListVocabulariesCommandOutput,
-    TranscribeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Transcribe", "ListVocabularies", {})
-  .n("TranscribeClient", "ListVocabulariesCommand")
-  .sc(ListVocabularies$)
-  .build() {
+export class ListVocabulariesCommand extends command<ListVocabulariesCommandInput, ListVocabulariesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListVocabularies",
+  ListVocabularies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

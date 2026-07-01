@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteVpcEndpointAssociationRequest, DeleteVpcEndpointAssociationResponse } from "../models/models_0";
-import type {
-  NetworkFirewallClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFirewallClient";
 import { DeleteVpcEndpointAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +120,12 @@ export interface DeleteVpcEndpointAssociationCommandOutput extends DeleteVpcEndp
  *
  * @public
  */
-export class DeleteVpcEndpointAssociationCommand extends $Command
-  .classBuilder<
-    DeleteVpcEndpointAssociationCommandInput,
-    DeleteVpcEndpointAssociationCommandOutput,
-    NetworkFirewallClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFirewall_20201112", "DeleteVpcEndpointAssociation", {})
-  .n("NetworkFirewallClient", "DeleteVpcEndpointAssociationCommand")
-  .sc(DeleteVpcEndpointAssociation$)
-  .build() {
+export class DeleteVpcEndpointAssociationCommand extends command<DeleteVpcEndpointAssociationCommandInput, DeleteVpcEndpointAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteVpcEndpointAssociation",
+  DeleteVpcEndpointAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

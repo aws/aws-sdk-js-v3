@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartImportRequest, StartImportResponse } from "../models/models_0";
 import { StartImport$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartImport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  *
  * @public
  */
-export class StartImportCommand extends $Command
-  .classBuilder<
-    StartImportCommandInput,
-    StartImportCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "StartImport", {})
-  .n("MgnClient", "StartImportCommand")
-  .sc(StartImport$)
-  .build() {
+export class StartImportCommand extends command<StartImportCommandInput, StartImportCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartImport",
+  StartImport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

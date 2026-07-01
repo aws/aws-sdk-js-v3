@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDBClusterParameterGroupMessage } from "../models/models_0";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DeleteDBClusterParameterGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteDBClusterParameterGroupCommandOutput extends __MetadataBe
  *
  * @public
  */
-export class DeleteDBClusterParameterGroupCommand extends $Command
-  .classBuilder<
-    DeleteDBClusterParameterGroupCommandInput,
-    DeleteDBClusterParameterGroupCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DeleteDBClusterParameterGroup", {})
-  .n("RDSClient", "DeleteDBClusterParameterGroupCommand")
-  .sc(DeleteDBClusterParameterGroup$)
-  .build() {
+export class DeleteDBClusterParameterGroupCommand extends command<DeleteDBClusterParameterGroupCommandInput, DeleteDBClusterParameterGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDBClusterParameterGroup",
+  DeleteDBClusterParameterGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

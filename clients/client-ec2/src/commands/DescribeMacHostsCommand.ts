@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeMacHostsRequest, DescribeMacHostsResult } from "../models/models_4";
 import { DescribeMacHosts$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeMacHosts$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DescribeMacHostsCommandOutput extends DescribeMacHostsResult, _
  *
  * @public
  */
-export class DescribeMacHostsCommand extends $Command
-  .classBuilder<
-    DescribeMacHostsCommandInput,
-    DescribeMacHostsCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeMacHosts", {})
-  .n("EC2Client", "DescribeMacHostsCommand")
-  .sc(DescribeMacHosts$)
-  .build() {
+export class DescribeMacHostsCommand extends command<DescribeMacHostsCommandInput, DescribeMacHostsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeMacHosts",
+  DescribeMacHosts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

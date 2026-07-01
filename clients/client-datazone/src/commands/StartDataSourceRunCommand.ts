@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartDataSourceRunInput, StartDataSourceRunOutput } from "../models/models_1";
 import { StartDataSourceRun$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartDataSourceRun$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface StartDataSourceRunCommandOutput extends StartDataSourceRunOutpu
  *
  * @public
  */
-export class StartDataSourceRunCommand extends $Command
-  .classBuilder<
-    StartDataSourceRunCommandInput,
-    StartDataSourceRunCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "StartDataSourceRun", {})
-  .n("DataZoneClient", "StartDataSourceRunCommand")
-  .sc(StartDataSourceRun$)
-  .build() {
+export class StartDataSourceRunCommand extends command<StartDataSourceRunCommandInput, StartDataSourceRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartDataSourceRun",
+  StartDataSourceRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

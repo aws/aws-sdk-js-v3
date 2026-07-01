@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { QueryGraphInput, QueryGraphOutput } from "../models/models_2";
 import { QueryGraph$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { QueryGraph$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -153,22 +149,12 @@ export interface QueryGraphCommandOutput extends QueryGraphOutput, __MetadataBea
  *
  * @public
  */
-export class QueryGraphCommand extends $Command
-  .classBuilder<
-    QueryGraphCommandInput,
-    QueryGraphCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "QueryGraph", {})
-  .n("DataZoneClient", "QueryGraphCommand")
-  .sc(QueryGraph$)
-  .build() {
+export class QueryGraphCommand extends command<QueryGraphCommandInput, QueryGraphCommandOutput>(
+  _ep0,
+  _mw0,
+  "QueryGraph",
+  QueryGraph$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

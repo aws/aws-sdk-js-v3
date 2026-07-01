@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDomainVerificationRequest, DeleteDomainVerificationResponse } from "../models/models_0";
 import { DeleteDomainVerification$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteDomainVerificationCommandOutput extends DeleteDomainVerif
  *
  * @public
  */
-export class DeleteDomainVerificationCommand extends $Command
-  .classBuilder<
-    DeleteDomainVerificationCommandInput,
-    DeleteDomainVerificationCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "DeleteDomainVerification", {})
-  .n("VPCLatticeClient", "DeleteDomainVerificationCommand")
-  .sc(DeleteDomainVerification$)
-  .build() {
+export class DeleteDomainVerificationCommand extends command<DeleteDomainVerificationCommandInput, DeleteDomainVerificationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDomainVerification",
+  DeleteDomainVerification$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateLocationS3Request, CreateLocationS3Response } from "../models/models_0";
 import { CreateLocationS3$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateLocationS3$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
  *
  * @public
  */
-export class CreateLocationS3Command extends $Command
-  .classBuilder<
-    CreateLocationS3CommandInput,
-    CreateLocationS3CommandOutput,
-    DataSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FmrsService", "CreateLocationS3", {})
-  .n("DataSyncClient", "CreateLocationS3Command")
-  .sc(CreateLocationS3$)
-  .build() {
+export class CreateLocationS3Command extends command<CreateLocationS3CommandInput, CreateLocationS3CommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateLocationS3",
+  CreateLocationS3$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

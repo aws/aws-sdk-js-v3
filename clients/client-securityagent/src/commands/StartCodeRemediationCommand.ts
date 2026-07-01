@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartCodeRemediationInput, StartCodeRemediationOutput } from "../models/models_0";
 import { StartCodeRemediation$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -62,22 +58,12 @@ export interface StartCodeRemediationCommandOutput extends StartCodeRemediationO
  *
  * @public
  */
-export class StartCodeRemediationCommand extends $Command
-  .classBuilder<
-    StartCodeRemediationCommandInput,
-    StartCodeRemediationCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "StartCodeRemediation", {})
-  .n("SecurityAgentClient", "StartCodeRemediationCommand")
-  .sc(StartCodeRemediation$)
-  .build() {
+export class StartCodeRemediationCommand extends command<StartCodeRemediationCommandInput, StartCodeRemediationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartCodeRemediation",
+  StartCodeRemediation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

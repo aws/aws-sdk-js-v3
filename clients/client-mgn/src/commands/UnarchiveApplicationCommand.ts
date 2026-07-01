@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { Application, UnarchiveApplicationRequest } from "../models/models_0";
 import { UnarchiveApplication$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UnarchiveApplication$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface UnarchiveApplicationCommandOutput extends Application, __Metada
  *
  * @public
  */
-export class UnarchiveApplicationCommand extends $Command
-  .classBuilder<
-    UnarchiveApplicationCommandInput,
-    UnarchiveApplicationCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "UnarchiveApplication", {})
-  .n("MgnClient", "UnarchiveApplicationCommand")
-  .sc(UnarchiveApplication$)
-  .build() {
+export class UnarchiveApplicationCommand extends command<UnarchiveApplicationCommandInput, UnarchiveApplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UnarchiveApplication",
+  UnarchiveApplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

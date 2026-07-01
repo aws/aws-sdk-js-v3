@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AcceptAttachmentRequest, AcceptAttachmentResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { AcceptAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -135,22 +127,12 @@ export interface AcceptAttachmentCommandOutput extends AcceptAttachmentResponse,
  *
  * @public
  */
-export class AcceptAttachmentCommand extends $Command
-  .classBuilder<
-    AcceptAttachmentCommandInput,
-    AcceptAttachmentCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "AcceptAttachment", {})
-  .n("NetworkManagerClient", "AcceptAttachmentCommand")
-  .sc(AcceptAttachment$)
-  .build() {
+export class AcceptAttachmentCommand extends command<AcceptAttachmentCommandInput, AcceptAttachmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "AcceptAttachment",
+  AcceptAttachment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

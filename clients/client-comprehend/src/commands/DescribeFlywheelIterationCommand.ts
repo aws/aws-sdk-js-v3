@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeFlywheelIterationRequest, DescribeFlywheelIterationResponse } from "../models/models_0";
 import { DescribeFlywheelIteration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeFlywheelIteration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface DescribeFlywheelIterationCommandOutput extends DescribeFlywheel
  *
  * @public
  */
-export class DescribeFlywheelIterationCommand extends $Command
-  .classBuilder<
-    DescribeFlywheelIterationCommandInput,
-    DescribeFlywheelIterationCommandOutput,
-    ComprehendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Comprehend_20171127", "DescribeFlywheelIteration", {})
-  .n("ComprehendClient", "DescribeFlywheelIterationCommand")
-  .sc(DescribeFlywheelIteration$)
-  .build() {
+export class DescribeFlywheelIterationCommand extends command<DescribeFlywheelIterationCommandInput, DescribeFlywheelIterationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeFlywheelIteration",
+  DescribeFlywheelIteration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

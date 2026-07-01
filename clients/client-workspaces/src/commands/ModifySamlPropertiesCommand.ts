@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifySamlPropertiesRequest, ModifySamlPropertiesResult } from "../models/models_0";
 import { ModifySamlProperties$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface ModifySamlPropertiesCommandOutput extends ModifySamlPropertiesR
  *
  * @public
  */
-export class ModifySamlPropertiesCommand extends $Command
-  .classBuilder<
-    ModifySamlPropertiesCommandInput,
-    ModifySamlPropertiesCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "ModifySamlProperties", {})
-  .n("WorkSpacesClient", "ModifySamlPropertiesCommand")
-  .sc(ModifySamlProperties$)
-  .build() {
+export class ModifySamlPropertiesCommand extends command<ModifySamlPropertiesCommandInput, ModifySamlPropertiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifySamlProperties",
+  ModifySamlProperties$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

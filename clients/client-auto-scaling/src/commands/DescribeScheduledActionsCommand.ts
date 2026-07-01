@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeScheduledActionsType, ScheduledActionsType } from "../models/models_0";
 import { DescribeScheduledActions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeScheduledActions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +114,12 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsT
  *
  * @public
  */
-export class DescribeScheduledActionsCommand extends $Command
-  .classBuilder<
-    DescribeScheduledActionsCommandInput,
-    DescribeScheduledActionsCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "DescribeScheduledActions", {})
-  .n("AutoScalingClient", "DescribeScheduledActionsCommand")
-  .sc(DescribeScheduledActions$)
-  .build() {
+export class DescribeScheduledActionsCommand extends command<DescribeScheduledActionsCommandInput, DescribeScheduledActionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeScheduledActions",
+  DescribeScheduledActions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

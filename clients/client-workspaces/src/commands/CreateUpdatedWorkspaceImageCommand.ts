@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateUpdatedWorkspaceImageRequest, CreateUpdatedWorkspaceImageResult } from "../models/models_0";
 import { CreateUpdatedWorkspaceImage$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface CreateUpdatedWorkspaceImageCommandOutput extends CreateUpdatedW
  *
  * @public
  */
-export class CreateUpdatedWorkspaceImageCommand extends $Command
-  .classBuilder<
-    CreateUpdatedWorkspaceImageCommandInput,
-    CreateUpdatedWorkspaceImageCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "CreateUpdatedWorkspaceImage", {})
-  .n("WorkSpacesClient", "CreateUpdatedWorkspaceImageCommand")
-  .sc(CreateUpdatedWorkspaceImage$)
-  .build() {
+export class CreateUpdatedWorkspaceImageCommand extends command<CreateUpdatedWorkspaceImageCommandInput, CreateUpdatedWorkspaceImageCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateUpdatedWorkspaceImage",
+  CreateUpdatedWorkspaceImage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

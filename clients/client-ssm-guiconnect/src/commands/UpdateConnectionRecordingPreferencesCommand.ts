@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateConnectionRecordingPreferencesRequest,
   UpdateConnectionRecordingPreferencesResponse,
 } from "../models/models_0";
 import { UpdateConnectionRecordingPreferences$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMGuiConnectClientResolvedConfig } from "../SSMGuiConnectClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -141,22 +137,12 @@ export interface UpdateConnectionRecordingPreferencesCommandOutput extends Updat
  *
  * @public
  */
-export class UpdateConnectionRecordingPreferencesCommand extends $Command
-  .classBuilder<
-    UpdateConnectionRecordingPreferencesCommandInput,
-    UpdateConnectionRecordingPreferencesCommandOutput,
-    SSMGuiConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMGuiConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMGuiConnect", "UpdateConnectionRecordingPreferences", {})
-  .n("SSMGuiConnectClient", "UpdateConnectionRecordingPreferencesCommand")
-  .sc(UpdateConnectionRecordingPreferences$)
-  .build() {
+export class UpdateConnectionRecordingPreferencesCommand extends command<UpdateConnectionRecordingPreferencesCommandInput, UpdateConnectionRecordingPreferencesCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateConnectionRecordingPreferences",
+  UpdateConnectionRecordingPreferences$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

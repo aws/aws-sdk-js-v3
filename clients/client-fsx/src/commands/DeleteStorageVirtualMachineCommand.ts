@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteStorageVirtualMachineRequest, DeleteStorageVirtualMachineResponse } from "../models/models_0";
 import { DeleteStorageVirtualMachine$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteStorageVirtualMachine$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteStorageVirtualMachineCommandOutput extends DeleteStorageV
  *
  * @public
  */
-export class DeleteStorageVirtualMachineCommand extends $Command
-  .classBuilder<
-    DeleteStorageVirtualMachineCommandInput,
-    DeleteStorageVirtualMachineCommandOutput,
-    FSxClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSimbaAPIService_v20180301", "DeleteStorageVirtualMachine", {})
-  .n("FSxClient", "DeleteStorageVirtualMachineCommand")
-  .sc(DeleteStorageVirtualMachine$)
-  .build() {
+export class DeleteStorageVirtualMachineCommand extends command<DeleteStorageVirtualMachineCommandInput, DeleteStorageVirtualMachineCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteStorageVirtualMachine",
+  DeleteStorageVirtualMachine$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

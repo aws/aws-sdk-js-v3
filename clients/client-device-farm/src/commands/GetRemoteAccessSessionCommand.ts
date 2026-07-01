@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRemoteAccessSessionRequest, GetRemoteAccessSessionResult } from "../models/models_0";
 import { GetRemoteAccessSession$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetRemoteAccessSession$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -174,22 +170,12 @@ export interface GetRemoteAccessSessionCommandOutput extends GetRemoteAccessSess
  *
  * @public
  */
-export class GetRemoteAccessSessionCommand extends $Command
-  .classBuilder<
-    GetRemoteAccessSessionCommandInput,
-    GetRemoteAccessSessionCommandOutput,
-    DeviceFarmClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DeviceFarm_20150623", "GetRemoteAccessSession", {})
-  .n("DeviceFarmClient", "GetRemoteAccessSessionCommand")
-  .sc(GetRemoteAccessSession$)
-  .build() {
+export class GetRemoteAccessSessionCommand extends command<GetRemoteAccessSessionCommandInput, GetRemoteAccessSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRemoteAccessSession",
+  GetRemoteAccessSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDocumentationPartRequest, DocumentationPart } from "../models/models_0";
 import { CreateDocumentationPart$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateDocumentationPart$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface CreateDocumentationPartCommandOutput extends DocumentationPart,
  *
  * @public
  */
-export class CreateDocumentationPartCommand extends $Command
-  .classBuilder<
-    CreateDocumentationPartCommandInput,
-    CreateDocumentationPartCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "CreateDocumentationPart", {})
-  .n("APIGatewayClient", "CreateDocumentationPartCommand")
-  .sc(CreateDocumentationPart$)
-  .build() {
+export class CreateDocumentationPartCommand extends command<CreateDocumentationPartCommandInput, CreateDocumentationPartCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDocumentationPart",
+  CreateDocumentationPart$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

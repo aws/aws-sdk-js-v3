@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCaseAttachmentUploadUrlRequest, GetCaseAttachmentUploadUrlResponse } from "../models/models_0";
 import { GetCaseAttachmentUploadUrl$ } from "../schemas/schemas_0";
-import type { SecurityIRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityIRClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface GetCaseAttachmentUploadUrlCommandOutput extends GetCaseAttachme
  *
  * @public
  */
-export class GetCaseAttachmentUploadUrlCommand extends $Command
-  .classBuilder<
-    GetCaseAttachmentUploadUrlCommandInput,
-    GetCaseAttachmentUploadUrlCommandOutput,
-    SecurityIRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityIRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityIncidentResponse", "GetCaseAttachmentUploadUrl", {})
-  .n("SecurityIRClient", "GetCaseAttachmentUploadUrlCommand")
-  .sc(GetCaseAttachmentUploadUrl$)
-  .build() {
+export class GetCaseAttachmentUploadUrlCommand extends command<GetCaseAttachmentUploadUrlCommandInput, GetCaseAttachmentUploadUrlCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCaseAttachmentUploadUrl",
+  GetCaseAttachmentUploadUrl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

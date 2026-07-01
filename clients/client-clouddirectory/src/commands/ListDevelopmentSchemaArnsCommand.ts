@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudDirectoryClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDevelopmentSchemaArnsRequest, ListDevelopmentSchemaArnsResponse } from "../models/models_0";
 import { ListDevelopmentSchemaArns$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListDevelopmentSchemaArns$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +105,12 @@ export interface ListDevelopmentSchemaArnsCommandOutput extends ListDevelopmentS
  *
  * @public
  */
-export class ListDevelopmentSchemaArnsCommand extends $Command
-  .classBuilder<
-    ListDevelopmentSchemaArnsCommandInput,
-    ListDevelopmentSchemaArnsCommandOutput,
-    CloudDirectoryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonCloudDirectory_20170111", "ListDevelopmentSchemaArns", {})
-  .n("CloudDirectoryClient", "ListDevelopmentSchemaArnsCommand")
-  .sc(ListDevelopmentSchemaArns$)
-  .build() {
+export class ListDevelopmentSchemaArnsCommand extends command<ListDevelopmentSchemaArnsCommandInput, ListDevelopmentSchemaArnsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDevelopmentSchemaArns",
+  ListDevelopmentSchemaArns$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

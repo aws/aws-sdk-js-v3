@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetIdleRecommendationsRequest, GetIdleRecommendationsResponse } from "../models/models_0";
 import { GetIdleRecommendations$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetIdleRecommendations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -166,22 +158,12 @@ export interface GetIdleRecommendationsCommandOutput extends GetIdleRecommendati
  *
  * @public
  */
-export class GetIdleRecommendationsCommand extends $Command
-  .classBuilder<
-    GetIdleRecommendationsCommandInput,
-    GetIdleRecommendationsCommandOutput,
-    ComputeOptimizerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerService", "GetIdleRecommendations", {})
-  .n("ComputeOptimizerClient", "GetIdleRecommendationsCommand")
-  .sc(GetIdleRecommendations$)
-  .build() {
+export class GetIdleRecommendationsCommand extends command<GetIdleRecommendationsCommandInput, GetIdleRecommendationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIdleRecommendations",
+  GetIdleRecommendations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

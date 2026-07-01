@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAddressRequest, DescribeAddressResult } from "../models/models_0";
 import { DescribeAddress$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface DescribeAddressCommandOutput extends DescribeAddressResult, __M
  *
  * @public
  */
-export class DescribeAddressCommand extends $Command
-  .classBuilder<
-    DescribeAddressCommandInput,
-    DescribeAddressCommandOutput,
-    SnowballClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIESnowballJobManagementService", "DescribeAddress", {})
-  .n("SnowballClient", "DescribeAddressCommand")
-  .sc(DescribeAddress$)
-  .build() {
+export class DescribeAddressCommand extends command<DescribeAddressCommandInput, DescribeAddressCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAddress",
+  DescribeAddress$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

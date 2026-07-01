@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodestarNotificationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodestarNotificationsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TagResourceRequest, TagResourceResult } from "../models/models_0";
 import { TagResource$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { TagResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  *
  * @public
  */
-export class TagResourceCommand extends $Command
-  .classBuilder<
-    TagResourceCommandInput,
-    TagResourceCommandOutput,
-    CodestarNotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodestarNotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeStarNotifications_20191015", "TagResource", {})
-  .n("CodestarNotificationsClient", "TagResourceCommand")
-  .sc(TagResource$)
-  .build() {
+export class TagResourceCommand extends command<TagResourceCommandInput, TagResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "TagResource",
+  TagResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

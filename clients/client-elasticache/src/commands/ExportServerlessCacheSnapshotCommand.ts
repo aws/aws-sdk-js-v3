@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExportServerlessCacheSnapshotRequest, ExportServerlessCacheSnapshotResponse } from "../models/models_0";
 import { ExportServerlessCacheSnapshot$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ExportServerlessCacheSnapshot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface ExportServerlessCacheSnapshotCommandOutput extends ExportServer
  *
  * @public
  */
-export class ExportServerlessCacheSnapshotCommand extends $Command
-  .classBuilder<
-    ExportServerlessCacheSnapshotCommandInput,
-    ExportServerlessCacheSnapshotCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "ExportServerlessCacheSnapshot", {})
-  .n("ElastiCacheClient", "ExportServerlessCacheSnapshotCommand")
-  .sc(ExportServerlessCacheSnapshot$)
-  .build() {
+export class ExportServerlessCacheSnapshotCommand extends command<ExportServerlessCacheSnapshotCommandInput, ExportServerlessCacheSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExportServerlessCacheSnapshot",
+  ExportServerlessCacheSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

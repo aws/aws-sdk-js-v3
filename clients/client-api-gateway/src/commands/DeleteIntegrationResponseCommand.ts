@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteIntegrationResponseRequest } from "../models/models_0";
 import { DeleteIntegrationResponse$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteIntegrationResponse$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteIntegrationResponseCommandOutput extends __MetadataBearer
  *
  * @public
  */
-export class DeleteIntegrationResponseCommand extends $Command
-  .classBuilder<
-    DeleteIntegrationResponseCommandInput,
-    DeleteIntegrationResponseCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "DeleteIntegrationResponse", {})
-  .n("APIGatewayClient", "DeleteIntegrationResponseCommand")
-  .sc(DeleteIntegrationResponse$)
-  .build() {
+export class DeleteIntegrationResponseCommand extends command<DeleteIntegrationResponseCommandInput, DeleteIntegrationResponseCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteIntegrationResponse",
+  DeleteIntegrationResponse$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

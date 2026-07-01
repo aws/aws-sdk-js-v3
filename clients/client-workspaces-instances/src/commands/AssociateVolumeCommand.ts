@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateVolumeRequest, AssociateVolumeResponse } from "../models/models_0";
 import { AssociateVolume$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkspacesInstancesClientResolvedConfig,
-} from "../WorkspacesInstancesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface AssociateVolumeCommandOutput extends AssociateVolumeResponse, _
  *
  * @public
  */
-export class AssociateVolumeCommand extends $Command
-  .classBuilder<
-    AssociateVolumeCommandInput,
-    AssociateVolumeCommandOutput,
-    WorkspacesInstancesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkspacesInstancesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EUCMIFrontendAPIService", "AssociateVolume", {})
-  .n("WorkspacesInstancesClient", "AssociateVolumeCommand")
-  .sc(AssociateVolume$)
-  .build() {
+export class AssociateVolumeCommand extends command<AssociateVolumeCommandInput, AssociateVolumeCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateVolume",
+  AssociateVolume$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

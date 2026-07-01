@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateEndpointWeightsAndCapacitiesInput,
   UpdateEndpointWeightsAndCapacitiesOutput,
 } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { UpdateEndpointWeightsAndCapacities$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput extends UpdateE
  *
  * @public
  */
-export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command
-  .classBuilder<
-    UpdateEndpointWeightsAndCapacitiesCommandInput,
-    UpdateEndpointWeightsAndCapacitiesCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "UpdateEndpointWeightsAndCapacities", {})
-  .n("SageMakerClient", "UpdateEndpointWeightsAndCapacitiesCommand")
-  .sc(UpdateEndpointWeightsAndCapacities$)
-  .build() {
+export class UpdateEndpointWeightsAndCapacitiesCommand extends command<UpdateEndpointWeightsAndCapacitiesCommandInput, UpdateEndpointWeightsAndCapacitiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateEndpointWeightsAndCapacities",
+  UpdateEndpointWeightsAndCapacities$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

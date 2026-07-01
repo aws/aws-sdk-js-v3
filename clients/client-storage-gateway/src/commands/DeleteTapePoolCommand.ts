@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTapePoolInput, DeleteTapePoolOutput } from "../models/models_0";
 import { DeleteTapePool$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +65,12 @@ export interface DeleteTapePoolCommandOutput extends DeleteTapePoolOutput, __Met
  *
  * @public
  */
-export class DeleteTapePoolCommand extends $Command
-  .classBuilder<
-    DeleteTapePoolCommandInput,
-    DeleteTapePoolCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "DeleteTapePool", {})
-  .n("StorageGatewayClient", "DeleteTapePoolCommand")
-  .sc(DeleteTapePool$)
-  .build() {
+export class DeleteTapePoolCommand extends command<DeleteTapePoolCommandInput, DeleteTapePoolCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTapePool",
+  DeleteTapePool$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

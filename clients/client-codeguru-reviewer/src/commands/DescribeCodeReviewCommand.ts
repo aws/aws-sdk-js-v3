@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeGuruReviewerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeGuruReviewerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeCodeReviewRequest, DescribeCodeReviewResponse } from "../models/models_0";
 import { DescribeCodeReview$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeCodeReview$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +125,12 @@ export interface DescribeCodeReviewCommandOutput extends DescribeCodeReviewRespo
  *
  * @public
  */
-export class DescribeCodeReviewCommand extends $Command
-  .classBuilder<
-    DescribeCodeReviewCommandInput,
-    DescribeCodeReviewCommandOutput,
-    CodeGuruReviewerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeGuruReviewerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGuruFrontendService", "DescribeCodeReview", {})
-  .n("CodeGuruReviewerClient", "DescribeCodeReviewCommand")
-  .sc(DescribeCodeReview$)
-  .build() {
+export class DescribeCodeReviewCommand extends command<DescribeCodeReviewCommandInput, DescribeCodeReviewCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCodeReview",
+  DescribeCodeReview$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

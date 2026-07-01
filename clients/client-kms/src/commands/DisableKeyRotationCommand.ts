@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisableKeyRotationRequest } from "../models/models_0";
 import { DisableKeyRotation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisableKeyRotation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -158,22 +154,12 @@ export interface DisableKeyRotationCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DisableKeyRotationCommand extends $Command
-  .classBuilder<
-    DisableKeyRotationCommandInput,
-    DisableKeyRotationCommandOutput,
-    KMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrentService", "DisableKeyRotation", {})
-  .n("KMSClient", "DisableKeyRotationCommand")
-  .sc(DisableKeyRotation$)
-  .build() {
+export class DisableKeyRotationCommand extends command<DisableKeyRotationCommandInput, DisableKeyRotationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableKeyRotation",
+  DisableKeyRotation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

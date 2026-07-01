@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateTrafficMirrorSessionRequest, CreateTrafficMirrorSessionResult } from "../models/models_2";
 import { CreateTrafficMirrorSession$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateTrafficMirrorSession$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface CreateTrafficMirrorSessionCommandOutput extends CreateTrafficMi
  *
  * @public
  */
-export class CreateTrafficMirrorSessionCommand extends $Command
-  .classBuilder<
-    CreateTrafficMirrorSessionCommandInput,
-    CreateTrafficMirrorSessionCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "CreateTrafficMirrorSession", {})
-  .n("EC2Client", "CreateTrafficMirrorSessionCommand")
-  .sc(CreateTrafficMirrorSession$)
-  .build() {
+export class CreateTrafficMirrorSessionCommand extends command<CreateTrafficMirrorSessionCommandInput, CreateTrafficMirrorSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTrafficMirrorSession",
+  CreateTrafficMirrorSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

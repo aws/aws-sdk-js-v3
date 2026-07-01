@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopQueryExecutionInput, StopQueryExecutionOutput } from "../models/models_0";
 import { StopQueryExecution$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopQueryExecution$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +62,12 @@ export interface StopQueryExecutionCommandOutput extends StopQueryExecutionOutpu
  *
  * @public
  */
-export class StopQueryExecutionCommand extends $Command
-  .classBuilder<
-    StopQueryExecutionCommandInput,
-    StopQueryExecutionCommandOutput,
-    AthenaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAthena", "StopQueryExecution", {})
-  .n("AthenaClient", "StopQueryExecutionCommand")
-  .sc(StopQueryExecution$)
-  .build() {
+export class StopQueryExecutionCommand extends command<StopQueryExecutionCommandInput, StopQueryExecutionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopQueryExecution",
+  StopQueryExecution$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

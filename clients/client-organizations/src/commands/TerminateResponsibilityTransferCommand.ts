@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   TerminateResponsibilityTransferRequest,
   TerminateResponsibilityTransferResponse,
 } from "../models/models_0";
-import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { TerminateResponsibilityTransfer$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -516,22 +512,12 @@ export interface TerminateResponsibilityTransferCommandOutput extends TerminateR
  *
  * @public
  */
-export class TerminateResponsibilityTransferCommand extends $Command
-  .classBuilder<
-    TerminateResponsibilityTransferCommandInput,
-    TerminateResponsibilityTransferCommandOutput,
-    OrganizationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrganizationsV20161128", "TerminateResponsibilityTransfer", {})
-  .n("OrganizationsClient", "TerminateResponsibilityTransferCommand")
-  .sc(TerminateResponsibilityTransfer$)
-  .build() {
+export class TerminateResponsibilityTransferCommand extends command<TerminateResponsibilityTransferCommandInput, TerminateResponsibilityTransferCommandOutput>(
+  _ep0,
+  _mw0,
+  "TerminateResponsibilityTransfer",
+  TerminateResponsibilityTransfer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

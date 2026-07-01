@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutDefaultEncryptionConfigurationRequest,
   PutDefaultEncryptionConfigurationResponse,
@@ -19,7 +12,6 @@ import { PutDefaultEncryptionConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface PutDefaultEncryptionConfigurationCommandOutput extends PutDefau
  *
  * @public
  */
-export class PutDefaultEncryptionConfigurationCommand extends $Command
-  .classBuilder<
-    PutDefaultEncryptionConfigurationCommandInput,
-    PutDefaultEncryptionConfigurationCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "PutDefaultEncryptionConfiguration", {})
-  .n("IoTManagedIntegrationsClient", "PutDefaultEncryptionConfigurationCommand")
-  .sc(PutDefaultEncryptionConfiguration$)
-  .build() {
+export class PutDefaultEncryptionConfigurationCommand extends command<PutDefaultEncryptionConfigurationCommandInput, PutDefaultEncryptionConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutDefaultEncryptionConfiguration",
+  PutDefaultEncryptionConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

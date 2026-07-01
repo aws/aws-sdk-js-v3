@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePortfolioShareInput, UpdatePortfolioShareOutput } from "../models/models_0";
 import { UpdatePortfolioShare$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +92,12 @@ export interface UpdatePortfolioShareCommandOutput extends UpdatePortfolioShareO
  *
  * @public
  */
-export class UpdatePortfolioShareCommand extends $Command
-  .classBuilder<
-    UpdatePortfolioShareCommandInput,
-    UpdatePortfolioShareCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "UpdatePortfolioShare", {})
-  .n("ServiceCatalogClient", "UpdatePortfolioShareCommand")
-  .sc(UpdatePortfolioShare$)
-  .build() {
+export class UpdatePortfolioShareCommand extends command<UpdatePortfolioShareCommandInput, UpdatePortfolioShareCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePortfolioShare",
+  UpdatePortfolioShare$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

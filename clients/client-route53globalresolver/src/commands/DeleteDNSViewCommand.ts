@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDNSViewInput, DeleteDNSViewOutput } from "../models/models_0";
-import type {
-  Route53GlobalResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53GlobalResolverClient";
 import { DeleteDNSView$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +84,12 @@ export interface DeleteDNSViewCommandOutput extends DeleteDNSViewOutput, __Metad
  *
  * @public
  */
-export class DeleteDNSViewCommand extends $Command
-  .classBuilder<
-    DeleteDNSViewCommandInput,
-    DeleteDNSViewCommandOutput,
-    Route53GlobalResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53GlobalResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EC2DNSGlobalResolverCustomerAPI", "DeleteDNSView", {})
-  .n("Route53GlobalResolverClient", "DeleteDNSViewCommand")
-  .sc(DeleteDNSView$)
-  .build() {
+export class DeleteDNSViewCommand extends command<DeleteDNSViewCommandInput, DeleteDNSViewCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDNSView",
+  DeleteDNSView$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

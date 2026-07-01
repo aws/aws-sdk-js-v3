@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateTrustStoreRequest, CreateTrustStoreResponse } from "../models/models_0";
 import { CreateTrustStore$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface CreateTrustStoreCommandOutput extends CreateTrustStoreResponse,
  *
  * @public
  */
-export class CreateTrustStoreCommand extends $Command
-  .classBuilder<
-    CreateTrustStoreCommandInput,
-    CreateTrustStoreCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "CreateTrustStore", {})
-  .n("WorkSpacesWebClient", "CreateTrustStoreCommand")
-  .sc(CreateTrustStore$)
-  .build() {
+export class CreateTrustStoreCommand extends command<CreateTrustStoreCommandInput, CreateTrustStoreCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTrustStore",
+  CreateTrustStore$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

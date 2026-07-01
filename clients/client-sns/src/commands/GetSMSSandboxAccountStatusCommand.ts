@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSMSSandboxAccountStatusInput, GetSMSSandboxAccountStatusResult } from "../models/models_0";
 import { GetSMSSandboxAccountStatus$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface GetSMSSandboxAccountStatusCommandOutput extends GetSMSSandboxAc
  *
  * @public
  */
-export class GetSMSSandboxAccountStatusCommand extends $Command
-  .classBuilder<
-    GetSMSSandboxAccountStatusCommandInput,
-    GetSMSSandboxAccountStatusCommandOutput,
-    SNSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSimpleNotificationService", "GetSMSSandboxAccountStatus", {})
-  .n("SNSClient", "GetSMSSandboxAccountStatusCommand")
-  .sc(GetSMSSandboxAccountStatus$)
-  .build() {
+export class GetSMSSandboxAccountStatusCommand extends command<GetSMSSandboxAccountStatusCommandInput, GetSMSSandboxAccountStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSMSSandboxAccountStatus",
+  GetSMSSandboxAccountStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

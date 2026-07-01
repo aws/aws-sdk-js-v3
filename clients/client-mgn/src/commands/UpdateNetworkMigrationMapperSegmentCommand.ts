@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { NetworkMigrationMapperSegment, UpdateNetworkMigrationMapperSegmentRequest } from "../models/models_0";
 import { UpdateNetworkMigrationMapperSegment$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateNetworkMigrationMapperSegment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +129,12 @@ export interface UpdateNetworkMigrationMapperSegmentCommandOutput extends Networ
  *
  * @public
  */
-export class UpdateNetworkMigrationMapperSegmentCommand extends $Command
-  .classBuilder<
-    UpdateNetworkMigrationMapperSegmentCommandInput,
-    UpdateNetworkMigrationMapperSegmentCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "UpdateNetworkMigrationMapperSegment", {})
-  .n("MgnClient", "UpdateNetworkMigrationMapperSegmentCommand")
-  .sc(UpdateNetworkMigrationMapperSegment$)
-  .build() {
+export class UpdateNetworkMigrationMapperSegmentCommand extends command<UpdateNetworkMigrationMapperSegmentCommandInput, UpdateNetworkMigrationMapperSegmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateNetworkMigrationMapperSegment",
+  UpdateNetworkMigrationMapperSegment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

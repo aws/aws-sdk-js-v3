@@ -1,11 +1,8 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import { Uint8ArrayBlobAdapter } from "@smithy/core/serde";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFunctionRequest, GetFunctionResult } from "../models/models_0";
 import { GetFunction$ } from "../schemas/schemas_0";
 
@@ -13,7 +10,6 @@ import { GetFunction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface GetFunctionCommandOutput extends GetFunctionCommandOutputType, 
  *
  * @public
  */
-export class GetFunctionCommand extends $Command
-  .classBuilder<
-    GetFunctionCommandInput,
-    GetFunctionCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "GetFunction", {})
-  .n("CloudFrontClient", "GetFunctionCommand")
-  .sc(GetFunction$)
-  .build() {
+export class GetFunctionCommand extends command<GetFunctionCommandInput, GetFunctionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFunction",
+  GetFunction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

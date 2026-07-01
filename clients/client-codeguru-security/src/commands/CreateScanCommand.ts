@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeGuruSecurityClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeGuruSecurityClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateScanRequest, CreateScanResponse } from "../models/models_0";
 import { CreateScan$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateScan$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface CreateScanCommandOutput extends CreateScanResponse, __MetadataB
  *
  * @public
  */
-export class CreateScanCommand extends $Command
-  .classBuilder<
-    CreateScanCommandInput,
-    CreateScanCommandOutput,
-    CodeGuruSecurityClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeGuruSecurityClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsCodeGuruSecurity", "CreateScan", {})
-  .n("CodeGuruSecurityClient", "CreateScanCommand")
-  .sc(CreateScan$)
-  .build() {
+export class CreateScanCommand extends command<CreateScanCommandInput, CreateScanCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateScan",
+  CreateScan$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

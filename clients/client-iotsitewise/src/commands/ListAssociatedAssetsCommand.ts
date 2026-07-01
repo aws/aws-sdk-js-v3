@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAssociatedAssetsRequest, ListAssociatedAssetsResponse } from "../models/models_0";
 import { ListAssociatedAssets$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAssociatedAssets$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  *
  * @public
  */
-export class ListAssociatedAssetsCommand extends $Command
-  .classBuilder<
-    ListAssociatedAssetsCommandInput,
-    ListAssociatedAssetsCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "ListAssociatedAssets", {})
-  .n("IoTSiteWiseClient", "ListAssociatedAssetsCommand")
-  .sc(ListAssociatedAssets$)
-  .build() {
+export class ListAssociatedAssetsCommand extends command<ListAssociatedAssetsCommandInput, ListAssociatedAssetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAssociatedAssets",
+  ListAssociatedAssets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

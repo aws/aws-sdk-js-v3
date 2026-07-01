@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeSettingsRequest, DescribeSettingsResult } from "../models/models_0";
 import { DescribeSettings$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeSettings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +93,12 @@ export interface DescribeSettingsCommandOutput extends DescribeSettingsResult, _
  *
  * @public
  */
-export class DescribeSettingsCommand extends $Command
-  .classBuilder<
-    DescribeSettingsCommandInput,
-    DescribeSettingsCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "DescribeSettings", {})
-  .n("DirectoryServiceClient", "DescribeSettingsCommand")
-  .sc(DescribeSettings$)
-  .build() {
+export class DescribeSettingsCommand extends command<DescribeSettingsCommandInput, DescribeSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSettings",
+  DescribeSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

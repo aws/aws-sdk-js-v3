@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopGraphInput, StopGraphOutput } from "../models/models_0";
-import type { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
 import { StopGraph$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,25 +86,12 @@ export interface StopGraphCommandOutput extends StopGraphOutput, __MetadataBeare
  *
  * @public
  */
-export class StopGraphCommand extends $Command
-  .classBuilder<
-    StopGraphCommandInput,
-    StopGraphCommandOutput,
-    NeptuneGraphClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ApiType: { type: "staticContextParams", value: `ControlPlane` },
-  })
-  .m(function (this: any, Command: any, cs: any, config: NeptuneGraphClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneGraph", "StopGraph", {})
-  .n("NeptuneGraphClient", "StopGraphCommand")
-  .sc(StopGraph$)
-  .build() {
+export class StopGraphCommand extends command<StopGraphCommandInput, StopGraphCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopGraph",
+  StopGraph$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

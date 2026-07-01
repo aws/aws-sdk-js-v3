@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFlowPermissionsInput, GetFlowPermissionsOutput } from "../models/models_4";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { GetFlowPermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface GetFlowPermissionsCommandOutput extends GetFlowPermissionsOutpu
  *
  * @public
  */
-export class GetFlowPermissionsCommand extends $Command
-  .classBuilder<
-    GetFlowPermissionsCommandInput,
-    GetFlowPermissionsCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "GetFlowPermissions", {})
-  .n("QuickSightClient", "GetFlowPermissionsCommand")
-  .sc(GetFlowPermissions$)
-  .build() {
+export class GetFlowPermissionsCommand extends command<GetFlowPermissionsCommandInput, GetFlowPermissionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFlowPermissions",
+  GetFlowPermissions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

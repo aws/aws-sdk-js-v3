@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFlowAliasRequest, CreateFlowAliasResponse } from "../models/models_0";
 import { CreateFlowAlias$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateFlowAlias$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface CreateFlowAliasCommandOutput extends CreateFlowAliasResponse, _
  *
  * @public
  */
-export class CreateFlowAliasCommand extends $Command
-  .classBuilder<
-    CreateFlowAliasCommandInput,
-    CreateFlowAliasCommandOutput,
-    BedrockAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentBuildTimeLambda", "CreateFlowAlias", {})
-  .n("BedrockAgentClient", "CreateFlowAliasCommand")
-  .sc(CreateFlowAlias$)
-  .build() {
+export class CreateFlowAliasCommand extends command<CreateFlowAliasCommandInput, CreateFlowAliasCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateFlowAlias",
+  CreateFlowAlias$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

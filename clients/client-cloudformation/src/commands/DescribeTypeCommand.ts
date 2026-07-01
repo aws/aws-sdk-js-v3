@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeTypeInput, DescribeTypeOutput } from "../models/models_0";
 import { DescribeType$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +111,12 @@ export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __Metadat
  *
  * @public
  */
-export class DescribeTypeCommand extends $Command
-  .classBuilder<
-    DescribeTypeCommandInput,
-    DescribeTypeCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "DescribeType", {})
-  .n("CloudFormationClient", "DescribeTypeCommand")
-  .sc(DescribeType$)
-  .build() {
+export class DescribeTypeCommand extends command<DescribeTypeCommandInput, DescribeTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeType",
+  DescribeType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

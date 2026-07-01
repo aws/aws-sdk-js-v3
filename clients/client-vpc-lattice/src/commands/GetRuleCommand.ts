@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRuleRequest, GetRuleResponse } from "../models/models_0";
 import { GetRule$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +114,12 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  *
  * @public
  */
-export class GetRuleCommand extends $Command
-  .classBuilder<
-    GetRuleCommandInput,
-    GetRuleCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "GetRule", {})
-  .n("VPCLatticeClient", "GetRuleCommand")
-  .sc(GetRule$)
-  .build() {
+export class GetRuleCommand extends command<GetRuleCommandInput, GetRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRule",
+  GetRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

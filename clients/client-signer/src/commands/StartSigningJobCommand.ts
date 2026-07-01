@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartSigningJobRequest, StartSigningJobResponse } from "../models/models_0";
 import { StartSigningJob$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  *
  * @public
  */
-export class StartSigningJobCommand extends $Command
-  .classBuilder<
-    StartSigningJobCommandInput,
-    StartSigningJobCommandOutput,
-    SignerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SignerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WallabyService", "StartSigningJob", {})
-  .n("SignerClient", "StartSigningJobCommand")
-  .sc(StartSigningJob$)
-  .build() {
+export class StartSigningJobCommand extends command<StartSigningJobCommandInput, StartSigningJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartSigningJob",
+  StartSigningJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

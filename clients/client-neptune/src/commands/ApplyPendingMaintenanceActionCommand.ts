@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ApplyPendingMaintenanceActionMessage, ApplyPendingMaintenanceActionResult } from "../models/models_0";
-import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import { ApplyPendingMaintenanceAction$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface ApplyPendingMaintenanceActionCommandOutput extends ApplyPending
  *
  * @public
  */
-export class ApplyPendingMaintenanceActionCommand extends $Command
-  .classBuilder<
-    ApplyPendingMaintenanceActionCommandInput,
-    ApplyPendingMaintenanceActionCommandOutput,
-    NeptuneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "ApplyPendingMaintenanceAction", {})
-  .n("NeptuneClient", "ApplyPendingMaintenanceActionCommand")
-  .sc(ApplyPendingMaintenanceAction$)
-  .build() {
+export class ApplyPendingMaintenanceActionCommand extends command<ApplyPendingMaintenanceActionCommandInput, ApplyPendingMaintenanceActionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ApplyPendingMaintenanceAction",
+  ApplyPendingMaintenanceAction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

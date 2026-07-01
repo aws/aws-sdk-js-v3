@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UntagInput, UntagOutput } from "../models/models_0";
-import type {
-  ResourceGroupsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceGroupsClient";
 import { Untag$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface UntagCommandOutput extends UntagOutput, __MetadataBearer {}
  *
  * @public
  */
-export class UntagCommand extends $Command
-  .classBuilder<
-    UntagCommandInput,
-    UntagCommandOutput,
-    ResourceGroupsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceGroupsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Ardi", "Untag", {})
-  .n("ResourceGroupsClient", "UntagCommand")
-  .sc(Untag$)
-  .build() {
+export class UntagCommand extends command<UntagCommandInput, UntagCommandOutput>(
+  _ep0,
+  _mw0,
+  "Untag",
+  Untag$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

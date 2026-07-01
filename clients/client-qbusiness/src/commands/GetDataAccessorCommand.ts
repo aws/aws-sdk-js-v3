@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDataAccessorRequest } from "../models/models_0";
 import type { GetDataAccessorResponse } from "../models/models_1";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { GetDataAccessor$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -182,22 +178,12 @@ export interface GetDataAccessorCommandOutput extends GetDataAccessorResponse, _
  *
  * @public
  */
-export class GetDataAccessorCommand extends $Command
-  .classBuilder<
-    GetDataAccessorCommandInput,
-    GetDataAccessorCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "GetDataAccessor", {})
-  .n("QBusinessClient", "GetDataAccessorCommand")
-  .sc(GetDataAccessor$)
-  .build() {
+export class GetDataAccessorCommand extends command<GetDataAccessorCommandInput, GetDataAccessorCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDataAccessor",
+  GetDataAccessor$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

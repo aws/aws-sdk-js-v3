@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMemberInput, DeleteMemberOutput } from "../models/models_0";
 import { DeleteMember$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteMember$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  *
  * @public
  */
-export class DeleteMemberCommand extends $Command
-  .classBuilder<
-    DeleteMemberCommandInput,
-    DeleteMemberCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "DeleteMember", {})
-  .n("CleanRoomsClient", "DeleteMemberCommand")
-  .sc(DeleteMember$)
-  .build() {
+export class DeleteMemberCommand extends command<DeleteMemberCommandInput, DeleteMemberCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMember",
+  DeleteMember$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelResourceRequestInput, CancelResourceRequestOutput } from "../models/models_0";
 import { CancelResourceRequest$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CancelResourceRequest$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface CancelResourceRequestCommandOutput extends CancelResourceReques
  *
  * @public
  */
-export class CancelResourceRequestCommand extends $Command
-  .classBuilder<
-    CancelResourceRequestCommandInput,
-    CancelResourceRequestCommandOutput,
-    CloudControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudApiService", "CancelResourceRequest", {})
-  .n("CloudControlClient", "CancelResourceRequestCommand")
-  .sc(CancelResourceRequest$)
-  .build() {
+export class CancelResourceRequestCommand extends command<CancelResourceRequestCommandInput, CancelResourceRequestCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelResourceRequest",
+  CancelResourceRequest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

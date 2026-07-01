@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateTrustRequest, CreateTrustResult } from "../models/models_0";
 import { CreateTrust$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateTrust$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +112,12 @@ export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataB
  *
  * @public
  */
-export class CreateTrustCommand extends $Command
-  .classBuilder<
-    CreateTrustCommandInput,
-    CreateTrustCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "CreateTrust", {})
-  .n("DirectoryServiceClient", "CreateTrustCommand")
-  .sc(CreateTrust$)
-  .build() {
+export class CreateTrustCommand extends command<CreateTrustCommandInput, CreateTrustCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTrust",
+  CreateTrust$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

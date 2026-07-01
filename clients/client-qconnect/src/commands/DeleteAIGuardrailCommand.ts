@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAIGuardrailRequest, DeleteAIGuardrailResponse } from "../models/models_0";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { DeleteAIGuardrail$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteAIGuardrailCommandOutput extends DeleteAIGuardrailRespons
  *
  * @public
  */
-export class DeleteAIGuardrailCommand extends $Command
-  .classBuilder<
-    DeleteAIGuardrailCommandInput,
-    DeleteAIGuardrailCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "DeleteAIGuardrail", {})
-  .n("QConnectClient", "DeleteAIGuardrailCommand")
-  .sc(DeleteAIGuardrail$)
-  .build() {
+export class DeleteAIGuardrailCommand extends command<DeleteAIGuardrailCommandInput, DeleteAIGuardrailCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAIGuardrail",
+  DeleteAIGuardrail$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

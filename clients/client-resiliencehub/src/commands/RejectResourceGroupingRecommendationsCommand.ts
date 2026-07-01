@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   RejectResourceGroupingRecommendationsRequest,
   RejectResourceGroupingRecommendationsResponse,
 } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { RejectResourceGroupingRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface RejectResourceGroupingRecommendationsCommandOutput extends Reje
  *
  * @public
  */
-export class RejectResourceGroupingRecommendationsCommand extends $Command
-  .classBuilder<
-    RejectResourceGroupingRecommendationsCommandInput,
-    RejectResourceGroupingRecommendationsCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "RejectResourceGroupingRecommendations", {})
-  .n("ResiliencehubClient", "RejectResourceGroupingRecommendationsCommand")
-  .sc(RejectResourceGroupingRecommendations$)
-  .build() {
+export class RejectResourceGroupingRecommendationsCommand extends command<RejectResourceGroupingRecommendationsCommandInput, RejectResourceGroupingRecommendationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "RejectResourceGroupingRecommendations",
+  RejectResourceGroupingRecommendations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

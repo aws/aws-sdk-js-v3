@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRuleRequest, CreateRuleResponse } from "../models/models_0";
 import { CreateRule$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -184,22 +180,12 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *
  * @public
  */
-export class CreateRuleCommand extends $Command
-  .classBuilder<
-    CreateRuleCommandInput,
-    CreateRuleCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "CreateRule", {})
-  .n("ConnectClient", "CreateRuleCommand")
-  .sc(CreateRule$)
-  .build() {
+export class CreateRuleCommand extends command<CreateRuleCommandInput, CreateRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRule",
+  CreateRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

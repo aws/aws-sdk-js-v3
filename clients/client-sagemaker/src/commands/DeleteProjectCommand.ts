@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteProjectInput } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DeleteProject$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -60,22 +56,12 @@ export interface DeleteProjectCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteProjectCommand extends $Command
-  .classBuilder<
-    DeleteProjectCommandInput,
-    DeleteProjectCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DeleteProject", {})
-  .n("SageMakerClient", "DeleteProjectCommand")
-  .sc(DeleteProject$)
-  .build() {
+export class DeleteProjectCommand extends command<DeleteProjectCommandInput, DeleteProjectCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteProject",
+  DeleteProject$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

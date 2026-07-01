@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutAlarmMuteRuleInput } from "../models/models_0";
 import { PutAlarmMuteRule$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutAlarmMuteRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface PutAlarmMuteRuleCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutAlarmMuteRuleCommand extends $Command
-  .classBuilder<
-    PutAlarmMuteRuleCommandInput,
-    PutAlarmMuteRuleCommandOutput,
-    CloudWatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GraniteServiceVersion20100801", "PutAlarmMuteRule", {})
-  .n("CloudWatchClient", "PutAlarmMuteRuleCommand")
-  .sc(PutAlarmMuteRule$)
-  .build() {
+export class PutAlarmMuteRuleCommand extends command<PutAlarmMuteRuleCommandInput, PutAlarmMuteRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAlarmMuteRule",
+  PutAlarmMuteRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

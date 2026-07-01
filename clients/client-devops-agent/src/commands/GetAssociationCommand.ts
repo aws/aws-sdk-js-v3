@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAssociationInput, GetAssociationOutput } from "../models/models_0";
 import { GetAssociation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -192,22 +188,12 @@ export interface GetAssociationCommandOutput extends GetAssociationOutput, __Met
  *
  * @public
  */
-export class GetAssociationCommand extends $Command
-  .classBuilder<
-    GetAssociationCommandInput,
-    GetAssociationCommandOutput,
-    DevOpsAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DevOpsAgent", "GetAssociation", {})
-  .n("DevOpsAgentClient", "GetAssociationCommand")
-  .sc(GetAssociation$)
-  .build() {
+export class GetAssociationCommand extends command<GetAssociationCommandInput, GetAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAssociation",
+  GetAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

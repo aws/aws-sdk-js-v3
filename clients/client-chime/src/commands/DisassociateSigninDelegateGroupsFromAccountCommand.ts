@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateSigninDelegateGroupsFromAccountRequest,
   DisassociateSigninDelegateGroupsFromAccountResponse,
@@ -15,7 +12,6 @@ import { DisassociateSigninDelegateGroupsFromAccount$ } from "../schemas/schemas
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DisassociateSigninDelegateGroupsFromAccountCommandOutput extend
  *
  * @public
  */
-export class DisassociateSigninDelegateGroupsFromAccountCommand extends $Command
-  .classBuilder<
-    DisassociateSigninDelegateGroupsFromAccountCommandInput,
-    DisassociateSigninDelegateGroupsFromAccountCommandOutput,
-    ChimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("UCBuzzConsoleService", "DisassociateSigninDelegateGroupsFromAccount", {})
-  .n("ChimeClient", "DisassociateSigninDelegateGroupsFromAccountCommand")
-  .sc(DisassociateSigninDelegateGroupsFromAccount$)
-  .build() {
+export class DisassociateSigninDelegateGroupsFromAccountCommand extends command<DisassociateSigninDelegateGroupsFromAccountCommandInput, DisassociateSigninDelegateGroupsFromAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateSigninDelegateGroupsFromAccount",
+  DisassociateSigninDelegateGroupsFromAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

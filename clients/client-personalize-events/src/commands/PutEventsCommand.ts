@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutEventsRequest } from "../models/models_0";
-import type {
-  PersonalizeEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PersonalizeEventsClient";
 import { PutEvents$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface PutEventsCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutEventsCommand extends $Command
-  .classBuilder<
-    PutEventsCommandInput,
-    PutEventsCommandOutput,
-    PersonalizeEventsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PersonalizeEventsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPersonalizeEvents", "PutEvents", {})
-  .n("PersonalizeEventsClient", "PutEventsCommand")
-  .sc(PutEvents$)
-  .build() {
+export class PutEventsCommand extends command<PutEventsCommandInput, PutEventsCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutEvents",
+  PutEvents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,5 +1,11 @@
 // smithy-typescript generated code
-import type { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provider } from "@smithy/types";
+import type {
+  Endpoint,
+  EndpointParameterInstructions,
+  EndpointParameters as __EndpointParameters,
+  EndpointV2,
+  Provider,
+} from "@smithy/types";
 
 /**
  * @public
@@ -43,7 +49,7 @@ export const commonParams = {
   Region: { type: "builtInParams", name: "region" },
   UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
   AccountIdEndpointMode: { type: "builtInParams", name: "accountIdEndpointMode" },
-} as const;
+} as const satisfies EndpointParameterInstructions;
 
 /**
  * @internal

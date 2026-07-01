@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateWorkloadIdentityRequest, CreateWorkloadIdentityResponse } from "../models/models_2";
 import { CreateWorkloadIdentity$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateWorkloadIdentity$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface CreateWorkloadIdentityCommandOutput extends CreateWorkloadIdent
  *
  * @public
  */
-export class CreateWorkloadIdentityCommand extends $Command
-  .classBuilder<
-    CreateWorkloadIdentityCommandInput,
-    CreateWorkloadIdentityCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "CreateWorkloadIdentity", {})
-  .n("BedrockAgentCoreControlClient", "CreateWorkloadIdentityCommand")
-  .sc(CreateWorkloadIdentity$)
-  .build() {
+export class CreateWorkloadIdentityCommand extends command<CreateWorkloadIdentityCommandInput, CreateWorkloadIdentityCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateWorkloadIdentity",
+  CreateWorkloadIdentity$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

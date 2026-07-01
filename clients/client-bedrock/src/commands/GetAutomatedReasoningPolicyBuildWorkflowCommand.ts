@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetAutomatedReasoningPolicyBuildWorkflowRequest,
   GetAutomatedReasoningPolicyBuildWorkflowResponse,
@@ -15,7 +12,6 @@ import { GetAutomatedReasoningPolicyBuildWorkflow$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface GetAutomatedReasoningPolicyBuildWorkflowCommandOutput extends G
  *
  * @public
  */
-export class GetAutomatedReasoningPolicyBuildWorkflowCommand extends $Command
-  .classBuilder<
-    GetAutomatedReasoningPolicyBuildWorkflowCommandInput,
-    GetAutomatedReasoningPolicyBuildWorkflowCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "GetAutomatedReasoningPolicyBuildWorkflow", {})
-  .n("BedrockClient", "GetAutomatedReasoningPolicyBuildWorkflowCommand")
-  .sc(GetAutomatedReasoningPolicyBuildWorkflow$)
-  .build() {
+export class GetAutomatedReasoningPolicyBuildWorkflowCommand extends command<GetAutomatedReasoningPolicyBuildWorkflowCommandInput, GetAutomatedReasoningPolicyBuildWorkflowCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAutomatedReasoningPolicyBuildWorkflow",
+  GetAutomatedReasoningPolicyBuildWorkflow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

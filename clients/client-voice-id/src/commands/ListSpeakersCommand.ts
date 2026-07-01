@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSpeakersRequest, ListSpeakersResponse } from "../models/models_0";
 import { ListSpeakers$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface ListSpeakersCommandOutput extends ListSpeakersResponse, __Metad
  *
  * @public
  */
-export class ListSpeakersCommand extends $Command
-  .classBuilder<
-    ListSpeakersCommandInput,
-    ListSpeakersCommandOutput,
-    VoiceIDClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("VoiceID", "ListSpeakers", {})
-  .n("VoiceIDClient", "ListSpeakersCommand")
-  .sc(ListSpeakers$)
-  .build() {
+export class ListSpeakersCommand extends command<ListSpeakersCommandInput, ListSpeakersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSpeakers",
+  ListSpeakers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

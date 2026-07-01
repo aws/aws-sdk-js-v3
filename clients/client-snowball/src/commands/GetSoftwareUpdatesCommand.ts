@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSoftwareUpdatesRequest, GetSoftwareUpdatesResult } from "../models/models_0";
 import { GetSoftwareUpdates$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface GetSoftwareUpdatesCommandOutput extends GetSoftwareUpdatesResul
  *
  * @public
  */
-export class GetSoftwareUpdatesCommand extends $Command
-  .classBuilder<
-    GetSoftwareUpdatesCommandInput,
-    GetSoftwareUpdatesCommandOutput,
-    SnowballClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIESnowballJobManagementService", "GetSoftwareUpdates", {})
-  .n("SnowballClient", "GetSoftwareUpdatesCommand")
-  .sc(GetSoftwareUpdates$)
-  .build() {
+export class GetSoftwareUpdatesCommand extends command<GetSoftwareUpdatesCommandInput, GetSoftwareUpdatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSoftwareUpdates",
+  GetSoftwareUpdates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

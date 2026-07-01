@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListUserProficienciesRequest, ListUserProficienciesResponse } from "../models/models_2";
 import { ListUserProficiencies$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListUserProficiencies$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface ListUserProficienciesCommandOutput extends ListUserProficiencie
  *
  * @public
  */
-export class ListUserProficienciesCommand extends $Command
-  .classBuilder<
-    ListUserProficienciesCommandInput,
-    ListUserProficienciesCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "ListUserProficiencies", {})
-  .n("ConnectClient", "ListUserProficienciesCommand")
-  .sc(ListUserProficiencies$)
-  .build() {
+export class ListUserProficienciesCommand extends command<ListUserProficienciesCommandInput, ListUserProficienciesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListUserProficiencies",
+  ListUserProficiencies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

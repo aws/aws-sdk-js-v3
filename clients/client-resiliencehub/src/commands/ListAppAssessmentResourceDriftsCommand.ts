@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListAppAssessmentResourceDriftsRequest,
   ListAppAssessmentResourceDriftsResponse,
 } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { ListAppAssessmentResourceDrifts$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface ListAppAssessmentResourceDriftsCommandOutput extends ListAppAss
  *
  * @public
  */
-export class ListAppAssessmentResourceDriftsCommand extends $Command
-  .classBuilder<
-    ListAppAssessmentResourceDriftsCommandInput,
-    ListAppAssessmentResourceDriftsCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "ListAppAssessmentResourceDrifts", {})
-  .n("ResiliencehubClient", "ListAppAssessmentResourceDriftsCommand")
-  .sc(ListAppAssessmentResourceDrifts$)
-  .build() {
+export class ListAppAssessmentResourceDriftsCommand extends command<ListAppAssessmentResourceDriftsCommandInput, ListAppAssessmentResourceDriftsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAppAssessmentResourceDrifts",
+  ListAppAssessmentResourceDrifts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudSearchDomainClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudSearchDomainClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchRequest, SearchResponse } from "../models/models_0";
 import { Search$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { Search$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +125,12 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  *
  * @public
  */
-export class SearchCommand extends $Command
-  .classBuilder<
-    SearchCommandInput,
-    SearchCommandOutput,
-    CloudSearchDomainClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudSearchDomainClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonCloudSearch2013", "Search", {})
-  .n("CloudSearchDomainClient", "SearchCommand")
-  .sc(Search$)
-  .build() {
+export class SearchCommand extends command<SearchCommandInput, SearchCommandOutput>(
+  _ep0,
+  _mw0,
+  "Search",
+  Search$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

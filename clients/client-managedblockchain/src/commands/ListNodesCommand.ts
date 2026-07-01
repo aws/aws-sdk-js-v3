@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  ManagedBlockchainClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ManagedBlockchainClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListNodesInput, ListNodesOutput } from "../models/models_0";
 import { ListNodes$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListNodes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface ListNodesCommandOutput extends ListNodesOutput, __MetadataBeare
  *
  * @public
  */
-export class ListNodesCommand extends $Command
-  .classBuilder<
-    ListNodesCommandInput,
-    ListNodesCommandOutput,
-    ManagedBlockchainClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TaigaWebService", "ListNodes", {})
-  .n("ManagedBlockchainClient", "ListNodesCommand")
-  .sc(ListNodes$)
-  .build() {
+export class ListNodesCommand extends command<ListNodesCommandInput, ListNodesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListNodes",
+  ListNodes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

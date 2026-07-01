@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelAnnotationImportRequest, CancelAnnotationImportResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { CancelAnnotationImportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface CancelAnnotationImportJobCommandOutput extends CancelAnnotation
  *
  * @public
  */
-export class CancelAnnotationImportJobCommand extends $Command
-  .classBuilder<
-    CancelAnnotationImportJobCommandInput,
-    CancelAnnotationImportJobCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "CancelAnnotationImportJob", {})
-  .n("OmicsClient", "CancelAnnotationImportJobCommand")
-  .sc(CancelAnnotationImportJob$)
-  .build() {
+export class CancelAnnotationImportJobCommand extends command<CancelAnnotationImportJobCommandInput, CancelAnnotationImportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelAnnotationImportJob",
+  CancelAnnotationImportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

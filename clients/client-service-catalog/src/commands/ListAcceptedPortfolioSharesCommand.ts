@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAcceptedPortfolioSharesInput, ListAcceptedPortfolioSharesOutput } from "../models/models_0";
 import { ListAcceptedPortfolioShares$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface ListAcceptedPortfolioSharesCommandOutput extends ListAcceptedPo
  *
  * @public
  */
-export class ListAcceptedPortfolioSharesCommand extends $Command
-  .classBuilder<
-    ListAcceptedPortfolioSharesCommandInput,
-    ListAcceptedPortfolioSharesCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "ListAcceptedPortfolioShares", {})
-  .n("ServiceCatalogClient", "ListAcceptedPortfolioSharesCommand")
-  .sc(ListAcceptedPortfolioShares$)
-  .build() {
+export class ListAcceptedPortfolioSharesCommand extends command<ListAcceptedPortfolioSharesCommandInput, ListAcceptedPortfolioSharesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAcceptedPortfolioShares",
+  ListAcceptedPortfolioShares$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

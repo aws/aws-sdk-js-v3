@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAdminsManagingAccountRequest, ListAdminsManagingAccountResponse } from "../models/models_0";
 import { ListAdminsManagingAccount$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAdminsManagingAccount$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface ListAdminsManagingAccountCommandOutput extends ListAdminsManagi
  *
  * @public
  */
-export class ListAdminsManagingAccountCommand extends $Command
-  .classBuilder<
-    ListAdminsManagingAccountCommandInput,
-    ListAdminsManagingAccountCommandOutput,
-    FMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSFMS_20180101", "ListAdminsManagingAccount", {})
-  .n("FMSClient", "ListAdminsManagingAccountCommand")
-  .sc(ListAdminsManagingAccount$)
-  .build() {
+export class ListAdminsManagingAccountCommand extends command<ListAdminsManagingAccountCommandInput, ListAdminsManagingAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAdminsManagingAccount",
+  ListAdminsManagingAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

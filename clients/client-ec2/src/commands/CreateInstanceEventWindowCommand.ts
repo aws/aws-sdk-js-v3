@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateInstanceEventWindowRequest, CreateInstanceEventWindowResult } from "../models/models_1";
 import { CreateInstanceEventWindow$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateInstanceEventWindow$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -135,22 +131,12 @@ export interface CreateInstanceEventWindowCommandOutput extends CreateInstanceEv
  *
  * @public
  */
-export class CreateInstanceEventWindowCommand extends $Command
-  .classBuilder<
-    CreateInstanceEventWindowCommandInput,
-    CreateInstanceEventWindowCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "CreateInstanceEventWindow", {})
-  .n("EC2Client", "CreateInstanceEventWindowCommand")
-  .sc(CreateInstanceEventWindow$)
-  .build() {
+export class CreateInstanceEventWindowCommand extends command<CreateInstanceEventWindowCommandInput, CreateInstanceEventWindowCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateInstanceEventWindow",
+  CreateInstanceEventWindow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

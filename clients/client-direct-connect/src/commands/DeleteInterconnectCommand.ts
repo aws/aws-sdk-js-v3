@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteInterconnectRequest, DeleteInterconnectResponse } from "../models/models_0";
 import { DeleteInterconnect$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteInterconnect$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteInterconnectCommandOutput extends DeleteInterconnectRespo
  *
  * @public
  */
-export class DeleteInterconnectCommand extends $Command
-  .classBuilder<
-    DeleteInterconnectCommandInput,
-    DeleteInterconnectCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "DeleteInterconnect", {})
-  .n("DirectConnectClient", "DeleteInterconnectCommand")
-  .sc(DeleteInterconnect$)
-  .build() {
+export class DeleteInterconnectCommand extends command<DeleteInterconnectCommandInput, DeleteInterconnectCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteInterconnect",
+  DeleteInterconnect$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

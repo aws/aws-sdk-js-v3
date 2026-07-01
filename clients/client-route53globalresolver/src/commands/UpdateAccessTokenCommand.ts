@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAccessTokenInput, UpdateAccessTokenOutput } from "../models/models_0";
-import type {
-  Route53GlobalResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53GlobalResolverClient";
 import { UpdateAccessToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface UpdateAccessTokenCommandOutput extends UpdateAccessTokenOutput,
  *
  * @public
  */
-export class UpdateAccessTokenCommand extends $Command
-  .classBuilder<
-    UpdateAccessTokenCommandInput,
-    UpdateAccessTokenCommandOutput,
-    Route53GlobalResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53GlobalResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EC2DNSGlobalResolverCustomerAPI", "UpdateAccessToken", {})
-  .n("Route53GlobalResolverClient", "UpdateAccessTokenCommand")
-  .sc(UpdateAccessToken$)
-  .build() {
+export class UpdateAccessTokenCommand extends command<UpdateAccessTokenCommandInput, UpdateAccessTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAccessToken",
+  UpdateAccessToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

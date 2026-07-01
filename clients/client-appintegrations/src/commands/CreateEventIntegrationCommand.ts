@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AppIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AppIntegrationsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateEventIntegrationRequest, CreateEventIntegrationResponse } from "../models/models_0";
 import { CreateEventIntegration$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateEventIntegration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface CreateEventIntegrationCommandOutput extends CreateEventIntegrat
  *
  * @public
  */
-export class CreateEventIntegrationCommand extends $Command
-  .classBuilder<
-    CreateEventIntegrationCommandInput,
-    CreateEventIntegrationCommandOutput,
-    AppIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAppIntegrationService", "CreateEventIntegration", {})
-  .n("AppIntegrationsClient", "CreateEventIntegrationCommand")
-  .sc(CreateEventIntegration$)
-  .build() {
+export class CreateEventIntegrationCommand extends command<CreateEventIntegrationCommandInput, CreateEventIntegrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateEventIntegration",
+  CreateEventIntegration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

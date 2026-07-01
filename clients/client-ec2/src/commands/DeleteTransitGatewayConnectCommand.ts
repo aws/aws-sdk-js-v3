@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTransitGatewayConnectRequest, DeleteTransitGatewayConnectResult } from "../models/models_3";
 import { DeleteTransitGatewayConnect$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteTransitGatewayConnect$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteTransitGatewayConnectCommandOutput extends DeleteTransitG
  *
  * @public
  */
-export class DeleteTransitGatewayConnectCommand extends $Command
-  .classBuilder<
-    DeleteTransitGatewayConnectCommandInput,
-    DeleteTransitGatewayConnectCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeleteTransitGatewayConnect", {})
-  .n("EC2Client", "DeleteTransitGatewayConnectCommand")
-  .sc(DeleteTransitGatewayConnect$)
-  .build() {
+export class DeleteTransitGatewayConnectCommand extends command<DeleteTransitGatewayConnectCommandInput, DeleteTransitGatewayConnectCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTransitGatewayConnect",
+  DeleteTransitGatewayConnect$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

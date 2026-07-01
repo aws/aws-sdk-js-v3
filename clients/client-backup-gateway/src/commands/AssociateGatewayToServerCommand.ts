@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateGatewayToServerInput, AssociateGatewayToServerOutput } from "../models/models_0";
 import { AssociateGatewayToServer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateGatewayToServer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayT
  *
  * @public
  */
-export class AssociateGatewayToServerCommand extends $Command
-  .classBuilder<
-    AssociateGatewayToServerCommandInput,
-    AssociateGatewayToServerCommandOutput,
-    BackupGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackupOnPremises_v20210101", "AssociateGatewayToServer", {})
-  .n("BackupGatewayClient", "AssociateGatewayToServerCommand")
-  .sc(AssociateGatewayToServer$)
-  .build() {
+export class AssociateGatewayToServerCommand extends command<AssociateGatewayToServerCommandInput, AssociateGatewayToServerCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateGatewayToServer",
+  AssociateGatewayToServer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

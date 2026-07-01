@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListPermissionSetProvisioningStatusRequest,
   ListPermissionSetProvisioningStatusResponse,
 } from "../models/models_0";
 import { ListPermissionSetProvisioningStatus$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ListPermissionSetProvisioningStatusCommandOutput extends ListPe
  *
  * @public
  */
-export class ListPermissionSetProvisioningStatusCommand extends $Command
-  .classBuilder<
-    ListPermissionSetProvisioningStatusCommandInput,
-    ListPermissionSetProvisioningStatusCommandOutput,
-    SSOAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBExternalService", "ListPermissionSetProvisioningStatus", {})
-  .n("SSOAdminClient", "ListPermissionSetProvisioningStatusCommand")
-  .sc(ListPermissionSetProvisioningStatus$)
-  .build() {
+export class ListPermissionSetProvisioningStatusCommand extends command<ListPermissionSetProvisioningStatusCommandInput, ListPermissionSetProvisioningStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPermissionSetProvisioningStatus",
+  ListPermissionSetProvisioningStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

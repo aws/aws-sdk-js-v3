@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteLFTagRequest, DeleteLFTagResponse } from "../models/models_0";
 import { DeleteLFTag$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteLFTag$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DeleteLFTagCommandOutput extends DeleteLFTagResponse, __Metadat
  *
  * @public
  */
-export class DeleteLFTagCommand extends $Command
-  .classBuilder<
-    DeleteLFTagCommandInput,
-    DeleteLFTagCommandOutput,
-    LakeFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLakeFormation", "DeleteLFTag", {})
-  .n("LakeFormationClient", "DeleteLFTagCommand")
-  .sc(DeleteLFTag$)
-  .build() {
+export class DeleteLFTagCommand extends command<DeleteLFTagCommandInput, DeleteLFTagCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteLFTag",
+  DeleteLFTag$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

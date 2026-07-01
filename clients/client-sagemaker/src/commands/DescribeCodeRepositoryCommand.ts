@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeCodeRepositoryInput, DescribeCodeRepositoryOutput } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeCodeRepository$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface DescribeCodeRepositoryCommandOutput extends DescribeCodeReposit
  *
  * @public
  */
-export class DescribeCodeRepositoryCommand extends $Command
-  .classBuilder<
-    DescribeCodeRepositoryCommandInput,
-    DescribeCodeRepositoryCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DescribeCodeRepository", {})
-  .n("SageMakerClient", "DescribeCodeRepositoryCommand")
-  .sc(DescribeCodeRepository$)
-  .build() {
+export class DescribeCodeRepositoryCommand extends command<DescribeCodeRepositoryCommandInput, DescribeCodeRepositoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCodeRepository",
+  DescribeCodeRepository$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

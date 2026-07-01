@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutSinkPolicyInput, PutSinkPolicyOutput } from "../models/models_0";
-import type { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
 import { PutSinkPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __Metad
  *
  * @public
  */
-export class PutSinkPolicyCommand extends $Command
-  .classBuilder<
-    PutSinkPolicyCommandInput,
-    PutSinkPolicyCommandOutput,
-    OAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("oamservice", "PutSinkPolicy", {})
-  .n("OAMClient", "PutSinkPolicyCommand")
-  .sc(PutSinkPolicy$)
-  .build() {
+export class PutSinkPolicyCommand extends command<PutSinkPolicyCommandInput, PutSinkPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutSinkPolicy",
+  PutSinkPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

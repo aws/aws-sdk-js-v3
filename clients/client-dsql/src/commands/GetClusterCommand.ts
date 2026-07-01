@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DSQLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DSQLClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetClusterInput, GetClusterOutput } from "../models/models_0";
 import { GetCluster$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetCluster$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBea
  *
  * @public
  */
-export class GetClusterCommand extends $Command
-  .classBuilder<
-    GetClusterCommandInput,
-    GetClusterCommandOutput,
-    DSQLClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DSQLClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DSQL", "GetCluster", {})
-  .n("DSQLClient", "GetClusterCommand")
-  .sc(GetCluster$)
-  .build() {
+export class GetClusterCommand extends command<GetClusterCommandInput, GetClusterCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCluster",
+  GetCluster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

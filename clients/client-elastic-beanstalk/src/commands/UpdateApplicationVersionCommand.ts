@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ApplicationVersionDescriptionMessage, UpdateApplicationVersionMessage } from "../models/models_0";
 import { UpdateApplicationVersion$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateApplicationVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +106,12 @@ export interface UpdateApplicationVersionCommandOutput extends ApplicationVersio
  *
  * @public
  */
-export class UpdateApplicationVersionCommand extends $Command
-  .classBuilder<
-    UpdateApplicationVersionCommandInput,
-    UpdateApplicationVersionCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "UpdateApplicationVersion", {})
-  .n("ElasticBeanstalkClient", "UpdateApplicationVersionCommand")
-  .sc(UpdateApplicationVersion$)
-  .build() {
+export class UpdateApplicationVersionCommand extends command<UpdateApplicationVersionCommandInput, UpdateApplicationVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateApplicationVersion",
+  UpdateApplicationVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAddonConfigurationRequest, DescribeAddonConfigurationResponse } from "../models/models_0";
 import { DescribeAddonConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeAddonConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DescribeAddonConfigurationCommandOutput extends DescribeAddonCo
  *
  * @public
  */
-export class DescribeAddonConfigurationCommand extends $Command
-  .classBuilder<
-    DescribeAddonConfigurationCommandInput,
-    DescribeAddonConfigurationCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "DescribeAddonConfiguration", {})
-  .n("EKSClient", "DescribeAddonConfigurationCommand")
-  .sc(DescribeAddonConfiguration$)
-  .build() {
+export class DescribeAddonConfigurationCommand extends command<DescribeAddonConfigurationCommandInput, DescribeAddonConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAddonConfiguration",
+  DescribeAddonConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

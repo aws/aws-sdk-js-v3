@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { OperationWithOptionalInputOutputInput, OperationWithOptionalInputOutputOutput } from "../models/models_0";
 import { OperationWithOptionalInputOutput$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { OperationWithOptionalInputOutput$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -59,22 +55,12 @@ export interface OperationWithOptionalInputOutputCommandOutput extends Operation
  *
  *
  */
-export class OperationWithOptionalInputOutputCommand extends $Command
-  .classBuilder<
-    OperationWithOptionalInputOutputCommandInput,
-    OperationWithOptionalInputOutputCommandOutput,
-    JsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("JsonProtocol", "OperationWithOptionalInputOutput", {})
-  .n("JsonProtocolClient", "OperationWithOptionalInputOutputCommand")
-  .sc(OperationWithOptionalInputOutput$)
-  .build() {
+export class OperationWithOptionalInputOutputCommand extends command<OperationWithOptionalInputOutputCommandInput, OperationWithOptionalInputOutputCommandOutput>(
+  _ep0,
+  _mw0,
+  "OperationWithOptionalInputOutput",
+  OperationWithOptionalInputOutput$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

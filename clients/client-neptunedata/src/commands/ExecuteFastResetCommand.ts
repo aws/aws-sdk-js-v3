@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExecuteFastResetInput, ExecuteFastResetOutput } from "../models/models_0";
-import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
 import { ExecuteFastReset$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface ExecuteFastResetCommandOutput extends ExecuteFastResetOutput, _
  *
  * @public
  */
-export class ExecuteFastResetCommand extends $Command
-  .classBuilder<
-    ExecuteFastResetCommandInput,
-    ExecuteFastResetCommandOutput,
-    NeptunedataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneDataplane", "ExecuteFastReset", {})
-  .n("NeptunedataClient", "ExecuteFastResetCommand")
-  .sc(ExecuteFastReset$)
-  .build() {
+export class ExecuteFastResetCommand extends command<ExecuteFastResetCommandInput, ExecuteFastResetCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExecuteFastReset",
+  ExecuteFastReset$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

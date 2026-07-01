@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListTrafficDistributionGroupUsersRequest,
   ListTrafficDistributionGroupUsersResponse,
@@ -15,7 +12,6 @@ import { ListTrafficDistributionGroupUsers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface ListTrafficDistributionGroupUsersCommandOutput extends ListTraf
  *
  * @public
  */
-export class ListTrafficDistributionGroupUsersCommand extends $Command
-  .classBuilder<
-    ListTrafficDistributionGroupUsersCommandInput,
-    ListTrafficDistributionGroupUsersCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "ListTrafficDistributionGroupUsers", {})
-  .n("ConnectClient", "ListTrafficDistributionGroupUsersCommand")
-  .sc(ListTrafficDistributionGroupUsers$)
-  .build() {
+export class ListTrafficDistributionGroupUsersCommand extends command<ListTrafficDistributionGroupUsersCommandInput, ListTrafficDistributionGroupUsersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTrafficDistributionGroupUsers",
+  ListTrafficDistributionGroupUsers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

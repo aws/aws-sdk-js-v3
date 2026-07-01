@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSubscriptionDefinitionsRequest, ListSubscriptionDefinitionsResponse } from "../models/models_0";
 import { ListSubscriptionDefinitions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListSubscriptionDefinitions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface ListSubscriptionDefinitionsCommandOutput extends ListSubscripti
  *
  * @public
  */
-export class ListSubscriptionDefinitionsCommand extends $Command
-  .classBuilder<
-    ListSubscriptionDefinitionsCommandInput,
-    ListSubscriptionDefinitionsCommandOutput,
-    GreengrassClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Greengrass", "ListSubscriptionDefinitions", {})
-  .n("GreengrassClient", "ListSubscriptionDefinitionsCommand")
-  .sc(ListSubscriptionDefinitions$)
-  .build() {
+export class ListSubscriptionDefinitionsCommand extends command<ListSubscriptionDefinitionsCommandInput, ListSubscriptionDefinitionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSubscriptionDefinitions",
+  ListSubscriptionDefinitions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

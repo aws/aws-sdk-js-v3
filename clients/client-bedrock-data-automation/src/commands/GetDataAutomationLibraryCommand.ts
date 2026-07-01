@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockDataAutomationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockDataAutomationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDataAutomationLibraryRequest, GetDataAutomationLibraryResponse } from "../models/models_0";
 import { GetDataAutomationLibrary$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetDataAutomationLibrary$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +86,12 @@ export interface GetDataAutomationLibraryCommandOutput extends GetDataAutomation
  *
  * @public
  */
-export class GetDataAutomationLibraryCommand extends $Command
-  .classBuilder<
-    GetDataAutomationLibraryCommandInput,
-    GetDataAutomationLibraryCommandOutput,
-    BedrockDataAutomationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockDataAutomationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockKeystoneBuildTimeService", "GetDataAutomationLibrary", {})
-  .n("BedrockDataAutomationClient", "GetDataAutomationLibraryCommand")
-  .sc(GetDataAutomationLibrary$)
-  .build() {
+export class GetDataAutomationLibraryCommand extends command<GetDataAutomationLibraryCommandInput, GetDataAutomationLibraryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDataAutomationLibrary",
+  GetDataAutomationLibrary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

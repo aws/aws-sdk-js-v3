@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteComponentInput, DeleteComponentOutput } from "../models/models_0";
-import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 import { DeleteComponent$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface DeleteComponentCommandOutput extends DeleteComponentOutput, __M
  *
  * @public
  */
-export class DeleteComponentCommand extends $Command
-  .classBuilder<
-    DeleteComponentCommandInput,
-    DeleteComponentCommandOutput,
-    ProtonClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsProton20200720", "DeleteComponent", {})
-  .n("ProtonClient", "DeleteComponentCommand")
-  .sc(DeleteComponent$)
-  .build() {
+export class DeleteComponentCommand extends command<DeleteComponentCommandInput, DeleteComponentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteComponent",
+  DeleteComponent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

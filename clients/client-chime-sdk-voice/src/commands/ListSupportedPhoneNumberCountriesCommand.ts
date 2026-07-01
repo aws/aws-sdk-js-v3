@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListSupportedPhoneNumberCountriesRequest,
   ListSupportedPhoneNumberCountriesResponse,
@@ -15,7 +12,6 @@ import { ListSupportedPhoneNumberCountries$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface ListSupportedPhoneNumberCountriesCommandOutput extends ListSupp
  *
  * @public
  */
-export class ListSupportedPhoneNumberCountriesCommand extends $Command
-  .classBuilder<
-    ListSupportedPhoneNumberCountriesCommandInput,
-    ListSupportedPhoneNumberCountriesCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "ListSupportedPhoneNumberCountries", {})
-  .n("ChimeSDKVoiceClient", "ListSupportedPhoneNumberCountriesCommand")
-  .sc(ListSupportedPhoneNumberCountries$)
-  .build() {
+export class ListSupportedPhoneNumberCountriesCommand extends command<ListSupportedPhoneNumberCountriesCommandInput, ListSupportedPhoneNumberCountriesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSupportedPhoneNumberCountries",
+  ListSupportedPhoneNumberCountries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

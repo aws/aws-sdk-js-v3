@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListProvisioningArtifactsForServiceActionInput,
   ListProvisioningArtifactsForServiceActionOutput,
 } from "../models/models_0";
 import { ListProvisioningArtifactsForServiceAction$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface ListProvisioningArtifactsForServiceActionCommandOutput extends 
  *
  * @public
  */
-export class ListProvisioningArtifactsForServiceActionCommand extends $Command
-  .classBuilder<
-    ListProvisioningArtifactsForServiceActionCommandInput,
-    ListProvisioningArtifactsForServiceActionCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "ListProvisioningArtifactsForServiceAction", {})
-  .n("ServiceCatalogClient", "ListProvisioningArtifactsForServiceActionCommand")
-  .sc(ListProvisioningArtifactsForServiceAction$)
-  .build() {
+export class ListProvisioningArtifactsForServiceActionCommand extends command<ListProvisioningArtifactsForServiceActionCommandInput, ListProvisioningArtifactsForServiceActionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListProvisioningArtifactsForServiceAction",
+  ListProvisioningArtifactsForServiceAction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

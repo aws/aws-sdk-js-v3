@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEnvironmentTemplateInput, DeleteEnvironmentTemplateOutput } from "../models/models_0";
-import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 import { DeleteEnvironmentTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface DeleteEnvironmentTemplateCommandOutput extends DeleteEnvironmen
  *
  * @public
  */
-export class DeleteEnvironmentTemplateCommand extends $Command
-  .classBuilder<
-    DeleteEnvironmentTemplateCommandInput,
-    DeleteEnvironmentTemplateCommandOutput,
-    ProtonClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsProton20200720", "DeleteEnvironmentTemplate", {})
-  .n("ProtonClient", "DeleteEnvironmentTemplateCommand")
-  .sc(DeleteEnvironmentTemplate$)
-  .build() {
+export class DeleteEnvironmentTemplateCommand extends command<DeleteEnvironmentTemplateCommandInput, DeleteEnvironmentTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEnvironmentTemplate",
+  DeleteEnvironmentTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

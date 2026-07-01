@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetGroupsRequest, GetGroupsResult } from "../models/models_0";
 import { GetGroups$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface GetGroupsCommandOutput extends GetGroupsResult, __MetadataBeare
  *
  * @public
  */
-export class GetGroupsCommand extends $Command
-  .classBuilder<
-    GetGroupsCommandInput,
-    GetGroupsCommandOutput,
-    XRayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSXRay", "GetGroups", {})
-  .n("XRayClient", "GetGroupsCommand")
-  .sc(GetGroups$)
-  .build() {
+export class GetGroupsCommand extends command<GetGroupsCommandInput, GetGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetGroups",
+  GetGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

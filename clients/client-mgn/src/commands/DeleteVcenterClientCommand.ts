@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteVcenterClientRequest } from "../models/models_0";
 import { DeleteVcenterClient$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteVcenterClient$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +62,12 @@ export interface DeleteVcenterClientCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteVcenterClientCommand extends $Command
-  .classBuilder<
-    DeleteVcenterClientCommandInput,
-    DeleteVcenterClientCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "DeleteVcenterClient", {})
-  .n("MgnClient", "DeleteVcenterClientCommand")
-  .sc(DeleteVcenterClient$)
-  .build() {
+export class DeleteVcenterClientCommand extends command<DeleteVcenterClientCommandInput, DeleteVcenterClientCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteVcenterClient",
+  DeleteVcenterClient$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

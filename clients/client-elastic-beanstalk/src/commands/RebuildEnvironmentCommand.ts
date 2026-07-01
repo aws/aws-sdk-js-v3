@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RebuildEnvironmentMessage } from "../models/models_0";
 import { RebuildEnvironment$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { RebuildEnvironment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface RebuildEnvironmentCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class RebuildEnvironmentCommand extends $Command
-  .classBuilder<
-    RebuildEnvironmentCommandInput,
-    RebuildEnvironmentCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "RebuildEnvironment", {})
-  .n("ElasticBeanstalkClient", "RebuildEnvironmentCommand")
-  .sc(RebuildEnvironment$)
-  .build() {
+export class RebuildEnvironmentCommand extends command<RebuildEnvironmentCommandInput, RebuildEnvironmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "RebuildEnvironment",
+  RebuildEnvironment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

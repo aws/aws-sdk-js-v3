@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep2, _mw0, command } from "../commandBuilder";
 import type { DescribeContributorInsightsInput, DescribeContributorInsightsOutput } from "../models/models_0";
 import { DescribeContributorInsights$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeContributorInsights$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,25 +75,12 @@ export interface DescribeContributorInsightsCommandOutput extends DescribeContri
  *
  * @public
  */
-export class DescribeContributorInsightsCommand extends $Command
-  .classBuilder<
-    DescribeContributorInsightsCommandInput,
-    DescribeContributorInsightsCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "contextParams", name: "TableName" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "DescribeContributorInsights", {})
-  .n("DynamoDBClient", "DescribeContributorInsightsCommand")
-  .sc(DescribeContributorInsights$)
-  .build() {
+export class DescribeContributorInsightsCommand extends command<DescribeContributorInsightsCommandInput, DescribeContributorInsightsCommandOutput>(
+  _ep2,
+  _mw0,
+  "DescribeContributorInsights",
+  DescribeContributorInsights$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

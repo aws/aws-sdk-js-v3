@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  EntityResolutionClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../EntityResolutionClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetIdMappingJobInput, GetIdMappingJobOutput } from "../models/models_0";
 import { GetIdMappingJob$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetIdMappingJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +102,12 @@ export interface GetIdMappingJobCommandOutput extends GetIdMappingJobOutput, __M
  *
  * @public
  */
-export class GetIdMappingJobCommand extends $Command
-  .classBuilder<
-    GetIdMappingJobCommandInput,
-    GetIdMappingJobCommandOutput,
-    EntityResolutionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EntityResolutionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSVeniceService", "GetIdMappingJob", {})
-  .n("EntityResolutionClient", "GetIdMappingJobCommand")
-  .sc(GetIdMappingJob$)
-  .build() {
+export class GetIdMappingJobCommand extends command<GetIdMappingJobCommandInput, GetIdMappingJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIdMappingJob",
+  GetIdMappingJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

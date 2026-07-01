@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep2, _mw0, command } from "../commandBuilder";
 import type { PutItemInput, PutItemOutput } from "../models/models_0";
 import { PutItem$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutItem$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -300,25 +296,12 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  *
  * @public
  */
-export class PutItemCommand extends $Command
-  .classBuilder<
-    PutItemCommandInput,
-    PutItemCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "contextParams", name: "TableName" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "PutItem", {})
-  .n("DynamoDBClient", "PutItemCommand")
-  .sc(PutItem$)
-  .build() {
+export class PutItemCommand extends command<PutItemCommandInput, PutItemCommandOutput>(
+  _ep2,
+  _mw0,
+  "PutItem",
+  PutItem$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

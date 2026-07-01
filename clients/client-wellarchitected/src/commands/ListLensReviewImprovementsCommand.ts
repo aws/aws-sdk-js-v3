@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLensReviewImprovementsInput, ListLensReviewImprovementsOutput } from "../models/models_0";
 import { ListLensReviewImprovements$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WellArchitectedClientResolvedConfig,
-} from "../WellArchitectedClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +100,12 @@ export interface ListLensReviewImprovementsCommandOutput extends ListLensReviewI
  *
  * @public
  */
-export class ListLensReviewImprovementsCommand extends $Command
-  .classBuilder<
-    ListLensReviewImprovementsCommandInput,
-    ListLensReviewImprovementsCommandOutput,
-    WellArchitectedClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WellArchitectedApiServiceLambda", "ListLensReviewImprovements", {})
-  .n("WellArchitectedClient", "ListLensReviewImprovementsCommand")
-  .sc(ListLensReviewImprovements$)
-  .build() {
+export class ListLensReviewImprovementsCommand extends command<ListLensReviewImprovementsCommandInput, ListLensReviewImprovementsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLensReviewImprovements",
+  ListLensReviewImprovements$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

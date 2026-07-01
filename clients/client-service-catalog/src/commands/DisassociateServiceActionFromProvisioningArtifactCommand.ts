@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateServiceActionFromProvisioningArtifactInput,
   DisassociateServiceActionFromProvisioningArtifactOutput,
 } from "../models/models_0";
 import { DisassociateServiceActionFromProvisioningArtifact$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +66,12 @@ export interface DisassociateServiceActionFromProvisioningArtifactCommandOutput 
  *
  * @public
  */
-export class DisassociateServiceActionFromProvisioningArtifactCommand extends $Command
-  .classBuilder<
-    DisassociateServiceActionFromProvisioningArtifactCommandInput,
-    DisassociateServiceActionFromProvisioningArtifactCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "DisassociateServiceActionFromProvisioningArtifact", {})
-  .n("ServiceCatalogClient", "DisassociateServiceActionFromProvisioningArtifactCommand")
-  .sc(DisassociateServiceActionFromProvisioningArtifact$)
-  .build() {
+export class DisassociateServiceActionFromProvisioningArtifactCommand extends command<DisassociateServiceActionFromProvisioningArtifactCommandInput, DisassociateServiceActionFromProvisioningArtifactCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateServiceActionFromProvisioningArtifact",
+  DisassociateServiceActionFromProvisioningArtifact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

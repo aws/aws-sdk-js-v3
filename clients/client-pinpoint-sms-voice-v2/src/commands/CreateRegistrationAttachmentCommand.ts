@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRegistrationAttachmentRequest, CreateRegistrationAttachmentResult } from "../models/models_0";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { CreateRegistrationAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +90,12 @@ export interface CreateRegistrationAttachmentCommandOutput extends CreateRegistr
  *
  * @public
  */
-export class CreateRegistrationAttachmentCommand extends $Command
-  .classBuilder<
-    CreateRegistrationAttachmentCommandInput,
-    CreateRegistrationAttachmentCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "CreateRegistrationAttachment", {})
-  .n("PinpointSMSVoiceV2Client", "CreateRegistrationAttachmentCommand")
-  .sc(CreateRegistrationAttachment$)
-  .build() {
+export class CreateRegistrationAttachmentCommand extends command<CreateRegistrationAttachmentCommandInput, CreateRegistrationAttachmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRegistrationAttachment",
+  CreateRegistrationAttachment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

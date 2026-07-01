@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceMeteringClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceMeteringClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ResolveCustomerRequest, ResolveCustomerResult } from "../models/models_0";
 import { ResolveCustomer$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ResolveCustomer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  *
  * @public
  */
-export class ResolveCustomerCommand extends $Command
-  .classBuilder<
-    ResolveCustomerCommandInput,
-    ResolveCustomerCommandOutput,
-    MarketplaceMeteringClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceMeteringClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMPMeteringService", "ResolveCustomer", {})
-  .n("MarketplaceMeteringClient", "ResolveCustomerCommand")
-  .sc(ResolveCustomer$)
-  .build() {
+export class ResolveCustomerCommand extends command<ResolveCustomerCommandInput, ResolveCustomerCommandOutput>(
+  _ep0,
+  _mw0,
+  "ResolveCustomer",
+  ResolveCustomer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

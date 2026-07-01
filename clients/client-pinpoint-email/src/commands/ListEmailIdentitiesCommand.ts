@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListEmailIdentitiesRequest, ListEmailIdentitiesResponse } from "../models/models_0";
-import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import { ListEmailIdentities$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface ListEmailIdentitiesCommandOutput extends ListEmailIdentitiesRes
  *
  * @public
  */
-export class ListEmailIdentitiesCommand extends $Command
-  .classBuilder<
-    ListEmailIdentitiesCommandInput,
-    ListEmailIdentitiesCommandOutput,
-    PinpointEmailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPinpointEmailService", "ListEmailIdentities", {})
-  .n("PinpointEmailClient", "ListEmailIdentitiesCommand")
-  .sc(ListEmailIdentities$)
-  .build() {
+export class ListEmailIdentitiesCommand extends command<ListEmailIdentitiesCommandInput, ListEmailIdentitiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEmailIdentities",
+  ListEmailIdentities$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

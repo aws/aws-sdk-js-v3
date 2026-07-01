@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPrivateConnectionsInput, ListPrivateConnectionsOutput } from "../models/models_0";
 import { ListPrivateConnections$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListPrivateConnections$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface ListPrivateConnectionsCommandOutput extends ListPrivateConnecti
  *
  * @public
  */
-export class ListPrivateConnectionsCommand extends $Command
-  .classBuilder<
-    ListPrivateConnectionsCommandInput,
-    ListPrivateConnectionsCommandOutput,
-    DevOpsAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DevOpsAgent", "ListPrivateConnections", {})
-  .n("DevOpsAgentClient", "ListPrivateConnectionsCommand")
-  .sc(ListPrivateConnections$)
-  .build() {
+export class ListPrivateConnectionsCommand extends command<ListPrivateConnectionsCommandInput, ListPrivateConnectionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPrivateConnections",
+  ListPrivateConnections$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

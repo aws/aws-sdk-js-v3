@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetNetworkAnalyzerConfigurationRequest,
   GetNetworkAnalyzerConfigurationResponse,
@@ -15,7 +12,6 @@ import { GetNetworkAnalyzerConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface GetNetworkAnalyzerConfigurationCommandOutput extends GetNetwork
  *
  * @public
  */
-export class GetNetworkAnalyzerConfigurationCommand extends $Command
-  .classBuilder<
-    GetNetworkAnalyzerConfigurationCommandInput,
-    GetNetworkAnalyzerConfigurationCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "GetNetworkAnalyzerConfiguration", {})
-  .n("IoTWirelessClient", "GetNetworkAnalyzerConfigurationCommand")
-  .sc(GetNetworkAnalyzerConfiguration$)
-  .build() {
+export class GetNetworkAnalyzerConfigurationCommand extends command<GetNetworkAnalyzerConfigurationCommandInput, GetNetworkAnalyzerConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetNetworkAnalyzerConfiguration",
+  GetNetworkAnalyzerConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

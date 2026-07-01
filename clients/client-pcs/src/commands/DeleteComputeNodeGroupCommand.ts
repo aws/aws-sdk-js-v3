@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteComputeNodeGroupRequest, DeleteComputeNodeGroupResponse } from "../models/models_0";
-import type { PCSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PCSClient";
 import { DeleteComputeNodeGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DeleteComputeNodeGroupCommandOutput extends DeleteComputeNodeGr
  *
  * @public
  */
-export class DeleteComputeNodeGroupCommand extends $Command
-  .classBuilder<
-    DeleteComputeNodeGroupCommandInput,
-    DeleteComputeNodeGroupCommandOutput,
-    PCSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PCSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSParallelComputingService", "DeleteComputeNodeGroup", {})
-  .n("PCSClient", "DeleteComputeNodeGroupCommand")
-  .sc(DeleteComputeNodeGroup$)
-  .build() {
+export class DeleteComputeNodeGroupCommand extends command<DeleteComputeNodeGroupCommandInput, DeleteComputeNodeGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteComputeNodeGroup",
+  DeleteComputeNodeGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

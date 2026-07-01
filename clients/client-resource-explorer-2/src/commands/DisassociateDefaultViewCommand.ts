@@ -1,21 +1,13 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  ResourceExplorer2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceExplorer2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import { DisassociateDefaultView$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +65,12 @@ export interface DisassociateDefaultViewCommandOutput extends __MetadataBearer {
  *
  * @public
  */
-export class DisassociateDefaultViewCommand extends $Command
-  .classBuilder<
-    DisassociateDefaultViewCommandInput,
-    DisassociateDefaultViewCommandOutput,
-    ResourceExplorer2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ResourceExplorer", "DisassociateDefaultView", {})
-  .n("ResourceExplorer2Client", "DisassociateDefaultViewCommand")
-  .sc(DisassociateDefaultView$)
-  .build() {
+export class DisassociateDefaultViewCommand extends command<DisassociateDefaultViewCommandInput, DisassociateDefaultViewCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateDefaultView",
+  DisassociateDefaultView$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

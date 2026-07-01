@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateLocationFsxLustreRequest, UpdateLocationFsxLustreResponse } from "../models/models_0";
 import { UpdateLocationFsxLustre$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateLocationFsxLustre$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface UpdateLocationFsxLustreCommandOutput extends UpdateLocationFsxL
  *
  * @public
  */
-export class UpdateLocationFsxLustreCommand extends $Command
-  .classBuilder<
-    UpdateLocationFsxLustreCommandInput,
-    UpdateLocationFsxLustreCommandOutput,
-    DataSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FmrsService", "UpdateLocationFsxLustre", {})
-  .n("DataSyncClient", "UpdateLocationFsxLustreCommand")
-  .sc(UpdateLocationFsxLustre$)
-  .build() {
+export class UpdateLocationFsxLustreCommand extends command<UpdateLocationFsxLustreCommandInput, UpdateLocationFsxLustreCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateLocationFsxLustre",
+  UpdateLocationFsxLustre$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

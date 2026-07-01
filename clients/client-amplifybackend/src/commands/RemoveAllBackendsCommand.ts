@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyBackendClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyBackendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveAllBackendsRequest, RemoveAllBackendsResponse } from "../models/models_0";
 import { RemoveAllBackends$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { RemoveAllBackends$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface RemoveAllBackendsCommandOutput extends RemoveAllBackendsRespons
  *
  * @public
  */
-export class RemoveAllBackendsCommand extends $Command
-  .classBuilder<
-    RemoveAllBackendsCommandInput,
-    RemoveAllBackendsCommandOutput,
-    AmplifyBackendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyBackendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyBackend", "RemoveAllBackends", {})
-  .n("AmplifyBackendClient", "RemoveAllBackendsCommand")
-  .sc(RemoveAllBackends$)
-  .build() {
+export class RemoveAllBackendsCommand extends command<RemoveAllBackendsCommandInput, RemoveAllBackendsCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveAllBackends",
+  RemoveAllBackends$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

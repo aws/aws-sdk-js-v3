@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEventPredictionRequest, GetEventPredictionResult } from "../models/models_0";
 import { GetEventPrediction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetEventPrediction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface GetEventPredictionCommandOutput extends GetEventPredictionResul
  *
  * @public
  */
-export class GetEventPredictionCommand extends $Command
-  .classBuilder<
-    GetEventPredictionCommandInput,
-    GetEventPredictionCommandOutput,
-    FraudDetectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHawksNestServiceFacade", "GetEventPrediction", {})
-  .n("FraudDetectorClient", "GetEventPredictionCommand")
-  .sc(GetEventPrediction$)
-  .build() {
+export class GetEventPredictionCommand extends command<GetEventPredictionCommandInput, GetEventPredictionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEventPrediction",
+  GetEventPrediction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

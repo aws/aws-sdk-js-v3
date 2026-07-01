@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteReplicationConfigurationTemplateRequest,
   DeleteReplicationConfigurationTemplateResponse,
@@ -15,7 +12,6 @@ import { DeleteReplicationConfigurationTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteReplicationConfigurationTemplateCommandOutput extends Del
  *
  * @public
  */
-export class DeleteReplicationConfigurationTemplateCommand extends $Command
-  .classBuilder<
-    DeleteReplicationConfigurationTemplateCommandInput,
-    DeleteReplicationConfigurationTemplateCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "DeleteReplicationConfigurationTemplate", {})
-  .n("MgnClient", "DeleteReplicationConfigurationTemplateCommand")
-  .sc(DeleteReplicationConfigurationTemplate$)
-  .build() {
+export class DeleteReplicationConfigurationTemplateCommand extends command<DeleteReplicationConfigurationTemplateCommandInput, DeleteReplicationConfigurationTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteReplicationConfigurationTemplate",
+  DeleteReplicationConfigurationTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

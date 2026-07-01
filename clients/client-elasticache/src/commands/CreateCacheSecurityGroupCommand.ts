@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCacheSecurityGroupMessage, CreateCacheSecurityGroupResult } from "../models/models_0";
 import { CreateCacheSecurityGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateCacheSecurityGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface CreateCacheSecurityGroupCommandOutput extends CreateCacheSecuri
  *
  * @public
  */
-export class CreateCacheSecurityGroupCommand extends $Command
-  .classBuilder<
-    CreateCacheSecurityGroupCommandInput,
-    CreateCacheSecurityGroupCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "CreateCacheSecurityGroup", {})
-  .n("ElastiCacheClient", "CreateCacheSecurityGroupCommand")
-  .sc(CreateCacheSecurityGroup$)
-  .build() {
+export class CreateCacheSecurityGroupCommand extends command<CreateCacheSecurityGroupCommandInput, CreateCacheSecurityGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCacheSecurityGroup",
+  CreateCacheSecurityGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

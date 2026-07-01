@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateSourceGraphqlApiRequest, DisassociateSourceGraphqlApiResponse } from "../models/models_0";
 import { DisassociateSourceGraphqlApi$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateSourceGraphqlApi$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DisassociateSourceGraphqlApiCommandOutput extends DisassociateS
  *
  * @public
  */
-export class DisassociateSourceGraphqlApiCommand extends $Command
-  .classBuilder<
-    DisassociateSourceGraphqlApiCommandInput,
-    DisassociateSourceGraphqlApiCommandOutput,
-    AppSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepdishControlPlaneService", "DisassociateSourceGraphqlApi", {})
-  .n("AppSyncClient", "DisassociateSourceGraphqlApiCommand")
-  .sc(DisassociateSourceGraphqlApi$)
-  .build() {
+export class DisassociateSourceGraphqlApiCommand extends command<DisassociateSourceGraphqlApiCommandInput, DisassociateSourceGraphqlApiCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateSourceGraphqlApi",
+  DisassociateSourceGraphqlApi$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

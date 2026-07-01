@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAppAssessmentsRequest, ListAppAssessmentsResponse } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { ListAppAssessments$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface ListAppAssessmentsCommandOutput extends ListAppAssessmentsRespo
  *
  * @public
  */
-export class ListAppAssessmentsCommand extends $Command
-  .classBuilder<
-    ListAppAssessmentsCommandInput,
-    ListAppAssessmentsCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "ListAppAssessments", {})
-  .n("ResiliencehubClient", "ListAppAssessmentsCommand")
-  .sc(ListAppAssessments$)
-  .build() {
+export class ListAppAssessmentsCommand extends command<ListAppAssessmentsCommandInput, ListAppAssessmentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAppAssessments",
+  ListAppAssessments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

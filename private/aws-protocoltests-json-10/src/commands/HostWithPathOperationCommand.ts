@@ -12,7 +12,6 @@ import { de_HostWithPathOperationCommand, se_HostWithPathOperationCommand } from
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

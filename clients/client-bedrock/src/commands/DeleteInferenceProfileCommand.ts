@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteInferenceProfileRequest, DeleteInferenceProfileResponse } from "../models/models_1";
 import { DeleteInferenceProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteInferenceProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteInferenceProfileCommandOutput extends DeleteInferenceProf
  *
  * @public
  */
-export class DeleteInferenceProfileCommand extends $Command
-  .classBuilder<
-    DeleteInferenceProfileCommandInput,
-    DeleteInferenceProfileCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "DeleteInferenceProfile", {})
-  .n("BedrockClient", "DeleteInferenceProfileCommand")
-  .sc(DeleteInferenceProfile$)
-  .build() {
+export class DeleteInferenceProfileCommand extends command<DeleteInferenceProfileCommandInput, DeleteInferenceProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteInferenceProfile",
+  DeleteInferenceProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

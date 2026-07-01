@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateSessionLoggerRequest, DisassociateSessionLoggerResponse } from "../models/models_0";
 import { DisassociateSessionLogger$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface DisassociateSessionLoggerCommandOutput extends DisassociateSess
  *
  * @public
  */
-export class DisassociateSessionLoggerCommand extends $Command
-  .classBuilder<
-    DisassociateSessionLoggerCommandInput,
-    DisassociateSessionLoggerCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "DisassociateSessionLogger", {})
-  .n("WorkSpacesWebClient", "DisassociateSessionLoggerCommand")
-  .sc(DisassociateSessionLogger$)
-  .build() {
+export class DisassociateSessionLoggerCommand extends command<DisassociateSessionLoggerCommandInput, DisassociateSessionLoggerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateSessionLogger",
+  DisassociateSessionLogger$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

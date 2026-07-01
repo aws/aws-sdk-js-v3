@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UntagServerCertificateRequest } from "../models/models_0";
 import { UntagServerCertificate$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UntagServerCertificate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface UntagServerCertificateCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UntagServerCertificateCommand extends $Command
-  .classBuilder<
-    UntagServerCertificateCommandInput,
-    UntagServerCertificateCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "UntagServerCertificate", {})
-  .n("IAMClient", "UntagServerCertificateCommand")
-  .sc(UntagServerCertificate$)
-  .build() {
+export class UntagServerCertificateCommand extends command<UntagServerCertificateCommandInput, UntagServerCertificateCommandOutput>(
+  _ep0,
+  _mw0,
+  "UntagServerCertificate",
+  UntagServerCertificate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

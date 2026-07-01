@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAssessmentTargetRequest, CreateAssessmentTargetResponse } from "../models/models_0";
 import { CreateAssessmentTarget$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateAssessmentTarget$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface CreateAssessmentTargetCommandOutput extends CreateAssessmentTar
  *
  * @public
  */
-export class CreateAssessmentTargetCommand extends $Command
-  .classBuilder<
-    CreateAssessmentTargetCommandInput,
-    CreateAssessmentTargetCommandOutput,
-    InspectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("InspectorService", "CreateAssessmentTarget", {})
-  .n("InspectorClient", "CreateAssessmentTargetCommand")
-  .sc(CreateAssessmentTarget$)
-  .build() {
+export class CreateAssessmentTargetCommand extends command<CreateAssessmentTargetCommandInput, CreateAssessmentTargetCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAssessmentTarget",
+  CreateAssessmentTarget$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateAgentCollaboratorRequest, DisassociateAgentCollaboratorResponse } from "../models/models_0";
 import { DisassociateAgentCollaborator$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateAgentCollaborator$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DisassociateAgentCollaboratorCommandOutput extends Disassociate
  *
  * @public
  */
-export class DisassociateAgentCollaboratorCommand extends $Command
-  .classBuilder<
-    DisassociateAgentCollaboratorCommandInput,
-    DisassociateAgentCollaboratorCommandOutput,
-    BedrockAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentBuildTimeLambda", "DisassociateAgentCollaborator", {})
-  .n("BedrockAgentClient", "DisassociateAgentCollaboratorCommand")
-  .sc(DisassociateAgentCollaborator$)
-  .build() {
+export class DisassociateAgentCollaboratorCommand extends command<DisassociateAgentCollaboratorCommandInput, DisassociateAgentCollaboratorCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateAgentCollaborator",
+  DisassociateAgentCollaborator$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

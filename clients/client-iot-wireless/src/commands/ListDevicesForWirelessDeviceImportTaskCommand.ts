@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListDevicesForWirelessDeviceImportTaskRequest,
   ListDevicesForWirelessDeviceImportTaskResponse,
@@ -15,7 +12,6 @@ import { ListDevicesForWirelessDeviceImportTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface ListDevicesForWirelessDeviceImportTaskCommandOutput extends Lis
  *
  * @public
  */
-export class ListDevicesForWirelessDeviceImportTaskCommand extends $Command
-  .classBuilder<
-    ListDevicesForWirelessDeviceImportTaskCommandInput,
-    ListDevicesForWirelessDeviceImportTaskCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "ListDevicesForWirelessDeviceImportTask", {})
-  .n("IoTWirelessClient", "ListDevicesForWirelessDeviceImportTaskCommand")
-  .sc(ListDevicesForWirelessDeviceImportTask$)
-  .build() {
+export class ListDevicesForWirelessDeviceImportTaskCommand extends command<ListDevicesForWirelessDeviceImportTaskCommandInput, ListDevicesForWirelessDeviceImportTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDevicesForWirelessDeviceImportTask",
+  ListDevicesForWirelessDeviceImportTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateServiceRoleToAccountRequest, AssociateServiceRoleToAccountResponse } from "../models/models_0";
 import { AssociateServiceRoleToAccount$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateServiceRoleToAccount$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -65,22 +61,12 @@ export interface AssociateServiceRoleToAccountCommandOutput extends AssociateSer
  *
  * @public
  */
-export class AssociateServiceRoleToAccountCommand extends $Command
-  .classBuilder<
-    AssociateServiceRoleToAccountCommandInput,
-    AssociateServiceRoleToAccountCommandOutput,
-    GreengrassClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Greengrass", "AssociateServiceRoleToAccount", {})
-  .n("GreengrassClient", "AssociateServiceRoleToAccountCommand")
-  .sc(AssociateServiceRoleToAccount$)
-  .build() {
+export class AssociateServiceRoleToAccountCommand extends command<AssociateServiceRoleToAccountCommandInput, AssociateServiceRoleToAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateServiceRoleToAccount",
+  AssociateServiceRoleToAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

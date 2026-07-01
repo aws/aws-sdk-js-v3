@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeSchemaRequest, DescribeSchemaResponse } from "../models/models_0";
-import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { DescribeSchema$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  *
  * @public
  */
-export class DescribeSchemaCommand extends $Command
-  .classBuilder<
-    DescribeSchemaCommandInput,
-    DescribeSchemaCommandOutput,
-    PersonalizeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPersonalize", "DescribeSchema", {})
-  .n("PersonalizeClient", "DescribeSchemaCommand")
-  .sc(DescribeSchema$)
-  .build() {
+export class DescribeSchemaCommand extends command<DescribeSchemaCommandInput, DescribeSchemaCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSchema",
+  DescribeSchema$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

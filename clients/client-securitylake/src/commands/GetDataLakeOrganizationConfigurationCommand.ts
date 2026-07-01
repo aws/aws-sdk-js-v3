@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetDataLakeOrganizationConfigurationRequest,
   GetDataLakeOrganizationConfigurationResponse,
 } from "../models/models_0";
 import { GetDataLakeOrganizationConfiguration$ } from "../schemas/schemas_0";
-import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface GetDataLakeOrganizationConfigurationCommandOutput extends GetDa
  *
  * @public
  */
-export class GetDataLakeOrganizationConfigurationCommand extends $Command
-  .classBuilder<
-    GetDataLakeOrganizationConfigurationCommandInput,
-    GetDataLakeOrganizationConfigurationCommandOutput,
-    SecurityLakeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityLake", "GetDataLakeOrganizationConfiguration", {})
-  .n("SecurityLakeClient", "GetDataLakeOrganizationConfigurationCommand")
-  .sc(GetDataLakeOrganizationConfiguration$)
-  .build() {
+export class GetDataLakeOrganizationConfigurationCommand extends command<GetDataLakeOrganizationConfigurationCommandInput, GetDataLakeOrganizationConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDataLakeOrganizationConfiguration",
+  GetDataLakeOrganizationConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

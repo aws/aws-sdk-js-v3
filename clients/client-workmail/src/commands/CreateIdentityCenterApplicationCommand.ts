@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateIdentityCenterApplicationRequest,
   CreateIdentityCenterApplicationResponse,
 } from "../models/models_0";
 import { CreateIdentityCenterApplication$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface CreateIdentityCenterApplicationCommandOutput extends CreateIden
  *
  * @public
  */
-export class CreateIdentityCenterApplicationCommand extends $Command
-  .classBuilder<
-    CreateIdentityCenterApplicationCommandInput,
-    CreateIdentityCenterApplicationCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "CreateIdentityCenterApplication", {})
-  .n("WorkMailClient", "CreateIdentityCenterApplicationCommand")
-  .sc(CreateIdentityCenterApplication$)
-  .build() {
+export class CreateIdentityCenterApplicationCommand extends command<CreateIdentityCenterApplicationCommandInput, CreateIdentityCenterApplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateIdentityCenterApplication",
+  CreateIdentityCenterApplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

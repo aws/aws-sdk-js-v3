@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateSessionDataRequest, UpdateSessionDataResponse } from "../models/models_0";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { UpdateSessionData$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface UpdateSessionDataCommandOutput extends UpdateSessionDataRespons
  *
  * @public
  */
-export class UpdateSessionDataCommand extends $Command
-  .classBuilder<
-    UpdateSessionDataCommandInput,
-    UpdateSessionDataCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "UpdateSessionData", {})
-  .n("QConnectClient", "UpdateSessionDataCommand")
-  .sc(UpdateSessionData$)
-  .build() {
+export class UpdateSessionDataCommand extends command<UpdateSessionDataCommandInput, UpdateSessionDataCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSessionData",
+  UpdateSessionData$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

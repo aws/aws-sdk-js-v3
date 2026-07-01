@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TestFailoverMessage, TestFailoverResult } from "../models/models_0";
 import { TestFailover$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { TestFailover$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -288,22 +284,12 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  *
  * @public
  */
-export class TestFailoverCommand extends $Command
-  .classBuilder<
-    TestFailoverCommandInput,
-    TestFailoverCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "TestFailover", {})
-  .n("ElastiCacheClient", "TestFailoverCommand")
-  .sc(TestFailover$)
-  .build() {
+export class TestFailoverCommand extends command<TestFailoverCommandInput, TestFailoverCommandOutput>(
+  _ep0,
+  _mw0,
+  "TestFailover",
+  TestFailover$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep2, _mw0, command } from "../commandBuilder";
 import type { DescribeTableInput, DescribeTableOutput } from "../models/models_0";
 import { DescribeTable$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeTable$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -255,25 +251,12 @@ export interface DescribeTableCommandOutput extends DescribeTableOutput, __Metad
  *
  * @public
  */
-export class DescribeTableCommand extends $Command
-  .classBuilder<
-    DescribeTableCommandInput,
-    DescribeTableCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "contextParams", name: "TableName" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "DescribeTable", {})
-  .n("DynamoDBClient", "DescribeTableCommand")
-  .sc(DescribeTable$)
-  .build() {
+export class DescribeTableCommand extends command<DescribeTableCommandInput, DescribeTableCommandOutput>(
+  _ep2,
+  _mw0,
+  "DescribeTable",
+  DescribeTable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

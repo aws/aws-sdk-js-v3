@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetInboundExternalLinkRequest, GetInboundExternalLinkResponse } from "../models/models_0";
-import type { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
 import { GetInboundExternalLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -214,22 +210,12 @@ export interface GetInboundExternalLinkCommandOutput extends GetInboundExternalL
  *
  * @public
  */
-export class GetInboundExternalLinkCommand extends $Command
-  .classBuilder<
-    GetInboundExternalLinkCommandInput,
-    GetInboundExternalLinkCommandOutput,
-    RTBFabricClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RTBFabricClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RTBFabric", "GetInboundExternalLink", {})
-  .n("RTBFabricClient", "GetInboundExternalLinkCommand")
-  .sc(GetInboundExternalLink$)
-  .build() {
+export class GetInboundExternalLinkCommand extends command<GetInboundExternalLinkCommandInput, GetInboundExternalLinkCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetInboundExternalLink",
+  GetInboundExternalLink$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

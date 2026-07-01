@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTThingsGraphClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTThingsGraphClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSystemTemplateRequest, DeleteSystemTemplateResponse } from "../models/models_0";
 import { DeleteSystemTemplate$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteSystemTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +68,12 @@ export interface DeleteSystemTemplateCommandOutput extends DeleteSystemTemplateR
  *
  * @public
  */
-export class DeleteSystemTemplateCommand extends $Command
-  .classBuilder<
-    DeleteSystemTemplateCommandInput,
-    DeleteSystemTemplateCommandOutput,
-    IoTThingsGraphClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotThingsGraphFrontEndService", "DeleteSystemTemplate", {})
-  .n("IoTThingsGraphClient", "DeleteSystemTemplateCommand")
-  .sc(DeleteSystemTemplate$)
-  .build() {
+export class DeleteSystemTemplateCommand extends command<DeleteSystemTemplateCommandInput, DeleteSystemTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSystemTemplate",
+  DeleteSystemTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

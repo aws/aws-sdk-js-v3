@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPartnersRequest, ListPartnersResponse } from "../models/models_0";
-import type {
-  PartnerCentralAccountClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralAccountClient";
 import { ListPartners$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface ListPartnersCommandOutput extends ListPartnersResponse, __Metad
  *
  * @public
  */
-export class ListPartnersCommand extends $Command
-  .classBuilder<
-    ListPartnersCommandInput,
-    ListPartnersCommandOutput,
-    PartnerCentralAccountClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralAccountClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralAccount", "ListPartners", {})
-  .n("PartnerCentralAccountClient", "ListPartnersCommand")
-  .sc(ListPartners$)
-  .build() {
+export class ListPartnersCommand extends command<ListPartnersCommandInput, ListPartnersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPartners",
+  ListPartners$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

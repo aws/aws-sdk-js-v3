@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartConfigurationChecksInput, StartConfigurationChecksOutput } from "../models/models_0";
 import { StartConfigurationChecks$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface StartConfigurationChecksCommandOutput extends StartConfiguratio
  *
  * @public
  */
-export class StartConfigurationChecksCommand extends $Command
-  .classBuilder<
-    StartConfigurationChecksCommandInput,
-    StartConfigurationChecksCommandOutput,
-    SsmSapClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SsmSapClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SsmSap", "StartConfigurationChecks", {})
-  .n("SsmSapClient", "StartConfigurationChecksCommand")
-  .sc(StartConfigurationChecks$)
-  .build() {
+export class StartConfigurationChecksCommand extends command<StartConfigurationChecksCommandInput, StartConfigurationChecksCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartConfigurationChecks",
+  StartConfigurationChecks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

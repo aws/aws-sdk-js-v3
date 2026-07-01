@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListModelMetadataRequest, ListModelMetadataResponse } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListModelMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface ListModelMetadataCommandOutput extends ListModelMetadataRespons
  *
  * @public
  */
-export class ListModelMetadataCommand extends $Command
-  .classBuilder<
-    ListModelMetadataCommandInput,
-    ListModelMetadataCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "ListModelMetadata", {})
-  .n("SageMakerClient", "ListModelMetadataCommand")
-  .sc(ListModelMetadata$)
-  .build() {
+export class ListModelMetadataCommand extends command<ListModelMetadataCommandInput, ListModelMetadataCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListModelMetadata",
+  ListModelMetadata$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

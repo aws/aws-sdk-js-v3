@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDirectQueryDataSourceRequest } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { DeleteDirectQueryDataSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteDirectQueryDataSourceCommandOutput extends __MetadataBear
  *
  * @public
  */
-export class DeleteDirectQueryDataSourceCommand extends $Command
-  .classBuilder<
-    DeleteDirectQueryDataSourceCommandInput,
-    DeleteDirectQueryDataSourceCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "DeleteDirectQueryDataSource", {})
-  .n("OpenSearchClient", "DeleteDirectQueryDataSourceCommand")
-  .sc(DeleteDirectQueryDataSource$)
-  .build() {
+export class DeleteDirectQueryDataSourceCommand extends command<DeleteDirectQueryDataSourceCommandInput, DeleteDirectQueryDataSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDirectQueryDataSource",
+  DeleteDirectQueryDataSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

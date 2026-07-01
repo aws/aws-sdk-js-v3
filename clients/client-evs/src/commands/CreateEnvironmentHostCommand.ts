@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { EvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateEnvironmentHostRequest, CreateEnvironmentHostResponse } from "../models/models_0";
 import { CreateEnvironmentHost$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateEnvironmentHost$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface CreateEnvironmentHostCommandOutput extends CreateEnvironmentHos
  *
  * @public
  */
-export class CreateEnvironmentHostCommand extends $Command
-  .classBuilder<
-    CreateEnvironmentHostCommandInput,
-    CreateEnvironmentHostCommandOutput,
-    EvsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EvsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticVMwareService", "CreateEnvironmentHost", {})
-  .n("EvsClient", "CreateEnvironmentHostCommand")
-  .sc(CreateEnvironmentHost$)
-  .build() {
+export class CreateEnvironmentHostCommand extends command<CreateEnvironmentHostCommandInput, CreateEnvironmentHostCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateEnvironmentHost",
+  CreateEnvironmentHost$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteApiRequest } from "../models/models_0";
 import { DeleteApi$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteApi$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface DeleteApiCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteApiCommand extends $Command
-  .classBuilder<
-    DeleteApiCommandInput,
-    DeleteApiCommandOutput,
-    ApiGatewayV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApiGatewayV2", "DeleteApi", {})
-  .n("ApiGatewayV2Client", "DeleteApiCommand")
-  .sc(DeleteApi$)
-  .build() {
+export class DeleteApiCommand extends command<DeleteApiCommandInput, DeleteApiCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteApi",
+  DeleteApi$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ApplicationResourceLifecycleDescriptionMessage,
   UpdateApplicationResourceLifecycleMessage,
@@ -19,7 +12,6 @@ import { UpdateApplicationResourceLifecycle$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +92,12 @@ export interface UpdateApplicationResourceLifecycleCommandOutput extends Applica
  *
  * @public
  */
-export class UpdateApplicationResourceLifecycleCommand extends $Command
-  .classBuilder<
-    UpdateApplicationResourceLifecycleCommandInput,
-    UpdateApplicationResourceLifecycleCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "UpdateApplicationResourceLifecycle", {})
-  .n("ElasticBeanstalkClient", "UpdateApplicationResourceLifecycleCommand")
-  .sc(UpdateApplicationResourceLifecycle$)
-  .build() {
+export class UpdateApplicationResourceLifecycleCommand extends command<UpdateApplicationResourceLifecycleCommandInput, UpdateApplicationResourceLifecycleCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateApplicationResourceLifecycle",
+  UpdateApplicationResourceLifecycle$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

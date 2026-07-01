@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisconnectParticipantRequest, DisconnectParticipantResponse } from "../models/models_0";
 import { DisconnectParticipant$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisconnectParticipant$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DisconnectParticipantCommandOutput extends DisconnectParticipan
  *
  * @public
  */
-export class DisconnectParticipantCommand extends $Command
-  .classBuilder<
-    DisconnectParticipantCommandInput,
-    DisconnectParticipantCommandOutput,
-    IVSRealTimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoServiceRealTime", "DisconnectParticipant", {})
-  .n("IVSRealTimeClient", "DisconnectParticipantCommand")
-  .sc(DisconnectParticipant$)
-  .build() {
+export class DisconnectParticipantCommand extends command<DisconnectParticipantCommandInput, DisconnectParticipantCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisconnectParticipant",
+  DisconnectParticipant$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

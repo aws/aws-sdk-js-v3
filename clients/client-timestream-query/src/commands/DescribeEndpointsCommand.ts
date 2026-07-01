@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { DescribeEndpointsRequest, DescribeEndpointsResponse } from "../models/models_0";
 import { DescribeEndpoints$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TimestreamQueryClientResolvedConfig,
-} from "../TimestreamQueryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  *
  * @public
  */
-export class DescribeEndpointsCommand extends $Command
-  .classBuilder<
-    DescribeEndpointsCommandInput,
-    DescribeEndpointsCommandOutput,
-    TimestreamQueryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TimestreamQueryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Timestream_20181101", "DescribeEndpoints", {})
-  .n("TimestreamQueryClient", "DescribeEndpointsCommand")
-  .sc(DescribeEndpoints$)
-  .build() {
+export class DescribeEndpointsCommand extends command<DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput>(
+  _ep0,
+  _mw1,
+  "DescribeEndpoints",
+  DescribeEndpoints$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMembershipRequest, DeleteMembershipResponse } from "../models/models_0";
 import { DeleteMembership$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -60,22 +56,12 @@ export interface DeleteMembershipCommandOutput extends DeleteMembershipResponse,
  *
  * @public
  */
-export class DeleteMembershipCommand extends $Command
-  .classBuilder<
-    DeleteMembershipCommandInput,
-    DeleteMembershipCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "DeleteMembership", {})
-  .n("SecurityAgentClient", "DeleteMembershipCommand")
-  .sc(DeleteMembership$)
-  .build() {
+export class DeleteMembershipCommand extends command<DeleteMembershipCommandInput, DeleteMembershipCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMembership",
+  DeleteMembership$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

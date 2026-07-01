@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyBackendClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyBackendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateBackendStorageRequest, CreateBackendStorageResponse } from "../models/models_0";
 import { CreateBackendStorage$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateBackendStorage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +84,12 @@ export interface CreateBackendStorageCommandOutput extends CreateBackendStorageR
  *
  * @public
  */
-export class CreateBackendStorageCommand extends $Command
-  .classBuilder<
-    CreateBackendStorageCommandInput,
-    CreateBackendStorageCommandOutput,
-    AmplifyBackendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyBackendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyBackend", "CreateBackendStorage", {})
-  .n("AmplifyBackendClient", "CreateBackendStorageCommand")
-  .sc(CreateBackendStorage$)
-  .build() {
+export class CreateBackendStorageCommand extends command<CreateBackendStorageCommandInput, CreateBackendStorageCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateBackendStorage",
+  CreateBackendStorage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

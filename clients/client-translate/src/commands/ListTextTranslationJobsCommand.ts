@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTextTranslationJobsRequest, ListTextTranslationJobsResponse } from "../models/models_0";
 import { ListTextTranslationJobs$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface ListTextTranslationJobsCommandOutput extends ListTextTranslatio
  *
  * @public
  */
-export class ListTextTranslationJobsCommand extends $Command
-  .classBuilder<
-    ListTextTranslationJobsCommandInput,
-    ListTextTranslationJobsCommandOutput,
-    TranslateClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TranslateClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShineFrontendService_20170701", "ListTextTranslationJobs", {})
-  .n("TranslateClient", "ListTextTranslationJobsCommand")
-  .sc(ListTextTranslationJobs$)
-  .build() {
+export class ListTextTranslationJobsCommand extends command<ListTextTranslationJobsCommandInput, ListTextTranslationJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTextTranslationJobs",
+  ListTextTranslationJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

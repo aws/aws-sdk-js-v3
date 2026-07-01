@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartAutomationExecutionRequest, StartAutomationExecutionResult } from "../models/models_1";
 import { StartAutomationExecution$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -161,22 +157,12 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  *
  * @public
  */
-export class StartAutomationExecutionCommand extends $Command
-  .classBuilder<
-    StartAutomationExecutionCommandInput,
-    StartAutomationExecutionCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "StartAutomationExecution", {})
-  .n("SSMClient", "StartAutomationExecutionCommand")
-  .sc(StartAutomationExecution$)
-  .build() {
+export class StartAutomationExecutionCommand extends command<StartAutomationExecutionCommandInput, StartAutomationExecutionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartAutomationExecution",
+  StartAutomationExecution$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

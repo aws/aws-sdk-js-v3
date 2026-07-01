@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEBSVolumeRecommendationsRequest, GetEBSVolumeRecommendationsResponse } from "../models/models_0";
 import { GetEBSVolumeRecommendations$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetEBSVolumeRecommendations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -181,22 +173,12 @@ export interface GetEBSVolumeRecommendationsCommandOutput extends GetEBSVolumeRe
  *
  * @public
  */
-export class GetEBSVolumeRecommendationsCommand extends $Command
-  .classBuilder<
-    GetEBSVolumeRecommendationsCommandInput,
-    GetEBSVolumeRecommendationsCommandOutput,
-    ComputeOptimizerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerService", "GetEBSVolumeRecommendations", {})
-  .n("ComputeOptimizerClient", "GetEBSVolumeRecommendationsCommand")
-  .sc(GetEBSVolumeRecommendations$)
-  .build() {
+export class GetEBSVolumeRecommendationsCommand extends command<GetEBSVolumeRecommendationsCommandInput, GetEBSVolumeRecommendationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEBSVolumeRecommendations",
+  GetEBSVolumeRecommendations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

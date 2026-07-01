@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDBClusterEndpointMessage, DeleteDBClusterEndpointOutput } from "../models/models_0";
-import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import { DeleteDBClusterEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface DeleteDBClusterEndpointCommandOutput extends DeleteDBClusterEnd
  *
  * @public
  */
-export class DeleteDBClusterEndpointCommand extends $Command
-  .classBuilder<
-    DeleteDBClusterEndpointCommandInput,
-    DeleteDBClusterEndpointCommandOutput,
-    NeptuneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DeleteDBClusterEndpoint", {})
-  .n("NeptuneClient", "DeleteDBClusterEndpointCommand")
-  .sc(DeleteDBClusterEndpoint$)
-  .build() {
+export class DeleteDBClusterEndpointCommand extends command<DeleteDBClusterEndpointCommandInput, DeleteDBClusterEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDBClusterEndpoint",
+  DeleteDBClusterEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

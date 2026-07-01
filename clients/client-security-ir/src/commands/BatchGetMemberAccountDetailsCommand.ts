@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetMemberAccountDetailsRequest, BatchGetMemberAccountDetailsResponse } from "../models/models_0";
 import { BatchGetMemberAccountDetails$ } from "../schemas/schemas_0";
-import type { SecurityIRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityIRClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +122,12 @@ export interface BatchGetMemberAccountDetailsCommandOutput extends BatchGetMembe
  *
  * @public
  */
-export class BatchGetMemberAccountDetailsCommand extends $Command
-  .classBuilder<
-    BatchGetMemberAccountDetailsCommandInput,
-    BatchGetMemberAccountDetailsCommandOutput,
-    SecurityIRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityIRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityIncidentResponse", "BatchGetMemberAccountDetails", {})
-  .n("SecurityIRClient", "BatchGetMemberAccountDetailsCommand")
-  .sc(BatchGetMemberAccountDetails$)
-  .build() {
+export class BatchGetMemberAccountDetailsCommand extends command<BatchGetMemberAccountDetailsCommandInput, BatchGetMemberAccountDetailsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetMemberAccountDetails",
+  BatchGetMemberAccountDetails$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

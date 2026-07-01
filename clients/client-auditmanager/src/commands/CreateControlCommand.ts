@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateControlRequest, CreateControlResponse } from "../models/models_0";
 import { CreateControl$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateControl$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +129,12 @@ export interface CreateControlCommandOutput extends CreateControlResponse, __Met
  *
  * @public
  */
-export class CreateControlCommand extends $Command
-  .classBuilder<
-    CreateControlCommandInput,
-    CreateControlCommandOutput,
-    AuditManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BedrockAssessmentManagerLambda", "CreateControl", {})
-  .n("AuditManagerClient", "CreateControlCommand")
-  .sc(CreateControl$)
-  .build() {
+export class CreateControlCommand extends command<CreateControlCommandInput, CreateControlCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateControl",
+  CreateControl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticLoadBalancingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticLoadBalancingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DetachLoadBalancerFromSubnetsInput, DetachLoadBalancerFromSubnetsOutput } from "../models/models_0";
 import { DetachLoadBalancerFromSubnets$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DetachLoadBalancerFromSubnets$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +89,12 @@ export interface DetachLoadBalancerFromSubnetsCommandOutput extends DetachLoadBa
  *
  * @public
  */
-export class DetachLoadBalancerFromSubnetsCommand extends $Command
-  .classBuilder<
-    DetachLoadBalancerFromSubnetsCommandInput,
-    DetachLoadBalancerFromSubnetsCommandOutput,
-    ElasticLoadBalancingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticLoadBalancing_v7", "DetachLoadBalancerFromSubnets", {})
-  .n("ElasticLoadBalancingClient", "DetachLoadBalancerFromSubnetsCommand")
-  .sc(DetachLoadBalancerFromSubnets$)
-  .build() {
+export class DetachLoadBalancerFromSubnetsCommand extends command<DetachLoadBalancerFromSubnetsCommandInput, DetachLoadBalancerFromSubnetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DetachLoadBalancerFromSubnets",
+  DetachLoadBalancerFromSubnets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

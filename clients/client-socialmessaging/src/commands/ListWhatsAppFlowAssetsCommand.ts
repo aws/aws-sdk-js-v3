@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListWhatsAppFlowAssetsInput, ListWhatsAppFlowAssetsOutput } from "../models/models_0";
 import { ListWhatsAppFlowAssets$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SocialMessagingClientResolvedConfig,
-} from "../SocialMessagingClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +90,12 @@ export interface ListWhatsAppFlowAssetsCommandOutput extends ListWhatsAppFlowAss
  *
  * @public
  */
-export class ListWhatsAppFlowAssetsCommand extends $Command
-  .classBuilder<
-    ListWhatsAppFlowAssetsCommandInput,
-    ListWhatsAppFlowAssetsCommandOutput,
-    SocialMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SocialMessaging", "ListWhatsAppFlowAssets", {})
-  .n("SocialMessagingClient", "ListWhatsAppFlowAssetsCommand")
-  .sc(ListWhatsAppFlowAssets$)
-  .build() {
+export class ListWhatsAppFlowAssetsCommand extends command<ListWhatsAppFlowAssetsCommandInput, ListWhatsAppFlowAssetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListWhatsAppFlowAssets",
+  ListWhatsAppFlowAssets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

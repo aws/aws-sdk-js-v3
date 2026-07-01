@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RejectSupportPermitRequestInput, RejectSupportPermitRequestOutput } from "../models/models_0";
 import { RejectSupportPermitRequest$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupportAuthZClientResolvedConfig } from "../SupportAuthZClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface RejectSupportPermitRequestCommandOutput extends RejectSupportPe
  *
  * @public
  */
-export class RejectSupportPermitRequestCommand extends $Command
-  .classBuilder<
-    RejectSupportPermitRequestCommandInput,
-    RejectSupportPermitRequestCommandOutput,
-    SupportAuthZClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupportAuthZClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SupportAuthZ", "RejectSupportPermitRequest", {})
-  .n("SupportAuthZClient", "RejectSupportPermitRequestCommand")
-  .sc(RejectSupportPermitRequest$)
-  .build() {
+export class RejectSupportPermitRequestCommand extends command<RejectSupportPermitRequestCommandInput, RejectSupportPermitRequestCommandOutput>(
+  _ep0,
+  _mw0,
+  "RejectSupportPermitRequest",
+  RejectSupportPermitRequest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ConnectCampaignsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ConnectCampaignsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetInstanceOnboardingJobStatusRequest, GetInstanceOnboardingJobStatusResponse } from "../models/models_0";
 import { GetInstanceOnboardingJobStatus$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetInstanceOnboardingJobStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface GetInstanceOnboardingJobStatusCommandOutput extends GetInstance
  *
  * @public
  */
-export class GetInstanceOnboardingJobStatusCommand extends $Command
-  .classBuilder<
-    GetInstanceOnboardingJobStatusCommandInput,
-    GetInstanceOnboardingJobStatusCommandOutput,
-    ConnectCampaignsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCampaignService", "GetInstanceOnboardingJobStatus", {})
-  .n("ConnectCampaignsClient", "GetInstanceOnboardingJobStatusCommand")
-  .sc(GetInstanceOnboardingJobStatus$)
-  .build() {
+export class GetInstanceOnboardingJobStatusCommand extends command<GetInstanceOnboardingJobStatusCommandInput, GetInstanceOnboardingJobStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetInstanceOnboardingJobStatus",
+  GetInstanceOnboardingJobStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

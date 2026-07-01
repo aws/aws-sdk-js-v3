@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAppImageConfigRequest, DescribeAppImageConfigResponse } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeAppImageConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface DescribeAppImageConfigCommandOutput extends DescribeAppImageCon
  *
  * @public
  */
-export class DescribeAppImageConfigCommand extends $Command
-  .classBuilder<
-    DescribeAppImageConfigCommandInput,
-    DescribeAppImageConfigCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DescribeAppImageConfig", {})
-  .n("SageMakerClient", "DescribeAppImageConfigCommand")
-  .sc(DescribeAppImageConfig$)
-  .build() {
+export class DescribeAppImageConfigCommand extends command<DescribeAppImageConfigCommandInput, DescribeAppImageConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAppImageConfig",
+  DescribeAppImageConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

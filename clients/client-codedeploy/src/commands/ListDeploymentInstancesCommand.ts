@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDeploymentInstancesInput, ListDeploymentInstancesOutput } from "../models/models_0";
 import { ListDeploymentInstances$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDeploymentInstances$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  *
  * @public
  */
-export class ListDeploymentInstancesCommand extends $Command
-  .classBuilder<
-    ListDeploymentInstancesCommandInput,
-    ListDeploymentInstancesCommandOutput,
-    CodeDeployClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeDeploy_20141006", "ListDeploymentInstances", {})
-  .n("CodeDeployClient", "ListDeploymentInstancesCommand")
-  .sc(ListDeploymentInstances$)
-  .build() {
+export class ListDeploymentInstancesCommand extends command<ListDeploymentInstancesCommandInput, ListDeploymentInstancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDeploymentInstances",
+  ListDeploymentInstances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

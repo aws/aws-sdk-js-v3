@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteNamespaceRequest } from "../models/models_0";
-import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
 import { DeleteNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteNamespaceCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteNamespaceCommand extends $Command
-  .classBuilder<
-    DeleteNamespaceCommandInput,
-    DeleteNamespaceCommandOutput,
-    S3TablesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: S3TablesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("S3TableBuckets", "DeleteNamespace", {})
-  .n("S3TablesClient", "DeleteNamespaceCommand")
-  .sc(DeleteNamespace$)
-  .build() {
+export class DeleteNamespaceCommand extends command<DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteNamespace",
+  DeleteNamespace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCardinalityRequest, GetCardinalityResponse } from "../models/models_1";
 import { GetCardinality$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetCardinality$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface GetCardinalityCommandOutput extends GetCardinalityResponse, __M
  *
  * @public
  */
-export class GetCardinalityCommand extends $Command
-  .classBuilder<
-    GetCardinalityCommandInput,
-    GetCardinalityCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "GetCardinality", {})
-  .n("IoTClient", "GetCardinalityCommand")
-  .sc(GetCardinality$)
-  .build() {
+export class GetCardinalityCommand extends command<GetCardinalityCommandInput, GetCardinalityCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCardinality",
+  GetCardinality$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

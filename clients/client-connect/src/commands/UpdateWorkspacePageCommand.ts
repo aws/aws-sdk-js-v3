@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateWorkspacePageRequest, UpdateWorkspacePageResponse } from "../models/models_3";
 import { UpdateWorkspacePage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateWorkspacePage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface UpdateWorkspacePageCommandOutput extends UpdateWorkspacePageRes
  *
  * @public
  */
-export class UpdateWorkspacePageCommand extends $Command
-  .classBuilder<
-    UpdateWorkspacePageCommandInput,
-    UpdateWorkspacePageCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "UpdateWorkspacePage", {})
-  .n("ConnectClient", "UpdateWorkspacePageCommand")
-  .sc(UpdateWorkspacePage$)
-  .build() {
+export class UpdateWorkspacePageCommand extends command<UpdateWorkspacePageCommandInput, UpdateWorkspacePageCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateWorkspacePage",
+  UpdateWorkspacePage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

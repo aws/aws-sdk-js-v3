@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListUltraServersByReservedCapacityRequest,
   ListUltraServersByReservedCapacityResponse,
 } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListUltraServersByReservedCapacity$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface ListUltraServersByReservedCapacityCommandOutput extends ListUlt
  *
  * @public
  */
-export class ListUltraServersByReservedCapacityCommand extends $Command
-  .classBuilder<
-    ListUltraServersByReservedCapacityCommandInput,
-    ListUltraServersByReservedCapacityCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "ListUltraServersByReservedCapacity", {})
-  .n("SageMakerClient", "ListUltraServersByReservedCapacityCommand")
-  .sc(ListUltraServersByReservedCapacity$)
-  .build() {
+export class ListUltraServersByReservedCapacityCommand extends command<ListUltraServersByReservedCapacityCommandInput, ListUltraServersByReservedCapacityCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListUltraServersByReservedCapacity",
+  ListUltraServersByReservedCapacity$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

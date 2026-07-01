@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DBClusterParameterGroupNameMessage, ModifyDBClusterParameterGroupMessage } from "../models/models_0";
 import { ModifyDBClusterParameterGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ModifyDBClusterParameterGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface ModifyDBClusterParameterGroupCommandOutput extends DBClusterPar
  *
  * @public
  */
-export class ModifyDBClusterParameterGroupCommand extends $Command
-  .classBuilder<
-    ModifyDBClusterParameterGroupCommandInput,
-    ModifyDBClusterParameterGroupCommandOutput,
-    DocDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "ModifyDBClusterParameterGroup", {})
-  .n("DocDBClient", "ModifyDBClusterParameterGroupCommand")
-  .sc(ModifyDBClusterParameterGroup$)
-  .build() {
+export class ModifyDBClusterParameterGroupCommand extends command<ModifyDBClusterParameterGroupCommandInput, ModifyDBClusterParameterGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyDBClusterParameterGroup",
+  ModifyDBClusterParameterGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCodeReviewJobsForCodeReviewInput, ListCodeReviewJobsForCodeReviewOutput } from "../models/models_0";
 import { ListCodeReviewJobsForCodeReview$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface ListCodeReviewJobsForCodeReviewCommandOutput extends ListCodeRe
  *
  * @public
  */
-export class ListCodeReviewJobsForCodeReviewCommand extends $Command
-  .classBuilder<
-    ListCodeReviewJobsForCodeReviewCommandInput,
-    ListCodeReviewJobsForCodeReviewCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "ListCodeReviewJobsForCodeReview", {})
-  .n("SecurityAgentClient", "ListCodeReviewJobsForCodeReviewCommand")
-  .sc(ListCodeReviewJobsForCodeReview$)
-  .build() {
+export class ListCodeReviewJobsForCodeReviewCommand extends command<ListCodeReviewJobsForCodeReviewCommandInput, ListCodeReviewJobsForCodeReviewCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCodeReviewJobsForCodeReview",
+  ListCodeReviewJobsForCodeReview$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

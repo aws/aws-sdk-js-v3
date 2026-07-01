@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeFleetHistoryRequest, DescribeFleetHistoryResult } from "../models/models_3";
 import { DescribeFleetHistory$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeFleetHistory$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DescribeFleetHistoryCommandOutput extends DescribeFleetHistoryR
  *
  * @public
  */
-export class DescribeFleetHistoryCommand extends $Command
-  .classBuilder<
-    DescribeFleetHistoryCommandInput,
-    DescribeFleetHistoryCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeFleetHistory", {})
-  .n("EC2Client", "DescribeFleetHistoryCommand")
-  .sc(DescribeFleetHistory$)
-  .build() {
+export class DescribeFleetHistoryCommand extends command<DescribeFleetHistoryCommandInput, DescribeFleetHistoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeFleetHistory",
+  DescribeFleetHistory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

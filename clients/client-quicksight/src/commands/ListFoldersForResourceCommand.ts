@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListFoldersForResourceRequest, ListFoldersForResourceResponse } from "../models/models_4";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { ListFoldersForResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface ListFoldersForResourceCommandOutput extends ListFoldersForResou
  *
  * @public
  */
-export class ListFoldersForResourceCommand extends $Command
-  .classBuilder<
-    ListFoldersForResourceCommandInput,
-    ListFoldersForResourceCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "ListFoldersForResource", {})
-  .n("QuickSightClient", "ListFoldersForResourceCommand")
-  .sc(ListFoldersForResource$)
-  .build() {
+export class ListFoldersForResourceCommand extends command<ListFoldersForResourceCommandInput, ListFoldersForResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFoldersForResource",
+  ListFoldersForResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

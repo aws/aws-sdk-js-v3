@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { UpdateAcmeDomainValidationRequest } from "../models/models_0";
 import { UpdateAcmeDomainValidation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateAcmeDomainValidation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,25 +81,12 @@ export interface UpdateAcmeDomainValidationCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class UpdateAcmeDomainValidationCommand extends $Command
-  .classBuilder<
-    UpdateAcmeDomainValidationCommandInput,
-    UpdateAcmeDomainValidationCommandOutput,
-    ACMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ServiceType: { type: "staticContextParams", value: `ACM-ACME` },
-  })
-  .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CertificateManager", "UpdateAcmeDomainValidation", {})
-  .n("ACMClient", "UpdateAcmeDomainValidationCommand")
-  .sc(UpdateAcmeDomainValidation$)
-  .build() {
+export class UpdateAcmeDomainValidationCommand extends command<UpdateAcmeDomainValidationCommandInput, UpdateAcmeDomainValidationCommandOutput>(
+  _ep1,
+  _mw0,
+  "UpdateAcmeDomainValidation",
+  UpdateAcmeDomainValidation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

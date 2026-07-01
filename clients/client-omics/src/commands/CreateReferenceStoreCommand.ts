@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateReferenceStoreRequest, CreateReferenceStoreResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { CreateReferenceStore$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface CreateReferenceStoreCommandOutput extends CreateReferenceStoreR
  *
  * @public
  */
-export class CreateReferenceStoreCommand extends $Command
-  .classBuilder<
-    CreateReferenceStoreCommandInput,
-    CreateReferenceStoreCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "CreateReferenceStore", {})
-  .n("OmicsClient", "CreateReferenceStoreCommand")
-  .sc(CreateReferenceStore$)
-  .build() {
+export class CreateReferenceStoreCommand extends command<CreateReferenceStoreCommandInput, CreateReferenceStoreCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateReferenceStore",
+  CreateReferenceStore$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

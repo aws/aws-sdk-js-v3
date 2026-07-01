@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTagsRequest, Tags } from "../models/models_0";
 import { GetTags$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetTags$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface GetTagsCommandOutput extends Tags, __MetadataBearer {}
  *
  * @public
  */
-export class GetTagsCommand extends $Command
-  .classBuilder<
-    GetTagsCommandInput,
-    GetTagsCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "GetTags", {})
-  .n("APIGatewayClient", "GetTagsCommand")
-  .sc(GetTags$)
-  .build() {
+export class GetTagsCommand extends command<GetTagsCommandInput, GetTagsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTags",
+  GetTags$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

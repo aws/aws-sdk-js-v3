@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetLambdaFunctionRecommendationsRequest,
   GetLambdaFunctionRecommendationsResponse,
@@ -19,7 +12,6 @@ import { GetLambdaFunctionRecommendations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -171,22 +163,12 @@ export interface GetLambdaFunctionRecommendationsCommandOutput extends GetLambda
  *
  * @public
  */
-export class GetLambdaFunctionRecommendationsCommand extends $Command
-  .classBuilder<
-    GetLambdaFunctionRecommendationsCommandInput,
-    GetLambdaFunctionRecommendationsCommandOutput,
-    ComputeOptimizerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerService", "GetLambdaFunctionRecommendations", {})
-  .n("ComputeOptimizerClient", "GetLambdaFunctionRecommendationsCommand")
-  .sc(GetLambdaFunctionRecommendations$)
-  .build() {
+export class GetLambdaFunctionRecommendationsCommand extends command<GetLambdaFunctionRecommendationsCommandInput, GetLambdaFunctionRecommendationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetLambdaFunctionRecommendations",
+  GetLambdaFunctionRecommendations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateEventTrackerRequest, CreateEventTrackerResponse } from "../models/models_0";
-import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { CreateEventTracker$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface CreateEventTrackerCommandOutput extends CreateEventTrackerRespo
  *
  * @public
  */
-export class CreateEventTrackerCommand extends $Command
-  .classBuilder<
-    CreateEventTrackerCommandInput,
-    CreateEventTrackerCommandOutput,
-    PersonalizeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPersonalize", "CreateEventTracker", {})
-  .n("PersonalizeClient", "CreateEventTrackerCommand")
-  .sc(CreateEventTracker$)
-  .build() {
+export class CreateEventTrackerCommand extends command<CreateEventTrackerCommandInput, CreateEventTrackerCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateEventTracker",
+  CreateEventTracker$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

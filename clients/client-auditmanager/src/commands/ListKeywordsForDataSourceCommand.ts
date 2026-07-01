@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListKeywordsForDataSourceRequest, ListKeywordsForDataSourceResponse } from "../models/models_0";
 import { ListKeywordsForDataSource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListKeywordsForDataSource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface ListKeywordsForDataSourceCommandOutput extends ListKeywordsForD
  *
  * @public
  */
-export class ListKeywordsForDataSourceCommand extends $Command
-  .classBuilder<
-    ListKeywordsForDataSourceCommandInput,
-    ListKeywordsForDataSourceCommandOutput,
-    AuditManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BedrockAssessmentManagerLambda", "ListKeywordsForDataSource", {})
-  .n("AuditManagerClient", "ListKeywordsForDataSourceCommand")
-  .sc(ListKeywordsForDataSource$)
-  .build() {
+export class ListKeywordsForDataSourceCommand extends command<ListKeywordsForDataSourceCommandInput, ListKeywordsForDataSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListKeywordsForDataSource",
+  ListKeywordsForDataSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

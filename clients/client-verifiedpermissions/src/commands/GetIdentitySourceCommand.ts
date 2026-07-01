@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetIdentitySourceInput, GetIdentitySourceOutput } from "../models/models_0";
 import { GetIdentitySource$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  VerifiedPermissionsClientResolvedConfig,
-} from "../VerifiedPermissionsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -151,22 +143,12 @@ export interface GetIdentitySourceCommandOutput extends GetIdentitySourceOutput,
  *
  * @public
  */
-export class GetIdentitySourceCommand extends $Command
-  .classBuilder<
-    GetIdentitySourceCommandInput,
-    GetIdentitySourceCommandOutput,
-    VerifiedPermissionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("VerifiedPermissions", "GetIdentitySource", {})
-  .n("VerifiedPermissionsClient", "GetIdentitySourceCommand")
-  .sc(GetIdentitySource$)
-  .build() {
+export class GetIdentitySourceCommand extends command<GetIdentitySourceCommandInput, GetIdentitySourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIdentitySource",
+  GetIdentitySource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

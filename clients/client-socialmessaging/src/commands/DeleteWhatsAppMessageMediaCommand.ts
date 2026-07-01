@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteWhatsAppMessageMediaInput, DeleteWhatsAppMessageMediaOutput } from "../models/models_0";
 import { DeleteWhatsAppMessageMedia$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SocialMessagingClientResolvedConfig,
-} from "../SocialMessagingClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface DeleteWhatsAppMessageMediaCommandOutput extends DeleteWhatsAppM
  *
  * @public
  */
-export class DeleteWhatsAppMessageMediaCommand extends $Command
-  .classBuilder<
-    DeleteWhatsAppMessageMediaCommandInput,
-    DeleteWhatsAppMessageMediaCommandOutput,
-    SocialMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SocialMessaging", "DeleteWhatsAppMessageMedia", {})
-  .n("SocialMessagingClient", "DeleteWhatsAppMessageMediaCommand")
-  .sc(DeleteWhatsAppMessageMedia$)
-  .build() {
+export class DeleteWhatsAppMessageMediaCommand extends command<DeleteWhatsAppMessageMediaCommandInput, DeleteWhatsAppMessageMediaCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteWhatsAppMessageMedia",
+  DeleteWhatsAppMessageMedia$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

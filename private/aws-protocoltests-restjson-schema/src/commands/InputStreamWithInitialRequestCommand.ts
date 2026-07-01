@@ -1,23 +1,14 @@
 // smithy-typescript generated code
-import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { InputStreamWithInitialRequestInput } from "../models/models_0";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
 import { InputStreamWithInitialRequest$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,32 +94,12 @@ export interface InputStreamWithInitialRequestCommandOutput extends __MetadataBe
  *
  *
  */
-export class InputStreamWithInitialRequestCommand extends $Command
-  .classBuilder<
-    InputStreamWithInitialRequestCommandInput,
-    InputStreamWithInitialRequestCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEventStreamPlugin(config),
-    ];
-  })
-  .s("RestJson", "InputStreamWithInitialRequest", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      input: true,
-    },
-  })
-  .n("RestJsonProtocolClient", "InputStreamWithInitialRequestCommand")
-  .sc(InputStreamWithInitialRequest$)
-  .build() {
+export class InputStreamWithInitialRequestCommand extends command<InputStreamWithInitialRequestCommandInput, InputStreamWithInitialRequestCommandOutput>(
+  _ep0,
+  _mw1,
+  "InputStreamWithInitialRequest",
+  InputStreamWithInitialRequest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

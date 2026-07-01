@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDataRetentionInput, UpdateDataRetentionOutput } from "../models/models_0";
 import { UpdateDataRetention$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateDataRetention$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +116,12 @@ export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionOut
  *
  * @public
  */
-export class UpdateDataRetentionCommand extends $Command
-  .classBuilder<
-    UpdateDataRetentionCommandInput,
-    UpdateDataRetentionCommandOutput,
-    KinesisVideoClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KinesisVideo_20170930", "UpdateDataRetention", {})
-  .n("KinesisVideoClient", "UpdateDataRetentionCommand")
-  .sc(UpdateDataRetention$)
-  .build() {
+export class UpdateDataRetentionCommand extends command<UpdateDataRetentionCommandInput, UpdateDataRetentionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDataRetention",
+  UpdateDataRetention$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

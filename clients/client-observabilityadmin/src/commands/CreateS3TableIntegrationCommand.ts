@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateS3TableIntegrationInput, CreateS3TableIntegrationOutput } from "../models/models_0";
-import type {
-  ObservabilityAdminClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ObservabilityAdminClient";
 import { CreateS3TableIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface CreateS3TableIntegrationCommandOutput extends CreateS3TableInte
  *
  * @public
  */
-export class CreateS3TableIntegrationCommand extends $Command
-  .classBuilder<
-    CreateS3TableIntegrationCommandInput,
-    CreateS3TableIntegrationCommandOutput,
-    ObservabilityAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ObservabilityAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ObservabilityAdmin", "CreateS3TableIntegration", {})
-  .n("ObservabilityAdminClient", "CreateS3TableIntegrationCommand")
-  .sc(CreateS3TableIntegration$)
-  .build() {
+export class CreateS3TableIntegrationCommand extends command<CreateS3TableIntegrationCommandInput, CreateS3TableIntegrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateS3TableIntegration",
+  CreateS3TableIntegration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

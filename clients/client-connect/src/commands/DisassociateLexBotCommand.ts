@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateLexBotRequest } from "../models/models_1";
 import { DisassociateLexBot$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateLexBot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DisassociateLexBotCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DisassociateLexBotCommand extends $Command
-  .classBuilder<
-    DisassociateLexBotCommandInput,
-    DisassociateLexBotCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DisassociateLexBot", {})
-  .n("ConnectClient", "DisassociateLexBotCommand")
-  .sc(DisassociateLexBot$)
-  .build() {
+export class DisassociateLexBotCommand extends command<DisassociateLexBotCommandInput, DisassociateLexBotCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateLexBot",
+  DisassociateLexBot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

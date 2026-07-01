@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteLoggingConfigurationRequest } from "../models/models_0";
 import { DeleteLoggingConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteLoggingConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class DeleteLoggingConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteLoggingConfigurationCommandInput,
-    DeleteLoggingConfigurationCommandOutput,
-    AmpClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPrometheusService", "DeleteLoggingConfiguration", {})
-  .n("AmpClient", "DeleteLoggingConfigurationCommand")
-  .sc(DeleteLoggingConfiguration$)
-  .build() {
+export class DeleteLoggingConfigurationCommand extends command<DeleteLoggingConfigurationCommandInput, DeleteLoggingConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteLoggingConfiguration",
+  DeleteLoggingConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

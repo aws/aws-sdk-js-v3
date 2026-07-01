@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ValidatePipelineDefinitionInput, ValidatePipelineDefinitionOutput } from "../models/models_0";
 import { ValidatePipelineDefinition$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ValidatePipelineDefinition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -268,22 +264,12 @@ export interface ValidatePipelineDefinitionCommandOutput extends ValidatePipelin
  *
  * @public
  */
-export class ValidatePipelineDefinitionCommand extends $Command
-  .classBuilder<
-    ValidatePipelineDefinitionCommandInput,
-    ValidatePipelineDefinitionCommandOutput,
-    DataPipelineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataPipelineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataPipeline", "ValidatePipelineDefinition", {})
-  .n("DataPipelineClient", "ValidatePipelineDefinitionCommand")
-  .sc(ValidatePipelineDefinition$)
-  .build() {
+export class ValidatePipelineDefinitionCommand extends command<ValidatePipelineDefinitionCommandInput, ValidatePipelineDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ValidatePipelineDefinition",
+  ValidatePipelineDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { QuerySchemaVersionMetadataInput, QuerySchemaVersionMetadataResponse } from "../models/models_2";
 import { QuerySchemaVersionMetadata$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { QuerySchemaVersionMetadata$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface QuerySchemaVersionMetadataCommandOutput extends QuerySchemaVers
  *
  * @public
  */
-export class QuerySchemaVersionMetadataCommand extends $Command
-  .classBuilder<
-    QuerySchemaVersionMetadataCommandInput,
-    QuerySchemaVersionMetadataCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "QuerySchemaVersionMetadata", {})
-  .n("GlueClient", "QuerySchemaVersionMetadataCommand")
-  .sc(QuerySchemaVersionMetadata$)
-  .build() {
+export class QuerySchemaVersionMetadataCommand extends command<QuerySchemaVersionMetadataCommandInput, QuerySchemaVersionMetadataCommandOutput>(
+  _ep0,
+  _mw0,
+  "QuerySchemaVersionMetadata",
+  QuerySchemaVersionMetadata$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

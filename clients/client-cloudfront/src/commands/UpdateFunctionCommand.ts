@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateFunctionRequest, UpdateFunctionResult } from "../models/models_1";
 import { UpdateFunction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateFunction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -164,22 +160,12 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
  *
  * @public
  */
-export class UpdateFunctionCommand extends $Command
-  .classBuilder<
-    UpdateFunctionCommandInput,
-    UpdateFunctionCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "UpdateFunction", {})
-  .n("CloudFrontClient", "UpdateFunctionCommand")
-  .sc(UpdateFunction$)
-  .build() {
+export class UpdateFunctionCommand extends command<UpdateFunctionCommandInput, UpdateFunctionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateFunction",
+  UpdateFunction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

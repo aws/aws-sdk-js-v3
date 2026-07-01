@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerAutomationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerAutomationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateAccountsRequest, AssociateAccountsResponse } from "../models/models_0";
 import { AssociateAccounts$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AssociateAccounts$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +93,12 @@ export interface AssociateAccountsCommandOutput extends AssociateAccountsRespons
  *
  * @public
  */
-export class AssociateAccountsCommand extends $Command
-  .classBuilder<
-    AssociateAccountsCommandInput,
-    AssociateAccountsCommandOutput,
-    ComputeOptimizerAutomationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerAutomationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerAutomationService", "AssociateAccounts", {})
-  .n("ComputeOptimizerAutomationClient", "AssociateAccountsCommand")
-  .sc(AssociateAccounts$)
-  .build() {
+export class AssociateAccountsCommand extends command<AssociateAccountsCommandInput, AssociateAccountsCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateAccounts",
+  AssociateAccounts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMetricStatisticsInput, GetMetricStatisticsOutput } from "../models/models_0";
 import { GetMetricStatistics$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetMetricStatistics$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -159,22 +155,12 @@ export interface GetMetricStatisticsCommandOutput extends GetMetricStatisticsOut
  *
  * @public
  */
-export class GetMetricStatisticsCommand extends $Command
-  .classBuilder<
-    GetMetricStatisticsCommandInput,
-    GetMetricStatisticsCommandOutput,
-    CloudWatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GraniteServiceVersion20100801", "GetMetricStatistics", {})
-  .n("CloudWatchClient", "GetMetricStatisticsCommand")
-  .sc(GetMetricStatistics$)
-  .build() {
+export class GetMetricStatisticsCommand extends command<GetMetricStatisticsCommandInput, GetMetricStatisticsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMetricStatistics",
+  GetMetricStatistics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeReplicationTaskIndividualAssessmentsMessage,
   DescribeReplicationTaskIndividualAssessmentsResponse,
@@ -19,7 +12,6 @@ import { DescribeReplicationTaskIndividualAssessments$ } from "../schemas/schema
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface DescribeReplicationTaskIndividualAssessmentsCommandOutput exten
  *
  * @public
  */
-export class DescribeReplicationTaskIndividualAssessmentsCommand extends $Command
-  .classBuilder<
-    DescribeReplicationTaskIndividualAssessmentsCommandInput,
-    DescribeReplicationTaskIndividualAssessmentsCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "DescribeReplicationTaskIndividualAssessments", {})
-  .n("DatabaseMigrationServiceClient", "DescribeReplicationTaskIndividualAssessmentsCommand")
-  .sc(DescribeReplicationTaskIndividualAssessments$)
-  .build() {
+export class DescribeReplicationTaskIndividualAssessmentsCommand extends command<DescribeReplicationTaskIndividualAssessmentsCommandInput, DescribeReplicationTaskIndividualAssessmentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeReplicationTaskIndividualAssessments",
+  DescribeReplicationTaskIndividualAssessments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

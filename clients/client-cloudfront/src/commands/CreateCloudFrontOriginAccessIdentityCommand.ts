@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateCloudFrontOriginAccessIdentityRequest,
   CreateCloudFrontOriginAccessIdentityResult,
@@ -15,7 +12,6 @@ import { CreateCloudFrontOriginAccessIdentity$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface CreateCloudFrontOriginAccessIdentityCommandOutput extends Creat
  *
  * @public
  */
-export class CreateCloudFrontOriginAccessIdentityCommand extends $Command
-  .classBuilder<
-    CreateCloudFrontOriginAccessIdentityCommandInput,
-    CreateCloudFrontOriginAccessIdentityCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "CreateCloudFrontOriginAccessIdentity", {})
-  .n("CloudFrontClient", "CreateCloudFrontOriginAccessIdentityCommand")
-  .sc(CreateCloudFrontOriginAccessIdentity$)
-  .build() {
+export class CreateCloudFrontOriginAccessIdentityCommand extends command<CreateCloudFrontOriginAccessIdentityCommandInput, CreateCloudFrontOriginAccessIdentityCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCloudFrontOriginAccessIdentity",
+  CreateCloudFrontOriginAccessIdentity$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

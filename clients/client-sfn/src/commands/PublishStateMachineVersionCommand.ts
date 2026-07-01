@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PublishStateMachineVersionInput, PublishStateMachineVersionOutput } from "../models/models_0";
 import { PublishStateMachineVersion$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface PublishStateMachineVersionCommandOutput extends PublishStateMac
  *
  * @public
  */
-export class PublishStateMachineVersionCommand extends $Command
-  .classBuilder<
-    PublishStateMachineVersionCommandInput,
-    PublishStateMachineVersionCommandOutput,
-    SFNClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStepFunctions", "PublishStateMachineVersion", {})
-  .n("SFNClient", "PublishStateMachineVersionCommand")
-  .sc(PublishStateMachineVersion$)
-  .build() {
+export class PublishStateMachineVersionCommand extends command<PublishStateMachineVersionCommandInput, PublishStateMachineVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "PublishStateMachineVersion",
+  PublishStateMachineVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

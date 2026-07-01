@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListAssociatedApprovalRuleTemplatesForRepositoryInput,
   ListAssociatedApprovalRuleTemplatesForRepositoryOutput,
@@ -15,7 +12,6 @@ import { ListAssociatedApprovalRuleTemplatesForRepository$ } from "../schemas/sc
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput e
  *
  * @public
  */
-export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends $Command
-  .classBuilder<
-    ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
-    ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput,
-    CodeCommitClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCommit_20150413", "ListAssociatedApprovalRuleTemplatesForRepository", {})
-  .n("CodeCommitClient", "ListAssociatedApprovalRuleTemplatesForRepositoryCommand")
-  .sc(ListAssociatedApprovalRuleTemplatesForRepository$)
-  .build() {
+export class ListAssociatedApprovalRuleTemplatesForRepositoryCommand extends command<ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput, ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAssociatedApprovalRuleTemplatesForRepository",
+  ListAssociatedApprovalRuleTemplatesForRepository$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

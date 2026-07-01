@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAssociationRequest, CreateAssociationResult } from "../models/models_0";
 import { CreateAssociation$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -332,22 +328,12 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  *
  * @public
  */
-export class CreateAssociationCommand extends $Command
-  .classBuilder<
-    CreateAssociationCommandInput,
-    CreateAssociationCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "CreateAssociation", {})
-  .n("SSMClient", "CreateAssociationCommand")
-  .sc(CreateAssociation$)
-  .build() {
+export class CreateAssociationCommand extends command<CreateAssociationCommandInput, CreateAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAssociation",
+  CreateAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

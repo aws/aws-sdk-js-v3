@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListVirtualMachinesInput, ListVirtualMachinesOutput } from "../models/models_0";
 import { ListVirtualMachines$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListVirtualMachines$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface ListVirtualMachinesCommandOutput extends ListVirtualMachinesOut
  *
  * @public
  */
-export class ListVirtualMachinesCommand extends $Command
-  .classBuilder<
-    ListVirtualMachinesCommandInput,
-    ListVirtualMachinesCommandOutput,
-    BackupGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackupOnPremises_v20210101", "ListVirtualMachines", {})
-  .n("BackupGatewayClient", "ListVirtualMachinesCommand")
-  .sc(ListVirtualMachines$)
-  .build() {
+export class ListVirtualMachinesCommand extends command<ListVirtualMachinesCommandInput, ListVirtualMachinesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListVirtualMachines",
+  ListVirtualMachines$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

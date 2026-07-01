@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeReplaceRootVolumeTasksRequest, DescribeReplaceRootVolumeTasksResult } from "../models/models_4";
 import { DescribeReplaceRootVolumeTasks$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeReplaceRootVolumeTasks$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface DescribeReplaceRootVolumeTasksCommandOutput extends DescribeRep
  *
  * @public
  */
-export class DescribeReplaceRootVolumeTasksCommand extends $Command
-  .classBuilder<
-    DescribeReplaceRootVolumeTasksCommandInput,
-    DescribeReplaceRootVolumeTasksCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeReplaceRootVolumeTasks", {})
-  .n("EC2Client", "DescribeReplaceRootVolumeTasksCommand")
-  .sc(DescribeReplaceRootVolumeTasks$)
-  .build() {
+export class DescribeReplaceRootVolumeTasksCommand extends command<DescribeReplaceRootVolumeTasksCommandInput, DescribeReplaceRootVolumeTasksCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeReplaceRootVolumeTasks",
+  DescribeReplaceRootVolumeTasks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteJourneyRequest, DeleteJourneyResponse } from "../models/models_0";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { DeleteJourney$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -466,22 +462,12 @@ export interface DeleteJourneyCommandOutput extends DeleteJourneyResponse, __Met
  *
  * @public
  */
-export class DeleteJourneyCommand extends $Command
-  .classBuilder<
-    DeleteJourneyCommandInput,
-    DeleteJourneyCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "DeleteJourney", {})
-  .n("PinpointClient", "DeleteJourneyCommand")
-  .sc(DeleteJourney$)
-  .build() {
+export class DeleteJourneyCommand extends command<DeleteJourneyCommandInput, DeleteJourneyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteJourney",
+  DeleteJourney$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

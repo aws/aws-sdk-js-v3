@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BCMPricingCalculatorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BCMPricingCalculatorClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListBillEstimateInputUsageModificationsRequest,
   ListBillEstimateInputUsageModificationsResponse,
@@ -19,7 +12,6 @@ import { ListBillEstimateInputUsageModifications$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -178,22 +170,12 @@ export interface ListBillEstimateInputUsageModificationsCommandOutput extends Li
  *
  * @public
  */
-export class ListBillEstimateInputUsageModificationsCommand extends $Command
-  .classBuilder<
-    ListBillEstimateInputUsageModificationsCommandInput,
-    ListBillEstimateInputUsageModificationsCommandOutput,
-    BCMPricingCalculatorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BCMPricingCalculatorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBCMPricingCalculator", "ListBillEstimateInputUsageModifications", {})
-  .n("BCMPricingCalculatorClient", "ListBillEstimateInputUsageModificationsCommand")
-  .sc(ListBillEstimateInputUsageModifications$)
-  .build() {
+export class ListBillEstimateInputUsageModificationsCommand extends command<ListBillEstimateInputUsageModificationsCommandInput, ListBillEstimateInputUsageModificationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBillEstimateInputUsageModifications",
+  ListBillEstimateInputUsageModifications$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTriggersRequest, ListTriggersResponse } from "../models/models_2";
 import { ListTriggers$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListTriggers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface ListTriggersCommandOutput extends ListTriggersResponse, __Metad
  *
  * @public
  */
-export class ListTriggersCommand extends $Command
-  .classBuilder<
-    ListTriggersCommandInput,
-    ListTriggersCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "ListTriggers", {})
-  .n("GlueClient", "ListTriggersCommand")
-  .sc(ListTriggers$)
-  .build() {
+export class ListTriggersCommand extends command<ListTriggersCommandInput, ListTriggersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTriggers",
+  ListTriggers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

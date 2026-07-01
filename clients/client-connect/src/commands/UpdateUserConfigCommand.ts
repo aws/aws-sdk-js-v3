@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateUserConfigRequest } from "../models/models_3";
 import { UpdateUserConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateUserConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface UpdateUserConfigCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdateUserConfigCommand extends $Command
-  .classBuilder<
-    UpdateUserConfigCommandInput,
-    UpdateUserConfigCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "UpdateUserConfig", {})
-  .n("ConnectClient", "UpdateUserConfigCommand")
-  .sc(UpdateUserConfig$)
-  .build() {
+export class UpdateUserConfigCommand extends command<UpdateUserConfigCommandInput, UpdateUserConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateUserConfig",
+  UpdateUserConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

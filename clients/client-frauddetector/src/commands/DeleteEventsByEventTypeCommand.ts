@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEventsByEventTypeRequest, DeleteEventsByEventTypeResult } from "../models/models_0";
 import { DeleteEventsByEventType$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteEventsByEventType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DeleteEventsByEventTypeCommandOutput extends DeleteEventsByEven
  *
  * @public
  */
-export class DeleteEventsByEventTypeCommand extends $Command
-  .classBuilder<
-    DeleteEventsByEventTypeCommandInput,
-    DeleteEventsByEventTypeCommandOutput,
-    FraudDetectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHawksNestServiceFacade", "DeleteEventsByEventType", {})
-  .n("FraudDetectorClient", "DeleteEventsByEventTypeCommand")
-  .sc(DeleteEventsByEventType$)
-  .build() {
+export class DeleteEventsByEventTypeCommand extends command<DeleteEventsByEventTypeCommandInput, DeleteEventsByEventTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEventsByEventType",
+  DeleteEventsByEventType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

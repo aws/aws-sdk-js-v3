@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCustomPluginRequest, DeleteCustomPluginResponse } from "../models/models_0";
 import { DeleteCustomPlugin$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteCustomPlugin$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface DeleteCustomPluginCommandOutput extends DeleteCustomPluginRespo
  *
  * @public
  */
-export class DeleteCustomPluginCommand extends $Command
-  .classBuilder<
-    DeleteCustomPluginCommandInput,
-    DeleteCustomPluginCommandOutput,
-    KafkaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KafkaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KafkaConnect", "DeleteCustomPlugin", {})
-  .n("KafkaConnectClient", "DeleteCustomPluginCommand")
-  .sc(DeleteCustomPlugin$)
-  .build() {
+export class DeleteCustomPluginCommand extends command<DeleteCustomPluginCommandInput, DeleteCustomPluginCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCustomPlugin",
+  DeleteCustomPlugin$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

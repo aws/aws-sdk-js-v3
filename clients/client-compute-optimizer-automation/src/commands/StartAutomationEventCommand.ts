@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerAutomationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerAutomationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartAutomationEventRequest, StartAutomationEventResponse } from "../models/models_0";
 import { StartAutomationEvent$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartAutomationEvent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface StartAutomationEventCommandOutput extends StartAutomationEventR
  *
  * @public
  */
-export class StartAutomationEventCommand extends $Command
-  .classBuilder<
-    StartAutomationEventCommandInput,
-    StartAutomationEventCommandOutput,
-    ComputeOptimizerAutomationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerAutomationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerAutomationService", "StartAutomationEvent", {})
-  .n("ComputeOptimizerAutomationClient", "StartAutomationEventCommand")
-  .sc(StartAutomationEvent$)
-  .build() {
+export class StartAutomationEventCommand extends command<StartAutomationEventCommandInput, StartAutomationEventCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartAutomationEvent",
+  StartAutomationEvent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

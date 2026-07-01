@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateHostedZoneInput, DisassociateHostedZoneOutput } from "../models/models_0";
-import type {
-  Route53GlobalResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53GlobalResolverClient";
 import { DisassociateHostedZone$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface DisassociateHostedZoneCommandOutput extends DisassociateHostedZ
  *
  * @public
  */
-export class DisassociateHostedZoneCommand extends $Command
-  .classBuilder<
-    DisassociateHostedZoneCommandInput,
-    DisassociateHostedZoneCommandOutput,
-    Route53GlobalResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53GlobalResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EC2DNSGlobalResolverCustomerAPI", "DisassociateHostedZone", {})
-  .n("Route53GlobalResolverClient", "DisassociateHostedZoneCommand")
-  .sc(DisassociateHostedZone$)
-  .build() {
+export class DisassociateHostedZoneCommand extends command<DisassociateHostedZoneCommandInput, DisassociateHostedZoneCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateHostedZone",
+  DisassociateHostedZone$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

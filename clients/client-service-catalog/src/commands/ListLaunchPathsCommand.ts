@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLaunchPathsInput, ListLaunchPathsOutput } from "../models/models_0";
 import { ListLaunchPaths$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +107,12 @@ export interface ListLaunchPathsCommandOutput extends ListLaunchPathsOutput, __M
  *
  * @public
  */
-export class ListLaunchPathsCommand extends $Command
-  .classBuilder<
-    ListLaunchPathsCommandInput,
-    ListLaunchPathsCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "ListLaunchPaths", {})
-  .n("ServiceCatalogClient", "ListLaunchPathsCommand")
-  .sc(ListLaunchPaths$)
-  .build() {
+export class ListLaunchPathsCommand extends command<ListLaunchPathsCommandInput, ListLaunchPathsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLaunchPaths",
+  ListLaunchPaths$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

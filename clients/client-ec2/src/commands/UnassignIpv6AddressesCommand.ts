@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UnassignIpv6AddressesRequest, UnassignIpv6AddressesResult } from "../models/models_7";
 import { UnassignIpv6Addresses$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UnassignIpv6Addresses$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6Addresse
  *
  * @public
  */
-export class UnassignIpv6AddressesCommand extends $Command
-  .classBuilder<
-    UnassignIpv6AddressesCommandInput,
-    UnassignIpv6AddressesCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "UnassignIpv6Addresses", {})
-  .n("EC2Client", "UnassignIpv6AddressesCommand")
-  .sc(UnassignIpv6Addresses$)
-  .build() {
+export class UnassignIpv6AddressesCommand extends command<UnassignIpv6AddressesCommandInput, UnassignIpv6AddressesCommandOutput>(
+  _ep0,
+  _mw0,
+  "UnassignIpv6Addresses",
+  UnassignIpv6Addresses$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

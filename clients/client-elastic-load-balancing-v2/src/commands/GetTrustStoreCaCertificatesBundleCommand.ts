@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticLoadBalancingV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticLoadBalancingV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetTrustStoreCaCertificatesBundleInput,
   GetTrustStoreCaCertificatesBundleOutput,
@@ -19,7 +12,6 @@ import { GetTrustStoreCaCertificatesBundle$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +63,12 @@ export interface GetTrustStoreCaCertificatesBundleCommandOutput extends GetTrust
  *
  * @public
  */
-export class GetTrustStoreCaCertificatesBundleCommand extends $Command
-  .classBuilder<
-    GetTrustStoreCaCertificatesBundleCommandInput,
-    GetTrustStoreCaCertificatesBundleCommandOutput,
-    ElasticLoadBalancingV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticLoadBalancing_v10", "GetTrustStoreCaCertificatesBundle", {})
-  .n("ElasticLoadBalancingV2Client", "GetTrustStoreCaCertificatesBundleCommand")
-  .sc(GetTrustStoreCaCertificatesBundle$)
-  .build() {
+export class GetTrustStoreCaCertificatesBundleCommand extends command<GetTrustStoreCaCertificatesBundleCommandInput, GetTrustStoreCaCertificatesBundleCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTrustStoreCaCertificatesBundle",
+  GetTrustStoreCaCertificatesBundle$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

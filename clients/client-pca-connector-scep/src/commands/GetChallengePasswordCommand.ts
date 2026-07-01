@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetChallengePasswordRequest, GetChallengePasswordResponse } from "../models/models_0";
-import type {
-  PcaConnectorScepClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PcaConnectorScepClient";
 import { GetChallengePassword$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +70,12 @@ export interface GetChallengePasswordCommandOutput extends GetChallengePasswordR
  *
  * @public
  */
-export class GetChallengePasswordCommand extends $Command
-  .classBuilder<
-    GetChallengePasswordCommandInput,
-    GetChallengePasswordCommandOutput,
-    PcaConnectorScepClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PcaConnectorScepClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PcaConnectorScep", "GetChallengePassword", {})
-  .n("PcaConnectorScepClient", "GetChallengePasswordCommand")
-  .sc(GetChallengePassword$)
-  .build() {
+export class GetChallengePasswordCommand extends command<GetChallengePasswordCommandInput, GetChallengePasswordCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetChallengePassword",
+  GetChallengePassword$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

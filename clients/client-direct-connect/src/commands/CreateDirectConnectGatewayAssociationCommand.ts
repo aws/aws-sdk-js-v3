@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateDirectConnectGatewayAssociationRequest,
   CreateDirectConnectGatewayAssociationResult,
@@ -15,7 +12,6 @@ import { CreateDirectConnectGatewayAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface CreateDirectConnectGatewayAssociationCommandOutput extends Crea
  *
  * @public
  */
-export class CreateDirectConnectGatewayAssociationCommand extends $Command
-  .classBuilder<
-    CreateDirectConnectGatewayAssociationCommandInput,
-    CreateDirectConnectGatewayAssociationCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "CreateDirectConnectGatewayAssociation", {})
-  .n("DirectConnectClient", "CreateDirectConnectGatewayAssociationCommand")
-  .sc(CreateDirectConnectGatewayAssociation$)
-  .build() {
+export class CreateDirectConnectGatewayAssociationCommand extends command<CreateDirectConnectGatewayAssociationCommandInput, CreateDirectConnectGatewayAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDirectConnectGatewayAssociation",
+  CreateDirectConnectGatewayAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

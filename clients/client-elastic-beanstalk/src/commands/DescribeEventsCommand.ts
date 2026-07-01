@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeEventsMessage, EventDescriptionsMessage } from "../models/models_0";
 import { DescribeEvents$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeEvents$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -138,22 +130,12 @@ export interface DescribeEventsCommandOutput extends EventDescriptionsMessage, _
  *
  * @public
  */
-export class DescribeEventsCommand extends $Command
-  .classBuilder<
-    DescribeEventsCommandInput,
-    DescribeEventsCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "DescribeEvents", {})
-  .n("ElasticBeanstalkClient", "DescribeEventsCommand")
-  .sc(DescribeEvents$)
-  .build() {
+export class DescribeEventsCommand extends command<DescribeEventsCommandInput, DescribeEventsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEvents",
+  DescribeEvents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

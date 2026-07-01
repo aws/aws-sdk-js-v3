@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartDomainExportRequest, StartDomainExportResponse } from "../models/models_0";
 import { StartDomainExport$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SimpleDBv2ClientResolvedConfig } from "../SimpleDBv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface StartDomainExportCommandOutput extends StartDomainExportRespons
  *
  * @public
  */
-export class StartDomainExportCommand extends $Command
-  .classBuilder<
-    StartDomainExportCommandInput,
-    StartDomainExportCommandOutput,
-    SimpleDBv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SimpleDBv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleDBv2", "StartDomainExport", {})
-  .n("SimpleDBv2Client", "StartDomainExportCommand")
-  .sc(StartDomainExport$)
-  .build() {
+export class StartDomainExportCommand extends command<StartDomainExportCommandInput, StartDomainExportCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartDomainExport",
+  StartDomainExport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

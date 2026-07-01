@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateTapePoolInput, CreateTapePoolOutput } from "../models/models_0";
 import { CreateTapePool$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface CreateTapePoolCommandOutput extends CreateTapePoolOutput, __Met
  *
  * @public
  */
-export class CreateTapePoolCommand extends $Command
-  .classBuilder<
-    CreateTapePoolCommandInput,
-    CreateTapePoolCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "CreateTapePool", {})
-  .n("StorageGatewayClient", "CreateTapePoolCommand")
-  .sc(CreateTapePool$)
-  .build() {
+export class CreateTapePoolCommand extends command<CreateTapePoolCommandInput, CreateTapePoolCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTapePool",
+  CreateTapePool$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

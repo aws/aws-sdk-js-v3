@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DSQLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DSQLClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteStreamInput, DeleteStreamOutput } from "../models/models_0";
 import { DeleteStream$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteStream$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DeleteStreamCommandOutput extends DeleteStreamOutput, __Metadat
  *
  * @public
  */
-export class DeleteStreamCommand extends $Command
-  .classBuilder<
-    DeleteStreamCommandInput,
-    DeleteStreamCommandOutput,
-    DSQLClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DSQLClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DSQL", "DeleteStream", {})
-  .n("DSQLClient", "DeleteStreamCommand")
-  .sc(DeleteStream$)
-  .build() {
+export class DeleteStreamCommand extends command<DeleteStreamCommandInput, DeleteStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteStream",
+  DeleteStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

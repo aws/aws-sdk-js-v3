@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockDataAutomationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockDataAutomationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateBlueprintVersionRequest, CreateBlueprintVersionResponse } from "../models/models_0";
 import { CreateBlueprintVersion$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateBlueprintVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +100,12 @@ export interface CreateBlueprintVersionCommandOutput extends CreateBlueprintVers
  *
  * @public
  */
-export class CreateBlueprintVersionCommand extends $Command
-  .classBuilder<
-    CreateBlueprintVersionCommandInput,
-    CreateBlueprintVersionCommandOutput,
-    BedrockDataAutomationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockDataAutomationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockKeystoneBuildTimeService", "CreateBlueprintVersion", {})
-  .n("BedrockDataAutomationClient", "CreateBlueprintVersionCommand")
-  .sc(CreateBlueprintVersion$)
-  .build() {
+export class CreateBlueprintVersionCommand extends command<CreateBlueprintVersionCommandInput, CreateBlueprintVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateBlueprintVersion",
+  CreateBlueprintVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

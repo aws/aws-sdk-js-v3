@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateServiceInput, DisassociateServiceOutput } from "../models/models_0";
 import { DisassociateService$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateService$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface DisassociateServiceCommandOutput extends DisassociateServiceOut
  *
  * @public
  */
-export class DisassociateServiceCommand extends $Command
-  .classBuilder<
-    DisassociateServiceCommandInput,
-    DisassociateServiceCommandOutput,
-    DevOpsAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DevOpsAgent", "DisassociateService", {})
-  .n("DevOpsAgentClient", "DisassociateServiceCommand")
-  .sc(DisassociateService$)
-  .build() {
+export class DisassociateServiceCommand extends command<DisassociateServiceCommandInput, DisassociateServiceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateService",
+  DisassociateService$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

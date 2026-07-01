@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeGuruProfilerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeGuruProfilerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddNotificationChannelsRequest, AddNotificationChannelsResponse } from "../models/models_0";
 import { AddNotificationChannels$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AddNotificationChannels$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface AddNotificationChannelsCommandOutput extends AddNotificationCha
  *
  * @public
  */
-export class AddNotificationChannelsCommand extends $Command
-  .classBuilder<
-    AddNotificationChannelsCommandInput,
-    AddNotificationChannelsCommandOutput,
-    CodeGuruProfilerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeGuruProfilerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeGuruProfiler", "AddNotificationChannels", {})
-  .n("CodeGuruProfilerClient", "AddNotificationChannelsCommand")
-  .sc(AddNotificationChannels$)
-  .build() {
+export class AddNotificationChannelsCommand extends command<AddNotificationChannelsCommandInput, AddNotificationChannelsCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddNotificationChannels",
+  AddNotificationChannels$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

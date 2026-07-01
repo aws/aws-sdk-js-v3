@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchRasterDataCollectionInput, SearchRasterDataCollectionOutput } from "../models/models_0";
-import type {
-  SageMakerGeospatialClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SageMakerGeospatialClient";
 import { SearchRasterDataCollection$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -175,22 +167,12 @@ export interface SearchRasterDataCollectionCommandOutput extends SearchRasterDat
  *
  * @public
  */
-export class SearchRasterDataCollectionCommand extends $Command
-  .classBuilder<
-    SearchRasterDataCollectionCommandInput,
-    SearchRasterDataCollectionCommandOutput,
-    SageMakerGeospatialClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerGeospatialClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMakerGeospatial", "SearchRasterDataCollection", {})
-  .n("SageMakerGeospatialClient", "SearchRasterDataCollectionCommand")
-  .sc(SearchRasterDataCollection$)
-  .build() {
+export class SearchRasterDataCollectionCommand extends command<SearchRasterDataCollectionCommandInput, SearchRasterDataCollectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchRasterDataCollection",
+  SearchRasterDataCollection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

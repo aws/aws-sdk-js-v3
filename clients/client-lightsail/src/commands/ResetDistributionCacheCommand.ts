@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ResetDistributionCacheRequest, ResetDistributionCacheResult } from "../models/models_1";
 import { ResetDistributionCache$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ResetDistributionCache$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface ResetDistributionCacheCommandOutput extends ResetDistributionCa
  *
  * @public
  */
-export class ResetDistributionCacheCommand extends $Command
-  .classBuilder<
-    ResetDistributionCacheCommandInput,
-    ResetDistributionCacheCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "ResetDistributionCache", {})
-  .n("LightsailClient", "ResetDistributionCacheCommand")
-  .sc(ResetDistributionCache$)
-  .build() {
+export class ResetDistributionCacheCommand extends command<ResetDistributionCacheCommandInput, ResetDistributionCacheCommandOutput>(
+  _ep0,
+  _mw0,
+  "ResetDistributionCache",
+  ResetDistributionCache$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

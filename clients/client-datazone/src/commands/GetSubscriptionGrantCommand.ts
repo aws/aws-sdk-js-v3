@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSubscriptionGrantInput, GetSubscriptionGrantOutput } from "../models/models_1";
 import { GetSubscriptionGrant$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetSubscriptionGrant$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +115,12 @@ export interface GetSubscriptionGrantCommandOutput extends GetSubscriptionGrantO
  *
  * @public
  */
-export class GetSubscriptionGrantCommand extends $Command
-  .classBuilder<
-    GetSubscriptionGrantCommandInput,
-    GetSubscriptionGrantCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "GetSubscriptionGrant", {})
-  .n("DataZoneClient", "GetSubscriptionGrantCommand")
-  .sc(GetSubscriptionGrant$)
-  .build() {
+export class GetSubscriptionGrantCommand extends command<GetSubscriptionGrantCommandInput, GetSubscriptionGrantCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSubscriptionGrant",
+  GetSubscriptionGrant$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

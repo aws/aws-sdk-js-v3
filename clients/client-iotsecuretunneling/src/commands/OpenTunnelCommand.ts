@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTSecureTunnelingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTSecureTunnelingClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { OpenTunnelRequest, OpenTunnelResponse } from "../models/models_0";
 import { OpenTunnel$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { OpenTunnel$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface OpenTunnelCommandOutput extends OpenTunnelResponse, __MetadataB
  *
  * @public
  */
-export class OpenTunnelCommand extends $Command
-  .classBuilder<
-    OpenTunnelCommandInput,
-    OpenTunnelCommandOutput,
-    IoTSecureTunnelingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSecureTunnelingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IoTSecuredTunneling", "OpenTunnel", {})
-  .n("IoTSecureTunnelingClient", "OpenTunnelCommand")
-  .sc(OpenTunnel$)
-  .build() {
+export class OpenTunnelCommand extends command<OpenTunnelCommandInput, OpenTunnelCommandOutput>(
+  _ep0,
+  _mw0,
+  "OpenTunnel",
+  OpenTunnel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

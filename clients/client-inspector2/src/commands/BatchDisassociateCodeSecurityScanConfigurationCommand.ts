@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchDisassociateCodeSecurityScanConfigurationRequest,
   BatchDisassociateCodeSecurityScanConfigurationResponse,
@@ -15,7 +12,6 @@ import { BatchDisassociateCodeSecurityScanConfiguration$ } from "../schemas/sche
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface BatchDisassociateCodeSecurityScanConfigurationCommandOutput ext
  *
  * @public
  */
-export class BatchDisassociateCodeSecurityScanConfigurationCommand extends $Command
-  .classBuilder<
-    BatchDisassociateCodeSecurityScanConfigurationCommandInput,
-    BatchDisassociateCodeSecurityScanConfigurationCommandOutput,
-    Inspector2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Inspector2", "BatchDisassociateCodeSecurityScanConfiguration", {})
-  .n("Inspector2Client", "BatchDisassociateCodeSecurityScanConfigurationCommand")
-  .sc(BatchDisassociateCodeSecurityScanConfiguration$)
-  .build() {
+export class BatchDisassociateCodeSecurityScanConfigurationCommand extends command<BatchDisassociateCodeSecurityScanConfigurationCommandInput, BatchDisassociateCodeSecurityScanConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDisassociateCodeSecurityScanConfiguration",
+  BatchDisassociateCodeSecurityScanConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

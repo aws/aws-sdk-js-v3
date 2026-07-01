@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListDistributionsByCachePolicyIdRequest,
   ListDistributionsByCachePolicyIdResult,
@@ -15,7 +12,6 @@ import { ListDistributionsByCachePolicyId$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface ListDistributionsByCachePolicyIdCommandOutput extends ListDistr
  *
  * @public
  */
-export class ListDistributionsByCachePolicyIdCommand extends $Command
-  .classBuilder<
-    ListDistributionsByCachePolicyIdCommandInput,
-    ListDistributionsByCachePolicyIdCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "ListDistributionsByCachePolicyId", {})
-  .n("CloudFrontClient", "ListDistributionsByCachePolicyIdCommand")
-  .sc(ListDistributionsByCachePolicyId$)
-  .build() {
+export class ListDistributionsByCachePolicyIdCommand extends command<ListDistributionsByCachePolicyIdCommandInput, ListDistributionsByCachePolicyIdCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDistributionsByCachePolicyId",
+  ListDistributionsByCachePolicyId$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

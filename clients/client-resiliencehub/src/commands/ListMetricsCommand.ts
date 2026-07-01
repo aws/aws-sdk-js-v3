@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListMetricsRequest, ListMetricsResponse } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { ListMetrics$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface ListMetricsCommandOutput extends ListMetricsResponse, __Metadat
  *
  * @public
  */
-export class ListMetricsCommand extends $Command
-  .classBuilder<
-    ListMetricsCommandInput,
-    ListMetricsCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "ListMetrics", {})
-  .n("ResiliencehubClient", "ListMetricsCommand")
-  .sc(ListMetrics$)
-  .build() {
+export class ListMetricsCommand extends command<ListMetricsCommandInput, ListMetricsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMetrics",
+  ListMetrics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

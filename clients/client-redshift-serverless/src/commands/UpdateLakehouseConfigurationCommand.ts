@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateLakehouseConfigurationRequest, UpdateLakehouseConfigurationResponse } from "../models/models_0";
-import type {
-  RedshiftServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RedshiftServerlessClient";
 import { UpdateLakehouseConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface UpdateLakehouseConfigurationCommandOutput extends UpdateLakehou
  *
  * @public
  */
-export class UpdateLakehouseConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateLakehouseConfigurationCommandInput,
-    UpdateLakehouseConfigurationCommandOutput,
-    RedshiftServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServerless", "UpdateLakehouseConfiguration", {})
-  .n("RedshiftServerlessClient", "UpdateLakehouseConfigurationCommand")
-  .sc(UpdateLakehouseConfiguration$)
-  .build() {
+export class UpdateLakehouseConfigurationCommand extends command<UpdateLakehouseConfigurationCommandInput, UpdateLakehouseConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateLakehouseConfiguration",
+  UpdateLakehouseConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

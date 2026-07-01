@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SetVaultAccessPolicyInput } from "../models/models_0";
 import { SetVaultAccessPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SetVaultAccessPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface SetVaultAccessPolicyCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class SetVaultAccessPolicyCommand extends $Command
-  .classBuilder<
-    SetVaultAccessPolicyCommandInput,
-    SetVaultAccessPolicyCommandOutput,
-    GlacierClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Glacier", "SetVaultAccessPolicy", {})
-  .n("GlacierClient", "SetVaultAccessPolicyCommand")
-  .sc(SetVaultAccessPolicy$)
-  .build() {
+export class SetVaultAccessPolicyCommand extends command<SetVaultAccessPolicyCommandInput, SetVaultAccessPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetVaultAccessPolicy",
+  SetVaultAccessPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

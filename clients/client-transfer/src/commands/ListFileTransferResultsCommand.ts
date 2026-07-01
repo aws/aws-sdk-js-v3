@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListFileTransferResultsRequest, ListFileTransferResultsResponse } from "../models/models_0";
 import { ListFileTransferResults$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface ListFileTransferResultsCommandOutput extends ListFileTransferRe
  *
  * @public
  */
-export class ListFileTransferResultsCommand extends $Command
-  .classBuilder<
-    ListFileTransferResultsCommandInput,
-    ListFileTransferResultsCommandOutput,
-    TransferClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TransferService", "ListFileTransferResults", {})
-  .n("TransferClient", "ListFileTransferResultsCommand")
-  .sc(ListFileTransferResults$)
-  .build() {
+export class ListFileTransferResultsCommand extends command<ListFileTransferResultsCommandInput, ListFileTransferResultsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFileTransferResults",
+  ListFileTransferResults$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

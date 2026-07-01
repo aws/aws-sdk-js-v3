@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RejectResourceShareInvitationRequest, RejectResourceShareInvitationResponse } from "../models/models_0";
-import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import { RejectResourceShareInvitation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +115,12 @@ export interface RejectResourceShareInvitationCommandOutput extends RejectResour
  *
  * @public
  */
-export class RejectResourceShareInvitationCommand extends $Command
-  .classBuilder<
-    RejectResourceShareInvitationCommandInput,
-    RejectResourceShareInvitationCommandOutput,
-    RAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonResourceSharing", "RejectResourceShareInvitation", {})
-  .n("RAMClient", "RejectResourceShareInvitationCommand")
-  .sc(RejectResourceShareInvitation$)
-  .build() {
+export class RejectResourceShareInvitationCommand extends command<RejectResourceShareInvitationCommandInput, RejectResourceShareInvitationCommandOutput>(
+  _ep0,
+  _mw0,
+  "RejectResourceShareInvitation",
+  RejectResourceShareInvitation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListOpportunityFromEngagementTasksRequest,
   ListOpportunityFromEngagementTasksResponse,
 } from "../models/models_0";
-import type {
-  PartnerCentralSellingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralSellingClient";
 import { ListOpportunityFromEngagementTasks$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +108,12 @@ export interface ListOpportunityFromEngagementTasksCommandOutput extends ListOpp
  *
  * @public
  */
-export class ListOpportunityFromEngagementTasksCommand extends $Command
-  .classBuilder<
-    ListOpportunityFromEngagementTasksCommandInput,
-    ListOpportunityFromEngagementTasksCommandOutput,
-    PartnerCentralSellingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPartnerCentralSelling", "ListOpportunityFromEngagementTasks", {})
-  .n("PartnerCentralSellingClient", "ListOpportunityFromEngagementTasksCommand")
-  .sc(ListOpportunityFromEngagementTasks$)
-  .build() {
+export class ListOpportunityFromEngagementTasksCommand extends command<ListOpportunityFromEngagementTasksCommandInput, ListOpportunityFromEngagementTasksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListOpportunityFromEngagementTasks",
+  ListOpportunityFromEngagementTasks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

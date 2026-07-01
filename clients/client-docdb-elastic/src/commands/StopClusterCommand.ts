@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopClusterInput, StopClusterOutput } from "../models/models_0";
 import { StopCluster$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopCluster$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -141,22 +137,12 @@ export interface StopClusterCommandOutput extends StopClusterOutput, __MetadataB
  *
  * @public
  */
-export class StopClusterCommand extends $Command
-  .classBuilder<
-    StopClusterCommandInput,
-    StopClusterCommandOutput,
-    DocDBElasticClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DocDBElasticClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeraDbLionfishServiceLambda", "StopCluster", {})
-  .n("DocDBElasticClient", "StopClusterCommand")
-  .sc(StopCluster$)
-  .build() {
+export class StopClusterCommand extends command<StopClusterCommandInput, StopClusterCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopCluster",
+  StopCluster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

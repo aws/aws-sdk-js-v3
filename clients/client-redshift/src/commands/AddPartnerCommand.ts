@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PartnerIntegrationInputMessage, PartnerIntegrationOutputMessage } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { AddPartner$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface AddPartnerCommandOutput extends PartnerIntegrationOutputMessage
  *
  * @public
  */
-export class AddPartnerCommand extends $Command
-  .classBuilder<
-    AddPartnerCommandInput,
-    AddPartnerCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "AddPartner", {})
-  .n("RedshiftClient", "AddPartnerCommand")
-  .sc(AddPartner$)
-  .build() {
+export class AddPartnerCommand extends command<AddPartnerCommandInput, AddPartnerCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddPartner",
+  AddPartner$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateStorageRequest, UpdateStorageResponse } from "../models/models_0";
 import { UpdateStorage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateStorage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface UpdateStorageCommandOutput extends UpdateStorageResponse, __Met
  *
  * @public
  */
-export class UpdateStorageCommand extends $Command
-  .classBuilder<
-    UpdateStorageCommandInput,
-    UpdateStorageCommandOutput,
-    KafkaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kafka", "UpdateStorage", {})
-  .n("KafkaClient", "UpdateStorageCommand")
-  .sc(UpdateStorage$)
-  .build() {
+export class UpdateStorageCommand extends command<UpdateStorageCommandInput, UpdateStorageCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateStorage",
+  UpdateStorage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

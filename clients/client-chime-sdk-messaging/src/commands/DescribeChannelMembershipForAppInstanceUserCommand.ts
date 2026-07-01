@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMessagingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMessagingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeChannelMembershipForAppInstanceUserRequest,
   DescribeChannelMembershipForAppInstanceUserResponse,
@@ -19,7 +12,6 @@ import { DescribeChannelMembershipForAppInstanceUser$ } from "../schemas/schemas
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput extend
  *
  * @public
  */
-export class DescribeChannelMembershipForAppInstanceUserCommand extends $Command
-  .classBuilder<
-    DescribeChannelMembershipForAppInstanceUserCommandInput,
-    DescribeChannelMembershipForAppInstanceUserCommandOutput,
-    ChimeSDKMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeMessagingService", "DescribeChannelMembershipForAppInstanceUser", {})
-  .n("ChimeSDKMessagingClient", "DescribeChannelMembershipForAppInstanceUserCommand")
-  .sc(DescribeChannelMembershipForAppInstanceUser$)
-  .build() {
+export class DescribeChannelMembershipForAppInstanceUserCommand extends command<DescribeChannelMembershipForAppInstanceUserCommandInput, DescribeChannelMembershipForAppInstanceUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeChannelMembershipForAppInstanceUser",
+  DescribeChannelMembershipForAppInstanceUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

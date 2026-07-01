@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListExportImageTasksRequest, ListExportImageTasksResult } from "../models/models_0";
 import { ListExportImageTasks$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListExportImageTasks$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface ListExportImageTasksCommandOutput extends ListExportImageTasksR
  *
  * @public
  */
-export class ListExportImageTasksCommand extends $Command
-  .classBuilder<
-    ListExportImageTasksCommandInput,
-    ListExportImageTasksCommandOutput,
-    AppStreamClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PhotonAdminProxyService", "ListExportImageTasks", {})
-  .n("AppStreamClient", "ListExportImageTasksCommand")
-  .sc(ListExportImageTasks$)
-  .build() {
+export class ListExportImageTasksCommand extends command<ListExportImageTasksCommandInput, ListExportImageTasksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListExportImageTasks",
+  ListExportImageTasks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ARCRegionSwitchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ARCRegionSwitchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListRoute53HealthChecksInRegionRequest,
   ListRoute53HealthChecksInRegionResponse,
@@ -19,7 +12,6 @@ import { ListRoute53HealthChecksInRegion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +117,12 @@ export interface ListRoute53HealthChecksInRegionCommandOutput extends ListRoute5
  *
  * @public
  */
-export class ListRoute53HealthChecksInRegionCommand extends $Command
-  .classBuilder<
-    ListRoute53HealthChecksInRegionCommandInput,
-    ListRoute53HealthChecksInRegionCommandOutput,
-    ARCRegionSwitchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ARCRegionSwitchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ArcRegionSwitch", "ListRoute53HealthChecksInRegion", {})
-  .n("ARCRegionSwitchClient", "ListRoute53HealthChecksInRegionCommand")
-  .sc(ListRoute53HealthChecksInRegion$)
-  .build() {
+export class ListRoute53HealthChecksInRegionCommand extends command<ListRoute53HealthChecksInRegionCommandInput, ListRoute53HealthChecksInRegionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRoute53HealthChecksInRegion",
+  ListRoute53HealthChecksInRegion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

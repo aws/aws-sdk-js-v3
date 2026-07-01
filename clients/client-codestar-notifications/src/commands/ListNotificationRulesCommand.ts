@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodestarNotificationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodestarNotificationsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListNotificationRulesRequest, ListNotificationRulesResult } from "../models/models_0";
 import { ListNotificationRules$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListNotificationRules$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface ListNotificationRulesCommandOutput extends ListNotificationRule
  *
  * @public
  */
-export class ListNotificationRulesCommand extends $Command
-  .classBuilder<
-    ListNotificationRulesCommandInput,
-    ListNotificationRulesCommandOutput,
-    CodestarNotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodestarNotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeStarNotifications_20191015", "ListNotificationRules", {})
-  .n("CodestarNotificationsClient", "ListNotificationRulesCommand")
-  .sc(ListNotificationRules$)
-  .build() {
+export class ListNotificationRulesCommand extends command<ListNotificationRulesCommandInput, ListNotificationRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListNotificationRules",
+  ListNotificationRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

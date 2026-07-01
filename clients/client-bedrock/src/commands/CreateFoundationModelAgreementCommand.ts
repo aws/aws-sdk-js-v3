@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFoundationModelAgreementRequest, CreateFoundationModelAgreementResponse } from "../models/models_1";
 import { CreateFoundationModelAgreement$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateFoundationModelAgreement$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface CreateFoundationModelAgreementCommandOutput extends CreateFound
  *
  * @public
  */
-export class CreateFoundationModelAgreementCommand extends $Command
-  .classBuilder<
-    CreateFoundationModelAgreementCommandInput,
-    CreateFoundationModelAgreementCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "CreateFoundationModelAgreement", {})
-  .n("BedrockClient", "CreateFoundationModelAgreementCommand")
-  .sc(CreateFoundationModelAgreement$)
-  .build() {
+export class CreateFoundationModelAgreementCommand extends command<CreateFoundationModelAgreementCommandInput, CreateFoundationModelAgreementCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateFoundationModelAgreement",
+  CreateFoundationModelAgreement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

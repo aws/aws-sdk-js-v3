@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupSearchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopSearchJobInput, StopSearchJobOutput } from "../models/models_0";
 import { StopSearchJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopSearchJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface StopSearchJobCommandOutput extends StopSearchJobOutput, __Metad
  *
  * @public
  */
-export class StopSearchJobCommand extends $Command
-  .classBuilder<
-    StopSearchJobCommandInput,
-    StopSearchJobCommandOutput,
-    BackupSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoBackupSearchService", "StopSearchJob", {})
-  .n("BackupSearchClient", "StopSearchJobCommand")
-  .sc(StopSearchJob$)
-  .build() {
+export class StopSearchJobCommand extends command<StopSearchJobCommandInput, StopSearchJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopSearchJob",
+  StopSearchJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

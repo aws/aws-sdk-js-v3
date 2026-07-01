@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeWorkspacesPoolSessionsRequest, DescribeWorkspacesPoolSessionsResult } from "../models/models_0";
 import { DescribeWorkspacesPoolSessions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface DescribeWorkspacesPoolSessionsCommandOutput extends DescribeWor
  *
  * @public
  */
-export class DescribeWorkspacesPoolSessionsCommand extends $Command
-  .classBuilder<
-    DescribeWorkspacesPoolSessionsCommandInput,
-    DescribeWorkspacesPoolSessionsCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "DescribeWorkspacesPoolSessions", {})
-  .n("WorkSpacesClient", "DescribeWorkspacesPoolSessionsCommand")
-  .sc(DescribeWorkspacesPoolSessions$)
-  .build() {
+export class DescribeWorkspacesPoolSessionsCommand extends command<DescribeWorkspacesPoolSessionsCommandInput, DescribeWorkspacesPoolSessionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeWorkspacesPoolSessions",
+  DescribeWorkspacesPoolSessions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

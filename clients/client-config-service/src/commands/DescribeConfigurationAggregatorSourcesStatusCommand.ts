@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeConfigurationAggregatorSourcesStatusRequest,
   DescribeConfigurationAggregatorSourcesStatusResponse,
@@ -15,7 +12,6 @@ import { DescribeConfigurationAggregatorSourcesStatus$ } from "../schemas/schema
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput exten
  *
  * @public
  */
-export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Command
-  .classBuilder<
-    DescribeConfigurationAggregatorSourcesStatusCommandInput,
-    DescribeConfigurationAggregatorSourcesStatusCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DescribeConfigurationAggregatorSourcesStatus", {})
-  .n("ConfigServiceClient", "DescribeConfigurationAggregatorSourcesStatusCommand")
-  .sc(DescribeConfigurationAggregatorSourcesStatus$)
-  .build() {
+export class DescribeConfigurationAggregatorSourcesStatusCommand extends command<DescribeConfigurationAggregatorSourcesStatusCommandInput, DescribeConfigurationAggregatorSourcesStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeConfigurationAggregatorSourcesStatus",
+  DescribeConfigurationAggregatorSourcesStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

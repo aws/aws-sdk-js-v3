@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { Deployments, ListDeploymentsRequest } from "../models/models_0";
 import { ListDeployments$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDeployments$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBea
  *
  * @public
  */
-export class ListDeploymentsCommand extends $Command
-  .classBuilder<
-    ListDeploymentsCommandInput,
-    ListDeploymentsCommandOutput,
-    AppConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAppConfig", "ListDeployments", {})
-  .n("AppConfigClient", "ListDeploymentsCommand")
-  .sc(ListDeployments$)
-  .build() {
+export class ListDeploymentsCommand extends command<ListDeploymentsCommandInput, ListDeploymentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDeployments",
+  ListDeployments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

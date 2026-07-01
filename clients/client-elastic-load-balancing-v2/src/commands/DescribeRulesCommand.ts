@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticLoadBalancingV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticLoadBalancingV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRulesInput, DescribeRulesOutput } from "../models/models_0";
 import { DescribeRules$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeRules$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -260,22 +252,12 @@ export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __Metad
  *
  * @public
  */
-export class DescribeRulesCommand extends $Command
-  .classBuilder<
-    DescribeRulesCommandInput,
-    DescribeRulesCommandOutput,
-    ElasticLoadBalancingV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticLoadBalancing_v10", "DescribeRules", {})
-  .n("ElasticLoadBalancingV2Client", "DescribeRulesCommand")
-  .sc(DescribeRules$)
-  .build() {
+export class DescribeRulesCommand extends command<DescribeRulesCommandInput, DescribeRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRules",
+  DescribeRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

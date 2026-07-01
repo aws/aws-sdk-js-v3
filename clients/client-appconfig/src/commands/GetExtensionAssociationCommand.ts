@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExtensionAssociation, GetExtensionAssociationRequest } from "../models/models_0";
 import { GetExtensionAssociation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetExtensionAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface GetExtensionAssociationCommandOutput extends ExtensionAssociati
  *
  * @public
  */
-export class GetExtensionAssociationCommand extends $Command
-  .classBuilder<
-    GetExtensionAssociationCommandInput,
-    GetExtensionAssociationCommandOutput,
-    AppConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAppConfig", "GetExtensionAssociation", {})
-  .n("AppConfigClient", "GetExtensionAssociationCommand")
-  .sc(GetExtensionAssociation$)
-  .build() {
+export class GetExtensionAssociationCommand extends command<GetExtensionAssociationCommandInput, GetExtensionAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetExtensionAssociation",
+  GetExtensionAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

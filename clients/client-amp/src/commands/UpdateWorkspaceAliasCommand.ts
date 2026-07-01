@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateWorkspaceAliasRequest } from "../models/models_0";
 import { UpdateWorkspaceAlias$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateWorkspaceAlias$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface UpdateWorkspaceAliasCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdateWorkspaceAliasCommand extends $Command
-  .classBuilder<
-    UpdateWorkspaceAliasCommandInput,
-    UpdateWorkspaceAliasCommandOutput,
-    AmpClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPrometheusService", "UpdateWorkspaceAlias", {})
-  .n("AmpClient", "UpdateWorkspaceAliasCommand")
-  .sc(UpdateWorkspaceAlias$)
-  .build() {
+export class UpdateWorkspaceAliasCommand extends command<UpdateWorkspaceAliasCommandInput, UpdateWorkspaceAliasCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateWorkspaceAlias",
+  UpdateWorkspaceAlias$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

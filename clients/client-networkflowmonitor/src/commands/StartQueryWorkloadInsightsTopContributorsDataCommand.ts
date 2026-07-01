@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StartQueryWorkloadInsightsTopContributorsDataInput,
   StartQueryWorkloadInsightsTopContributorsDataOutput,
 } from "../models/models_0";
-import type {
-  NetworkFlowMonitorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFlowMonitorClient";
 import { StartQueryWorkloadInsightsTopContributorsData$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface StartQueryWorkloadInsightsTopContributorsDataCommandOutput exte
  *
  * @public
  */
-export class StartQueryWorkloadInsightsTopContributorsDataCommand extends $Command
-  .classBuilder<
-    StartQueryWorkloadInsightsTopContributorsDataCommandInput,
-    StartQueryWorkloadInsightsTopContributorsDataCommandOutput,
-    NetworkFlowMonitorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFlowMonitorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFlowMonitor", "StartQueryWorkloadInsightsTopContributorsData", {})
-  .n("NetworkFlowMonitorClient", "StartQueryWorkloadInsightsTopContributorsDataCommand")
-  .sc(StartQueryWorkloadInsightsTopContributorsData$)
-  .build() {
+export class StartQueryWorkloadInsightsTopContributorsDataCommand extends command<StartQueryWorkloadInsightsTopContributorsDataCommandInput, StartQueryWorkloadInsightsTopContributorsDataCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartQueryWorkloadInsightsTopContributorsData",
+  StartQueryWorkloadInsightsTopContributorsData$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MediaPackageV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MediaPackageV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetOriginEndpointPolicyRequest, GetOriginEndpointPolicyResponse } from "../models/models_0";
 import { GetOriginEndpointPolicy$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetOriginEndpointPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +101,12 @@ export interface GetOriginEndpointPolicyCommandOutput extends GetOriginEndpointP
  *
  * @public
  */
-export class GetOriginEndpointPolicyCommand extends $Command
-  .classBuilder<
-    GetOriginEndpointPolicyCommandInput,
-    GetOriginEndpointPolicyCommandOutput,
-    MediaPackageV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("mediapackagev2", "GetOriginEndpointPolicy", {})
-  .n("MediaPackageV2Client", "GetOriginEndpointPolicyCommand")
-  .sc(GetOriginEndpointPolicy$)
-  .build() {
+export class GetOriginEndpointPolicyCommand extends command<GetOriginEndpointPolicyCommandInput, GetOriginEndpointPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetOriginEndpointPolicy",
+  GetOriginEndpointPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

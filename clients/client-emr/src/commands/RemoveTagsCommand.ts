@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveTagsInput, RemoveTagsOutput } from "../models/models_0";
 import { RemoveTags$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RemoveTags$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  *
  * @public
  */
-export class RemoveTagsCommand extends $Command
-  .classBuilder<
-    RemoveTagsCommandInput,
-    RemoveTagsCommandOutput,
-    EMRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticMapReduce", "RemoveTags", {})
-  .n("EMRClient", "RemoveTagsCommand")
-  .sc(RemoveTags$)
-  .build() {
+export class RemoveTagsCommand extends command<RemoveTagsCommandInput, RemoveTagsCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveTags",
+  RemoveTags$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

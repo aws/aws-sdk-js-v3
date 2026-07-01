@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPrivateConnectionsInput, ListPrivateConnectionsOutput } from "../models/models_0";
 import { ListPrivateConnections$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ListPrivateConnectionsCommandOutput extends ListPrivateConnecti
  *
  * @public
  */
-export class ListPrivateConnectionsCommand extends $Command
-  .classBuilder<
-    ListPrivateConnectionsCommandInput,
-    ListPrivateConnectionsCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "ListPrivateConnections", {})
-  .n("SecurityAgentClient", "ListPrivateConnectionsCommand")
-  .sc(ListPrivateConnections$)
-  .build() {
+export class ListPrivateConnectionsCommand extends command<ListPrivateConnectionsCommandInput, ListPrivateConnectionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPrivateConnections",
+  ListPrivateConnections$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

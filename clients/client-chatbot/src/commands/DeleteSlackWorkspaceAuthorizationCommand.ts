@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteSlackWorkspaceAuthorizationRequest,
   DeleteSlackWorkspaceAuthorizationResult,
@@ -15,7 +12,6 @@ import { DeleteSlackWorkspaceAuthorization$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface DeleteSlackWorkspaceAuthorizationCommandOutput extends DeleteSl
  *
  * @public
  */
-export class DeleteSlackWorkspaceAuthorizationCommand extends $Command
-  .classBuilder<
-    DeleteSlackWorkspaceAuthorizationCommandInput,
-    DeleteSlackWorkspaceAuthorizationCommandOutput,
-    ChatbotClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WheatleyOrchestration_20171011", "DeleteSlackWorkspaceAuthorization", {})
-  .n("ChatbotClient", "DeleteSlackWorkspaceAuthorizationCommand")
-  .sc(DeleteSlackWorkspaceAuthorization$)
-  .build() {
+export class DeleteSlackWorkspaceAuthorizationCommand extends command<DeleteSlackWorkspaceAuthorizationCommandInput, DeleteSlackWorkspaceAuthorizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSlackWorkspaceAuthorization",
+  DeleteSlackWorkspaceAuthorization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

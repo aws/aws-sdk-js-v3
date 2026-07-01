@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateMembershipRequest, UpdateMembershipResponse } from "../models/models_0";
 import { UpdateMembership$ } from "../schemas/schemas_0";
-import type { SecurityIRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityIRClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -143,22 +139,12 @@ export interface UpdateMembershipCommandOutput extends UpdateMembershipResponse,
  *
  * @public
  */
-export class UpdateMembershipCommand extends $Command
-  .classBuilder<
-    UpdateMembershipCommandInput,
-    UpdateMembershipCommandOutput,
-    SecurityIRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityIRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityIncidentResponse", "UpdateMembership", {})
-  .n("SecurityIRClient", "UpdateMembershipCommand")
-  .sc(UpdateMembership$)
-  .build() {
+export class UpdateMembershipCommand extends command<UpdateMembershipCommandInput, UpdateMembershipCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateMembership",
+  UpdateMembership$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

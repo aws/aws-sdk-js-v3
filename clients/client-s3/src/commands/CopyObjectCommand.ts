@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getSsecPlugin, getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep1, _mw1, command } from "../commandBuilder";
 import type { CopyObjectOutput, CopyObjectRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { CopyObject$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -354,32 +349,12 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *
  * @public
  */
-export class CopyObjectCommand extends $Command
-  .classBuilder<
-    CopyObjectCommandInput,
-    CopyObjectCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    DisableS3ExpressSessionAuth: { type: "staticContextParams", value: true },
-    Bucket: { type: "contextParams", name: "Bucket" },
-    Key: { type: "contextParams", name: "Key" },
-    CopySource: { type: "contextParams", name: "CopySource" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-      getSsecPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "CopyObject", {})
-  .n("S3Client", "CopyObjectCommand")
-  .sc(CopyObject$)
-  .build() {
+export class CopyObjectCommand extends command<CopyObjectCommandInput, CopyObjectCommandOutput>(
+  _ep1,
+  _mw1,
+  "CopyObject",
+  CopyObject$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

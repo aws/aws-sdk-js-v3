@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { VerifySessionResponse } from "../models/models_0";
 import { VerifySession$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { VerifySession$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface VerifySessionCommandOutput extends VerifySessionResponse, __Met
  *
  * @public
  */
-export class VerifySessionCommand extends $Command
-  .classBuilder<
-    VerifySessionCommandInput,
-    VerifySessionCommandOutput,
-    CodeCatalystClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCatalyst", "VerifySession", {})
-  .n("CodeCatalystClient", "VerifySessionCommand")
-  .sc(VerifySession$)
-  .build() {
+export class VerifySessionCommand extends command<VerifySessionCommandInput, VerifySessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "VerifySession",
+  VerifySession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

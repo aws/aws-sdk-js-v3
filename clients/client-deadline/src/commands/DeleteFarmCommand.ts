@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFarmRequest, DeleteFarmResponse } from "../models/models_0";
 import { DeleteFarm$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteFarm$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteFarmCommandOutput extends DeleteFarmResponse, __MetadataB
  *
  * @public
  */
-export class DeleteFarmCommand extends $Command
-  .classBuilder<
-    DeleteFarmCommandInput,
-    DeleteFarmCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "DeleteFarm", {})
-  .n("DeadlineClient", "DeleteFarmCommand")
-  .sc(DeleteFarm$)
-  .build() {
+export class DeleteFarmCommand extends command<DeleteFarmCommandInput, DeleteFarmCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFarm",
+  DeleteFarm$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

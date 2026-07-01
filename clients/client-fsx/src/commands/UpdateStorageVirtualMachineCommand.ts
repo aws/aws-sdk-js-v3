@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateStorageVirtualMachineRequest, UpdateStorageVirtualMachineResponse } from "../models/models_0";
 import { UpdateStorageVirtualMachine$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateStorageVirtualMachine$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -156,22 +152,12 @@ export interface UpdateStorageVirtualMachineCommandOutput extends UpdateStorageV
  *
  * @public
  */
-export class UpdateStorageVirtualMachineCommand extends $Command
-  .classBuilder<
-    UpdateStorageVirtualMachineCommandInput,
-    UpdateStorageVirtualMachineCommandOutput,
-    FSxClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSimbaAPIService_v20180301", "UpdateStorageVirtualMachine", {})
-  .n("FSxClient", "UpdateStorageVirtualMachineCommand")
-  .sc(UpdateStorageVirtualMachine$)
-  .build() {
+export class UpdateStorageVirtualMachineCommand extends command<UpdateStorageVirtualMachineCommandInput, UpdateStorageVirtualMachineCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateStorageVirtualMachine",
+  UpdateStorageVirtualMachine$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

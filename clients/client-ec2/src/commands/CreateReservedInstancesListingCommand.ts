@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateReservedInstancesListingRequest, CreateReservedInstancesListingResult } from "../models/models_1";
 import { CreateReservedInstancesListing$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateReservedInstancesListing$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface CreateReservedInstancesListingCommandOutput extends CreateReser
  *
  * @public
  */
-export class CreateReservedInstancesListingCommand extends $Command
-  .classBuilder<
-    CreateReservedInstancesListingCommandInput,
-    CreateReservedInstancesListingCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "CreateReservedInstancesListing", {})
-  .n("EC2Client", "CreateReservedInstancesListingCommand")
-  .sc(CreateReservedInstancesListing$)
-  .build() {
+export class CreateReservedInstancesListingCommand extends command<CreateReservedInstancesListingCommandInput, CreateReservedInstancesListingCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateReservedInstancesListing",
+  CreateReservedInstancesListing$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

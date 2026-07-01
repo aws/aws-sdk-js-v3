@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetConfigRequest, GetConfigResponse } from "../models/models_0";
 import { GetConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -148,22 +144,12 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  *
  * @public
  */
-export class GetConfigCommand extends $Command
-  .classBuilder<
-    GetConfigCommandInput,
-    GetConfigCommandOutput,
-    GroundStationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GroundStation", "GetConfig", {})
-  .n("GroundStationClient", "GetConfigCommand")
-  .sc(GetConfig$)
-  .build() {
+export class GetConfigCommand extends command<GetConfigCommandInput, GetConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetConfig",
+  GetConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

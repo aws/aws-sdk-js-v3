@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTestGridSessionArtifactsRequest, ListTestGridSessionArtifactsResult } from "../models/models_0";
 import { ListTestGridSessionArtifacts$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListTestGridSessionArtifacts$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface ListTestGridSessionArtifactsCommandOutput extends ListTestGridS
  *
  * @public
  */
-export class ListTestGridSessionArtifactsCommand extends $Command
-  .classBuilder<
-    ListTestGridSessionArtifactsCommandInput,
-    ListTestGridSessionArtifactsCommandOutput,
-    DeviceFarmClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DeviceFarm_20150623", "ListTestGridSessionArtifacts", {})
-  .n("DeviceFarmClient", "ListTestGridSessionArtifactsCommand")
-  .sc(ListTestGridSessionArtifacts$)
-  .build() {
+export class ListTestGridSessionArtifactsCommand extends command<ListTestGridSessionArtifactsCommandInput, ListTestGridSessionArtifactsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTestGridSessionArtifacts",
+  ListTestGridSessionArtifacts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

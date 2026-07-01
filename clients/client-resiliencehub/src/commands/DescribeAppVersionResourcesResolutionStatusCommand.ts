@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeAppVersionResourcesResolutionStatusRequest,
   DescribeAppVersionResourcesResolutionStatusResponse,
 } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { DescribeAppVersionResourcesResolutionStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface DescribeAppVersionResourcesResolutionStatusCommandOutput extend
  *
  * @public
  */
-export class DescribeAppVersionResourcesResolutionStatusCommand extends $Command
-  .classBuilder<
-    DescribeAppVersionResourcesResolutionStatusCommandInput,
-    DescribeAppVersionResourcesResolutionStatusCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "DescribeAppVersionResourcesResolutionStatus", {})
-  .n("ResiliencehubClient", "DescribeAppVersionResourcesResolutionStatusCommand")
-  .sc(DescribeAppVersionResourcesResolutionStatus$)
-  .build() {
+export class DescribeAppVersionResourcesResolutionStatusCommand extends command<DescribeAppVersionResourcesResolutionStatusCommandInput, DescribeAppVersionResourcesResolutionStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAppVersionResourcesResolutionStatus",
+  DescribeAppVersionResourcesResolutionStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

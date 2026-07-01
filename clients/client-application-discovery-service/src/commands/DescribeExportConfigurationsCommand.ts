@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationDiscoveryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationDiscoveryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeExportConfigurationsRequest, DescribeExportConfigurationsResponse } from "../models/models_0";
 import { DescribeExportConfigurations$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeExportConfigurations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +95,12 @@ export interface DescribeExportConfigurationsCommandOutput extends DescribeExpor
  *
  * @public
  */
-export class DescribeExportConfigurationsCommand extends $Command
-  .classBuilder<
-    DescribeExportConfigurationsCommandInput,
-    DescribeExportConfigurationsCommandOutput,
-    ApplicationDiscoveryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationDiscoveryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPoseidonService_V2015_11_01", "DescribeExportConfigurations", {})
-  .n("ApplicationDiscoveryServiceClient", "DescribeExportConfigurationsCommand")
-  .sc(DescribeExportConfigurations$)
-  .build() {
+export class DescribeExportConfigurationsCommand extends command<DescribeExportConfigurationsCommandInput, DescribeExportConfigurationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeExportConfigurations",
+  DescribeExportConfigurations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeWebAppCustomizationRequest, DescribeWebAppCustomizationResponse } from "../models/models_0";
 import { DescribeWebAppCustomization$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface DescribeWebAppCustomizationCommandOutput extends DescribeWebApp
  *
  * @public
  */
-export class DescribeWebAppCustomizationCommand extends $Command
-  .classBuilder<
-    DescribeWebAppCustomizationCommandInput,
-    DescribeWebAppCustomizationCommandOutput,
-    TransferClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TransferService", "DescribeWebAppCustomization", {})
-  .n("TransferClient", "DescribeWebAppCustomizationCommand")
-  .sc(DescribeWebAppCustomization$)
-  .build() {
+export class DescribeWebAppCustomizationCommand extends command<DescribeWebAppCustomizationCommandInput, DescribeWebAppCustomizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeWebAppCustomization",
+  DescribeWebAppCustomization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

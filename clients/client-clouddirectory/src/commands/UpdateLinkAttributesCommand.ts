@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudDirectoryClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateLinkAttributesRequest, UpdateLinkAttributesResponse } from "../models/models_0";
 import { UpdateLinkAttributes$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateLinkAttributes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +125,12 @@ export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesR
  *
  * @public
  */
-export class UpdateLinkAttributesCommand extends $Command
-  .classBuilder<
-    UpdateLinkAttributesCommandInput,
-    UpdateLinkAttributesCommandOutput,
-    CloudDirectoryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonCloudDirectory_20170111", "UpdateLinkAttributes", {})
-  .n("CloudDirectoryClient", "UpdateLinkAttributesCommand")
-  .sc(UpdateLinkAttributes$)
-  .build() {
+export class UpdateLinkAttributesCommand extends command<UpdateLinkAttributesCommandInput, UpdateLinkAttributesCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateLinkAttributes",
+  UpdateLinkAttributes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

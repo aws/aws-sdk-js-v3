@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetIngestConfigurationRequest, GetIngestConfigurationResponse } from "../models/models_0";
 import { GetIngestConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetIngestConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface GetIngestConfigurationCommandOutput extends GetIngestConfigurat
  *
  * @public
  */
-export class GetIngestConfigurationCommand extends $Command
-  .classBuilder<
-    GetIngestConfigurationCommandInput,
-    GetIngestConfigurationCommandOutput,
-    IVSRealTimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoServiceRealTime", "GetIngestConfiguration", {})
-  .n("IVSRealTimeClient", "GetIngestConfigurationCommand")
-  .sc(GetIngestConfiguration$)
-  .build() {
+export class GetIngestConfigurationCommand extends command<GetIngestConfigurationCommandInput, GetIngestConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIngestConfiguration",
+  GetIngestConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

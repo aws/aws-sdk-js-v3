@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetGatewayRuleRequest, GetGatewayRuleResponse } from "../models/models_0";
 import { GetGatewayRule$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetGatewayRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -151,22 +143,12 @@ export interface GetGatewayRuleCommandOutput extends GetGatewayRuleResponse, __M
  *
  * @public
  */
-export class GetGatewayRuleCommand extends $Command
-  .classBuilder<
-    GetGatewayRuleCommandInput,
-    GetGatewayRuleCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "GetGatewayRule", {})
-  .n("BedrockAgentCoreControlClient", "GetGatewayRuleCommand")
-  .sc(GetGatewayRule$)
-  .build() {
+export class GetGatewayRuleCommand extends command<GetGatewayRuleCommandInput, GetGatewayRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetGatewayRule",
+  GetGatewayRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

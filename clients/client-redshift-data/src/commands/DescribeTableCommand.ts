@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeTableRequest, DescribeTableResponse } from "../models/models_0";
-import type { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 import { DescribeTable$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface DescribeTableCommandOutput extends DescribeTableResponse, __Met
  *
  * @public
  */
-export class DescribeTableCommand extends $Command
-  .classBuilder<
-    DescribeTableCommandInput,
-    DescribeTableCommandOutput,
-    RedshiftDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftData", "DescribeTable", {})
-  .n("RedshiftDataClient", "DescribeTableCommand")
-  .sc(DescribeTable$)
-  .build() {
+export class DescribeTableCommand extends command<DescribeTableCommandInput, DescribeTableCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeTable",
+  DescribeTable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

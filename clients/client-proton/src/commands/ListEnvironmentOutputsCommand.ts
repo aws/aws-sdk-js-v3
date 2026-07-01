@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListEnvironmentOutputsInput, ListEnvironmentOutputsOutput } from "../models/models_0";
-import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 import { ListEnvironmentOutputs$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface ListEnvironmentOutputsCommandOutput extends ListEnvironmentOutp
  *
  * @public
  */
-export class ListEnvironmentOutputsCommand extends $Command
-  .classBuilder<
-    ListEnvironmentOutputsCommandInput,
-    ListEnvironmentOutputsCommandOutput,
-    ProtonClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsProton20200720", "ListEnvironmentOutputs", {})
-  .n("ProtonClient", "ListEnvironmentOutputsCommand")
-  .sc(ListEnvironmentOutputs$)
-  .build() {
+export class ListEnvironmentOutputsCommand extends command<ListEnvironmentOutputsCommandInput, ListEnvironmentOutputsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEnvironmentOutputs",
+  ListEnvironmentOutputs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

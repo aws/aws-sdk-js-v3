@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateInvitationsRequest, CreateInvitationsResponse } from "../models/models_0";
 import { CreateInvitations$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateInvitations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface CreateInvitationsCommandOutput extends CreateInvitationsRespons
  *
  * @public
  */
-export class CreateInvitationsCommand extends $Command
-  .classBuilder<
-    CreateInvitationsCommandInput,
-    CreateInvitationsCommandOutput,
-    Macie2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Macie2", "CreateInvitations", {})
-  .n("Macie2Client", "CreateInvitationsCommand")
-  .sc(CreateInvitations$)
-  .build() {
+export class CreateInvitationsCommand extends command<CreateInvitationsCommandInput, CreateInvitationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateInvitations",
+  CreateInvitations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

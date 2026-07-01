@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchCreateFirewallRuleInput, BatchCreateFirewallRuleOutput } from "../models/models_0";
-import type {
-  Route53GlobalResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53GlobalResolverClient";
 import { BatchCreateFirewallRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -145,22 +137,12 @@ export interface BatchCreateFirewallRuleCommandOutput extends BatchCreateFirewal
  *
  * @public
  */
-export class BatchCreateFirewallRuleCommand extends $Command
-  .classBuilder<
-    BatchCreateFirewallRuleCommandInput,
-    BatchCreateFirewallRuleCommandOutput,
-    Route53GlobalResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53GlobalResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EC2DNSGlobalResolverCustomerAPI", "BatchCreateFirewallRule", {})
-  .n("Route53GlobalResolverClient", "BatchCreateFirewallRuleCommand")
-  .sc(BatchCreateFirewallRule$)
-  .build() {
+export class BatchCreateFirewallRuleCommand extends command<BatchCreateFirewallRuleCommandInput, BatchCreateFirewallRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchCreateFirewallRule",
+  BatchCreateFirewallRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

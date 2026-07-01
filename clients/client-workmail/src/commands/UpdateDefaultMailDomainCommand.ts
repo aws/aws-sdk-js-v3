@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDefaultMailDomainRequest, UpdateDefaultMailDomainResponse } from "../models/models_0";
 import { UpdateDefaultMailDomain$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface UpdateDefaultMailDomainCommandOutput extends UpdateDefaultMailD
  *
  * @public
  */
-export class UpdateDefaultMailDomainCommand extends $Command
-  .classBuilder<
-    UpdateDefaultMailDomainCommandInput,
-    UpdateDefaultMailDomainCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "UpdateDefaultMailDomain", {})
-  .n("WorkMailClient", "UpdateDefaultMailDomainCommand")
-  .sc(UpdateDefaultMailDomain$)
-  .build() {
+export class UpdateDefaultMailDomainCommand extends command<UpdateDefaultMailDomainCommandInput, UpdateDefaultMailDomainCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDefaultMailDomain",
+  UpdateDefaultMailDomain$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

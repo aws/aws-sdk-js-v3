@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateABTestRequest, CreateABTestResponse } from "../models/models_0";
 import { CreateABTest$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateABTest$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +118,12 @@ export interface CreateABTestCommandOutput extends CreateABTestResponse, __Metad
  *
  * @public
  */
-export class CreateABTestCommand extends $Command
-  .classBuilder<
-    CreateABTestCommandInput,
-    CreateABTestCommandOutput,
-    BedrockAgentCoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCore", "CreateABTest", {})
-  .n("BedrockAgentCoreClient", "CreateABTestCommand")
-  .sc(CreateABTest$)
-  .build() {
+export class CreateABTestCommand extends command<CreateABTestCommandInput, CreateABTestCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateABTest",
+  CreateABTest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

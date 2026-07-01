@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateLogicallyAirGappedBackupVaultInput,
   CreateLogicallyAirGappedBackupVaultOutput,
@@ -15,7 +12,6 @@ import { CreateLogicallyAirGappedBackupVault$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface CreateLogicallyAirGappedBackupVaultCommandOutput extends Create
  *
  * @public
  */
-export class CreateLogicallyAirGappedBackupVaultCommand extends $Command
-  .classBuilder<
-    CreateLogicallyAirGappedBackupVaultCommandInput,
-    CreateLogicallyAirGappedBackupVaultCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "CreateLogicallyAirGappedBackupVault", {})
-  .n("BackupClient", "CreateLogicallyAirGappedBackupVaultCommand")
-  .sc(CreateLogicallyAirGappedBackupVault$)
-  .build() {
+export class CreateLogicallyAirGappedBackupVaultCommand extends command<CreateLogicallyAirGappedBackupVaultCommandInput, CreateLogicallyAirGappedBackupVaultCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateLogicallyAirGappedBackupVault",
+  CreateLogicallyAirGappedBackupVault$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

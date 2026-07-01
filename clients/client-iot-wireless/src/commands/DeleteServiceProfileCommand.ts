@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteServiceProfileRequest, DeleteServiceProfileResponse } from "../models/models_0";
 import { DeleteServiceProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteServiceProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteServiceProfileCommandOutput extends DeleteServiceProfileR
  *
  * @public
  */
-export class DeleteServiceProfileCommand extends $Command
-  .classBuilder<
-    DeleteServiceProfileCommandInput,
-    DeleteServiceProfileCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "DeleteServiceProfile", {})
-  .n("IoTWirelessClient", "DeleteServiceProfileCommand")
-  .sc(DeleteServiceProfile$)
-  .build() {
+export class DeleteServiceProfileCommand extends command<DeleteServiceProfileCommandInput, DeleteServiceProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteServiceProfile",
+  DeleteServiceProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCollectionRequest, DeleteCollectionResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { DeleteCollection$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface DeleteCollectionCommandOutput extends DeleteCollectionResponse,
  *
  * @public
  */
-export class DeleteCollectionCommand extends $Command
-  .classBuilder<
-    DeleteCollectionCommandInput,
-    DeleteCollectionCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "DeleteCollection", {})
-  .n("RekognitionClient", "DeleteCollectionCommand")
-  .sc(DeleteCollection$)
-  .build() {
+export class DeleteCollectionCommand extends command<DeleteCollectionCommandInput, DeleteCollectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCollection",
+  DeleteCollection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

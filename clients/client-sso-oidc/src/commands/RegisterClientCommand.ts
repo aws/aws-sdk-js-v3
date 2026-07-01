@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterClientRequest, RegisterClientResponse } from "../models/models_0";
 import { RegisterClient$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -136,22 +132,12 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  *
  * @public
  */
-export class RegisterClientCommand extends $Command
-  .classBuilder<
-    RegisterClientCommandInput,
-    RegisterClientCommandOutput,
-    SSOOIDCClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOOIDCClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSSOOIDCService", "RegisterClient", {})
-  .n("SSOOIDCClient", "RegisterClientCommand")
-  .sc(RegisterClient$)
-  .build() {
+export class RegisterClientCommand extends command<RegisterClientCommandInput, RegisterClientCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterClient",
+  RegisterClient$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

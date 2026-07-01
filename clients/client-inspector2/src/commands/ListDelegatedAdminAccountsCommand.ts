@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDelegatedAdminAccountsRequest, ListDelegatedAdminAccountsResponse } from "../models/models_0";
 import { ListDelegatedAdminAccounts$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDelegatedAdminAccounts$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface ListDelegatedAdminAccountsCommandOutput extends ListDelegatedAd
  *
  * @public
  */
-export class ListDelegatedAdminAccountsCommand extends $Command
-  .classBuilder<
-    ListDelegatedAdminAccountsCommandInput,
-    ListDelegatedAdminAccountsCommandOutput,
-    Inspector2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Inspector2", "ListDelegatedAdminAccounts", {})
-  .n("Inspector2Client", "ListDelegatedAdminAccountsCommand")
-  .sc(ListDelegatedAdminAccounts$)
-  .build() {
+export class ListDelegatedAdminAccountsCommand extends command<ListDelegatedAdminAccountsCommandInput, ListDelegatedAdminAccountsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDelegatedAdminAccounts",
+  ListDelegatedAdminAccounts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

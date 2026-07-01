@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BCMDashboardsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BCMDashboardsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDashboardRequest, DeleteDashboardResponse } from "../models/models_0";
 import { DeleteDashboard$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteDashboard$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface DeleteDashboardCommandOutput extends DeleteDashboardResponse, _
  *
  * @public
  */
-export class DeleteDashboardCommand extends $Command
-  .classBuilder<
-    DeleteDashboardCommandInput,
-    DeleteDashboardCommandOutput,
-    BCMDashboardsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BCMDashboardsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBCMDashboardsService", "DeleteDashboard", {})
-  .n("BCMDashboardsClient", "DeleteDashboardCommand")
-  .sc(DeleteDashboard$)
-  .build() {
+export class DeleteDashboardCommand extends command<DeleteDashboardCommandInput, DeleteDashboardCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDashboard",
+  DeleteDashboard$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

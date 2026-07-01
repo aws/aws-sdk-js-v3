@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetQueryRuntimeStatisticsInput, GetQueryRuntimeStatisticsOutput } from "../models/models_0";
 import { GetQueryRuntimeStatistics$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetQueryRuntimeStatistics$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -131,22 +127,12 @@ export interface GetQueryRuntimeStatisticsCommandOutput extends GetQueryRuntimeS
  *
  * @public
  */
-export class GetQueryRuntimeStatisticsCommand extends $Command
-  .classBuilder<
-    GetQueryRuntimeStatisticsCommandInput,
-    GetQueryRuntimeStatisticsCommandOutput,
-    AthenaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAthena", "GetQueryRuntimeStatistics", {})
-  .n("AthenaClient", "GetQueryRuntimeStatisticsCommand")
-  .sc(GetQueryRuntimeStatistics$)
-  .build() {
+export class GetQueryRuntimeStatisticsCommand extends command<GetQueryRuntimeStatisticsCommandInput, GetQueryRuntimeStatisticsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetQueryRuntimeStatistics",
+  GetQueryRuntimeStatistics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

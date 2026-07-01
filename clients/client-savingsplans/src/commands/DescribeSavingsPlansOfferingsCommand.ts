@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeSavingsPlansOfferingsRequest, DescribeSavingsPlansOfferingsResponse } from "../models/models_0";
-import type { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 import { DescribeSavingsPlansOfferings$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface DescribeSavingsPlansOfferingsCommandOutput extends DescribeSavi
  *
  * @public
  */
-export class DescribeSavingsPlansOfferingsCommand extends $Command
-  .classBuilder<
-    DescribeSavingsPlansOfferingsCommandInput,
-    DescribeSavingsPlansOfferingsCommandOutput,
-    SavingsplansClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SavingsplansClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSavingsPlan", "DescribeSavingsPlansOfferings", {})
-  .n("SavingsplansClient", "DescribeSavingsPlansOfferingsCommand")
-  .sc(DescribeSavingsPlansOfferings$)
-  .build() {
+export class DescribeSavingsPlansOfferingsCommand extends command<DescribeSavingsPlansOfferingsCommandInput, DescribeSavingsPlansOfferingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSavingsPlansOfferings",
+  DescribeSavingsPlansOfferings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

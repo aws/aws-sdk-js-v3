@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeSnapshotsRequest, DescribeSnapshotsResponse } from "../models/models_0";
 import { DescribeSnapshots$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeSnapshots$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsRespons
  *
  * @public
  */
-export class DescribeSnapshotsCommand extends $Command
-  .classBuilder<
-    DescribeSnapshotsCommandInput,
-    DescribeSnapshotsCommandOutput,
-    MemoryDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMemoryDB", "DescribeSnapshots", {})
-  .n("MemoryDBClient", "DescribeSnapshotsCommand")
-  .sc(DescribeSnapshots$)
-  .build() {
+export class DescribeSnapshotsCommand extends command<DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSnapshots",
+  DescribeSnapshots$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

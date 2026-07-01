@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutVerificationStateOnViolationRequest,
   PutVerificationStateOnViolationResponse,
@@ -15,7 +12,6 @@ import { PutVerificationStateOnViolation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface PutVerificationStateOnViolationCommandOutput extends PutVerific
  *
  * @public
  */
-export class PutVerificationStateOnViolationCommand extends $Command
-  .classBuilder<
-    PutVerificationStateOnViolationCommandInput,
-    PutVerificationStateOnViolationCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "PutVerificationStateOnViolation", {})
-  .n("IoTClient", "PutVerificationStateOnViolationCommand")
-  .sc(PutVerificationStateOnViolation$)
-  .build() {
+export class PutVerificationStateOnViolationCommand extends command<PutVerificationStateOnViolationCommandInput, PutVerificationStateOnViolationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutVerificationStateOnViolation",
+  PutVerificationStateOnViolation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

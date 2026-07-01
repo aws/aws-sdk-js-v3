@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ImportResourcesToDraftAppVersionRequest,
   ImportResourcesToDraftAppVersionResponse,
 } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { ImportResourcesToDraftAppVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -127,22 +123,12 @@ export interface ImportResourcesToDraftAppVersionCommandOutput extends ImportRes
  *
  * @public
  */
-export class ImportResourcesToDraftAppVersionCommand extends $Command
-  .classBuilder<
-    ImportResourcesToDraftAppVersionCommandInput,
-    ImportResourcesToDraftAppVersionCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "ImportResourcesToDraftAppVersion", {})
-  .n("ResiliencehubClient", "ImportResourcesToDraftAppVersionCommand")
-  .sc(ImportResourcesToDraftAppVersion$)
-  .build() {
+export class ImportResourcesToDraftAppVersionCommand extends command<ImportResourcesToDraftAppVersionCommandInput, ImportResourcesToDraftAppVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ImportResourcesToDraftAppVersion",
+  ImportResourcesToDraftAppVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

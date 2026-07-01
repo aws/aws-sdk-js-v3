@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePublishingDestinationRequest, UpdatePublishingDestinationResponse } from "../models/models_1";
 import { UpdatePublishingDestination$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdatePublishingDestination$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface UpdatePublishingDestinationCommandOutput extends UpdatePublishi
  *
  * @public
  */
-export class UpdatePublishingDestinationCommand extends $Command
-  .classBuilder<
-    UpdatePublishingDestinationCommandInput,
-    UpdatePublishingDestinationCommandOutput,
-    GuardDutyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GuardDutyAPIService", "UpdatePublishingDestination", {})
-  .n("GuardDutyClient", "UpdatePublishingDestinationCommand")
-  .sc(UpdatePublishingDestination$)
-  .build() {
+export class UpdatePublishingDestinationCommand extends command<UpdatePublishingDestinationCommandInput, UpdatePublishingDestinationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePublishingDestination",
+  UpdatePublishingDestination$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

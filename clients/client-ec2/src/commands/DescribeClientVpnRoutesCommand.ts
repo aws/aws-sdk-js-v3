@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeClientVpnRoutesRequest, DescribeClientVpnRoutesResult } from "../models/models_3";
 import { DescribeClientVpnRoutes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeClientVpnRoutes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface DescribeClientVpnRoutesCommandOutput extends DescribeClientVpnR
  *
  * @public
  */
-export class DescribeClientVpnRoutesCommand extends $Command
-  .classBuilder<
-    DescribeClientVpnRoutesCommandInput,
-    DescribeClientVpnRoutesCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeClientVpnRoutes", {})
-  .n("EC2Client", "DescribeClientVpnRoutesCommand")
-  .sc(DescribeClientVpnRoutes$)
-  .build() {
+export class DescribeClientVpnRoutesCommand extends command<DescribeClientVpnRoutesCommandInput, DescribeClientVpnRoutesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeClientVpnRoutes",
+  DescribeClientVpnRoutes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

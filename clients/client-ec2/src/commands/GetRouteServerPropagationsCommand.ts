@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRouteServerPropagationsRequest, GetRouteServerPropagationsResult } from "../models/models_6";
 import { GetRouteServerPropagations$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetRouteServerPropagations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface GetRouteServerPropagationsCommandOutput extends GetRouteServerP
  *
  * @public
  */
-export class GetRouteServerPropagationsCommand extends $Command
-  .classBuilder<
-    GetRouteServerPropagationsCommandInput,
-    GetRouteServerPropagationsCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "GetRouteServerPropagations", {})
-  .n("EC2Client", "GetRouteServerPropagationsCommand")
-  .sc(GetRouteServerPropagations$)
-  .build() {
+export class GetRouteServerPropagationsCommand extends command<GetRouteServerPropagationsCommandInput, GetRouteServerPropagationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRouteServerPropagations",
+  GetRouteServerPropagations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

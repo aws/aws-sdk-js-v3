@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateNetworkSettingsRequest, CreateNetworkSettingsResponse } from "../models/models_0";
 import { CreateNetworkSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface CreateNetworkSettingsCommandOutput extends CreateNetworkSetting
  *
  * @public
  */
-export class CreateNetworkSettingsCommand extends $Command
-  .classBuilder<
-    CreateNetworkSettingsCommandInput,
-    CreateNetworkSettingsCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "CreateNetworkSettings", {})
-  .n("WorkSpacesWebClient", "CreateNetworkSettingsCommand")
-  .sc(CreateNetworkSettings$)
-  .build() {
+export class CreateNetworkSettingsCommand extends command<CreateNetworkSettingsCommandInput, CreateNetworkSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateNetworkSettings",
+  CreateNetworkSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

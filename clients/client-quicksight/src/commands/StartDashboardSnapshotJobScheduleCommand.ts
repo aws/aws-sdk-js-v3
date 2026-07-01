@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StartDashboardSnapshotJobScheduleRequest,
   StartDashboardSnapshotJobScheduleResponse,
 } from "../models/models_5";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { StartDashboardSnapshotJobSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface StartDashboardSnapshotJobScheduleCommandOutput extends StartDas
  *
  * @public
  */
-export class StartDashboardSnapshotJobScheduleCommand extends $Command
-  .classBuilder<
-    StartDashboardSnapshotJobScheduleCommandInput,
-    StartDashboardSnapshotJobScheduleCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "StartDashboardSnapshotJobSchedule", {})
-  .n("QuickSightClient", "StartDashboardSnapshotJobScheduleCommand")
-  .sc(StartDashboardSnapshotJobSchedule$)
-  .build() {
+export class StartDashboardSnapshotJobScheduleCommand extends command<StartDashboardSnapshotJobScheduleCommandInput, StartDashboardSnapshotJobScheduleCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartDashboardSnapshotJobSchedule",
+  StartDashboardSnapshotJobSchedule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

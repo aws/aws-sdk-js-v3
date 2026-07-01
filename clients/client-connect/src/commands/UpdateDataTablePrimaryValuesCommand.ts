@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDataTablePrimaryValuesRequest, UpdateDataTablePrimaryValuesResponse } from "../models/models_3";
 import { UpdateDataTablePrimaryValues$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateDataTablePrimaryValues$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface UpdateDataTablePrimaryValuesCommandOutput extends UpdateDataTab
  *
  * @public
  */
-export class UpdateDataTablePrimaryValuesCommand extends $Command
-  .classBuilder<
-    UpdateDataTablePrimaryValuesCommandInput,
-    UpdateDataTablePrimaryValuesCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "UpdateDataTablePrimaryValues", {})
-  .n("ConnectClient", "UpdateDataTablePrimaryValuesCommand")
-  .sc(UpdateDataTablePrimaryValues$)
-  .build() {
+export class UpdateDataTablePrimaryValuesCommand extends command<UpdateDataTablePrimaryValuesCommandInput, UpdateDataTablePrimaryValuesCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDataTablePrimaryValues",
+  UpdateDataTablePrimaryValues$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

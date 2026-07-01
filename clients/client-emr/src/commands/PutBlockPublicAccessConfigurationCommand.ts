@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutBlockPublicAccessConfigurationInput,
   PutBlockPublicAccessConfigurationOutput,
@@ -15,7 +12,6 @@ import { PutBlockPublicAccessConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface PutBlockPublicAccessConfigurationCommandOutput extends PutBlock
  *
  * @public
  */
-export class PutBlockPublicAccessConfigurationCommand extends $Command
-  .classBuilder<
-    PutBlockPublicAccessConfigurationCommandInput,
-    PutBlockPublicAccessConfigurationCommandOutput,
-    EMRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticMapReduce", "PutBlockPublicAccessConfiguration", {})
-  .n("EMRClient", "PutBlockPublicAccessConfigurationCommand")
-  .sc(PutBlockPublicAccessConfiguration$)
-  .build() {
+export class PutBlockPublicAccessConfigurationCommand extends command<PutBlockPublicAccessConfigurationCommandInput, PutBlockPublicAccessConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutBlockPublicAccessConfiguration",
+  PutBlockPublicAccessConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ConnectCampaignsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ConnectCampaignsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateCampaignNameRequest } from "../models/models_0";
 import { UpdateCampaignName$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateCampaignName$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +69,12 @@ export interface UpdateCampaignNameCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdateCampaignNameCommand extends $Command
-  .classBuilder<
-    UpdateCampaignNameCommandInput,
-    UpdateCampaignNameCommandOutput,
-    ConnectCampaignsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCampaignService", "UpdateCampaignName", {})
-  .n("ConnectCampaignsClient", "UpdateCampaignNameCommand")
-  .sc(UpdateCampaignName$)
-  .build() {
+export class UpdateCampaignNameCommand extends command<UpdateCampaignNameCommandInput, UpdateCampaignNameCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateCampaignName",
+  UpdateCampaignName$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

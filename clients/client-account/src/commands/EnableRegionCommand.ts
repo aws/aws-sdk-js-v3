@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EnableRegionRequest } from "../models/models_0";
 import { EnableRegion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { EnableRegion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface EnableRegionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class EnableRegionCommand extends $Command
-  .classBuilder<
-    EnableRegionCommandInput,
-    EnableRegionCommandOutput,
-    AccountClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AccountClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Account", "EnableRegion", {})
-  .n("AccountClient", "EnableRegionCommand")
-  .sc(EnableRegion$)
-  .build() {
+export class EnableRegionCommand extends command<EnableRegionCommandInput, EnableRegionCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableRegion",
+  EnableRegion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

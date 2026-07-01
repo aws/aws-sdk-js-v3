@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateTelemetryRuleForOrganizationInput,
   UpdateTelemetryRuleForOrganizationOutput,
 } from "../models/models_0";
-import type {
-  ObservabilityAdminClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ObservabilityAdminClient";
 import { UpdateTelemetryRuleForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -180,22 +172,12 @@ export interface UpdateTelemetryRuleForOrganizationCommandOutput extends UpdateT
  *
  * @public
  */
-export class UpdateTelemetryRuleForOrganizationCommand extends $Command
-  .classBuilder<
-    UpdateTelemetryRuleForOrganizationCommandInput,
-    UpdateTelemetryRuleForOrganizationCommandOutput,
-    ObservabilityAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ObservabilityAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ObservabilityAdmin", "UpdateTelemetryRuleForOrganization", {})
-  .n("ObservabilityAdminClient", "UpdateTelemetryRuleForOrganizationCommand")
-  .sc(UpdateTelemetryRuleForOrganization$)
-  .build() {
+export class UpdateTelemetryRuleForOrganizationCommand extends command<UpdateTelemetryRuleForOrganizationCommandInput, UpdateTelemetryRuleForOrganizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateTelemetryRuleForOrganization",
+  UpdateTelemetryRuleForOrganization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

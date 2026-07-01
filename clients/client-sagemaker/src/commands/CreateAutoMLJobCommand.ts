@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAutoMLJobRequest, CreateAutoMLJobResponse } from "../models/models_1";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreateAutoMLJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +129,12 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  *
  * @public
  */
-export class CreateAutoMLJobCommand extends $Command
-  .classBuilder<
-    CreateAutoMLJobCommandInput,
-    CreateAutoMLJobCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "CreateAutoMLJob", {})
-  .n("SageMakerClient", "CreateAutoMLJobCommand")
-  .sc(CreateAutoMLJob$)
-  .build() {
+export class CreateAutoMLJobCommand extends command<CreateAutoMLJobCommandInput, CreateAutoMLJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAutoMLJob",
+  CreateAutoMLJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

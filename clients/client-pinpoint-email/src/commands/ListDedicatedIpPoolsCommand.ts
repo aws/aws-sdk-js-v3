@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDedicatedIpPoolsRequest, ListDedicatedIpPoolsResponse } from "../models/models_0";
-import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import { ListDedicatedIpPools$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface ListDedicatedIpPoolsCommandOutput extends ListDedicatedIpPoolsR
  *
  * @public
  */
-export class ListDedicatedIpPoolsCommand extends $Command
-  .classBuilder<
-    ListDedicatedIpPoolsCommandInput,
-    ListDedicatedIpPoolsCommandOutput,
-    PinpointEmailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPinpointEmailService", "ListDedicatedIpPools", {})
-  .n("PinpointEmailClient", "ListDedicatedIpPoolsCommand")
-  .sc(ListDedicatedIpPools$)
-  .build() {
+export class ListDedicatedIpPoolsCommand extends command<ListDedicatedIpPoolsCommandInput, ListDedicatedIpPoolsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDedicatedIpPools",
+  ListDedicatedIpPools$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

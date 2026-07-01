@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeVolumesRequest, DescribeVolumesResponse } from "../models/models_0";
 import { DescribeVolumes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeVolumes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -694,22 +690,12 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, _
  *
  * @public
  */
-export class DescribeVolumesCommand extends $Command
-  .classBuilder<
-    DescribeVolumesCommandInput,
-    DescribeVolumesCommandOutput,
-    FSxClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSimbaAPIService_v20180301", "DescribeVolumes", {})
-  .n("FSxClient", "DescribeVolumesCommand")
-  .sc(DescribeVolumes$)
-  .build() {
+export class DescribeVolumesCommand extends command<DescribeVolumesCommandInput, DescribeVolumesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeVolumes",
+  DescribeVolumes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

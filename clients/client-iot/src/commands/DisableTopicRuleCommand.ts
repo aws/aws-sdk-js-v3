@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisableTopicRuleRequest } from "../models/models_1";
 import { DisableTopicRule$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisableTopicRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DisableTopicRuleCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DisableTopicRuleCommand extends $Command
-  .classBuilder<
-    DisableTopicRuleCommandInput,
-    DisableTopicRuleCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "DisableTopicRule", {})
-  .n("IoTClient", "DisableTopicRuleCommand")
-  .sc(DisableTopicRule$)
-  .build() {
+export class DisableTopicRuleCommand extends command<DisableTopicRuleCommandInput, DisableTopicRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableTopicRule",
+  DisableTopicRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

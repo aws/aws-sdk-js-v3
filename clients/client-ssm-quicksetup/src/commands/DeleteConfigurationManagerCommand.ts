@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteConfigurationManagerInput } from "../models/models_0";
 import { DeleteConfigurationManager$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMQuickSetupClientResolvedConfig } from "../SSMQuickSetupClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteConfigurationManagerCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class DeleteConfigurationManagerCommand extends $Command
-  .classBuilder<
-    DeleteConfigurationManagerCommandInput,
-    DeleteConfigurationManagerCommandOutput,
-    SSMQuickSetupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMQuickSetupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSetup", "DeleteConfigurationManager", {})
-  .n("SSMQuickSetupClient", "DeleteConfigurationManagerCommand")
-  .sc(DeleteConfigurationManager$)
-  .build() {
+export class DeleteConfigurationManagerCommand extends command<DeleteConfigurationManagerCommandInput, DeleteConfigurationManagerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteConfigurationManager",
+  DeleteConfigurationManager$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateEventBridgeRuleTemplateGroupRequest,
   CreateEventBridgeRuleTemplateGroupResponse,
@@ -15,7 +12,6 @@ import { CreateEventBridgeRuleTemplateGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface CreateEventBridgeRuleTemplateGroupCommandOutput extends CreateE
  *
  * @public
  */
-export class CreateEventBridgeRuleTemplateGroupCommand extends $Command
-  .classBuilder<
-    CreateEventBridgeRuleTemplateGroupCommandInput,
-    CreateEventBridgeRuleTemplateGroupCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "CreateEventBridgeRuleTemplateGroup", {})
-  .n("MediaLiveClient", "CreateEventBridgeRuleTemplateGroupCommand")
-  .sc(CreateEventBridgeRuleTemplateGroup$)
-  .build() {
+export class CreateEventBridgeRuleTemplateGroupCommand extends command<CreateEventBridgeRuleTemplateGroupCommandInput, CreateEventBridgeRuleTemplateGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateEventBridgeRuleTemplateGroup",
+  CreateEventBridgeRuleTemplateGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

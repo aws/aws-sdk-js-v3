@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListBenefitApplicationsInput, ListBenefitApplicationsOutput } from "../models/models_0";
-import type {
-  PartnerCentralBenefitsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralBenefitsClient";
 import { ListBenefitApplications$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +122,12 @@ export interface ListBenefitApplicationsCommandOutput extends ListBenefitApplica
  *
  * @public
  */
-export class ListBenefitApplicationsCommand extends $Command
-  .classBuilder<
-    ListBenefitApplicationsCommandInput,
-    ListBenefitApplicationsCommandOutput,
-    PartnerCentralBenefitsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralBenefitsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralBenefitsService", "ListBenefitApplications", {})
-  .n("PartnerCentralBenefitsClient", "ListBenefitApplicationsCommand")
-  .sc(ListBenefitApplications$)
-  .build() {
+export class ListBenefitApplicationsCommand extends command<ListBenefitApplicationsCommandInput, ListBenefitApplicationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBenefitApplications",
+  ListBenefitApplications$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

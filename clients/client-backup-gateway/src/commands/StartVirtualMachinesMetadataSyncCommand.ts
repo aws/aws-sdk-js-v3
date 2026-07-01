@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartVirtualMachinesMetadataSyncInput, StartVirtualMachinesMetadataSyncOutput } from "../models/models_0";
 import { StartVirtualMachinesMetadataSync$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartVirtualMachinesMetadataSync$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface StartVirtualMachinesMetadataSyncCommandOutput extends StartVirt
  *
  * @public
  */
-export class StartVirtualMachinesMetadataSyncCommand extends $Command
-  .classBuilder<
-    StartVirtualMachinesMetadataSyncCommandInput,
-    StartVirtualMachinesMetadataSyncCommandOutput,
-    BackupGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackupOnPremises_v20210101", "StartVirtualMachinesMetadataSync", {})
-  .n("BackupGatewayClient", "StartVirtualMachinesMetadataSyncCommand")
-  .sc(StartVirtualMachinesMetadataSync$)
-  .build() {
+export class StartVirtualMachinesMetadataSyncCommand extends command<StartVirtualMachinesMetadataSyncCommandInput, StartVirtualMachinesMetadataSyncCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartVirtualMachinesMetadataSync",
+  StartVirtualMachinesMetadataSync$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

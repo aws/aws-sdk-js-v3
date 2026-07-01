@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetEnrollmentStatusesForOrganizationRequest,
   GetEnrollmentStatusesForOrganizationResponse,
@@ -19,7 +12,6 @@ import { GetEnrollmentStatusesForOrganization$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface GetEnrollmentStatusesForOrganizationCommandOutput extends GetEn
  *
  * @public
  */
-export class GetEnrollmentStatusesForOrganizationCommand extends $Command
-  .classBuilder<
-    GetEnrollmentStatusesForOrganizationCommandInput,
-    GetEnrollmentStatusesForOrganizationCommandOutput,
-    ComputeOptimizerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerService", "GetEnrollmentStatusesForOrganization", {})
-  .n("ComputeOptimizerClient", "GetEnrollmentStatusesForOrganizationCommand")
-  .sc(GetEnrollmentStatusesForOrganization$)
-  .build() {
+export class GetEnrollmentStatusesForOrganizationCommand extends command<GetEnrollmentStatusesForOrganizationCommandInput, GetEnrollmentStatusesForOrganizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEnrollmentStatusesForOrganization",
+  GetEnrollmentStatusesForOrganization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

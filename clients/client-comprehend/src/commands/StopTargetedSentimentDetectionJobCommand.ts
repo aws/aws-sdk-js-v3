@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StopTargetedSentimentDetectionJobRequest,
   StopTargetedSentimentDetectionJobResponse,
@@ -15,7 +12,6 @@ import { StopTargetedSentimentDetectionJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface StopTargetedSentimentDetectionJobCommandOutput extends StopTarg
  *
  * @public
  */
-export class StopTargetedSentimentDetectionJobCommand extends $Command
-  .classBuilder<
-    StopTargetedSentimentDetectionJobCommandInput,
-    StopTargetedSentimentDetectionJobCommandOutput,
-    ComprehendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Comprehend_20171127", "StopTargetedSentimentDetectionJob", {})
-  .n("ComprehendClient", "StopTargetedSentimentDetectionJobCommand")
-  .sc(StopTargetedSentimentDetectionJob$)
-  .build() {
+export class StopTargetedSentimentDetectionJobCommand extends command<StopTargetedSentimentDetectionJobCommandInput, StopTargetedSentimentDetectionJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopTargetedSentimentDetectionJob",
+  StopTargetedSentimentDetectionJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFindingsReportStatusRequest, GetFindingsReportStatusResponse } from "../models/models_0";
 import { GetFindingsReportStatus$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetFindingsReportStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -224,22 +220,12 @@ export interface GetFindingsReportStatusCommandOutput extends GetFindingsReportS
  *
  * @public
  */
-export class GetFindingsReportStatusCommand extends $Command
-  .classBuilder<
-    GetFindingsReportStatusCommandInput,
-    GetFindingsReportStatusCommandOutput,
-    Inspector2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Inspector2", "GetFindingsReportStatus", {})
-  .n("Inspector2Client", "GetFindingsReportStatusCommand")
-  .sc(GetFindingsReportStatus$)
-  .build() {
+export class GetFindingsReportStatusCommand extends command<GetFindingsReportStatusCommandInput, GetFindingsReportStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFindingsReportStatus",
+  GetFindingsReportStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

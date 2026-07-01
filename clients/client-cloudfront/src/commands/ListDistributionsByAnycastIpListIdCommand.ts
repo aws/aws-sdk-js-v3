@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListDistributionsByAnycastIpListIdRequest,
   ListDistributionsByAnycastIpListIdResult,
@@ -15,7 +12,6 @@ import { ListDistributionsByAnycastIpListId$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -406,22 +402,12 @@ export interface ListDistributionsByAnycastIpListIdCommandOutput extends ListDis
  *
  * @public
  */
-export class ListDistributionsByAnycastIpListIdCommand extends $Command
-  .classBuilder<
-    ListDistributionsByAnycastIpListIdCommandInput,
-    ListDistributionsByAnycastIpListIdCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "ListDistributionsByAnycastIpListId", {})
-  .n("CloudFrontClient", "ListDistributionsByAnycastIpListIdCommand")
-  .sc(ListDistributionsByAnycastIpListId$)
-  .build() {
+export class ListDistributionsByAnycastIpListIdCommand extends command<ListDistributionsByAnycastIpListIdCommandInput, ListDistributionsByAnycastIpListIdCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDistributionsByAnycastIpListId",
+  ListDistributionsByAnycastIpListId$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

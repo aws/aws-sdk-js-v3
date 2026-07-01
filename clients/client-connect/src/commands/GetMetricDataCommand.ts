@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMetricDataRequest } from "../models/models_1";
 import type { GetMetricDataResponse } from "../models/models_2";
 import { GetMetricData$ } from "../schemas/schemas_0";
@@ -13,7 +10,6 @@ import { GetMetricData$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -160,22 +156,12 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  *
  * @public
  */
-export class GetMetricDataCommand extends $Command
-  .classBuilder<
-    GetMetricDataCommandInput,
-    GetMetricDataCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "GetMetricData", {})
-  .n("ConnectClient", "GetMetricDataCommand")
-  .sc(GetMetricData$)
-  .build() {
+export class GetMetricDataCommand extends command<GetMetricDataCommandInput, GetMetricDataCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMetricData",
+  GetMetricData$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

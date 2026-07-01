@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeRetentionConfigurationsRequest,
   DescribeRetentionConfigurationsResponse,
@@ -15,7 +12,6 @@ import { DescribeRetentionConfigurations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface DescribeRetentionConfigurationsCommandOutput extends DescribeRe
  *
  * @public
  */
-export class DescribeRetentionConfigurationsCommand extends $Command
-  .classBuilder<
-    DescribeRetentionConfigurationsCommandInput,
-    DescribeRetentionConfigurationsCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DescribeRetentionConfigurations", {})
-  .n("ConfigServiceClient", "DescribeRetentionConfigurationsCommand")
-  .sc(DescribeRetentionConfigurations$)
-  .build() {
+export class DescribeRetentionConfigurationsCommand extends command<DescribeRetentionConfigurationsCommandInput, DescribeRetentionConfigurationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRetentionConfigurations",
+  DescribeRetentionConfigurations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

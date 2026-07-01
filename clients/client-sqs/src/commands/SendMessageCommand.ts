@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getSendMessagePlugin } from "@aws-sdk/middleware-sdk-sqs";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw3, command } from "../commandBuilder";
 import type { SendMessageRequest, SendMessageResult } from "../models/models_0";
 import { SendMessage$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -165,25 +160,12 @@ export interface SendMessageCommandOutput extends SendMessageResult, __MetadataB
  *
  * @public
  */
-export class SendMessageCommand extends $Command
-  .classBuilder<
-    SendMessageCommandInput,
-    SendMessageCommandOutput,
-    SQSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getSendMessagePlugin(config),
-    ];
-  })
-  .s("AmazonSQS", "SendMessage", {})
-  .n("SQSClient", "SendMessageCommand")
-  .sc(SendMessage$)
-  .build() {
+export class SendMessageCommand extends command<SendMessageCommandInput, SendMessageCommandOutput>(
+  _ep0,
+  _mw3,
+  "SendMessage",
+  SendMessage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

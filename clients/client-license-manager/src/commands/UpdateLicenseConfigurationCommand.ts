@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateLicenseConfigurationRequest, UpdateLicenseConfigurationResponse } from "../models/models_0";
 import { UpdateLicenseConfiguration$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateLicenseConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +99,12 @@ export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseCo
  *
  * @public
  */
-export class UpdateLicenseConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateLicenseConfigurationCommandInput,
-    UpdateLicenseConfigurationCommandOutput,
-    LicenseManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLicenseManager", "UpdateLicenseConfiguration", {})
-  .n("LicenseManagerClient", "UpdateLicenseConfigurationCommand")
-  .sc(UpdateLicenseConfiguration$)
-  .build() {
+export class UpdateLicenseConfigurationCommand extends command<UpdateLicenseConfigurationCommandInput, UpdateLicenseConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateLicenseConfiguration",
+  UpdateLicenseConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

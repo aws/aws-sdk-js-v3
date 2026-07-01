@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DetachRuleGroupsFromProxyConfigurationRequest,
   DetachRuleGroupsFromProxyConfigurationResponse,
 } from "../models/models_0";
-import type {
-  NetworkFirewallClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFirewallClient";
 import { DetachRuleGroupsFromProxyConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +120,12 @@ export interface DetachRuleGroupsFromProxyConfigurationCommandOutput extends Det
  *
  * @public
  */
-export class DetachRuleGroupsFromProxyConfigurationCommand extends $Command
-  .classBuilder<
-    DetachRuleGroupsFromProxyConfigurationCommandInput,
-    DetachRuleGroupsFromProxyConfigurationCommandOutput,
-    NetworkFirewallClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFirewall_20201112", "DetachRuleGroupsFromProxyConfiguration", {})
-  .n("NetworkFirewallClient", "DetachRuleGroupsFromProxyConfigurationCommand")
-  .sc(DetachRuleGroupsFromProxyConfiguration$)
-  .build() {
+export class DetachRuleGroupsFromProxyConfigurationCommand extends command<DetachRuleGroupsFromProxyConfigurationCommandInput, DetachRuleGroupsFromProxyConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DetachRuleGroupsFromProxyConfiguration",
+  DetachRuleGroupsFromProxyConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

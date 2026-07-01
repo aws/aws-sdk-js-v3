@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeEksAnywhereSubscriptionRequest,
   DescribeEksAnywhereSubscriptionResponse,
@@ -15,7 +12,6 @@ import { DescribeEksAnywhereSubscription$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface DescribeEksAnywhereSubscriptionCommandOutput extends DescribeEk
  *
  * @public
  */
-export class DescribeEksAnywhereSubscriptionCommand extends $Command
-  .classBuilder<
-    DescribeEksAnywhereSubscriptionCommandInput,
-    DescribeEksAnywhereSubscriptionCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "DescribeEksAnywhereSubscription", {})
-  .n("EKSClient", "DescribeEksAnywhereSubscriptionCommand")
-  .sc(DescribeEksAnywhereSubscription$)
-  .build() {
+export class DescribeEksAnywhereSubscriptionCommand extends command<DescribeEksAnywhereSubscriptionCommandInput, DescribeEksAnywhereSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEksAnywhereSubscription",
+  DescribeEksAnywhereSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

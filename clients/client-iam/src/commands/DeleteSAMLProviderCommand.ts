@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSAMLProviderRequest } from "../models/models_0";
 import { DeleteSAMLProvider$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteSAMLProvider$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DeleteSAMLProviderCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteSAMLProviderCommand extends $Command
-  .classBuilder<
-    DeleteSAMLProviderCommandInput,
-    DeleteSAMLProviderCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "DeleteSAMLProvider", {})
-  .n("IAMClient", "DeleteSAMLProviderCommand")
-  .sc(DeleteSAMLProvider$)
-  .build() {
+export class DeleteSAMLProviderCommand extends command<DeleteSAMLProviderCommandInput, DeleteSAMLProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSAMLProvider",
+  DeleteSAMLProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

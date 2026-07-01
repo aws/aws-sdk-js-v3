@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCallAnalyticsCategoryRequest, CreateCallAnalyticsCategoryResponse } from "../models/models_0";
 import { CreateCallAnalyticsCategory$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -262,22 +258,12 @@ export interface CreateCallAnalyticsCategoryCommandOutput extends CreateCallAnal
  *
  * @public
  */
-export class CreateCallAnalyticsCategoryCommand extends $Command
-  .classBuilder<
-    CreateCallAnalyticsCategoryCommandInput,
-    CreateCallAnalyticsCategoryCommandOutput,
-    TranscribeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Transcribe", "CreateCallAnalyticsCategory", {})
-  .n("TranscribeClient", "CreateCallAnalyticsCategoryCommand")
-  .sc(CreateCallAnalyticsCategory$)
-  .build() {
+export class CreateCallAnalyticsCategoryCommand extends command<CreateCallAnalyticsCategoryCommandInput, CreateCallAnalyticsCategoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCallAnalyticsCategory",
+  CreateCallAnalyticsCategory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateAnonymousWebExperienceUrlRequest,
   CreateAnonymousWebExperienceUrlResponse,
 } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { CreateAnonymousWebExperienceUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface CreateAnonymousWebExperienceUrlCommandOutput extends CreateAnon
  *
  * @public
  */
-export class CreateAnonymousWebExperienceUrlCommand extends $Command
-  .classBuilder<
-    CreateAnonymousWebExperienceUrlCommandInput,
-    CreateAnonymousWebExperienceUrlCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "CreateAnonymousWebExperienceUrl", {})
-  .n("QBusinessClient", "CreateAnonymousWebExperienceUrlCommand")
-  .sc(CreateAnonymousWebExperienceUrl$)
-  .build() {
+export class CreateAnonymousWebExperienceUrlCommand extends command<CreateAnonymousWebExperienceUrlCommandInput, CreateAnonymousWebExperienceUrlCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAnonymousWebExperienceUrl",
+  CreateAnonymousWebExperienceUrl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelSigningProfileRequest } from "../models/models_0";
 import { CancelSigningProfile$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface CancelSigningProfileCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class CancelSigningProfileCommand extends $Command
-  .classBuilder<
-    CancelSigningProfileCommandInput,
-    CancelSigningProfileCommandOutput,
-    SignerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SignerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WallabyService", "CancelSigningProfile", {})
-  .n("SignerClient", "CancelSigningProfileCommand")
-  .sc(CancelSigningProfile$)
-  .build() {
+export class CancelSigningProfileCommand extends command<CancelSigningProfileCommandInput, CancelSigningProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelSigningProfile",
+  CancelSigningProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

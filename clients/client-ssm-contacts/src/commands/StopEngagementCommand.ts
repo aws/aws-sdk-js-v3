@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopEngagementRequest, StopEngagementResult } from "../models/models_0";
 import { StopEngagement$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface StopEngagementCommandOutput extends StopEngagementResult, __Met
  *
  * @public
  */
-export class StopEngagementCommand extends $Command
-  .classBuilder<
-    StopEngagementCommandInput,
-    StopEngagementCommandOutput,
-    SSMContactsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMContacts", "StopEngagement", {})
-  .n("SSMContactsClient", "StopEngagementCommand")
-  .sc(StopEngagement$)
-  .build() {
+export class StopEngagementCommand extends command<StopEngagementCommandInput, StopEngagementCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopEngagement",
+  StopEngagement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

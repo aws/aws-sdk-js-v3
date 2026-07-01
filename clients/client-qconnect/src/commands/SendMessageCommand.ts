@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendMessageRequest, SendMessageResponse } from "../models/models_0";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { SendMessage$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +136,12 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  *
  * @public
  */
-export class SendMessageCommand extends $Command
-  .classBuilder<
-    SendMessageCommandInput,
-    SendMessageCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "SendMessage", {})
-  .n("QConnectClient", "SendMessageCommand")
-  .sc(SendMessage$)
-  .build() {
+export class SendMessageCommand extends command<SendMessageCommandInput, SendMessageCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendMessage",
+  SendMessage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

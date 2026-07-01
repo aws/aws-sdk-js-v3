@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteKeyGroupRequest } from "../models/models_0";
 import { DeleteKeyGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteKeyGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteKeyGroupCommand extends $Command
-  .classBuilder<
-    DeleteKeyGroupCommandInput,
-    DeleteKeyGroupCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "DeleteKeyGroup", {})
-  .n("CloudFrontClient", "DeleteKeyGroupCommand")
-  .sc(DeleteKeyGroup$)
-  .build() {
+export class DeleteKeyGroupCommand extends command<DeleteKeyGroupCommandInput, DeleteKeyGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteKeyGroup",
+  DeleteKeyGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

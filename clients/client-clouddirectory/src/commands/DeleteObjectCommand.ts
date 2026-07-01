@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudDirectoryClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteObjectRequest, DeleteObjectResponse } from "../models/models_0";
 import { DeleteObject$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteObject$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +102,12 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  *
  * @public
  */
-export class DeleteObjectCommand extends $Command
-  .classBuilder<
-    DeleteObjectCommandInput,
-    DeleteObjectCommandOutput,
-    CloudDirectoryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonCloudDirectory_20170111", "DeleteObject", {})
-  .n("CloudDirectoryClient", "DeleteObjectCommand")
-  .sc(DeleteObject$)
-  .build() {
+export class DeleteObjectCommand extends command<DeleteObjectCommandInput, DeleteObjectCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteObject",
+  DeleteObject$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

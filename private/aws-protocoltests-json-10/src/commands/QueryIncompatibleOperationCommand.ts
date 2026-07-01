@@ -12,7 +12,6 @@ import { de_QueryIncompatibleOperationCommand, se_QueryIncompatibleOperationComm
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

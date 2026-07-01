@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExpireSessionRequest, ExpireSessionResponse } from "../models/models_0";
 import { ExpireSession$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface ExpireSessionCommandOutput extends ExpireSessionResponse, __Met
  *
  * @public
  */
-export class ExpireSessionCommand extends $Command
-  .classBuilder<
-    ExpireSessionCommandInput,
-    ExpireSessionCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "ExpireSession", {})
-  .n("WorkSpacesWebClient", "ExpireSessionCommand")
-  .sc(ExpireSession$)
-  .build() {
+export class ExpireSessionCommand extends command<ExpireSessionCommandInput, ExpireSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExpireSession",
+  ExpireSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

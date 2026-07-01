@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateEnvironmentRequest, CreateEnvironmentResponse } from "../models/models_0";
 import { CreateEnvironment$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkSpacesThinClientClientResolvedConfig,
-} from "../WorkSpacesThinClientClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +125,12 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *
  * @public
  */
-export class CreateEnvironmentCommand extends $Command
-  .classBuilder<
-    CreateEnvironmentCommandInput,
-    CreateEnvironmentCommandOutput,
-    WorkSpacesThinClientClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesThinClientClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ThinClient", "CreateEnvironment", {})
-  .n("WorkSpacesThinClientClient", "CreateEnvironmentCommand")
-  .sc(CreateEnvironment$)
-  .build() {
+export class CreateEnvironmentCommand extends command<CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateEnvironment",
+  CreateEnvironment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

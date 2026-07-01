@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribePipelineDefinitionForExecutionRequest,
   DescribePipelineDefinitionForExecutionResponse,
 } from "../models/models_3";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribePipelineDefinitionForExecution$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +62,12 @@ export interface DescribePipelineDefinitionForExecutionCommandOutput extends Des
  *
  * @public
  */
-export class DescribePipelineDefinitionForExecutionCommand extends $Command
-  .classBuilder<
-    DescribePipelineDefinitionForExecutionCommandInput,
-    DescribePipelineDefinitionForExecutionCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DescribePipelineDefinitionForExecution", {})
-  .n("SageMakerClient", "DescribePipelineDefinitionForExecutionCommand")
-  .sc(DescribePipelineDefinitionForExecution$)
-  .build() {
+export class DescribePipelineDefinitionForExecutionCommand extends command<DescribePipelineDefinitionForExecutionCommandInput, DescribePipelineDefinitionForExecutionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribePipelineDefinitionForExecution",
+  DescribePipelineDefinitionForExecution$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

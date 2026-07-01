@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateEnvironmentTemplateVersionInput, CreateEnvironmentTemplateVersionOutput } from "../models/models_0";
-import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 import { CreateEnvironmentTemplateVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface CreateEnvironmentTemplateVersionCommandOutput extends CreateEnv
  *
  * @public
  */
-export class CreateEnvironmentTemplateVersionCommand extends $Command
-  .classBuilder<
-    CreateEnvironmentTemplateVersionCommandInput,
-    CreateEnvironmentTemplateVersionCommandOutput,
-    ProtonClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsProton20200720", "CreateEnvironmentTemplateVersion", {})
-  .n("ProtonClient", "CreateEnvironmentTemplateVersionCommand")
-  .sc(CreateEnvironmentTemplateVersion$)
-  .build() {
+export class CreateEnvironmentTemplateVersionCommand extends command<CreateEnvironmentTemplateVersionCommandInput, CreateEnvironmentTemplateVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateEnvironmentTemplateVersion",
+  CreateEnvironmentTemplateVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

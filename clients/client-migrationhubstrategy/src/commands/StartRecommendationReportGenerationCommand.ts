@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MigrationHubStrategyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MigrationHubStrategyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StartRecommendationReportGenerationRequest,
   StartRecommendationReportGenerationResponse,
@@ -19,7 +12,6 @@ import { StartRecommendationReportGeneration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface StartRecommendationReportGenerationCommandOutput extends StartR
  *
  * @public
  */
-export class StartRecommendationReportGenerationCommand extends $Command
-  .classBuilder<
-    StartRecommendationReportGenerationCommandInput,
-    StartRecommendationReportGenerationCommandOutput,
-    MigrationHubStrategyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubStrategyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHubStrategyRecommendation", "StartRecommendationReportGeneration", {})
-  .n("MigrationHubStrategyClient", "StartRecommendationReportGenerationCommand")
-  .sc(StartRecommendationReportGeneration$)
-  .build() {
+export class StartRecommendationReportGenerationCommand extends command<StartRecommendationReportGenerationCommandInput, StartRecommendationReportGenerationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartRecommendationReportGeneration",
+  StartRecommendationReportGeneration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

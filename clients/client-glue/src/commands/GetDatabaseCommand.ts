@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDatabaseRequest, GetDatabaseResponse } from "../models/models_1";
 import { GetDatabase$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDatabase$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface GetDatabaseCommandOutput extends GetDatabaseResponse, __Metadat
  *
  * @public
  */
-export class GetDatabaseCommand extends $Command
-  .classBuilder<
-    GetDatabaseCommandInput,
-    GetDatabaseCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "GetDatabase", {})
-  .n("GlueClient", "GetDatabaseCommand")
-  .sc(GetDatabase$)
-  .build() {
+export class GetDatabaseCommand extends command<GetDatabaseCommandInput, GetDatabaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDatabase",
+  GetDatabase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

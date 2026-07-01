@@ -1,16 +1,7 @@
 // smithy-typescript generated code
-import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
-import { getWebSocketPlugin } from "@aws-sdk/middleware-websocket";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockRuntimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type {
   InvokeModelWithBidirectionalStreamRequest,
   InvokeModelWithBidirectionalStreamResponse,
@@ -21,7 +12,6 @@ import { InvokeModelWithBidirectionalStream$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,36 +120,12 @@ export interface InvokeModelWithBidirectionalStreamCommandOutput extends InvokeM
  *
  * @public
  */
-export class InvokeModelWithBidirectionalStreamCommand extends $Command
-  .classBuilder<
-    InvokeModelWithBidirectionalStreamCommandInput,
-    InvokeModelWithBidirectionalStreamCommandOutput,
-    BedrockRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockRuntimeClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEventStreamPlugin(config),
-      getWebSocketPlugin(config, {
-        headerPrefix: 'x-amz-bedrock-',
-      }),
-    ];
-  })
-  .s("AmazonBedrockFrontendService", "InvokeModelWithBidirectionalStream", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      input: true,
-      output: true,
-    },
-  })
-  .n("BedrockRuntimeClient", "InvokeModelWithBidirectionalStreamCommand")
-  .sc(InvokeModelWithBidirectionalStream$)
-  .build() {
+export class InvokeModelWithBidirectionalStreamCommand extends command<InvokeModelWithBidirectionalStreamCommandInput, InvokeModelWithBidirectionalStreamCommandOutput>(
+  _ep0,
+  _mw1,
+  "InvokeModelWithBidirectionalStream",
+  InvokeModelWithBidirectionalStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

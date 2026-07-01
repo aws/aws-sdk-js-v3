@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLimitsRequest, ListLimitsResponse } from "../models/models_0";
 import { ListLimits$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListLimits$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface ListLimitsCommandOutput extends ListLimitsResponse, __MetadataB
  *
  * @public
  */
-export class ListLimitsCommand extends $Command
-  .classBuilder<
-    ListLimitsCommandInput,
-    ListLimitsCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "ListLimits", {})
-  .n("DeadlineClient", "ListLimitsCommand")
-  .sc(ListLimits$)
-  .build() {
+export class ListLimitsCommand extends command<ListLimitsCommandInput, ListLimitsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLimits",
+  ListLimits$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

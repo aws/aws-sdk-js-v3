@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PublishFunctionRequest, PublishFunctionResult } from "../models/models_1";
 import { PublishFunction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PublishFunction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface PublishFunctionCommandOutput extends PublishFunctionResult, __M
  *
  * @public
  */
-export class PublishFunctionCommand extends $Command
-  .classBuilder<
-    PublishFunctionCommandInput,
-    PublishFunctionCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "PublishFunction", {})
-  .n("CloudFrontClient", "PublishFunctionCommand")
-  .sc(PublishFunction$)
-  .build() {
+export class PublishFunctionCommand extends command<PublishFunctionCommandInput, PublishFunctionCommandOutput>(
+  _ep0,
+  _mw0,
+  "PublishFunction",
+  PublishFunction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

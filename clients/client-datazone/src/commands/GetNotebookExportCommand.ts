@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetNotebookExportInput, GetNotebookExportOutput } from "../models/models_1";
 import { GetNotebookExport$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetNotebookExport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface GetNotebookExportCommandOutput extends GetNotebookExportOutput,
  *
  * @public
  */
-export class GetNotebookExportCommand extends $Command
-  .classBuilder<
-    GetNotebookExportCommandInput,
-    GetNotebookExportCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "GetNotebookExport", {})
-  .n("DataZoneClient", "GetNotebookExportCommand")
-  .sc(GetNotebookExport$)
-  .build() {
+export class GetNotebookExportCommand extends command<GetNotebookExportCommandInput, GetNotebookExportCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetNotebookExport",
+  GetNotebookExport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

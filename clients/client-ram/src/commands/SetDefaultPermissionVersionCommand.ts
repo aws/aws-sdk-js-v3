@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SetDefaultPermissionVersionRequest, SetDefaultPermissionVersionResponse } from "../models/models_0";
-import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import { SetDefaultPermissionVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface SetDefaultPermissionVersionCommandOutput extends SetDefaultPerm
  *
  * @public
  */
-export class SetDefaultPermissionVersionCommand extends $Command
-  .classBuilder<
-    SetDefaultPermissionVersionCommandInput,
-    SetDefaultPermissionVersionCommandOutput,
-    RAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonResourceSharing", "SetDefaultPermissionVersion", {})
-  .n("RAMClient", "SetDefaultPermissionVersionCommand")
-  .sc(SetDefaultPermissionVersion$)
-  .build() {
+export class SetDefaultPermissionVersionCommand extends command<SetDefaultPermissionVersionCommandInput, SetDefaultPermissionVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetDefaultPermissionVersion",
+  SetDefaultPermissionVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

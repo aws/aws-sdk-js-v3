@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCollectionRequest, CreateCollectionResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { CreateCollection$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +115,12 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  *
  * @public
  */
-export class CreateCollectionCommand extends $Command
-  .classBuilder<
-    CreateCollectionCommandInput,
-    CreateCollectionCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "CreateCollection", {})
-  .n("RekognitionClient", "CreateCollectionCommand")
-  .sc(CreateCollection$)
-  .build() {
+export class CreateCollectionCommand extends command<CreateCollectionCommandInput, CreateCollectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCollection",
+  CreateCollection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

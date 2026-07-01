@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateResourceRequest, Resource } from "../models/models_0";
 import { CreateResource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -143,22 +139,12 @@ export interface CreateResourceCommandOutput extends Resource, __MetadataBearer 
  *
  * @public
  */
-export class CreateResourceCommand extends $Command
-  .classBuilder<
-    CreateResourceCommandInput,
-    CreateResourceCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "CreateResource", {})
-  .n("APIGatewayClient", "CreateResourceCommand")
-  .sc(CreateResource$)
-  .build() {
+export class CreateResourceCommand extends command<CreateResourceCommandInput, CreateResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateResource",
+  CreateResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

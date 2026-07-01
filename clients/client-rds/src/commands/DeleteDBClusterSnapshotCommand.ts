@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDBClusterSnapshotMessage, DeleteDBClusterSnapshotResult } from "../models/models_0";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DeleteDBClusterSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -141,22 +137,12 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  *
  * @public
  */
-export class DeleteDBClusterSnapshotCommand extends $Command
-  .classBuilder<
-    DeleteDBClusterSnapshotCommandInput,
-    DeleteDBClusterSnapshotCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DeleteDBClusterSnapshot", {})
-  .n("RDSClient", "DeleteDBClusterSnapshotCommand")
-  .sc(DeleteDBClusterSnapshot$)
-  .build() {
+export class DeleteDBClusterSnapshotCommand extends command<DeleteDBClusterSnapshotCommandInput, DeleteDBClusterSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDBClusterSnapshot",
+  DeleteDBClusterSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

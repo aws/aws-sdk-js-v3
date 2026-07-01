@@ -1,5 +1,11 @@
 // smithy-typescript generated code
-import type { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provider } from "@smithy/types";
+import type {
+  Endpoint,
+  EndpointParameterInstructions,
+  EndpointParameters as __EndpointParameters,
+  EndpointV2,
+  Provider,
+} from "@smithy/types";
 
 /**
  * @public
@@ -31,7 +37,7 @@ export const resolveClientEndpointParameters = <T>(
  */
 export const commonParams = {
   endpoint: { type: "builtInParams", name: "endpoint" },
-} as const;
+} as const satisfies EndpointParameterInstructions;
 
 /**
  * @internal

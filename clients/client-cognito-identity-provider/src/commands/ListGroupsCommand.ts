@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListGroupsRequest, ListGroupsResponse } from "../models/models_0";
 import { ListGroups$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +109,12 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  *
  * @public
  */
-export class ListGroupsCommand extends $Command
-  .classBuilder<
-    ListGroupsCommandInput,
-    ListGroupsCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "ListGroups", {})
-  .n("CognitoIdentityProviderClient", "ListGroupsCommand")
-  .sc(ListGroups$)
-  .build() {
+export class ListGroupsCommand extends command<ListGroupsCommandInput, ListGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListGroups",
+  ListGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

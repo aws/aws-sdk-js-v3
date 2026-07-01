@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribePendingMaintenanceActionsMessage, PendingMaintenanceActionsMessage } from "../models/models_0";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DescribePendingMaintenanceActions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface DescribePendingMaintenanceActionsCommandOutput extends PendingM
  *
  * @public
  */
-export class DescribePendingMaintenanceActionsCommand extends $Command
-  .classBuilder<
-    DescribePendingMaintenanceActionsCommandInput,
-    DescribePendingMaintenanceActionsCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DescribePendingMaintenanceActions", {})
-  .n("RDSClient", "DescribePendingMaintenanceActionsCommand")
-  .sc(DescribePendingMaintenanceActions$)
-  .build() {
+export class DescribePendingMaintenanceActionsCommand extends command<DescribePendingMaintenanceActionsCommandInput, DescribePendingMaintenanceActionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribePendingMaintenanceActions",
+  DescribePendingMaintenanceActions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

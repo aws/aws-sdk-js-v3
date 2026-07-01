@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticsearchServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticsearchServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CancelElasticsearchServiceSoftwareUpdateRequest,
   CancelElasticsearchServiceSoftwareUpdateResponse,
@@ -19,7 +12,6 @@ import { CancelElasticsearchServiceSoftwareUpdate$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface CancelElasticsearchServiceSoftwareUpdateCommandOutput extends C
  *
  * @public
  */
-export class CancelElasticsearchServiceSoftwareUpdateCommand extends $Command
-  .classBuilder<
-    CancelElasticsearchServiceSoftwareUpdateCommandInput,
-    CancelElasticsearchServiceSoftwareUpdateCommandOutput,
-    ElasticsearchServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticsearchService2015", "CancelElasticsearchServiceSoftwareUpdate", {})
-  .n("ElasticsearchServiceClient", "CancelElasticsearchServiceSoftwareUpdateCommand")
-  .sc(CancelElasticsearchServiceSoftwareUpdate$)
-  .build() {
+export class CancelElasticsearchServiceSoftwareUpdateCommand extends command<CancelElasticsearchServiceSoftwareUpdateCommandInput, CancelElasticsearchServiceSoftwareUpdateCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelElasticsearchServiceSoftwareUpdate",
+  CancelElasticsearchServiceSoftwareUpdate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

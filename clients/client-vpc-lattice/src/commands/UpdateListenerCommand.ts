@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateListenerRequest, UpdateListenerResponse } from "../models/models_0";
 import { UpdateListener$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  *
  * @public
  */
-export class UpdateListenerCommand extends $Command
-  .classBuilder<
-    UpdateListenerCommandInput,
-    UpdateListenerCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "UpdateListener", {})
-  .n("VPCLatticeClient", "UpdateListenerCommand")
-  .sc(UpdateListener$)
-  .build() {
+export class UpdateListenerCommand extends command<UpdateListenerCommandInput, UpdateListenerCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateListener",
+  UpdateListener$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

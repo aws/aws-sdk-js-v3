@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudDirectoryClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AttachToIndexRequest, AttachToIndexResponse } from "../models/models_0";
 import { AttachToIndex$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AttachToIndex$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -129,22 +121,12 @@ export interface AttachToIndexCommandOutput extends AttachToIndexResponse, __Met
  *
  * @public
  */
-export class AttachToIndexCommand extends $Command
-  .classBuilder<
-    AttachToIndexCommandInput,
-    AttachToIndexCommandOutput,
-    CloudDirectoryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonCloudDirectory_20170111", "AttachToIndex", {})
-  .n("CloudDirectoryClient", "AttachToIndexCommand")
-  .sc(AttachToIndex$)
-  .build() {
+export class AttachToIndexCommand extends command<AttachToIndexCommandInput, AttachToIndexCommandOutput>(
+  _ep0,
+  _mw0,
+  "AttachToIndex",
+  AttachToIndex$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSignalMapsRequest, ListSignalMapsResponse } from "../models/models_1";
 import { ListSignalMaps$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListSignalMaps$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface ListSignalMapsCommandOutput extends ListSignalMapsResponse, __M
  *
  * @public
  */
-export class ListSignalMapsCommand extends $Command
-  .classBuilder<
-    ListSignalMapsCommandInput,
-    ListSignalMapsCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "ListSignalMaps", {})
-  .n("MediaLiveClient", "ListSignalMapsCommand")
-  .sc(ListSignalMaps$)
-  .build() {
+export class ListSignalMapsCommand extends command<ListSignalMapsCommandInput, ListSignalMapsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSignalMaps",
+  ListSignalMaps$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

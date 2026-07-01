@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterTargetsRequest, RegisterTargetsResponse } from "../models/models_0";
 import { RegisterTargets$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface RegisterTargetsCommandOutput extends RegisterTargetsResponse, _
  *
  * @public
  */
-export class RegisterTargetsCommand extends $Command
-  .classBuilder<
-    RegisterTargetsCommandInput,
-    RegisterTargetsCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "RegisterTargets", {})
-  .n("VPCLatticeClient", "RegisterTargetsCommand")
-  .sc(RegisterTargets$)
-  .build() {
+export class RegisterTargetsCommand extends command<RegisterTargetsCommandInput, RegisterTargetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterTargets",
+  RegisterTargets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

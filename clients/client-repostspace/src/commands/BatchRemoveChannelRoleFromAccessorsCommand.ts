@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchRemoveChannelRoleFromAccessorsInput,
   BatchRemoveChannelRoleFromAccessorsOutput,
 } from "../models/models_0";
-import type { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
 import { BatchRemoveChannelRoleFromAccessors$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface BatchRemoveChannelRoleFromAccessorsCommandOutput extends BatchR
  *
  * @public
  */
-export class BatchRemoveChannelRoleFromAccessorsCommand extends $Command
-  .classBuilder<
-    BatchRemoveChannelRoleFromAccessorsCommandInput,
-    BatchRemoveChannelRoleFromAccessorsCommandOutput,
-    RepostspaceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RepostspaceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RepostSpace", "BatchRemoveChannelRoleFromAccessors", {})
-  .n("RepostspaceClient", "BatchRemoveChannelRoleFromAccessorsCommand")
-  .sc(BatchRemoveChannelRoleFromAccessors$)
-  .build() {
+export class BatchRemoveChannelRoleFromAccessorsCommand extends command<BatchRemoveChannelRoleFromAccessorsCommandInput, BatchRemoveChannelRoleFromAccessorsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchRemoveChannelRoleFromAccessors",
+  BatchRemoveChannelRoleFromAccessors$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

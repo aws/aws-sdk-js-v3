@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCachediSCSIVolumeInput, CreateCachediSCSIVolumeOutput } from "../models/models_0";
 import { CreateCachediSCSIVolume$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +113,12 @@ export interface CreateCachediSCSIVolumeCommandOutput extends CreateCachediSCSIV
  *
  * @public
  */
-export class CreateCachediSCSIVolumeCommand extends $Command
-  .classBuilder<
-    CreateCachediSCSIVolumeCommandInput,
-    CreateCachediSCSIVolumeCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "CreateCachediSCSIVolume", {})
-  .n("StorageGatewayClient", "CreateCachediSCSIVolumeCommand")
-  .sc(CreateCachediSCSIVolume$)
-  .build() {
+export class CreateCachediSCSIVolumeCommand extends command<CreateCachediSCSIVolumeCommandInput, CreateCachediSCSIVolumeCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCachediSCSIVolume",
+  CreateCachediSCSIVolume$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

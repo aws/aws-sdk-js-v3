@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteVirtualInterfaceRequest, DeleteVirtualInterfaceResponse } from "../models/models_0";
 import { DeleteVirtualInterface$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteVirtualInterface$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -65,22 +61,12 @@ export interface DeleteVirtualInterfaceCommandOutput extends DeleteVirtualInterf
  *
  * @public
  */
-export class DeleteVirtualInterfaceCommand extends $Command
-  .classBuilder<
-    DeleteVirtualInterfaceCommandInput,
-    DeleteVirtualInterfaceCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "DeleteVirtualInterface", {})
-  .n("DirectConnectClient", "DeleteVirtualInterfaceCommand")
-  .sc(DeleteVirtualInterface$)
-  .build() {
+export class DeleteVirtualInterfaceCommand extends command<DeleteVirtualInterfaceCommandInput, DeleteVirtualInterfaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteVirtualInterface",
+  DeleteVirtualInterface$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

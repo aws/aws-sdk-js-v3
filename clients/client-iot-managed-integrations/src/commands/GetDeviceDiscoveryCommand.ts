@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDeviceDiscoveryRequest, GetDeviceDiscoveryResponse } from "../models/models_0";
 import { GetDeviceDiscovery$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetDeviceDiscovery$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface GetDeviceDiscoveryCommandOutput extends GetDeviceDiscoveryRespo
  *
  * @public
  */
-export class GetDeviceDiscoveryCommand extends $Command
-  .classBuilder<
-    GetDeviceDiscoveryCommandInput,
-    GetDeviceDiscoveryCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "GetDeviceDiscovery", {})
-  .n("IoTManagedIntegrationsClient", "GetDeviceDiscoveryCommand")
-  .sc(GetDeviceDiscovery$)
-  .build() {
+export class GetDeviceDiscoveryCommand extends command<GetDeviceDiscoveryCommandInput, GetDeviceDiscoveryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDeviceDiscovery",
+  GetDeviceDiscovery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BasePathMapping, GetBasePathMappingRequest } from "../models/models_0";
 import { GetBasePathMapping$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetBasePathMapping$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface GetBasePathMappingCommandOutput extends BasePathMapping, __Meta
  *
  * @public
  */
-export class GetBasePathMappingCommand extends $Command
-  .classBuilder<
-    GetBasePathMappingCommandInput,
-    GetBasePathMappingCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "GetBasePathMapping", {})
-  .n("APIGatewayClient", "GetBasePathMappingCommand")
-  .sc(GetBasePathMapping$)
-  .build() {
+export class GetBasePathMappingCommand extends command<GetBasePathMappingCommandInput, GetBasePathMappingCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetBasePathMapping",
+  GetBasePathMapping$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

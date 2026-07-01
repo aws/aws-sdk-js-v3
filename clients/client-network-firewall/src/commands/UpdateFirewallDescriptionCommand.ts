@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateFirewallDescriptionRequest, UpdateFirewallDescriptionResponse } from "../models/models_0";
-import type {
-  NetworkFirewallClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFirewallClient";
 import { UpdateFirewallDescription$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface UpdateFirewallDescriptionCommandOutput extends UpdateFirewallDe
  *
  * @public
  */
-export class UpdateFirewallDescriptionCommand extends $Command
-  .classBuilder<
-    UpdateFirewallDescriptionCommandInput,
-    UpdateFirewallDescriptionCommandOutput,
-    NetworkFirewallClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFirewall_20201112", "UpdateFirewallDescription", {})
-  .n("NetworkFirewallClient", "UpdateFirewallDescriptionCommand")
-  .sc(UpdateFirewallDescription$)
-  .build() {
+export class UpdateFirewallDescriptionCommand extends command<UpdateFirewallDescriptionCommandInput, UpdateFirewallDescriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateFirewallDescription",
+  UpdateFirewallDescription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

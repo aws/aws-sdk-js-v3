@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LambdaMicrovmsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LambdaMicrovmsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateMicrovmAuthTokenRequest, CreateMicrovmAuthTokenResponse } from "../models/models_0";
 import { CreateMicrovmAuthToken$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateMicrovmAuthToken$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface CreateMicrovmAuthTokenCommandOutput extends CreateMicrovmAuthTo
  *
  * @public
  */
-export class CreateMicrovmAuthTokenCommand extends $Command
-  .classBuilder<
-    CreateMicrovmAuthTokenCommandInput,
-    CreateMicrovmAuthTokenCommandOutput,
-    LambdaMicrovmsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaMicrovmsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LambdaMicrovms", "CreateMicrovmAuthToken", {})
-  .n("LambdaMicrovmsClient", "CreateMicrovmAuthTokenCommand")
-  .sc(CreateMicrovmAuthToken$)
-  .build() {
+export class CreateMicrovmAuthTokenCommand extends command<CreateMicrovmAuthTokenCommandInput, CreateMicrovmAuthTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateMicrovmAuthToken",
+  CreateMicrovmAuthToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

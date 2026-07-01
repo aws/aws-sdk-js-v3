@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListNodesRequest, ListNodesResponse } from "../models/models_1";
 import { ListNodes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListNodes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface ListNodesCommandOutput extends ListNodesResponse, __MetadataBea
  *
  * @public
  */
-export class ListNodesCommand extends $Command
-  .classBuilder<
-    ListNodesCommandInput,
-    ListNodesCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "ListNodes", {})
-  .n("MediaLiveClient", "ListNodesCommand")
-  .sc(ListNodes$)
-  .build() {
+export class ListNodesCommand extends command<ListNodesCommandInput, ListNodesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListNodes",
+  ListNodes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

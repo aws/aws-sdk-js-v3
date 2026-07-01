@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetLFTagExpressionRequest, GetLFTagExpressionResponse } from "../models/models_0";
 import { GetLFTagExpression$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetLFTagExpression$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface GetLFTagExpressionCommandOutput extends GetLFTagExpressionRespo
  *
  * @public
  */
-export class GetLFTagExpressionCommand extends $Command
-  .classBuilder<
-    GetLFTagExpressionCommandInput,
-    GetLFTagExpressionCommandOutput,
-    LakeFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLakeFormation", "GetLFTagExpression", {})
-  .n("LakeFormationClient", "GetLFTagExpressionCommand")
-  .sc(GetLFTagExpression$)
-  .build() {
+export class GetLFTagExpressionCommand extends command<GetLFTagExpressionCommandInput, GetLFTagExpressionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetLFTagExpression",
+  GetLFTagExpression$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

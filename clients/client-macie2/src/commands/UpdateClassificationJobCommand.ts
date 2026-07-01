@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateClassificationJobRequest, UpdateClassificationJobResponse } from "../models/models_0";
 import { UpdateClassificationJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateClassificationJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface UpdateClassificationJobCommandOutput extends UpdateClassificati
  *
  * @public
  */
-export class UpdateClassificationJobCommand extends $Command
-  .classBuilder<
-    UpdateClassificationJobCommandInput,
-    UpdateClassificationJobCommandOutput,
-    Macie2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Macie2", "UpdateClassificationJob", {})
-  .n("Macie2Client", "UpdateClassificationJobCommand")
-  .sc(UpdateClassificationJob$)
-  .build() {
+export class UpdateClassificationJobCommand extends command<UpdateClassificationJobCommandInput, UpdateClassificationJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateClassificationJob",
+  UpdateClassificationJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

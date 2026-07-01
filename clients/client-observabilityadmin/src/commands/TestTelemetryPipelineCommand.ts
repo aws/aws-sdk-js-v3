@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TestTelemetryPipelineInput, TestTelemetryPipelineOutput } from "../models/models_0";
-import type {
-  ObservabilityAdminClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ObservabilityAdminClient";
 import { TestTelemetryPipeline$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +86,12 @@ export interface TestTelemetryPipelineCommandOutput extends TestTelemetryPipelin
  *
  * @public
  */
-export class TestTelemetryPipelineCommand extends $Command
-  .classBuilder<
-    TestTelemetryPipelineCommandInput,
-    TestTelemetryPipelineCommandOutput,
-    ObservabilityAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ObservabilityAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ObservabilityAdmin", "TestTelemetryPipeline", {})
-  .n("ObservabilityAdminClient", "TestTelemetryPipelineCommand")
-  .sc(TestTelemetryPipeline$)
-  .build() {
+export class TestTelemetryPipelineCommand extends command<TestTelemetryPipelineCommandInput, TestTelemetryPipelineCommandOutput>(
+  _ep0,
+  _mw0,
+  "TestTelemetryPipeline",
+  TestTelemetryPipeline$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

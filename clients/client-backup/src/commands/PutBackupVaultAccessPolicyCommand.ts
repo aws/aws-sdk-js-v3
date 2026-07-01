@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutBackupVaultAccessPolicyInput } from "../models/models_0";
 import { PutBackupVaultAccessPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutBackupVaultAccessPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface PutBackupVaultAccessPolicyCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class PutBackupVaultAccessPolicyCommand extends $Command
-  .classBuilder<
-    PutBackupVaultAccessPolicyCommandInput,
-    PutBackupVaultAccessPolicyCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "PutBackupVaultAccessPolicy", {})
-  .n("BackupClient", "PutBackupVaultAccessPolicyCommand")
-  .sc(PutBackupVaultAccessPolicy$)
-  .build() {
+export class PutBackupVaultAccessPolicyCommand extends command<PutBackupVaultAccessPolicyCommandInput, PutBackupVaultAccessPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutBackupVaultAccessPolicy",
+  PutBackupVaultAccessPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

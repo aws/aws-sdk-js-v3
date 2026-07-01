@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeWorkspaceBundlesRequest, DescribeWorkspaceBundlesResult } from "../models/models_0";
 import { DescribeWorkspaceBundles$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspace
  *
  * @public
  */
-export class DescribeWorkspaceBundlesCommand extends $Command
-  .classBuilder<
-    DescribeWorkspaceBundlesCommandInput,
-    DescribeWorkspaceBundlesCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "DescribeWorkspaceBundles", {})
-  .n("WorkSpacesClient", "DescribeWorkspaceBundlesCommand")
-  .sc(DescribeWorkspaceBundles$)
-  .build() {
+export class DescribeWorkspaceBundlesCommand extends command<DescribeWorkspaceBundlesCommandInput, DescribeWorkspaceBundlesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeWorkspaceBundles",
+  DescribeWorkspaceBundles$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

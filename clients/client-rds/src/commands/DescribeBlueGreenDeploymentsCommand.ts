@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeBlueGreenDeploymentsRequest, DescribeBlueGreenDeploymentsResponse } from "../models/models_0";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DescribeBlueGreenDeployments$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -315,22 +311,12 @@ export interface DescribeBlueGreenDeploymentsCommandOutput extends DescribeBlueG
  *
  * @public
  */
-export class DescribeBlueGreenDeploymentsCommand extends $Command
-  .classBuilder<
-    DescribeBlueGreenDeploymentsCommandInput,
-    DescribeBlueGreenDeploymentsCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DescribeBlueGreenDeployments", {})
-  .n("RDSClient", "DescribeBlueGreenDeploymentsCommand")
-  .sc(DescribeBlueGreenDeployments$)
-  .build() {
+export class DescribeBlueGreenDeploymentsCommand extends command<DescribeBlueGreenDeploymentsCommandInput, DescribeBlueGreenDeploymentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeBlueGreenDeployments",
+  DescribeBlueGreenDeployments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

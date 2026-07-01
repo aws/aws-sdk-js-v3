@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest,
   StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse,
@@ -15,7 +12,6 @@ import { StartBulkDisassociateWirelessDeviceFromMulticastGroup$ } from "../schem
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOut
  *
  * @public
  */
-export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extends $Command
-  .classBuilder<
-    StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput,
-    StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "StartBulkDisassociateWirelessDeviceFromMulticastGroup", {})
-  .n("IoTWirelessClient", "StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand")
-  .sc(StartBulkDisassociateWirelessDeviceFromMulticastGroup$)
-  .build() {
+export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extends command<StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput, StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartBulkDisassociateWirelessDeviceFromMulticastGroup",
+  StartBulkDisassociateWirelessDeviceFromMulticastGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

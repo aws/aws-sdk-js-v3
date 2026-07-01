@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ImportDecoderManifestRequest, ImportDecoderManifestResponse } from "../models/models_0";
 import { ImportDecoderManifest$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ImportDecoderManifest$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface ImportDecoderManifestCommandOutput extends ImportDecoderManifes
  *
  * @public
  */
-export class ImportDecoderManifestCommand extends $Command
-  .classBuilder<
-    ImportDecoderManifestCommandInput,
-    ImportDecoderManifestCommandOutput,
-    IoTFleetWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IoTAutobahnControlPlane", "ImportDecoderManifest", {})
-  .n("IoTFleetWiseClient", "ImportDecoderManifestCommand")
-  .sc(ImportDecoderManifest$)
-  .build() {
+export class ImportDecoderManifestCommand extends command<ImportDecoderManifestCommandInput, ImportDecoderManifestCommandOutput>(
+  _ep0,
+  _mw0,
+  "ImportDecoderManifest",
+  ImportDecoderManifest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

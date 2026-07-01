@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListReviewPolicyResultsForHITRequest, ListReviewPolicyResultsForHITResponse } from "../models/models_0";
-import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { ListReviewPolicyResultsForHIT$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -165,22 +161,12 @@ export interface ListReviewPolicyResultsForHITCommandOutput extends ListReviewPo
  *
  * @public
  */
-export class ListReviewPolicyResultsForHITCommand extends $Command
-  .classBuilder<
-    ListReviewPolicyResultsForHITCommandInput,
-    ListReviewPolicyResultsForHITCommandOutput,
-    MTurkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MTurkRequesterServiceV20170117", "ListReviewPolicyResultsForHIT", {})
-  .n("MTurkClient", "ListReviewPolicyResultsForHITCommand")
-  .sc(ListReviewPolicyResultsForHIT$)
-  .build() {
+export class ListReviewPolicyResultsForHITCommand extends command<ListReviewPolicyResultsForHITCommandInput, ListReviewPolicyResultsForHITCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListReviewPolicyResultsForHIT",
+  ListReviewPolicyResultsForHIT$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

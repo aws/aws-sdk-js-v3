@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { EvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetVersionsRequest, GetVersionsResponse } from "../models/models_0";
 import { GetVersions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetVersions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface GetVersionsCommandOutput extends GetVersionsResponse, __Metadat
  *
  * @public
  */
-export class GetVersionsCommand extends $Command
-  .classBuilder<
-    GetVersionsCommandInput,
-    GetVersionsCommandOutput,
-    EvsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EvsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticVMwareService", "GetVersions", {})
-  .n("EvsClient", "GetVersionsCommand")
-  .sc(GetVersions$)
-  .build() {
+export class GetVersionsCommand extends command<GetVersionsCommandInput, GetVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetVersions",
+  GetVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

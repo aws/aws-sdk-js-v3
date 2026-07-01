@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateVpcIngressConnectionRequest, UpdateVpcIngressConnectionResponse } from "../models/models_0";
 import { UpdateVpcIngressConnection$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateVpcIngressConnection$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface UpdateVpcIngressConnectionCommandOutput extends UpdateVpcIngres
  *
  * @public
  */
-export class UpdateVpcIngressConnectionCommand extends $Command
-  .classBuilder<
-    UpdateVpcIngressConnectionCommandInput,
-    UpdateVpcIngressConnectionCommandOutput,
-    AppRunnerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppRunner", "UpdateVpcIngressConnection", {})
-  .n("AppRunnerClient", "UpdateVpcIngressConnectionCommand")
-  .sc(UpdateVpcIngressConnection$)
-  .build() {
+export class UpdateVpcIngressConnectionCommand extends command<UpdateVpcIngressConnectionCommandInput, UpdateVpcIngressConnectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateVpcIngressConnection",
+  UpdateVpcIngressConnection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetProfileResourceAssociationRequest, GetProfileResourceAssociationResponse } from "../models/models_0";
-import type {
-  Route53ProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ProfilesClient";
 import { GetProfileResourceAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface GetProfileResourceAssociationCommandOutput extends GetProfileRe
  *
  * @public
  */
-export class GetProfileResourceAssociationCommand extends $Command
-  .classBuilder<
-    GetProfileResourceAssociationCommandInput,
-    GetProfileResourceAssociationCommandOutput,
-    Route53ProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Profiles", "GetProfileResourceAssociation", {})
-  .n("Route53ProfilesClient", "GetProfileResourceAssociationCommand")
-  .sc(GetProfileResourceAssociation$)
-  .build() {
+export class GetProfileResourceAssociationCommand extends command<GetProfileResourceAssociationCommandInput, GetProfileResourceAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetProfileResourceAssociation",
+  GetProfileResourceAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

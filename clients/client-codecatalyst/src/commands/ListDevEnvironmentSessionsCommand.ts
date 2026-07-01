@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDevEnvironmentSessionsRequest, ListDevEnvironmentSessionsResponse } from "../models/models_0";
 import { ListDevEnvironmentSessions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDevEnvironmentSessions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface ListDevEnvironmentSessionsCommandOutput extends ListDevEnvironm
  *
  * @public
  */
-export class ListDevEnvironmentSessionsCommand extends $Command
-  .classBuilder<
-    ListDevEnvironmentSessionsCommandInput,
-    ListDevEnvironmentSessionsCommandOutput,
-    CodeCatalystClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCatalyst", "ListDevEnvironmentSessions", {})
-  .n("CodeCatalystClient", "ListDevEnvironmentSessionsCommand")
-  .sc(ListDevEnvironmentSessions$)
-  .build() {
+export class ListDevEnvironmentSessionsCommand extends command<ListDevEnvironmentSessionsCommandInput, ListDevEnvironmentSessionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDevEnvironmentSessions",
+  ListDevEnvironmentSessions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

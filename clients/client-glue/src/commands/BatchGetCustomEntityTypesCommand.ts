@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetCustomEntityTypesRequest, BatchGetCustomEntityTypesResponse } from "../models/models_0";
 import { BatchGetCustomEntityTypes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetCustomEntityTypes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface BatchGetCustomEntityTypesCommandOutput extends BatchGetCustomEn
  *
  * @public
  */
-export class BatchGetCustomEntityTypesCommand extends $Command
-  .classBuilder<
-    BatchGetCustomEntityTypesCommandInput,
-    BatchGetCustomEntityTypesCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "BatchGetCustomEntityTypes", {})
-  .n("GlueClient", "BatchGetCustomEntityTypesCommand")
-  .sc(BatchGetCustomEntityTypes$)
-  .build() {
+export class BatchGetCustomEntityTypesCommand extends command<BatchGetCustomEntityTypesCommandInput, BatchGetCustomEntityTypesCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetCustomEntityTypes",
+  BatchGetCustomEntityTypes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

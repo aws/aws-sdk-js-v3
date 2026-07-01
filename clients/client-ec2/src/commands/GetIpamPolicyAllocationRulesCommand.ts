@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetIpamPolicyAllocationRulesRequest, GetIpamPolicyAllocationRulesResult } from "../models/models_6";
 import { GetIpamPolicyAllocationRules$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetIpamPolicyAllocationRules$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface GetIpamPolicyAllocationRulesCommandOutput extends GetIpamPolicy
  *
  * @public
  */
-export class GetIpamPolicyAllocationRulesCommand extends $Command
-  .classBuilder<
-    GetIpamPolicyAllocationRulesCommandInput,
-    GetIpamPolicyAllocationRulesCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "GetIpamPolicyAllocationRules", {})
-  .n("EC2Client", "GetIpamPolicyAllocationRulesCommand")
-  .sc(GetIpamPolicyAllocationRules$)
-  .build() {
+export class GetIpamPolicyAllocationRulesCommand extends command<GetIpamPolicyAllocationRulesCommandInput, GetIpamPolicyAllocationRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIpamPolicyAllocationRules",
+  GetIpamPolicyAllocationRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListExperienceEntitiesRequest, ListExperienceEntitiesResponse } from "../models/models_0";
 import { ListExperienceEntities$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListExperienceEntities$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface ListExperienceEntitiesCommandOutput extends ListExperienceEntit
  *
  * @public
  */
-export class ListExperienceEntitiesCommand extends $Command
-  .classBuilder<
-    ListExperienceEntitiesCommandInput,
-    ListExperienceEntitiesCommandOutput,
-    KendraClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSKendraFrontendService", "ListExperienceEntities", {})
-  .n("KendraClient", "ListExperienceEntitiesCommand")
-  .sc(ListExperienceEntities$)
-  .build() {
+export class ListExperienceEntitiesCommand extends command<ListExperienceEntitiesCommandInput, ListExperienceEntitiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListExperienceEntities",
+  ListExperienceEntities$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

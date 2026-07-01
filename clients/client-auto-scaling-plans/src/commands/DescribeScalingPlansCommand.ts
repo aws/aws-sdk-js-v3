@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AutoScalingPlansClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AutoScalingPlansClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeScalingPlansRequest, DescribeScalingPlansResponse } from "../models/models_0";
 import { DescribeScalingPlans$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeScalingPlans$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -171,22 +163,12 @@ export interface DescribeScalingPlansCommandOutput extends DescribeScalingPlansR
  *
  * @public
  */
-export class DescribeScalingPlansCommand extends $Command
-  .classBuilder<
-    DescribeScalingPlansCommandInput,
-    DescribeScalingPlansCommandOutput,
-    AutoScalingPlansClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingPlansClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AnyScaleScalingPlannerFrontendService", "DescribeScalingPlans", {})
-  .n("AutoScalingPlansClient", "DescribeScalingPlansCommand")
-  .sc(DescribeScalingPlans$)
-  .build() {
+export class DescribeScalingPlansCommand extends command<DescribeScalingPlansCommandInput, DescribeScalingPlansCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeScalingPlans",
+  DescribeScalingPlans$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

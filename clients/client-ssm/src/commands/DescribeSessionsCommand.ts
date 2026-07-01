@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeSessionsRequest, DescribeSessionsResponse } from "../models/models_0";
 import { DescribeSessions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface DescribeSessionsCommandOutput extends DescribeSessionsResponse,
  *
  * @public
  */
-export class DescribeSessionsCommand extends $Command
-  .classBuilder<
-    DescribeSessionsCommandInput,
-    DescribeSessionsCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "DescribeSessions", {})
-  .n("SSMClient", "DescribeSessionsCommand")
-  .sc(DescribeSessions$)
-  .build() {
+export class DescribeSessionsCommand extends command<DescribeSessionsCommandInput, DescribeSessionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSessions",
+  DescribeSessions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

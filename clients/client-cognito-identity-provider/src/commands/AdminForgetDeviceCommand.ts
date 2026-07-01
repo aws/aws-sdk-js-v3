@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AdminForgetDeviceRequest } from "../models/models_0";
 import { AdminForgetDevice$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AdminForgetDevice$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +104,12 @@ export interface AdminForgetDeviceCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class AdminForgetDeviceCommand extends $Command
-  .classBuilder<
-    AdminForgetDeviceCommandInput,
-    AdminForgetDeviceCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "AdminForgetDevice", {})
-  .n("CognitoIdentityProviderClient", "AdminForgetDeviceCommand")
-  .sc(AdminForgetDevice$)
-  .build() {
+export class AdminForgetDeviceCommand extends command<AdminForgetDeviceCommandInput, AdminForgetDeviceCommandOutput>(
+  _ep0,
+  _mw0,
+  "AdminForgetDevice",
+  AdminForgetDevice$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

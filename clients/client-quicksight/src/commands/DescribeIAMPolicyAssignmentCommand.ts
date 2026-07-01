@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeIAMPolicyAssignmentRequest, DescribeIAMPolicyAssignmentResponse } from "../models/models_4";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DescribeIAMPolicyAssignment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface DescribeIAMPolicyAssignmentCommandOutput extends DescribeIAMPol
  *
  * @public
  */
-export class DescribeIAMPolicyAssignmentCommand extends $Command
-  .classBuilder<
-    DescribeIAMPolicyAssignmentCommandInput,
-    DescribeIAMPolicyAssignmentCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "DescribeIAMPolicyAssignment", {})
-  .n("QuickSightClient", "DescribeIAMPolicyAssignmentCommand")
-  .sc(DescribeIAMPolicyAssignment$)
-  .build() {
+export class DescribeIAMPolicyAssignmentCommand extends command<DescribeIAMPolicyAssignmentCommandInput, DescribeIAMPolicyAssignmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeIAMPolicyAssignment",
+  DescribeIAMPolicyAssignment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

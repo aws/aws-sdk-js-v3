@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDetectorVersionStatusRequest, UpdateDetectorVersionStatusResult } from "../models/models_0";
 import { UpdateDetectorVersionStatus$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateDetectorVersionStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface UpdateDetectorVersionStatusCommandOutput extends UpdateDetector
  *
  * @public
  */
-export class UpdateDetectorVersionStatusCommand extends $Command
-  .classBuilder<
-    UpdateDetectorVersionStatusCommandInput,
-    UpdateDetectorVersionStatusCommandOutput,
-    FraudDetectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHawksNestServiceFacade", "UpdateDetectorVersionStatus", {})
-  .n("FraudDetectorClient", "UpdateDetectorVersionStatusCommand")
-  .sc(UpdateDetectorVersionStatus$)
-  .build() {
+export class UpdateDetectorVersionStatusCommand extends command<UpdateDetectorVersionStatusCommandInput, UpdateDetectorVersionStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDetectorVersionStatus",
+  UpdateDetectorVersionStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

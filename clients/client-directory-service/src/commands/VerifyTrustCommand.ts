@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { VerifyTrustRequest, VerifyTrustResult } from "../models/models_0";
 import { VerifyTrust$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { VerifyTrust$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface VerifyTrustCommandOutput extends VerifyTrustResult, __MetadataB
  *
  * @public
  */
-export class VerifyTrustCommand extends $Command
-  .classBuilder<
-    VerifyTrustCommandInput,
-    VerifyTrustCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "VerifyTrust", {})
-  .n("DirectoryServiceClient", "VerifyTrustCommand")
-  .sc(VerifyTrust$)
-  .build() {
+export class VerifyTrustCommand extends command<VerifyTrustCommandInput, VerifyTrustCommandOutput>(
+  _ep0,
+  _mw0,
+  "VerifyTrust",
+  VerifyTrust$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRefreshSchemasStatusMessage, DescribeRefreshSchemasStatusResponse } from "../models/models_0";
 import { DescribeRefreshSchemasStatus$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeRefreshSchemasStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface DescribeRefreshSchemasStatusCommandOutput extends DescribeRefre
  *
  * @public
  */
-export class DescribeRefreshSchemasStatusCommand extends $Command
-  .classBuilder<
-    DescribeRefreshSchemasStatusCommandInput,
-    DescribeRefreshSchemasStatusCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "DescribeRefreshSchemasStatus", {})
-  .n("DatabaseMigrationServiceClient", "DescribeRefreshSchemasStatusCommand")
-  .sc(DescribeRefreshSchemasStatus$)
-  .build() {
+export class DescribeRefreshSchemasStatusCommand extends command<DescribeRefreshSchemasStatusCommandInput, DescribeRefreshSchemasStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRefreshSchemasStatus",
+  DescribeRefreshSchemasStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

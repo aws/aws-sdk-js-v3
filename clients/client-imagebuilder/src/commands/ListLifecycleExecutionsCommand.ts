@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLifecycleExecutionsRequest, ListLifecycleExecutionsResponse } from "../models/models_0";
 import { ListLifecycleExecutions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListLifecycleExecutions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface ListLifecycleExecutionsCommandOutput extends ListLifecycleExecu
  *
  * @public
  */
-export class ListLifecycleExecutionsCommand extends $Command
-  .classBuilder<
-    ListLifecycleExecutionsCommandInput,
-    ListLifecycleExecutionsCommandOutput,
-    ImagebuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("imagebuilder", "ListLifecycleExecutions", {})
-  .n("ImagebuilderClient", "ListLifecycleExecutionsCommand")
-  .sc(ListLifecycleExecutions$)
-  .build() {
+export class ListLifecycleExecutionsCommand extends command<ListLifecycleExecutionsCommandInput, ListLifecycleExecutionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLifecycleExecutions",
+  ListLifecycleExecutions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

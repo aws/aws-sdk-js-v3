@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDataQualityStatisticsRequest, ListDataQualityStatisticsResponse } from "../models/models_2";
 import { ListDataQualityStatistics$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDataQualityStatistics$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface ListDataQualityStatisticsCommandOutput extends ListDataQualityS
  *
  * @public
  */
-export class ListDataQualityStatisticsCommand extends $Command
-  .classBuilder<
-    ListDataQualityStatisticsCommandInput,
-    ListDataQualityStatisticsCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "ListDataQualityStatistics", {})
-  .n("GlueClient", "ListDataQualityStatisticsCommand")
-  .sc(ListDataQualityStatistics$)
-  .build() {
+export class ListDataQualityStatisticsCommand extends command<ListDataQualityStatisticsCommandInput, ListDataQualityStatisticsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDataQualityStatistics",
+  ListDataQualityStatistics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

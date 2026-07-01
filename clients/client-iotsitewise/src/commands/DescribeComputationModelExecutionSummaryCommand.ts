@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeComputationModelExecutionSummaryRequest,
   DescribeComputationModelExecutionSummaryResponse,
@@ -15,7 +12,6 @@ import { DescribeComputationModelExecutionSummary$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface DescribeComputationModelExecutionSummaryCommandOutput extends D
  *
  * @public
  */
-export class DescribeComputationModelExecutionSummaryCommand extends $Command
-  .classBuilder<
-    DescribeComputationModelExecutionSummaryCommandInput,
-    DescribeComputationModelExecutionSummaryCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "DescribeComputationModelExecutionSummary", {})
-  .n("IoTSiteWiseClient", "DescribeComputationModelExecutionSummaryCommand")
-  .sc(DescribeComputationModelExecutionSummary$)
-  .build() {
+export class DescribeComputationModelExecutionSummaryCommand extends command<DescribeComputationModelExecutionSummaryCommandInput, DescribeComputationModelExecutionSummaryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeComputationModelExecutionSummary",
+  DescribeComputationModelExecutionSummary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

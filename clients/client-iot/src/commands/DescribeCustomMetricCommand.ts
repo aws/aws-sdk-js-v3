@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeCustomMetricRequest, DescribeCustomMetricResponse } from "../models/models_1";
 import { DescribeCustomMetric$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeCustomMetric$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DescribeCustomMetricCommandOutput extends DescribeCustomMetricR
  *
  * @public
  */
-export class DescribeCustomMetricCommand extends $Command
-  .classBuilder<
-    DescribeCustomMetricCommandInput,
-    DescribeCustomMetricCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "DescribeCustomMetric", {})
-  .n("IoTClient", "DescribeCustomMetricCommand")
-  .sc(DescribeCustomMetric$)
-  .build() {
+export class DescribeCustomMetricCommand extends command<DescribeCustomMetricCommandInput, DescribeCustomMetricCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCustomMetric",
+  DescribeCustomMetric$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

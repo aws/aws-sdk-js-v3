@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartRecommenderRequest, StartRecommenderResponse } from "../models/models_1";
 import { StartRecommender$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartRecommender$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +69,12 @@ export interface StartRecommenderCommandOutput extends StartRecommenderResponse,
  *
  * @public
  */
-export class StartRecommenderCommand extends $Command
-  .classBuilder<
-    StartRecommenderCommandInput,
-    StartRecommenderCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "StartRecommender", {})
-  .n("CustomerProfilesClient", "StartRecommenderCommand")
-  .sc(StartRecommender$)
-  .build() {
+export class StartRecommenderCommand extends command<StartRecommenderCommandInput, StartRecommenderCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartRecommender",
+  StartRecommender$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

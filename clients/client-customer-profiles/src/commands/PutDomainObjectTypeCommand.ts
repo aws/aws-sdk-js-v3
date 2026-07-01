@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutDomainObjectTypeRequest, PutDomainObjectTypeResponse } from "../models/models_1";
 import { PutDomainObjectType$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { PutDomainObjectType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +99,12 @@ export interface PutDomainObjectTypeCommandOutput extends PutDomainObjectTypeRes
  *
  * @public
  */
-export class PutDomainObjectTypeCommand extends $Command
-  .classBuilder<
-    PutDomainObjectTypeCommandInput,
-    PutDomainObjectTypeCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "PutDomainObjectType", {})
-  .n("CustomerProfilesClient", "PutDomainObjectTypeCommand")
-  .sc(PutDomainObjectType$)
-  .build() {
+export class PutDomainObjectTypeCommand extends command<PutDomainObjectTypeCommandInput, PutDomainObjectTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutDomainObjectType",
+  PutDomainObjectType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

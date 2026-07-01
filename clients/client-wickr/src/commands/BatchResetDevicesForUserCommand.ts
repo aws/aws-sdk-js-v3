@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchResetDevicesForUserRequest, BatchResetDevicesForUserResponse } from "../models/models_0";
 import { BatchResetDevicesForUser$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -175,22 +171,12 @@ export interface BatchResetDevicesForUserCommandOutput extends BatchResetDevices
  *
  * @public
  */
-export class BatchResetDevicesForUserCommand extends $Command
-  .classBuilder<
-    BatchResetDevicesForUserCommandInput,
-    BatchResetDevicesForUserCommandOutput,
-    WickrClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WickrAdminApi", "BatchResetDevicesForUser", {})
-  .n("WickrClient", "BatchResetDevicesForUserCommand")
-  .sc(BatchResetDevicesForUser$)
-  .build() {
+export class BatchResetDevicesForUserCommand extends command<BatchResetDevicesForUserCommandInput, BatchResetDevicesForUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchResetDevicesForUser",
+  BatchResetDevicesForUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

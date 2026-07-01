@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartMetadataModelImportMessage, StartMetadataModelImportResponse } from "../models/models_1";
 import { StartMetadataModelImport$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartMetadataModelImport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +104,12 @@ export interface StartMetadataModelImportCommandOutput extends StartMetadataMode
  *
  * @public
  */
-export class StartMetadataModelImportCommand extends $Command
-  .classBuilder<
-    StartMetadataModelImportCommandInput,
-    StartMetadataModelImportCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "StartMetadataModelImport", {})
-  .n("DatabaseMigrationServiceClient", "StartMetadataModelImportCommand")
-  .sc(StartMetadataModelImport$)
-  .build() {
+export class StartMetadataModelImportCommand extends command<StartMetadataModelImportCommandInput, StartMetadataModelImportCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartMetadataModelImport",
+  StartMetadataModelImport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

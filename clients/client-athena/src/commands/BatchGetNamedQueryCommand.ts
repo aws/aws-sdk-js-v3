@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetNamedQueryInput, BatchGetNamedQueryOutput } from "../models/models_0";
 import { BatchGetNamedQuery$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetNamedQuery$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface BatchGetNamedQueryCommandOutput extends BatchGetNamedQueryOutpu
  *
  * @public
  */
-export class BatchGetNamedQueryCommand extends $Command
-  .classBuilder<
-    BatchGetNamedQueryCommandInput,
-    BatchGetNamedQueryCommandOutput,
-    AthenaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAthena", "BatchGetNamedQuery", {})
-  .n("AthenaClient", "BatchGetNamedQueryCommand")
-  .sc(BatchGetNamedQuery$)
-  .build() {
+export class BatchGetNamedQueryCommand extends command<BatchGetNamedQueryCommandInput, BatchGetNamedQueryCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetNamedQuery",
+  BatchGetNamedQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

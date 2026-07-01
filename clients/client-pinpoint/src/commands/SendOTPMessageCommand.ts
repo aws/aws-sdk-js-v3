@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendOTPMessageRequest, SendOTPMessageResponse } from "../models/models_1";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { SendOTPMessage$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +111,12 @@ export interface SendOTPMessageCommandOutput extends SendOTPMessageResponse, __M
  *
  * @public
  */
-export class SendOTPMessageCommand extends $Command
-  .classBuilder<
-    SendOTPMessageCommandInput,
-    SendOTPMessageCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "SendOTPMessage", {})
-  .n("PinpointClient", "SendOTPMessageCommand")
-  .sc(SendOTPMessage$)
-  .build() {
+export class SendOTPMessageCommand extends command<SendOTPMessageCommandInput, SendOTPMessageCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendOTPMessage",
+  SendOTPMessage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

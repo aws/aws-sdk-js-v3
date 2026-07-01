@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMessagingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMessagingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutChannelExpirationSettingsRequest, PutChannelExpirationSettingsResponse } from "../models/models_0";
 import { PutChannelExpirationSettings$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { PutChannelExpirationSettings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +103,12 @@ export interface PutChannelExpirationSettingsCommandOutput extends PutChannelExp
  *
  * @public
  */
-export class PutChannelExpirationSettingsCommand extends $Command
-  .classBuilder<
-    PutChannelExpirationSettingsCommandInput,
-    PutChannelExpirationSettingsCommandOutput,
-    ChimeSDKMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeMessagingService", "PutChannelExpirationSettings", {})
-  .n("ChimeSDKMessagingClient", "PutChannelExpirationSettingsCommand")
-  .sc(PutChannelExpirationSettings$)
-  .build() {
+export class PutChannelExpirationSettingsCommand extends command<PutChannelExpirationSettingsCommandInput, PutChannelExpirationSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutChannelExpirationSettings",
+  PutChannelExpirationSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

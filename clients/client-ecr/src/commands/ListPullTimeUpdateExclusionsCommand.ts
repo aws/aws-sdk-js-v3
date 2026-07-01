@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPullTimeUpdateExclusionsRequest, ListPullTimeUpdateExclusionsResponse } from "../models/models_0";
 import { ListPullTimeUpdateExclusions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListPullTimeUpdateExclusions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface ListPullTimeUpdateExclusionsCommandOutput extends ListPullTimeU
  *
  * @public
  */
-export class ListPullTimeUpdateExclusionsCommand extends $Command
-  .classBuilder<
-    ListPullTimeUpdateExclusionsCommandInput,
-    ListPullTimeUpdateExclusionsCommandOutput,
-    ECRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerRegistry_V20150921", "ListPullTimeUpdateExclusions", {})
-  .n("ECRClient", "ListPullTimeUpdateExclusionsCommand")
-  .sc(ListPullTimeUpdateExclusions$)
-  .build() {
+export class ListPullTimeUpdateExclusionsCommand extends command<ListPullTimeUpdateExclusionsCommandInput, ListPullTimeUpdateExclusionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPullTimeUpdateExclusions",
+  ListPullTimeUpdateExclusions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

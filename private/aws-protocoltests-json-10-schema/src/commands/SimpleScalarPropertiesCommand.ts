@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SimpleScalarPropertiesInput, SimpleScalarPropertiesOutput } from "../models/models_0";
 import { SimpleScalarProperties$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SimpleScalarProperties$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -61,22 +57,12 @@ export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarPropert
  *
  *
  */
-export class SimpleScalarPropertiesCommand extends $Command
-  .classBuilder<
-    SimpleScalarPropertiesCommandInput,
-    SimpleScalarPropertiesCommandOutput,
-    JSONRPC10ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: JSONRPC10ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("JsonRpc10", "SimpleScalarProperties", {})
-  .n("JSONRPC10Client", "SimpleScalarPropertiesCommand")
-  .sc(SimpleScalarProperties$)
-  .build() {
+export class SimpleScalarPropertiesCommand extends command<SimpleScalarPropertiesCommandInput, SimpleScalarPropertiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "SimpleScalarProperties",
+  SimpleScalarProperties$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCapacityProviderRequest, DeleteCapacityProviderResponse } from "../models/models_0";
 import { DeleteCapacityProvider$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteCapacityProvider$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  *
  * @public
  */
-export class DeleteCapacityProviderCommand extends $Command
-  .classBuilder<
-    DeleteCapacityProviderCommandInput,
-    DeleteCapacityProviderCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "DeleteCapacityProvider", {})
-  .n("LambdaClient", "DeleteCapacityProviderCommand")
-  .sc(DeleteCapacityProvider$)
-  .build() {
+export class DeleteCapacityProviderCommand extends command<DeleteCapacityProviderCommandInput, DeleteCapacityProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCapacityProvider",
+  DeleteCapacityProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

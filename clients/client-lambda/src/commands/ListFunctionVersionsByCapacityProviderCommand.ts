@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListFunctionVersionsByCapacityProviderRequest,
   ListFunctionVersionsByCapacityProviderResponse,
@@ -15,7 +12,6 @@ import { ListFunctionVersionsByCapacityProvider$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface ListFunctionVersionsByCapacityProviderCommandOutput extends Lis
  *
  * @public
  */
-export class ListFunctionVersionsByCapacityProviderCommand extends $Command
-  .classBuilder<
-    ListFunctionVersionsByCapacityProviderCommandInput,
-    ListFunctionVersionsByCapacityProviderCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "ListFunctionVersionsByCapacityProvider", {})
-  .n("LambdaClient", "ListFunctionVersionsByCapacityProviderCommand")
-  .sc(ListFunctionVersionsByCapacityProvider$)
-  .build() {
+export class ListFunctionVersionsByCapacityProviderCommand extends command<ListFunctionVersionsByCapacityProviderCommandInput, ListFunctionVersionsByCapacityProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFunctionVersionsByCapacityProvider",
+  ListFunctionVersionsByCapacityProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

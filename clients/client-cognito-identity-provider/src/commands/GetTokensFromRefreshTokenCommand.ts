@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTokensFromRefreshTokenRequest, GetTokensFromRefreshTokenResponse } from "../models/models_0";
 import { GetTokensFromRefreshToken$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetTokensFromRefreshToken$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +118,12 @@ export interface GetTokensFromRefreshTokenCommandOutput extends GetTokensFromRef
  *
  * @public
  */
-export class GetTokensFromRefreshTokenCommand extends $Command
-  .classBuilder<
-    GetTokensFromRefreshTokenCommandInput,
-    GetTokensFromRefreshTokenCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "GetTokensFromRefreshToken", {})
-  .n("CognitoIdentityProviderClient", "GetTokensFromRefreshTokenCommand")
-  .sc(GetTokensFromRefreshToken$)
-  .build() {
+export class GetTokensFromRefreshTokenCommand extends command<GetTokensFromRefreshTokenCommandInput, GetTokensFromRefreshTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTokensFromRefreshToken",
+  GetTokensFromRefreshToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

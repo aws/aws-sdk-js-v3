@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeLocalGatewaysRequest, DescribeLocalGatewaysResult } from "../models/models_4";
 import { DescribeLocalGateways$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeLocalGateways$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface DescribeLocalGatewaysCommandOutput extends DescribeLocalGateway
  *
  * @public
  */
-export class DescribeLocalGatewaysCommand extends $Command
-  .classBuilder<
-    DescribeLocalGatewaysCommandInput,
-    DescribeLocalGatewaysCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeLocalGateways", {})
-  .n("EC2Client", "DescribeLocalGatewaysCommand")
-  .sc(DescribeLocalGateways$)
-  .build() {
+export class DescribeLocalGatewaysCommand extends command<DescribeLocalGatewaysCommandInput, DescribeLocalGatewaysCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeLocalGateways",
+  DescribeLocalGateways$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

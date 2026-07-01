@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateFleetPortSettingsInput, UpdateFleetPortSettingsOutput } from "../models/models_1";
 import { UpdateFleetPortSettings$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateFleetPortSettings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  *
  * @public
  */
-export class UpdateFleetPortSettingsCommand extends $Command
-  .classBuilder<
-    UpdateFleetPortSettingsCommandInput,
-    UpdateFleetPortSettingsCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "UpdateFleetPortSettings", {})
-  .n("GameLiftClient", "UpdateFleetPortSettingsCommand")
-  .sc(UpdateFleetPortSettings$)
-  .build() {
+export class UpdateFleetPortSettingsCommand extends command<UpdateFleetPortSettingsCommandInput, UpdateFleetPortSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateFleetPortSettings",
+  UpdateFleetPortSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

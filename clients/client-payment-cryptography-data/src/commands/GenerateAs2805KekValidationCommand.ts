@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GenerateAs2805KekValidationInput, GenerateAs2805KekValidationOutput } from "../models/models_0";
-import type {
-  PaymentCryptographyDataClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PaymentCryptographyDataClient";
 import { GenerateAs2805KekValidation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface GenerateAs2805KekValidationCommandOutput extends GenerateAs2805
  *
  * @public
  */
-export class GenerateAs2805KekValidationCommand extends $Command
-  .classBuilder<
-    GenerateAs2805KekValidationCommandInput,
-    GenerateAs2805KekValidationCommandOutput,
-    PaymentCryptographyDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PaymentCryptographyDataPlane", "GenerateAs2805KekValidation", {})
-  .n("PaymentCryptographyDataClient", "GenerateAs2805KekValidationCommand")
-  .sc(GenerateAs2805KekValidation$)
-  .build() {
+export class GenerateAs2805KekValidationCommand extends command<GenerateAs2805KekValidationCommandInput, GenerateAs2805KekValidationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GenerateAs2805KekValidation",
+  GenerateAs2805KekValidation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

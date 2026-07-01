@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteServiceNetworkRequest, DeleteServiceNetworkResponse } from "../models/models_0";
 import { DeleteServiceNetwork$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteServiceNetworkCommandOutput extends DeleteServiceNetworkR
  *
  * @public
  */
-export class DeleteServiceNetworkCommand extends $Command
-  .classBuilder<
-    DeleteServiceNetworkCommandInput,
-    DeleteServiceNetworkCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "DeleteServiceNetwork", {})
-  .n("VPCLatticeClient", "DeleteServiceNetworkCommand")
-  .sc(DeleteServiceNetwork$)
-  .build() {
+export class DeleteServiceNetworkCommand extends command<DeleteServiceNetworkCommandInput, DeleteServiceNetworkCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteServiceNetwork",
+  DeleteServiceNetwork$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

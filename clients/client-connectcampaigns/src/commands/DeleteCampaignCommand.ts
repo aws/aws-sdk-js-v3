@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ConnectCampaignsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ConnectCampaignsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCampaignRequest } from "../models/models_0";
 import { DeleteCampaign$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteCampaign$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +65,12 @@ export interface DeleteCampaignCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteCampaignCommand extends $Command
-  .classBuilder<
-    DeleteCampaignCommandInput,
-    DeleteCampaignCommandOutput,
-    ConnectCampaignsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCampaignService", "DeleteCampaign", {})
-  .n("ConnectCampaignsClient", "DeleteCampaignCommand")
-  .sc(DeleteCampaign$)
-  .build() {
+export class DeleteCampaignCommand extends command<DeleteCampaignCommandInput, DeleteCampaignCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCampaign",
+  DeleteCampaign$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep2, _mw0, command } from "../commandBuilder";
 import type { ScanInput, ScanOutput } from "../models/models_0";
 import { Scan$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { Scan$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -322,25 +318,12 @@ export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
  *
  * @public
  */
-export class ScanCommand extends $Command
-  .classBuilder<
-    ScanCommandInput,
-    ScanCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "contextParams", name: "TableName" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "Scan", {})
-  .n("DynamoDBClient", "ScanCommand")
-  .sc(Scan$)
-  .build() {
+export class ScanCommand extends command<ScanCommandInput, ScanCommandOutput>(
+  _ep2,
+  _mw0,
+  "Scan",
+  Scan$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

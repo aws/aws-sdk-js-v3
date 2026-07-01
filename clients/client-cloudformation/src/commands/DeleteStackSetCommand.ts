@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteStackSetInput, DeleteStackSetOutput } from "../models/models_0";
 import { DeleteStackSet$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteStackSet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +63,12 @@ export interface DeleteStackSetCommandOutput extends DeleteStackSetOutput, __Met
  *
  * @public
  */
-export class DeleteStackSetCommand extends $Command
-  .classBuilder<
-    DeleteStackSetCommandInput,
-    DeleteStackSetCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "DeleteStackSet", {})
-  .n("CloudFormationClient", "DeleteStackSetCommand")
-  .sc(DeleteStackSet$)
-  .build() {
+export class DeleteStackSetCommand extends command<DeleteStackSetCommandInput, DeleteStackSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteStackSet",
+  DeleteStackSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

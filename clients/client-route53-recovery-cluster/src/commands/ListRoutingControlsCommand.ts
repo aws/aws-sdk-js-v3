@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRoutingControlsRequest, ListRoutingControlsResponse } from "../models/models_0";
-import type {
-  Route53RecoveryClusterClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryClusterClient";
 import { ListRoutingControls$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +116,12 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  *
  * @public
  */
-export class ListRoutingControlsCommand extends $Command
-  .classBuilder<
-    ListRoutingControlsCommandInput,
-    ListRoutingControlsCommandOutput,
-    Route53RecoveryClusterClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryClusterClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ToggleCustomerAPI", "ListRoutingControls", {})
-  .n("Route53RecoveryClusterClient", "ListRoutingControlsCommand")
-  .sc(ListRoutingControls$)
-  .build() {
+export class ListRoutingControlsCommand extends command<ListRoutingControlsCommandInput, ListRoutingControlsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRoutingControls",
+  ListRoutingControls$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

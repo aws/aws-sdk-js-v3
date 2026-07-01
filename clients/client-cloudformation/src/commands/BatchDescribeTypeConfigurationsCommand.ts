@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchDescribeTypeConfigurationsInput, BatchDescribeTypeConfigurationsOutput } from "../models/models_0";
 import { BatchDescribeTypeConfigurations$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { BatchDescribeTypeConfigurations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +105,12 @@ export interface BatchDescribeTypeConfigurationsCommandOutput extends BatchDescr
  *
  * @public
  */
-export class BatchDescribeTypeConfigurationsCommand extends $Command
-  .classBuilder<
-    BatchDescribeTypeConfigurationsCommandInput,
-    BatchDescribeTypeConfigurationsCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "BatchDescribeTypeConfigurations", {})
-  .n("CloudFormationClient", "BatchDescribeTypeConfigurationsCommand")
-  .sc(BatchDescribeTypeConfigurations$)
-  .build() {
+export class BatchDescribeTypeConfigurationsCommand extends command<BatchDescribeTypeConfigurationsCommandInput, BatchDescribeTypeConfigurationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDescribeTypeConfigurations",
+  BatchDescribeTypeConfigurations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

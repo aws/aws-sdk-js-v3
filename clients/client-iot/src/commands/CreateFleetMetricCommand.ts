@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFleetMetricRequest, CreateFleetMetricResponse } from "../models/models_0";
 import { CreateFleetMetric$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateFleetMetric$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface CreateFleetMetricCommandOutput extends CreateFleetMetricRespons
  *
  * @public
  */
-export class CreateFleetMetricCommand extends $Command
-  .classBuilder<
-    CreateFleetMetricCommandInput,
-    CreateFleetMetricCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "CreateFleetMetric", {})
-  .n("IoTClient", "CreateFleetMetricCommand")
-  .sc(CreateFleetMetric$)
-  .build() {
+export class CreateFleetMetricCommand extends command<CreateFleetMetricCommandInput, CreateFleetMetricCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateFleetMetric",
+  CreateFleetMetric$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

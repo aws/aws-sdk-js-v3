@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateTransitGatewayPeeringRequest, CreateTransitGatewayPeeringResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { CreateTransitGatewayPeering$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +113,12 @@ export interface CreateTransitGatewayPeeringCommandOutput extends CreateTransitG
  *
  * @public
  */
-export class CreateTransitGatewayPeeringCommand extends $Command
-  .classBuilder<
-    CreateTransitGatewayPeeringCommandInput,
-    CreateTransitGatewayPeeringCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "CreateTransitGatewayPeering", {})
-  .n("NetworkManagerClient", "CreateTransitGatewayPeeringCommand")
-  .sc(CreateTransitGatewayPeering$)
-  .build() {
+export class CreateTransitGatewayPeeringCommand extends command<CreateTransitGatewayPeeringCommandInput, CreateTransitGatewayPeeringCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTransitGatewayPeering",
+  CreateTransitGatewayPeering$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetProtocolsListRequest, GetProtocolsListResponse } from "../models/models_0";
 import { GetProtocolsList$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetProtocolsList$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface GetProtocolsListCommandOutput extends GetProtocolsListResponse,
  *
  * @public
  */
-export class GetProtocolsListCommand extends $Command
-  .classBuilder<
-    GetProtocolsListCommandInput,
-    GetProtocolsListCommandOutput,
-    FMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSFMS_20180101", "GetProtocolsList", {})
-  .n("FMSClient", "GetProtocolsListCommand")
-  .sc(GetProtocolsList$)
-  .build() {
+export class GetProtocolsListCommand extends command<GetProtocolsListCommandInput, GetProtocolsListCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetProtocolsList",
+  GetProtocolsList$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

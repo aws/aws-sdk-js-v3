@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateInstanceStorageConfigRequest } from "../models/models_1";
 import { DisassociateInstanceStorageConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateInstanceStorageConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DisassociateInstanceStorageConfigCommandOutput extends __Metada
  *
  * @public
  */
-export class DisassociateInstanceStorageConfigCommand extends $Command
-  .classBuilder<
-    DisassociateInstanceStorageConfigCommandInput,
-    DisassociateInstanceStorageConfigCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DisassociateInstanceStorageConfig", {})
-  .n("ConnectClient", "DisassociateInstanceStorageConfigCommand")
-  .sc(DisassociateInstanceStorageConfig$)
-  .build() {
+export class DisassociateInstanceStorageConfigCommand extends command<DisassociateInstanceStorageConfigCommandInput, DisassociateInstanceStorageConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateInstanceStorageConfig",
+  DisassociateInstanceStorageConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

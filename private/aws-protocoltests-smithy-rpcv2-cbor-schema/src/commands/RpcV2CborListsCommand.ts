@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RpcV2CborListInputOutput } from "../models/models_0";
-import type { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RpcV2ProtocolClient";
 import { RpcV2CborLists$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -138,22 +134,12 @@ export interface RpcV2CborListsCommandOutput extends RpcV2CborListInputOutput, _
  *
  * @public
  */
-export class RpcV2CborListsCommand extends $Command
-  .classBuilder<
-    RpcV2CborListsCommandInput,
-    RpcV2CborListsCommandOutput,
-    RpcV2ProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RpcV2ProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RpcV2Protocol", "RpcV2CborLists", {})
-  .n("RpcV2ProtocolClient", "RpcV2CborListsCommand")
-  .sc(RpcV2CborLists$)
-  .build() {
+export class RpcV2CborListsCommand extends command<RpcV2CborListsCommandInput, RpcV2CborListsCommandOutput>(
+  _ep0,
+  _mw0,
+  "RpcV2CborLists",
+  RpcV2CborLists$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

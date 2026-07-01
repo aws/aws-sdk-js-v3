@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AcceptTransitGatewayPeeringAttachmentRequest,
   AcceptTransitGatewayPeeringAttachmentResult,
@@ -15,7 +12,6 @@ import { AcceptTransitGatewayPeeringAttachment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface AcceptTransitGatewayPeeringAttachmentCommandOutput extends Acce
  *
  * @public
  */
-export class AcceptTransitGatewayPeeringAttachmentCommand extends $Command
-  .classBuilder<
-    AcceptTransitGatewayPeeringAttachmentCommandInput,
-    AcceptTransitGatewayPeeringAttachmentCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "AcceptTransitGatewayPeeringAttachment", {})
-  .n("EC2Client", "AcceptTransitGatewayPeeringAttachmentCommand")
-  .sc(AcceptTransitGatewayPeeringAttachment$)
-  .build() {
+export class AcceptTransitGatewayPeeringAttachmentCommand extends command<AcceptTransitGatewayPeeringAttachmentCommandInput, AcceptTransitGatewayPeeringAttachmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "AcceptTransitGatewayPeeringAttachment",
+  AcceptTransitGatewayPeeringAttachment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

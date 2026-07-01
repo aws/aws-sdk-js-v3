@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SubmitContainerStateChangeRequest, SubmitContainerStateChangeResponse } from "../models/models_0";
 import { SubmitContainerStateChange$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SubmitContainerStateChange$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface SubmitContainerStateChangeCommandOutput extends SubmitContainer
  *
  * @public
  */
-export class SubmitContainerStateChangeCommand extends $Command
-  .classBuilder<
-    SubmitContainerStateChangeCommandInput,
-    SubmitContainerStateChangeCommandOutput,
-    ECSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerServiceV20141113", "SubmitContainerStateChange", {})
-  .n("ECSClient", "SubmitContainerStateChangeCommand")
-  .sc(SubmitContainerStateChange$)
-  .build() {
+export class SubmitContainerStateChangeCommand extends command<SubmitContainerStateChangeCommandInput, SubmitContainerStateChangeCommandOutput>(
+  _ep0,
+  _mw0,
+  "SubmitContainerStateChange",
+  SubmitContainerStateChange$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

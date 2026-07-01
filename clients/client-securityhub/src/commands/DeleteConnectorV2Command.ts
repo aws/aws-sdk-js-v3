@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteConnectorV2Request, DeleteConnectorV2Response } from "../models/models_2";
 import { DeleteConnectorV2$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DeleteConnectorV2CommandOutput extends DeleteConnectorV2Respons
  *
  * @public
  */
-export class DeleteConnectorV2Command extends $Command
-  .classBuilder<
-    DeleteConnectorV2CommandInput,
-    DeleteConnectorV2CommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "DeleteConnectorV2", {})
-  .n("SecurityHubClient", "DeleteConnectorV2Command")
-  .sc(DeleteConnectorV2$)
-  .build() {
+export class DeleteConnectorV2Command extends command<DeleteConnectorV2CommandInput, DeleteConnectorV2CommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteConnectorV2",
+  DeleteConnectorV2$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

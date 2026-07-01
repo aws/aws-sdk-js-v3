@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCustomEntityTypeRequest, GetCustomEntityTypeResponse } from "../models/models_1";
 import { GetCustomEntityType$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetCustomEntityType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface GetCustomEntityTypeCommandOutput extends GetCustomEntityTypeRes
  *
  * @public
  */
-export class GetCustomEntityTypeCommand extends $Command
-  .classBuilder<
-    GetCustomEntityTypeCommandInput,
-    GetCustomEntityTypeCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "GetCustomEntityType", {})
-  .n("GlueClient", "GetCustomEntityTypeCommand")
-  .sc(GetCustomEntityType$)
-  .build() {
+export class GetCustomEntityTypeCommand extends command<GetCustomEntityTypeCommandInput, GetCustomEntityTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCustomEntityType",
+  GetCustomEntityType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

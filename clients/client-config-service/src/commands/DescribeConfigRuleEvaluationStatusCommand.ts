@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeConfigRuleEvaluationStatusRequest,
   DescribeConfigRuleEvaluationStatusResponse,
@@ -15,7 +12,6 @@ import { DescribeConfigRuleEvaluationStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface DescribeConfigRuleEvaluationStatusCommandOutput extends Describ
  *
  * @public
  */
-export class DescribeConfigRuleEvaluationStatusCommand extends $Command
-  .classBuilder<
-    DescribeConfigRuleEvaluationStatusCommandInput,
-    DescribeConfigRuleEvaluationStatusCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DescribeConfigRuleEvaluationStatus", {})
-  .n("ConfigServiceClient", "DescribeConfigRuleEvaluationStatusCommand")
-  .sc(DescribeConfigRuleEvaluationStatus$)
-  .build() {
+export class DescribeConfigRuleEvaluationStatusCommand extends command<DescribeConfigRuleEvaluationStatusCommandInput, DescribeConfigRuleEvaluationStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeConfigRuleEvaluationStatus",
+  DescribeConfigRuleEvaluationStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

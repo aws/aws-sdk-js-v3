@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteHarnessRequest, DeleteHarnessResponse } from "../models/models_1";
 import { DeleteHarness$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteHarness$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -367,22 +359,12 @@ export interface DeleteHarnessCommandOutput extends DeleteHarnessResponse, __Met
  *
  * @public
  */
-export class DeleteHarnessCommand extends $Command
-  .classBuilder<
-    DeleteHarnessCommandInput,
-    DeleteHarnessCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "DeleteHarness", {})
-  .n("BedrockAgentCoreControlClient", "DeleteHarnessCommand")
-  .sc(DeleteHarness$)
-  .build() {
+export class DeleteHarnessCommand extends command<DeleteHarnessCommandInput, DeleteHarnessCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteHarness",
+  DeleteHarness$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

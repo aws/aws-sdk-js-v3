@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListSupplementalTaxRegistrationsRequest,
   ListSupplementalTaxRegistrationsResponse,
 } from "../models/models_0";
 import { ListSupplementalTaxRegistrations$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface ListSupplementalTaxRegistrationsCommandOutput extends ListSuppl
  *
  * @public
  */
-export class ListSupplementalTaxRegistrationsCommand extends $Command
-  .classBuilder<
-    ListSupplementalTaxRegistrationsCommandInput,
-    ListSupplementalTaxRegistrationsCommandOutput,
-    TaxSettingsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TaxSettingsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TaxSettings", "ListSupplementalTaxRegistrations", {})
-  .n("TaxSettingsClient", "ListSupplementalTaxRegistrationsCommand")
-  .sc(ListSupplementalTaxRegistrations$)
-  .build() {
+export class ListSupplementalTaxRegistrationsCommand extends command<ListSupplementalTaxRegistrationsCommandInput, ListSupplementalTaxRegistrationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSupplementalTaxRegistrations",
+  ListSupplementalTaxRegistrations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

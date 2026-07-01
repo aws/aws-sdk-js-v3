@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListAutomatedReasoningPolicyTestResultsRequest,
   ListAutomatedReasoningPolicyTestResultsResponse,
@@ -15,7 +12,6 @@ import { ListAutomatedReasoningPolicyTestResults$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -255,22 +251,12 @@ export interface ListAutomatedReasoningPolicyTestResultsCommandOutput extends Li
  *
  * @public
  */
-export class ListAutomatedReasoningPolicyTestResultsCommand extends $Command
-  .classBuilder<
-    ListAutomatedReasoningPolicyTestResultsCommandInput,
-    ListAutomatedReasoningPolicyTestResultsCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "ListAutomatedReasoningPolicyTestResults", {})
-  .n("BedrockClient", "ListAutomatedReasoningPolicyTestResultsCommand")
-  .sc(ListAutomatedReasoningPolicyTestResults$)
-  .build() {
+export class ListAutomatedReasoningPolicyTestResultsCommand extends command<ListAutomatedReasoningPolicyTestResultsCommandInput, ListAutomatedReasoningPolicyTestResultsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAutomatedReasoningPolicyTestResults",
+  ListAutomatedReasoningPolicyTestResults$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

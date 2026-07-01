@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateMLTransformRequest, CreateMLTransformResponse } from "../models/models_1";
 import { CreateMLTransform$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateMLTransform$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +124,12 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
  *
  * @public
  */
-export class CreateMLTransformCommand extends $Command
-  .classBuilder<
-    CreateMLTransformCommandInput,
-    CreateMLTransformCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "CreateMLTransform", {})
-  .n("GlueClient", "CreateMLTransformCommand")
-  .sc(CreateMLTransform$)
-  .build() {
+export class CreateMLTransformCommand extends command<CreateMLTransformCommandInput, CreateMLTransformCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateMLTransform",
+  CreateMLTransform$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

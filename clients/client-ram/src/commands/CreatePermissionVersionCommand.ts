@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePermissionVersionRequest, CreatePermissionVersionResponse } from "../models/models_0";
-import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import { CreatePermissionVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface CreatePermissionVersionCommandOutput extends CreatePermissionVe
  *
  * @public
  */
-export class CreatePermissionVersionCommand extends $Command
-  .classBuilder<
-    CreatePermissionVersionCommandInput,
-    CreatePermissionVersionCommandOutput,
-    RAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonResourceSharing", "CreatePermissionVersion", {})
-  .n("RAMClient", "CreatePermissionVersionCommand")
-  .sc(CreatePermissionVersion$)
-  .build() {
+export class CreatePermissionVersionCommand extends command<CreatePermissionVersionCommandInput, CreatePermissionVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePermissionVersion",
+  CreatePermissionVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

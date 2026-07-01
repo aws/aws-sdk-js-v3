@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ImportComponentRequest, ImportComponentResponse } from "../models/models_0";
 import { ImportComponent$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ImportComponent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface ImportComponentCommandOutput extends ImportComponentResponse, _
  *
  * @public
  */
-export class ImportComponentCommand extends $Command
-  .classBuilder<
-    ImportComponentCommandInput,
-    ImportComponentCommandOutput,
-    ImagebuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("imagebuilder", "ImportComponent", {})
-  .n("ImagebuilderClient", "ImportComponentCommand")
-  .sc(ImportComponent$)
-  .build() {
+export class ImportComponentCommand extends command<ImportComponentCommandInput, ImportComponentCommandOutput>(
+  _ep0,
+  _mw0,
+  "ImportComponent",
+  ImportComponent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

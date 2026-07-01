@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEnvironmentConfigurationMessage } from "../models/models_0";
 import { DeleteEnvironmentConfiguration$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteEnvironmentConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface DeleteEnvironmentConfigurationCommandOutput extends __MetadataB
  *
  * @public
  */
-export class DeleteEnvironmentConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteEnvironmentConfigurationCommandInput,
-    DeleteEnvironmentConfigurationCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "DeleteEnvironmentConfiguration", {})
-  .n("ElasticBeanstalkClient", "DeleteEnvironmentConfigurationCommand")
-  .sc(DeleteEnvironmentConfiguration$)
-  .build() {
+export class DeleteEnvironmentConfigurationCommand extends command<DeleteEnvironmentConfigurationCommandInput, DeleteEnvironmentConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEnvironmentConfiguration",
+  DeleteEnvironmentConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

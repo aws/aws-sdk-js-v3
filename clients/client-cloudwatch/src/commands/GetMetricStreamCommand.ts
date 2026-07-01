@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMetricStreamInput, GetMetricStreamOutput } from "../models/models_0";
 import { GetMetricStream$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetMetricStream$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface GetMetricStreamCommandOutput extends GetMetricStreamOutput, __M
  *
  * @public
  */
-export class GetMetricStreamCommand extends $Command
-  .classBuilder<
-    GetMetricStreamCommandInput,
-    GetMetricStreamCommandOutput,
-    CloudWatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GraniteServiceVersion20100801", "GetMetricStream", {})
-  .n("CloudWatchClient", "GetMetricStreamCommand")
-  .sc(GetMetricStream$)
-  .build() {
+export class GetMetricStreamCommand extends command<GetMetricStreamCommandInput, GetMetricStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMetricStream",
+  GetMetricStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

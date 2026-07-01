@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BillingconductorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BillingconductorClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteBillingGroupInput, DeleteBillingGroupOutput } from "../models/models_0";
 import { DeleteBillingGroup$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteBillingGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +67,12 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupOutpu
  *
  * @public
  */
-export class DeleteBillingGroupCommand extends $Command
-  .classBuilder<
-    DeleteBillingGroupCommandInput,
-    DeleteBillingGroupCommandOutput,
-    BillingconductorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBillingConductor", "DeleteBillingGroup", {})
-  .n("BillingconductorClient", "DeleteBillingGroupCommand")
-  .sc(DeleteBillingGroup$)
-  .build() {
+export class DeleteBillingGroupCommand extends command<DeleteBillingGroupCommandInput, DeleteBillingGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteBillingGroup",
+  DeleteBillingGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

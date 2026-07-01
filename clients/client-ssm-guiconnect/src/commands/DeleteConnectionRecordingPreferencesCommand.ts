@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteConnectionRecordingPreferencesRequest,
   DeleteConnectionRecordingPreferencesResponse,
 } from "../models/models_0";
 import { DeleteConnectionRecordingPreferences$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMGuiConnectClientResolvedConfig } from "../SSMGuiConnectClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface DeleteConnectionRecordingPreferencesCommandOutput extends Delet
  *
  * @public
  */
-export class DeleteConnectionRecordingPreferencesCommand extends $Command
-  .classBuilder<
-    DeleteConnectionRecordingPreferencesCommandInput,
-    DeleteConnectionRecordingPreferencesCommandOutput,
-    SSMGuiConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMGuiConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMGuiConnect", "DeleteConnectionRecordingPreferences", {})
-  .n("SSMGuiConnectClient", "DeleteConnectionRecordingPreferencesCommand")
-  .sc(DeleteConnectionRecordingPreferences$)
-  .build() {
+export class DeleteConnectionRecordingPreferencesCommand extends command<DeleteConnectionRecordingPreferencesCommandInput, DeleteConnectionRecordingPreferencesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteConnectionRecordingPreferences",
+  DeleteConnectionRecordingPreferences$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

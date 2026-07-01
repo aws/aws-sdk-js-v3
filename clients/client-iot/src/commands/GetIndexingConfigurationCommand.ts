@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetIndexingConfigurationRequest, GetIndexingConfigurationResponse } from "../models/models_1";
 import { GetIndexingConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetIndexingConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface GetIndexingConfigurationCommandOutput extends GetIndexingConfig
  *
  * @public
  */
-export class GetIndexingConfigurationCommand extends $Command
-  .classBuilder<
-    GetIndexingConfigurationCommandInput,
-    GetIndexingConfigurationCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "GetIndexingConfiguration", {})
-  .n("IoTClient", "GetIndexingConfigurationCommand")
-  .sc(GetIndexingConfiguration$)
-  .build() {
+export class GetIndexingConfigurationCommand extends command<GetIndexingConfigurationCommandInput, GetIndexingConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIndexingConfiguration",
+  GetIndexingConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

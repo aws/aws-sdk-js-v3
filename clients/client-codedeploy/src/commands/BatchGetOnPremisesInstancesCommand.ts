@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetOnPremisesInstancesInput, BatchGetOnPremisesInstancesOutput } from "../models/models_0";
 import { BatchGetOnPremisesInstances$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetOnPremisesInstances$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPrem
  *
  * @public
  */
-export class BatchGetOnPremisesInstancesCommand extends $Command
-  .classBuilder<
-    BatchGetOnPremisesInstancesCommandInput,
-    BatchGetOnPremisesInstancesCommandOutput,
-    CodeDeployClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeDeploy_20141006", "BatchGetOnPremisesInstances", {})
-  .n("CodeDeployClient", "BatchGetOnPremisesInstancesCommand")
-  .sc(BatchGetOnPremisesInstances$)
-  .build() {
+export class BatchGetOnPremisesInstancesCommand extends command<BatchGetOnPremisesInstancesCommandInput, BatchGetOnPremisesInstancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetOnPremisesInstances",
+  BatchGetOnPremisesInstances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

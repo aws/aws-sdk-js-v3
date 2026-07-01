@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteIntegrationAssociationRequest } from "../models/models_1";
 import { DeleteIntegrationAssociation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteIntegrationAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface DeleteIntegrationAssociationCommandOutput extends __MetadataBea
  *
  * @public
  */
-export class DeleteIntegrationAssociationCommand extends $Command
-  .classBuilder<
-    DeleteIntegrationAssociationCommandInput,
-    DeleteIntegrationAssociationCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DeleteIntegrationAssociation", {})
-  .n("ConnectClient", "DeleteIntegrationAssociationCommand")
-  .sc(DeleteIntegrationAssociation$)
-  .build() {
+export class DeleteIntegrationAssociationCommand extends command<DeleteIntegrationAssociationCommandInput, DeleteIntegrationAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteIntegrationAssociation",
+  DeleteIntegrationAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

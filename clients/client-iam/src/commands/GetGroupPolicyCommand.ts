@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetGroupPolicyRequest, GetGroupPolicyResponse } from "../models/models_0";
 import { GetGroupPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetGroupPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface GetGroupPolicyCommandOutput extends GetGroupPolicyResponse, __M
  *
  * @public
  */
-export class GetGroupPolicyCommand extends $Command
-  .classBuilder<
-    GetGroupPolicyCommandInput,
-    GetGroupPolicyCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "GetGroupPolicy", {})
-  .n("IAMClient", "GetGroupPolicyCommand")
-  .sc(GetGroupPolicy$)
-  .build() {
+export class GetGroupPolicyCommand extends command<GetGroupPolicyCommandInput, GetGroupPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetGroupPolicy",
+  GetGroupPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

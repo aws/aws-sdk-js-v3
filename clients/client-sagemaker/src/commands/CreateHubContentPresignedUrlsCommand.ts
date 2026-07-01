@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateHubContentPresignedUrlsRequest, CreateHubContentPresignedUrlsResponse } from "../models/models_1";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreateHubContentPresignedUrls$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface CreateHubContentPresignedUrlsCommandOutput extends CreateHubCon
  *
  * @public
  */
-export class CreateHubContentPresignedUrlsCommand extends $Command
-  .classBuilder<
-    CreateHubContentPresignedUrlsCommandInput,
-    CreateHubContentPresignedUrlsCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "CreateHubContentPresignedUrls", {})
-  .n("SageMakerClient", "CreateHubContentPresignedUrlsCommand")
-  .sc(CreateHubContentPresignedUrls$)
-  .build() {
+export class CreateHubContentPresignedUrlsCommand extends command<CreateHubContentPresignedUrlsCommandInput, CreateHubContentPresignedUrlsCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateHubContentPresignedUrls",
+  CreateHubContentPresignedUrls$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

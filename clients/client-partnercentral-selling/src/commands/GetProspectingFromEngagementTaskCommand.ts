@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetProspectingFromEngagementTaskRequest,
   GetProspectingFromEngagementTaskResponse,
 } from "../models/models_0";
-import type {
-  PartnerCentralSellingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralSellingClient";
 import { GetProspectingFromEngagementTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface GetProspectingFromEngagementTaskCommandOutput extends GetProspe
  *
  * @public
  */
-export class GetProspectingFromEngagementTaskCommand extends $Command
-  .classBuilder<
-    GetProspectingFromEngagementTaskCommandInput,
-    GetProspectingFromEngagementTaskCommandOutput,
-    PartnerCentralSellingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPartnerCentralSelling", "GetProspectingFromEngagementTask", {})
-  .n("PartnerCentralSellingClient", "GetProspectingFromEngagementTaskCommand")
-  .sc(GetProspectingFromEngagementTask$)
-  .build() {
+export class GetProspectingFromEngagementTaskCommand extends command<GetProspectingFromEngagementTaskCommandInput, GetProspectingFromEngagementTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetProspectingFromEngagementTask",
+  GetProspectingFromEngagementTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

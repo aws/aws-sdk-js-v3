@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { InitializeServiceInput, InitializeServiceOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { InitializeService$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface InitializeServiceCommandOutput extends InitializeServiceOutput,
  *
  * @public
  */
-export class InitializeServiceCommand extends $Command
-  .classBuilder<
-    InitializeServiceCommandInput,
-    InitializeServiceCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "InitializeService", {})
-  .n("OdbClient", "InitializeServiceCommand")
-  .sc(InitializeService$)
-  .build() {
+export class InitializeServiceCommand extends command<InitializeServiceCommandInput, InitializeServiceCommandOutput>(
+  _ep0,
+  _mw0,
+  "InitializeService",
+  InitializeService$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

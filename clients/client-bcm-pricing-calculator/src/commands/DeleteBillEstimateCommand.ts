@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BCMPricingCalculatorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BCMPricingCalculatorClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteBillEstimateRequest, DeleteBillEstimateResponse } from "../models/models_0";
 import { DeleteBillEstimate$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteBillEstimate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeleteBillEstimateCommandOutput extends DeleteBillEstimateRespo
  *
  * @public
  */
-export class DeleteBillEstimateCommand extends $Command
-  .classBuilder<
-    DeleteBillEstimateCommandInput,
-    DeleteBillEstimateCommandOutput,
-    BCMPricingCalculatorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BCMPricingCalculatorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBCMPricingCalculator", "DeleteBillEstimate", {})
-  .n("BCMPricingCalculatorClient", "DeleteBillEstimateCommand")
-  .sc(DeleteBillEstimate$)
-  .build() {
+export class DeleteBillEstimateCommand extends command<DeleteBillEstimateCommandInput, DeleteBillEstimateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteBillEstimate",
+  DeleteBillEstimate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

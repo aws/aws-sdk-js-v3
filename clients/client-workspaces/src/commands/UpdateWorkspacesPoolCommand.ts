@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateWorkspacesPoolRequest, UpdateWorkspacesPoolResult } from "../models/models_0";
 import { UpdateWorkspacesPool$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +124,12 @@ export interface UpdateWorkspacesPoolCommandOutput extends UpdateWorkspacesPoolR
  *
  * @public
  */
-export class UpdateWorkspacesPoolCommand extends $Command
-  .classBuilder<
-    UpdateWorkspacesPoolCommandInput,
-    UpdateWorkspacesPoolCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "UpdateWorkspacesPool", {})
-  .n("WorkSpacesClient", "UpdateWorkspacesPoolCommand")
-  .sc(UpdateWorkspacesPool$)
-  .build() {
+export class UpdateWorkspacesPoolCommand extends command<UpdateWorkspacesPoolCommandInput, UpdateWorkspacesPoolCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateWorkspacesPool",
+  UpdateWorkspacesPool$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

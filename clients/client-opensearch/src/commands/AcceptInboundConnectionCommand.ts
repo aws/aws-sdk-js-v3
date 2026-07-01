@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AcceptInboundConnectionRequest, AcceptInboundConnectionResponse } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { AcceptInboundConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface AcceptInboundConnectionCommandOutput extends AcceptInboundConne
  *
  * @public
  */
-export class AcceptInboundConnectionCommand extends $Command
-  .classBuilder<
-    AcceptInboundConnectionCommandInput,
-    AcceptInboundConnectionCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "AcceptInboundConnection", {})
-  .n("OpenSearchClient", "AcceptInboundConnectionCommand")
-  .sc(AcceptInboundConnection$)
-  .build() {
+export class AcceptInboundConnectionCommand extends command<AcceptInboundConnectionCommandInput, AcceptInboundConnectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "AcceptInboundConnection",
+  AcceptInboundConnection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

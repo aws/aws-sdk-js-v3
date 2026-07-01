@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendEmailVerificationCodeRequest, SendEmailVerificationCodeResponse } from "../models/models_0";
-import type {
-  PartnerCentralAccountClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralAccountClient";
 import { SendEmailVerificationCode$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +69,12 @@ export interface SendEmailVerificationCodeCommandOutput extends SendEmailVerific
  *
  * @public
  */
-export class SendEmailVerificationCodeCommand extends $Command
-  .classBuilder<
-    SendEmailVerificationCodeCommandInput,
-    SendEmailVerificationCodeCommandOutput,
-    PartnerCentralAccountClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralAccountClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralAccount", "SendEmailVerificationCode", {})
-  .n("PartnerCentralAccountClient", "SendEmailVerificationCodeCommand")
-  .sc(SendEmailVerificationCode$)
-  .build() {
+export class SendEmailVerificationCodeCommand extends command<SendEmailVerificationCodeCommandInput, SendEmailVerificationCodeCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendEmailVerificationCode",
+  SendEmailVerificationCode$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

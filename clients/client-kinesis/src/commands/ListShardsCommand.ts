@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListShardsInput, ListShardsOutput } from "../models/models_0";
 import { ListShards$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListShards$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,27 +119,12 @@ export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBea
  *
  * @public
  */
-export class ListShardsCommand extends $Command
-  .classBuilder<
-    ListShardsCommandInput,
-    ListShardsCommandOutput,
-    KinesisClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    OperationType: { type: "staticContextParams", value: `control` },
-    StreamId: { type: "contextParams", name: "StreamId" },
-    StreamARN: { type: "contextParams", name: "StreamARN" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kinesis_20131202", "ListShards", {})
-  .n("KinesisClient", "ListShardsCommand")
-  .sc(ListShards$)
-  .build() {
+export class ListShardsCommand extends command<ListShardsCommandInput, ListShardsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListShards",
+  ListShards$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

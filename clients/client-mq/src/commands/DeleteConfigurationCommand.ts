@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteConfigurationRequest, DeleteConfigurationResponse } from "../models/models_0";
-import type { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import { DeleteConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DeleteConfigurationCommandOutput extends DeleteConfigurationRes
  *
  * @public
  */
-export class DeleteConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteConfigurationCommandInput,
-    DeleteConfigurationCommandOutput,
-    MqClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MqClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("mq", "DeleteConfiguration", {})
-  .n("MqClient", "DeleteConfigurationCommand")
-  .sc(DeleteConfiguration$)
-  .build() {
+export class DeleteConfigurationCommand extends command<DeleteConfigurationCommandInput, DeleteConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteConfiguration",
+  DeleteConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

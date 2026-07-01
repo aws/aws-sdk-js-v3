@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getFlexibleChecksumsPlugin } from "@aws-sdk/checksums/flexible-checksums";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw6, command } from "../commandBuilder";
 import type { GetObjectAnnotationOutput, GetObjectAnnotationRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { GetObjectAnnotation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,33 +121,12 @@ export interface GetObjectAnnotationCommandOutput extends Omit<GetObjectAnnotati
  *
  * @public
  */
-export class GetObjectAnnotationCommand extends $Command
-  .classBuilder<
-    GetObjectAnnotationCommandInput,
-    GetObjectAnnotationCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    Bucket: { type: "contextParams", name: "Bucket" },
-    Key: { type: "contextParams", name: "Key" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getFlexibleChecksumsPlugin(config, {
-        requestChecksumRequired: false,
-        requestValidationModeMember: 'ChecksumMode',
-        'responseAlgorithms': ['CRC64NVME', 'CRC32', 'CRC32C', 'SHA256', 'SHA1', 'SHA512', 'MD5', 'XXHASH64', 'XXHASH3', 'XXHASH128'],
-      }),
-    ];
-  })
-  .s("AmazonS3", "GetObjectAnnotation", {})
-  .n("S3Client", "GetObjectAnnotationCommand")
-  .sc(GetObjectAnnotation$)
-  .build() {
+export class GetObjectAnnotationCommand extends command<GetObjectAnnotationCommandInput, GetObjectAnnotationCommandOutput>(
+  _ep0,
+  _mw6,
+  "GetObjectAnnotation",
+  GetObjectAnnotation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

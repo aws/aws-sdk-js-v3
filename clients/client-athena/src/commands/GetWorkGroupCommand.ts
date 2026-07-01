@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetWorkGroupInput, GetWorkGroupOutput } from "../models/models_0";
 import { GetWorkGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetWorkGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -155,22 +151,12 @@ export interface GetWorkGroupCommandOutput extends GetWorkGroupOutput, __Metadat
  *
  * @public
  */
-export class GetWorkGroupCommand extends $Command
-  .classBuilder<
-    GetWorkGroupCommandInput,
-    GetWorkGroupCommandOutput,
-    AthenaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAthena", "GetWorkGroup", {})
-  .n("AthenaClient", "GetWorkGroupCommand")
-  .sc(GetWorkGroup$)
-  .build() {
+export class GetWorkGroupCommand extends command<GetWorkGroupCommandInput, GetWorkGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetWorkGroup",
+  GetWorkGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

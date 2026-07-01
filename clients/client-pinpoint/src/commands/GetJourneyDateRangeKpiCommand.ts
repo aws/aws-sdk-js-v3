@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetJourneyDateRangeKpiRequest, GetJourneyDateRangeKpiResponse } from "../models/models_1";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { GetJourneyDateRangeKpi$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface GetJourneyDateRangeKpiCommandOutput extends GetJourneyDateRange
  *
  * @public
  */
-export class GetJourneyDateRangeKpiCommand extends $Command
-  .classBuilder<
-    GetJourneyDateRangeKpiCommandInput,
-    GetJourneyDateRangeKpiCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "GetJourneyDateRangeKpi", {})
-  .n("PinpointClient", "GetJourneyDateRangeKpiCommand")
-  .sc(GetJourneyDateRangeKpi$)
-  .build() {
+export class GetJourneyDateRangeKpiCommand extends command<GetJourneyDateRangeKpiCommandInput, GetJourneyDateRangeKpiCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetJourneyDateRangeKpi",
+  GetJourneyDateRangeKpi$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

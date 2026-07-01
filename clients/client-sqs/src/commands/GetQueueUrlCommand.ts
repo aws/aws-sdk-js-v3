@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetQueueUrlRequest, GetQueueUrlResult } from "../models/models_0";
 import { GetQueueUrl$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataB
  *
  * @public
  */
-export class GetQueueUrlCommand extends $Command
-  .classBuilder<
-    GetQueueUrlCommandInput,
-    GetQueueUrlCommandOutput,
-    SQSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSQS", "GetQueueUrl", {})
-  .n("SQSClient", "GetQueueUrlCommand")
-  .sc(GetQueueUrl$)
-  .build() {
+export class GetQueueUrlCommand extends command<GetQueueUrlCommandInput, GetQueueUrlCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetQueueUrl",
+  GetQueueUrl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

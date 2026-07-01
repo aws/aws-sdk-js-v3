@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAutonomousDatabaseBackupInput, GetAutonomousDatabaseBackupOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { GetAutonomousDatabaseBackup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface GetAutonomousDatabaseBackupCommandOutput extends GetAutonomousD
  *
  * @public
  */
-export class GetAutonomousDatabaseBackupCommand extends $Command
-  .classBuilder<
-    GetAutonomousDatabaseBackupCommandInput,
-    GetAutonomousDatabaseBackupCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "GetAutonomousDatabaseBackup", {})
-  .n("OdbClient", "GetAutonomousDatabaseBackupCommand")
-  .sc(GetAutonomousDatabaseBackup$)
-  .build() {
+export class GetAutonomousDatabaseBackupCommand extends command<GetAutonomousDatabaseBackupCommandInput, GetAutonomousDatabaseBackupCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAutonomousDatabaseBackup",
+  GetAutonomousDatabaseBackup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

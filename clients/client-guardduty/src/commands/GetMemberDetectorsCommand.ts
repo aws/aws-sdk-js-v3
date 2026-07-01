@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMemberDetectorsRequest, GetMemberDetectorsResponse } from "../models/models_1";
 import { GetMemberDetectors$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetMemberDetectors$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +116,12 @@ export interface GetMemberDetectorsCommandOutput extends GetMemberDetectorsRespo
  *
  * @public
  */
-export class GetMemberDetectorsCommand extends $Command
-  .classBuilder<
-    GetMemberDetectorsCommandInput,
-    GetMemberDetectorsCommandOutput,
-    GuardDutyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GuardDutyAPIService", "GetMemberDetectors", {})
-  .n("GuardDutyClient", "GetMemberDetectorsCommand")
-  .sc(GetMemberDetectors$)
-  .build() {
+export class GetMemberDetectorsCommand extends command<GetMemberDetectorsCommandInput, GetMemberDetectorsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMemberDetectors",
+  GetMemberDetectors$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

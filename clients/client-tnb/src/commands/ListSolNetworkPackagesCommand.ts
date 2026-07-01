@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSolNetworkPackagesInput, ListSolNetworkPackagesOutput } from "../models/models_0";
 import { ListSolNetworkPackages$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -195,22 +191,12 @@ export interface ListSolNetworkPackagesCommandOutput extends ListSolNetworkPacka
  *
  * @public
  */
-export class ListSolNetworkPackagesCommand extends $Command
-  .classBuilder<
-    ListSolNetworkPackagesCommandInput,
-    ListSolNetworkPackagesCommandOutput,
-    TnbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TNB", "ListSolNetworkPackages", {})
-  .n("TnbClient", "ListSolNetworkPackagesCommand")
-  .sc(ListSolNetworkPackages$)
-  .build() {
+export class ListSolNetworkPackagesCommand extends command<ListSolNetworkPackagesCommandInput, ListSolNetworkPackagesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSolNetworkPackages",
+  ListSolNetworkPackages$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

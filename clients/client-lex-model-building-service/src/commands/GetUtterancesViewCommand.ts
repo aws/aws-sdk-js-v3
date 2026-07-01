@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LexModelBuildingServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LexModelBuildingServiceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetUtterancesViewRequest, GetUtterancesViewResponse } from "../models/models_0";
 import { GetUtterancesView$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetUtterancesView$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +109,12 @@ export interface GetUtterancesViewCommandOutput extends GetUtterancesViewRespons
  *
  * @public
  */
-export class GetUtterancesViewCommand extends $Command
-  .classBuilder<
-    GetUtterancesViewCommandInput,
-    GetUtterancesViewCommandOutput,
-    LexModelBuildingServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepSenseModelBuildingService", "GetUtterancesView", {})
-  .n("LexModelBuildingServiceClient", "GetUtterancesViewCommand")
-  .sc(GetUtterancesView$)
-  .build() {
+export class GetUtterancesViewCommand extends command<GetUtterancesViewCommandInput, GetUtterancesViewCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetUtterancesView",
+  GetUtterancesView$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

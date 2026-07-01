@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeConnectionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeConnectionsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRepositorySyncDefinitionsInput, ListRepositorySyncDefinitionsOutput } from "../models/models_0";
 import { ListRepositorySyncDefinitions$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListRepositorySyncDefinitions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface ListRepositorySyncDefinitionsCommandOutput extends ListReposito
  *
  * @public
  */
-export class ListRepositorySyncDefinitionsCommand extends $Command
-  .classBuilder<
-    ListRepositorySyncDefinitionsCommandInput,
-    ListRepositorySyncDefinitionsCommandOutput,
-    CodeConnectionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeConnectionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeConnections_20231201", "ListRepositorySyncDefinitions", {})
-  .n("CodeConnectionsClient", "ListRepositorySyncDefinitionsCommand")
-  .sc(ListRepositorySyncDefinitions$)
-  .build() {
+export class ListRepositorySyncDefinitionsCommand extends command<ListRepositorySyncDefinitionsCommandInput, ListRepositorySyncDefinitionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRepositorySyncDefinitions",
+  ListRepositorySyncDefinitions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

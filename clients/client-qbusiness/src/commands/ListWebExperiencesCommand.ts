@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListWebExperiencesRequest, ListWebExperiencesResponse } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { ListWebExperiences$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface ListWebExperiencesCommandOutput extends ListWebExperiencesRespo
  *
  * @public
  */
-export class ListWebExperiencesCommand extends $Command
-  .classBuilder<
-    ListWebExperiencesCommandInput,
-    ListWebExperiencesCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "ListWebExperiences", {})
-  .n("QBusinessClient", "ListWebExperiencesCommand")
-  .sc(ListWebExperiences$)
-  .build() {
+export class ListWebExperiencesCommand extends command<ListWebExperiencesCommandInput, ListWebExperiencesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListWebExperiences",
+  ListWebExperiences$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

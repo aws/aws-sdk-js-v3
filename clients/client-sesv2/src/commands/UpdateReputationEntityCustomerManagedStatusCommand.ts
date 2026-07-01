@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateReputationEntityCustomerManagedStatusRequest,
   UpdateReputationEntityCustomerManagedStatusResponse,
 } from "../models/models_1";
 import { UpdateReputationEntityCustomerManagedStatus$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface UpdateReputationEntityCustomerManagedStatusCommandOutput extend
  *
  * @public
  */
-export class UpdateReputationEntityCustomerManagedStatusCommand extends $Command
-  .classBuilder<
-    UpdateReputationEntityCustomerManagedStatusCommandInput,
-    UpdateReputationEntityCustomerManagedStatusCommandOutput,
-    SESv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService_v2", "UpdateReputationEntityCustomerManagedStatus", {})
-  .n("SESv2Client", "UpdateReputationEntityCustomerManagedStatusCommand")
-  .sc(UpdateReputationEntityCustomerManagedStatus$)
-  .build() {
+export class UpdateReputationEntityCustomerManagedStatusCommand extends command<UpdateReputationEntityCustomerManagedStatusCommandInput, UpdateReputationEntityCustomerManagedStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateReputationEntityCustomerManagedStatus",
+  UpdateReputationEntityCustomerManagedStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

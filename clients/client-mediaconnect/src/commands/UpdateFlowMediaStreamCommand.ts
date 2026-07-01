@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateFlowMediaStreamRequest, UpdateFlowMediaStreamResponse } from "../models/models_0";
 import { UpdateFlowMediaStream$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateFlowMediaStream$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +111,12 @@ export interface UpdateFlowMediaStreamCommandOutput extends UpdateFlowMediaStrea
  *
  * @public
  */
-export class UpdateFlowMediaStreamCommand extends $Command
-  .classBuilder<
-    UpdateFlowMediaStreamCommandInput,
-    UpdateFlowMediaStreamCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "UpdateFlowMediaStream", {})
-  .n("MediaConnectClient", "UpdateFlowMediaStreamCommand")
-  .sc(UpdateFlowMediaStream$)
-  .build() {
+export class UpdateFlowMediaStreamCommand extends command<UpdateFlowMediaStreamCommandInput, UpdateFlowMediaStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateFlowMediaStream",
+  UpdateFlowMediaStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

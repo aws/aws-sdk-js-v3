@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteStreamingDistributionRequest } from "../models/models_0";
 import { DeleteStreamingDistribution$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteStreamingDistribution$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteStreamingDistributionCommandOutput extends __MetadataBear
  *
  * @public
  */
-export class DeleteStreamingDistributionCommand extends $Command
-  .classBuilder<
-    DeleteStreamingDistributionCommandInput,
-    DeleteStreamingDistributionCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "DeleteStreamingDistribution", {})
-  .n("CloudFrontClient", "DeleteStreamingDistributionCommand")
-  .sc(DeleteStreamingDistribution$)
-  .build() {
+export class DeleteStreamingDistributionCommand extends command<DeleteStreamingDistributionCommandInput, DeleteStreamingDistributionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteStreamingDistribution",
+  DeleteStreamingDistribution$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDataLakeSourcesRequest, GetDataLakeSourcesResponse } from "../models/models_0";
 import { GetDataLakeSources$ } from "../schemas/schemas_0";
-import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface GetDataLakeSourcesCommandOutput extends GetDataLakeSourcesRespo
  *
  * @public
  */
-export class GetDataLakeSourcesCommand extends $Command
-  .classBuilder<
-    GetDataLakeSourcesCommandInput,
-    GetDataLakeSourcesCommandOutput,
-    SecurityLakeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityLake", "GetDataLakeSources", {})
-  .n("SecurityLakeClient", "GetDataLakeSourcesCommand")
-  .sc(GetDataLakeSources$)
-  .build() {
+export class GetDataLakeSourcesCommand extends command<GetDataLakeSourcesCommandInput, GetDataLakeSourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDataLakeSources",
+  GetDataLakeSources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

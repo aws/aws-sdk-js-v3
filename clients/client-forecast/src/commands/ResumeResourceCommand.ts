@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ResumeResourceRequest } from "../models/models_0";
 import { ResumeResource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ResumeResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface ResumeResourceCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class ResumeResourceCommand extends $Command
-  .classBuilder<
-    ResumeResourceCommandInput,
-    ResumeResourceCommandOutput,
-    ForecastClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonForecast", "ResumeResource", {})
-  .n("ForecastClient", "ResumeResourceCommand")
-  .sc(ResumeResource$)
-  .build() {
+export class ResumeResourceCommand extends command<ResumeResourceCommandInput, ResumeResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "ResumeResource",
+  ResumeResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

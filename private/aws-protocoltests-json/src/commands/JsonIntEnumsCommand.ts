@@ -13,7 +13,6 @@ import { de_JsonIntEnumsCommand, se_JsonIntEnumsCommand } from "../protocols/Aws
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

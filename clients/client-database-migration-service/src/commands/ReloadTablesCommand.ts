@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ReloadTablesMessage, ReloadTablesResponse } from "../models/models_1";
 import { ReloadTables$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ReloadTables$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +70,12 @@ export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __Metad
  *
  * @public
  */
-export class ReloadTablesCommand extends $Command
-  .classBuilder<
-    ReloadTablesCommandInput,
-    ReloadTablesCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "ReloadTables", {})
-  .n("DatabaseMigrationServiceClient", "ReloadTablesCommand")
-  .sc(ReloadTables$)
-  .build() {
+export class ReloadTablesCommand extends command<ReloadTablesCommandInput, ReloadTablesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ReloadTables",
+  ReloadTables$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

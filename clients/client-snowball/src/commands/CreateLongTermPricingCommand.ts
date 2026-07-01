@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateLongTermPricingRequest, CreateLongTermPricingResult } from "../models/models_0";
 import { CreateLongTermPricing$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface CreateLongTermPricingCommandOutput extends CreateLongTermPricin
  *
  * @public
  */
-export class CreateLongTermPricingCommand extends $Command
-  .classBuilder<
-    CreateLongTermPricingCommandInput,
-    CreateLongTermPricingCommandOutput,
-    SnowballClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIESnowballJobManagementService", "CreateLongTermPricing", {})
-  .n("SnowballClient", "CreateLongTermPricingCommand")
-  .sc(CreateLongTermPricing$)
-  .build() {
+export class CreateLongTermPricingCommand extends command<CreateLongTermPricingCommandInput, CreateLongTermPricingCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateLongTermPricing",
+  CreateLongTermPricing$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

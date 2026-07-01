@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelSubscriptionRequest, CancelSubscriptionResponse } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { CancelSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface CancelSubscriptionCommandOutput extends CancelSubscriptionRespo
  *
  * @public
  */
-export class CancelSubscriptionCommand extends $Command
-  .classBuilder<
-    CancelSubscriptionCommandInput,
-    CancelSubscriptionCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "CancelSubscription", {})
-  .n("QBusinessClient", "CancelSubscriptionCommand")
-  .sc(CancelSubscription$)
-  .build() {
+export class CancelSubscriptionCommand extends command<CancelSubscriptionCommandInput, CancelSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelSubscription",
+  CancelSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

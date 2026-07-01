@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeGuruSecurityClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeGuruSecurityClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateUploadUrlRequest, CreateUploadUrlResponse } from "../models/models_0";
 import { CreateUploadUrl$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateUploadUrl$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface CreateUploadUrlCommandOutput extends CreateUploadUrlResponse, _
  *
  * @public
  */
-export class CreateUploadUrlCommand extends $Command
-  .classBuilder<
-    CreateUploadUrlCommandInput,
-    CreateUploadUrlCommandOutput,
-    CodeGuruSecurityClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeGuruSecurityClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsCodeGuruSecurity", "CreateUploadUrl", {})
-  .n("CodeGuruSecurityClient", "CreateUploadUrlCommand")
-  .sc(CreateUploadUrl$)
-  .build() {
+export class CreateUploadUrlCommand extends command<CreateUploadUrlCommandInput, CreateUploadUrlCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateUploadUrl",
+  CreateUploadUrl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

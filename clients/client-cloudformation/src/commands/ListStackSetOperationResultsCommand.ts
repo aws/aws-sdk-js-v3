@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListStackSetOperationResultsInput, ListStackSetOperationResultsOutput } from "../models/models_0";
 import { ListStackSetOperationResults$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListStackSetOperationResults$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface ListStackSetOperationResultsCommandOutput extends ListStackSetO
  *
  * @public
  */
-export class ListStackSetOperationResultsCommand extends $Command
-  .classBuilder<
-    ListStackSetOperationResultsCommandInput,
-    ListStackSetOperationResultsCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "ListStackSetOperationResults", {})
-  .n("CloudFormationClient", "ListStackSetOperationResultsCommand")
-  .sc(ListStackSetOperationResults$)
-  .build() {
+export class ListStackSetOperationResultsCommand extends command<ListStackSetOperationResultsCommandInput, ListStackSetOperationResultsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListStackSetOperationResults",
+  ListStackSetOperationResults$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

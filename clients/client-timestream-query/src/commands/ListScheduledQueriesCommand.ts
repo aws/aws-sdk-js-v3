@@ -1,23 +1,14 @@
 // smithy-typescript generated code
-import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListScheduledQueriesRequest, ListScheduledQueriesResponse } from "../models/models_0";
 import { ListScheduledQueries$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TimestreamQueryClientResolvedConfig,
-} from "../TimestreamQueryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,29 +96,12 @@ export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesR
  *
  * @public
  */
-export class ListScheduledQueriesCommand extends $Command
-  .classBuilder<
-    ListScheduledQueriesCommandInput,
-    ListScheduledQueriesCommandOutput,
-    TimestreamQueryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TimestreamQueryClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEndpointDiscoveryPlugin(config, {
-        clientStack: cs,
-        isDiscoveredEndpointRequired: true,
-        options: o,
-      }),
-    ];
-  })
-  .s("Timestream_20181101", "ListScheduledQueries", {})
-  .n("TimestreamQueryClient", "ListScheduledQueriesCommand")
-  .sc(ListScheduledQueries$)
-  .build() {
+export class ListScheduledQueriesCommand extends command<ListScheduledQueriesCommandInput, ListScheduledQueriesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListScheduledQueries",
+  ListScheduledQueries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

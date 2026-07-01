@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateMailboxQuotaRequest, UpdateMailboxQuotaResponse } from "../models/models_0";
 import { UpdateMailboxQuota$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface UpdateMailboxQuotaCommandOutput extends UpdateMailboxQuotaRespo
  *
  * @public
  */
-export class UpdateMailboxQuotaCommand extends $Command
-  .classBuilder<
-    UpdateMailboxQuotaCommandInput,
-    UpdateMailboxQuotaCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "UpdateMailboxQuota", {})
-  .n("WorkMailClient", "UpdateMailboxQuotaCommand")
-  .sc(UpdateMailboxQuota$)
-  .build() {
+export class UpdateMailboxQuotaCommand extends command<UpdateMailboxQuotaCommandInput, UpdateMailboxQuotaCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateMailboxQuota",
+  UpdateMailboxQuota$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

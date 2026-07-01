@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMeetingsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMeetingsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAttendeeRequest } from "../models/models_0";
 import { DeleteAttendee$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteAttendee$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteAttendeeCommand extends $Command
-  .classBuilder<
-    DeleteAttendeeCommandInput,
-    DeleteAttendeeCommandOutput,
-    ChimeSDKMeetingsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMeetingsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeMeetingsSDKService", "DeleteAttendee", {})
-  .n("ChimeSDKMeetingsClient", "DeleteAttendeeCommand")
-  .sc(DeleteAttendee$)
-  .build() {
+export class DeleteAttendeeCommand extends command<DeleteAttendeeCommandInput, DeleteAttendeeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAttendee",
+  DeleteAttendee$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

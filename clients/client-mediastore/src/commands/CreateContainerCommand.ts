@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateContainerInput, CreateContainerOutput } from "../models/models_0";
 import { CreateContainer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateContainer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface CreateContainerCommandOutput extends CreateContainerOutput, __M
  *
  * @public
  */
-export class CreateContainerCommand extends $Command
-  .classBuilder<
-    CreateContainerCommandInput,
-    CreateContainerCommandOutput,
-    MediaStoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaStoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaStore_20170901", "CreateContainer", {})
-  .n("MediaStoreClient", "CreateContainerCommand")
-  .sc(CreateContainer$)
-  .build() {
+export class CreateContainerCommand extends command<CreateContainerCommandInput, CreateContainerCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateContainer",
+  CreateContainer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

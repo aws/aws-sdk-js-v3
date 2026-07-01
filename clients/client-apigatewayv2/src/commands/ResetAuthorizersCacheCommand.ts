@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ResetAuthorizersCacheRequest } from "../models/models_0";
 import { ResetAuthorizersCache$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ResetAuthorizersCache$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -64,22 +60,12 @@ export interface ResetAuthorizersCacheCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class ResetAuthorizersCacheCommand extends $Command
-  .classBuilder<
-    ResetAuthorizersCacheCommandInput,
-    ResetAuthorizersCacheCommandOutput,
-    ApiGatewayV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApiGatewayV2", "ResetAuthorizersCache", {})
-  .n("ApiGatewayV2Client", "ResetAuthorizersCacheCommand")
-  .sc(ResetAuthorizersCache$)
-  .build() {
+export class ResetAuthorizersCacheCommand extends command<ResetAuthorizersCacheCommandInput, ResetAuthorizersCacheCommandOutput>(
+  _ep0,
+  _mw0,
+  "ResetAuthorizersCache",
+  ResetAuthorizersCache$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

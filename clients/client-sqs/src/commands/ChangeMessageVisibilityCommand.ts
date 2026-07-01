@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ChangeMessageVisibilityRequest } from "../models/models_0";
 import { ChangeMessageVisibility$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +129,12 @@ export interface ChangeMessageVisibilityCommandOutput extends __MetadataBearer {
  *
  * @public
  */
-export class ChangeMessageVisibilityCommand extends $Command
-  .classBuilder<
-    ChangeMessageVisibilityCommandInput,
-    ChangeMessageVisibilityCommandOutput,
-    SQSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSQS", "ChangeMessageVisibility", {})
-  .n("SQSClient", "ChangeMessageVisibilityCommand")
-  .sc(ChangeMessageVisibility$)
-  .build() {
+export class ChangeMessageVisibilityCommand extends command<ChangeMessageVisibilityCommandInput, ChangeMessageVisibilityCommandOutput>(
+  _ep0,
+  _mw0,
+  "ChangeMessageVisibility",
+  ChangeMessageVisibility$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

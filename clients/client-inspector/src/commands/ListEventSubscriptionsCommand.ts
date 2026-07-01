@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListEventSubscriptionsRequest, ListEventSubscriptionsResponse } from "../models/models_0";
 import { ListEventSubscriptions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListEventSubscriptions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface ListEventSubscriptionsCommandOutput extends ListEventSubscripti
  *
  * @public
  */
-export class ListEventSubscriptionsCommand extends $Command
-  .classBuilder<
-    ListEventSubscriptionsCommandInput,
-    ListEventSubscriptionsCommandOutput,
-    InspectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("InspectorService", "ListEventSubscriptions", {})
-  .n("InspectorClient", "ListEventSubscriptionsCommand")
-  .sc(ListEventSubscriptions$)
-  .build() {
+export class ListEventSubscriptionsCommand extends command<ListEventSubscriptionsCommandInput, ListEventSubscriptionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEventSubscriptions",
+  ListEventSubscriptions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

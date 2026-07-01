@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetServiceLastAccessedDetailsRequest, GetServiceLastAccessedDetailsResponse } from "../models/models_0";
 import { GetServiceLastAccessedDetails$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetServiceLastAccessedDetails$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -179,22 +175,12 @@ export interface GetServiceLastAccessedDetailsCommandOutput extends GetServiceLa
  *
  * @public
  */
-export class GetServiceLastAccessedDetailsCommand extends $Command
-  .classBuilder<
-    GetServiceLastAccessedDetailsCommandInput,
-    GetServiceLastAccessedDetailsCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "GetServiceLastAccessedDetails", {})
-  .n("IAMClient", "GetServiceLastAccessedDetailsCommand")
-  .sc(GetServiceLastAccessedDetails$)
-  .build() {
+export class GetServiceLastAccessedDetailsCommand extends command<GetServiceLastAccessedDetailsCommandInput, GetServiceLastAccessedDetailsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetServiceLastAccessedDetails",
+  GetServiceLastAccessedDetails$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

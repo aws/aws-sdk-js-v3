@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeSecurityPolicyRequest, DescribeSecurityPolicyResponse } from "../models/models_0";
 import { DescribeSecurityPolicy$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface DescribeSecurityPolicyCommandOutput extends DescribeSecurityPol
  *
  * @public
  */
-export class DescribeSecurityPolicyCommand extends $Command
-  .classBuilder<
-    DescribeSecurityPolicyCommandInput,
-    DescribeSecurityPolicyCommandOutput,
-    TransferClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TransferService", "DescribeSecurityPolicy", {})
-  .n("TransferClient", "DescribeSecurityPolicyCommand")
-  .sc(DescribeSecurityPolicy$)
-  .build() {
+export class DescribeSecurityPolicyCommand extends command<DescribeSecurityPolicyCommandInput, DescribeSecurityPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSecurityPolicy",
+  DescribeSecurityPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

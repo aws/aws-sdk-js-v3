@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMeetingsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMeetingsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopMeetingTranscriptionRequest } from "../models/models_0";
 import { StopMeetingTranscription$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StopMeetingTranscription$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface StopMeetingTranscriptionCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class StopMeetingTranscriptionCommand extends $Command
-  .classBuilder<
-    StopMeetingTranscriptionCommandInput,
-    StopMeetingTranscriptionCommandOutput,
-    ChimeSDKMeetingsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMeetingsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeMeetingsSDKService", "StopMeetingTranscription", {})
-  .n("ChimeSDKMeetingsClient", "StopMeetingTranscriptionCommand")
-  .sc(StopMeetingTranscription$)
-  .build() {
+export class StopMeetingTranscriptionCommand extends command<StopMeetingTranscriptionCommandInput, StopMeetingTranscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopMeetingTranscription",
+  StopMeetingTranscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

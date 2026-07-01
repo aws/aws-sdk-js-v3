@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateIntegratedResourcesInput, UpdateIntegratedResourcesOutput } from "../models/models_0";
 import { UpdateIntegratedResources$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +116,12 @@ export interface UpdateIntegratedResourcesCommandOutput extends UpdateIntegrated
  *
  * @public
  */
-export class UpdateIntegratedResourcesCommand extends $Command
-  .classBuilder<
-    UpdateIntegratedResourcesCommandInput,
-    UpdateIntegratedResourcesCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "UpdateIntegratedResources", {})
-  .n("SecurityAgentClient", "UpdateIntegratedResourcesCommand")
-  .sc(UpdateIntegratedResources$)
-  .build() {
+export class UpdateIntegratedResourcesCommand extends command<UpdateIntegratedResourcesCommandInput, UpdateIntegratedResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateIntegratedResources",
+  UpdateIntegratedResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

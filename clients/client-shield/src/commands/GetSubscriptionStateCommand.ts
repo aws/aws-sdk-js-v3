@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSubscriptionStateRequest, GetSubscriptionStateResponse } from "../models/models_0";
 import { GetSubscriptionState$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -60,22 +56,12 @@ export interface GetSubscriptionStateCommandOutput extends GetSubscriptionStateR
  *
  * @public
  */
-export class GetSubscriptionStateCommand extends $Command
-  .classBuilder<
-    GetSubscriptionStateCommandInput,
-    GetSubscriptionStateCommandOutput,
-    ShieldClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShield_20160616", "GetSubscriptionState", {})
-  .n("ShieldClient", "GetSubscriptionStateCommand")
-  .sc(GetSubscriptionState$)
-  .build() {
+export class GetSubscriptionStateCommand extends command<GetSubscriptionStateCommandInput, GetSubscriptionStateCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSubscriptionState",
+  GetSubscriptionState$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartFraudsterRegistrationJobRequest, StartFraudsterRegistrationJobResponse } from "../models/models_0";
 import { StartFraudsterRegistrationJob$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +129,12 @@ export interface StartFraudsterRegistrationJobCommandOutput extends StartFraudst
  *
  * @public
  */
-export class StartFraudsterRegistrationJobCommand extends $Command
-  .classBuilder<
-    StartFraudsterRegistrationJobCommandInput,
-    StartFraudsterRegistrationJobCommandOutput,
-    VoiceIDClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("VoiceID", "StartFraudsterRegistrationJob", {})
-  .n("VoiceIDClient", "StartFraudsterRegistrationJobCommand")
-  .sc(StartFraudsterRegistrationJob$)
-  .build() {
+export class StartFraudsterRegistrationJobCommand extends command<StartFraudsterRegistrationJobCommandInput, StartFraudsterRegistrationJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartFraudsterRegistrationJob",
+  StartFraudsterRegistrationJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

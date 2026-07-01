@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetProtectedQueryInput, GetProtectedQueryOutput } from "../models/models_1";
 import { GetProtectedQuery$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetProtectedQuery$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -176,22 +172,12 @@ export interface GetProtectedQueryCommandOutput extends GetProtectedQueryOutput,
  *
  * @public
  */
-export class GetProtectedQueryCommand extends $Command
-  .classBuilder<
-    GetProtectedQueryCommandInput,
-    GetProtectedQueryCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "GetProtectedQuery", {})
-  .n("CleanRoomsClient", "GetProtectedQueryCommand")
-  .sc(GetProtectedQuery$)
-  .build() {
+export class GetProtectedQueryCommand extends command<GetProtectedQueryCommandInput, GetProtectedQueryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetProtectedQuery",
+  GetProtectedQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

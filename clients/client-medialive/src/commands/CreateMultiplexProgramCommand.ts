@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateMultiplexProgramRequest, CreateMultiplexProgramResponse } from "../models/models_1";
 import { CreateMultiplexProgram$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateMultiplexProgram$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -155,22 +151,12 @@ export interface CreateMultiplexProgramCommandOutput extends CreateMultiplexProg
  *
  * @public
  */
-export class CreateMultiplexProgramCommand extends $Command
-  .classBuilder<
-    CreateMultiplexProgramCommandInput,
-    CreateMultiplexProgramCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "CreateMultiplexProgram", {})
-  .n("MediaLiveClient", "CreateMultiplexProgramCommand")
-  .sc(CreateMultiplexProgram$)
-  .build() {
+export class CreateMultiplexProgramCommand extends command<CreateMultiplexProgramCommandInput, CreateMultiplexProgramCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateMultiplexProgram",
+  CreateMultiplexProgram$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

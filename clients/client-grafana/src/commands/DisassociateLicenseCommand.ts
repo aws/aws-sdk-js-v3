@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateLicenseRequest, DisassociateLicenseResponse } from "../models/models_0";
 import { DisassociateLicense$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateLicense$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -131,22 +127,12 @@ export interface DisassociateLicenseCommandOutput extends DisassociateLicenseRes
  *
  * @public
  */
-export class DisassociateLicenseCommand extends $Command
-  .classBuilder<
-    DisassociateLicenseCommandInput,
-    DisassociateLicenseCommandOutput,
-    GrafanaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GrafanaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGrafanaControlPlane", "DisassociateLicense", {})
-  .n("GrafanaClient", "DisassociateLicenseCommand")
-  .sc(DisassociateLicense$)
-  .build() {
+export class DisassociateLicenseCommand extends command<DisassociateLicenseCommandInput, DisassociateLicenseCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateLicense",
+  DisassociateLicense$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListUnsupportedAppVersionResourcesRequest,
   ListUnsupportedAppVersionResourcesResponse,
 } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { ListUnsupportedAppVersionResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface ListUnsupportedAppVersionResourcesCommandOutput extends ListUns
  *
  * @public
  */
-export class ListUnsupportedAppVersionResourcesCommand extends $Command
-  .classBuilder<
-    ListUnsupportedAppVersionResourcesCommandInput,
-    ListUnsupportedAppVersionResourcesCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "ListUnsupportedAppVersionResources", {})
-  .n("ResiliencehubClient", "ListUnsupportedAppVersionResourcesCommand")
-  .sc(ListUnsupportedAppVersionResources$)
-  .build() {
+export class ListUnsupportedAppVersionResourcesCommand extends command<ListUnsupportedAppVersionResourcesCommandInput, ListUnsupportedAppVersionResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListUnsupportedAppVersionResources",
+  ListUnsupportedAppVersionResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

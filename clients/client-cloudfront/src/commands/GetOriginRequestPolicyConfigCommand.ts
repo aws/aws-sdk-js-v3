@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetOriginRequestPolicyConfigRequest, GetOriginRequestPolicyConfigResult } from "../models/models_1";
 import { GetOriginRequestPolicyConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetOriginRequestPolicyConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface GetOriginRequestPolicyConfigCommandOutput extends GetOriginRequ
  *
  * @public
  */
-export class GetOriginRequestPolicyConfigCommand extends $Command
-  .classBuilder<
-    GetOriginRequestPolicyConfigCommandInput,
-    GetOriginRequestPolicyConfigCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "GetOriginRequestPolicyConfig", {})
-  .n("CloudFrontClient", "GetOriginRequestPolicyConfigCommand")
-  .sc(GetOriginRequestPolicyConfig$)
-  .build() {
+export class GetOriginRequestPolicyConfigCommand extends command<GetOriginRequestPolicyConfigCommandInput, GetOriginRequestPolicyConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetOriginRequestPolicyConfig",
+  GetOriginRequestPolicyConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

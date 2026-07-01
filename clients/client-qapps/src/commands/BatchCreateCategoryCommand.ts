@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchCreateCategoryInput } from "../models/models_0";
-import type { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
 import { BatchCreateCategory$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface BatchCreateCategoryCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class BatchCreateCategoryCommand extends $Command
-  .classBuilder<
-    BatchCreateCategoryCommandInput,
-    BatchCreateCategoryCommandOutput,
-    QAppsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QAppsService", "BatchCreateCategory", {})
-  .n("QAppsClient", "BatchCreateCategoryCommand")
-  .sc(BatchCreateCategory$)
-  .build() {
+export class BatchCreateCategoryCommand extends command<BatchCreateCategoryCommandInput, BatchCreateCategoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchCreateCategory",
+  BatchCreateCategory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RollbackStackInput, RollbackStackOutput } from "../models/models_0";
 import { RollbackStack$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { RollbackStack$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +100,12 @@ export interface RollbackStackCommandOutput extends RollbackStackOutput, __Metad
  *
  * @public
  */
-export class RollbackStackCommand extends $Command
-  .classBuilder<
-    RollbackStackCommandInput,
-    RollbackStackCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "RollbackStack", {})
-  .n("CloudFormationClient", "RollbackStackCommand")
-  .sc(RollbackStack$)
-  .build() {
+export class RollbackStackCommand extends command<RollbackStackCommandInput, RollbackStackCommandOutput>(
+  _ep0,
+  _mw0,
+  "RollbackStack",
+  RollbackStack$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

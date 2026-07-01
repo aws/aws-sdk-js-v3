@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAddressTransfersRequest, DescribeAddressTransfersResult } from "../models/models_3";
 import { DescribeAddressTransfers$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeAddressTransfers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DescribeAddressTransfersCommandOutput extends DescribeAddressTr
  *
  * @public
  */
-export class DescribeAddressTransfersCommand extends $Command
-  .classBuilder<
-    DescribeAddressTransfersCommandInput,
-    DescribeAddressTransfersCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeAddressTransfers", {})
-  .n("EC2Client", "DescribeAddressTransfersCommand")
-  .sc(DescribeAddressTransfers$)
-  .build() {
+export class DescribeAddressTransfersCommand extends command<DescribeAddressTransfersCommandInput, DescribeAddressTransfersCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAddressTransfers",
+  DescribeAddressTransfers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

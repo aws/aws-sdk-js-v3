@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetReservationCoverageRequest, GetReservationCoverageResponse } from "../models/models_0";
 import { GetReservationCoverage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetReservationCoverage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -249,22 +245,12 @@ export interface GetReservationCoverageCommandOutput extends GetReservationCover
  *
  * @public
  */
-export class GetReservationCoverageCommand extends $Command
-  .classBuilder<
-    GetReservationCoverageCommandInput,
-    GetReservationCoverageCommandOutput,
-    CostExplorerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSInsightsIndexService", "GetReservationCoverage", {})
-  .n("CostExplorerClient", "GetReservationCoverageCommand")
-  .sc(GetReservationCoverage$)
-  .build() {
+export class GetReservationCoverageCommand extends command<GetReservationCoverageCommandInput, GetReservationCoverageCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetReservationCoverage",
+  GetReservationCoverage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

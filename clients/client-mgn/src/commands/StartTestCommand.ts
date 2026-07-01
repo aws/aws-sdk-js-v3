@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartTestRequest, StartTestResponse } from "../models/models_0";
 import { StartTest$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartTest$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface StartTestCommandOutput extends StartTestResponse, __MetadataBea
  *
  * @public
  */
-export class StartTestCommand extends $Command
-  .classBuilder<
-    StartTestCommandInput,
-    StartTestCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "StartTest", {})
-  .n("MgnClient", "StartTestCommand")
-  .sc(StartTest$)
-  .build() {
+export class StartTestCommand extends command<StartTestCommandInput, StartTestCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartTest",
+  StartTest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

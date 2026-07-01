@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDomainNameRequest, UpdateDomainNameResponse } from "../models/models_0";
 import { UpdateDomainName$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateDomainName$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  *
  * @public
  */
-export class UpdateDomainNameCommand extends $Command
-  .classBuilder<
-    UpdateDomainNameCommandInput,
-    UpdateDomainNameCommandOutput,
-    AppSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepdishControlPlaneService", "UpdateDomainName", {})
-  .n("AppSyncClient", "UpdateDomainNameCommand")
-  .sc(UpdateDomainName$)
-  .build() {
+export class UpdateDomainNameCommand extends command<UpdateDomainNameCommandInput, UpdateDomainNameCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDomainName",
+  UpdateDomainName$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

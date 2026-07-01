@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateEmailAddressAliasRequest, DisassociateEmailAddressAliasResponse } from "../models/models_1";
 import { DisassociateEmailAddressAlias$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateEmailAddressAlias$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -171,22 +167,12 @@ export interface DisassociateEmailAddressAliasCommandOutput extends Disassociate
  *
  * @public
  */
-export class DisassociateEmailAddressAliasCommand extends $Command
-  .classBuilder<
-    DisassociateEmailAddressAliasCommandInput,
-    DisassociateEmailAddressAliasCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DisassociateEmailAddressAlias", {})
-  .n("ConnectClient", "DisassociateEmailAddressAliasCommand")
-  .sc(DisassociateEmailAddressAlias$)
-  .build() {
+export class DisassociateEmailAddressAliasCommand extends command<DisassociateEmailAddressAliasCommandInput, DisassociateEmailAddressAliasCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateEmailAddressAlias",
+  DisassociateEmailAddressAlias$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopProjectVersionRequest, StopProjectVersionResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { StopProjectVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface StopProjectVersionCommandOutput extends StopProjectVersionRespo
  *
  * @public
  */
-export class StopProjectVersionCommand extends $Command
-  .classBuilder<
-    StopProjectVersionCommandInput,
-    StopProjectVersionCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "StopProjectVersion", {})
-  .n("RekognitionClient", "StopProjectVersionCommand")
-  .sc(StopProjectVersion$)
-  .build() {
+export class StopProjectVersionCommand extends command<StopProjectVersionCommandInput, StopProjectVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopProjectVersion",
+  StopProjectVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

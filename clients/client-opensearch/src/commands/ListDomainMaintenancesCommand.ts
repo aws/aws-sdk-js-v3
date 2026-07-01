@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDomainMaintenancesRequest, ListDomainMaintenancesResponse } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { ListDomainMaintenances$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface ListDomainMaintenancesCommandOutput extends ListDomainMaintenan
  *
  * @public
  */
-export class ListDomainMaintenancesCommand extends $Command
-  .classBuilder<
-    ListDomainMaintenancesCommandInput,
-    ListDomainMaintenancesCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "ListDomainMaintenances", {})
-  .n("OpenSearchClient", "ListDomainMaintenancesCommand")
-  .sc(ListDomainMaintenances$)
-  .build() {
+export class ListDomainMaintenancesCommand extends command<ListDomainMaintenancesCommandInput, ListDomainMaintenancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDomainMaintenances",
+  ListDomainMaintenances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartDomainMaintenanceRequest, StartDomainMaintenanceResponse } from "../models/models_1";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { StartDomainMaintenance$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface StartDomainMaintenanceCommandOutput extends StartDomainMaintena
  *
  * @public
  */
-export class StartDomainMaintenanceCommand extends $Command
-  .classBuilder<
-    StartDomainMaintenanceCommandInput,
-    StartDomainMaintenanceCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "StartDomainMaintenance", {})
-  .n("OpenSearchClient", "StartDomainMaintenanceCommand")
-  .sc(StartDomainMaintenance$)
-  .build() {
+export class StartDomainMaintenanceCommand extends command<StartDomainMaintenanceCommandInput, StartDomainMaintenanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartDomainMaintenance",
+  StartDomainMaintenance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

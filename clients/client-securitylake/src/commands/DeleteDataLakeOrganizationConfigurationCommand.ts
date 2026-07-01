@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteDataLakeOrganizationConfigurationRequest,
   DeleteDataLakeOrganizationConfigurationResponse,
 } from "../models/models_0";
 import { DeleteDataLakeOrganizationConfiguration$ } from "../schemas/schemas_0";
-import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface DeleteDataLakeOrganizationConfigurationCommandOutput extends De
  *
  * @public
  */
-export class DeleteDataLakeOrganizationConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteDataLakeOrganizationConfigurationCommandInput,
-    DeleteDataLakeOrganizationConfigurationCommandOutput,
-    SecurityLakeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityLake", "DeleteDataLakeOrganizationConfiguration", {})
-  .n("SecurityLakeClient", "DeleteDataLakeOrganizationConfigurationCommand")
-  .sc(DeleteDataLakeOrganizationConfiguration$)
-  .build() {
+export class DeleteDataLakeOrganizationConfigurationCommand extends command<DeleteDataLakeOrganizationConfigurationCommandInput, DeleteDataLakeOrganizationConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDataLakeOrganizationConfiguration",
+  DeleteDataLakeOrganizationConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

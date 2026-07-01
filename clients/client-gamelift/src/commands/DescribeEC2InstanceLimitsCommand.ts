@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeEC2InstanceLimitsInput, DescribeEC2InstanceLimitsOutput } from "../models/models_0";
 import { DescribeEC2InstanceLimits$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeEC2InstanceLimits$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +136,12 @@ export interface DescribeEC2InstanceLimitsCommandOutput extends DescribeEC2Insta
  *
  * @public
  */
-export class DescribeEC2InstanceLimitsCommand extends $Command
-  .classBuilder<
-    DescribeEC2InstanceLimitsCommandInput,
-    DescribeEC2InstanceLimitsCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "DescribeEC2InstanceLimits", {})
-  .n("GameLiftClient", "DescribeEC2InstanceLimitsCommand")
-  .sc(DescribeEC2InstanceLimits$)
-  .build() {
+export class DescribeEC2InstanceLimitsCommand extends command<DescribeEC2InstanceLimitsCommandInput, DescribeEC2InstanceLimitsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEC2InstanceLimits",
+  DescribeEC2InstanceLimits$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

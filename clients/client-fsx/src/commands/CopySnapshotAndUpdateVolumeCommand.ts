@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CopySnapshotAndUpdateVolumeRequest, CopySnapshotAndUpdateVolumeResponse } from "../models/models_0";
 import { CopySnapshotAndUpdateVolume$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CopySnapshotAndUpdateVolume$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -710,22 +706,12 @@ export interface CopySnapshotAndUpdateVolumeCommandOutput extends CopySnapshotAn
  *
  * @public
  */
-export class CopySnapshotAndUpdateVolumeCommand extends $Command
-  .classBuilder<
-    CopySnapshotAndUpdateVolumeCommandInput,
-    CopySnapshotAndUpdateVolumeCommandOutput,
-    FSxClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSimbaAPIService_v20180301", "CopySnapshotAndUpdateVolume", {})
-  .n("FSxClient", "CopySnapshotAndUpdateVolumeCommand")
-  .sc(CopySnapshotAndUpdateVolume$)
-  .build() {
+export class CopySnapshotAndUpdateVolumeCommand extends command<CopySnapshotAndUpdateVolumeCommandInput, CopySnapshotAndUpdateVolumeCommandOutput>(
+  _ep0,
+  _mw0,
+  "CopySnapshotAndUpdateVolume",
+  CopySnapshotAndUpdateVolume$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListHumanLoopsRequest, ListHumanLoopsResponse } from "../models/models_0";
-import type {
-  SageMakerA2IRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SageMakerA2IRuntimeClient";
 import { ListHumanLoops$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +86,12 @@ export interface ListHumanLoopsCommandOutput extends ListHumanLoopsResponse, __M
  *
  * @public
  */
-export class ListHumanLoopsCommand extends $Command
-  .classBuilder<
-    ListHumanLoopsCommandInput,
-    ListHumanLoopsCommandOutput,
-    SageMakerA2IRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerA2IRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSageMakerA2IRuntime", "ListHumanLoops", {})
-  .n("SageMakerA2IRuntimeClient", "ListHumanLoopsCommand")
-  .sc(ListHumanLoops$)
-  .build() {
+export class ListHumanLoopsCommand extends command<ListHumanLoopsCommandInput, ListHumanLoopsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListHumanLoops",
+  ListHumanLoops$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

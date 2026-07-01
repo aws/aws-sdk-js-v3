@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteInboundConnectionRequest, DeleteInboundConnectionResponse } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { DeleteInboundConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface DeleteInboundConnectionCommandOutput extends DeleteInboundConne
  *
  * @public
  */
-export class DeleteInboundConnectionCommand extends $Command
-  .classBuilder<
-    DeleteInboundConnectionCommandInput,
-    DeleteInboundConnectionCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "DeleteInboundConnection", {})
-  .n("OpenSearchClient", "DeleteInboundConnectionCommand")
-  .sc(DeleteInboundConnection$)
-  .build() {
+export class DeleteInboundConnectionCommand extends command<DeleteInboundConnectionCommandInput, DeleteInboundConnectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteInboundConnection",
+  DeleteInboundConnection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

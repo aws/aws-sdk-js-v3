@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ImportCatalogToGlueRequest, ImportCatalogToGlueResponse } from "../models/models_2";
 import { ImportCatalogToGlue$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ImportCatalogToGlue$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface ImportCatalogToGlueCommandOutput extends ImportCatalogToGlueRes
  *
  * @public
  */
-export class ImportCatalogToGlueCommand extends $Command
-  .classBuilder<
-    ImportCatalogToGlueCommandInput,
-    ImportCatalogToGlueCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "ImportCatalogToGlue", {})
-  .n("GlueClient", "ImportCatalogToGlueCommand")
-  .sc(ImportCatalogToGlue$)
-  .build() {
+export class ImportCatalogToGlueCommand extends command<ImportCatalogToGlueCommandInput, ImportCatalogToGlueCommandOutput>(
+  _ep0,
+  _mw0,
+  "ImportCatalogToGlue",
+  ImportCatalogToGlue$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

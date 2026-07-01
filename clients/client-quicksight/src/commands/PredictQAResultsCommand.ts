@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PredictQAResultsRequest, PredictQAResultsResponse } from "../models/models_4";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { PredictQAResults$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -129,22 +125,12 @@ export interface PredictQAResultsCommandOutput extends PredictQAResultsResponse,
  *
  * @public
  */
-export class PredictQAResultsCommand extends $Command
-  .classBuilder<
-    PredictQAResultsCommandInput,
-    PredictQAResultsCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "PredictQAResults", {})
-  .n("QuickSightClient", "PredictQAResultsCommand")
-  .sc(PredictQAResults$)
-  .build() {
+export class PredictQAResultsCommand extends command<PredictQAResultsCommandInput, PredictQAResultsCommandOutput>(
+  _ep0,
+  _mw0,
+  "PredictQAResults",
+  PredictQAResults$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

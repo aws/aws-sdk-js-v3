@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PurchaseReservedNodeOfferingMessage, PurchaseReservedNodeOfferingResult } from "../models/models_1";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { PurchaseReservedNodeOffering$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface PurchaseReservedNodeOfferingCommandOutput extends PurchaseReser
  *
  * @public
  */
-export class PurchaseReservedNodeOfferingCommand extends $Command
-  .classBuilder<
-    PurchaseReservedNodeOfferingCommandInput,
-    PurchaseReservedNodeOfferingCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "PurchaseReservedNodeOffering", {})
-  .n("RedshiftClient", "PurchaseReservedNodeOfferingCommand")
-  .sc(PurchaseReservedNodeOffering$)
-  .build() {
+export class PurchaseReservedNodeOfferingCommand extends command<PurchaseReservedNodeOfferingCommandInput, PurchaseReservedNodeOfferingCommandOutput>(
+  _ep0,
+  _mw0,
+  "PurchaseReservedNodeOffering",
+  PurchaseReservedNodeOffering$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

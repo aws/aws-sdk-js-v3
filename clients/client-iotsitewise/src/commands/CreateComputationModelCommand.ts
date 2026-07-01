@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateComputationModelResponse } from "../models/models_0";
 import type { CreateComputationModelRequest } from "../models/models_1";
 import { CreateComputationModel$ } from "../schemas/schemas_0";
@@ -13,7 +10,6 @@ import { CreateComputationModel$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -141,22 +137,12 @@ export interface CreateComputationModelCommandOutput extends CreateComputationMo
  *
  * @public
  */
-export class CreateComputationModelCommand extends $Command
-  .classBuilder<
-    CreateComputationModelCommandInput,
-    CreateComputationModelCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "CreateComputationModel", {})
-  .n("IoTSiteWiseClient", "CreateComputationModelCommand")
-  .sc(CreateComputationModel$)
-  .build() {
+export class CreateComputationModelCommand extends command<CreateComputationModelCommandInput, CreateComputationModelCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateComputationModel",
+  CreateComputationModel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

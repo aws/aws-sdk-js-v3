@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisableSsoRequest, DisableSsoResult } from "../models/models_0";
 import { DisableSso$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DisableSso$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface DisableSsoCommandOutput extends DisableSsoResult, __MetadataBea
  *
  * @public
  */
-export class DisableSsoCommand extends $Command
-  .classBuilder<
-    DisableSsoCommandInput,
-    DisableSsoCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "DisableSso", {})
-  .n("DirectoryServiceClient", "DisableSsoCommand")
-  .sc(DisableSso$)
-  .build() {
+export class DisableSsoCommand extends command<DisableSsoCommandInput, DisableSsoCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableSso",
+  DisableSso$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

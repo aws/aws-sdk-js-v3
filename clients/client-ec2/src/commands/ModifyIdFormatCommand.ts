@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyIdFormatRequest } from "../models/models_6";
 import { ModifyIdFormat$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ModifyIdFormat$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface ModifyIdFormatCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class ModifyIdFormatCommand extends $Command
-  .classBuilder<
-    ModifyIdFormatCommandInput,
-    ModifyIdFormatCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "ModifyIdFormat", {})
-  .n("EC2Client", "ModifyIdFormatCommand")
-  .sc(ModifyIdFormat$)
-  .build() {
+export class ModifyIdFormatCommand extends command<ModifyIdFormatCommandInput, ModifyIdFormatCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyIdFormat",
+  ModifyIdFormat$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

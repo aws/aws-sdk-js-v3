@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetReservedNodeExchangeConfigurationOptionsInputMessage,
   GetReservedNodeExchangeConfigurationOptionsOutputMessage,
 } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { GetReservedNodeExchangeConfigurationOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -135,22 +131,12 @@ export interface GetReservedNodeExchangeConfigurationOptionsCommandOutput extend
  *
  * @public
  */
-export class GetReservedNodeExchangeConfigurationOptionsCommand extends $Command
-  .classBuilder<
-    GetReservedNodeExchangeConfigurationOptionsCommandInput,
-    GetReservedNodeExchangeConfigurationOptionsCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "GetReservedNodeExchangeConfigurationOptions", {})
-  .n("RedshiftClient", "GetReservedNodeExchangeConfigurationOptionsCommand")
-  .sc(GetReservedNodeExchangeConfigurationOptions$)
-  .build() {
+export class GetReservedNodeExchangeConfigurationOptionsCommand extends command<GetReservedNodeExchangeConfigurationOptionsCommandInput, GetReservedNodeExchangeConfigurationOptionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetReservedNodeExchangeConfigurationOptions",
+  GetReservedNodeExchangeConfigurationOptions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

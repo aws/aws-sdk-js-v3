@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteWorkgroupRequest, DeleteWorkgroupResponse } from "../models/models_0";
-import type {
-  RedshiftServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RedshiftServerlessClient";
 import { DeleteWorkgroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -134,22 +126,12 @@ export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, _
  *
  * @public
  */
-export class DeleteWorkgroupCommand extends $Command
-  .classBuilder<
-    DeleteWorkgroupCommandInput,
-    DeleteWorkgroupCommandOutput,
-    RedshiftServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServerless", "DeleteWorkgroup", {})
-  .n("RedshiftServerlessClient", "DeleteWorkgroupCommand")
-  .sc(DeleteWorkgroup$)
-  .build() {
+export class DeleteWorkgroupCommand extends command<DeleteWorkgroupCommandInput, DeleteWorkgroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteWorkgroup",
+  DeleteWorkgroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

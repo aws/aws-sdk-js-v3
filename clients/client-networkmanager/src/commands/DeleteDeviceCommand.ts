@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDeviceRequest, DeleteDeviceResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { DeleteDevice$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +103,12 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  *
  * @public
  */
-export class DeleteDeviceCommand extends $Command
-  .classBuilder<
-    DeleteDeviceCommandInput,
-    DeleteDeviceCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "DeleteDevice", {})
-  .n("NetworkManagerClient", "DeleteDeviceCommand")
-  .sc(DeleteDevice$)
-  .build() {
+export class DeleteDeviceCommand extends command<DeleteDeviceCommandInput, DeleteDeviceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDevice",
+  DeleteDevice$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

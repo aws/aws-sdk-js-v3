@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerLinuxSubscriptionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerLinuxSubscriptionsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterSubscriptionProviderRequest, RegisterSubscriptionProviderResponse } from "../models/models_0";
 import { RegisterSubscriptionProvider$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { RegisterSubscriptionProvider$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +70,12 @@ export interface RegisterSubscriptionProviderCommandOutput extends RegisterSubsc
  *
  * @public
  */
-export class RegisterSubscriptionProviderCommand extends $Command
-  .classBuilder<
-    RegisterSubscriptionProviderCommandInput,
-    RegisterSubscriptionProviderCommandOutput,
-    LicenseManagerLinuxSubscriptionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerLinuxSubscriptionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LicenseManagerLinuxSubscriptions", "RegisterSubscriptionProvider", {})
-  .n("LicenseManagerLinuxSubscriptionsClient", "RegisterSubscriptionProviderCommand")
-  .sc(RegisterSubscriptionProvider$)
-  .build() {
+export class RegisterSubscriptionProviderCommand extends command<RegisterSubscriptionProviderCommandInput, RegisterSubscriptionProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterSubscriptionProvider",
+  RegisterSubscriptionProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

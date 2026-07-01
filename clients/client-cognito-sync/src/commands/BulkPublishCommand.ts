@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BulkPublishRequest, BulkPublishResponse } from "../models/models_0";
 import { BulkPublish$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BulkPublish$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface BulkPublishCommandOutput extends BulkPublishResponse, __Metadat
  *
  * @public
  */
-export class BulkPublishCommand extends $Command
-  .classBuilder<
-    BulkPublishCommandInput,
-    BulkPublishCommandOutput,
-    CognitoSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoSyncService", "BulkPublish", {})
-  .n("CognitoSyncClient", "BulkPublishCommand")
-  .sc(BulkPublish$)
-  .build() {
+export class BulkPublishCommand extends command<BulkPublishCommandInput, BulkPublishCommandOutput>(
+  _ep0,
+  _mw0,
+  "BulkPublish",
+  BulkPublish$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSegmentRequest, GetSegmentResponse } from "../models/models_1";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { GetSegment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -233,22 +229,12 @@ export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataB
  *
  * @public
  */
-export class GetSegmentCommand extends $Command
-  .classBuilder<
-    GetSegmentCommandInput,
-    GetSegmentCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "GetSegment", {})
-  .n("PinpointClient", "GetSegmentCommand")
-  .sc(GetSegment$)
-  .build() {
+export class GetSegmentCommand extends command<GetSegmentCommandInput, GetSegmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSegment",
+  GetSegment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  GlobalAcceleratorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../GlobalAcceleratorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCustomRoutingListenerRequest } from "../models/models_0";
 import { DeleteCustomRoutingListener$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteCustomRoutingListener$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +66,12 @@ export interface DeleteCustomRoutingListenerCommandOutput extends __MetadataBear
  *
  * @public
  */
-export class DeleteCustomRoutingListenerCommand extends $Command
-  .classBuilder<
-    DeleteCustomRoutingListenerCommandInput,
-    DeleteCustomRoutingListenerCommandOutput,
-    GlobalAcceleratorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GlobalAccelerator_V20180706", "DeleteCustomRoutingListener", {})
-  .n("GlobalAcceleratorClient", "DeleteCustomRoutingListenerCommand")
-  .sc(DeleteCustomRoutingListener$)
-  .build() {
+export class DeleteCustomRoutingListenerCommand extends command<DeleteCustomRoutingListenerCommandInput, DeleteCustomRoutingListenerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCustomRoutingListener",
+  DeleteCustomRoutingListener$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAvailablePatchesRequest, DescribeAvailablePatchesResult } from "../models/models_0";
 import { DescribeAvailablePatches$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface DescribeAvailablePatchesCommandOutput extends DescribeAvailable
  *
  * @public
  */
-export class DescribeAvailablePatchesCommand extends $Command
-  .classBuilder<
-    DescribeAvailablePatchesCommandInput,
-    DescribeAvailablePatchesCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "DescribeAvailablePatches", {})
-  .n("SSMClient", "DescribeAvailablePatchesCommand")
-  .sc(DescribeAvailablePatches$)
-  .build() {
+export class DescribeAvailablePatchesCommand extends command<DescribeAvailablePatchesCommandInput, DescribeAvailablePatchesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAvailablePatches",
+  DescribeAvailablePatches$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeMapRequest, DescribeMapResponse } from "../models/models_0";
 import { DescribeMap$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeMap$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface DescribeMapCommandOutput extends DescribeMapResponse, __Metadat
  *
  * @public
  */
-export class DescribeMapCommand extends $Command
-  .classBuilder<
-    DescribeMapCommandInput,
-    DescribeMapCommandOutput,
-    LocationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LocationService", "DescribeMap", {})
-  .n("LocationClient", "DescribeMapCommand")
-  .sc(DescribeMap$)
-  .build() {
+export class DescribeMapCommand extends command<DescribeMapCommandInput, DescribeMapCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeMap",
+  DescribeMap$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

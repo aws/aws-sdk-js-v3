@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutFunctionRequest, PutFunctionResponse } from "../models/models_0";
 import { PutFunction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutFunction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -134,22 +130,12 @@ export interface PutFunctionCommandOutput extends PutFunctionResponse, __Metadat
  *
  * @public
  */
-export class PutFunctionCommand extends $Command
-  .classBuilder<
-    PutFunctionCommandInput,
-    PutFunctionCommandOutput,
-    MediaTailorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaTailor", "PutFunction", {})
-  .n("MediaTailorClient", "PutFunctionCommand")
-  .sc(PutFunction$)
-  .build() {
+export class PutFunctionCommand extends command<PutFunctionCommandInput, PutFunctionCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutFunction",
+  PutFunction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

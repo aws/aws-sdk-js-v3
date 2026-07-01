@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeTenantDatabasesMessage, TenantDatabasesMessage } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DescribeTenantDatabases$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface DescribeTenantDatabasesCommandOutput extends TenantDatabasesMes
  *
  * @public
  */
-export class DescribeTenantDatabasesCommand extends $Command
-  .classBuilder<
-    DescribeTenantDatabasesCommandInput,
-    DescribeTenantDatabasesCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DescribeTenantDatabases", {})
-  .n("RDSClient", "DescribeTenantDatabasesCommand")
-  .sc(DescribeTenantDatabases$)
-  .build() {
+export class DescribeTenantDatabasesCommand extends command<DescribeTenantDatabasesCommandInput, DescribeTenantDatabasesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeTenantDatabases",
+  DescribeTenantDatabases$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

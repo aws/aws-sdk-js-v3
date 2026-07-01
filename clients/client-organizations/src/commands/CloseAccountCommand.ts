@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CloseAccountRequest } from "../models/models_0";
-import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { CloseAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -550,22 +546,12 @@ export interface CloseAccountCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class CloseAccountCommand extends $Command
-  .classBuilder<
-    CloseAccountCommandInput,
-    CloseAccountCommandOutput,
-    OrganizationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrganizationsV20161128", "CloseAccount", {})
-  .n("OrganizationsClient", "CloseAccountCommand")
-  .sc(CloseAccount$)
-  .build() {
+export class CloseAccountCommand extends command<CloseAccountCommandInput, CloseAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "CloseAccount",
+  CloseAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

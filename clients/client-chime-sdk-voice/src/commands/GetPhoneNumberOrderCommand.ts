@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPhoneNumberOrderRequest, GetPhoneNumberOrderResponse } from "../models/models_0";
 import { GetPhoneNumberOrder$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetPhoneNumberOrder$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface GetPhoneNumberOrderCommandOutput extends GetPhoneNumberOrderRes
  *
  * @public
  */
-export class GetPhoneNumberOrderCommand extends $Command
-  .classBuilder<
-    GetPhoneNumberOrderCommandInput,
-    GetPhoneNumberOrderCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "GetPhoneNumberOrder", {})
-  .n("ChimeSDKVoiceClient", "GetPhoneNumberOrderCommand")
-  .sc(GetPhoneNumberOrder$)
-  .build() {
+export class GetPhoneNumberOrderCommand extends command<GetPhoneNumberOrderCommandInput, GetPhoneNumberOrderCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPhoneNumberOrder",
+  GetPhoneNumberOrder$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

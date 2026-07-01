@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateInputRequest, UpdateInputResponse } from "../models/models_1";
 import { UpdateInput$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateInput$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -299,22 +295,12 @@ export interface UpdateInputCommandOutput extends UpdateInputResponse, __Metadat
  *
  * @public
  */
-export class UpdateInputCommand extends $Command
-  .classBuilder<
-    UpdateInputCommandInput,
-    UpdateInputCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "UpdateInput", {})
-  .n("MediaLiveClient", "UpdateInputCommand")
-  .sc(UpdateInput$)
-  .build() {
+export class UpdateInputCommand extends command<UpdateInputCommandInput, UpdateInputCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateInput",
+  UpdateInput$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchDisableStandardsRequest, BatchDisableStandardsResponse } from "../models/models_2";
 import { BatchDisableStandards$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +114,12 @@ export interface BatchDisableStandardsCommandOutput extends BatchDisableStandard
  *
  * @public
  */
-export class BatchDisableStandardsCommand extends $Command
-  .classBuilder<
-    BatchDisableStandardsCommandInput,
-    BatchDisableStandardsCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "BatchDisableStandards", {})
-  .n("SecurityHubClient", "BatchDisableStandardsCommand")
-  .sc(BatchDisableStandards$)
-  .build() {
+export class BatchDisableStandardsCommand extends command<BatchDisableStandardsCommandInput, BatchDisableStandardsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDisableStandards",
+  BatchDisableStandards$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

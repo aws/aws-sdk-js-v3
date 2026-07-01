@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateIntegrationInput } from "../models/models_0";
 import { UpdateIntegration$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WellArchitectedClientResolvedConfig,
-} from "../WellArchitectedClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface UpdateIntegrationCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdateIntegrationCommand extends $Command
-  .classBuilder<
-    UpdateIntegrationCommandInput,
-    UpdateIntegrationCommandOutput,
-    WellArchitectedClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WellArchitectedApiServiceLambda", "UpdateIntegration", {})
-  .n("WellArchitectedClient", "UpdateIntegrationCommand")
-  .sc(UpdateIntegration$)
-  .build() {
+export class UpdateIntegrationCommand extends command<UpdateIntegrationCommandInput, UpdateIntegrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateIntegration",
+  UpdateIntegration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

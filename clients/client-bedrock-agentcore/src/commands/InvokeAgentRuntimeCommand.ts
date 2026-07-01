@@ -1,18 +1,11 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type {
   BlobPayloadInputTypes,
   MetadataBearer as __MetadataBearer,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { InvokeAgentRuntimeRequest, InvokeAgentRuntimeResponse } from "../models/models_0";
 import { InvokeAgentRuntime$ } from "../schemas/schemas_0";
 
@@ -20,7 +13,6 @@ import { InvokeAgentRuntime$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  */
@@ -127,22 +119,12 @@ export interface InvokeAgentRuntimeCommandOutput extends Omit<InvokeAgentRuntime
  *
  * @public
  */
-export class InvokeAgentRuntimeCommand extends $Command
-  .classBuilder<
-    InvokeAgentRuntimeCommandInput,
-    InvokeAgentRuntimeCommandOutput,
-    BedrockAgentCoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCore", "InvokeAgentRuntime", {})
-  .n("BedrockAgentCoreClient", "InvokeAgentRuntimeCommand")
-  .sc(InvokeAgentRuntime$)
-  .build() {
+export class InvokeAgentRuntimeCommand extends command<InvokeAgentRuntimeCommandInput, InvokeAgentRuntimeCommandOutput>(
+  _ep0,
+  _mw0,
+  "InvokeAgentRuntime",
+  InvokeAgentRuntime$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

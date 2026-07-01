@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchAssociateServiceActionWithProvisioningArtifactInput,
   BatchAssociateServiceActionWithProvisioningArtifactOutput,
 } from "../models/models_0";
 import { BatchAssociateServiceActionWithProvisioningArtifact$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactCommandOutpu
  *
  * @public
  */
-export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends $Command
-  .classBuilder<
-    BatchAssociateServiceActionWithProvisioningArtifactCommandInput,
-    BatchAssociateServiceActionWithProvisioningArtifactCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "BatchAssociateServiceActionWithProvisioningArtifact", {})
-  .n("ServiceCatalogClient", "BatchAssociateServiceActionWithProvisioningArtifactCommand")
-  .sc(BatchAssociateServiceActionWithProvisioningArtifact$)
-  .build() {
+export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends command<BatchAssociateServiceActionWithProvisioningArtifactCommandInput, BatchAssociateServiceActionWithProvisioningArtifactCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchAssociateServiceActionWithProvisioningArtifact",
+  BatchAssociateServiceActionWithProvisioningArtifact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

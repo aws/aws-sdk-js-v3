@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RetrieveTapeArchiveInput, RetrieveTapeArchiveOutput } from "../models/models_0";
 import { RetrieveTapeArchive$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +86,12 @@ export interface RetrieveTapeArchiveCommandOutput extends RetrieveTapeArchiveOut
  *
  * @public
  */
-export class RetrieveTapeArchiveCommand extends $Command
-  .classBuilder<
-    RetrieveTapeArchiveCommandInput,
-    RetrieveTapeArchiveCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "RetrieveTapeArchive", {})
-  .n("StorageGatewayClient", "RetrieveTapeArchiveCommand")
-  .sc(RetrieveTapeArchive$)
-  .build() {
+export class RetrieveTapeArchiveCommand extends command<RetrieveTapeArchiveCommandInput, RetrieveTapeArchiveCommandOutput>(
+  _ep0,
+  _mw0,
+  "RetrieveTapeArchive",
+  RetrieveTapeArchive$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

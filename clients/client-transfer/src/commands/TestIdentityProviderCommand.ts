@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TestIdentityProviderRequest, TestIdentityProviderResponse } from "../models/models_0";
 import { TestIdentityProvider$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface TestIdentityProviderCommandOutput extends TestIdentityProviderR
  *
  * @public
  */
-export class TestIdentityProviderCommand extends $Command
-  .classBuilder<
-    TestIdentityProviderCommandInput,
-    TestIdentityProviderCommandOutput,
-    TransferClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TransferService", "TestIdentityProvider", {})
-  .n("TransferClient", "TestIdentityProviderCommand")
-  .sc(TestIdentityProvider$)
-  .build() {
+export class TestIdentityProviderCommand extends command<TestIdentityProviderCommandInput, TestIdentityProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "TestIdentityProvider",
+  TestIdentityProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

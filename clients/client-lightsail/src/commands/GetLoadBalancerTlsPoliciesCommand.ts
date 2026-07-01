@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetLoadBalancerTlsPoliciesRequest, GetLoadBalancerTlsPoliciesResult } from "../models/models_1";
 import { GetLoadBalancerTlsPolicies$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetLoadBalancerTlsPolicies$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface GetLoadBalancerTlsPoliciesCommandOutput extends GetLoadBalancer
  *
  * @public
  */
-export class GetLoadBalancerTlsPoliciesCommand extends $Command
-  .classBuilder<
-    GetLoadBalancerTlsPoliciesCommandInput,
-    GetLoadBalancerTlsPoliciesCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "GetLoadBalancerTlsPolicies", {})
-  .n("LightsailClient", "GetLoadBalancerTlsPoliciesCommand")
-  .sc(GetLoadBalancerTlsPolicies$)
-  .build() {
+export class GetLoadBalancerTlsPoliciesCommand extends command<GetLoadBalancerTlsPoliciesCommandInput, GetLoadBalancerTlsPoliciesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetLoadBalancerTlsPolicies",
+  GetLoadBalancerTlsPolicies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

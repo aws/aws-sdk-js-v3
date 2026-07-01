@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetStoredQueryRequest, GetStoredQueryResponse } from "../models/models_0";
 import { GetStoredQuery$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetStoredQuery$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface GetStoredQueryCommandOutput extends GetStoredQueryResponse, __M
  *
  * @public
  */
-export class GetStoredQueryCommand extends $Command
-  .classBuilder<
-    GetStoredQueryCommandInput,
-    GetStoredQueryCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "GetStoredQuery", {})
-  .n("ConfigServiceClient", "GetStoredQueryCommand")
-  .sc(GetStoredQuery$)
-  .build() {
+export class GetStoredQueryCommand extends command<GetStoredQueryCommandInput, GetStoredQueryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetStoredQuery",
+  GetStoredQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GrantPermissionsRequest, GrantPermissionsResponse } from "../models/models_0";
 import { GrantPermissions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GrantPermissions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -141,22 +137,12 @@ export interface GrantPermissionsCommandOutput extends GrantPermissionsResponse,
  *
  * @public
  */
-export class GrantPermissionsCommand extends $Command
-  .classBuilder<
-    GrantPermissionsCommandInput,
-    GrantPermissionsCommandOutput,
-    LakeFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLakeFormation", "GrantPermissions", {})
-  .n("LakeFormationClient", "GrantPermissionsCommand")
-  .sc(GrantPermissions$)
-  .build() {
+export class GrantPermissionsCommand extends command<GrantPermissionsCommandInput, GrantPermissionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GrantPermissions",
+  GrantPermissions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

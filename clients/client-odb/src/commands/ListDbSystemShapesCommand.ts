@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDbSystemShapesInput, ListDbSystemShapesOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { ListDbSystemShapes$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface ListDbSystemShapesCommandOutput extends ListDbSystemShapesOutpu
  *
  * @public
  */
-export class ListDbSystemShapesCommand extends $Command
-  .classBuilder<
-    ListDbSystemShapesCommandInput,
-    ListDbSystemShapesCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "ListDbSystemShapes", {})
-  .n("OdbClient", "ListDbSystemShapesCommand")
-  .sc(ListDbSystemShapes$)
-  .build() {
+export class ListDbSystemShapesCommand extends command<ListDbSystemShapesCommandInput, ListDbSystemShapesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDbSystemShapes",
+  ListDbSystemShapes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

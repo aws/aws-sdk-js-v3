@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetColumnStatisticsForTableRequest, GetColumnStatisticsForTableResponse } from "../models/models_1";
 import { GetColumnStatisticsForTable$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetColumnStatisticsForTable$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -144,22 +140,12 @@ export interface GetColumnStatisticsForTableCommandOutput extends GetColumnStati
  *
  * @public
  */
-export class GetColumnStatisticsForTableCommand extends $Command
-  .classBuilder<
-    GetColumnStatisticsForTableCommandInput,
-    GetColumnStatisticsForTableCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "GetColumnStatisticsForTable", {})
-  .n("GlueClient", "GetColumnStatisticsForTableCommand")
-  .sc(GetColumnStatisticsForTable$)
-  .build() {
+export class GetColumnStatisticsForTableCommand extends command<GetColumnStatisticsForTableCommandInput, GetColumnStatisticsForTableCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetColumnStatisticsForTable",
+  GetColumnStatisticsForTable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

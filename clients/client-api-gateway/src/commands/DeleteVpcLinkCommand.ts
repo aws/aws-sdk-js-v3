@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteVpcLinkRequest } from "../models/models_0";
 import { DeleteVpcLink$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteVpcLink$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteVpcLinkCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteVpcLinkCommand extends $Command
-  .classBuilder<
-    DeleteVpcLinkCommandInput,
-    DeleteVpcLinkCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "DeleteVpcLink", {})
-  .n("APIGatewayClient", "DeleteVpcLinkCommand")
-  .sc(DeleteVpcLink$)
-  .build() {
+export class DeleteVpcLinkCommand extends command<DeleteVpcLinkCommandInput, DeleteVpcLinkCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteVpcLink",
+  DeleteVpcLink$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

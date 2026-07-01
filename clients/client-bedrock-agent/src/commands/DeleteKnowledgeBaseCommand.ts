@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteKnowledgeBaseRequest, DeleteKnowledgeBaseResponse } from "../models/models_1";
 import { DeleteKnowledgeBase$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteKnowledgeBase$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseRes
  *
  * @public
  */
-export class DeleteKnowledgeBaseCommand extends $Command
-  .classBuilder<
-    DeleteKnowledgeBaseCommandInput,
-    DeleteKnowledgeBaseCommandOutput,
-    BedrockAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentBuildTimeLambda", "DeleteKnowledgeBase", {})
-  .n("BedrockAgentClient", "DeleteKnowledgeBaseCommand")
-  .sc(DeleteKnowledgeBase$)
-  .build() {
+export class DeleteKnowledgeBaseCommand extends command<DeleteKnowledgeBaseCommandInput, DeleteKnowledgeBaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteKnowledgeBase",
+  DeleteKnowledgeBase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

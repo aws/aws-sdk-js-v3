@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeResourcePolicyResponse } from "../models/models_0";
-import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { DescribeResourcePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -337,22 +333,12 @@ export interface DescribeResourcePolicyCommandOutput extends DescribeResourcePol
  *
  * @public
  */
-export class DescribeResourcePolicyCommand extends $Command
-  .classBuilder<
-    DescribeResourcePolicyCommandInput,
-    DescribeResourcePolicyCommandOutput,
-    OrganizationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrganizationsV20161128", "DescribeResourcePolicy", {})
-  .n("OrganizationsClient", "DescribeResourcePolicyCommand")
-  .sc(DescribeResourcePolicy$)
-  .build() {
+export class DescribeResourcePolicyCommand extends command<DescribeResourcePolicyCommandInput, DescribeResourcePolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeResourcePolicy",
+  DescribeResourcePolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,26 +1,17 @@
 // smithy-typescript generated code
-import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   InvokeEndpointWithBidirectionalStreamInput,
   InvokeEndpointWithBidirectionalStreamOutput,
 } from "../models/models_0";
-import type {
-  SageMakerRuntimeHTTP2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SageMakerRuntimeHTTP2Client";
 import { InvokeEndpointWithBidirectionalStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,33 +102,12 @@ export interface InvokeEndpointWithBidirectionalStreamCommandOutput extends Invo
  *
  * @public
  */
-export class InvokeEndpointWithBidirectionalStreamCommand extends $Command
-  .classBuilder<
-    InvokeEndpointWithBidirectionalStreamCommandInput,
-    InvokeEndpointWithBidirectionalStreamCommandOutput,
-    SageMakerRuntimeHTTP2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerRuntimeHTTP2ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEventStreamPlugin(config),
-    ];
-  })
-  .s("AmazonSageMakerRuntimeHttp2", "InvokeEndpointWithBidirectionalStream", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      input: true,
-      output: true,
-    },
-  })
-  .n("SageMakerRuntimeHTTP2Client", "InvokeEndpointWithBidirectionalStreamCommand")
-  .sc(InvokeEndpointWithBidirectionalStream$)
-  .build() {
+export class InvokeEndpointWithBidirectionalStreamCommand extends command<InvokeEndpointWithBidirectionalStreamCommandInput, InvokeEndpointWithBidirectionalStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "InvokeEndpointWithBidirectionalStream",
+  InvokeEndpointWithBidirectionalStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

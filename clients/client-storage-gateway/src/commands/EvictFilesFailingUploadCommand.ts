@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EvictFilesFailingUploadInput, EvictFilesFailingUploadOutput } from "../models/models_0";
 import { EvictFilesFailingUpload$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface EvictFilesFailingUploadCommandOutput extends EvictFilesFailingU
  *
  * @public
  */
-export class EvictFilesFailingUploadCommand extends $Command
-  .classBuilder<
-    EvictFilesFailingUploadCommandInput,
-    EvictFilesFailingUploadCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "EvictFilesFailingUpload", {})
-  .n("StorageGatewayClient", "EvictFilesFailingUploadCommand")
-  .sc(EvictFilesFailingUpload$)
-  .build() {
+export class EvictFilesFailingUploadCommand extends command<EvictFilesFailingUploadCommandInput, EvictFilesFailingUploadCommandOutput>(
+  _ep0,
+  _mw0,
+  "EvictFilesFailingUpload",
+  EvictFilesFailingUpload$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

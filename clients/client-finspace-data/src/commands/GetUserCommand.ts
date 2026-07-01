@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetUserRequest, GetUserResponse } from "../models/models_0";
 import { GetUser$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetUser$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  *
  * @public
  */
-export class GetUserCommand extends $Command
-  .classBuilder<
-    GetUserCommandInput,
-    GetUserCommandOutput,
-    FinspaceDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHabaneroPublicAPI", "GetUser", {})
-  .n("FinspaceDataClient", "GetUserCommand")
-  .sc(GetUser$)
-  .build() {
+export class GetUserCommand extends command<GetUserCommandInput, GetUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetUser",
+  GetUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTagsForDeliveryStreamInput, ListTagsForDeliveryStreamOutput } from "../models/models_0";
 import { ListTagsForDeliveryStream$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListTagsForDeliveryStream$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface ListTagsForDeliveryStreamCommandOutput extends ListTagsForDeliv
  *
  * @public
  */
-export class ListTagsForDeliveryStreamCommand extends $Command
-  .classBuilder<
-    ListTagsForDeliveryStreamCommandInput,
-    ListTagsForDeliveryStreamCommandOutput,
-    FirehoseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FirehoseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Firehose_20150804", "ListTagsForDeliveryStream", {})
-  .n("FirehoseClient", "ListTagsForDeliveryStreamCommand")
-  .sc(ListTagsForDeliveryStream$)
-  .build() {
+export class ListTagsForDeliveryStreamCommand extends command<ListTagsForDeliveryStreamCommandInput, ListTagsForDeliveryStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTagsForDeliveryStream",
+  ListTagsForDeliveryStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

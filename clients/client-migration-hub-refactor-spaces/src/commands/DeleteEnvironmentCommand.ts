@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MigrationHubRefactorSpacesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MigrationHubRefactorSpacesClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEnvironmentRequest, DeleteEnvironmentResponse } from "../models/models_0";
 import { DeleteEnvironment$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteEnvironment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  *
  * @public
  */
-export class DeleteEnvironmentCommand extends $Command
-  .classBuilder<
-    DeleteEnvironmentCommandInput,
-    DeleteEnvironmentCommandOutput,
-    MigrationHubRefactorSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubRefactorSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RefactorSpaces", "DeleteEnvironment", {})
-  .n("MigrationHubRefactorSpacesClient", "DeleteEnvironmentCommand")
-  .sc(DeleteEnvironment$)
-  .build() {
+export class DeleteEnvironmentCommand extends command<DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEnvironment",
+  DeleteEnvironment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

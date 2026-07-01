@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendConnectorEventRequest, SendConnectorEventResponse } from "../models/models_0";
 import { SendConnectorEvent$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { SendConnectorEvent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -300,22 +292,12 @@ export interface SendConnectorEventCommandOutput extends SendConnectorEventRespo
  *
  * @public
  */
-export class SendConnectorEventCommand extends $Command
-  .classBuilder<
-    SendConnectorEventCommandInput,
-    SendConnectorEventCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "SendConnectorEvent", {})
-  .n("IoTManagedIntegrationsClient", "SendConnectorEventCommand")
-  .sc(SendConnectorEvent$)
-  .build() {
+export class SendConnectorEventCommand extends command<SendConnectorEventCommandInput, SendConnectorEventCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendConnectorEvent",
+  SendConnectorEvent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

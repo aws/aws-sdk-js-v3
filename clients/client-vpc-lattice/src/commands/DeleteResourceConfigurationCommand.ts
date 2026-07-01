@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteResourceConfigurationRequest, DeleteResourceConfigurationResponse } from "../models/models_0";
 import { DeleteResourceConfiguration$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteResourceConfigurationCommandOutput extends DeleteResource
  *
  * @public
  */
-export class DeleteResourceConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteResourceConfigurationCommandInput,
-    DeleteResourceConfigurationCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "DeleteResourceConfiguration", {})
-  .n("VPCLatticeClient", "DeleteResourceConfigurationCommand")
-  .sc(DeleteResourceConfiguration$)
-  .build() {
+export class DeleteResourceConfigurationCommand extends command<DeleteResourceConfigurationCommandInput, DeleteResourceConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteResourceConfiguration",
+  DeleteResourceConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

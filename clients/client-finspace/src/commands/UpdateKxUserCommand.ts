@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateKxUserRequest, UpdateKxUserResponse } from "../models/models_0";
 import { UpdateKxUser$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateKxUser$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface UpdateKxUserCommandOutput extends UpdateKxUserResponse, __Metad
  *
  * @public
  */
-export class UpdateKxUserCommand extends $Command
-  .classBuilder<
-    UpdateKxUserCommandInput,
-    UpdateKxUserCommandOutput,
-    FinspaceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHabaneroManagementService", "UpdateKxUser", {})
-  .n("FinspaceClient", "UpdateKxUserCommand")
-  .sc(UpdateKxUser$)
-  .build() {
+export class UpdateKxUserCommand extends command<UpdateKxUserCommandInput, UpdateKxUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateKxUser",
+  UpdateKxUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

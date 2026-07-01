@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  KinesisAnalyticsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../KinesisAnalyticsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AddApplicationReferenceDataSourceRequest,
   AddApplicationReferenceDataSourceResponse,
@@ -19,7 +12,6 @@ import { AddApplicationReferenceDataSource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +115,12 @@ export interface AddApplicationReferenceDataSourceCommandOutput extends AddAppli
  *
  * @public
  */
-export class AddApplicationReferenceDataSourceCommand extends $Command
-  .classBuilder<
-    AddApplicationReferenceDataSourceCommandInput,
-    AddApplicationReferenceDataSourceCommandOutput,
-    KinesisAnalyticsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KinesisAnalytics_20150814", "AddApplicationReferenceDataSource", {})
-  .n("KinesisAnalyticsClient", "AddApplicationReferenceDataSourceCommand")
-  .sc(AddApplicationReferenceDataSource$)
-  .build() {
+export class AddApplicationReferenceDataSourceCommand extends command<AddApplicationReferenceDataSourceCommandInput, AddApplicationReferenceDataSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddApplicationReferenceDataSource",
+  AddApplicationReferenceDataSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

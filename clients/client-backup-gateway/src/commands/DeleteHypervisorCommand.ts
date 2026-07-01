@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteHypervisorInput, DeleteHypervisorOutput } from "../models/models_0";
 import { DeleteHypervisor$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteHypervisor$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DeleteHypervisorCommandOutput extends DeleteHypervisorOutput, _
  *
  * @public
  */
-export class DeleteHypervisorCommand extends $Command
-  .classBuilder<
-    DeleteHypervisorCommandInput,
-    DeleteHypervisorCommandOutput,
-    BackupGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackupOnPremises_v20210101", "DeleteHypervisor", {})
-  .n("BackupGatewayClient", "DeleteHypervisorCommand")
-  .sc(DeleteHypervisor$)
-  .build() {
+export class DeleteHypervisorCommand extends command<DeleteHypervisorCommandInput, DeleteHypervisorCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteHypervisor",
+  DeleteHypervisor$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetOrganizationAdminAccountRequest, GetOrganizationAdminAccountResponse } from "../models/models_0";
 import { GetOrganizationAdminAccount$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetOrganizationAdminAccount$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface GetOrganizationAdminAccountCommandOutput extends GetOrganizatio
  *
  * @public
  */
-export class GetOrganizationAdminAccountCommand extends $Command
-  .classBuilder<
-    GetOrganizationAdminAccountCommandInput,
-    GetOrganizationAdminAccountCommandOutput,
-    AuditManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BedrockAssessmentManagerLambda", "GetOrganizationAdminAccount", {})
-  .n("AuditManagerClient", "GetOrganizationAdminAccountCommand")
-  .sc(GetOrganizationAdminAccount$)
-  .build() {
+export class GetOrganizationAdminAccountCommand extends command<GetOrganizationAdminAccountCommandInput, GetOrganizationAdminAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetOrganizationAdminAccount",
+  GetOrganizationAdminAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

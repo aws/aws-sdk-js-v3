@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListOrganizationalUnitsRequest, ListOrganizationalUnitsResponse } from "../models/models_0";
-import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
 import { ListOrganizationalUnits$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface ListOrganizationalUnitsCommandOutput extends ListOrganizational
  *
  * @public
  */
-export class ListOrganizationalUnitsCommand extends $Command
-  .classBuilder<
-    ListOrganizationalUnitsCommandInput,
-    ListOrganizationalUnitsCommandOutput,
-    NotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Notifications", "ListOrganizationalUnits", {})
-  .n("NotificationsClient", "ListOrganizationalUnitsCommand")
-  .sc(ListOrganizationalUnits$)
-  .build() {
+export class ListOrganizationalUnitsCommand extends command<ListOrganizationalUnitsCommandInput, ListOrganizationalUnitsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListOrganizationalUnits",
+  ListOrganizationalUnits$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

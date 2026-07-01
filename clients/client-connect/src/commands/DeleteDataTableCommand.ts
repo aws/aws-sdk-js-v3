@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDataTableRequest, DeleteDataTableResponse } from "../models/models_1";
 import { DeleteDataTable$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteDataTable$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DeleteDataTableCommandOutput extends DeleteDataTableResponse, _
  *
  * @public
  */
-export class DeleteDataTableCommand extends $Command
-  .classBuilder<
-    DeleteDataTableCommandInput,
-    DeleteDataTableCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DeleteDataTable", {})
-  .n("ConnectClient", "DeleteDataTableCommand")
-  .sc(DeleteDataTable$)
-  .build() {
+export class DeleteDataTableCommand extends command<DeleteDataTableCommandInput, DeleteDataTableCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDataTable",
+  DeleteDataTable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

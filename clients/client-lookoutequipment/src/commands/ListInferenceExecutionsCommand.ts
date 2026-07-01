@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LookoutEquipmentClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LookoutEquipmentClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListInferenceExecutionsRequest, ListInferenceExecutionsResponse } from "../models/models_0";
 import { ListInferenceExecutions$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListInferenceExecutions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +117,12 @@ export interface ListInferenceExecutionsCommandOutput extends ListInferenceExecu
  *
  * @public
  */
-export class ListInferenceExecutionsCommand extends $Command
-  .classBuilder<
-    ListInferenceExecutionsCommandInput,
-    ListInferenceExecutionsCommandOutput,
-    LookoutEquipmentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLookoutEquipmentFrontendService", "ListInferenceExecutions", {})
-  .n("LookoutEquipmentClient", "ListInferenceExecutionsCommand")
-  .sc(ListInferenceExecutions$)
-  .build() {
+export class ListInferenceExecutionsCommand extends command<ListInferenceExecutionsCommandInput, ListInferenceExecutionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListInferenceExecutions",
+  ListInferenceExecutions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

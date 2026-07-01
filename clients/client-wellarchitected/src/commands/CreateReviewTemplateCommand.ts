@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateReviewTemplateInput, CreateReviewTemplateOutput } from "../models/models_0";
 import { CreateReviewTemplate$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WellArchitectedClientResolvedConfig,
-} from "../WellArchitectedClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface CreateReviewTemplateCommandOutput extends CreateReviewTemplateO
  *
  * @public
  */
-export class CreateReviewTemplateCommand extends $Command
-  .classBuilder<
-    CreateReviewTemplateCommandInput,
-    CreateReviewTemplateCommandOutput,
-    WellArchitectedClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WellArchitectedApiServiceLambda", "CreateReviewTemplate", {})
-  .n("WellArchitectedClient", "CreateReviewTemplateCommand")
-  .sc(CreateReviewTemplate$)
-  .build() {
+export class CreateReviewTemplateCommand extends command<CreateReviewTemplateCommandInput, CreateReviewTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateReviewTemplate",
+  CreateReviewTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

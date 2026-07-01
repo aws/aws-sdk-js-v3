@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutClusterPolicyRequest, PutClusterPolicyResponse } from "../models/models_0";
 import { PutClusterPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutClusterPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface PutClusterPolicyCommandOutput extends PutClusterPolicyResponse,
  *
  * @public
  */
-export class PutClusterPolicyCommand extends $Command
-  .classBuilder<
-    PutClusterPolicyCommandInput,
-    PutClusterPolicyCommandOutput,
-    KafkaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kafka", "PutClusterPolicy", {})
-  .n("KafkaClient", "PutClusterPolicyCommand")
-  .sc(PutClusterPolicy$)
-  .build() {
+export class PutClusterPolicyCommand extends command<PutClusterPolicyCommandInput, PutClusterPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutClusterPolicy",
+  PutClusterPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

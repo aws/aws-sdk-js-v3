@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TagResourcesInput, TagResourcesOutput } from "../models/models_0";
-import type {
-  ResourceGroupsTaggingAPIClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceGroupsTaggingAPIClient";
 import { TagResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -175,22 +167,12 @@ export interface TagResourcesCommandOutput extends TagResourcesOutput, __Metadat
  *
  * @public
  */
-export class TagResourcesCommand extends $Command
-  .classBuilder<
-    TagResourcesCommandInput,
-    TagResourcesCommandOutput,
-    ResourceGroupsTaggingAPIClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceGroupsTaggingAPIClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ResourceGroupsTaggingAPI_20170126", "TagResources", {})
-  .n("ResourceGroupsTaggingAPIClient", "TagResourcesCommand")
-  .sc(TagResources$)
-  .build() {
+export class TagResourcesCommand extends command<TagResourcesCommandInput, TagResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "TagResources",
+  TagResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

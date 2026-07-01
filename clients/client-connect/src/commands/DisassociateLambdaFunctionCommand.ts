@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateLambdaFunctionRequest } from "../models/models_1";
 import { DisassociateLambdaFunction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateLambdaFunction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DisassociateLambdaFunctionCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class DisassociateLambdaFunctionCommand extends $Command
-  .classBuilder<
-    DisassociateLambdaFunctionCommandInput,
-    DisassociateLambdaFunctionCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DisassociateLambdaFunction", {})
-  .n("ConnectClient", "DisassociateLambdaFunctionCommand")
-  .sc(DisassociateLambdaFunction$)
-  .build() {
+export class DisassociateLambdaFunctionCommand extends command<DisassociateLambdaFunctionCommandInput, DisassociateLambdaFunctionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateLambdaFunction",
+  DisassociateLambdaFunction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

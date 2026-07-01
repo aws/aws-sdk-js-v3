@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateAddressRequest, AssociateAddressResult } from "../models/models_0";
 import { AssociateAddress$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateAddress$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  *
  * @public
  */
-export class AssociateAddressCommand extends $Command
-  .classBuilder<
-    AssociateAddressCommandInput,
-    AssociateAddressCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "AssociateAddress", {})
-  .n("EC2Client", "AssociateAddressCommand")
-  .sc(AssociateAddress$)
-  .build() {
+export class AssociateAddressCommand extends command<AssociateAddressCommandInput, AssociateAddressCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateAddress",
+  AssociateAddress$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

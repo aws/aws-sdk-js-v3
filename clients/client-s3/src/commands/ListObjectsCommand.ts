@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep8, _mw0, command } from "../commandBuilder";
 import type { ListObjectsOutput, ListObjectsRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { ListObjects$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -189,29 +184,12 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  *
  * @public
  */
-export class ListObjectsCommand extends $Command
-  .classBuilder<
-    ListObjectsCommandInput,
-    ListObjectsCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    Bucket: { type: "contextParams", name: "Bucket" },
-    Prefix: { type: "contextParams", name: "Prefix" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "ListObjects", {})
-  .n("S3Client", "ListObjectsCommand")
-  .sc(ListObjects$)
-  .build() {
+export class ListObjectsCommand extends command<ListObjectsCommandInput, ListObjectsCommandOutput>(
+  _ep8,
+  _mw0,
+  "ListObjects",
+  ListObjects$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

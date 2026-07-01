@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutTablePolicyRequest } from "../models/models_0";
-import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
 import { PutTablePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface PutTablePolicyCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutTablePolicyCommand extends $Command
-  .classBuilder<
-    PutTablePolicyCommandInput,
-    PutTablePolicyCommandOutput,
-    S3TablesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: S3TablesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("S3TableBuckets", "PutTablePolicy", {})
-  .n("S3TablesClient", "PutTablePolicyCommand")
-  .sc(PutTablePolicy$)
-  .build() {
+export class PutTablePolicyCommand extends command<PutTablePolicyCommandInput, PutTablePolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutTablePolicy",
+  PutTablePolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

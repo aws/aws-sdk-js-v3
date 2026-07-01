@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDBInstanceMessage, CreateDBInstanceResult } from "../models/models_0";
-import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import { CreateDBInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -318,22 +314,12 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *
  * @public
  */
-export class CreateDBInstanceCommand extends $Command
-  .classBuilder<
-    CreateDBInstanceCommandInput,
-    CreateDBInstanceCommandOutput,
-    NeptuneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "CreateDBInstance", {})
-  .n("NeptuneClient", "CreateDBInstanceCommand")
-  .sc(CreateDBInstance$)
-  .build() {
+export class CreateDBInstanceCommand extends command<CreateDBInstanceCommandInput, CreateDBInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDBInstance",
+  CreateDBInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

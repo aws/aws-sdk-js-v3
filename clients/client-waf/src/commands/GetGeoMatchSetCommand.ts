@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetGeoMatchSetRequest, GetGeoMatchSetResponse } from "../models/models_0";
 import { GetGeoMatchSet$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface GetGeoMatchSetCommandOutput extends GetGeoMatchSetResponse, __M
  *
  * @public
  */
-export class GetGeoMatchSetCommand extends $Command
-  .classBuilder<
-    GetGeoMatchSetCommandInput,
-    GetGeoMatchSetCommandOutput,
-    WAFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20150824", "GetGeoMatchSet", {})
-  .n("WAFClient", "GetGeoMatchSetCommand")
-  .sc(GetGeoMatchSet$)
-  .build() {
+export class GetGeoMatchSetCommand extends command<GetGeoMatchSetCommandInput, GetGeoMatchSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetGeoMatchSet",
+  GetGeoMatchSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

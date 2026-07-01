@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRotationRequest, UpdateRotationResult } from "../models/models_0";
 import { UpdateRotation$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface UpdateRotationCommandOutput extends UpdateRotationResult, __Met
  *
  * @public
  */
-export class UpdateRotationCommand extends $Command
-  .classBuilder<
-    UpdateRotationCommandInput,
-    UpdateRotationCommandOutput,
-    SSMContactsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMContacts", "UpdateRotation", {})
-  .n("SSMContactsClient", "UpdateRotationCommand")
-  .sc(UpdateRotation$)
-  .build() {
+export class UpdateRotationCommand extends command<UpdateRotationCommandInput, UpdateRotationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRotation",
+  UpdateRotation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

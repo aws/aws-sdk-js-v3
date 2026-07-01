@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CheckCapacityRequest, CheckCapacityResponse } from "../models/models_0";
 import { CheckCapacity$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -1180,22 +1176,12 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *
  * @public
  */
-export class CheckCapacityCommand extends $Command
-  .classBuilder<
-    CheckCapacityCommandInput,
-    CheckCapacityCommandOutput,
-    WAFV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20190729", "CheckCapacity", {})
-  .n("WAFV2Client", "CheckCapacityCommand")
-  .sc(CheckCapacity$)
-  .build() {
+export class CheckCapacityCommand extends command<CheckCapacityCommandInput, CheckCapacityCommandOutput>(
+  _ep0,
+  _mw0,
+  "CheckCapacity",
+  CheckCapacity$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

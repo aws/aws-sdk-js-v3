@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CostOptimizationHubClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CostOptimizationHubClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateEnrollmentStatusRequest, UpdateEnrollmentStatusResponse } from "../models/models_0";
 import { UpdateEnrollmentStatus$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateEnrollmentStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +68,12 @@ export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentSta
  *
  * @public
  */
-export class UpdateEnrollmentStatusCommand extends $Command
-  .classBuilder<
-    UpdateEnrollmentStatusCommandInput,
-    UpdateEnrollmentStatusCommandOutput,
-    CostOptimizationHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostOptimizationHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CostOptimizationHubService", "UpdateEnrollmentStatus", {})
-  .n("CostOptimizationHubClient", "UpdateEnrollmentStatusCommand")
-  .sc(UpdateEnrollmentStatus$)
-  .build() {
+export class UpdateEnrollmentStatusCommand extends command<UpdateEnrollmentStatusCommandInput, UpdateEnrollmentStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateEnrollmentStatus",
+  UpdateEnrollmentStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

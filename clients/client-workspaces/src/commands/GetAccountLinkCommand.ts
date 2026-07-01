@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAccountLinkRequest, GetAccountLinkResult } from "../models/models_0";
 import { GetAccountLink$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface GetAccountLinkCommandOutput extends GetAccountLinkResult, __Met
  *
  * @public
  */
-export class GetAccountLinkCommand extends $Command
-  .classBuilder<
-    GetAccountLinkCommandInput,
-    GetAccountLinkCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "GetAccountLink", {})
-  .n("WorkSpacesClient", "GetAccountLinkCommand")
-  .sc(GetAccountLink$)
-  .build() {
+export class GetAccountLinkCommand extends command<GetAccountLinkCommandInput, GetAccountLinkCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAccountLink",
+  GetAccountLink$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

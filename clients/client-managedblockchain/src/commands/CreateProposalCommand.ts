@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  ManagedBlockchainClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ManagedBlockchainClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateProposalInput, CreateProposalOutput } from "../models/models_0";
 import { CreateProposal$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateProposal$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface CreateProposalCommandOutput extends CreateProposalOutput, __Met
  *
  * @public
  */
-export class CreateProposalCommand extends $Command
-  .classBuilder<
-    CreateProposalCommandInput,
-    CreateProposalCommandOutput,
-    ManagedBlockchainClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TaigaWebService", "CreateProposal", {})
-  .n("ManagedBlockchainClient", "CreateProposalCommand")
-  .sc(CreateProposal$)
-  .build() {
+export class CreateProposalCommand extends command<CreateProposalCommandInput, CreateProposalCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateProposal",
+  CreateProposal$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

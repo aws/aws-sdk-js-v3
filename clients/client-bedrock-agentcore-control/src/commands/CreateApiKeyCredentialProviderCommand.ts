@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateApiKeyCredentialProviderRequest, CreateApiKeyCredentialProviderResponse } from "../models/models_0";
 import { CreateApiKeyCredentialProvider$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateApiKeyCredentialProvider$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +103,12 @@ export interface CreateApiKeyCredentialProviderCommandOutput extends CreateApiKe
  *
  * @public
  */
-export class CreateApiKeyCredentialProviderCommand extends $Command
-  .classBuilder<
-    CreateApiKeyCredentialProviderCommandInput,
-    CreateApiKeyCredentialProviderCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "CreateApiKeyCredentialProvider", {})
-  .n("BedrockAgentCoreControlClient", "CreateApiKeyCredentialProviderCommand")
-  .sc(CreateApiKeyCredentialProvider$)
-  .build() {
+export class CreateApiKeyCredentialProviderCommand extends command<CreateApiKeyCredentialProviderCommandInput, CreateApiKeyCredentialProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateApiKeyCredentialProvider",
+  CreateApiKeyCredentialProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

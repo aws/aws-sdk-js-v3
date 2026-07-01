@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePushTemplateRequest, DeletePushTemplateResponse } from "../models/models_0";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { DeletePushTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DeletePushTemplateCommandOutput extends DeletePushTemplateRespo
  *
  * @public
  */
-export class DeletePushTemplateCommand extends $Command
-  .classBuilder<
-    DeletePushTemplateCommandInput,
-    DeletePushTemplateCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "DeletePushTemplate", {})
-  .n("PinpointClient", "DeletePushTemplateCommand")
-  .sc(DeletePushTemplate$)
-  .build() {
+export class DeletePushTemplateCommand extends command<DeletePushTemplateCommandInput, DeletePushTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePushTemplate",
+  DeletePushTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

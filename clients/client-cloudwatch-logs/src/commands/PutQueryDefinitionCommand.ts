@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutQueryDefinitionRequest, PutQueryDefinitionResponse } from "../models/models_0";
 import { PutQueryDefinition$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { PutQueryDefinition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface PutQueryDefinitionCommandOutput extends PutQueryDefinitionRespo
  *
  * @public
  */
-export class PutQueryDefinitionCommand extends $Command
-  .classBuilder<
-    PutQueryDefinitionCommandInput,
-    PutQueryDefinitionCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "PutQueryDefinition", {})
-  .n("CloudWatchLogsClient", "PutQueryDefinitionCommand")
-  .sc(PutQueryDefinition$)
-  .build() {
+export class PutQueryDefinitionCommand extends command<PutQueryDefinitionCommandInput, PutQueryDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutQueryDefinition",
+  PutQueryDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

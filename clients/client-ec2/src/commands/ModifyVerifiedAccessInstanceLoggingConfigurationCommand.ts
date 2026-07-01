@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ModifyVerifiedAccessInstanceLoggingConfigurationRequest,
   ModifyVerifiedAccessInstanceLoggingConfigurationResult,
@@ -15,7 +12,6 @@ import { ModifyVerifiedAccessInstanceLoggingConfiguration$ } from "../schemas/sc
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput e
  *
  * @public
  */
-export class ModifyVerifiedAccessInstanceLoggingConfigurationCommand extends $Command
-  .classBuilder<
-    ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput,
-    ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "ModifyVerifiedAccessInstanceLoggingConfiguration", {})
-  .n("EC2Client", "ModifyVerifiedAccessInstanceLoggingConfigurationCommand")
-  .sc(ModifyVerifiedAccessInstanceLoggingConfiguration$)
-  .build() {
+export class ModifyVerifiedAccessInstanceLoggingConfigurationCommand extends command<ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput, ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyVerifiedAccessInstanceLoggingConfiguration",
+  ModifyVerifiedAccessInstanceLoggingConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDataViewsRequest, ListDataViewsResponse } from "../models/models_0";
 import { ListDataViews$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDataViews$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface ListDataViewsCommandOutput extends ListDataViewsResponse, __Met
  *
  * @public
  */
-export class ListDataViewsCommand extends $Command
-  .classBuilder<
-    ListDataViewsCommandInput,
-    ListDataViewsCommandOutput,
-    FinspaceDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHabaneroPublicAPI", "ListDataViews", {})
-  .n("FinspaceDataClient", "ListDataViewsCommand")
-  .sc(ListDataViews$)
-  .build() {
+export class ListDataViewsCommand extends command<ListDataViewsCommandInput, ListDataViewsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDataViews",
+  ListDataViews$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

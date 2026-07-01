@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UntagUserRequest } from "../models/models_0";
 import { UntagUser$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UntagUser$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface UntagUserCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UntagUserCommand extends $Command
-  .classBuilder<
-    UntagUserCommandInput,
-    UntagUserCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "UntagUser", {})
-  .n("IAMClient", "UntagUserCommand")
-  .sc(UntagUser$)
-  .build() {
+export class UntagUserCommand extends command<UntagUserCommandInput, UntagUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "UntagUser",
+  UntagUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

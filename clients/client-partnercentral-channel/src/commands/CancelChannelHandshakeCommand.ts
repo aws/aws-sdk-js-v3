@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelChannelHandshakeRequest, CancelChannelHandshakeResponse } from "../models/models_0";
-import type {
-  PartnerCentralChannelClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralChannelClient";
 import { CancelChannelHandshake$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +95,12 @@ export interface CancelChannelHandshakeCommandOutput extends CancelChannelHandsh
  *
  * @public
  */
-export class CancelChannelHandshakeCommand extends $Command
-  .classBuilder<
-    CancelChannelHandshakeCommandInput,
-    CancelChannelHandshakeCommandOutput,
-    PartnerCentralChannelClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralChannelClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralChannel", "CancelChannelHandshake", {})
-  .n("PartnerCentralChannelClient", "CancelChannelHandshakeCommand")
-  .sc(CancelChannelHandshake$)
-  .build() {
+export class CancelChannelHandshakeCommand extends command<CancelChannelHandshakeCommandInput, CancelChannelHandshakeCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelChannelHandshake",
+  CancelChannelHandshake$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

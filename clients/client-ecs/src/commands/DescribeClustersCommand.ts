@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeClustersRequest, DescribeClustersResponse } from "../models/models_0";
 import { DescribeClusters$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeClusters$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -179,22 +175,12 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  *
  * @public
  */
-export class DescribeClustersCommand extends $Command
-  .classBuilder<
-    DescribeClustersCommandInput,
-    DescribeClustersCommandOutput,
-    ECSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerServiceV20141113", "DescribeClusters", {})
-  .n("ECSClient", "DescribeClustersCommand")
-  .sc(DescribeClusters$)
-  .build() {
+export class DescribeClustersCommand extends command<DescribeClustersCommandInput, DescribeClustersCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeClusters",
+  DescribeClusters$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

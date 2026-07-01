@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCapabilityRequest, DeleteCapabilityResponse } from "../models/models_0";
 import { DeleteCapability$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteCapability$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +128,12 @@ export interface DeleteCapabilityCommandOutput extends DeleteCapabilityResponse,
  *
  * @public
  */
-export class DeleteCapabilityCommand extends $Command
-  .classBuilder<
-    DeleteCapabilityCommandInput,
-    DeleteCapabilityCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "DeleteCapability", {})
-  .n("EKSClient", "DeleteCapabilityCommand")
-  .sc(DeleteCapability$)
-  .build() {
+export class DeleteCapabilityCommand extends command<DeleteCapabilityCommandInput, DeleteCapabilityCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCapability",
+  DeleteCapability$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

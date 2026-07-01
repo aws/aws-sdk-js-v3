@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceAgreementClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceAgreementClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePurchaseOrdersInput, UpdatePurchaseOrdersOutput } from "../models/models_0";
 import { UpdatePurchaseOrders$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdatePurchaseOrders$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface UpdatePurchaseOrdersCommandOutput extends UpdatePurchaseOrdersO
  *
  * @public
  */
-export class UpdatePurchaseOrdersCommand extends $Command
-  .classBuilder<
-    UpdatePurchaseOrdersCommandInput,
-    UpdatePurchaseOrdersCommandOutput,
-    MarketplaceAgreementClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceAgreementClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMPCommerceService_v20200301", "UpdatePurchaseOrders", {})
-  .n("MarketplaceAgreementClient", "UpdatePurchaseOrdersCommand")
-  .sc(UpdatePurchaseOrders$)
-  .build() {
+export class UpdatePurchaseOrdersCommand extends command<UpdatePurchaseOrdersCommandInput, UpdatePurchaseOrdersCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePurchaseOrders",
+  UpdatePurchaseOrders$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

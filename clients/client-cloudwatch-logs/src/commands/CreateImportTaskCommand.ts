@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateImportTaskRequest, CreateImportTaskResponse } from "../models/models_0";
 import { CreateImportTask$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateImportTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -141,22 +133,12 @@ export interface CreateImportTaskCommandOutput extends CreateImportTaskResponse,
  *
  * @public
  */
-export class CreateImportTaskCommand extends $Command
-  .classBuilder<
-    CreateImportTaskCommandInput,
-    CreateImportTaskCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "CreateImportTask", {})
-  .n("CloudWatchLogsClient", "CreateImportTaskCommand")
-  .sc(CreateImportTask$)
-  .build() {
+export class CreateImportTaskCommand extends command<CreateImportTaskCommandInput, CreateImportTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateImportTask",
+  CreateImportTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

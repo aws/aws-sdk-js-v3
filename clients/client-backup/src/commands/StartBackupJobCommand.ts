@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartBackupJobInput, StartBackupJobOutput } from "../models/models_0";
 import { StartBackupJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartBackupJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface StartBackupJobCommandOutput extends StartBackupJobOutput, __Met
  *
  * @public
  */
-export class StartBackupJobCommand extends $Command
-  .classBuilder<
-    StartBackupJobCommandInput,
-    StartBackupJobCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "StartBackupJob", {})
-  .n("BackupClient", "StartBackupJobCommand")
-  .sc(StartBackupJob$)
-  .build() {
+export class StartBackupJobCommand extends command<StartBackupJobCommandInput, StartBackupJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartBackupJob",
+  StartBackupJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

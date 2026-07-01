@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateSettingsRequest, UpdateSettingsResponse } from "../models/models_0";
 import { UpdateSettings$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateSettings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __M
  *
  * @public
  */
-export class UpdateSettingsCommand extends $Command
-  .classBuilder<
-    UpdateSettingsCommandInput,
-    UpdateSettingsCommandOutput,
-    AuditManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BedrockAssessmentManagerLambda", "UpdateSettings", {})
-  .n("AuditManagerClient", "UpdateSettingsCommand")
-  .sc(UpdateSettings$)
-  .build() {
+export class UpdateSettingsCommand extends command<UpdateSettingsCommandInput, UpdateSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSettings",
+  UpdateSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteProvisionedProductPlanInput, DeleteProvisionedProductPlanOutput } from "../models/models_0";
 import { DeleteProvisionedProductPlan$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +61,12 @@ export interface DeleteProvisionedProductPlanCommandOutput extends DeleteProvisi
  *
  * @public
  */
-export class DeleteProvisionedProductPlanCommand extends $Command
-  .classBuilder<
-    DeleteProvisionedProductPlanCommandInput,
-    DeleteProvisionedProductPlanCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "DeleteProvisionedProductPlan", {})
-  .n("ServiceCatalogClient", "DeleteProvisionedProductPlanCommand")
-  .sc(DeleteProvisionedProductPlan$)
-  .build() {
+export class DeleteProvisionedProductPlanCommand extends command<DeleteProvisionedProductPlanCommandInput, DeleteProvisionedProductPlanCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteProvisionedProductPlan",
+  DeleteProvisionedProductPlan$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

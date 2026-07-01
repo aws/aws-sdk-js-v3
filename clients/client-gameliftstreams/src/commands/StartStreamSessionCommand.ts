@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  GameLiftStreamsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../GameLiftStreamsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartStreamSessionInput, StartStreamSessionOutput } from "../models/models_0";
 import { StartStreamSession$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartStreamSession$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -131,22 +123,12 @@ export interface StartStreamSessionCommandOutput extends StartStreamSessionOutpu
  *
  * @public
  */
-export class StartStreamSessionCommand extends $Command
-  .classBuilder<
-    StartStreamSessionCommandInput,
-    StartStreamSessionCommandOutput,
-    GameLiftStreamsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftStreamsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLiftStreams", "StartStreamSession", {})
-  .n("GameLiftStreamsClient", "StartStreamSessionCommand")
-  .sc(StartStreamSession$)
-  .build() {
+export class StartStreamSessionCommand extends command<StartStreamSessionCommandInput, StartStreamSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartStreamSession",
+  StartStreamSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

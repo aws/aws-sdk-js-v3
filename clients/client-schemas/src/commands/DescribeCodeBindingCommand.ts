@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeCodeBindingRequest, DescribeCodeBindingResponse } from "../models/models_0";
 import { DescribeCodeBinding$ } from "../schemas/schemas_0";
-import type { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DescribeCodeBindingCommandOutput extends DescribeCodeBindingRes
  *
  * @public
  */
-export class DescribeCodeBindingCommand extends $Command
-  .classBuilder<
-    DescribeCodeBindingCommandInput,
-    DescribeCodeBindingCommandOutput,
-    SchemasClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SchemasClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("schemas", "DescribeCodeBinding", {})
-  .n("SchemasClient", "DescribeCodeBindingCommand")
-  .sc(DescribeCodeBinding$)
-  .build() {
+export class DescribeCodeBindingCommand extends command<DescribeCodeBindingCommandInput, DescribeCodeBindingCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCodeBinding",
+  DescribeCodeBinding$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

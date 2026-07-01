@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutFeedbackRequest, PutFeedbackResponse } from "../models/models_0";
 import { PutFeedback$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutFeedback$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface PutFeedbackCommandOutput extends PutFeedbackResponse, __Metadat
  *
  * @public
  */
-export class PutFeedbackCommand extends $Command
-  .classBuilder<
-    PutFeedbackCommandInput,
-    PutFeedbackCommandOutput,
-    DevOpsGuruClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CapstoneControlPlaneService", "PutFeedback", {})
-  .n("DevOpsGuruClient", "PutFeedbackCommand")
-  .sc(PutFeedback$)
-  .build() {
+export class PutFeedbackCommand extends command<PutFeedbackCommandInput, PutFeedbackCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutFeedback",
+  PutFeedback$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

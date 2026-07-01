@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchDetectKeyPhrasesRequest, BatchDetectKeyPhrasesResponse } from "../models/models_0";
 import { BatchDetectKeyPhrases$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchDetectKeyPhrases$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface BatchDetectKeyPhrasesCommandOutput extends BatchDetectKeyPhrase
  *
  * @public
  */
-export class BatchDetectKeyPhrasesCommand extends $Command
-  .classBuilder<
-    BatchDetectKeyPhrasesCommandInput,
-    BatchDetectKeyPhrasesCommandOutput,
-    ComprehendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Comprehend_20171127", "BatchDetectKeyPhrases", {})
-  .n("ComprehendClient", "BatchDetectKeyPhrasesCommand")
-  .sc(BatchDetectKeyPhrases$)
-  .build() {
+export class BatchDetectKeyPhrasesCommand extends command<BatchDetectKeyPhrasesCommandInput, BatchDetectKeyPhrasesCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDetectKeyPhrases",
+  BatchDetectKeyPhrases$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

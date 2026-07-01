@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { CancelQueryInput } from "../models/models_0";
-import type { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
 import { CancelQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,25 +69,12 @@ export interface CancelQueryCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class CancelQueryCommand extends $Command
-  .classBuilder<
-    CancelQueryCommandInput,
-    CancelQueryCommandOutput,
-    NeptuneGraphClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ApiType: { type: "staticContextParams", value: `DataPlane` },
-  })
-  .m(function (this: any, Command: any, cs: any, config: NeptuneGraphClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneGraph", "CancelQuery", {})
-  .n("NeptuneGraphClient", "CancelQueryCommand")
-  .sc(CancelQuery$)
-  .build() {
+export class CancelQueryCommand extends command<CancelQueryCommandInput, CancelQueryCommandOutput>(
+  _ep1,
+  _mw0,
+  "CancelQuery",
+  CancelQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

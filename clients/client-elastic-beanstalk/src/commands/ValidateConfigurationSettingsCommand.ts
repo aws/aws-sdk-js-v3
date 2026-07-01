@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ConfigurationSettingsValidationMessages, ValidateConfigurationSettingsMessage } from "../models/models_0";
 import { ValidateConfigurationSettings$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ValidateConfigurationSettings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +105,12 @@ export interface ValidateConfigurationSettingsCommandOutput extends Configuratio
  *
  * @public
  */
-export class ValidateConfigurationSettingsCommand extends $Command
-  .classBuilder<
-    ValidateConfigurationSettingsCommandInput,
-    ValidateConfigurationSettingsCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "ValidateConfigurationSettings", {})
-  .n("ElasticBeanstalkClient", "ValidateConfigurationSettingsCommand")
-  .sc(ValidateConfigurationSettings$)
-  .build() {
+export class ValidateConfigurationSettingsCommand extends command<ValidateConfigurationSettingsCommandInput, ValidateConfigurationSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ValidateConfigurationSettings",
+  ValidateConfigurationSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

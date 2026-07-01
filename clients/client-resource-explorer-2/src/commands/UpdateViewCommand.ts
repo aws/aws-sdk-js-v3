@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateViewInput, UpdateViewOutput } from "../models/models_0";
-import type {
-  ResourceExplorer2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceExplorer2Client";
 import { UpdateView$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +95,12 @@ export interface UpdateViewCommandOutput extends UpdateViewOutput, __MetadataBea
  *
  * @public
  */
-export class UpdateViewCommand extends $Command
-  .classBuilder<
-    UpdateViewCommandInput,
-    UpdateViewCommandOutput,
-    ResourceExplorer2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ResourceExplorer", "UpdateView", {})
-  .n("ResourceExplorer2Client", "UpdateViewCommand")
-  .sc(UpdateView$)
-  .build() {
+export class UpdateViewCommand extends command<UpdateViewCommandInput, UpdateViewCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateView",
+  UpdateView$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

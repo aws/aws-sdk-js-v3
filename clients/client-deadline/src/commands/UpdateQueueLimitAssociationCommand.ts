@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateQueueLimitAssociationRequest, UpdateQueueLimitAssociationResponse } from "../models/models_1";
 import { UpdateQueueLimitAssociation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateQueueLimitAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface UpdateQueueLimitAssociationCommandOutput extends UpdateQueueLim
  *
  * @public
  */
-export class UpdateQueueLimitAssociationCommand extends $Command
-  .classBuilder<
-    UpdateQueueLimitAssociationCommandInput,
-    UpdateQueueLimitAssociationCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "UpdateQueueLimitAssociation", {})
-  .n("DeadlineClient", "UpdateQueueLimitAssociationCommand")
-  .sc(UpdateQueueLimitAssociation$)
-  .build() {
+export class UpdateQueueLimitAssociationCommand extends command<UpdateQueueLimitAssociationCommandInput, UpdateQueueLimitAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateQueueLimitAssociation",
+  UpdateQueueLimitAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

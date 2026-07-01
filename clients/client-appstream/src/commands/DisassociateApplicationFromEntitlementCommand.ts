@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateApplicationFromEntitlementRequest,
   DisassociateApplicationFromEntitlementResult,
@@ -15,7 +12,6 @@ import { DisassociateApplicationFromEntitlement$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface DisassociateApplicationFromEntitlementCommandOutput extends Dis
  *
  * @public
  */
-export class DisassociateApplicationFromEntitlementCommand extends $Command
-  .classBuilder<
-    DisassociateApplicationFromEntitlementCommandInput,
-    DisassociateApplicationFromEntitlementCommandOutput,
-    AppStreamClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PhotonAdminProxyService", "DisassociateApplicationFromEntitlement", {})
-  .n("AppStreamClient", "DisassociateApplicationFromEntitlementCommand")
-  .sc(DisassociateApplicationFromEntitlement$)
-  .build() {
+export class DisassociateApplicationFromEntitlementCommand extends command<DisassociateApplicationFromEntitlementCommandInput, DisassociateApplicationFromEntitlementCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateApplicationFromEntitlement",
+  DisassociateApplicationFromEntitlement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

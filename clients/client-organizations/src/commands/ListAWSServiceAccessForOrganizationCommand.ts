@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListAWSServiceAccessForOrganizationRequest,
   ListAWSServiceAccessForOrganizationResponse,
 } from "../models/models_0";
-import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { ListAWSServiceAccessForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -495,22 +491,12 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput extends ListAW
  *
  * @public
  */
-export class ListAWSServiceAccessForOrganizationCommand extends $Command
-  .classBuilder<
-    ListAWSServiceAccessForOrganizationCommandInput,
-    ListAWSServiceAccessForOrganizationCommandOutput,
-    OrganizationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrganizationsV20161128", "ListAWSServiceAccessForOrganization", {})
-  .n("OrganizationsClient", "ListAWSServiceAccessForOrganizationCommand")
-  .sc(ListAWSServiceAccessForOrganization$)
-  .build() {
+export class ListAWSServiceAccessForOrganizationCommand extends command<ListAWSServiceAccessForOrganizationCommandInput, ListAWSServiceAccessForOrganizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAWSServiceAccessForOrganization",
+  ListAWSServiceAccessForOrganization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

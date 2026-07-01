@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { LookupDeveloperIdentityInput, LookupDeveloperIdentityResponse } from "../models/models_0";
 import { LookupDeveloperIdentity$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { LookupDeveloperIdentity$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +100,12 @@ export interface LookupDeveloperIdentityCommandOutput extends LookupDeveloperIde
  *
  * @public
  */
-export class LookupDeveloperIdentityCommand extends $Command
-  .classBuilder<
-    LookupDeveloperIdentityCommandInput,
-    LookupDeveloperIdentityCommandOutput,
-    CognitoIdentityClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityService", "LookupDeveloperIdentity", {})
-  .n("CognitoIdentityClient", "LookupDeveloperIdentityCommand")
-  .sc(LookupDeveloperIdentity$)
-  .build() {
+export class LookupDeveloperIdentityCommand extends command<LookupDeveloperIdentityCommandInput, LookupDeveloperIdentityCommandOutput>(
+  _ep0,
+  _mw0,
+  "LookupDeveloperIdentity",
+  LookupDeveloperIdentity$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

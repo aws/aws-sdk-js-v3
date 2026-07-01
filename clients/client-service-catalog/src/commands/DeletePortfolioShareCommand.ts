@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePortfolioShareInput, DeletePortfolioShareOutput } from "../models/models_0";
 import { DeletePortfolioShare$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface DeletePortfolioShareCommandOutput extends DeletePortfolioShareO
  *
  * @public
  */
-export class DeletePortfolioShareCommand extends $Command
-  .classBuilder<
-    DeletePortfolioShareCommandInput,
-    DeletePortfolioShareCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "DeletePortfolioShare", {})
-  .n("ServiceCatalogClient", "DeletePortfolioShareCommand")
-  .sc(DeletePortfolioShare$)
-  .build() {
+export class DeletePortfolioShareCommand extends command<DeletePortfolioShareCommandInput, DeletePortfolioShareCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePortfolioShare",
+  DeletePortfolioShare$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

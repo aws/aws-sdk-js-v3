@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPipelineVersionsRequest, ListPipelineVersionsResponse } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListPipelineVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface ListPipelineVersionsCommandOutput extends ListPipelineVersionsR
  *
  * @public
  */
-export class ListPipelineVersionsCommand extends $Command
-  .classBuilder<
-    ListPipelineVersionsCommandInput,
-    ListPipelineVersionsCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "ListPipelineVersions", {})
-  .n("SageMakerClient", "ListPipelineVersionsCommand")
-  .sc(ListPipelineVersions$)
-  .build() {
+export class ListPipelineVersionsCommand extends command<ListPipelineVersionsCommandInput, ListPipelineVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPipelineVersions",
+  ListPipelineVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

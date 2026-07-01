@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { XmlBlobsOutput } from "../models/models_0";
 import { XmlBlobs$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { XmlBlobs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -57,22 +53,12 @@ export interface XmlBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer 
  *
  * @public
  */
-export class XmlBlobsCommand extends $Command
-  .classBuilder<
-    XmlBlobsCommandInput,
-    XmlBlobsCommandOutput,
-    EC2ProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsEc2", "XmlBlobs", {})
-  .n("EC2ProtocolClient", "XmlBlobsCommand")
-  .sc(XmlBlobs$)
-  .build() {
+export class XmlBlobsCommand extends command<XmlBlobsCommandInput, XmlBlobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "XmlBlobs",
+  XmlBlobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

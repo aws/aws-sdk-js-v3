@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFeaturedResultsSetRequest, CreateFeaturedResultsSetResponse } from "../models/models_0";
 import { CreateFeaturedResultsSet$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateFeaturedResultsSet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +124,12 @@ export interface CreateFeaturedResultsSetCommandOutput extends CreateFeaturedRes
  *
  * @public
  */
-export class CreateFeaturedResultsSetCommand extends $Command
-  .classBuilder<
-    CreateFeaturedResultsSetCommandInput,
-    CreateFeaturedResultsSetCommandOutput,
-    KendraClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSKendraFrontendService", "CreateFeaturedResultsSet", {})
-  .n("KendraClient", "CreateFeaturedResultsSetCommand")
-  .sc(CreateFeaturedResultsSet$)
-  .build() {
+export class CreateFeaturedResultsSetCommand extends command<CreateFeaturedResultsSetCommandInput, CreateFeaturedResultsSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateFeaturedResultsSet",
+  CreateFeaturedResultsSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

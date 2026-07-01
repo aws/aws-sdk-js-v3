@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   TransferDomainToAnotherAwsAccountRequest,
   TransferDomainToAnotherAwsAccountResponse,
 } from "../models/models_0";
-import type {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53DomainsClient";
 import { TransferDomainToAnotherAwsAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +100,12 @@ export interface TransferDomainToAnotherAwsAccountCommandOutput extends Transfer
  *
  * @public
  */
-export class TransferDomainToAnotherAwsAccountCommand extends $Command
-  .classBuilder<
-    TransferDomainToAnotherAwsAccountCommandInput,
-    TransferDomainToAnotherAwsAccountCommandOutput,
-    Route53DomainsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Domains_v20140515", "TransferDomainToAnotherAwsAccount", {})
-  .n("Route53DomainsClient", "TransferDomainToAnotherAwsAccountCommand")
-  .sc(TransferDomainToAnotherAwsAccount$)
-  .build() {
+export class TransferDomainToAnotherAwsAccountCommand extends command<TransferDomainToAnotherAwsAccountCommandInput, TransferDomainToAnotherAwsAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "TransferDomainToAnotherAwsAccount",
+  TransferDomainToAnotherAwsAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

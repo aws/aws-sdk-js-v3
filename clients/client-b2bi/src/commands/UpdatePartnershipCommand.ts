@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePartnershipRequest, UpdatePartnershipResponse } from "../models/models_0";
 import { UpdatePartnership$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdatePartnership$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -219,22 +215,12 @@ export interface UpdatePartnershipCommandOutput extends UpdatePartnershipRespons
  *
  * @public
  */
-export class UpdatePartnershipCommand extends $Command
-  .classBuilder<
-    UpdatePartnershipCommandInput,
-    UpdatePartnershipCommandOutput,
-    B2biClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("B2BI", "UpdatePartnership", {})
-  .n("B2biClient", "UpdatePartnershipCommand")
-  .sc(UpdatePartnership$)
-  .build() {
+export class UpdatePartnershipCommand extends command<UpdatePartnershipCommandInput, UpdatePartnershipCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePartnership",
+  UpdatePartnership$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

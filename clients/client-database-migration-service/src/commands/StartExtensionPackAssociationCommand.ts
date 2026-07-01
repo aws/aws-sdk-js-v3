@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartExtensionPackAssociationMessage, StartExtensionPackAssociationResponse } from "../models/models_1";
 import { StartExtensionPackAssociation$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartExtensionPackAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface StartExtensionPackAssociationCommandOutput extends StartExtensi
  *
  * @public
  */
-export class StartExtensionPackAssociationCommand extends $Command
-  .classBuilder<
-    StartExtensionPackAssociationCommandInput,
-    StartExtensionPackAssociationCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "StartExtensionPackAssociation", {})
-  .n("DatabaseMigrationServiceClient", "StartExtensionPackAssociationCommand")
-  .sc(StartExtensionPackAssociation$)
-  .build() {
+export class StartExtensionPackAssociationCommand extends command<StartExtensionPackAssociationCommandInput, StartExtensionPackAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartExtensionPackAssociation",
+  StartExtensionPackAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

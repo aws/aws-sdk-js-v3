@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DecreaseNodeGroupsInGlobalReplicationGroupMessage,
   DecreaseNodeGroupsInGlobalReplicationGroupResult,
@@ -15,7 +12,6 @@ import { DecreaseNodeGroupsInGlobalReplicationGroup$ } from "../schemas/schemas_
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput extends
  *
  * @public
  */
-export class DecreaseNodeGroupsInGlobalReplicationGroupCommand extends $Command
-  .classBuilder<
-    DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
-    DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "DecreaseNodeGroupsInGlobalReplicationGroup", {})
-  .n("ElastiCacheClient", "DecreaseNodeGroupsInGlobalReplicationGroupCommand")
-  .sc(DecreaseNodeGroupsInGlobalReplicationGroup$)
-  .build() {
+export class DecreaseNodeGroupsInGlobalReplicationGroupCommand extends command<DecreaseNodeGroupsInGlobalReplicationGroupCommandInput, DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DecreaseNodeGroupsInGlobalReplicationGroup",
+  DecreaseNodeGroupsInGlobalReplicationGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

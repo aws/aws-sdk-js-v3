@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMediaPipelinesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMediaPipelinesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListMediaInsightsPipelineConfigurationsRequest,
   ListMediaInsightsPipelineConfigurationsResponse,
@@ -19,7 +12,6 @@ import { ListMediaInsightsPipelineConfigurations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface ListMediaInsightsPipelineConfigurationsCommandOutput extends Li
  *
  * @public
  */
-export class ListMediaInsightsPipelineConfigurationsCommand extends $Command
-  .classBuilder<
-    ListMediaInsightsPipelineConfigurationsCommandInput,
-    ListMediaInsightsPipelineConfigurationsCommandOutput,
-    ChimeSDKMediaPipelinesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKMediaPipelinesService", "ListMediaInsightsPipelineConfigurations", {})
-  .n("ChimeSDKMediaPipelinesClient", "ListMediaInsightsPipelineConfigurationsCommand")
-  .sc(ListMediaInsightsPipelineConfigurations$)
-  .build() {
+export class ListMediaInsightsPipelineConfigurationsCommand extends command<ListMediaInsightsPipelineConfigurationsCommandInput, ListMediaInsightsPipelineConfigurationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMediaInsightsPipelineConfigurations",
+  ListMediaInsightsPipelineConfigurations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

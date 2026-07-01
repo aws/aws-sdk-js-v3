@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  KeyspacesStreamsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../KeyspacesStreamsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetShardIteratorInput, GetShardIteratorOutput } from "../models/models_0";
 import { GetShardIterator$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetShardIterator$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  *
  * @public
  */
-export class GetShardIteratorCommand extends $Command
-  .classBuilder<
-    GetShardIteratorCommandInput,
-    GetShardIteratorCommandOutput,
-    KeyspacesStreamsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KeyspacesStreamsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KeyspacesStreams", "GetShardIterator", {})
-  .n("KeyspacesStreamsClient", "GetShardIteratorCommand")
-  .sc(GetShardIterator$)
-  .build() {
+export class GetShardIteratorCommand extends command<GetShardIteratorCommandInput, GetShardIteratorCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetShardIterator",
+  GetShardIterator$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

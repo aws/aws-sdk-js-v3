@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetResourcePermissionInput, GetResourcePermissionOutput } from "../models/models_0";
 import { GetResourcePermission$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface GetResourcePermissionCommandOutput extends GetResourcePermissio
  *
  * @public
  */
-export class GetResourcePermissionCommand extends $Command
-  .classBuilder<
-    GetResourcePermissionCommandInput,
-    GetResourcePermissionCommandOutput,
-    SsmSapClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SsmSapClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SsmSap", "GetResourcePermission", {})
-  .n("SsmSapClient", "GetResourcePermissionCommand")
-  .sc(GetResourcePermission$)
-  .build() {
+export class GetResourcePermissionCommand extends command<GetResourcePermissionCommandInput, GetResourcePermissionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetResourcePermission",
+  GetResourcePermission$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

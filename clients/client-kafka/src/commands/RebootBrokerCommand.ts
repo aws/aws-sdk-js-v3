@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RebootBrokerRequest, RebootBrokerResponse } from "../models/models_0";
 import { RebootBroker$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RebootBroker$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface RebootBrokerCommandOutput extends RebootBrokerResponse, __Metad
  *
  * @public
  */
-export class RebootBrokerCommand extends $Command
-  .classBuilder<
-    RebootBrokerCommandInput,
-    RebootBrokerCommandOutput,
-    KafkaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kafka", "RebootBroker", {})
-  .n("KafkaClient", "RebootBrokerCommand")
-  .sc(RebootBroker$)
-  .build() {
+export class RebootBrokerCommand extends command<RebootBrokerCommandInput, RebootBrokerCommandOutput>(
+  _ep0,
+  _mw0,
+  "RebootBroker",
+  RebootBroker$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

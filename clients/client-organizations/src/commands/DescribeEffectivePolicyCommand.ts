@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeEffectivePolicyRequest, DescribeEffectivePolicyResponse } from "../models/models_0";
-import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { DescribeEffectivePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -504,22 +500,12 @@ export interface DescribeEffectivePolicyCommandOutput extends DescribeEffectiveP
  *
  * @public
  */
-export class DescribeEffectivePolicyCommand extends $Command
-  .classBuilder<
-    DescribeEffectivePolicyCommandInput,
-    DescribeEffectivePolicyCommandOutput,
-    OrganizationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrganizationsV20161128", "DescribeEffectivePolicy", {})
-  .n("OrganizationsClient", "DescribeEffectivePolicyCommand")
-  .sc(DescribeEffectivePolicy$)
-  .build() {
+export class DescribeEffectivePolicyCommand extends command<DescribeEffectivePolicyCommandInput, DescribeEffectivePolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEffectivePolicy",
+  DescribeEffectivePolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

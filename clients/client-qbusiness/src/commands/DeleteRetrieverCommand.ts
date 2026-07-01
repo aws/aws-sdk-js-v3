@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRetrieverRequest, DeleteRetrieverResponse } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { DeleteRetriever$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteRetrieverCommandOutput extends DeleteRetrieverResponse, _
  *
  * @public
  */
-export class DeleteRetrieverCommand extends $Command
-  .classBuilder<
-    DeleteRetrieverCommandInput,
-    DeleteRetrieverCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "DeleteRetriever", {})
-  .n("QBusinessClient", "DeleteRetrieverCommand")
-  .sc(DeleteRetriever$)
-  .build() {
+export class DeleteRetrieverCommand extends command<DeleteRetrieverCommandInput, DeleteRetrieverCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRetriever",
+  DeleteRetriever$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

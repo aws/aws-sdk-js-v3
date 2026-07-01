@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTaskExecutionsRequest, ListTaskExecutionsResponse } from "../models/models_0";
 import { ListTaskExecutions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListTaskExecutions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsRespo
  *
  * @public
  */
-export class ListTaskExecutionsCommand extends $Command
-  .classBuilder<
-    ListTaskExecutionsCommandInput,
-    ListTaskExecutionsCommandOutput,
-    DataSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FmrsService", "ListTaskExecutions", {})
-  .n("DataSyncClient", "ListTaskExecutionsCommand")
-  .sc(ListTaskExecutions$)
-  .build() {
+export class ListTaskExecutionsCommand extends command<ListTaskExecutionsCommandInput, ListTaskExecutionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTaskExecutions",
+  ListTaskExecutions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

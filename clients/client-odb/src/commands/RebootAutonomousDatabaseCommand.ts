@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RebootAutonomousDatabaseInput, RebootAutonomousDatabaseOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { RebootAutonomousDatabase$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface RebootAutonomousDatabaseCommandOutput extends RebootAutonomousD
  *
  * @public
  */
-export class RebootAutonomousDatabaseCommand extends $Command
-  .classBuilder<
-    RebootAutonomousDatabaseCommandInput,
-    RebootAutonomousDatabaseCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "RebootAutonomousDatabase", {})
-  .n("OdbClient", "RebootAutonomousDatabaseCommand")
-  .sc(RebootAutonomousDatabase$)
-  .build() {
+export class RebootAutonomousDatabaseCommand extends command<RebootAutonomousDatabaseCommandInput, RebootAutonomousDatabaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "RebootAutonomousDatabase",
+  RebootAutonomousDatabase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

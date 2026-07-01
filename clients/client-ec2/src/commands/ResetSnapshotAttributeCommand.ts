@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ResetSnapshotAttributeRequest } from "../models/models_7";
 import { ResetSnapshotAttribute$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ResetSnapshotAttribute$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface ResetSnapshotAttributeCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class ResetSnapshotAttributeCommand extends $Command
-  .classBuilder<
-    ResetSnapshotAttributeCommandInput,
-    ResetSnapshotAttributeCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "ResetSnapshotAttribute", {})
-  .n("EC2Client", "ResetSnapshotAttributeCommand")
-  .sc(ResetSnapshotAttribute$)
-  .build() {
+export class ResetSnapshotAttributeCommand extends command<ResetSnapshotAttributeCommandInput, ResetSnapshotAttributeCommandOutput>(
+  _ep0,
+  _mw0,
+  "ResetSnapshotAttribute",
+  ResetSnapshotAttribute$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GeoRoutesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoRoutesClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SnapToRoadsRequest, SnapToRoadsResponse } from "../models/models_0";
 import { SnapToRoads$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SnapToRoads$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +124,12 @@ export interface SnapToRoadsCommandOutput extends SnapToRoadsResponse, __Metadat
  *
  * @public
  */
-export class SnapToRoadsCommand extends $Command
-  .classBuilder<
-    SnapToRoadsCommandInput,
-    SnapToRoadsCommandOutput,
-    GeoRoutesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GeoRoutesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RoutesService", "SnapToRoads", {})
-  .n("GeoRoutesClient", "SnapToRoadsCommand")
-  .sc(SnapToRoads$)
-  .build() {
+export class SnapToRoadsCommand extends command<SnapToRoadsCommandInput, SnapToRoadsCommandOutput>(
+  _ep0,
+  _mw0,
+  "SnapToRoads",
+  SnapToRoads$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

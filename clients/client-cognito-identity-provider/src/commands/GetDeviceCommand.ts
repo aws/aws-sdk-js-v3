@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDeviceRequest, GetDeviceResponse } from "../models/models_0";
 import { GetDevice$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetDevice$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +112,12 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  *
  * @public
  */
-export class GetDeviceCommand extends $Command
-  .classBuilder<
-    GetDeviceCommandInput,
-    GetDeviceCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "GetDevice", {})
-  .n("CognitoIdentityProviderClient", "GetDeviceCommand")
-  .sc(GetDevice$)
-  .build() {
+export class GetDeviceCommand extends command<GetDeviceCommandInput, GetDeviceCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDevice",
+  GetDevice$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

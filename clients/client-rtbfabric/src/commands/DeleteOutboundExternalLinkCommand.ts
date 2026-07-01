@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteOutboundExternalLinkRequest, DeleteOutboundExternalLinkResponse } from "../models/models_0";
-import type { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
 import { DeleteOutboundExternalLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface DeleteOutboundExternalLinkCommandOutput extends DeleteOutboundE
  *
  * @public
  */
-export class DeleteOutboundExternalLinkCommand extends $Command
-  .classBuilder<
-    DeleteOutboundExternalLinkCommandInput,
-    DeleteOutboundExternalLinkCommandOutput,
-    RTBFabricClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RTBFabricClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RTBFabric", "DeleteOutboundExternalLink", {})
-  .n("RTBFabricClient", "DeleteOutboundExternalLinkCommand")
-  .sc(DeleteOutboundExternalLink$)
-  .build() {
+export class DeleteOutboundExternalLinkCommand extends command<DeleteOutboundExternalLinkCommandInput, DeleteOutboundExternalLinkCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteOutboundExternalLink",
+  DeleteOutboundExternalLink$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

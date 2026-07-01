@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PromotePermissionCreatedFromPolicyRequest,
   PromotePermissionCreatedFromPolicyResponse,
 } from "../models/models_0";
-import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import { PromotePermissionCreatedFromPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +136,12 @@ export interface PromotePermissionCreatedFromPolicyCommandOutput extends Promote
  *
  * @public
  */
-export class PromotePermissionCreatedFromPolicyCommand extends $Command
-  .classBuilder<
-    PromotePermissionCreatedFromPolicyCommandInput,
-    PromotePermissionCreatedFromPolicyCommandOutput,
-    RAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonResourceSharing", "PromotePermissionCreatedFromPolicy", {})
-  .n("RAMClient", "PromotePermissionCreatedFromPolicyCommand")
-  .sc(PromotePermissionCreatedFromPolicy$)
-  .build() {
+export class PromotePermissionCreatedFromPolicyCommand extends command<PromotePermissionCreatedFromPolicyCommandInput, PromotePermissionCreatedFromPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PromotePermissionCreatedFromPolicy",
+  PromotePermissionCreatedFromPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

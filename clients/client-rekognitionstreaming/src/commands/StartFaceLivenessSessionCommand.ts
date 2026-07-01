@@ -1,24 +1,14 @@
 // smithy-typescript generated code
-import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
-import { getWebSocketPlugin } from "@aws-sdk/middleware-websocket";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartFaceLivenessSessionRequest, StartFaceLivenessSessionResponse } from "../models/models_0";
-import type {
-  RekognitionStreamingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RekognitionStreamingClient";
 import { StartFaceLivenessSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -263,36 +253,12 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  *
  * @public
  */
-export class StartFaceLivenessSessionCommand extends $Command
-  .classBuilder<
-    StartFaceLivenessSessionCommandInput,
-    StartFaceLivenessSessionCommandOutput,
-    RekognitionStreamingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionStreamingClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEventStreamPlugin(config),
-      getWebSocketPlugin(config, {
-        headerPrefix: 'x-amz-rekognition-streaming-liveness-',
-      }),
-    ];
-  })
-  .s("RekognitionStreamingService", "StartFaceLivenessSession", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      input: true,
-      output: true,
-    },
-  })
-  .n("RekognitionStreamingClient", "StartFaceLivenessSessionCommand")
-  .sc(StartFaceLivenessSession$)
-  .build() {
+export class StartFaceLivenessSessionCommand extends command<StartFaceLivenessSessionCommandInput, StartFaceLivenessSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartFaceLivenessSession",
+  StartFaceLivenessSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

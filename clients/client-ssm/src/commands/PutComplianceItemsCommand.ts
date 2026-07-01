@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutComplianceItemsRequest, PutComplianceItemsResult } from "../models/models_1";
 import { PutComplianceItems$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -164,22 +160,12 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  *
  * @public
  */
-export class PutComplianceItemsCommand extends $Command
-  .classBuilder<
-    PutComplianceItemsCommandInput,
-    PutComplianceItemsCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "PutComplianceItems", {})
-  .n("SSMClient", "PutComplianceItemsCommand")
-  .sc(PutComplianceItems$)
-  .build() {
+export class PutComplianceItemsCommand extends command<PutComplianceItemsCommandInput, PutComplianceItemsCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutComplianceItems",
+  PutComplianceItems$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

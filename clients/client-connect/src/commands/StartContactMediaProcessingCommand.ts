@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartContactMediaProcessingRequest, StartContactMediaProcessingResponse } from "../models/models_3";
 import { StartContactMediaProcessing$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartContactMediaProcessing$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface StartContactMediaProcessingCommandOutput extends StartContactMe
  *
  * @public
  */
-export class StartContactMediaProcessingCommand extends $Command
-  .classBuilder<
-    StartContactMediaProcessingCommandInput,
-    StartContactMediaProcessingCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "StartContactMediaProcessing", {})
-  .n("ConnectClient", "StartContactMediaProcessingCommand")
-  .sc(StartContactMediaProcessing$)
-  .build() {
+export class StartContactMediaProcessingCommand extends command<StartContactMediaProcessingCommandInput, StartContactMediaProcessingCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartContactMediaProcessing",
+  StartContactMediaProcessing$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

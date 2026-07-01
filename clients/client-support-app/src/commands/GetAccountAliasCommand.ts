@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAccountAliasRequest, GetAccountAliasResult } from "../models/models_0";
 import { GetAccountAlias$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -61,22 +57,12 @@ export interface GetAccountAliasCommandOutput extends GetAccountAliasResult, __M
  *
  * @public
  */
-export class GetAccountAliasCommand extends $Command
-  .classBuilder<
-    GetAccountAliasCommandInput,
-    GetAccountAliasCommandOutput,
-    SupportAppClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupportAppClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SupportApp", "GetAccountAlias", {})
-  .n("SupportAppClient", "GetAccountAliasCommand")
-  .sc(GetAccountAlias$)
-  .build() {
+export class GetAccountAliasCommand extends command<GetAccountAliasCommandInput, GetAccountAliasCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAccountAlias",
+  GetAccountAlias$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

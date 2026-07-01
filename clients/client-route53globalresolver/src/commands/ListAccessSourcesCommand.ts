@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAccessSourcesInput, ListAccessSourcesOutput } from "../models/models_0";
-import type {
-  Route53GlobalResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53GlobalResolverClient";
 import { ListAccessSources$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface ListAccessSourcesCommandOutput extends ListAccessSourcesOutput,
  *
  * @public
  */
-export class ListAccessSourcesCommand extends $Command
-  .classBuilder<
-    ListAccessSourcesCommandInput,
-    ListAccessSourcesCommandOutput,
-    Route53GlobalResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53GlobalResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EC2DNSGlobalResolverCustomerAPI", "ListAccessSources", {})
-  .n("Route53GlobalResolverClient", "ListAccessSourcesCommand")
-  .sc(ListAccessSources$)
-  .build() {
+export class ListAccessSourcesCommand extends command<ListAccessSourcesCommandInput, ListAccessSourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAccessSources",
+  ListAccessSources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

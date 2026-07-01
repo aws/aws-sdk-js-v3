@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeVerifiedAccessInstancesRequest, DescribeVerifiedAccessInstancesResult } from "../models/models_5";
 import { DescribeVerifiedAccessInstances$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeVerifiedAccessInstances$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface DescribeVerifiedAccessInstancesCommandOutput extends DescribeVe
  *
  * @public
  */
-export class DescribeVerifiedAccessInstancesCommand extends $Command
-  .classBuilder<
-    DescribeVerifiedAccessInstancesCommandInput,
-    DescribeVerifiedAccessInstancesCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeVerifiedAccessInstances", {})
-  .n("EC2Client", "DescribeVerifiedAccessInstancesCommand")
-  .sc(DescribeVerifiedAccessInstances$)
-  .build() {
+export class DescribeVerifiedAccessInstancesCommand extends command<DescribeVerifiedAccessInstancesCommandInput, DescribeVerifiedAccessInstancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeVerifiedAccessInstances",
+  DescribeVerifiedAccessInstances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

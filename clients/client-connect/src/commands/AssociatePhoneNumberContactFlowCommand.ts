@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociatePhoneNumberContactFlowRequest } from "../models/models_0";
 import { AssociatePhoneNumberContactFlow$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociatePhoneNumberContactFlow$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface AssociatePhoneNumberContactFlowCommandOutput extends __Metadata
  *
  * @public
  */
-export class AssociatePhoneNumberContactFlowCommand extends $Command
-  .classBuilder<
-    AssociatePhoneNumberContactFlowCommandInput,
-    AssociatePhoneNumberContactFlowCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "AssociatePhoneNumberContactFlow", {})
-  .n("ConnectClient", "AssociatePhoneNumberContactFlowCommand")
-  .sc(AssociatePhoneNumberContactFlow$)
-  .build() {
+export class AssociatePhoneNumberContactFlowCommand extends command<AssociatePhoneNumberContactFlowCommandInput, AssociatePhoneNumberContactFlowCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociatePhoneNumberContactFlow",
+  AssociatePhoneNumberContactFlow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

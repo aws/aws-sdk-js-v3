@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { OperationWithDefaultsInput, OperationWithDefaultsOutput } from "../models/models_0";
-import type { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RpcV2ProtocolClient";
 import { OperationWithDefaults$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface OperationWithDefaultsCommandOutput extends OperationWithDefault
  *
  *
  */
-export class OperationWithDefaultsCommand extends $Command
-  .classBuilder<
-    OperationWithDefaultsCommandInput,
-    OperationWithDefaultsCommandOutput,
-    RpcV2ProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RpcV2ProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RpcV2Protocol", "OperationWithDefaults", {})
-  .n("RpcV2ProtocolClient", "OperationWithDefaultsCommand")
-  .sc(OperationWithDefaults$)
-  .build() {
+export class OperationWithDefaultsCommand extends command<OperationWithDefaultsCommandInput, OperationWithDefaultsCommandOutput>(
+  _ep0,
+  _mw0,
+  "OperationWithDefaults",
+  OperationWithDefaults$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

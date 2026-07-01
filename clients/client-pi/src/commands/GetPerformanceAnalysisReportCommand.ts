@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPerformanceAnalysisReportRequest, GetPerformanceAnalysisReportResponse } from "../models/models_0";
-import type { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
 import { GetPerformanceAnalysisReport$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -174,22 +170,12 @@ export interface GetPerformanceAnalysisReportCommandOutput extends GetPerformanc
  *
  * @public
  */
-export class GetPerformanceAnalysisReportCommand extends $Command
-  .classBuilder<
-    GetPerformanceAnalysisReportCommandInput,
-    GetPerformanceAnalysisReportCommandOutput,
-    PIClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PIClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PerformanceInsightsv20180227", "GetPerformanceAnalysisReport", {})
-  .n("PIClient", "GetPerformanceAnalysisReportCommand")
-  .sc(GetPerformanceAnalysisReport$)
-  .build() {
+export class GetPerformanceAnalysisReportCommand extends command<GetPerformanceAnalysisReportCommandInput, GetPerformanceAnalysisReportCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPerformanceAnalysisReport",
+  GetPerformanceAnalysisReport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

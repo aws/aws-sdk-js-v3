@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ProfileDetailResponse, ScalarProfileRequest } from "../models/models_0";
-import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { EnableProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface EnableProfileCommandOutput extends ProfileDetailResponse, __Met
  *
  * @public
  */
-export class EnableProfileCommand extends $Command
-  .classBuilder<
-    EnableProfileCommandInput,
-    EnableProfileCommandOutput,
-    RolesAnywhereClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RolesAnywhereClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RolesAnywhere", "EnableProfile", {})
-  .n("RolesAnywhereClient", "EnableProfileCommand")
-  .sc(EnableProfile$)
-  .build() {
+export class EnableProfileCommand extends command<EnableProfileCommandInput, EnableProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableProfile",
+  EnableProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

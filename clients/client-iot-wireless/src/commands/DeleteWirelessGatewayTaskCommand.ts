@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteWirelessGatewayTaskRequest, DeleteWirelessGatewayTaskResponse } from "../models/models_0";
 import { DeleteWirelessGatewayTask$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteWirelessGatewayTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteWirelessGatewayTaskCommandOutput extends DeleteWirelessGa
  *
  * @public
  */
-export class DeleteWirelessGatewayTaskCommand extends $Command
-  .classBuilder<
-    DeleteWirelessGatewayTaskCommandInput,
-    DeleteWirelessGatewayTaskCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "DeleteWirelessGatewayTask", {})
-  .n("IoTWirelessClient", "DeleteWirelessGatewayTaskCommand")
-  .sc(DeleteWirelessGatewayTask$)
-  .build() {
+export class DeleteWirelessGatewayTaskCommand extends command<DeleteWirelessGatewayTaskCommandInput, DeleteWirelessGatewayTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteWirelessGatewayTask",
+  DeleteWirelessGatewayTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

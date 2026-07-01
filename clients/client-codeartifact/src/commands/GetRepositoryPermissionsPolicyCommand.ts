@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRepositoryPermissionsPolicyRequest, GetRepositoryPermissionsPolicyResult } from "../models/models_0";
 import { GetRepositoryPermissionsPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetRepositoryPermissionsPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface GetRepositoryPermissionsPolicyCommandOutput extends GetReposito
  *
  * @public
  */
-export class GetRepositoryPermissionsPolicyCommand extends $Command
-  .classBuilder<
-    GetRepositoryPermissionsPolicyCommandInput,
-    GetRepositoryPermissionsPolicyCommandOutput,
-    CodeartifactClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeArtifactControlPlaneService", "GetRepositoryPermissionsPolicy", {})
-  .n("CodeartifactClient", "GetRepositoryPermissionsPolicyCommand")
-  .sc(GetRepositoryPermissionsPolicy$)
-  .build() {
+export class GetRepositoryPermissionsPolicyCommand extends command<GetRepositoryPermissionsPolicyCommandInput, GetRepositoryPermissionsPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRepositoryPermissionsPolicy",
+  GetRepositoryPermissionsPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

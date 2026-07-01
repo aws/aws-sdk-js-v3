@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePartitionIndexRequest, CreatePartitionIndexResponse } from "../models/models_1";
 import { CreatePartitionIndex$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreatePartitionIndex$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface CreatePartitionIndexCommandOutput extends CreatePartitionIndexR
  *
  * @public
  */
-export class CreatePartitionIndexCommand extends $Command
-  .classBuilder<
-    CreatePartitionIndexCommandInput,
-    CreatePartitionIndexCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "CreatePartitionIndex", {})
-  .n("GlueClient", "CreatePartitionIndexCommand")
-  .sc(CreatePartitionIndex$)
-  .build() {
+export class CreatePartitionIndexCommand extends command<CreatePartitionIndexCommandInput, CreatePartitionIndexCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePartitionIndex",
+  CreatePartitionIndex$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

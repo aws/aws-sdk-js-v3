@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetGremlinQueryStatusInput, GetGremlinQueryStatusOutput } from "../models/models_0";
-import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
 import { GetGremlinQueryStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface GetGremlinQueryStatusCommandOutput extends GetGremlinQueryStatu
  *
  * @public
  */
-export class GetGremlinQueryStatusCommand extends $Command
-  .classBuilder<
-    GetGremlinQueryStatusCommandInput,
-    GetGremlinQueryStatusCommandOutput,
-    NeptunedataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneDataplane", "GetGremlinQueryStatus", {})
-  .n("NeptunedataClient", "GetGremlinQueryStatusCommand")
-  .sc(GetGremlinQueryStatus$)
-  .build() {
+export class GetGremlinQueryStatusCommand extends command<GetGremlinQueryStatusCommandInput, GetGremlinQueryStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetGremlinQueryStatus",
+  GetGremlinQueryStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

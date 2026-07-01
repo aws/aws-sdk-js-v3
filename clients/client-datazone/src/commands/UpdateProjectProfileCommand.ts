@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateProjectProfileInput, UpdateProjectProfileOutput } from "../models/models_2";
 import { UpdateProjectProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateProjectProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -190,22 +186,12 @@ export interface UpdateProjectProfileCommandOutput extends UpdateProjectProfileO
  *
  * @public
  */
-export class UpdateProjectProfileCommand extends $Command
-  .classBuilder<
-    UpdateProjectProfileCommandInput,
-    UpdateProjectProfileCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "UpdateProjectProfile", {})
-  .n("DataZoneClient", "UpdateProjectProfileCommand")
-  .sc(UpdateProjectProfile$)
-  .build() {
+export class UpdateProjectProfileCommand extends command<UpdateProjectProfileCommandInput, UpdateProjectProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateProjectProfile",
+  UpdateProjectProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

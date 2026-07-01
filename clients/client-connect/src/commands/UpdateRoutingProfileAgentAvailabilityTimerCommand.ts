@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRoutingProfileAgentAvailabilityTimerRequest } from "../models/models_3";
 import { UpdateRoutingProfileAgentAvailabilityTimer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateRoutingProfileAgentAvailabilityTimer$ } from "../schemas/schemas_
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface UpdateRoutingProfileAgentAvailabilityTimerCommandOutput extends
  *
  * @public
  */
-export class UpdateRoutingProfileAgentAvailabilityTimerCommand extends $Command
-  .classBuilder<
-    UpdateRoutingProfileAgentAvailabilityTimerCommandInput,
-    UpdateRoutingProfileAgentAvailabilityTimerCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "UpdateRoutingProfileAgentAvailabilityTimer", {})
-  .n("ConnectClient", "UpdateRoutingProfileAgentAvailabilityTimerCommand")
-  .sc(UpdateRoutingProfileAgentAvailabilityTimer$)
-  .build() {
+export class UpdateRoutingProfileAgentAvailabilityTimerCommand extends command<UpdateRoutingProfileAgentAvailabilityTimerCommandInput, UpdateRoutingProfileAgentAvailabilityTimerCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRoutingProfileAgentAvailabilityTimer",
+  UpdateRoutingProfileAgentAvailabilityTimer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

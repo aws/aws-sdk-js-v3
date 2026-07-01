@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RevokeGrantRequest } from "../models/models_0";
 import { RevokeGrant$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RevokeGrant$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -161,22 +157,12 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class RevokeGrantCommand extends $Command
-  .classBuilder<
-    RevokeGrantCommandInput,
-    RevokeGrantCommandOutput,
-    KMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrentService", "RevokeGrant", {})
-  .n("KMSClient", "RevokeGrantCommand")
-  .sc(RevokeGrant$)
-  .build() {
+export class RevokeGrantCommand extends command<RevokeGrantCommandInput, RevokeGrantCommandOutput>(
+  _ep0,
+  _mw0,
+  "RevokeGrant",
+  RevokeGrant$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

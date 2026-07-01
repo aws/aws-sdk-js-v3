@@ -1,17 +1,13 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import { NoInputAndNoOutput$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -57,22 +53,12 @@ export interface NoInputAndNoOutputCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class NoInputAndNoOutputCommand extends $Command
-  .classBuilder<
-    NoInputAndNoOutputCommandInput,
-    NoInputAndNoOutputCommandOutput,
-    QueryProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QueryProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsQuery", "NoInputAndNoOutput", {})
-  .n("QueryProtocolClient", "NoInputAndNoOutputCommand")
-  .sc(NoInputAndNoOutput$)
-  .build() {
+export class NoInputAndNoOutputCommand extends command<NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput>(
+  _ep0,
+  _mw0,
+  "NoInputAndNoOutput",
+  NoInputAndNoOutput$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEncryptionConfigRequest, GetEncryptionConfigResult } from "../models/models_0";
 import { GetEncryptionConfig$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface GetEncryptionConfigCommandOutput extends GetEncryptionConfigRes
  *
  * @public
  */
-export class GetEncryptionConfigCommand extends $Command
-  .classBuilder<
-    GetEncryptionConfigCommandInput,
-    GetEncryptionConfigCommandOutput,
-    XRayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSXRay", "GetEncryptionConfig", {})
-  .n("XRayClient", "GetEncryptionConfigCommand")
-  .sc(GetEncryptionConfig$)
-  .build() {
+export class GetEncryptionConfigCommand extends command<GetEncryptionConfigCommandInput, GetEncryptionConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEncryptionConfig",
+  GetEncryptionConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

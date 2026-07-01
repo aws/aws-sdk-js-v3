@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetOpportunityRequest, GetOpportunityResponse } from "../models/models_0";
-import type {
-  PartnerCentralSellingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralSellingClient";
 import { GetOpportunity$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -212,22 +204,12 @@ export interface GetOpportunityCommandOutput extends GetOpportunityResponse, __M
  *
  * @public
  */
-export class GetOpportunityCommand extends $Command
-  .classBuilder<
-    GetOpportunityCommandInput,
-    GetOpportunityCommandOutput,
-    PartnerCentralSellingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPartnerCentralSelling", "GetOpportunity", {})
-  .n("PartnerCentralSellingClient", "GetOpportunityCommand")
-  .sc(GetOpportunity$)
-  .build() {
+export class GetOpportunityCommand extends command<GetOpportunityCommandInput, GetOpportunityCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetOpportunity",
+  GetOpportunity$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

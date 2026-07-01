@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { NoInputAndOutputOutput } from "../models/models_0";
 import { NoInputAndOutput$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { NoInputAndOutput$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -58,22 +54,12 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  *
  * @public
  */
-export class NoInputAndOutputCommand extends $Command
-  .classBuilder<
-    NoInputAndOutputCommandInput,
-    NoInputAndOutputCommandOutput,
-    EC2ProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsEc2", "NoInputAndOutput", {})
-  .n("EC2ProtocolClient", "NoInputAndOutputCommand")
-  .sc(NoInputAndOutput$)
-  .build() {
+export class NoInputAndOutputCommand extends command<NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput>(
+  _ep0,
+  _mw0,
+  "NoInputAndOutput",
+  NoInputAndOutput$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

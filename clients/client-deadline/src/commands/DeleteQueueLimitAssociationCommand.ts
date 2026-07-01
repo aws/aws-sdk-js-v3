@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteQueueLimitAssociationRequest, DeleteQueueLimitAssociationResponse } from "../models/models_0";
 import { DeleteQueueLimitAssociation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteQueueLimitAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DeleteQueueLimitAssociationCommandOutput extends DeleteQueueLim
  *
  * @public
  */
-export class DeleteQueueLimitAssociationCommand extends $Command
-  .classBuilder<
-    DeleteQueueLimitAssociationCommandInput,
-    DeleteQueueLimitAssociationCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "DeleteQueueLimitAssociation", {})
-  .n("DeadlineClient", "DeleteQueueLimitAssociationCommand")
-  .sc(DeleteQueueLimitAssociation$)
-  .build() {
+export class DeleteQueueLimitAssociationCommand extends command<DeleteQueueLimitAssociationCommandInput, DeleteQueueLimitAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteQueueLimitAssociation",
+  DeleteQueueLimitAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchInput, SearchOutput } from "../models/models_2";
 import { Search$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { Search$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -294,22 +290,12 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
  *
  * @public
  */
-export class SearchCommand extends $Command
-  .classBuilder<
-    SearchCommandInput,
-    SearchCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "Search", {})
-  .n("DataZoneClient", "SearchCommand")
-  .sc(Search$)
-  .build() {
+export class SearchCommand extends command<SearchCommandInput, SearchCommandOutput>(
+  _ep0,
+  _mw0,
+  "Search",
+  Search$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

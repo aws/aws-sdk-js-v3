@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListIndicatorsRequest, ListIndicatorsResponse } from "../models/models_0";
 import { ListIndicators$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListIndicators$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface ListIndicatorsCommandOutput extends ListIndicatorsResponse, __M
  *
  * @public
  */
-export class ListIndicatorsCommand extends $Command
-  .classBuilder<
-    ListIndicatorsCommandInput,
-    ListIndicatorsCommandOutput,
-    DetectiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDetective", "ListIndicators", {})
-  .n("DetectiveClient", "ListIndicatorsCommand")
-  .sc(ListIndicators$)
-  .build() {
+export class ListIndicatorsCommand extends command<ListIndicatorsCommandInput, ListIndicatorsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListIndicators",
+  ListIndicators$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutClusterCapacityProvidersRequest, PutClusterCapacityProvidersResponse } from "../models/models_0";
 import { PutClusterCapacityProviders$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutClusterCapacityProviders$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -406,22 +402,12 @@ export interface PutClusterCapacityProvidersCommandOutput extends PutClusterCapa
  *
  * @public
  */
-export class PutClusterCapacityProvidersCommand extends $Command
-  .classBuilder<
-    PutClusterCapacityProvidersCommandInput,
-    PutClusterCapacityProvidersCommandOutput,
-    ECSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerServiceV20141113", "PutClusterCapacityProviders", {})
-  .n("ECSClient", "PutClusterCapacityProvidersCommand")
-  .sc(PutClusterCapacityProviders$)
-  .build() {
+export class PutClusterCapacityProvidersCommand extends command<PutClusterCapacityProvidersCommandInput, PutClusterCapacityProvidersCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutClusterCapacityProviders",
+  PutClusterCapacityProviders$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

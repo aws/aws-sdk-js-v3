@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateServiceFunctionRequest, CreateServiceFunctionResponse } from "../models/models_0";
-import type {
-  Resiliencehubv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Resiliencehubv2Client";
 import { CreateServiceFunction$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface CreateServiceFunctionCommandOutput extends CreateServiceFunctio
  *
  * @public
  */
-export class CreateServiceFunctionCommand extends $Command
-  .classBuilder<
-    CreateServiceFunctionCommandInput,
-    CreateServiceFunctionCommandOutput,
-    Resiliencehubv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Resiliencehubv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NGRHServiceCore", "CreateServiceFunction", {})
-  .n("Resiliencehubv2Client", "CreateServiceFunctionCommand")
-  .sc(CreateServiceFunction$)
-  .build() {
+export class CreateServiceFunctionCommand extends command<CreateServiceFunctionCommandInput, CreateServiceFunctionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateServiceFunction",
+  CreateServiceFunction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeApplicableIndividualAssessmentsMessage,
   DescribeApplicableIndividualAssessmentsResponse,
@@ -19,7 +12,6 @@ import { DescribeApplicableIndividualAssessments$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +93,12 @@ export interface DescribeApplicableIndividualAssessmentsCommandOutput extends De
  *
  * @public
  */
-export class DescribeApplicableIndividualAssessmentsCommand extends $Command
-  .classBuilder<
-    DescribeApplicableIndividualAssessmentsCommandInput,
-    DescribeApplicableIndividualAssessmentsCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "DescribeApplicableIndividualAssessments", {})
-  .n("DatabaseMigrationServiceClient", "DescribeApplicableIndividualAssessmentsCommand")
-  .sc(DescribeApplicableIndividualAssessments$)
-  .build() {
+export class DescribeApplicableIndividualAssessmentsCommand extends command<DescribeApplicableIndividualAssessmentsCommandInput, DescribeApplicableIndividualAssessmentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeApplicableIndividualAssessments",
+  DescribeApplicableIndividualAssessments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRuleRequest, DeleteRuleResponse } from "../models/models_0";
 import { DeleteRule$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -146,22 +142,12 @@ export interface DeleteRuleCommandOutput extends DeleteRuleResponse, __MetadataB
  *
  * @public
  */
-export class DeleteRuleCommand extends $Command
-  .classBuilder<
-    DeleteRuleCommandInput,
-    DeleteRuleCommandOutput,
-    WAFRegionalClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_Regional_20161128", "DeleteRule", {})
-  .n("WAFRegionalClient", "DeleteRuleCommand")
-  .sc(DeleteRule$)
-  .build() {
+export class DeleteRuleCommand extends command<DeleteRuleCommandInput, DeleteRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRule",
+  DeleteRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

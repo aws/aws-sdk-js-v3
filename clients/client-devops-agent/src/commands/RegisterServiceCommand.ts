@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterServiceInput, RegisterServiceOutput } from "../models/models_0";
 import { RegisterService$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RegisterService$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -371,22 +367,12 @@ export interface RegisterServiceCommandOutput extends RegisterServiceOutput, __M
  *
  * @public
  */
-export class RegisterServiceCommand extends $Command
-  .classBuilder<
-    RegisterServiceCommandInput,
-    RegisterServiceCommandOutput,
-    DevOpsAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DevOpsAgent", "RegisterService", {})
-  .n("DevOpsAgentClient", "RegisterServiceCommand")
-  .sc(RegisterService$)
-  .build() {
+export class RegisterServiceCommand extends command<RegisterServiceCommandInput, RegisterServiceCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterService",
+  RegisterService$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCaseRequest, CreateCaseResponse } from "../models/models_0";
 import { CreateCase$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateCase$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  *
  * @public
  */
-export class CreateCaseCommand extends $Command
-  .classBuilder<
-    CreateCaseCommandInput,
-    CreateCaseCommandOutput,
-    ConnectCasesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCases", "CreateCase", {})
-  .n("ConnectCasesClient", "CreateCaseCommand")
-  .sc(CreateCase$)
-  .build() {
+export class CreateCaseCommand extends command<CreateCaseCommandInput, CreateCaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCase",
+  CreateCase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

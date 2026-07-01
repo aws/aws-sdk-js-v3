@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateBotAliasRequest, UpdateBotAliasResponse } from "../models/models_1";
 import { UpdateBotAlias$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateBotAlias$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -177,22 +173,12 @@ export interface UpdateBotAliasCommandOutput extends UpdateBotAliasResponse, __M
  *
  * @public
  */
-export class UpdateBotAliasCommand extends $Command
-  .classBuilder<
-    UpdateBotAliasCommandInput,
-    UpdateBotAliasCommandOutput,
-    LexModelsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LexModelBuildingServiceV2", "UpdateBotAlias", {})
-  .n("LexModelsV2Client", "UpdateBotAliasCommand")
-  .sc(UpdateBotAlias$)
-  .build() {
+export class UpdateBotAliasCommand extends command<UpdateBotAliasCommandInput, UpdateBotAliasCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateBotAlias",
+  UpdateBotAlias$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

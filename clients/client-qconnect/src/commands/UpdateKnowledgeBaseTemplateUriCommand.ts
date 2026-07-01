@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateKnowledgeBaseTemplateUriRequest, UpdateKnowledgeBaseTemplateUriResponse } from "../models/models_1";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { UpdateKnowledgeBaseTemplateUri$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -150,22 +146,12 @@ export interface UpdateKnowledgeBaseTemplateUriCommandOutput extends UpdateKnowl
  *
  * @public
  */
-export class UpdateKnowledgeBaseTemplateUriCommand extends $Command
-  .classBuilder<
-    UpdateKnowledgeBaseTemplateUriCommandInput,
-    UpdateKnowledgeBaseTemplateUriCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "UpdateKnowledgeBaseTemplateUri", {})
-  .n("QConnectClient", "UpdateKnowledgeBaseTemplateUriCommand")
-  .sc(UpdateKnowledgeBaseTemplateUri$)
-  .build() {
+export class UpdateKnowledgeBaseTemplateUriCommand extends command<UpdateKnowledgeBaseTemplateUriCommandInput, UpdateKnowledgeBaseTemplateUriCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateKnowledgeBaseTemplateUri",
+  UpdateKnowledgeBaseTemplateUri$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

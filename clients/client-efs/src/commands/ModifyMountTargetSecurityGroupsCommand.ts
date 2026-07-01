@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyMountTargetSecurityGroupsRequest } from "../models/models_0";
 import { ModifyMountTargetSecurityGroups$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ModifyMountTargetSecurityGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface ModifyMountTargetSecurityGroupsCommandOutput extends __Metadata
  *
  * @public
  */
-export class ModifyMountTargetSecurityGroupsCommand extends $Command
-  .classBuilder<
-    ModifyMountTargetSecurityGroupsCommandInput,
-    ModifyMountTargetSecurityGroupsCommandOutput,
-    EFSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MagnolioAPIService_v20150201", "ModifyMountTargetSecurityGroups", {})
-  .n("EFSClient", "ModifyMountTargetSecurityGroupsCommand")
-  .sc(ModifyMountTargetSecurityGroups$)
-  .build() {
+export class ModifyMountTargetSecurityGroupsCommand extends command<ModifyMountTargetSecurityGroupsCommandInput, ModifyMountTargetSecurityGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyMountTargetSecurityGroups",
+  ModifyMountTargetSecurityGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetRecoveryGroupReadinessSummaryRequest,
   GetRecoveryGroupReadinessSummaryResponse,
 } from "../models/models_0";
-import type {
-  Route53RecoveryReadinessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryReadinessClient";
 import { GetRecoveryGroupReadinessSummary$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface GetRecoveryGroupReadinessSummaryCommandOutput extends GetRecove
  *
  * @public
  */
-export class GetRecoveryGroupReadinessSummaryCommand extends $Command
-  .classBuilder<
-    GetRecoveryGroupReadinessSummaryCommandInput,
-    GetRecoveryGroupReadinessSummaryCommandOutput,
-    Route53RecoveryReadinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryReadinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53RecoveryReadiness", "GetRecoveryGroupReadinessSummary", {})
-  .n("Route53RecoveryReadinessClient", "GetRecoveryGroupReadinessSummaryCommand")
-  .sc(GetRecoveryGroupReadinessSummary$)
-  .build() {
+export class GetRecoveryGroupReadinessSummaryCommand extends command<GetRecoveryGroupReadinessSummaryCommandInput, GetRecoveryGroupReadinessSummaryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRecoveryGroupReadinessSummary",
+  GetRecoveryGroupReadinessSummary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

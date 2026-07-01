@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListMultipartUploadsInput, ListMultipartUploadsOutput } from "../models/models_0";
 import { ListMultipartUploads$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListMultipartUploads$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -151,22 +147,12 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  *
  * @public
  */
-export class ListMultipartUploadsCommand extends $Command
-  .classBuilder<
-    ListMultipartUploadsCommandInput,
-    ListMultipartUploadsCommandOutput,
-    GlacierClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Glacier", "ListMultipartUploads", {})
-  .n("GlacierClient", "ListMultipartUploadsCommand")
-  .sc(ListMultipartUploads$)
-  .build() {
+export class ListMultipartUploadsCommand extends command<ListMultipartUploadsCommandInput, ListMultipartUploadsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMultipartUploads",
+  ListMultipartUploads$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutDeliveryChannelRequest } from "../models/models_0";
 import { PutDeliveryChannel$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutDeliveryChannel$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutDeliveryChannelCommand extends $Command
-  .classBuilder<
-    PutDeliveryChannelCommandInput,
-    PutDeliveryChannelCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "PutDeliveryChannel", {})
-  .n("ConfigServiceClient", "PutDeliveryChannelCommand")
-  .sc(PutDeliveryChannel$)
-  .build() {
+export class PutDeliveryChannelCommand extends command<PutDeliveryChannelCommandInput, PutDeliveryChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutDeliveryChannel",
+  PutDeliveryChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

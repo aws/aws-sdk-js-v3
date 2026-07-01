@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteProgressUpdateStreamRequest, DeleteProgressUpdateStreamResult } from "../models/models_0";
 import { DeleteProgressUpdateStream$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteProgressUpdateStream$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface DeleteProgressUpdateStreamCommandOutput extends DeleteProgressU
  *
  * @public
  */
-export class DeleteProgressUpdateStreamCommand extends $Command
-  .classBuilder<
-    DeleteProgressUpdateStreamCommandInput,
-    DeleteProgressUpdateStreamCommandOutput,
-    MigrationHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHub", "DeleteProgressUpdateStream", {})
-  .n("MigrationHubClient", "DeleteProgressUpdateStreamCommand")
-  .sc(DeleteProgressUpdateStream$)
-  .build() {
+export class DeleteProgressUpdateStreamCommand extends command<DeleteProgressUpdateStreamCommandInput, DeleteProgressUpdateStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteProgressUpdateStream",
+  DeleteProgressUpdateStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

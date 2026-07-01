@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteGraphInput, DeleteGraphOutput } from "../models/models_0";
-import type { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
 import { DeleteGraph$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,25 +87,12 @@ export interface DeleteGraphCommandOutput extends DeleteGraphOutput, __MetadataB
  *
  * @public
  */
-export class DeleteGraphCommand extends $Command
-  .classBuilder<
-    DeleteGraphCommandInput,
-    DeleteGraphCommandOutput,
-    NeptuneGraphClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ApiType: { type: "staticContextParams", value: `ControlPlane` },
-  })
-  .m(function (this: any, Command: any, cs: any, config: NeptuneGraphClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneGraph", "DeleteGraph", {})
-  .n("NeptuneGraphClient", "DeleteGraphCommand")
-  .sc(DeleteGraph$)
-  .build() {
+export class DeleteGraphCommand extends command<DeleteGraphCommandInput, DeleteGraphCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteGraph",
+  DeleteGraph$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

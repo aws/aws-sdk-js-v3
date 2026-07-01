@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdatePlaybackRestrictionPolicyRequest,
   UpdatePlaybackRestrictionPolicyResponse,
@@ -15,7 +12,6 @@ import { UpdatePlaybackRestrictionPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface UpdatePlaybackRestrictionPolicyCommandOutput extends UpdatePlay
  *
  * @public
  */
-export class UpdatePlaybackRestrictionPolicyCommand extends $Command
-  .classBuilder<
-    UpdatePlaybackRestrictionPolicyCommandInput,
-    UpdatePlaybackRestrictionPolicyCommandOutput,
-    IvsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoService", "UpdatePlaybackRestrictionPolicy", {})
-  .n("IvsClient", "UpdatePlaybackRestrictionPolicyCommand")
-  .sc(UpdatePlaybackRestrictionPolicy$)
-  .build() {
+export class UpdatePlaybackRestrictionPolicyCommand extends command<UpdatePlaybackRestrictionPolicyCommandInput, UpdatePlaybackRestrictionPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePlaybackRestrictionPolicy",
+  UpdatePlaybackRestrictionPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

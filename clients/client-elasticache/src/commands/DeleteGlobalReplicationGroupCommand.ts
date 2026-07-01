@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteGlobalReplicationGroupMessage, DeleteGlobalReplicationGroupResult } from "../models/models_0";
 import { DeleteGlobalReplicationGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteGlobalReplicationGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface DeleteGlobalReplicationGroupCommandOutput extends DeleteGlobalR
  *
  * @public
  */
-export class DeleteGlobalReplicationGroupCommand extends $Command
-  .classBuilder<
-    DeleteGlobalReplicationGroupCommandInput,
-    DeleteGlobalReplicationGroupCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "DeleteGlobalReplicationGroup", {})
-  .n("ElastiCacheClient", "DeleteGlobalReplicationGroupCommand")
-  .sc(DeleteGlobalReplicationGroup$)
-  .build() {
+export class DeleteGlobalReplicationGroupCommand extends command<DeleteGlobalReplicationGroupCommandInput, DeleteGlobalReplicationGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteGlobalReplicationGroup",
+  DeleteGlobalReplicationGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

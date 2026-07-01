@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRegistrationCodeRequest, GetRegistrationCodeResponse } from "../models/models_1";
 import { GetRegistrationCode$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetRegistrationCode$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface GetRegistrationCodeCommandOutput extends GetRegistrationCodeRes
  *
  * @public
  */
-export class GetRegistrationCodeCommand extends $Command
-  .classBuilder<
-    GetRegistrationCodeCommandInput,
-    GetRegistrationCodeCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "GetRegistrationCode", {})
-  .n("IoTClient", "GetRegistrationCodeCommand")
-  .sc(GetRegistrationCode$)
-  .build() {
+export class GetRegistrationCodeCommand extends command<GetRegistrationCodeCommandInput, GetRegistrationCodeCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRegistrationCode",
+  GetRegistrationCode$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

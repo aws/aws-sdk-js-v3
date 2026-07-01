@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExtendLicenseConsumptionRequest, ExtendLicenseConsumptionResponse } from "../models/models_0";
 import { ExtendLicenseConsumption$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ExtendLicenseConsumption$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface ExtendLicenseConsumptionCommandOutput extends ExtendLicenseCons
  *
  * @public
  */
-export class ExtendLicenseConsumptionCommand extends $Command
-  .classBuilder<
-    ExtendLicenseConsumptionCommandInput,
-    ExtendLicenseConsumptionCommandOutput,
-    LicenseManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLicenseManager", "ExtendLicenseConsumption", {})
-  .n("LicenseManagerClient", "ExtendLicenseConsumptionCommand")
-  .sc(ExtendLicenseConsumption$)
-  .build() {
+export class ExtendLicenseConsumptionCommand extends command<ExtendLicenseConsumptionCommandInput, ExtendLicenseConsumptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExtendLicenseConsumption",
+  ExtendLicenseConsumption$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

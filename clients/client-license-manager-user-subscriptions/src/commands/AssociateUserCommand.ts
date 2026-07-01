@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerUserSubscriptionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerUserSubscriptionsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateUserRequest, AssociateUserResponse } from "../models/models_0";
 import { AssociateUser$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AssociateUser$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -150,22 +142,12 @@ export interface AssociateUserCommandOutput extends AssociateUserResponse, __Met
  *
  * @public
  */
-export class AssociateUserCommand extends $Command
-  .classBuilder<
-    AssociateUserCommandInput,
-    AssociateUserCommandOutput,
-    LicenseManagerUserSubscriptionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerUserSubscriptionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LicenseManagerUserSubscriptions", "AssociateUser", {})
-  .n("LicenseManagerUserSubscriptionsClient", "AssociateUserCommand")
-  .sc(AssociateUser$)
-  .build() {
+export class AssociateUserCommand extends command<AssociateUserCommandInput, AssociateUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateUser",
+  AssociateUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

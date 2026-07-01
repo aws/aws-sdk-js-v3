@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateLiveSourceRequest, CreateLiveSourceResponse } from "../models/models_0";
 import { CreateLiveSource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateLiveSource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface CreateLiveSourceCommandOutput extends CreateLiveSourceResponse,
  *
  * @public
  */
-export class CreateLiveSourceCommand extends $Command
-  .classBuilder<
-    CreateLiveSourceCommandInput,
-    CreateLiveSourceCommandOutput,
-    MediaTailorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaTailor", "CreateLiveSource", {})
-  .n("MediaTailorClient", "CreateLiveSourceCommand")
-  .sc(CreateLiveSource$)
-  .build() {
+export class CreateLiveSourceCommand extends command<CreateLiveSourceCommandInput, CreateLiveSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateLiveSource",
+  CreateLiveSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateKnowledgeBaseRequest, CreateKnowledgeBaseResponse } from "../models/models_1";
 import { CreateKnowledgeBase$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateKnowledgeBase$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -509,22 +505,12 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  *
  * @public
  */
-export class CreateKnowledgeBaseCommand extends $Command
-  .classBuilder<
-    CreateKnowledgeBaseCommandInput,
-    CreateKnowledgeBaseCommandOutput,
-    BedrockAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentBuildTimeLambda", "CreateKnowledgeBase", {})
-  .n("BedrockAgentClient", "CreateKnowledgeBaseCommand")
-  .sc(CreateKnowledgeBase$)
-  .build() {
+export class CreateKnowledgeBaseCommand extends command<CreateKnowledgeBaseCommandInput, CreateKnowledgeBaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateKnowledgeBase",
+  CreateKnowledgeBase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

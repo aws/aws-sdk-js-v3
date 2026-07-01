@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTrailRequest, DeleteTrailResponse } from "../models/models_0";
 import { DeleteTrail$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteTrail$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -145,22 +141,12 @@ export interface DeleteTrailCommandOutput extends DeleteTrailResponse, __Metadat
  *
  * @public
  */
-export class DeleteTrailCommand extends $Command
-  .classBuilder<
-    DeleteTrailCommandInput,
-    DeleteTrailCommandOutput,
-    CloudTrailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudTrail_20131101", "DeleteTrail", {})
-  .n("CloudTrailClient", "DeleteTrailCommand")
-  .sc(DeleteTrail$)
-  .build() {
+export class DeleteTrailCommand extends command<DeleteTrailCommandInput, DeleteTrailCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTrail",
+  DeleteTrail$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

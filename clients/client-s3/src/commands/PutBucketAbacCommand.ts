@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getFlexibleChecksumsPlugin } from "@aws-sdk/checksums/flexible-checksums";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep5, _mw9, command } from "../commandBuilder";
 import type { PutBucketAbacRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { PutBucketAbac$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -64,31 +59,12 @@ export interface PutBucketAbacCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutBucketAbacCommand extends $Command
-  .classBuilder<
-    PutBucketAbacCommandInput,
-    PutBucketAbacCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
-        requestChecksumRequired: false,
-      }),
-    ];
-  })
-  .s("AmazonS3", "PutBucketAbac", {})
-  .n("S3Client", "PutBucketAbacCommand")
-  .sc(PutBucketAbac$)
-  .build() {
+export class PutBucketAbacCommand extends command<PutBucketAbacCommandInput, PutBucketAbacCommandOutput>(
+  _ep5,
+  _mw9,
+  "PutBucketAbac",
+  PutBucketAbac$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteControlPanelRequest, DeleteControlPanelResponse } from "../models/models_0";
-import type {
-  Route53RecoveryControlConfigClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryControlConfigClient";
 import { DeleteControlPanel$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeleteControlPanelCommandOutput extends DeleteControlPanelRespo
  *
  * @public
  */
-export class DeleteControlPanelCommand extends $Command
-  .classBuilder<
-    DeleteControlPanelCommandInput,
-    DeleteControlPanelCommandOutput,
-    Route53RecoveryControlConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53RecoveryControlConfig", "DeleteControlPanel", {})
-  .n("Route53RecoveryControlConfigClient", "DeleteControlPanelCommand")
-  .sc(DeleteControlPanel$)
-  .build() {
+export class DeleteControlPanelCommand extends command<DeleteControlPanelCommandInput, DeleteControlPanelCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteControlPanel",
+  DeleteControlPanel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

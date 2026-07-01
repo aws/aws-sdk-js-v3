@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeReportJobInput, DescribeReportJobOutput } from "../models/models_0";
 import { DescribeReportJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeReportJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DescribeReportJobCommandOutput extends DescribeReportJobOutput,
  *
  * @public
  */
-export class DescribeReportJobCommand extends $Command
-  .classBuilder<
-    DescribeReportJobCommandInput,
-    DescribeReportJobCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "DescribeReportJob", {})
-  .n("BackupClient", "DescribeReportJobCommand")
-  .sc(DescribeReportJob$)
-  .build() {
+export class DescribeReportJobCommand extends command<DescribeReportJobCommandInput, DescribeReportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeReportJob",
+  DescribeReportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

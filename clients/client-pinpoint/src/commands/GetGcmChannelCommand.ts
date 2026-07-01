@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetGcmChannelRequest, GetGcmChannelResponse } from "../models/models_0";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { GetGcmChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface GetGcmChannelCommandOutput extends GetGcmChannelResponse, __Met
  *
  * @public
  */
-export class GetGcmChannelCommand extends $Command
-  .classBuilder<
-    GetGcmChannelCommandInput,
-    GetGcmChannelCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "GetGcmChannel", {})
-  .n("PinpointClient", "GetGcmChannelCommand")
-  .sc(GetGcmChannel$)
-  .build() {
+export class GetGcmChannelCommand extends command<GetGcmChannelCommandInput, GetGcmChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetGcmChannel",
+  GetGcmChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

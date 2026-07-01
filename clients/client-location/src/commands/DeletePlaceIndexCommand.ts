@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePlaceIndexRequest, DeletePlaceIndexResponse } from "../models/models_0";
 import { DeletePlaceIndex$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeletePlaceIndex$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeletePlaceIndexCommandOutput extends DeletePlaceIndexResponse,
  *
  * @public
  */
-export class DeletePlaceIndexCommand extends $Command
-  .classBuilder<
-    DeletePlaceIndexCommandInput,
-    DeletePlaceIndexCommandOutput,
-    LocationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LocationService", "DeletePlaceIndex", {})
-  .n("LocationClient", "DeletePlaceIndexCommand")
-  .sc(DeletePlaceIndex$)
-  .build() {
+export class DeletePlaceIndexCommand extends command<DeletePlaceIndexCommandInput, DeletePlaceIndexCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePlaceIndex",
+  DeletePlaceIndex$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

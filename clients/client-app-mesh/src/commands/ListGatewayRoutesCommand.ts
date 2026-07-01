@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListGatewayRoutesInput, ListGatewayRoutesOutput } from "../models/models_0";
 import { ListGatewayRoutes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListGatewayRoutes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface ListGatewayRoutesCommandOutput extends ListGatewayRoutesOutput,
  *
  * @public
  */
-export class ListGatewayRoutesCommand extends $Command
-  .classBuilder<
-    ListGatewayRoutesCommandInput,
-    ListGatewayRoutesCommandOutput,
-    AppMeshClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppMeshClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppMesh", "ListGatewayRoutes", {})
-  .n("AppMeshClient", "ListGatewayRoutesCommand")
-  .sc(ListGatewayRoutes$)
-  .build() {
+export class ListGatewayRoutesCommand extends command<ListGatewayRoutesCommandInput, ListGatewayRoutesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListGatewayRoutes",
+  ListGatewayRoutes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

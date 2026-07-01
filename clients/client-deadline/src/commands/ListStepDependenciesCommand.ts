@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListStepDependenciesRequest, ListStepDependenciesResponse } from "../models/models_1";
 import { ListStepDependencies$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListStepDependencies$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface ListStepDependenciesCommandOutput extends ListStepDependenciesR
  *
  * @public
  */
-export class ListStepDependenciesCommand extends $Command
-  .classBuilder<
-    ListStepDependenciesCommandInput,
-    ListStepDependenciesCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "ListStepDependencies", {})
-  .n("DeadlineClient", "ListStepDependenciesCommand")
-  .sc(ListStepDependencies$)
-  .build() {
+export class ListStepDependenciesCommand extends command<ListStepDependenciesCommandInput, ListStepDependenciesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListStepDependencies",
+  ListStepDependencies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

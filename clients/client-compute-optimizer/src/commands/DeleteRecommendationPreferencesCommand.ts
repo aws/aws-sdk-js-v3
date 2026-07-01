@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteRecommendationPreferencesRequest,
   DeleteRecommendationPreferencesResponse,
@@ -19,7 +12,6 @@ import { DeleteRecommendationPreferences$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface DeleteRecommendationPreferencesCommandOutput extends DeleteReco
  *
  * @public
  */
-export class DeleteRecommendationPreferencesCommand extends $Command
-  .classBuilder<
-    DeleteRecommendationPreferencesCommandInput,
-    DeleteRecommendationPreferencesCommandOutput,
-    ComputeOptimizerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerService", "DeleteRecommendationPreferences", {})
-  .n("ComputeOptimizerClient", "DeleteRecommendationPreferencesCommand")
-  .sc(DeleteRecommendationPreferences$)
-  .build() {
+export class DeleteRecommendationPreferencesCommand extends command<DeleteRecommendationPreferencesCommandInput, DeleteRecommendationPreferencesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRecommendationPreferences",
+  DeleteRecommendationPreferences$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

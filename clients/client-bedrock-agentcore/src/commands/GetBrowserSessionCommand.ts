@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetBrowserSessionRequest, GetBrowserSessionResponse } from "../models/models_0";
 import { GetBrowserSession$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetBrowserSession$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -157,22 +149,12 @@ export interface GetBrowserSessionCommandOutput extends GetBrowserSessionRespons
  *
  * @public
  */
-export class GetBrowserSessionCommand extends $Command
-  .classBuilder<
-    GetBrowserSessionCommandInput,
-    GetBrowserSessionCommandOutput,
-    BedrockAgentCoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCore", "GetBrowserSession", {})
-  .n("BedrockAgentCoreClient", "GetBrowserSessionCommand")
-  .sc(GetBrowserSession$)
-  .build() {
+export class GetBrowserSessionCommand extends command<GetBrowserSessionCommandInput, GetBrowserSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetBrowserSession",
+  GetBrowserSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteLaunchConfigurationTemplateRequest,
   DeleteLaunchConfigurationTemplateResponse,
@@ -15,7 +12,6 @@ import { DeleteLaunchConfigurationTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteLaunchConfigurationTemplateCommandOutput extends DeleteLa
  *
  * @public
  */
-export class DeleteLaunchConfigurationTemplateCommand extends $Command
-  .classBuilder<
-    DeleteLaunchConfigurationTemplateCommandInput,
-    DeleteLaunchConfigurationTemplateCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "DeleteLaunchConfigurationTemplate", {})
-  .n("DrsClient", "DeleteLaunchConfigurationTemplateCommand")
-  .sc(DeleteLaunchConfigurationTemplate$)
-  .build() {
+export class DeleteLaunchConfigurationTemplateCommand extends command<DeleteLaunchConfigurationTemplateCommandInput, DeleteLaunchConfigurationTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteLaunchConfigurationTemplate",
+  DeleteLaunchConfigurationTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

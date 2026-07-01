@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupSearchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSearchResultExportJobInput, GetSearchResultExportJobOutput } from "../models/models_0";
 import { GetSearchResultExportJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetSearchResultExportJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface GetSearchResultExportJobCommandOutput extends GetSearchResultEx
  *
  * @public
  */
-export class GetSearchResultExportJobCommand extends $Command
-  .classBuilder<
-    GetSearchResultExportJobCommandInput,
-    GetSearchResultExportJobCommandOutput,
-    BackupSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoBackupSearchService", "GetSearchResultExportJob", {})
-  .n("BackupSearchClient", "GetSearchResultExportJobCommand")
-  .sc(GetSearchResultExportJob$)
-  .build() {
+export class GetSearchResultExportJobCommand extends command<GetSearchResultExportJobCommandInput, GetSearchResultExportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSearchResultExportJob",
+  GetSearchResultExportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

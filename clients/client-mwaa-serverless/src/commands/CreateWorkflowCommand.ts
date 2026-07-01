@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateWorkflowRequest, CreateWorkflowResponse } from "../models/models_0";
-import type {
-  MWAAServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MWAAServerlessClient";
 import { CreateWorkflow$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +112,12 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  *
  * @public
  */
-export class CreateWorkflowCommand extends $Command
-  .classBuilder<
-    CreateWorkflowCommandInput,
-    CreateWorkflowCommandOutput,
-    MWAAServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MWAAServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMWAAServerless", "CreateWorkflow", {})
-  .n("MWAAServerlessClient", "CreateWorkflowCommand")
-  .sc(CreateWorkflow$)
-  .build() {
+export class CreateWorkflowCommand extends command<CreateWorkflowCommandInput, CreateWorkflowCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateWorkflow",
+  CreateWorkflow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetKxDataviewRequest, GetKxDataviewResponse } from "../models/models_0";
 import { GetKxDataview$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetKxDataview$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +115,12 @@ export interface GetKxDataviewCommandOutput extends GetKxDataviewResponse, __Met
  *
  * @public
  */
-export class GetKxDataviewCommand extends $Command
-  .classBuilder<
-    GetKxDataviewCommandInput,
-    GetKxDataviewCommandOutput,
-    FinspaceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHabaneroManagementService", "GetKxDataview", {})
-  .n("FinspaceClient", "GetKxDataviewCommand")
-  .sc(GetKxDataview$)
-  .build() {
+export class GetKxDataviewCommand extends command<GetKxDataviewCommandInput, GetKxDataviewCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetKxDataview",
+  GetKxDataview$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

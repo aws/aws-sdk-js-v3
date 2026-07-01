@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeTapesInput, DescribeTapesOutput } from "../models/models_0";
 import { DescribeTapes$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -137,22 +129,12 @@ export interface DescribeTapesCommandOutput extends DescribeTapesOutput, __Metad
  *
  * @public
  */
-export class DescribeTapesCommand extends $Command
-  .classBuilder<
-    DescribeTapesCommandInput,
-    DescribeTapesCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "DescribeTapes", {})
-  .n("StorageGatewayClient", "DescribeTapesCommand")
-  .sc(DescribeTapes$)
-  .build() {
+export class DescribeTapesCommand extends command<DescribeTapesCommandInput, DescribeTapesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeTapes",
+  DescribeTapes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

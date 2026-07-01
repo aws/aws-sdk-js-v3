@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  EntityResolutionClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../EntityResolutionClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListIdNamespacesInput, ListIdNamespacesOutput } from "../models/models_0";
 import { ListIdNamespaces$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListIdNamespaces$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface ListIdNamespacesCommandOutput extends ListIdNamespacesOutput, _
  *
  * @public
  */
-export class ListIdNamespacesCommand extends $Command
-  .classBuilder<
-    ListIdNamespacesCommandInput,
-    ListIdNamespacesCommandOutput,
-    EntityResolutionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EntityResolutionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSVeniceService", "ListIdNamespaces", {})
-  .n("EntityResolutionClient", "ListIdNamespacesCommand")
-  .sc(ListIdNamespaces$)
-  .build() {
+export class ListIdNamespacesCommand extends command<ListIdNamespacesCommandInput, ListIdNamespacesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListIdNamespaces",
+  ListIdNamespaces$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

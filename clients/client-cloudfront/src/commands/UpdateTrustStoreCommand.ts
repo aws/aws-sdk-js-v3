@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateTrustStoreRequest, UpdateTrustStoreResult } from "../models/models_1";
 import { UpdateTrustStore$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateTrustStore$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface UpdateTrustStoreCommandOutput extends UpdateTrustStoreResult, _
  *
  * @public
  */
-export class UpdateTrustStoreCommand extends $Command
-  .classBuilder<
-    UpdateTrustStoreCommandInput,
-    UpdateTrustStoreCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "UpdateTrustStore", {})
-  .n("CloudFrontClient", "UpdateTrustStoreCommand")
-  .sc(UpdateTrustStore$)
-  .build() {
+export class UpdateTrustStoreCommand extends command<UpdateTrustStoreCommandInput, UpdateTrustStoreCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateTrustStore",
+  UpdateTrustStore$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

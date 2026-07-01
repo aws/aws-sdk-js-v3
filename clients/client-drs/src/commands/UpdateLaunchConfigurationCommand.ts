@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { LaunchConfiguration, UpdateLaunchConfigurationRequest } from "../models/models_0";
 import { UpdateLaunchConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateLaunchConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
  *
  * @public
  */
-export class UpdateLaunchConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateLaunchConfigurationCommandInput,
-    UpdateLaunchConfigurationCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "UpdateLaunchConfiguration", {})
-  .n("DrsClient", "UpdateLaunchConfigurationCommand")
-  .sc(UpdateLaunchConfiguration$)
-  .build() {
+export class UpdateLaunchConfigurationCommand extends command<UpdateLaunchConfigurationCommandInput, UpdateLaunchConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateLaunchConfiguration",
+  UpdateLaunchConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

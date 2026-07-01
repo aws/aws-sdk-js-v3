@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRegistryCatalogDataRequest, GetRegistryCatalogDataResponse } from "../models/models_0";
 import { GetRegistryCatalogData$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetRegistryCatalogData$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -65,22 +61,12 @@ export interface GetRegistryCatalogDataCommandOutput extends GetRegistryCatalogD
  *
  * @public
  */
-export class GetRegistryCatalogDataCommand extends $Command
-  .classBuilder<
-    GetRegistryCatalogDataCommandInput,
-    GetRegistryCatalogDataCommandOutput,
-    ECRPUBLICClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRPUBLICClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SpencerFrontendService", "GetRegistryCatalogData", {})
-  .n("ECRPUBLICClient", "GetRegistryCatalogDataCommand")
-  .sc(GetRegistryCatalogData$)
-  .build() {
+export class GetRegistryCatalogDataCommand extends command<GetRegistryCatalogDataCommandInput, GetRegistryCatalogDataCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRegistryCatalogData",
+  GetRegistryCatalogData$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

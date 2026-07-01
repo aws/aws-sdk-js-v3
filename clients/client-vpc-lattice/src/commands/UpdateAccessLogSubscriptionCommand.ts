@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAccessLogSubscriptionRequest, UpdateAccessLogSubscriptionResponse } from "../models/models_0";
 import { UpdateAccessLogSubscription$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface UpdateAccessLogSubscriptionCommandOutput extends UpdateAccessLo
  *
  * @public
  */
-export class UpdateAccessLogSubscriptionCommand extends $Command
-  .classBuilder<
-    UpdateAccessLogSubscriptionCommandInput,
-    UpdateAccessLogSubscriptionCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "UpdateAccessLogSubscription", {})
-  .n("VPCLatticeClient", "UpdateAccessLogSubscriptionCommand")
-  .sc(UpdateAccessLogSubscription$)
-  .build() {
+export class UpdateAccessLogSubscriptionCommand extends command<UpdateAccessLogSubscriptionCommandInput, UpdateAccessLogSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAccessLogSubscription",
+  UpdateAccessLogSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

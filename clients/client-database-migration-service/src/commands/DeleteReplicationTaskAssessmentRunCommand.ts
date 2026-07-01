@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteReplicationTaskAssessmentRunMessage,
   DeleteReplicationTaskAssessmentRunResponse,
@@ -19,7 +12,6 @@ import { DeleteReplicationTaskAssessmentRun$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface DeleteReplicationTaskAssessmentRunCommandOutput extends DeleteR
  *
  * @public
  */
-export class DeleteReplicationTaskAssessmentRunCommand extends $Command
-  .classBuilder<
-    DeleteReplicationTaskAssessmentRunCommandInput,
-    DeleteReplicationTaskAssessmentRunCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "DeleteReplicationTaskAssessmentRun", {})
-  .n("DatabaseMigrationServiceClient", "DeleteReplicationTaskAssessmentRunCommand")
-  .sc(DeleteReplicationTaskAssessmentRun$)
-  .build() {
+export class DeleteReplicationTaskAssessmentRunCommand extends command<DeleteReplicationTaskAssessmentRunCommandInput, DeleteReplicationTaskAssessmentRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteReplicationTaskAssessmentRun",
+  DeleteReplicationTaskAssessmentRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

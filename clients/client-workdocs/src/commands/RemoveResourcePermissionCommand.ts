@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveResourcePermissionRequest } from "../models/models_0";
 import { RemoveResourcePermission$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface RemoveResourcePermissionCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class RemoveResourcePermissionCommand extends $Command
-  .classBuilder<
-    RemoveResourcePermissionCommandInput,
-    RemoveResourcePermissionCommandOutput,
-    WorkDocsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGorillaBoyService", "RemoveResourcePermission", {})
-  .n("WorkDocsClient", "RemoveResourcePermissionCommand")
-  .sc(RemoveResourcePermission$)
-  .build() {
+export class RemoveResourcePermissionCommand extends command<RemoveResourcePermissionCommandInput, RemoveResourcePermissionCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveResourcePermission",
+  RemoveResourcePermission$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

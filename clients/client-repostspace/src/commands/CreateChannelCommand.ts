@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateChannelInput, CreateChannelOutput } from "../models/models_0";
-import type { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
 import { CreateChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface CreateChannelCommandOutput extends CreateChannelOutput, __Metad
  *
  * @public
  */
-export class CreateChannelCommand extends $Command
-  .classBuilder<
-    CreateChannelCommandInput,
-    CreateChannelCommandOutput,
-    RepostspaceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RepostspaceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RepostSpace", "CreateChannel", {})
-  .n("RepostspaceClient", "CreateChannelCommand")
-  .sc(CreateChannel$)
-  .build() {
+export class CreateChannelCommand extends command<CreateChannelCommandInput, CreateChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateChannel",
+  CreateChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

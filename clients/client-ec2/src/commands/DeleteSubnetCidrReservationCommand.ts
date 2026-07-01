@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSubnetCidrReservationRequest, DeleteSubnetCidrReservationResult } from "../models/models_3";
 import { DeleteSubnetCidrReservation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteSubnetCidrReservation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteSubnetCidrReservationCommandOutput extends DeleteSubnetCi
  *
  * @public
  */
-export class DeleteSubnetCidrReservationCommand extends $Command
-  .classBuilder<
-    DeleteSubnetCidrReservationCommandInput,
-    DeleteSubnetCidrReservationCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeleteSubnetCidrReservation", {})
-  .n("EC2Client", "DeleteSubnetCidrReservationCommand")
-  .sc(DeleteSubnetCidrReservation$)
-  .build() {
+export class DeleteSubnetCidrReservationCommand extends command<DeleteSubnetCidrReservationCommandInput, DeleteSubnetCidrReservationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSubnetCidrReservation",
+  DeleteSubnetCidrReservation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPackagesRequest, ListPackagesResult } from "../models/models_0";
 import { ListPackages$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListPackages$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface ListPackagesCommandOutput extends ListPackagesResult, __Metadat
  *
  * @public
  */
-export class ListPackagesCommand extends $Command
-  .classBuilder<
-    ListPackagesCommandInput,
-    ListPackagesCommandOutput,
-    CodeartifactClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeArtifactControlPlaneService", "ListPackages", {})
-  .n("CodeartifactClient", "ListPackagesCommand")
-  .sc(ListPackages$)
-  .build() {
+export class ListPackagesCommand extends command<ListPackagesCommandInput, ListPackagesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPackages",
+  ListPackages$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

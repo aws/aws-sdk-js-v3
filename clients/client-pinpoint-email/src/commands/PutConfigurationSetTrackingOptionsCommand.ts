@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutConfigurationSetTrackingOptionsRequest,
   PutConfigurationSetTrackingOptionsResponse,
 } from "../models/models_0";
-import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import { PutConfigurationSetTrackingOptions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface PutConfigurationSetTrackingOptionsCommandOutput extends PutConf
  *
  * @public
  */
-export class PutConfigurationSetTrackingOptionsCommand extends $Command
-  .classBuilder<
-    PutConfigurationSetTrackingOptionsCommandInput,
-    PutConfigurationSetTrackingOptionsCommandOutput,
-    PinpointEmailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPinpointEmailService", "PutConfigurationSetTrackingOptions", {})
-  .n("PinpointEmailClient", "PutConfigurationSetTrackingOptionsCommand")
-  .sc(PutConfigurationSetTrackingOptions$)
-  .build() {
+export class PutConfigurationSetTrackingOptionsCommand extends command<PutConfigurationSetTrackingOptionsCommandInput, PutConfigurationSetTrackingOptionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutConfigurationSetTrackingOptions",
+  PutConfigurationSetTrackingOptions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

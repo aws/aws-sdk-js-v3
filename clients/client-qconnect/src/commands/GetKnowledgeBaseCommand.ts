@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetKnowledgeBaseRequest, GetKnowledgeBaseResponse } from "../models/models_1";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { GetKnowledgeBase$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -152,22 +148,12 @@ export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse,
  *
  * @public
  */
-export class GetKnowledgeBaseCommand extends $Command
-  .classBuilder<
-    GetKnowledgeBaseCommandInput,
-    GetKnowledgeBaseCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "GetKnowledgeBase", {})
-  .n("QConnectClient", "GetKnowledgeBaseCommand")
-  .sc(GetKnowledgeBase$)
-  .build() {
+export class GetKnowledgeBaseCommand extends command<GetKnowledgeBaseCommandInput, GetKnowledgeBaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetKnowledgeBase",
+  GetKnowledgeBase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

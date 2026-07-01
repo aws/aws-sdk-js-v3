@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteContainerServiceRequest, DeleteContainerServiceResult } from "../models/models_0";
 import { DeleteContainerService$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteContainerService$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DeleteContainerServiceCommandOutput extends DeleteContainerServ
  *
  * @public
  */
-export class DeleteContainerServiceCommand extends $Command
-  .classBuilder<
-    DeleteContainerServiceCommandInput,
-    DeleteContainerServiceCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "DeleteContainerService", {})
-  .n("LightsailClient", "DeleteContainerServiceCommand")
-  .sc(DeleteContainerService$)
-  .build() {
+export class DeleteContainerServiceCommand extends command<DeleteContainerServiceCommandInput, DeleteContainerServiceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteContainerService",
+  DeleteContainerService$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateFuotaTaskRequest, UpdateFuotaTaskResponse } from "../models/models_1";
 import { UpdateFuotaTask$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateFuotaTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface UpdateFuotaTaskCommandOutput extends UpdateFuotaTaskResponse, _
  *
  * @public
  */
-export class UpdateFuotaTaskCommand extends $Command
-  .classBuilder<
-    UpdateFuotaTaskCommandInput,
-    UpdateFuotaTaskCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "UpdateFuotaTask", {})
-  .n("IoTWirelessClient", "UpdateFuotaTaskCommand")
-  .sc(UpdateFuotaTask$)
-  .build() {
+export class UpdateFuotaTaskCommand extends command<UpdateFuotaTaskCommandInput, UpdateFuotaTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateFuotaTask",
+  UpdateFuotaTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

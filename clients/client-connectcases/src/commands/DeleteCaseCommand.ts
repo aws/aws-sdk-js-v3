@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCaseRequest, DeleteCaseResponse } from "../models/models_0";
 import { DeleteCase$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteCase$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteCaseCommandOutput extends DeleteCaseResponse, __MetadataB
  *
  * @public
  */
-export class DeleteCaseCommand extends $Command
-  .classBuilder<
-    DeleteCaseCommandInput,
-    DeleteCaseCommandOutput,
-    ConnectCasesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCases", "DeleteCase", {})
-  .n("ConnectCasesClient", "DeleteCaseCommand")
-  .sc(DeleteCase$)
-  .build() {
+export class DeleteCaseCommand extends command<DeleteCaseCommandInput, DeleteCaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCase",
+  DeleteCase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

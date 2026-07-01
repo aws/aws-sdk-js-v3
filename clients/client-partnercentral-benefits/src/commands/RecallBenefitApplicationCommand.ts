@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RecallBenefitApplicationInput, RecallBenefitApplicationOutput } from "../models/models_0";
-import type {
-  PartnerCentralBenefitsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralBenefitsClient";
 import { RecallBenefitApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface RecallBenefitApplicationCommandOutput extends RecallBenefitAppl
  *
  * @public
  */
-export class RecallBenefitApplicationCommand extends $Command
-  .classBuilder<
-    RecallBenefitApplicationCommandInput,
-    RecallBenefitApplicationCommandOutput,
-    PartnerCentralBenefitsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralBenefitsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralBenefitsService", "RecallBenefitApplication", {})
-  .n("PartnerCentralBenefitsClient", "RecallBenefitApplicationCommand")
-  .sc(RecallBenefitApplication$)
-  .build() {
+export class RecallBenefitApplicationCommand extends command<RecallBenefitApplicationCommandInput, RecallBenefitApplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "RecallBenefitApplication",
+  RecallBenefitApplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

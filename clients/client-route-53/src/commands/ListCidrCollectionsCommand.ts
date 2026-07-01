@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw2, command } from "../commandBuilder";
 import type { ListCidrCollectionsRequest, ListCidrCollectionsResponse } from "../models/models_0";
-import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 import { ListCidrCollections$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface ListCidrCollectionsCommandOutput extends ListCidrCollectionsRes
  *
  * @public
  */
-export class ListCidrCollectionsCommand extends $Command
-  .classBuilder<
-    ListCidrCollectionsCommandInput,
-    ListCidrCollectionsCommandOutput,
-    Route53ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDnsV20130401", "ListCidrCollections", {})
-  .n("Route53Client", "ListCidrCollectionsCommand")
-  .sc(ListCidrCollections$)
-  .build() {
+export class ListCidrCollectionsCommand extends command<ListCidrCollectionsCommandInput, ListCidrCollectionsCommandOutput>(
+  _ep0,
+  _mw2,
+  "ListCidrCollections",
+  ListCidrCollections$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

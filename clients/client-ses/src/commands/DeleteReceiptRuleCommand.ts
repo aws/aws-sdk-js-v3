@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteReceiptRuleRequest, DeleteReceiptRuleResponse } from "../models/models_0";
 import { DeleteReceiptRule$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DeleteReceiptRuleCommandOutput extends DeleteReceiptRuleRespons
  *
  * @public
  */
-export class DeleteReceiptRuleCommand extends $Command
-  .classBuilder<
-    DeleteReceiptRuleCommandInput,
-    DeleteReceiptRuleCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "DeleteReceiptRule", {})
-  .n("SESClient", "DeleteReceiptRuleCommand")
-  .sc(DeleteReceiptRule$)
-  .build() {
+export class DeleteReceiptRuleCommand extends command<DeleteReceiptRuleCommandInput, DeleteReceiptRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteReceiptRule",
+  DeleteReceiptRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

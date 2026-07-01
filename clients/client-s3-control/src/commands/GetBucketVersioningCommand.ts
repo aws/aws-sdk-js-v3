@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3/s3-control";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep5, _mw1, command } from "../commandBuilder";
 import type { GetBucketVersioningRequest, GetBucketVersioningResult } from "../models/models_0";
-import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { GetBucketVersioning$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,30 +94,12 @@ export interface GetBucketVersioningCommandOutput extends GetBucketVersioningRes
  *
  * @public
  */
-export class GetBucketVersioningCommand extends $Command
-  .classBuilder<
-    GetBucketVersioningCommandInput,
-    GetBucketVersioningCommandOutput,
-    S3ControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    RequiresAccountId: { type: "staticContextParams", value: true },
-    AccountId: { type: "contextParams", name: "AccountId" },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getProcessArnablesPlugin(config),
-    ];
-  })
-  .s("AWSS3ControlServiceV20180820", "GetBucketVersioning", {})
-  .n("S3ControlClient", "GetBucketVersioningCommand")
-  .sc(GetBucketVersioning$)
-  .build() {
+export class GetBucketVersioningCommand extends command<GetBucketVersioningCommandInput, GetBucketVersioningCommandOutput>(
+  _ep5,
+  _mw1,
+  "GetBucketVersioning",
+  GetBucketVersioning$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

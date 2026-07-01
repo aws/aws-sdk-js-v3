@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateKeyValueStoreRequest, UpdateKeyValueStoreResult } from "../models/models_1";
 import { UpdateKeyValueStore$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateKeyValueStore$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface UpdateKeyValueStoreCommandOutput extends UpdateKeyValueStoreRes
  *
  * @public
  */
-export class UpdateKeyValueStoreCommand extends $Command
-  .classBuilder<
-    UpdateKeyValueStoreCommandInput,
-    UpdateKeyValueStoreCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "UpdateKeyValueStore", {})
-  .n("CloudFrontClient", "UpdateKeyValueStoreCommand")
-  .sc(UpdateKeyValueStore$)
-  .build() {
+export class UpdateKeyValueStoreCommand extends command<UpdateKeyValueStoreCommandInput, UpdateKeyValueStoreCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateKeyValueStore",
+  UpdateKeyValueStore$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

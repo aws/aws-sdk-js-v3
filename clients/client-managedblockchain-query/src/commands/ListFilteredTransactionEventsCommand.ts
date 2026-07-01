@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  ManagedBlockchainQueryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ManagedBlockchainQueryClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListFilteredTransactionEventsInput, ListFilteredTransactionEventsOutput } from "../models/models_0";
 import { ListFilteredTransactionEvents$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListFilteredTransactionEvents$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +125,12 @@ export interface ListFilteredTransactionEventsCommandOutput extends ListFiltered
  *
  * @public
  */
-export class ListFilteredTransactionEventsCommand extends $Command
-  .classBuilder<
-    ListFilteredTransactionEventsCommandInput,
-    ListFilteredTransactionEventsCommandOutput,
-    ManagedBlockchainQueryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainQueryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TietonChainQueryService", "ListFilteredTransactionEvents", {})
-  .n("ManagedBlockchainQueryClient", "ListFilteredTransactionEventsCommand")
-  .sc(ListFilteredTransactionEvents$)
-  .build() {
+export class ListFilteredTransactionEventsCommand extends command<ListFilteredTransactionEventsCommandInput, ListFilteredTransactionEventsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFilteredTransactionEvents",
+  ListFilteredTransactionEvents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

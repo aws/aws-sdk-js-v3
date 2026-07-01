@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateGovernedTermsInput, AssociateGovernedTermsOutput } from "../models/models_0";
 import { AssociateGovernedTerms$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateGovernedTerms$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface AssociateGovernedTermsCommandOutput extends AssociateGovernedTe
  *
  * @public
  */
-export class AssociateGovernedTermsCommand extends $Command
-  .classBuilder<
-    AssociateGovernedTermsCommandInput,
-    AssociateGovernedTermsCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "AssociateGovernedTerms", {})
-  .n("DataZoneClient", "AssociateGovernedTermsCommand")
-  .sc(AssociateGovernedTerms$)
-  .build() {
+export class AssociateGovernedTermsCommand extends command<AssociateGovernedTermsCommandInput, AssociateGovernedTermsCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateGovernedTerms",
+  AssociateGovernedTerms$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

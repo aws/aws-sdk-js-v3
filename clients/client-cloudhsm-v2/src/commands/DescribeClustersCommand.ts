@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeClustersRequest, DescribeClustersResponse } from "../models/models_0";
 import { DescribeClusters$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeClusters$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +136,12 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  *
  * @public
  */
-export class DescribeClustersCommand extends $Command
-  .classBuilder<
-    DescribeClustersCommandInput,
-    DescribeClustersCommandOutput,
-    CloudHSMV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BaldrApiService", "DescribeClusters", {})
-  .n("CloudHSMV2Client", "DescribeClustersCommand")
-  .sc(DescribeClusters$)
-  .build() {
+export class DescribeClustersCommand extends command<DescribeClustersCommandInput, DescribeClustersCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeClusters",
+  DescribeClusters$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

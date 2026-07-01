@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateApprovalRuleTemplateWithRepositoryInput } from "../models/models_0";
 import { AssociateApprovalRuleTemplateWithRepository$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateApprovalRuleTemplateWithRepository$ } from "../schemas/schemas
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface AssociateApprovalRuleTemplateWithRepositoryCommandOutput extend
  *
  * @public
  */
-export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
-  .classBuilder<
-    AssociateApprovalRuleTemplateWithRepositoryCommandInput,
-    AssociateApprovalRuleTemplateWithRepositoryCommandOutput,
-    CodeCommitClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCommit_20150413", "AssociateApprovalRuleTemplateWithRepository", {})
-  .n("CodeCommitClient", "AssociateApprovalRuleTemplateWithRepositoryCommand")
-  .sc(AssociateApprovalRuleTemplateWithRepository$)
-  .build() {
+export class AssociateApprovalRuleTemplateWithRepositoryCommand extends command<AssociateApprovalRuleTemplateWithRepositoryCommandInput, AssociateApprovalRuleTemplateWithRepositoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateApprovalRuleTemplateWithRepository",
+  AssociateApprovalRuleTemplateWithRepository$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

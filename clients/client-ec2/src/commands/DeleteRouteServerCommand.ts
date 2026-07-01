@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRouteServerRequest, DeleteRouteServerResult } from "../models/models_2";
 import { DeleteRouteServer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteRouteServer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface DeleteRouteServerCommandOutput extends DeleteRouteServerResult,
  *
  * @public
  */
-export class DeleteRouteServerCommand extends $Command
-  .classBuilder<
-    DeleteRouteServerCommandInput,
-    DeleteRouteServerCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeleteRouteServer", {})
-  .n("EC2Client", "DeleteRouteServerCommand")
-  .sc(DeleteRouteServer$)
-  .build() {
+export class DeleteRouteServerCommand extends command<DeleteRouteServerCommandInput, DeleteRouteServerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRouteServer",
+  DeleteRouteServer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

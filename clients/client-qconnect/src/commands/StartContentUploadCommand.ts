@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartContentUploadRequest, StartContentUploadResponse } from "../models/models_1";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { StartContentUpload$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  *
  * @public
  */
-export class StartContentUploadCommand extends $Command
-  .classBuilder<
-    StartContentUploadCommandInput,
-    StartContentUploadCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "StartContentUpload", {})
-  .n("QConnectClient", "StartContentUploadCommand")
-  .sc(StartContentUpload$)
-  .build() {
+export class StartContentUploadCommand extends command<StartContentUploadCommandInput, StartContentUploadCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartContentUpload",
+  StartContentUpload$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  GlobalAcceleratorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../GlobalAcceleratorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListEndpointGroupsRequest, ListEndpointGroupsResponse } from "../models/models_0";
 import { ListEndpointGroups$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListEndpointGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface ListEndpointGroupsCommandOutput extends ListEndpointGroupsRespo
  *
  * @public
  */
-export class ListEndpointGroupsCommand extends $Command
-  .classBuilder<
-    ListEndpointGroupsCommandInput,
-    ListEndpointGroupsCommandOutput,
-    GlobalAcceleratorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GlobalAccelerator_V20180706", "ListEndpointGroups", {})
-  .n("GlobalAcceleratorClient", "ListEndpointGroupsCommand")
-  .sc(ListEndpointGroups$)
-  .build() {
+export class ListEndpointGroupsCommand extends command<ListEndpointGroupsCommandInput, ListEndpointGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEndpointGroups",
+  ListEndpointGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

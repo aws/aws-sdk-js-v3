@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  GlobalAcceleratorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../GlobalAcceleratorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListCustomRoutingPortMappingsByDestinationRequest,
   ListCustomRoutingPortMappingsByDestinationResponse,
@@ -19,7 +12,6 @@ import { ListCustomRoutingPortMappingsByDestination$ } from "../schemas/schemas_
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface ListCustomRoutingPortMappingsByDestinationCommandOutput extends
  *
  * @public
  */
-export class ListCustomRoutingPortMappingsByDestinationCommand extends $Command
-  .classBuilder<
-    ListCustomRoutingPortMappingsByDestinationCommandInput,
-    ListCustomRoutingPortMappingsByDestinationCommandOutput,
-    GlobalAcceleratorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GlobalAccelerator_V20180706", "ListCustomRoutingPortMappingsByDestination", {})
-  .n("GlobalAcceleratorClient", "ListCustomRoutingPortMappingsByDestinationCommand")
-  .sc(ListCustomRoutingPortMappingsByDestination$)
-  .build() {
+export class ListCustomRoutingPortMappingsByDestinationCommand extends command<ListCustomRoutingPortMappingsByDestinationCommandInput, ListCustomRoutingPortMappingsByDestinationCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCustomRoutingPortMappingsByDestination",
+  ListCustomRoutingPortMappingsByDestination$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

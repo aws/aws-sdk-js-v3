@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartTaskContactResponse } from "../models/models_3";
 import type { StartTaskContactRequest } from "../models/models_4";
 import { StartTaskContact$ } from "../schemas/schemas_0";
@@ -13,7 +10,6 @@ import { StartTaskContact$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -174,22 +170,12 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  *
  * @public
  */
-export class StartTaskContactCommand extends $Command
-  .classBuilder<
-    StartTaskContactCommandInput,
-    StartTaskContactCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "StartTaskContact", {})
-  .n("ConnectClient", "StartTaskContactCommand")
-  .sc(StartTaskContact$)
-  .build() {
+export class StartTaskContactCommand extends command<StartTaskContactCommandInput, StartTaskContactCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartTaskContact",
+  StartTaskContact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

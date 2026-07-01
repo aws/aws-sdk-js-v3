@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRecommendationResourcesRequest, ListRecommendationResourcesResponse } from "../models/models_0";
 import { ListRecommendationResources$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TrustedAdvisorClientResolvedConfig,
-} from "../TrustedAdvisorClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -176,22 +168,12 @@ export interface ListRecommendationResourcesCommandOutput extends ListRecommenda
  *
  * @public
  */
-export class ListRecommendationResourcesCommand extends $Command
-  .classBuilder<
-    ListRecommendationResourcesCommandInput,
-    ListRecommendationResourcesCommandOutput,
-    TrustedAdvisorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TrustedAdvisorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrustedAdvisor", "ListRecommendationResources", {})
-  .n("TrustedAdvisorClient", "ListRecommendationResourcesCommand")
-  .sc(ListRecommendationResources$)
-  .build() {
+export class ListRecommendationResourcesCommand extends command<ListRecommendationResourcesCommandInput, ListRecommendationResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRecommendationResources",
+  ListRecommendationResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

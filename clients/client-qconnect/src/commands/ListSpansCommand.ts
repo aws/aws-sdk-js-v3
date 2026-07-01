@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSpansRequest } from "../models/models_0";
 import type { ListSpansResponse } from "../models/models_1";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { ListSpans$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -216,22 +212,12 @@ export interface ListSpansCommandOutput extends ListSpansResponse, __MetadataBea
  *
  * @public
  */
-export class ListSpansCommand extends $Command
-  .classBuilder<
-    ListSpansCommandInput,
-    ListSpansCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "ListSpans", {})
-  .n("QConnectClient", "ListSpansCommand")
-  .sc(ListSpans$)
-  .build() {
+export class ListSpansCommand extends command<ListSpansCommandInput, ListSpansCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSpans",
+  ListSpans$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

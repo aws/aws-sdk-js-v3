@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDaemonRequest, DeleteDaemonResponse } from "../models/models_0";
 import { DeleteDaemon$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteDaemon$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface DeleteDaemonCommandOutput extends DeleteDaemonResponse, __Metad
  *
  * @public
  */
-export class DeleteDaemonCommand extends $Command
-  .classBuilder<
-    DeleteDaemonCommandInput,
-    DeleteDaemonCommandOutput,
-    ECSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerServiceV20141113", "DeleteDaemon", {})
-  .n("ECSClient", "DeleteDaemonCommand")
-  .sc(DeleteDaemon$)
-  .build() {
+export class DeleteDaemonCommand extends command<DeleteDaemonCommandInput, DeleteDaemonCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDaemon",
+  DeleteDaemon$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

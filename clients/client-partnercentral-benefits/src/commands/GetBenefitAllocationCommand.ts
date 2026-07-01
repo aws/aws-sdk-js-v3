@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetBenefitAllocationInput, GetBenefitAllocationOutput } from "../models/models_0";
-import type {
-  PartnerCentralBenefitsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralBenefitsClient";
 import { GetBenefitAllocation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -147,22 +139,12 @@ export interface GetBenefitAllocationCommandOutput extends GetBenefitAllocationO
  *
  * @public
  */
-export class GetBenefitAllocationCommand extends $Command
-  .classBuilder<
-    GetBenefitAllocationCommandInput,
-    GetBenefitAllocationCommandOutput,
-    PartnerCentralBenefitsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralBenefitsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralBenefitsService", "GetBenefitAllocation", {})
-  .n("PartnerCentralBenefitsClient", "GetBenefitAllocationCommand")
-  .sc(GetBenefitAllocation$)
-  .build() {
+export class GetBenefitAllocationCommand extends command<GetBenefitAllocationCommandInput, GetBenefitAllocationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetBenefitAllocation",
+  GetBenefitAllocation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

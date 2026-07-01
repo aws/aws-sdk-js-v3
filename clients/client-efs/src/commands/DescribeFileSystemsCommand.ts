@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeFileSystemsRequest, DescribeFileSystemsResponse } from "../models/models_0";
 import { DescribeFileSystems$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeFileSystems$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +124,12 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  *
  * @public
  */
-export class DescribeFileSystemsCommand extends $Command
-  .classBuilder<
-    DescribeFileSystemsCommandInput,
-    DescribeFileSystemsCommandOutput,
-    EFSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MagnolioAPIService_v20150201", "DescribeFileSystems", {})
-  .n("EFSClient", "DescribeFileSystemsCommand")
-  .sc(DescribeFileSystems$)
-  .build() {
+export class DescribeFileSystemsCommand extends command<DescribeFileSystemsCommandInput, DescribeFileSystemsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeFileSystems",
+  DescribeFileSystems$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

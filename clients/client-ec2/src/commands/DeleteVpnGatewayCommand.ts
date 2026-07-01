@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteVpnGatewayRequest } from "../models/models_3";
 import { DeleteVpnGateway$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteVpnGateway$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -61,22 +57,12 @@ export interface DeleteVpnGatewayCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteVpnGatewayCommand extends $Command
-  .classBuilder<
-    DeleteVpnGatewayCommandInput,
-    DeleteVpnGatewayCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeleteVpnGateway", {})
-  .n("EC2Client", "DeleteVpnGatewayCommand")
-  .sc(DeleteVpnGateway$)
-  .build() {
+export class DeleteVpnGatewayCommand extends command<DeleteVpnGatewayCommandInput, DeleteVpnGatewayCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteVpnGateway",
+  DeleteVpnGateway$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

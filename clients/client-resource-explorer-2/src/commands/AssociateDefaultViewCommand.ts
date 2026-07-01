@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateDefaultViewInput, AssociateDefaultViewOutput } from "../models/models_0";
-import type {
-  ResourceExplorer2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceExplorer2Client";
 import { AssociateDefaultView$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +70,12 @@ export interface AssociateDefaultViewCommandOutput extends AssociateDefaultViewO
  *
  * @public
  */
-export class AssociateDefaultViewCommand extends $Command
-  .classBuilder<
-    AssociateDefaultViewCommandInput,
-    AssociateDefaultViewCommandOutput,
-    ResourceExplorer2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ResourceExplorer", "AssociateDefaultView", {})
-  .n("ResourceExplorer2Client", "AssociateDefaultViewCommand")
-  .sc(AssociateDefaultView$)
-  .build() {
+export class AssociateDefaultViewCommand extends command<AssociateDefaultViewCommandInput, AssociateDefaultViewCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateDefaultView",
+  AssociateDefaultView$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { FunctionConfiguration, UpdateFunctionCodeRequest } from "../models/models_0";
 import { UpdateFunctionCode$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateFunctionCode$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -250,22 +246,12 @@ export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, 
  *
  * @public
  */
-export class UpdateFunctionCodeCommand extends $Command
-  .classBuilder<
-    UpdateFunctionCodeCommandInput,
-    UpdateFunctionCodeCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "UpdateFunctionCode", {})
-  .n("LambdaClient", "UpdateFunctionCodeCommand")
-  .sc(UpdateFunctionCode$)
-  .build() {
+export class UpdateFunctionCodeCommand extends command<UpdateFunctionCodeCommandInput, UpdateFunctionCodeCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateFunctionCode",
+  UpdateFunctionCode$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

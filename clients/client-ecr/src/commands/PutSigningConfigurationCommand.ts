@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutSigningConfigurationRequest, PutSigningConfigurationResponse } from "../models/models_0";
 import { PutSigningConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutSigningConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface PutSigningConfigurationCommandOutput extends PutSigningConfigur
  *
  * @public
  */
-export class PutSigningConfigurationCommand extends $Command
-  .classBuilder<
-    PutSigningConfigurationCommandInput,
-    PutSigningConfigurationCommandOutput,
-    ECRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerRegistry_V20150921", "PutSigningConfiguration", {})
-  .n("ECRClient", "PutSigningConfigurationCommand")
-  .sc(PutSigningConfiguration$)
-  .build() {
+export class PutSigningConfigurationCommand extends command<PutSigningConfigurationCommandInput, PutSigningConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutSigningConfiguration",
+  PutSigningConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

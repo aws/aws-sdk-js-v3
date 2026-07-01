@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTableBucketPolicyRequest, GetTableBucketPolicyResponse } from "../models/models_0";
-import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
 import { GetTableBucketPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface GetTableBucketPolicyCommandOutput extends GetTableBucketPolicyR
  *
  * @public
  */
-export class GetTableBucketPolicyCommand extends $Command
-  .classBuilder<
-    GetTableBucketPolicyCommandInput,
-    GetTableBucketPolicyCommandOutput,
-    S3TablesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: S3TablesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("S3TableBuckets", "GetTableBucketPolicy", {})
-  .n("S3TablesClient", "GetTableBucketPolicyCommand")
-  .sc(GetTableBucketPolicy$)
-  .build() {
+export class GetTableBucketPolicyCommand extends command<GetTableBucketPolicyCommandInput, GetTableBucketPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTableBucketPolicy",
+  GetTableBucketPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DetachGroupPolicyRequest } from "../models/models_0";
 import { DetachGroupPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DetachGroupPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DetachGroupPolicyCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DetachGroupPolicyCommand extends $Command
-  .classBuilder<
-    DetachGroupPolicyCommandInput,
-    DetachGroupPolicyCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "DetachGroupPolicy", {})
-  .n("IAMClient", "DetachGroupPolicyCommand")
-  .sc(DetachGroupPolicy$)
-  .build() {
+export class DetachGroupPolicyCommand extends command<DetachGroupPolicyCommandInput, DetachGroupPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DetachGroupPolicy",
+  DetachGroupPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

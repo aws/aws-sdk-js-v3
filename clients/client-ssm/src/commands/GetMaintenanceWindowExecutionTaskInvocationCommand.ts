@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetMaintenanceWindowExecutionTaskInvocationRequest,
   GetMaintenanceWindowExecutionTaskInvocationResult,
 } from "../models/models_0";
 import { GetMaintenanceWindowExecutionTaskInvocation$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface GetMaintenanceWindowExecutionTaskInvocationCommandOutput extend
  *
  * @public
  */
-export class GetMaintenanceWindowExecutionTaskInvocationCommand extends $Command
-  .classBuilder<
-    GetMaintenanceWindowExecutionTaskInvocationCommandInput,
-    GetMaintenanceWindowExecutionTaskInvocationCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "GetMaintenanceWindowExecutionTaskInvocation", {})
-  .n("SSMClient", "GetMaintenanceWindowExecutionTaskInvocationCommand")
-  .sc(GetMaintenanceWindowExecutionTaskInvocation$)
-  .build() {
+export class GetMaintenanceWindowExecutionTaskInvocationCommand extends command<GetMaintenanceWindowExecutionTaskInvocationCommandInput, GetMaintenanceWindowExecutionTaskInvocationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMaintenanceWindowExecutionTaskInvocation",
+  GetMaintenanceWindowExecutionTaskInvocation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDataTableAttributesRequest, ListDataTableAttributesResponse } from "../models/models_2";
 import { ListDataTableAttributes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDataTableAttributes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface ListDataTableAttributesCommandOutput extends ListDataTableAttri
  *
  * @public
  */
-export class ListDataTableAttributesCommand extends $Command
-  .classBuilder<
-    ListDataTableAttributesCommandInput,
-    ListDataTableAttributesCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "ListDataTableAttributes", {})
-  .n("ConnectClient", "ListDataTableAttributesCommand")
-  .sc(ListDataTableAttributes$)
-  .build() {
+export class ListDataTableAttributesCommand extends command<ListDataTableAttributesCommandInput, ListDataTableAttributesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDataTableAttributes",
+  ListDataTableAttributes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

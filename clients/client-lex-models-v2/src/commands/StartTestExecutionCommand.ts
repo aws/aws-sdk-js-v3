@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartTestExecutionRequest, StartTestExecutionResponse } from "../models/models_1";
 import { StartTestExecution$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartTestExecution$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface StartTestExecutionCommandOutput extends StartTestExecutionRespo
  *
  * @public
  */
-export class StartTestExecutionCommand extends $Command
-  .classBuilder<
-    StartTestExecutionCommandInput,
-    StartTestExecutionCommandOutput,
-    LexModelsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LexModelBuildingServiceV2", "StartTestExecution", {})
-  .n("LexModelsV2Client", "StartTestExecutionCommand")
-  .sc(StartTestExecution$)
-  .build() {
+export class StartTestExecutionCommand extends command<StartTestExecutionCommandInput, StartTestExecutionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartTestExecution",
+  StartTestExecution$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

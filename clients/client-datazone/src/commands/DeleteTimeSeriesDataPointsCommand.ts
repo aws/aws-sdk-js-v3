@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTimeSeriesDataPointsInput, DeleteTimeSeriesDataPointsOutput } from "../models/models_1";
 import { DeleteTimeSeriesDataPoints$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteTimeSeriesDataPoints$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DeleteTimeSeriesDataPointsCommandOutput extends DeleteTimeSerie
  *
  * @public
  */
-export class DeleteTimeSeriesDataPointsCommand extends $Command
-  .classBuilder<
-    DeleteTimeSeriesDataPointsCommandInput,
-    DeleteTimeSeriesDataPointsCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "DeleteTimeSeriesDataPoints", {})
-  .n("DataZoneClient", "DeleteTimeSeriesDataPointsCommand")
-  .sc(DeleteTimeSeriesDataPoints$)
-  .build() {
+export class DeleteTimeSeriesDataPointsCommand extends command<DeleteTimeSeriesDataPointsCommandInput, DeleteTimeSeriesDataPointsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTimeSeriesDataPoints",
+  DeleteTimeSeriesDataPoints$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

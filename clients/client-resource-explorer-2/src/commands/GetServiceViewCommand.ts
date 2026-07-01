@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetServiceViewInput, GetServiceViewOutput } from "../models/models_0";
-import type {
-  ResourceExplorer2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceExplorer2Client";
 import { GetServiceView$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface GetServiceViewCommandOutput extends GetServiceViewOutput, __Met
  *
  * @public
  */
-export class GetServiceViewCommand extends $Command
-  .classBuilder<
-    GetServiceViewCommandInput,
-    GetServiceViewCommandOutput,
-    ResourceExplorer2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ResourceExplorer", "GetServiceView", {})
-  .n("ResourceExplorer2Client", "GetServiceViewCommand")
-  .sc(GetServiceView$)
-  .build() {
+export class GetServiceViewCommand extends command<GetServiceViewCommandInput, GetServiceViewCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetServiceView",
+  GetServiceView$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TrustAnchorDetailResponse, UpdateTrustAnchorRequest } from "../models/models_0";
-import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { UpdateTrustAnchor$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface UpdateTrustAnchorCommandOutput extends TrustAnchorDetailRespons
  *
  * @public
  */
-export class UpdateTrustAnchorCommand extends $Command
-  .classBuilder<
-    UpdateTrustAnchorCommandInput,
-    UpdateTrustAnchorCommandOutput,
-    RolesAnywhereClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RolesAnywhereClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RolesAnywhere", "UpdateTrustAnchor", {})
-  .n("RolesAnywhereClient", "UpdateTrustAnchorCommand")
-  .sc(UpdateTrustAnchor$)
-  .build() {
+export class UpdateTrustAnchorCommand extends command<UpdateTrustAnchorCommandInput, UpdateTrustAnchorCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateTrustAnchor",
+  UpdateTrustAnchor$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

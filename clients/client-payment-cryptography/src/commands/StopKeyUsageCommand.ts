@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopKeyUsageInput, StopKeyUsageOutput } from "../models/models_0";
-import type {
-  PaymentCryptographyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PaymentCryptographyClient";
 import { StopKeyUsage$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +124,12 @@ export interface StopKeyUsageCommandOutput extends StopKeyUsageOutput, __Metadat
  *
  * @public
  */
-export class StopKeyUsageCommand extends $Command
-  .classBuilder<
-    StopKeyUsageCommandInput,
-    StopKeyUsageCommandOutput,
-    PaymentCryptographyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PaymentCryptographyControlPlane", "StopKeyUsage", {})
-  .n("PaymentCryptographyClient", "StopKeyUsageCommand")
-  .sc(StopKeyUsage$)
-  .build() {
+export class StopKeyUsageCommand extends command<StopKeyUsageCommandInput, StopKeyUsageCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopKeyUsage",
+  StopKeyUsage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

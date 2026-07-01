@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeregisterManagedInstanceRequest, DeregisterManagedInstanceResult } from "../models/models_0";
 import { DeregisterManagedInstance$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface DeregisterManagedInstanceCommandOutput extends DeregisterManage
  *
  * @public
  */
-export class DeregisterManagedInstanceCommand extends $Command
-  .classBuilder<
-    DeregisterManagedInstanceCommandInput,
-    DeregisterManagedInstanceCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "DeregisterManagedInstance", {})
-  .n("SSMClient", "DeregisterManagedInstanceCommand")
-  .sc(DeregisterManagedInstance$)
-  .build() {
+export class DeregisterManagedInstanceCommand extends command<DeregisterManagedInstanceCommandInput, DeregisterManagedInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeregisterManagedInstance",
+  DeregisterManagedInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

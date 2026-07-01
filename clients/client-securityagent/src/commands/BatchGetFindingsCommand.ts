@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetFindingsInput, BatchGetFindingsOutput } from "../models/models_0";
 import { BatchGetFindings$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +116,12 @@ export interface BatchGetFindingsCommandOutput extends BatchGetFindingsOutput, _
  *
  * @public
  */
-export class BatchGetFindingsCommand extends $Command
-  .classBuilder<
-    BatchGetFindingsCommandInput,
-    BatchGetFindingsCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "BatchGetFindings", {})
-  .n("SecurityAgentClient", "BatchGetFindingsCommand")
-  .sc(BatchGetFindings$)
-  .build() {
+export class BatchGetFindingsCommand extends command<BatchGetFindingsCommandInput, BatchGetFindingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetFindings",
+  BatchGetFindings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

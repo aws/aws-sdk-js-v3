@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { NestedStructuresInput } from "../models/models_0";
 import { NestedStructures$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { NestedStructures$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -65,22 +61,12 @@ export interface NestedStructuresCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class NestedStructuresCommand extends $Command
-  .classBuilder<
-    NestedStructuresCommandInput,
-    NestedStructuresCommandOutput,
-    EC2ProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsEc2", "NestedStructures", {})
-  .n("EC2ProtocolClient", "NestedStructuresCommand")
-  .sc(NestedStructures$)
-  .build() {
+export class NestedStructuresCommand extends command<NestedStructuresCommandInput, NestedStructuresCommandOutput>(
+  _ep0,
+  _mw0,
+  "NestedStructures",
+  NestedStructures$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

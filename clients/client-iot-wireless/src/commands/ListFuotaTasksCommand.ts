@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListFuotaTasksRequest, ListFuotaTasksResponse } from "../models/models_0";
 import { ListFuotaTasks$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListFuotaTasks$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface ListFuotaTasksCommandOutput extends ListFuotaTasksResponse, __M
  *
  * @public
  */
-export class ListFuotaTasksCommand extends $Command
-  .classBuilder<
-    ListFuotaTasksCommandInput,
-    ListFuotaTasksCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "ListFuotaTasks", {})
-  .n("IoTWirelessClient", "ListFuotaTasksCommand")
-  .sc(ListFuotaTasks$)
-  .build() {
+export class ListFuotaTasksCommand extends command<ListFuotaTasksCommandInput, ListFuotaTasksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFuotaTasks",
+  ListFuotaTasks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

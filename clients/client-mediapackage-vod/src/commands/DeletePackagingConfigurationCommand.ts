@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MediaPackageVodClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MediaPackageVodClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePackagingConfigurationRequest, DeletePackagingConfigurationResponse } from "../models/models_0";
 import { DeletePackagingConfiguration$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeletePackagingConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeletePackagingConfigurationCommandOutput extends DeletePackagi
  *
  * @public
  */
-export class DeletePackagingConfigurationCommand extends $Command
-  .classBuilder<
-    DeletePackagingConfigurationCommandInput,
-    DeletePackagingConfigurationCommandOutput,
-    MediaPackageVodClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaPackageVodClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaPackageVod", "DeletePackagingConfiguration", {})
-  .n("MediaPackageVodClient", "DeletePackagingConfigurationCommand")
-  .sc(DeletePackagingConfiguration$)
-  .build() {
+export class DeletePackagingConfigurationCommand extends command<DeletePackagingConfigurationCommandInput, DeletePackagingConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePackagingConfiguration",
+  DeletePackagingConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

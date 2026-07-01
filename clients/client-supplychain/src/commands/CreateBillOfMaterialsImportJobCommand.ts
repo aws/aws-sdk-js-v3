@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateBillOfMaterialsImportJobRequest, CreateBillOfMaterialsImportJobResponse } from "../models/models_0";
 import { CreateBillOfMaterialsImportJob$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface CreateBillOfMaterialsImportJobCommandOutput extends CreateBillO
  *
  * @public
  */
-export class CreateBillOfMaterialsImportJobCommand extends $Command
-  .classBuilder<
-    CreateBillOfMaterialsImportJobCommandInput,
-    CreateBillOfMaterialsImportJobCommandOutput,
-    SupplyChainClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupplyChainClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GalaxyPublicAPIGateway", "CreateBillOfMaterialsImportJob", {})
-  .n("SupplyChainClient", "CreateBillOfMaterialsImportJobCommand")
-  .sc(CreateBillOfMaterialsImportJob$)
-  .build() {
+export class CreateBillOfMaterialsImportJobCommand extends command<CreateBillOfMaterialsImportJobCommandInput, CreateBillOfMaterialsImportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateBillOfMaterialsImportJob",
+  CreateBillOfMaterialsImportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

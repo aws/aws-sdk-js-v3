@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeBudgetActionsForBudgetRequest, DescribeBudgetActionsForBudgetResponse } from "../models/models_0";
 import { DescribeBudgetActionsForBudget$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeBudgetActionsForBudget$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -131,22 +127,12 @@ export interface DescribeBudgetActionsForBudgetCommandOutput extends DescribeBud
  *
  * @public
  */
-export class DescribeBudgetActionsForBudgetCommand extends $Command
-  .classBuilder<
-    DescribeBudgetActionsForBudgetCommandInput,
-    DescribeBudgetActionsForBudgetCommandOutput,
-    BudgetsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BudgetsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBudgetServiceGateway", "DescribeBudgetActionsForBudget", {})
-  .n("BudgetsClient", "DescribeBudgetActionsForBudgetCommand")
-  .sc(DescribeBudgetActionsForBudget$)
-  .build() {
+export class DescribeBudgetActionsForBudgetCommand extends command<DescribeBudgetActionsForBudgetCommandInput, DescribeBudgetActionsForBudgetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeBudgetActionsForBudget",
+  DescribeBudgetActionsForBudget$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

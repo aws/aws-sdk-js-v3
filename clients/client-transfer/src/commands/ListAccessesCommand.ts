@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAccessesRequest, ListAccessesResponse } from "../models/models_0";
 import { ListAccesses$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface ListAccessesCommandOutput extends ListAccessesResponse, __Metad
  *
  * @public
  */
-export class ListAccessesCommand extends $Command
-  .classBuilder<
-    ListAccessesCommandInput,
-    ListAccessesCommandOutput,
-    TransferClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TransferService", "ListAccesses", {})
-  .n("TransferClient", "ListAccessesCommand")
-  .sc(ListAccesses$)
-  .build() {
+export class ListAccessesCommand extends command<ListAccessesCommandInput, ListAccessesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAccesses",
+  ListAccesses$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

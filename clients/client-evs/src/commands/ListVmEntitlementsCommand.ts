@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { EvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListVmEntitlementsRequest, ListVmEntitlementsResponse } from "../models/models_0";
 import { ListVmEntitlements$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListVmEntitlements$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface ListVmEntitlementsCommandOutput extends ListVmEntitlementsRespo
  *
  * @public
  */
-export class ListVmEntitlementsCommand extends $Command
-  .classBuilder<
-    ListVmEntitlementsCommandInput,
-    ListVmEntitlementsCommandOutput,
-    EvsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EvsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticVMwareService", "ListVmEntitlements", {})
-  .n("EvsClient", "ListVmEntitlementsCommand")
-  .sc(ListVmEntitlements$)
-  .build() {
+export class ListVmEntitlementsCommand extends command<ListVmEntitlementsCommandInput, ListVmEntitlementsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListVmEntitlements",
+  ListVmEntitlements$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

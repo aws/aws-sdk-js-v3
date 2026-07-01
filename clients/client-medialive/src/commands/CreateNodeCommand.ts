@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateNodeRequest, CreateNodeResponse } from "../models/models_1";
 import { CreateNode$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateNode$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +116,12 @@ export interface CreateNodeCommandOutput extends CreateNodeResponse, __MetadataB
  *
  * @public
  */
-export class CreateNodeCommand extends $Command
-  .classBuilder<
-    CreateNodeCommandInput,
-    CreateNodeCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "CreateNode", {})
-  .n("MediaLiveClient", "CreateNodeCommand")
-  .sc(CreateNode$)
-  .build() {
+export class CreateNodeCommand extends command<CreateNodeCommandInput, CreateNodeCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateNode",
+  CreateNode$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

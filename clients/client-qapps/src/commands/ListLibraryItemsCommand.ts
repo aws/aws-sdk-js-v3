@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLibraryItemsInput, ListLibraryItemsOutput } from "../models/models_0";
-import type { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
 import { ListLibraryItems$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -186,22 +182,12 @@ export interface ListLibraryItemsCommandOutput extends ListLibraryItemsOutput, _
  *
  * @public
  */
-export class ListLibraryItemsCommand extends $Command
-  .classBuilder<
-    ListLibraryItemsCommandInput,
-    ListLibraryItemsCommandOutput,
-    QAppsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QAppsService", "ListLibraryItems", {})
-  .n("QAppsClient", "ListLibraryItemsCommand")
-  .sc(ListLibraryItems$)
-  .build() {
+export class ListLibraryItemsCommand extends command<ListLibraryItemsCommandInput, ListLibraryItemsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLibraryItems",
+  ListLibraryItems$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

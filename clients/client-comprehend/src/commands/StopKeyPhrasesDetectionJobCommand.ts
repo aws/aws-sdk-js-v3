@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopKeyPhrasesDetectionJobRequest, StopKeyPhrasesDetectionJobResponse } from "../models/models_0";
 import { StopKeyPhrasesDetectionJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopKeyPhrasesDetectionJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface StopKeyPhrasesDetectionJobCommandOutput extends StopKeyPhrasesD
  *
  * @public
  */
-export class StopKeyPhrasesDetectionJobCommand extends $Command
-  .classBuilder<
-    StopKeyPhrasesDetectionJobCommandInput,
-    StopKeyPhrasesDetectionJobCommandOutput,
-    ComprehendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Comprehend_20171127", "StopKeyPhrasesDetectionJob", {})
-  .n("ComprehendClient", "StopKeyPhrasesDetectionJobCommand")
-  .sc(StopKeyPhrasesDetectionJob$)
-  .build() {
+export class StopKeyPhrasesDetectionJobCommand extends command<StopKeyPhrasesDetectionJobCommandInput, StopKeyPhrasesDetectionJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopKeyPhrasesDetectionJob",
+  StopKeyPhrasesDetectionJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

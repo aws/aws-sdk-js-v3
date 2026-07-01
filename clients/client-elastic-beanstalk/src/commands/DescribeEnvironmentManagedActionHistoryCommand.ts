@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeEnvironmentManagedActionHistoryRequest,
   DescribeEnvironmentManagedActionHistoryResult,
@@ -19,7 +12,6 @@ import { DescribeEnvironmentManagedActionHistory$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface DescribeEnvironmentManagedActionHistoryCommandOutput extends De
  *
  * @public
  */
-export class DescribeEnvironmentManagedActionHistoryCommand extends $Command
-  .classBuilder<
-    DescribeEnvironmentManagedActionHistoryCommandInput,
-    DescribeEnvironmentManagedActionHistoryCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "DescribeEnvironmentManagedActionHistory", {})
-  .n("ElasticBeanstalkClient", "DescribeEnvironmentManagedActionHistoryCommand")
-  .sc(DescribeEnvironmentManagedActionHistory$)
-  .build() {
+export class DescribeEnvironmentManagedActionHistoryCommand extends command<DescribeEnvironmentManagedActionHistoryCommandInput, DescribeEnvironmentManagedActionHistoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEnvironmentManagedActionHistory",
+  DescribeEnvironmentManagedActionHistory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

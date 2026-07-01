@@ -18,7 +18,6 @@ import type {
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

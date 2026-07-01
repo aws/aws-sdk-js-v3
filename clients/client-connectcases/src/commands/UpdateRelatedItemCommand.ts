@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRelatedItemRequest, UpdateRelatedItemResponse } from "../models/models_0";
 import { UpdateRelatedItem$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateRelatedItem$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -167,22 +163,12 @@ export interface UpdateRelatedItemCommandOutput extends UpdateRelatedItemRespons
  *
  * @public
  */
-export class UpdateRelatedItemCommand extends $Command
-  .classBuilder<
-    UpdateRelatedItemCommandInput,
-    UpdateRelatedItemCommandOutput,
-    ConnectCasesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCases", "UpdateRelatedItem", {})
-  .n("ConnectCasesClient", "UpdateRelatedItemCommand")
-  .sc(UpdateRelatedItem$)
-  .build() {
+export class UpdateRelatedItemCommand extends command<UpdateRelatedItemCommandInput, UpdateRelatedItemCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRelatedItem",
+  UpdateRelatedItem$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

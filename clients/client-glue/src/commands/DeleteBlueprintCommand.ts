@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteBlueprintRequest, DeleteBlueprintResponse } from "../models/models_1";
 import { DeleteBlueprint$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteBlueprint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface DeleteBlueprintCommandOutput extends DeleteBlueprintResponse, _
  *
  * @public
  */
-export class DeleteBlueprintCommand extends $Command
-  .classBuilder<
-    DeleteBlueprintCommandInput,
-    DeleteBlueprintCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "DeleteBlueprint", {})
-  .n("GlueClient", "DeleteBlueprintCommand")
-  .sc(DeleteBlueprint$)
-  .build() {
+export class DeleteBlueprintCommand extends command<DeleteBlueprintCommandInput, DeleteBlueprintCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteBlueprint",
+  DeleteBlueprint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

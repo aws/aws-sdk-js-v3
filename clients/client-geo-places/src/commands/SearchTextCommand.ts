@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GeoPlacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoPlacesClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchTextRequest, SearchTextResponse } from "../models/models_0";
 import { SearchText$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SearchText$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -318,22 +314,12 @@ export interface SearchTextCommandOutput extends SearchTextResponse, __MetadataB
  *
  * @public
  */
-export class SearchTextCommand extends $Command
-  .classBuilder<
-    SearchTextCommandInput,
-    SearchTextCommandOutput,
-    GeoPlacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GeoPlacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PlacesService", "SearchText", {})
-  .n("GeoPlacesClient", "SearchTextCommand")
-  .sc(SearchText$)
-  .build() {
+export class SearchTextCommand extends command<SearchTextCommandInput, SearchTextCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchText",
+  SearchText$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComprehendMedicalClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComprehendMedicalClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopPHIDetectionJobRequest, StopPHIDetectionJobResponse } from "../models/models_0";
 import { StopPHIDetectionJob$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StopPHIDetectionJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +66,12 @@ export interface StopPHIDetectionJobCommandOutput extends StopPHIDetectionJobRes
  *
  * @public
  */
-export class StopPHIDetectionJobCommand extends $Command
-  .classBuilder<
-    StopPHIDetectionJobCommandInput,
-    StopPHIDetectionJobCommandOutput,
-    ComprehendMedicalClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComprehendMedical_20181030", "StopPHIDetectionJob", {})
-  .n("ComprehendMedicalClient", "StopPHIDetectionJobCommand")
-  .sc(StopPHIDetectionJob$)
-  .build() {
+export class StopPHIDetectionJobCommand extends command<StopPHIDetectionJobCommandInput, StopPHIDetectionJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopPHIDetectionJob",
+  StopPHIDetectionJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

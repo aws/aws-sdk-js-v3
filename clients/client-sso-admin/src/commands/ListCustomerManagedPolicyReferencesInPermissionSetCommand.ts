@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListCustomerManagedPolicyReferencesInPermissionSetRequest,
   ListCustomerManagedPolicyReferencesInPermissionSetResponse,
 } from "../models/models_0";
 import { ListCustomerManagedPolicyReferencesInPermissionSet$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput
  *
  * @public
  */
-export class ListCustomerManagedPolicyReferencesInPermissionSetCommand extends $Command
-  .classBuilder<
-    ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
-    ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput,
-    SSOAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBExternalService", "ListCustomerManagedPolicyReferencesInPermissionSet", {})
-  .n("SSOAdminClient", "ListCustomerManagedPolicyReferencesInPermissionSetCommand")
-  .sc(ListCustomerManagedPolicyReferencesInPermissionSet$)
-  .build() {
+export class ListCustomerManagedPolicyReferencesInPermissionSetCommand extends command<ListCustomerManagedPolicyReferencesInPermissionSetCommandInput, ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCustomerManagedPolicyReferencesInPermissionSet",
+  ListCustomerManagedPolicyReferencesInPermissionSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteWorkflowVersionRequest } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { DeleteWorkflowVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface DeleteWorkflowVersionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteWorkflowVersionCommand extends $Command
-  .classBuilder<
-    DeleteWorkflowVersionCommandInput,
-    DeleteWorkflowVersionCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "DeleteWorkflowVersion", {})
-  .n("OmicsClient", "DeleteWorkflowVersionCommand")
-  .sc(DeleteWorkflowVersion$)
-  .build() {
+export class DeleteWorkflowVersionCommand extends command<DeleteWorkflowVersionCommandInput, DeleteWorkflowVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteWorkflowVersion",
+  DeleteWorkflowVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

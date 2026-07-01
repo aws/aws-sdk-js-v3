@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRotationsRequest, ListRotationsResult } from "../models/models_0";
 import { ListRotations$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface ListRotationsCommandOutput extends ListRotationsResult, __Metad
  *
  * @public
  */
-export class ListRotationsCommand extends $Command
-  .classBuilder<
-    ListRotationsCommandInput,
-    ListRotationsCommandOutput,
-    SSMContactsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMContacts", "ListRotations", {})
-  .n("SSMContactsClient", "ListRotationsCommand")
-  .sc(ListRotations$)
-  .build() {
+export class ListRotationsCommand extends command<ListRotationsCommandInput, ListRotationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRotations",
+  ListRotations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePersistentAppUIInput, CreatePersistentAppUIOutput } from "../models/models_0";
 import { CreatePersistentAppUI$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreatePersistentAppUI$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface CreatePersistentAppUICommandOutput extends CreatePersistentAppU
  *
  * @public
  */
-export class CreatePersistentAppUICommand extends $Command
-  .classBuilder<
-    CreatePersistentAppUICommandInput,
-    CreatePersistentAppUICommandOutput,
-    EMRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticMapReduce", "CreatePersistentAppUI", {})
-  .n("EMRClient", "CreatePersistentAppUICommand")
-  .sc(CreatePersistentAppUI$)
-  .build() {
+export class CreatePersistentAppUICommand extends command<CreatePersistentAppUICommandInput, CreatePersistentAppUICommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePersistentAppUI",
+  CreatePersistentAppUI$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

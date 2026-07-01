@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCloudExadataInfrastructureInput, GetCloudExadataInfrastructureOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { GetCloudExadataInfrastructure$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +136,12 @@ export interface GetCloudExadataInfrastructureCommandOutput extends GetCloudExad
  *
  * @public
  */
-export class GetCloudExadataInfrastructureCommand extends $Command
-  .classBuilder<
-    GetCloudExadataInfrastructureCommandInput,
-    GetCloudExadataInfrastructureCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "GetCloudExadataInfrastructure", {})
-  .n("OdbClient", "GetCloudExadataInfrastructureCommand")
-  .sc(GetCloudExadataInfrastructure$)
-  .build() {
+export class GetCloudExadataInfrastructureCommand extends command<GetCloudExadataInfrastructureCommandInput, GetCloudExadataInfrastructureCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCloudExadataInfrastructure",
+  GetCloudExadataInfrastructure$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

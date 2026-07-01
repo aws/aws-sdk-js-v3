@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPipelineChangeProgressRequest, GetPipelineChangeProgressResponse } from "../models/models_0";
-import type { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
 import { GetPipelineChangeProgress$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface GetPipelineChangeProgressCommandOutput extends GetPipelineChang
  *
  * @public
  */
-export class GetPipelineChangeProgressCommand extends $Command
-  .classBuilder<
-    GetPipelineChangeProgressCommandInput,
-    GetPipelineChangeProgressCommandOutput,
-    OSISClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OSISClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchIngestionService", "GetPipelineChangeProgress", {})
-  .n("OSISClient", "GetPipelineChangeProgressCommand")
-  .sc(GetPipelineChangeProgress$)
-  .build() {
+export class GetPipelineChangeProgressCommand extends command<GetPipelineChangeProgressCommandInput, GetPipelineChangeProgressCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPipelineChangeProgress",
+  GetPipelineChangeProgress$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

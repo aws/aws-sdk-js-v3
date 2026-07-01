@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRoomRequest } from "../models/models_0";
 import { DeleteRoom$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteRoom$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteRoomCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteRoomCommand extends $Command
-  .classBuilder<
-    DeleteRoomCommandInput,
-    DeleteRoomCommandOutput,
-    IvschatClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IvschatClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoServiceChat", "DeleteRoom", {})
-  .n("IvschatClient", "DeleteRoomCommand")
-  .sc(DeleteRoom$)
-  .build() {
+export class DeleteRoomCommand extends command<DeleteRoomCommandInput, DeleteRoomCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRoom",
+  DeleteRoom$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

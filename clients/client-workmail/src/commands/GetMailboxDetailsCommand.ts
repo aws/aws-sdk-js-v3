@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMailboxDetailsRequest, GetMailboxDetailsResponse } from "../models/models_0";
 import { GetMailboxDetails$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface GetMailboxDetailsCommandOutput extends GetMailboxDetailsRespons
  *
  * @public
  */
-export class GetMailboxDetailsCommand extends $Command
-  .classBuilder<
-    GetMailboxDetailsCommandInput,
-    GetMailboxDetailsCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "GetMailboxDetails", {})
-  .n("WorkMailClient", "GetMailboxDetailsCommand")
-  .sc(GetMailboxDetails$)
-  .build() {
+export class GetMailboxDetailsCommand extends command<GetMailboxDetailsCommandInput, GetMailboxDetailsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMailboxDetails",
+  GetMailboxDetails$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

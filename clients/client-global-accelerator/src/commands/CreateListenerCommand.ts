@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  GlobalAcceleratorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../GlobalAcceleratorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateListenerRequest, CreateListenerResponse } from "../models/models_0";
 import { CreateListener$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateListener$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +90,12 @@ export interface CreateListenerCommandOutput extends CreateListenerResponse, __M
  *
  * @public
  */
-export class CreateListenerCommand extends $Command
-  .classBuilder<
-    CreateListenerCommandInput,
-    CreateListenerCommandOutput,
-    GlobalAcceleratorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GlobalAccelerator_V20180706", "CreateListener", {})
-  .n("GlobalAcceleratorClient", "CreateListenerCommand")
-  .sc(CreateListener$)
-  .build() {
+export class CreateListenerCommand extends command<CreateListenerCommandInput, CreateListenerCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateListener",
+  CreateListener$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

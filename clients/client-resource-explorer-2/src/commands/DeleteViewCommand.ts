@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteViewInput, DeleteViewOutput } from "../models/models_0";
-import type {
-  ResourceExplorer2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceExplorer2Client";
 import { DeleteView$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBea
  *
  * @public
  */
-export class DeleteViewCommand extends $Command
-  .classBuilder<
-    DeleteViewCommandInput,
-    DeleteViewCommandOutput,
-    ResourceExplorer2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ResourceExplorer", "DeleteView", {})
-  .n("ResourceExplorer2Client", "DeleteViewCommand")
-  .sc(DeleteView$)
-  .build() {
+export class DeleteViewCommand extends command<DeleteViewCommandInput, DeleteViewCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteView",
+  DeleteView$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

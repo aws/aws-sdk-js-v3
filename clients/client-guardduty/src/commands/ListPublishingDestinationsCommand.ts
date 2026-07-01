@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPublishingDestinationsRequest, ListPublishingDestinationsResponse } from "../models/models_1";
 import { ListPublishingDestinations$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListPublishingDestinations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface ListPublishingDestinationsCommandOutput extends ListPublishingD
  *
  * @public
  */
-export class ListPublishingDestinationsCommand extends $Command
-  .classBuilder<
-    ListPublishingDestinationsCommandInput,
-    ListPublishingDestinationsCommandOutput,
-    GuardDutyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GuardDutyAPIService", "ListPublishingDestinations", {})
-  .n("GuardDutyClient", "ListPublishingDestinationsCommand")
-  .sc(ListPublishingDestinations$)
-  .build() {
+export class ListPublishingDestinationsCommand extends command<ListPublishingDestinationsCommandInput, ListPublishingDestinationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPublishingDestinations",
+  ListPublishingDestinations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

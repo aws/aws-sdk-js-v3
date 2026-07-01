@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateVirtualRouterInput, UpdateVirtualRouterOutput } from "../models/models_0";
 import { UpdateVirtualRouter$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateVirtualRouter$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +122,12 @@ export interface UpdateVirtualRouterCommandOutput extends UpdateVirtualRouterOut
  *
  * @public
  */
-export class UpdateVirtualRouterCommand extends $Command
-  .classBuilder<
-    UpdateVirtualRouterCommandInput,
-    UpdateVirtualRouterCommandOutput,
-    AppMeshClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppMeshClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppMesh", "UpdateVirtualRouter", {})
-  .n("AppMeshClient", "UpdateVirtualRouterCommand")
-  .sc(UpdateVirtualRouter$)
-  .build() {
+export class UpdateVirtualRouterCommand extends command<UpdateVirtualRouterCommandInput, UpdateVirtualRouterCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateVirtualRouter",
+  UpdateVirtualRouter$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

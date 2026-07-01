@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateConnectionWithLagRequest, Connection } from "../models/models_0";
 import { AssociateConnectionWithLag$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateConnectionWithLag$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface AssociateConnectionWithLagCommandOutput extends Connection, __M
  *
  * @public
  */
-export class AssociateConnectionWithLagCommand extends $Command
-  .classBuilder<
-    AssociateConnectionWithLagCommandInput,
-    AssociateConnectionWithLagCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "AssociateConnectionWithLag", {})
-  .n("DirectConnectClient", "AssociateConnectionWithLagCommand")
-  .sc(AssociateConnectionWithLag$)
-  .build() {
+export class AssociateConnectionWithLagCommand extends command<AssociateConnectionWithLagCommandInput, AssociateConnectionWithLagCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateConnectionWithLag",
+  AssociateConnectionWithLag$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

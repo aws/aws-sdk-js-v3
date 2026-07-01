@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeactivateMessageTemplateRequest, DeactivateMessageTemplateResponse } from "../models/models_1";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { DeactivateMessageTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DeactivateMessageTemplateCommandOutput extends DeactivateMessag
  *
  * @public
  */
-export class DeactivateMessageTemplateCommand extends $Command
-  .classBuilder<
-    DeactivateMessageTemplateCommandInput,
-    DeactivateMessageTemplateCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "DeactivateMessageTemplate", {})
-  .n("QConnectClient", "DeactivateMessageTemplateCommand")
-  .sc(DeactivateMessageTemplate$)
-  .build() {
+export class DeactivateMessageTemplateCommand extends command<DeactivateMessageTemplateCommandInput, DeactivateMessageTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeactivateMessageTemplate",
+  DeactivateMessageTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

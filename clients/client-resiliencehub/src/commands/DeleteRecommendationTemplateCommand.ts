@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRecommendationTemplateRequest, DeleteRecommendationTemplateResponse } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { DeleteRecommendationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface DeleteRecommendationTemplateCommandOutput extends DeleteRecomme
  *
  * @public
  */
-export class DeleteRecommendationTemplateCommand extends $Command
-  .classBuilder<
-    DeleteRecommendationTemplateCommandInput,
-    DeleteRecommendationTemplateCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "DeleteRecommendationTemplate", {})
-  .n("ResiliencehubClient", "DeleteRecommendationTemplateCommand")
-  .sc(DeleteRecommendationTemplate$)
-  .build() {
+export class DeleteRecommendationTemplateCommand extends command<DeleteRecommendationTemplateCommandInput, DeleteRecommendationTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRecommendationTemplate",
+  DeleteRecommendationTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

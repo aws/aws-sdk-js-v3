@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveRegionRequest, RemoveRegionResponse } from "../models/models_0";
 import { RemoveRegion$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface RemoveRegionCommandOutput extends RemoveRegionResponse, __Metad
  *
  * @public
  */
-export class RemoveRegionCommand extends $Command
-  .classBuilder<
-    RemoveRegionCommandInput,
-    RemoveRegionCommandOutput,
-    SSOAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBExternalService", "RemoveRegion", {})
-  .n("SSOAdminClient", "RemoveRegionCommand")
-  .sc(RemoveRegion$)
-  .build() {
+export class RemoveRegionCommand extends command<RemoveRegionCommandInput, RemoveRegionCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveRegion",
+  RemoveRegion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

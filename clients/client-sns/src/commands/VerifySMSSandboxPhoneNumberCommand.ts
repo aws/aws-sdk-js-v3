@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { VerifySMSSandboxPhoneNumberInput, VerifySMSSandboxPhoneNumberResult } from "../models/models_0";
 import { VerifySMSSandboxPhoneNumber$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface VerifySMSSandboxPhoneNumberCommandOutput extends VerifySMSSandb
  *
  * @public
  */
-export class VerifySMSSandboxPhoneNumberCommand extends $Command
-  .classBuilder<
-    VerifySMSSandboxPhoneNumberCommandInput,
-    VerifySMSSandboxPhoneNumberCommandOutput,
-    SNSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSimpleNotificationService", "VerifySMSSandboxPhoneNumber", {})
-  .n("SNSClient", "VerifySMSSandboxPhoneNumberCommand")
-  .sc(VerifySMSSandboxPhoneNumber$)
-  .build() {
+export class VerifySMSSandboxPhoneNumberCommand extends command<VerifySMSSandboxPhoneNumberCommandInput, VerifySMSSandboxPhoneNumberCommandOutput>(
+  _ep0,
+  _mw0,
+  "VerifySMSSandboxPhoneNumber",
+  VerifySMSSandboxPhoneNumber$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

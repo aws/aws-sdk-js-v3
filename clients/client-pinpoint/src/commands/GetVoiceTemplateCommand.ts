@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetVoiceTemplateRequest, GetVoiceTemplateResponse } from "../models/models_1";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { GetVoiceTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface GetVoiceTemplateCommandOutput extends GetVoiceTemplateResponse,
  *
  * @public
  */
-export class GetVoiceTemplateCommand extends $Command
-  .classBuilder<
-    GetVoiceTemplateCommandInput,
-    GetVoiceTemplateCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "GetVoiceTemplate", {})
-  .n("PinpointClient", "GetVoiceTemplateCommand")
-  .sc(GetVoiceTemplate$)
-  .build() {
+export class GetVoiceTemplateCommand extends command<GetVoiceTemplateCommandInput, GetVoiceTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetVoiceTemplate",
+  GetVoiceTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DecryptDataInput, DecryptDataOutput } from "../models/models_0";
-import type {
-  PaymentCryptographyDataClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PaymentCryptographyDataClient";
 import { DecryptData$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +112,12 @@ export interface DecryptDataCommandOutput extends DecryptDataOutput, __MetadataB
  *
  * @public
  */
-export class DecryptDataCommand extends $Command
-  .classBuilder<
-    DecryptDataCommandInput,
-    DecryptDataCommandOutput,
-    PaymentCryptographyDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PaymentCryptographyDataPlane", "DecryptData", {})
-  .n("PaymentCryptographyDataClient", "DecryptDataCommand")
-  .sc(DecryptData$)
-  .build() {
+export class DecryptDataCommand extends command<DecryptDataCommandInput, DecryptDataCommandOutput>(
+  _ep0,
+  _mw0,
+  "DecryptData",
+  DecryptData$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

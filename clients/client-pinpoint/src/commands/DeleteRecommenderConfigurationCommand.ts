@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRecommenderConfigurationRequest, DeleteRecommenderConfigurationResponse } from "../models/models_0";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { DeleteRecommenderConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface DeleteRecommenderConfigurationCommandOutput extends DeleteRecom
  *
  * @public
  */
-export class DeleteRecommenderConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteRecommenderConfigurationCommandInput,
-    DeleteRecommenderConfigurationCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "DeleteRecommenderConfiguration", {})
-  .n("PinpointClient", "DeleteRecommenderConfigurationCommand")
-  .sc(DeleteRecommenderConfiguration$)
-  .build() {
+export class DeleteRecommenderConfigurationCommand extends command<DeleteRecommenderConfigurationCommandInput, DeleteRecommenderConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRecommenderConfiguration",
+  DeleteRecommenderConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

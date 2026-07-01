@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateMessageTemplateMetadataRequest, UpdateMessageTemplateMetadataResponse } from "../models/models_1";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { UpdateMessageTemplateMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -279,22 +275,12 @@ export interface UpdateMessageTemplateMetadataCommandOutput extends UpdateMessag
  *
  * @public
  */
-export class UpdateMessageTemplateMetadataCommand extends $Command
-  .classBuilder<
-    UpdateMessageTemplateMetadataCommandInput,
-    UpdateMessageTemplateMetadataCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "UpdateMessageTemplateMetadata", {})
-  .n("QConnectClient", "UpdateMessageTemplateMetadataCommand")
-  .sc(UpdateMessageTemplateMetadata$)
-  .build() {
+export class UpdateMessageTemplateMetadataCommand extends command<UpdateMessageTemplateMetadataCommandInput, UpdateMessageTemplateMetadataCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateMessageTemplateMetadata",
+  UpdateMessageTemplateMetadata$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

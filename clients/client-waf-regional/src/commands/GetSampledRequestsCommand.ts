@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSampledRequestsRequest, GetSampledRequestsResponse } from "../models/models_0";
 import { GetSampledRequests$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface GetSampledRequestsCommandOutput extends GetSampledRequestsRespo
  *
  * @public
  */
-export class GetSampledRequestsCommand extends $Command
-  .classBuilder<
-    GetSampledRequestsCommandInput,
-    GetSampledRequestsCommandOutput,
-    WAFRegionalClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_Regional_20161128", "GetSampledRequests", {})
-  .n("WAFRegionalClient", "GetSampledRequestsCommand")
-  .sc(GetSampledRequests$)
-  .build() {
+export class GetSampledRequestsCommand extends command<GetSampledRequestsCommandInput, GetSampledRequestsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSampledRequests",
+  GetSampledRequests$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

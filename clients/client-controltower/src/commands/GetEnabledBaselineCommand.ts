@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEnabledBaselineInput, GetEnabledBaselineOutput } from "../models/models_0";
 import { GetEnabledBaseline$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetEnabledBaseline$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface GetEnabledBaselineCommandOutput extends GetEnabledBaselineOutpu
  *
  * @public
  */
-export class GetEnabledBaselineCommand extends $Command
-  .classBuilder<
-    GetEnabledBaselineCommandInput,
-    GetEnabledBaselineCommandOutput,
-    ControlTowerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSControlTowerApis", "GetEnabledBaseline", {})
-  .n("ControlTowerClient", "GetEnabledBaselineCommand")
-  .sc(GetEnabledBaseline$)
-  .build() {
+export class GetEnabledBaselineCommand extends command<GetEnabledBaselineCommandInput, GetEnabledBaselineCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEnabledBaseline",
+  GetEnabledBaseline$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

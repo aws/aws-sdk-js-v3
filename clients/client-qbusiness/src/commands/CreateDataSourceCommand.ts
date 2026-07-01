@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDataSourceRequest, CreateDataSourceResponse } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { CreateDataSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -178,22 +174,12 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *
  * @public
  */
-export class CreateDataSourceCommand extends $Command
-  .classBuilder<
-    CreateDataSourceCommandInput,
-    CreateDataSourceCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "CreateDataSource", {})
-  .n("QBusinessClient", "CreateDataSourceCommand")
-  .sc(CreateDataSource$)
-  .build() {
+export class CreateDataSourceCommand extends command<CreateDataSourceCommandInput, CreateDataSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDataSource",
+  CreateDataSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

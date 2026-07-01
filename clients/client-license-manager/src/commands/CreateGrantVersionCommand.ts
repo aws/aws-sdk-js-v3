@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateGrantVersionRequest, CreateGrantVersionResponse } from "../models/models_0";
 import { CreateGrantVersion$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateGrantVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface CreateGrantVersionCommandOutput extends CreateGrantVersionRespo
  *
  * @public
  */
-export class CreateGrantVersionCommand extends $Command
-  .classBuilder<
-    CreateGrantVersionCommandInput,
-    CreateGrantVersionCommandOutput,
-    LicenseManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLicenseManager", "CreateGrantVersion", {})
-  .n("LicenseManagerClient", "CreateGrantVersionCommand")
-  .sc(CreateGrantVersion$)
-  .build() {
+export class CreateGrantVersionCommand extends command<CreateGrantVersionCommandInput, CreateGrantVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateGrantVersion",
+  CreateGrantVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

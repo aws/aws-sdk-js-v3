@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateConfigurationSetTrackingOptionsRequest,
   CreateConfigurationSetTrackingOptionsResponse,
 } from "../models/models_0";
 import { CreateConfigurationSetTrackingOptions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface CreateConfigurationSetTrackingOptionsCommandOutput extends Crea
  *
  * @public
  */
-export class CreateConfigurationSetTrackingOptionsCommand extends $Command
-  .classBuilder<
-    CreateConfigurationSetTrackingOptionsCommandInput,
-    CreateConfigurationSetTrackingOptionsCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "CreateConfigurationSetTrackingOptions", {})
-  .n("SESClient", "CreateConfigurationSetTrackingOptionsCommand")
-  .sc(CreateConfigurationSetTrackingOptions$)
-  .build() {
+export class CreateConfigurationSetTrackingOptionsCommand extends command<CreateConfigurationSetTrackingOptionsCommandInput, CreateConfigurationSetTrackingOptionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateConfigurationSetTrackingOptions",
+  CreateConfigurationSetTrackingOptions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

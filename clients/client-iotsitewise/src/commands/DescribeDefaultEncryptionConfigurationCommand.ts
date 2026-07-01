@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeDefaultEncryptionConfigurationRequest,
   DescribeDefaultEncryptionConfigurationResponse,
@@ -15,7 +12,6 @@ import { DescribeDefaultEncryptionConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DescribeDefaultEncryptionConfigurationCommandOutput extends Des
  *
  * @public
  */
-export class DescribeDefaultEncryptionConfigurationCommand extends $Command
-  .classBuilder<
-    DescribeDefaultEncryptionConfigurationCommandInput,
-    DescribeDefaultEncryptionConfigurationCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "DescribeDefaultEncryptionConfiguration", {})
-  .n("IoTSiteWiseClient", "DescribeDefaultEncryptionConfigurationCommand")
-  .sc(DescribeDefaultEncryptionConfiguration$)
-  .build() {
+export class DescribeDefaultEncryptionConfigurationCommand extends command<DescribeDefaultEncryptionConfigurationCommandInput, DescribeDefaultEncryptionConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDefaultEncryptionConfiguration",
+  DescribeDefaultEncryptionConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListKxChangesetsRequest, ListKxChangesetsResponse } from "../models/models_0";
 import { ListKxChangesets$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListKxChangesets$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface ListKxChangesetsCommandOutput extends ListKxChangesetsResponse,
  *
  * @public
  */
-export class ListKxChangesetsCommand extends $Command
-  .classBuilder<
-    ListKxChangesetsCommandInput,
-    ListKxChangesetsCommandOutput,
-    FinspaceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHabaneroManagementService", "ListKxChangesets", {})
-  .n("FinspaceClient", "ListKxChangesetsCommand")
-  .sc(ListKxChangesets$)
-  .build() {
+export class ListKxChangesetsCommand extends command<ListKxChangesetsCommandInput, ListKxChangesetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListKxChangesets",
+  ListKxChangesets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

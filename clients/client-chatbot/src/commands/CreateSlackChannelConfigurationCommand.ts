@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSlackChannelConfigurationRequest, CreateSlackChannelConfigurationResult } from "../models/models_0";
 import { CreateSlackChannelConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateSlackChannelConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface CreateSlackChannelConfigurationCommandOutput extends CreateSlac
  *
  * @public
  */
-export class CreateSlackChannelConfigurationCommand extends $Command
-  .classBuilder<
-    CreateSlackChannelConfigurationCommandInput,
-    CreateSlackChannelConfigurationCommandOutput,
-    ChatbotClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WheatleyOrchestration_20171011", "CreateSlackChannelConfiguration", {})
-  .n("ChatbotClient", "CreateSlackChannelConfigurationCommand")
-  .sc(CreateSlackChannelConfiguration$)
-  .build() {
+export class CreateSlackChannelConfigurationCommand extends command<CreateSlackChannelConfigurationCommandInput, CreateSlackChannelConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSlackChannelConfiguration",
+  CreateSlackChannelConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

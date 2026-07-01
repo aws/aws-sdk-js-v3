@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePackageGroupRequest, UpdatePackageGroupResult } from "../models/models_0";
 import { UpdatePackageGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdatePackageGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface UpdatePackageGroupCommandOutput extends UpdatePackageGroupResul
  *
  * @public
  */
-export class UpdatePackageGroupCommand extends $Command
-  .classBuilder<
-    UpdatePackageGroupCommandInput,
-    UpdatePackageGroupCommandOutput,
-    CodeartifactClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeArtifactControlPlaneService", "UpdatePackageGroup", {})
-  .n("CodeartifactClient", "UpdatePackageGroupCommand")
-  .sc(UpdatePackageGroup$)
-  .build() {
+export class UpdatePackageGroupCommand extends command<UpdatePackageGroupCommandInput, UpdatePackageGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePackageGroup",
+  UpdatePackageGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetLoggingConfigurationRequest, GetLoggingConfigurationResponse } from "../models/models_0";
 import { GetLoggingConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetLoggingConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  *
  * @public
  */
-export class GetLoggingConfigurationCommand extends $Command
-  .classBuilder<
-    GetLoggingConfigurationCommandInput,
-    GetLoggingConfigurationCommandOutput,
-    IvschatClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IvschatClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoServiceChat", "GetLoggingConfiguration", {})
-  .n("IvschatClient", "GetLoggingConfigurationCommand")
-  .sc(GetLoggingConfiguration$)
-  .build() {
+export class GetLoggingConfigurationCommand extends command<GetLoggingConfigurationCommandInput, GetLoggingConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetLoggingConfiguration",
+  GetLoggingConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

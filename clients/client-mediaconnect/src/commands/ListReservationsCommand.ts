@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListReservationsRequest, ListReservationsResponse } from "../models/models_0";
 import { ListReservations$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListReservations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface ListReservationsCommandOutput extends ListReservationsResponse,
  *
  * @public
  */
-export class ListReservationsCommand extends $Command
-  .classBuilder<
-    ListReservationsCommandInput,
-    ListReservationsCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "ListReservations", {})
-  .n("MediaConnectClient", "ListReservationsCommand")
-  .sc(ListReservations$)
-  .build() {
+export class ListReservationsCommand extends command<ListReservationsCommandInput, ListReservationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListReservations",
+  ListReservations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

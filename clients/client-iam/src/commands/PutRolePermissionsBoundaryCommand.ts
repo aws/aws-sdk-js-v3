@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutRolePermissionsBoundaryRequest } from "../models/models_0";
 import { PutRolePermissionsBoundary$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutRolePermissionsBoundary$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface PutRolePermissionsBoundaryCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class PutRolePermissionsBoundaryCommand extends $Command
-  .classBuilder<
-    PutRolePermissionsBoundaryCommandInput,
-    PutRolePermissionsBoundaryCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "PutRolePermissionsBoundary", {})
-  .n("IAMClient", "PutRolePermissionsBoundaryCommand")
-  .sc(PutRolePermissionsBoundary$)
-  .build() {
+export class PutRolePermissionsBoundaryCommand extends command<PutRolePermissionsBoundaryCommandInput, PutRolePermissionsBoundaryCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutRolePermissionsBoundary",
+  PutRolePermissionsBoundary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

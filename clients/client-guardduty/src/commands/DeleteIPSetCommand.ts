@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteIPSetRequest, DeleteIPSetResponse } from "../models/models_0";
 import { DeleteIPSet$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteIPSet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -64,22 +60,12 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  *
  * @public
  */
-export class DeleteIPSetCommand extends $Command
-  .classBuilder<
-    DeleteIPSetCommandInput,
-    DeleteIPSetCommandOutput,
-    GuardDutyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GuardDutyAPIService", "DeleteIPSet", {})
-  .n("GuardDutyClient", "DeleteIPSetCommand")
-  .sc(DeleteIPSet$)
-  .build() {
+export class DeleteIPSetCommand extends command<DeleteIPSetCommandInput, DeleteIPSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteIPSet",
+  DeleteIPSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

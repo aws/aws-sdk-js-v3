@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListQueuedMessagesRequest, ListQueuedMessagesResponse } from "../models/models_0";
 import { ListQueuedMessages$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListQueuedMessages$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface ListQueuedMessagesCommandOutput extends ListQueuedMessagesRespo
  *
  * @public
  */
-export class ListQueuedMessagesCommand extends $Command
-  .classBuilder<
-    ListQueuedMessagesCommandInput,
-    ListQueuedMessagesCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "ListQueuedMessages", {})
-  .n("IoTWirelessClient", "ListQueuedMessagesCommand")
-  .sc(ListQueuedMessages$)
-  .build() {
+export class ListQueuedMessagesCommand extends command<ListQueuedMessagesCommandInput, ListQueuedMessagesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListQueuedMessages",
+  ListQueuedMessages$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

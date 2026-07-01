@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExportEBSVolumeRecommendationsRequest, ExportEBSVolumeRecommendationsResponse } from "../models/models_0";
 import { ExportEBSVolumeRecommendations$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ExportEBSVolumeRecommendations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +109,12 @@ export interface ExportEBSVolumeRecommendationsCommandOutput extends ExportEBSVo
  *
  * @public
  */
-export class ExportEBSVolumeRecommendationsCommand extends $Command
-  .classBuilder<
-    ExportEBSVolumeRecommendationsCommandInput,
-    ExportEBSVolumeRecommendationsCommandOutput,
-    ComputeOptimizerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerService", "ExportEBSVolumeRecommendations", {})
-  .n("ComputeOptimizerClient", "ExportEBSVolumeRecommendationsCommand")
-  .sc(ExportEBSVolumeRecommendations$)
-  .build() {
+export class ExportEBSVolumeRecommendationsCommand extends command<ExportEBSVolumeRecommendationsCommandInput, ExportEBSVolumeRecommendationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExportEBSVolumeRecommendations",
+  ExportEBSVolumeRecommendations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

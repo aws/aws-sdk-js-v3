@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSavingsPlanRequest, CreateSavingsPlanResponse } from "../models/models_0";
-import type { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient";
 import { CreateSavingsPlan$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface CreateSavingsPlanCommandOutput extends CreateSavingsPlanRespons
  *
  * @public
  */
-export class CreateSavingsPlanCommand extends $Command
-  .classBuilder<
-    CreateSavingsPlanCommandInput,
-    CreateSavingsPlanCommandOutput,
-    SavingsplansClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SavingsplansClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSavingsPlan", "CreateSavingsPlan", {})
-  .n("SavingsplansClient", "CreateSavingsPlanCommand")
-  .sc(CreateSavingsPlan$)
-  .build() {
+export class CreateSavingsPlanCommand extends command<CreateSavingsPlanCommandInput, CreateSavingsPlanCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSavingsPlan",
+  CreateSavingsPlan$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

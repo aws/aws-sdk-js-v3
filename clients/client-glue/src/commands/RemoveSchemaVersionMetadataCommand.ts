@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveSchemaVersionMetadataInput, RemoveSchemaVersionMetadataResponse } from "../models/models_2";
 import { RemoveSchemaVersionMetadata$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RemoveSchemaVersionMetadata$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface RemoveSchemaVersionMetadataCommandOutput extends RemoveSchemaVe
  *
  * @public
  */
-export class RemoveSchemaVersionMetadataCommand extends $Command
-  .classBuilder<
-    RemoveSchemaVersionMetadataCommandInput,
-    RemoveSchemaVersionMetadataCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "RemoveSchemaVersionMetadata", {})
-  .n("GlueClient", "RemoveSchemaVersionMetadataCommand")
-  .sc(RemoveSchemaVersionMetadata$)
-  .build() {
+export class RemoveSchemaVersionMetadataCommand extends command<RemoveSchemaVersionMetadataCommandInput, RemoveSchemaVersionMetadataCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveSchemaVersionMetadata",
+  RemoveSchemaVersionMetadata$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

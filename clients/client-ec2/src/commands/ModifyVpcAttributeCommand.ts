@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyVpcAttributeRequest } from "../models/models_7";
 import { ModifyVpcAttribute$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ModifyVpcAttribute$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface ModifyVpcAttributeCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class ModifyVpcAttributeCommand extends $Command
-  .classBuilder<
-    ModifyVpcAttributeCommandInput,
-    ModifyVpcAttributeCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "ModifyVpcAttribute", {})
-  .n("EC2Client", "ModifyVpcAttributeCommand")
-  .sc(ModifyVpcAttribute$)
-  .build() {
+export class ModifyVpcAttributeCommand extends command<ModifyVpcAttributeCommandInput, ModifyVpcAttributeCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyVpcAttribute",
+  ModifyVpcAttribute$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

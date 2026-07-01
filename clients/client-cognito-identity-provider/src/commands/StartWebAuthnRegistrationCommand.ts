@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartWebAuthnRegistrationRequest, StartWebAuthnRegistrationResponse } from "../models/models_0";
 import { StartWebAuthnRegistration$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartWebAuthnRegistration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +95,12 @@ export interface StartWebAuthnRegistrationCommandOutput extends StartWebAuthnReg
  *
  * @public
  */
-export class StartWebAuthnRegistrationCommand extends $Command
-  .classBuilder<
-    StartWebAuthnRegistrationCommandInput,
-    StartWebAuthnRegistrationCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "StartWebAuthnRegistration", {})
-  .n("CognitoIdentityProviderClient", "StartWebAuthnRegistrationCommand")
-  .sc(StartWebAuthnRegistration$)
-  .build() {
+export class StartWebAuthnRegistrationCommand extends command<StartWebAuthnRegistrationCommandInput, StartWebAuthnRegistrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartWebAuthnRegistration",
+  StartWebAuthnRegistration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

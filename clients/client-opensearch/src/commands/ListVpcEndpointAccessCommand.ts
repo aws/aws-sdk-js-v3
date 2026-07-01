@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListVpcEndpointAccessRequest, ListVpcEndpointAccessResponse } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { ListVpcEndpointAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface ListVpcEndpointAccessCommandOutput extends ListVpcEndpointAcces
  *
  * @public
  */
-export class ListVpcEndpointAccessCommand extends $Command
-  .classBuilder<
-    ListVpcEndpointAccessCommandInput,
-    ListVpcEndpointAccessCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "ListVpcEndpointAccess", {})
-  .n("OpenSearchClient", "ListVpcEndpointAccessCommand")
-  .sc(ListVpcEndpointAccess$)
-  .build() {
+export class ListVpcEndpointAccessCommand extends command<ListVpcEndpointAccessCommandInput, ListVpcEndpointAccessCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListVpcEndpointAccess",
+  ListVpcEndpointAccess$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

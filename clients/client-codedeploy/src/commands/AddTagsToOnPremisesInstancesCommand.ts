@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddTagsToOnPremisesInstancesInput } from "../models/models_0";
 import { AddTagsToOnPremisesInstances$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AddTagsToOnPremisesInstances$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface AddTagsToOnPremisesInstancesCommandOutput extends __MetadataBea
  *
  * @public
  */
-export class AddTagsToOnPremisesInstancesCommand extends $Command
-  .classBuilder<
-    AddTagsToOnPremisesInstancesCommandInput,
-    AddTagsToOnPremisesInstancesCommandOutput,
-    CodeDeployClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeDeploy_20141006", "AddTagsToOnPremisesInstances", {})
-  .n("CodeDeployClient", "AddTagsToOnPremisesInstancesCommand")
-  .sc(AddTagsToOnPremisesInstances$)
-  .build() {
+export class AddTagsToOnPremisesInstancesCommand extends command<AddTagsToOnPremisesInstancesCommandInput, AddTagsToOnPremisesInstancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddTagsToOnPremisesInstances",
+  AddTagsToOnPremisesInstances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

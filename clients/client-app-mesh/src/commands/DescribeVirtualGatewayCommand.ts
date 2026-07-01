@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeVirtualGatewayInput, DescribeVirtualGatewayOutput } from "../models/models_0";
 import { DescribeVirtualGateway$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeVirtualGateway$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -217,22 +213,12 @@ export interface DescribeVirtualGatewayCommandOutput extends DescribeVirtualGate
  *
  * @public
  */
-export class DescribeVirtualGatewayCommand extends $Command
-  .classBuilder<
-    DescribeVirtualGatewayCommandInput,
-    DescribeVirtualGatewayCommandOutput,
-    AppMeshClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppMeshClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppMesh", "DescribeVirtualGateway", {})
-  .n("AppMeshClient", "DescribeVirtualGatewayCommand")
-  .sc(DescribeVirtualGateway$)
-  .build() {
+export class DescribeVirtualGatewayCommand extends command<DescribeVirtualGatewayCommandInput, DescribeVirtualGatewayCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeVirtualGateway",
+  DescribeVirtualGateway$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

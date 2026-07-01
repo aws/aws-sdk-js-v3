@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getFlexibleChecksumsPlugin } from "@aws-sdk/checksums/flexible-checksums";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep3, _mw3, command } from "../commandBuilder";
 import type { PutBucketReplicationRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { PutBucketReplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -220,32 +215,12 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutBucketReplicationCommand extends $Command
-  .classBuilder<
-    PutBucketReplicationCommandInput,
-    PutBucketReplicationCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
-        requestChecksumRequired: true,
-      }),
-    ];
-  })
-  .s("AmazonS3", "PutBucketReplication", {})
-  .n("S3Client", "PutBucketReplicationCommand")
-  .sc(PutBucketReplication$)
-  .build() {
+export class PutBucketReplicationCommand extends command<PutBucketReplicationCommandInput, PutBucketReplicationCommandOutput>(
+  _ep3,
+  _mw3,
+  "PutBucketReplication",
+  PutBucketReplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

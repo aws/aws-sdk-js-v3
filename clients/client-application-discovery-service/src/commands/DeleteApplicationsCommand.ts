@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationDiscoveryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationDiscoveryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteApplicationsRequest, DeleteApplicationsResponse } from "../models/models_0";
 import { DeleteApplications$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteApplications$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface DeleteApplicationsCommandOutput extends DeleteApplicationsRespo
  *
  * @public
  */
-export class DeleteApplicationsCommand extends $Command
-  .classBuilder<
-    DeleteApplicationsCommandInput,
-    DeleteApplicationsCommandOutput,
-    ApplicationDiscoveryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationDiscoveryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPoseidonService_V2015_11_01", "DeleteApplications", {})
-  .n("ApplicationDiscoveryServiceClient", "DeleteApplicationsCommand")
-  .sc(DeleteApplications$)
-  .build() {
+export class DeleteApplicationsCommand extends command<DeleteApplicationsCommandInput, DeleteApplicationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteApplications",
+  DeleteApplications$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteVpcEndpointRequest, DeleteVpcEndpointResponse } from "../models/models_0";
-import type {
-  OpenSearchServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../OpenSearchServerlessClient";
 import { DeleteVpcEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface DeleteVpcEndpointCommandOutput extends DeleteVpcEndpointRespons
  *
  * @public
  */
-export class DeleteVpcEndpointCommand extends $Command
-  .classBuilder<
-    DeleteVpcEndpointCommandInput,
-    DeleteVpcEndpointCommandOutput,
-    OpenSearchServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OpenSearchServerless", "DeleteVpcEndpoint", {})
-  .n("OpenSearchServerlessClient", "DeleteVpcEndpointCommand")
-  .sc(DeleteVpcEndpoint$)
-  .build() {
+export class DeleteVpcEndpointCommand extends command<DeleteVpcEndpointCommandInput, DeleteVpcEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteVpcEndpoint",
+  DeleteVpcEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

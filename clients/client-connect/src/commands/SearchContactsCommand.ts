@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchContactsRequest } from "../models/models_2";
 import type { SearchContactsResponse } from "../models/models_4";
 import { SearchContacts$ } from "../schemas/schemas_0";
@@ -13,7 +10,6 @@ import { SearchContacts$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -377,22 +373,12 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  *
  * @public
  */
-export class SearchContactsCommand extends $Command
-  .classBuilder<
-    SearchContactsCommandInput,
-    SearchContactsCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "SearchContacts", {})
-  .n("ConnectClient", "SearchContactsCommand")
-  .sc(SearchContacts$)
-  .build() {
+export class SearchContactsCommand extends command<SearchContactsCommandInput, SearchContactsCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchContacts",
+  SearchContacts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

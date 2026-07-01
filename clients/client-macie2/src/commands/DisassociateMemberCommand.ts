@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateMemberRequest, DisassociateMemberResponse } from "../models/models_0";
 import { DisassociateMember$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateMember$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DisassociateMemberCommandOutput extends DisassociateMemberRespo
  *
  * @public
  */
-export class DisassociateMemberCommand extends $Command
-  .classBuilder<
-    DisassociateMemberCommandInput,
-    DisassociateMemberCommandOutput,
-    Macie2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Macie2", "DisassociateMember", {})
-  .n("Macie2Client", "DisassociateMemberCommand")
-  .sc(DisassociateMember$)
-  .build() {
+export class DisassociateMemberCommand extends command<DisassociateMemberCommandInput, DisassociateMemberCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateMember",
+  DisassociateMember$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { JsonUnionsInput, JsonUnionsOutput } from "../models/models_0";
 import { JsonUnions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { JsonUnions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface JsonUnionsCommandOutput extends JsonUnionsOutput, __MetadataBea
  *
  * @public
  */
-export class JsonUnionsCommand extends $Command
-  .classBuilder<
-    JsonUnionsCommandInput,
-    JsonUnionsCommandOutput,
-    JSONRPC10ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: JSONRPC10ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("JsonRpc10", "JsonUnions", {})
-  .n("JSONRPC10Client", "JsonUnionsCommand")
-  .sc(JsonUnions$)
-  .build() {
+export class JsonUnionsCommand extends command<JsonUnionsCommandInput, JsonUnionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "JsonUnions",
+  JsonUnions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

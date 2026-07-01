@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListResourceGroupingRecommendationsRequest,
   ListResourceGroupingRecommendationsResponse,
 } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { ListResourceGroupingRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface ListResourceGroupingRecommendationsCommandOutput extends ListRe
  *
  * @public
  */
-export class ListResourceGroupingRecommendationsCommand extends $Command
-  .classBuilder<
-    ListResourceGroupingRecommendationsCommandInput,
-    ListResourceGroupingRecommendationsCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "ListResourceGroupingRecommendations", {})
-  .n("ResiliencehubClient", "ListResourceGroupingRecommendationsCommand")
-  .sc(ListResourceGroupingRecommendations$)
-  .build() {
+export class ListResourceGroupingRecommendationsCommand extends command<ListResourceGroupingRecommendationsCommandInput, ListResourceGroupingRecommendationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListResourceGroupingRecommendations",
+  ListResourceGroupingRecommendations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

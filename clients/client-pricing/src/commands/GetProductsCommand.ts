@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetProductsRequest, GetProductsResponse } from "../models/models_0";
-import type { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
 import { GetProducts$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface GetProductsCommandOutput extends GetProductsResponse, __Metadat
  *
  * @public
  */
-export class GetProductsCommand extends $Command
-  .classBuilder<
-    GetProductsCommandInput,
-    GetProductsCommandOutput,
-    PricingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PricingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPriceListService", "GetProducts", {})
-  .n("PricingClient", "GetProductsCommand")
-  .sc(GetProducts$)
-  .build() {
+export class GetProductsCommand extends command<GetProductsCommandInput, GetProductsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetProducts",
+  GetProducts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

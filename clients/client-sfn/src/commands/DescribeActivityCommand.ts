@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeActivityInput, DescribeActivityOutput } from "../models/models_0";
 import { DescribeActivity$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DescribeActivityCommandOutput extends DescribeActivityOutput, _
  *
  * @public
  */
-export class DescribeActivityCommand extends $Command
-  .classBuilder<
-    DescribeActivityCommandInput,
-    DescribeActivityCommandOutput,
-    SFNClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStepFunctions", "DescribeActivity", {})
-  .n("SFNClient", "DescribeActivityCommand")
-  .sc(DescribeActivity$)
-  .build() {
+export class DescribeActivityCommand extends command<DescribeActivityCommandInput, DescribeActivityCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeActivity",
+  DescribeActivity$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

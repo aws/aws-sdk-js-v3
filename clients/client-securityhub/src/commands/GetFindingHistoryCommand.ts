@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFindingHistoryRequest, GetFindingHistoryResponse } from "../models/models_2";
 import { GetFindingHistory$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface GetFindingHistoryCommandOutput extends GetFindingHistoryRespons
  *
  * @public
  */
-export class GetFindingHistoryCommand extends $Command
-  .classBuilder<
-    GetFindingHistoryCommandInput,
-    GetFindingHistoryCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "GetFindingHistory", {})
-  .n("SecurityHubClient", "GetFindingHistoryCommand")
-  .sc(GetFindingHistory$)
-  .build() {
+export class GetFindingHistoryCommand extends command<GetFindingHistoryCommandInput, GetFindingHistoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFindingHistory",
+  GetFindingHistory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

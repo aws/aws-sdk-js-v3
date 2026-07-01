@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComprehendMedicalClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComprehendMedicalClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartSNOMEDCTInferenceJobRequest, StartSNOMEDCTInferenceJobResponse } from "../models/models_0";
 import { StartSNOMEDCTInferenceJob$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartSNOMEDCTInferenceJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface StartSNOMEDCTInferenceJobCommandOutput extends StartSNOMEDCTInf
  *
  * @public
  */
-export class StartSNOMEDCTInferenceJobCommand extends $Command
-  .classBuilder<
-    StartSNOMEDCTInferenceJobCommandInput,
-    StartSNOMEDCTInferenceJobCommandOutput,
-    ComprehendMedicalClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComprehendMedical_20181030", "StartSNOMEDCTInferenceJob", {})
-  .n("ComprehendMedicalClient", "StartSNOMEDCTInferenceJobCommand")
-  .sc(StartSNOMEDCTInferenceJob$)
-  .build() {
+export class StartSNOMEDCTInferenceJobCommand extends command<StartSNOMEDCTInferenceJobCommandInput, StartSNOMEDCTInferenceJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartSNOMEDCTInferenceJob",
+  StartSNOMEDCTInferenceJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

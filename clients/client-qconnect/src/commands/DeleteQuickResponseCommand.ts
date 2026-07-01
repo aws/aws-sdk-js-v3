@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteQuickResponseRequest, DeleteQuickResponseResponse } from "../models/models_1";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { DeleteQuickResponse$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface DeleteQuickResponseCommandOutput extends DeleteQuickResponseRes
  *
  * @public
  */
-export class DeleteQuickResponseCommand extends $Command
-  .classBuilder<
-    DeleteQuickResponseCommandInput,
-    DeleteQuickResponseCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "DeleteQuickResponse", {})
-  .n("QConnectClient", "DeleteQuickResponseCommand")
-  .sc(DeleteQuickResponse$)
-  .build() {
+export class DeleteQuickResponseCommand extends command<DeleteQuickResponseCommandInput, DeleteQuickResponseCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteQuickResponse",
+  DeleteQuickResponse$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

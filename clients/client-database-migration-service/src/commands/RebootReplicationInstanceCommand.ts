@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RebootReplicationInstanceMessage } from "../models/models_0";
 import type { RebootReplicationInstanceResponse } from "../models/models_1";
 import { RebootReplicationInstance$ } from "../schemas/schemas_0";
@@ -17,7 +10,6 @@ import { RebootReplicationInstance$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -139,22 +131,12 @@ export interface RebootReplicationInstanceCommandOutput extends RebootReplicatio
  *
  * @public
  */
-export class RebootReplicationInstanceCommand extends $Command
-  .classBuilder<
-    RebootReplicationInstanceCommandInput,
-    RebootReplicationInstanceCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "RebootReplicationInstance", {})
-  .n("DatabaseMigrationServiceClient", "RebootReplicationInstanceCommand")
-  .sc(RebootReplicationInstance$)
-  .build() {
+export class RebootReplicationInstanceCommand extends command<RebootReplicationInstanceCommandInput, RebootReplicationInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "RebootReplicationInstance",
+  RebootReplicationInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

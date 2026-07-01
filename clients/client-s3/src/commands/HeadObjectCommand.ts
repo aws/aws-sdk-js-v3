@@ -1,23 +1,14 @@
 // smithy-typescript generated code
-import {
-  getS3ExpiresMiddlewarePlugin,
-  getSsecPlugin,
-  getThrow200ExceptionsPlugin,
-} from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw8, command } from "../commandBuilder";
 import type { HeadObjectOutput, HeadObjectRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { HeadObject$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -307,31 +298,12 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *
  * @public
  */
-export class HeadObjectCommand extends $Command
-  .classBuilder<
-    HeadObjectCommandInput,
-    HeadObjectCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    Bucket: { type: "contextParams", name: "Bucket" },
-    Key: { type: "contextParams", name: "Key" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-      getSsecPlugin(config),
-      getS3ExpiresMiddlewarePlugin(config),
-    ];
-  })
-  .s("AmazonS3", "HeadObject", {})
-  .n("S3Client", "HeadObjectCommand")
-  .sc(HeadObject$)
-  .build() {
+export class HeadObjectCommand extends command<HeadObjectCommandInput, HeadObjectCommandOutput>(
+  _ep0,
+  _mw8,
+  "HeadObject",
+  HeadObject$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisableDefaultKeyReplicationRegionsInput,
   DisableDefaultKeyReplicationRegionsOutput,
 } from "../models/models_0";
-import type {
-  PaymentCryptographyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PaymentCryptographyClient";
 import { DisableDefaultKeyReplicationRegions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface DisableDefaultKeyReplicationRegionsCommandOutput extends Disabl
  *
  * @public
  */
-export class DisableDefaultKeyReplicationRegionsCommand extends $Command
-  .classBuilder<
-    DisableDefaultKeyReplicationRegionsCommandInput,
-    DisableDefaultKeyReplicationRegionsCommandOutput,
-    PaymentCryptographyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PaymentCryptographyControlPlane", "DisableDefaultKeyReplicationRegions", {})
-  .n("PaymentCryptographyClient", "DisableDefaultKeyReplicationRegionsCommand")
-  .sc(DisableDefaultKeyReplicationRegions$)
-  .build() {
+export class DisableDefaultKeyReplicationRegionsCommand extends command<DisableDefaultKeyReplicationRegionsCommandInput, DisableDefaultKeyReplicationRegionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableDefaultKeyReplicationRegions",
+  DisableDefaultKeyReplicationRegions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

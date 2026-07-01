@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDataSetRevisionsRequest, ListDataSetRevisionsResponse } from "../models/models_0";
 import { ListDataSetRevisions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDataSetRevisions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface ListDataSetRevisionsCommandOutput extends ListDataSetRevisionsR
  *
  * @public
  */
-export class ListDataSetRevisionsCommand extends $Command
-  .classBuilder<
-    ListDataSetRevisionsCommandInput,
-    ListDataSetRevisionsCommandOutput,
-    DataExchangeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataExchange", "ListDataSetRevisions", {})
-  .n("DataExchangeClient", "ListDataSetRevisionsCommand")
-  .sc(ListDataSetRevisions$)
-  .build() {
+export class ListDataSetRevisionsCommand extends command<ListDataSetRevisionsCommandInput, ListDataSetRevisionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDataSetRevisions",
+  ListDataSetRevisions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

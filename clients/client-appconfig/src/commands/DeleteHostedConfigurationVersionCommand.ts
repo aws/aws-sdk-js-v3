@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteHostedConfigurationVersionRequest } from "../models/models_0";
 import { DeleteHostedConfigurationVersion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteHostedConfigurationVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DeleteHostedConfigurationVersionCommandOutput extends __Metadat
  *
  * @public
  */
-export class DeleteHostedConfigurationVersionCommand extends $Command
-  .classBuilder<
-    DeleteHostedConfigurationVersionCommandInput,
-    DeleteHostedConfigurationVersionCommandOutput,
-    AppConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAppConfig", "DeleteHostedConfigurationVersion", {})
-  .n("AppConfigClient", "DeleteHostedConfigurationVersionCommand")
-  .sc(DeleteHostedConfigurationVersion$)
-  .build() {
+export class DeleteHostedConfigurationVersionCommand extends command<DeleteHostedConfigurationVersionCommandInput, DeleteHostedConfigurationVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteHostedConfigurationVersion",
+  DeleteHostedConfigurationVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListActivatedRulesInRuleGroupRequest, ListActivatedRulesInRuleGroupResponse } from "../models/models_0";
 import { ListActivatedRulesInRuleGroup$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +129,12 @@ export interface ListActivatedRulesInRuleGroupCommandOutput extends ListActivate
  *
  * @public
  */
-export class ListActivatedRulesInRuleGroupCommand extends $Command
-  .classBuilder<
-    ListActivatedRulesInRuleGroupCommandInput,
-    ListActivatedRulesInRuleGroupCommandOutput,
-    WAFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20150824", "ListActivatedRulesInRuleGroup", {})
-  .n("WAFClient", "ListActivatedRulesInRuleGroupCommand")
-  .sc(ListActivatedRulesInRuleGroup$)
-  .build() {
+export class ListActivatedRulesInRuleGroupCommand extends command<ListActivatedRulesInRuleGroupCommandInput, ListActivatedRulesInRuleGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListActivatedRulesInRuleGroup",
+  ListActivatedRulesInRuleGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateSubscriptionRequest, UpdateSubscriptionResponse } from "../models/models_0";
 import { UpdateSubscription$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface UpdateSubscriptionCommandOutput extends UpdateSubscriptionRespo
  *
  * @public
  */
-export class UpdateSubscriptionCommand extends $Command
-  .classBuilder<
-    UpdateSubscriptionCommandInput,
-    UpdateSubscriptionCommandOutput,
-    ShieldClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShield_20160616", "UpdateSubscription", {})
-  .n("ShieldClient", "UpdateSubscriptionCommand")
-  .sc(UpdateSubscription$)
-  .build() {
+export class UpdateSubscriptionCommand extends command<UpdateSubscriptionCommandInput, UpdateSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSubscription",
+  UpdateSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopDataSourceSyncJobRequest, StopDataSourceSyncJobResponse } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { StopDataSourceSyncJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface StopDataSourceSyncJobCommandOutput extends StopDataSourceSyncJo
  *
  * @public
  */
-export class StopDataSourceSyncJobCommand extends $Command
-  .classBuilder<
-    StopDataSourceSyncJobCommandInput,
-    StopDataSourceSyncJobCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "StopDataSourceSyncJob", {})
-  .n("QBusinessClient", "StopDataSourceSyncJobCommand")
-  .sc(StopDataSourceSyncJob$)
-  .build() {
+export class StopDataSourceSyncJobCommand extends command<StopDataSourceSyncJobCommandInput, StopDataSourceSyncJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopDataSourceSyncJob",
+  StopDataSourceSyncJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

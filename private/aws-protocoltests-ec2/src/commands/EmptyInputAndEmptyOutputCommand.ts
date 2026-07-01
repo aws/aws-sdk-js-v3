@@ -13,7 +13,6 @@ import { de_EmptyInputAndEmptyOutputCommand, se_EmptyInputAndEmptyOutputCommand 
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

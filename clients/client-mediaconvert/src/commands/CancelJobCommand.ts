@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelJobRequest, CancelJobResponse } from "../models/models_0";
 import { CancelJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CancelJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  *
  * @public
  */
-export class CancelJobCommand extends $Command
-  .classBuilder<
-    CancelJobCommandInput,
-    CancelJobCommandOutput,
-    MediaConvertClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConvert", "CancelJob", {})
-  .n("MediaConvertClient", "CancelJobCommand")
-  .sc(CancelJob$)
-  .build() {
+export class CancelJobCommand extends command<CancelJobCommandInput, CancelJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelJob",
+  CancelJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

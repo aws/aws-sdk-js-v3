@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateBackupSelectionInput, CreateBackupSelectionOutput } from "../models/models_0";
 import { CreateBackupSelection$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateBackupSelection$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface CreateBackupSelectionCommandOutput extends CreateBackupSelectio
  *
  * @public
  */
-export class CreateBackupSelectionCommand extends $Command
-  .classBuilder<
-    CreateBackupSelectionCommandInput,
-    CreateBackupSelectionCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "CreateBackupSelection", {})
-  .n("BackupClient", "CreateBackupSelectionCommand")
-  .sc(CreateBackupSelection$)
-  .build() {
+export class CreateBackupSelectionCommand extends command<CreateBackupSelectionCommandInput, CreateBackupSelectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateBackupSelection",
+  CreateBackupSelection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

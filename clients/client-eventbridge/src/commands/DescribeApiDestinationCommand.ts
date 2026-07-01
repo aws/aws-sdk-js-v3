@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeApiDestinationRequest, DescribeApiDestinationResponse } from "../models/models_0";
 import { DescribeApiDestination$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeApiDestination$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DescribeApiDestinationCommandOutput extends DescribeApiDestinat
  *
  * @public
  */
-export class DescribeApiDestinationCommand extends $Command
-  .classBuilder<
-    DescribeApiDestinationCommandInput,
-    DescribeApiDestinationCommandOutput,
-    EventBridgeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSEvents", "DescribeApiDestination", {})
-  .n("EventBridgeClient", "DescribeApiDestinationCommand")
-  .sc(DescribeApiDestination$)
-  .build() {
+export class DescribeApiDestinationCommand extends command<DescribeApiDestinationCommandInput, DescribeApiDestinationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeApiDestination",
+  DescribeApiDestination$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

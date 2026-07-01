@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SparseJsonMapsInputOutput } from "../models/models_0";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
 import { SparseJsonMaps$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface SparseJsonMapsCommandOutput extends SparseJsonMapsInputOutput, 
  *
  * @public
  */
-export class SparseJsonMapsCommand extends $Command
-  .classBuilder<
-    SparseJsonMapsCommandInput,
-    SparseJsonMapsCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestJson", "SparseJsonMaps", {})
-  .n("RestJsonProtocolClient", "SparseJsonMapsCommand")
-  .sc(SparseJsonMaps$)
-  .build() {
+export class SparseJsonMapsCommand extends command<SparseJsonMapsCommandInput, SparseJsonMapsCommandOutput>(
+  _ep0,
+  _mw0,
+  "SparseJsonMaps",
+  SparseJsonMaps$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

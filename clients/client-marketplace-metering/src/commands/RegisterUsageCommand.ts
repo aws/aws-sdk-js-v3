@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceMeteringClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceMeteringClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterUsageRequest, RegisterUsageResult } from "../models/models_0";
 import { RegisterUsage$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { RegisterUsage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +132,12 @@ export interface RegisterUsageCommandOutput extends RegisterUsageResult, __Metad
  *
  * @public
  */
-export class RegisterUsageCommand extends $Command
-  .classBuilder<
-    RegisterUsageCommandInput,
-    RegisterUsageCommandOutput,
-    MarketplaceMeteringClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceMeteringClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMPMeteringService", "RegisterUsage", {})
-  .n("MarketplaceMeteringClient", "RegisterUsageCommand")
-  .sc(RegisterUsage$)
-  .build() {
+export class RegisterUsageCommand extends command<RegisterUsageCommandInput, RegisterUsageCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterUsage",
+  RegisterUsage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

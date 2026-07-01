@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateEndpointRequest, UpdateEndpointResponse } from "../models/models_0";
 import { UpdateEndpoint$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateEndpoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +111,12 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointResponse, __M
  *
  * @public
  */
-export class UpdateEndpointCommand extends $Command
-  .classBuilder<
-    UpdateEndpointCommandInput,
-    UpdateEndpointCommandOutput,
-    EventBridgeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSEvents", "UpdateEndpoint", {})
-  .n("EventBridgeClient", "UpdateEndpointCommand")
-  .sc(UpdateEndpoint$)
-  .build() {
+export class UpdateEndpointCommand extends command<UpdateEndpointCommandInput, UpdateEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateEndpoint",
+  UpdateEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

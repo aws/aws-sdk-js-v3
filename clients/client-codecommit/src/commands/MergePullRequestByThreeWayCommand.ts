@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { MergePullRequestByThreeWayInput, MergePullRequestByThreeWayOutput } from "../models/models_0";
 import { MergePullRequestByThreeWay$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { MergePullRequestByThreeWay$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -256,22 +252,12 @@ export interface MergePullRequestByThreeWayCommandOutput extends MergePullReques
  *
  * @public
  */
-export class MergePullRequestByThreeWayCommand extends $Command
-  .classBuilder<
-    MergePullRequestByThreeWayCommandInput,
-    MergePullRequestByThreeWayCommandOutput,
-    CodeCommitClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCommit_20150413", "MergePullRequestByThreeWay", {})
-  .n("CodeCommitClient", "MergePullRequestByThreeWayCommand")
-  .sc(MergePullRequestByThreeWay$)
-  .build() {
+export class MergePullRequestByThreeWayCommand extends command<MergePullRequestByThreeWayCommandInput, MergePullRequestByThreeWayCommandOutput>(
+  _ep0,
+  _mw0,
+  "MergePullRequestByThreeWay",
+  MergePullRequestByThreeWay$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

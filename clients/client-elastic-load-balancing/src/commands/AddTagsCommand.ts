@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticLoadBalancingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticLoadBalancingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddTagsInput, AddTagsOutput } from "../models/models_0";
 import { AddTags$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AddTags$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +101,12 @@ export interface AddTagsCommandOutput extends AddTagsOutput, __MetadataBearer {}
  *
  * @public
  */
-export class AddTagsCommand extends $Command
-  .classBuilder<
-    AddTagsCommandInput,
-    AddTagsCommandOutput,
-    ElasticLoadBalancingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticLoadBalancing_v7", "AddTags", {})
-  .n("ElasticLoadBalancingClient", "AddTagsCommand")
-  .sc(AddTags$)
-  .build() {
+export class AddTagsCommand extends command<AddTagsCommandInput, AddTagsCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddTags",
+  AddTags$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

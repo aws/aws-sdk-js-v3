@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetVpcAttachmentRequest, GetVpcAttachmentResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { GetVpcAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +132,12 @@ export interface GetVpcAttachmentCommandOutput extends GetVpcAttachmentResponse,
  *
  * @public
  */
-export class GetVpcAttachmentCommand extends $Command
-  .classBuilder<
-    GetVpcAttachmentCommandInput,
-    GetVpcAttachmentCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "GetVpcAttachment", {})
-  .n("NetworkManagerClient", "GetVpcAttachmentCommand")
-  .sc(GetVpcAttachment$)
-  .build() {
+export class GetVpcAttachmentCommand extends command<GetVpcAttachmentCommandInput, GetVpcAttachmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetVpcAttachment",
+  GetVpcAttachment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

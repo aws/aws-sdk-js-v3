@@ -13,7 +13,6 @@ import { de_NullOperationCommand, se_NullOperationCommand } from "../protocols/A
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

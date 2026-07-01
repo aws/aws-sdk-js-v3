@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMissionProfileRequest, MissionProfileIdResponse } from "../models/models_0";
 import { DeleteMissionProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteMissionProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface DeleteMissionProfileCommandOutput extends MissionProfileIdRespo
  *
  * @public
  */
-export class DeleteMissionProfileCommand extends $Command
-  .classBuilder<
-    DeleteMissionProfileCommandInput,
-    DeleteMissionProfileCommandOutput,
-    GroundStationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GroundStation", "DeleteMissionProfile", {})
-  .n("GroundStationClient", "DeleteMissionProfileCommand")
-  .sc(DeleteMissionProfile$)
-  .build() {
+export class DeleteMissionProfileCommand extends command<DeleteMissionProfileCommandInput, DeleteMissionProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMissionProfile",
+  DeleteMissionProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchGetAssetPropertyValueHistoryRequest,
   BatchGetAssetPropertyValueHistoryResponse,
@@ -15,7 +12,6 @@ import { BatchGetAssetPropertyValueHistory$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -134,22 +130,12 @@ export interface BatchGetAssetPropertyValueHistoryCommandOutput extends BatchGet
  *
  * @public
  */
-export class BatchGetAssetPropertyValueHistoryCommand extends $Command
-  .classBuilder<
-    BatchGetAssetPropertyValueHistoryCommandInput,
-    BatchGetAssetPropertyValueHistoryCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "BatchGetAssetPropertyValueHistory", {})
-  .n("IoTSiteWiseClient", "BatchGetAssetPropertyValueHistoryCommand")
-  .sc(BatchGetAssetPropertyValueHistory$)
-  .build() {
+export class BatchGetAssetPropertyValueHistoryCommand extends command<BatchGetAssetPropertyValueHistoryCommandInput, BatchGetAssetPropertyValueHistoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetAssetPropertyValueHistory",
+  BatchGetAssetPropertyValueHistory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

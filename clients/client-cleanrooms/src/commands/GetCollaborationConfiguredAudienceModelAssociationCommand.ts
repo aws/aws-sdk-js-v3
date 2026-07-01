@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetCollaborationConfiguredAudienceModelAssociationInput,
   GetCollaborationConfiguredAudienceModelAssociationOutput,
@@ -15,7 +12,6 @@ import { GetCollaborationConfiguredAudienceModelAssociation$ } from "../schemas/
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface GetCollaborationConfiguredAudienceModelAssociationCommandOutput
  *
  * @public
  */
-export class GetCollaborationConfiguredAudienceModelAssociationCommand extends $Command
-  .classBuilder<
-    GetCollaborationConfiguredAudienceModelAssociationCommandInput,
-    GetCollaborationConfiguredAudienceModelAssociationCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "GetCollaborationConfiguredAudienceModelAssociation", {})
-  .n("CleanRoomsClient", "GetCollaborationConfiguredAudienceModelAssociationCommand")
-  .sc(GetCollaborationConfiguredAudienceModelAssociation$)
-  .build() {
+export class GetCollaborationConfiguredAudienceModelAssociationCommand extends command<GetCollaborationConfiguredAudienceModelAssociationCommandInput, GetCollaborationConfiguredAudienceModelAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCollaborationConfiguredAudienceModelAssociation",
+  GetCollaborationConfiguredAudienceModelAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

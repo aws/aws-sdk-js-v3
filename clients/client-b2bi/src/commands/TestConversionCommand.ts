@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TestConversionRequest, TestConversionResponse } from "../models/models_0";
 import { TestConversion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { TestConversion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -194,22 +190,12 @@ export interface TestConversionCommandOutput extends TestConversionResponse, __M
  *
  * @public
  */
-export class TestConversionCommand extends $Command
-  .classBuilder<
-    TestConversionCommandInput,
-    TestConversionCommandOutput,
-    B2biClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("B2BI", "TestConversion", {})
-  .n("B2biClient", "TestConversionCommand")
-  .sc(TestConversion$)
-  .build() {
+export class TestConversionCommand extends command<TestConversionCommandInput, TestConversionCommandOutput>(
+  _ep0,
+  _mw0,
+  "TestConversion",
+  TestConversion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

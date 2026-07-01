@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyUIBuilderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyUIBuilderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFormRequest, CreateFormResponse } from "../models/models_0";
 import { CreateForm$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateForm$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -388,22 +380,12 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  *
  * @public
  */
-export class CreateFormCommand extends $Command
-  .classBuilder<
-    CreateFormCommandInput,
-    CreateFormCommandOutput,
-    AmplifyUIBuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyUIBuilder", "CreateForm", {})
-  .n("AmplifyUIBuilderClient", "CreateFormCommand")
-  .sc(CreateForm$)
-  .build() {
+export class CreateFormCommand extends command<CreateFormCommandInput, CreateFormCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateForm",
+  CreateForm$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

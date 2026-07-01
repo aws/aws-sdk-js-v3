@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EchoServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EchoServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { LengthInput, LengthOutput } from "../models/models_0";
 import { Length$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { Length$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -62,22 +58,12 @@ export interface LengthCommandOutput extends LengthOutput, __MetadataBearer {}
  *
  *
  */
-export class LengthCommand extends $Command
-  .classBuilder<
-    LengthCommandInput,
-    LengthCommandOutput,
-    EchoServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EchoServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EchoService", "Length", {})
-  .n("EchoServiceClient", "LengthCommand")
-  .sc(Length$)
-  .build() {
+export class LengthCommand extends command<LengthCommandInput, LengthCommandOutput>(
+  _ep0,
+  _mw0,
+  "Length",
+  Length$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

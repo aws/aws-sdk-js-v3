@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribePredictorBacktestExportJobRequest,
   DescribePredictorBacktestExportJobResponse,
@@ -15,7 +12,6 @@ import { DescribePredictorBacktestExportJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface DescribePredictorBacktestExportJobCommandOutput extends Describ
  *
  * @public
  */
-export class DescribePredictorBacktestExportJobCommand extends $Command
-  .classBuilder<
-    DescribePredictorBacktestExportJobCommandInput,
-    DescribePredictorBacktestExportJobCommandOutput,
-    ForecastClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonForecast", "DescribePredictorBacktestExportJob", {})
-  .n("ForecastClient", "DescribePredictorBacktestExportJobCommand")
-  .sc(DescribePredictorBacktestExportJob$)
-  .build() {
+export class DescribePredictorBacktestExportJobCommand extends command<DescribePredictorBacktestExportJobCommandInput, DescribePredictorBacktestExportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribePredictorBacktestExportJob",
+  DescribePredictorBacktestExportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

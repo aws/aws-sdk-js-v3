@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw2, command } from "../commandBuilder";
 import type { GetTrafficPolicyInstanceCountRequest, GetTrafficPolicyInstanceCountResponse } from "../models/models_0";
-import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 import { GetTrafficPolicyInstanceCount$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -58,22 +54,12 @@ export interface GetTrafficPolicyInstanceCountCommandOutput extends GetTrafficPo
  *
  * @public
  */
-export class GetTrafficPolicyInstanceCountCommand extends $Command
-  .classBuilder<
-    GetTrafficPolicyInstanceCountCommandInput,
-    GetTrafficPolicyInstanceCountCommandOutput,
-    Route53ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDnsV20130401", "GetTrafficPolicyInstanceCount", {})
-  .n("Route53Client", "GetTrafficPolicyInstanceCountCommand")
-  .sc(GetTrafficPolicyInstanceCount$)
-  .build() {
+export class GetTrafficPolicyInstanceCountCommand extends command<GetTrafficPolicyInstanceCountCommandInput, GetTrafficPolicyInstanceCountCommandOutput>(
+  _ep0,
+  _mw2,
+  "GetTrafficPolicyInstanceCount",
+  GetTrafficPolicyInstanceCount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

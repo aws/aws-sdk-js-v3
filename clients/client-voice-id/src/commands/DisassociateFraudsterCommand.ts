@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateFraudsterRequest, DisassociateFraudsterResponse } from "../models/models_0";
 import { DisassociateFraudster$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface DisassociateFraudsterCommandOutput extends DisassociateFraudste
  *
  * @public
  */
-export class DisassociateFraudsterCommand extends $Command
-  .classBuilder<
-    DisassociateFraudsterCommandInput,
-    DisassociateFraudsterCommandOutput,
-    VoiceIDClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("VoiceID", "DisassociateFraudster", {})
-  .n("VoiceIDClient", "DisassociateFraudsterCommand")
-  .sc(DisassociateFraudster$)
-  .build() {
+export class DisassociateFraudsterCommand extends command<DisassociateFraudsterCommandInput, DisassociateFraudsterCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateFraudster",
+  DisassociateFraudster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

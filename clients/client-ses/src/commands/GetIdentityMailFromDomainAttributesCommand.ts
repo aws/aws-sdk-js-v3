@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetIdentityMailFromDomainAttributesRequest,
   GetIdentityMailFromDomainAttributesResponse,
 } from "../models/models_0";
 import { GetIdentityMailFromDomainAttributes$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface GetIdentityMailFromDomainAttributesCommandOutput extends GetIde
  *
  * @public
  */
-export class GetIdentityMailFromDomainAttributesCommand extends $Command
-  .classBuilder<
-    GetIdentityMailFromDomainAttributesCommandInput,
-    GetIdentityMailFromDomainAttributesCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "GetIdentityMailFromDomainAttributes", {})
-  .n("SESClient", "GetIdentityMailFromDomainAttributesCommand")
-  .sc(GetIdentityMailFromDomainAttributes$)
-  .build() {
+export class GetIdentityMailFromDomainAttributesCommand extends command<GetIdentityMailFromDomainAttributesCommandInput, GetIdentityMailFromDomainAttributesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIdentityMailFromDomainAttributes",
+  GetIdentityMailFromDomainAttributes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

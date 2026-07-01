@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateMonitorSettingsRequest, UpdateMonitorSettingsResponse } from "../models/models_1";
 import { UpdateMonitorSettings$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateMonitorSettings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface UpdateMonitorSettingsCommandOutput extends UpdateMonitorSetting
  *
  * @public
  */
-export class UpdateMonitorSettingsCommand extends $Command
-  .classBuilder<
-    UpdateMonitorSettingsCommandInput,
-    UpdateMonitorSettingsCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "UpdateMonitorSettings", {})
-  .n("DeadlineClient", "UpdateMonitorSettingsCommand")
-  .sc(UpdateMonitorSettings$)
-  .build() {
+export class UpdateMonitorSettingsCommand extends command<UpdateMonitorSettingsCommandInput, UpdateMonitorSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateMonitorSettings",
+  UpdateMonitorSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

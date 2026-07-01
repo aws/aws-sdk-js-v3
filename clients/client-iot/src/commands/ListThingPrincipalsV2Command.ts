@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListThingPrincipalsV2Request, ListThingPrincipalsV2Response } from "../models/models_2";
 import { ListThingPrincipalsV2$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListThingPrincipalsV2$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface ListThingPrincipalsV2CommandOutput extends ListThingPrincipalsV
  *
  * @public
  */
-export class ListThingPrincipalsV2Command extends $Command
-  .classBuilder<
-    ListThingPrincipalsV2CommandInput,
-    ListThingPrincipalsV2CommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "ListThingPrincipalsV2", {})
-  .n("IoTClient", "ListThingPrincipalsV2Command")
-  .sc(ListThingPrincipalsV2$)
-  .build() {
+export class ListThingPrincipalsV2Command extends command<ListThingPrincipalsV2CommandInput, ListThingPrincipalsV2CommandOutput>(
+  _ep0,
+  _mw0,
+  "ListThingPrincipalsV2",
+  ListThingPrincipalsV2$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

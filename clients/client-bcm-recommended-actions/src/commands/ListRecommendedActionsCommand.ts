@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BCMRecommendedActionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BCMRecommendedActionsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRecommendedActionsRequest, ListRecommendedActionsResponse } from "../models/models_0";
 import { ListRecommendedActions$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListRecommendedActions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +95,12 @@ export interface ListRecommendedActionsCommandOutput extends ListRecommendedActi
  *
  * @public
  */
-export class ListRecommendedActionsCommand extends $Command
-  .classBuilder<
-    ListRecommendedActionsCommandInput,
-    ListRecommendedActionsCommandOutput,
-    BCMRecommendedActionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BCMRecommendedActionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBillingAndCostManagementRecommendedActions", "ListRecommendedActions", {})
-  .n("BCMRecommendedActionsClient", "ListRecommendedActionsCommand")
-  .sc(ListRecommendedActions$)
-  .build() {
+export class ListRecommendedActionsCommand extends command<ListRecommendedActionsCommandInput, ListRecommendedActionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRecommendedActions",
+  ListRecommendedActions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

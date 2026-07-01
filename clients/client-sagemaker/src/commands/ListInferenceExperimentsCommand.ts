@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListInferenceExperimentsRequest, ListInferenceExperimentsResponse } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListInferenceExperiments$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface ListInferenceExperimentsCommandOutput extends ListInferenceExpe
  *
  * @public
  */
-export class ListInferenceExperimentsCommand extends $Command
-  .classBuilder<
-    ListInferenceExperimentsCommandInput,
-    ListInferenceExperimentsCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "ListInferenceExperiments", {})
-  .n("SageMakerClient", "ListInferenceExperimentsCommand")
-  .sc(ListInferenceExperiments$)
-  .build() {
+export class ListInferenceExperimentsCommand extends command<ListInferenceExperimentsCommandInput, ListInferenceExperimentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListInferenceExperiments",
+  ListInferenceExperiments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

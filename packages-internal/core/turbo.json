@@ -1,0 +1,20 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "cache": false
+    },
+    "build:cjs": {
+      "cache": false
+    },
+    "build:es": {
+      "cache": false
+    },
+    "build:types": {
+      "cache": false
+    },
+    "build:types:downlevel": {
+      "cache": false
+    }
+  }
+}

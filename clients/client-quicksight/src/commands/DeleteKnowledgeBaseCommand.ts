@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteKnowledgeBaseRequest, DeleteKnowledgeBaseResponse } from "../models/models_3";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DeleteKnowledgeBase$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface DeleteKnowledgeBaseCommandOutput extends DeleteKnowledgeBaseRes
  *
  * @public
  */
-export class DeleteKnowledgeBaseCommand extends $Command
-  .classBuilder<
-    DeleteKnowledgeBaseCommandInput,
-    DeleteKnowledgeBaseCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "DeleteKnowledgeBase", {})
-  .n("QuickSightClient", "DeleteKnowledgeBaseCommand")
-  .sc(DeleteKnowledgeBase$)
-  .build() {
+export class DeleteKnowledgeBaseCommand extends command<DeleteKnowledgeBaseCommandInput, DeleteKnowledgeBaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteKnowledgeBase",
+  DeleteKnowledgeBase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

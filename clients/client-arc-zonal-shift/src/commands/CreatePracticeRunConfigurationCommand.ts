@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePracticeRunConfigurationRequest, CreatePracticeRunConfigurationResponse } from "../models/models_0";
 import { CreatePracticeRunConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreatePracticeRunConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface CreatePracticeRunConfigurationCommandOutput extends CreatePract
  *
  * @public
  */
-export class CreatePracticeRunConfigurationCommand extends $Command
-  .classBuilder<
-    CreatePracticeRunConfigurationCommandInput,
-    CreatePracticeRunConfigurationCommandOutput,
-    ARCZonalShiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PercDataPlane", "CreatePracticeRunConfiguration", {})
-  .n("ARCZonalShiftClient", "CreatePracticeRunConfigurationCommand")
-  .sc(CreatePracticeRunConfiguration$)
-  .build() {
+export class CreatePracticeRunConfigurationCommand extends command<CreatePracticeRunConfigurationCommandInput, CreatePracticeRunConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePracticeRunConfiguration",
+  CreatePracticeRunConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

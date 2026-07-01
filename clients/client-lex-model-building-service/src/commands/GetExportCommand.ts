@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LexModelBuildingServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LexModelBuildingServiceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetExportRequest, GetExportResponse } from "../models/models_0";
 import { GetExport$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetExport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
  *
  * @public
  */
-export class GetExportCommand extends $Command
-  .classBuilder<
-    GetExportCommandInput,
-    GetExportCommandOutput,
-    LexModelBuildingServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepSenseModelBuildingService", "GetExport", {})
-  .n("LexModelBuildingServiceClient", "GetExportCommand")
-  .sc(GetExport$)
-  .build() {
+export class GetExportCommand extends command<GetExportCommandInput, GetExportCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetExport",
+  GetExport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

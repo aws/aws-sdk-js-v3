@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateViewVersionRequest, CreateViewVersionResponse } from "../models/models_1";
 import { CreateViewVersion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateViewVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface CreateViewVersionCommandOutput extends CreateViewVersionRespons
  *
  * @public
  */
-export class CreateViewVersionCommand extends $Command
-  .classBuilder<
-    CreateViewVersionCommandInput,
-    CreateViewVersionCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "CreateViewVersion", {})
-  .n("ConnectClient", "CreateViewVersionCommand")
-  .sc(CreateViewVersion$)
-  .build() {
+export class CreateViewVersionCommand extends command<CreateViewVersionCommandInput, CreateViewVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateViewVersion",
+  CreateViewVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

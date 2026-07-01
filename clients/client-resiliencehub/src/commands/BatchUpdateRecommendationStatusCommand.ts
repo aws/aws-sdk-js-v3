@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchUpdateRecommendationStatusRequest,
   BatchUpdateRecommendationStatusResponse,
 } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { BatchUpdateRecommendationStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface BatchUpdateRecommendationStatusCommandOutput extends BatchUpdat
  *
  * @public
  */
-export class BatchUpdateRecommendationStatusCommand extends $Command
-  .classBuilder<
-    BatchUpdateRecommendationStatusCommandInput,
-    BatchUpdateRecommendationStatusCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "BatchUpdateRecommendationStatus", {})
-  .n("ResiliencehubClient", "BatchUpdateRecommendationStatusCommand")
-  .sc(BatchUpdateRecommendationStatus$)
-  .build() {
+export class BatchUpdateRecommendationStatusCommand extends command<BatchUpdateRecommendationStatusCommandInput, BatchUpdateRecommendationStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchUpdateRecommendationStatus",
+  BatchUpdateRecommendationStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

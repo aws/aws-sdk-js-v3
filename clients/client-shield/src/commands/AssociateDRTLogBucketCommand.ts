@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateDRTLogBucketRequest, AssociateDRTLogBucketResponse } from "../models/models_0";
 import { AssociateDRTLogBucket$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface AssociateDRTLogBucketCommandOutput extends AssociateDRTLogBucke
  *
  * @public
  */
-export class AssociateDRTLogBucketCommand extends $Command
-  .classBuilder<
-    AssociateDRTLogBucketCommandInput,
-    AssociateDRTLogBucketCommandOutput,
-    ShieldClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShield_20160616", "AssociateDRTLogBucket", {})
-  .n("ShieldClient", "AssociateDRTLogBucketCommand")
-  .sc(AssociateDRTLogBucket$)
-  .build() {
+export class AssociateDRTLogBucketCommand extends command<AssociateDRTLogBucketCommandInput, AssociateDRTLogBucketCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateDRTLogBucket",
+  AssociateDRTLogBucket$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

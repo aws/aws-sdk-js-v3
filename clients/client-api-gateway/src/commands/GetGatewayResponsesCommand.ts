@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GatewayResponses, GetGatewayResponsesRequest } from "../models/models_0";
 import { GetGatewayResponses$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetGatewayResponses$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface GetGatewayResponsesCommandOutput extends GatewayResponses, __Me
  *
  * @public
  */
-export class GetGatewayResponsesCommand extends $Command
-  .classBuilder<
-    GetGatewayResponsesCommandInput,
-    GetGatewayResponsesCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "GetGatewayResponses", {})
-  .n("APIGatewayClient", "GetGatewayResponsesCommand")
-  .sc(GetGatewayResponses$)
-  .build() {
+export class GetGatewayResponsesCommand extends command<GetGatewayResponsesCommandInput, GetGatewayResponsesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetGatewayResponses",
+  GetGatewayResponses$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

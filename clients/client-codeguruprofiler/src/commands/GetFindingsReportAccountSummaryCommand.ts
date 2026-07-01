@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeGuruProfilerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeGuruProfilerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetFindingsReportAccountSummaryRequest,
   GetFindingsReportAccountSummaryResponse,
@@ -19,7 +12,6 @@ import { GetFindingsReportAccountSummary$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +84,12 @@ export interface GetFindingsReportAccountSummaryCommandOutput extends GetFinding
  *
  * @public
  */
-export class GetFindingsReportAccountSummaryCommand extends $Command
-  .classBuilder<
-    GetFindingsReportAccountSummaryCommandInput,
-    GetFindingsReportAccountSummaryCommandOutput,
-    CodeGuruProfilerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeGuruProfilerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeGuruProfiler", "GetFindingsReportAccountSummary", {})
-  .n("CodeGuruProfilerClient", "GetFindingsReportAccountSummaryCommand")
-  .sc(GetFindingsReportAccountSummary$)
-  .build() {
+export class GetFindingsReportAccountSummaryCommand extends command<GetFindingsReportAccountSummaryCommandInput, GetFindingsReportAccountSummaryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFindingsReportAccountSummary",
+  GetFindingsReportAccountSummary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

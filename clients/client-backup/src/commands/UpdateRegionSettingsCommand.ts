@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRegionSettingsInput } from "../models/models_0";
 import { UpdateRegionSettings$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateRegionSettings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface UpdateRegionSettingsCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdateRegionSettingsCommand extends $Command
-  .classBuilder<
-    UpdateRegionSettingsCommandInput,
-    UpdateRegionSettingsCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "UpdateRegionSettings", {})
-  .n("BackupClient", "UpdateRegionSettingsCommand")
-  .sc(UpdateRegionSettings$)
-  .build() {
+export class UpdateRegionSettingsCommand extends command<UpdateRegionSettingsCommandInput, UpdateRegionSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRegionSettings",
+  UpdateRegionSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

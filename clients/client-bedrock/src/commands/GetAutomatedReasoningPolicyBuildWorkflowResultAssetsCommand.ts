@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetAutomatedReasoningPolicyBuildWorkflowResultAssetsRequest,
   GetAutomatedReasoningPolicyBuildWorkflowResultAssetsResponse,
@@ -15,7 +12,6 @@ import { GetAutomatedReasoningPolicyBuildWorkflowResultAssets$ } from "../schema
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -402,22 +398,12 @@ export interface GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutp
  *
  * @public
  */
-export class GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand extends $Command
-  .classBuilder<
-    GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput,
-    GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "GetAutomatedReasoningPolicyBuildWorkflowResultAssets", {})
-  .n("BedrockClient", "GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand")
-  .sc(GetAutomatedReasoningPolicyBuildWorkflowResultAssets$)
-  .build() {
+export class GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommand extends command<GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandInput, GetAutomatedReasoningPolicyBuildWorkflowResultAssetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAutomatedReasoningPolicyBuildWorkflowResultAssets",
+  GetAutomatedReasoningPolicyBuildWorkflowResultAssets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

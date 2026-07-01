@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCompatibleImagesRequest, ListCompatibleImagesResult } from "../models/models_0";
 import { ListCompatibleImages$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface ListCompatibleImagesCommandOutput extends ListCompatibleImagesR
  *
  * @public
  */
-export class ListCompatibleImagesCommand extends $Command
-  .classBuilder<
-    ListCompatibleImagesCommandInput,
-    ListCompatibleImagesCommandOutput,
-    SnowballClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIESnowballJobManagementService", "ListCompatibleImages", {})
-  .n("SnowballClient", "ListCompatibleImagesCommand")
-  .sc(ListCompatibleImages$)
-  .build() {
+export class ListCompatibleImagesCommand extends command<ListCompatibleImagesCommandInput, ListCompatibleImagesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCompatibleImages",
+  ListCompatibleImages$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

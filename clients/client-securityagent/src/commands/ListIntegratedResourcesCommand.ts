@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListIntegratedResourcesInput, ListIntegratedResourcesOutput } from "../models/models_0";
 import { ListIntegratedResources$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface ListIntegratedResourcesCommandOutput extends ListIntegratedReso
  *
  * @public
  */
-export class ListIntegratedResourcesCommand extends $Command
-  .classBuilder<
-    ListIntegratedResourcesCommandInput,
-    ListIntegratedResourcesCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "ListIntegratedResources", {})
-  .n("SecurityAgentClient", "ListIntegratedResourcesCommand")
-  .sc(ListIntegratedResources$)
-  .build() {
+export class ListIntegratedResourcesCommand extends command<ListIntegratedResourcesCommandInput, ListIntegratedResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListIntegratedResources",
+  ListIntegratedResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

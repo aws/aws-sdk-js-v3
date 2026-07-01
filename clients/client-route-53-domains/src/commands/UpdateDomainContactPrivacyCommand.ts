@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDomainContactPrivacyRequest, UpdateDomainContactPrivacyResponse } from "../models/models_0";
-import type {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53DomainsClient";
 import { UpdateDomainContactPrivacy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +100,12 @@ export interface UpdateDomainContactPrivacyCommandOutput extends UpdateDomainCon
  *
  * @public
  */
-export class UpdateDomainContactPrivacyCommand extends $Command
-  .classBuilder<
-    UpdateDomainContactPrivacyCommandInput,
-    UpdateDomainContactPrivacyCommandOutput,
-    Route53DomainsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Domains_v20140515", "UpdateDomainContactPrivacy", {})
-  .n("Route53DomainsClient", "UpdateDomainContactPrivacyCommand")
-  .sc(UpdateDomainContactPrivacy$)
-  .build() {
+export class UpdateDomainContactPrivacyCommand extends command<UpdateDomainContactPrivacyCommandInput, UpdateDomainContactPrivacyCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDomainContactPrivacy",
+  UpdateDomainContactPrivacy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

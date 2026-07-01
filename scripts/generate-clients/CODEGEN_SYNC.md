@@ -27,8 +27,9 @@ If the adjacent smithy-ts checkout is not on `main`, a PR is likely in progress.
 commit, and then check out latest `main` branch for smithy-ts. The code generation process will use the target commit,
 but return to `main` afterward.
 
-### Check `aws-sdk-js-v3` out to `<github_username>/chore/codegen`
+### Check `aws-sdk-js-v3` out to `$GITHUB_USERNAME/chore/codegen`
 
+Use the environment variable `GITHUB_USERNAME` to determine the branch name.
 This branch should be deleted prior to checkout (i.e. a fresh branch from jsv3 `main`).
 
 ### Update config.js smithy-ts git pointer
@@ -43,6 +44,17 @@ code generation updates.
 
 This process includes updating all smithy package versions to the one from the target commit, and running
 `yarn` afterward.
+
+**Important:** If the target commit is a fresh "Version NPM packages" release, the newly published
+smithy packages may be quarantined by npm (Yarn's `npmMinimalAgeGate` defaults to 24 hours).
+Bypass this by running yarn with the quarantine disabled:
+
+```
+YARN_NPM_MINIMAL_AGE_GATE=0 yarn
+```
+
+This is safe because the packages are our own and have just been published from the same
+smithy-typescript commit we are syncing to.
 
 ### Commit codegen diff
 

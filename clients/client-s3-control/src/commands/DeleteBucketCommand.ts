@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3/s3-control";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep5, _mw1, command } from "../commandBuilder";
 import type { DeleteBucketRequest } from "../models/models_0";
-import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { DeleteBucket$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,30 +81,12 @@ export interface DeleteBucketCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteBucketCommand extends $Command
-  .classBuilder<
-    DeleteBucketCommandInput,
-    DeleteBucketCommandOutput,
-    S3ControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    RequiresAccountId: { type: "staticContextParams", value: true },
-    AccountId: { type: "contextParams", name: "AccountId" },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getProcessArnablesPlugin(config),
-    ];
-  })
-  .s("AWSS3ControlServiceV20180820", "DeleteBucket", {})
-  .n("S3ControlClient", "DeleteBucketCommand")
-  .sc(DeleteBucket$)
-  .build() {
+export class DeleteBucketCommand extends command<DeleteBucketCommandInput, DeleteBucketCommandOutput>(
+  _ep5,
+  _mw1,
+  "DeleteBucket",
+  DeleteBucket$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

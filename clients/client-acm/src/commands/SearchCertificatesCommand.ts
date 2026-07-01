@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchCertificatesRequest, SearchCertificatesResponse } from "../models/models_0";
 import { SearchCertificates$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SearchCertificates$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -297,25 +293,12 @@ export interface SearchCertificatesCommandOutput extends SearchCertificatesRespo
  *
  * @public
  */
-export class SearchCertificatesCommand extends $Command
-  .classBuilder<
-    SearchCertificatesCommandInput,
-    SearchCertificatesCommandOutput,
-    ACMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ServiceType: { type: "staticContextParams", value: `ACM` },
-  })
-  .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CertificateManager", "SearchCertificates", {})
-  .n("ACMClient", "SearchCertificatesCommand")
-  .sc(SearchCertificates$)
-  .build() {
+export class SearchCertificatesCommand extends command<SearchCertificatesCommandInput, SearchCertificatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchCertificates",
+  SearchCertificates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

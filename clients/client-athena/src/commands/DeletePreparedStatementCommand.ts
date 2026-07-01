@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePreparedStatementInput, DeletePreparedStatementOutput } from "../models/models_0";
 import { DeletePreparedStatement$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeletePreparedStatement$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface DeletePreparedStatementCommandOutput extends DeletePreparedStat
  *
  * @public
  */
-export class DeletePreparedStatementCommand extends $Command
-  .classBuilder<
-    DeletePreparedStatementCommandInput,
-    DeletePreparedStatementCommandOutput,
-    AthenaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAthena", "DeletePreparedStatement", {})
-  .n("AthenaClient", "DeletePreparedStatementCommand")
-  .sc(DeletePreparedStatement$)
-  .build() {
+export class DeletePreparedStatementCommand extends command<DeletePreparedStatementCommandInput, DeletePreparedStatementCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePreparedStatement",
+  DeletePreparedStatement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

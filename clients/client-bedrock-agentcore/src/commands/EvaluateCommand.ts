@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EvaluateRequest, EvaluateResponse } from "../models/models_0";
 import { Evaluate$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { Evaluate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -153,22 +145,12 @@ export interface EvaluateCommandOutput extends EvaluateResponse, __MetadataBeare
  *
  * @public
  */
-export class EvaluateCommand extends $Command
-  .classBuilder<
-    EvaluateCommandInput,
-    EvaluateCommandOutput,
-    BedrockAgentCoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCore", "Evaluate", {})
-  .n("BedrockAgentCoreClient", "EvaluateCommand")
-  .sc(Evaluate$)
-  .build() {
+export class EvaluateCommand extends command<EvaluateCommandInput, EvaluateCommandOutput>(
+  _ep0,
+  _mw0,
+  "Evaluate",
+  Evaluate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

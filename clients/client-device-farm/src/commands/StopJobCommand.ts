@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopJobRequest, StopJobResult } from "../models/models_0";
 import { StopJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -151,22 +147,12 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  *
  * @public
  */
-export class StopJobCommand extends $Command
-  .classBuilder<
-    StopJobCommandInput,
-    StopJobCommandOutput,
-    DeviceFarmClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DeviceFarm_20150623", "StopJob", {})
-  .n("DeviceFarmClient", "StopJobCommand")
-  .sc(StopJob$)
-  .build() {
+export class StopJobCommand extends command<StopJobCommandInput, StopJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopJob",
+  StopJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

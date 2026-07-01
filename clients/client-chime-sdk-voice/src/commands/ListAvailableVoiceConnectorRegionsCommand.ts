@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAvailableVoiceConnectorRegionsResponse } from "../models/models_0";
 import { ListAvailableVoiceConnectorRegions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAvailableVoiceConnectorRegions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface ListAvailableVoiceConnectorRegionsCommandOutput extends ListAva
  *
  * @public
  */
-export class ListAvailableVoiceConnectorRegionsCommand extends $Command
-  .classBuilder<
-    ListAvailableVoiceConnectorRegionsCommandInput,
-    ListAvailableVoiceConnectorRegionsCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "ListAvailableVoiceConnectorRegions", {})
-  .n("ChimeSDKVoiceClient", "ListAvailableVoiceConnectorRegionsCommand")
-  .sc(ListAvailableVoiceConnectorRegions$)
-  .build() {
+export class ListAvailableVoiceConnectorRegionsCommand extends command<ListAvailableVoiceConnectorRegionsCommandInput, ListAvailableVoiceConnectorRegionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAvailableVoiceConnectorRegions",
+  ListAvailableVoiceConnectorRegions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

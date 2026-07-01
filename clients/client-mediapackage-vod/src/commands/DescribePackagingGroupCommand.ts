@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MediaPackageVodClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MediaPackageVodClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribePackagingGroupRequest, DescribePackagingGroupResponse } from "../models/models_0";
 import { DescribePackagingGroup$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribePackagingGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface DescribePackagingGroupCommandOutput extends DescribePackagingGr
  *
  * @public
  */
-export class DescribePackagingGroupCommand extends $Command
-  .classBuilder<
-    DescribePackagingGroupCommandInput,
-    DescribePackagingGroupCommandOutput,
-    MediaPackageVodClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaPackageVodClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaPackageVod", "DescribePackagingGroup", {})
-  .n("MediaPackageVodClient", "DescribePackagingGroupCommand")
-  .sc(DescribePackagingGroup$)
-  .build() {
+export class DescribePackagingGroupCommand extends command<DescribePackagingGroupCommandInput, DescribePackagingGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribePackagingGroup",
+  DescribePackagingGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

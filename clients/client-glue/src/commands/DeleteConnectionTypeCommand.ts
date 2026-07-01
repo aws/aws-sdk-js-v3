@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteConnectionTypeRequest, DeleteConnectionTypeResponse } from "../models/models_1";
 import { DeleteConnectionType$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteConnectionType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteConnectionTypeCommandOutput extends DeleteConnectionTypeR
  *
  * @public
  */
-export class DeleteConnectionTypeCommand extends $Command
-  .classBuilder<
-    DeleteConnectionTypeCommandInput,
-    DeleteConnectionTypeCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "DeleteConnectionType", {})
-  .n("GlueClient", "DeleteConnectionTypeCommand")
-  .sc(DeleteConnectionType$)
-  .build() {
+export class DeleteConnectionTypeCommand extends command<DeleteConnectionTypeCommandInput, DeleteConnectionTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteConnectionType",
+  DeleteConnectionType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

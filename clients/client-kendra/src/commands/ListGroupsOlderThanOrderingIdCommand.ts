@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListGroupsOlderThanOrderingIdRequest, ListGroupsOlderThanOrderingIdResponse } from "../models/models_0";
 import { ListGroupsOlderThanOrderingId$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListGroupsOlderThanOrderingId$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface ListGroupsOlderThanOrderingIdCommandOutput extends ListGroupsOl
  *
  * @public
  */
-export class ListGroupsOlderThanOrderingIdCommand extends $Command
-  .classBuilder<
-    ListGroupsOlderThanOrderingIdCommandInput,
-    ListGroupsOlderThanOrderingIdCommandOutput,
-    KendraClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSKendraFrontendService", "ListGroupsOlderThanOrderingId", {})
-  .n("KendraClient", "ListGroupsOlderThanOrderingIdCommand")
-  .sc(ListGroupsOlderThanOrderingId$)
-  .build() {
+export class ListGroupsOlderThanOrderingIdCommand extends command<ListGroupsOlderThanOrderingIdCommandInput, ListGroupsOlderThanOrderingIdCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListGroupsOlderThanOrderingId",
+  ListGroupsOlderThanOrderingId$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

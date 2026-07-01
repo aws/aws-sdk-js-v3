@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutHubConfigurationRequest, PutHubConfigurationResponse } from "../models/models_0";
 import { PutHubConfiguration$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { PutHubConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface PutHubConfigurationCommandOutput extends PutHubConfigurationRes
  *
  * @public
  */
-export class PutHubConfigurationCommand extends $Command
-  .classBuilder<
-    PutHubConfigurationCommandInput,
-    PutHubConfigurationCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "PutHubConfiguration", {})
-  .n("IoTManagedIntegrationsClient", "PutHubConfigurationCommand")
-  .sc(PutHubConfiguration$)
-  .build() {
+export class PutHubConfigurationCommand extends command<PutHubConfigurationCommandInput, PutHubConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutHubConfiguration",
+  PutHubConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeregisterCapabilityRequest, DeregisterCapabilityResponse } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { DeregisterCapability$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DeregisterCapabilityCommandOutput extends DeregisterCapabilityR
  *
  * @public
  */
-export class DeregisterCapabilityCommand extends $Command
-  .classBuilder<
-    DeregisterCapabilityCommandInput,
-    DeregisterCapabilityCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "DeregisterCapability", {})
-  .n("OpenSearchClient", "DeregisterCapabilityCommand")
-  .sc(DeregisterCapability$)
-  .build() {
+export class DeregisterCapabilityCommand extends command<DeregisterCapabilityCommandInput, DeregisterCapabilityCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeregisterCapability",
+  DeregisterCapability$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

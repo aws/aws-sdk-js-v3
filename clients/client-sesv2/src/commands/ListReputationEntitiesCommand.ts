@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListReputationEntitiesRequest, ListReputationEntitiesResponse } from "../models/models_0";
 import { ListReputationEntities$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface ListReputationEntitiesCommandOutput extends ListReputationEntit
  *
  * @public
  */
-export class ListReputationEntitiesCommand extends $Command
-  .classBuilder<
-    ListReputationEntitiesCommandInput,
-    ListReputationEntitiesCommandOutput,
-    SESv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService_v2", "ListReputationEntities", {})
-  .n("SESv2Client", "ListReputationEntitiesCommand")
-  .sc(ListReputationEntities$)
-  .build() {
+export class ListReputationEntitiesCommand extends command<ListReputationEntitiesCommandInput, ListReputationEntitiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListReputationEntities",
+  ListReputationEntities$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

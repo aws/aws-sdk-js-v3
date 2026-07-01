@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ModifyTransitGatewayMeteringPolicyRequest,
   ModifyTransitGatewayMeteringPolicyResult,
@@ -15,7 +12,6 @@ import { ModifyTransitGatewayMeteringPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface ModifyTransitGatewayMeteringPolicyCommandOutput extends ModifyT
  *
  * @public
  */
-export class ModifyTransitGatewayMeteringPolicyCommand extends $Command
-  .classBuilder<
-    ModifyTransitGatewayMeteringPolicyCommandInput,
-    ModifyTransitGatewayMeteringPolicyCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "ModifyTransitGatewayMeteringPolicy", {})
-  .n("EC2Client", "ModifyTransitGatewayMeteringPolicyCommand")
-  .sc(ModifyTransitGatewayMeteringPolicy$)
-  .build() {
+export class ModifyTransitGatewayMeteringPolicyCommand extends command<ModifyTransitGatewayMeteringPolicyCommandInput, ModifyTransitGatewayMeteringPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyTransitGatewayMeteringPolicy",
+  ModifyTransitGatewayMeteringPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

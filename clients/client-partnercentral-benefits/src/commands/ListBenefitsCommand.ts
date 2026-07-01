@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListBenefitsInput, ListBenefitsOutput } from "../models/models_0";
-import type {
-  PartnerCentralBenefitsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralBenefitsClient";
 import { ListBenefits$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +97,12 @@ export interface ListBenefitsCommandOutput extends ListBenefitsOutput, __Metadat
  *
  * @public
  */
-export class ListBenefitsCommand extends $Command
-  .classBuilder<
-    ListBenefitsCommandInput,
-    ListBenefitsCommandOutput,
-    PartnerCentralBenefitsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralBenefitsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralBenefitsService", "ListBenefits", {})
-  .n("PartnerCentralBenefitsClient", "ListBenefitsCommand")
-  .sc(ListBenefits$)
-  .build() {
+export class ListBenefitsCommand extends command<ListBenefitsCommandInput, ListBenefitsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBenefits",
+  ListBenefits$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

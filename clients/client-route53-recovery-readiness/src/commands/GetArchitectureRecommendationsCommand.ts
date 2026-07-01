@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetArchitectureRecommendationsRequest, GetArchitectureRecommendationsResponse } from "../models/models_0";
-import type {
-  Route53RecoveryReadinessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryReadinessClient";
 import { GetArchitectureRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface GetArchitectureRecommendationsCommandOutput extends GetArchitec
  *
  * @public
  */
-export class GetArchitectureRecommendationsCommand extends $Command
-  .classBuilder<
-    GetArchitectureRecommendationsCommandInput,
-    GetArchitectureRecommendationsCommandOutput,
-    Route53RecoveryReadinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryReadinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53RecoveryReadiness", "GetArchitectureRecommendations", {})
-  .n("Route53RecoveryReadinessClient", "GetArchitectureRecommendationsCommand")
-  .sc(GetArchitectureRecommendations$)
-  .build() {
+export class GetArchitectureRecommendationsCommand extends command<GetArchitectureRecommendationsCommandInput, GetArchitectureRecommendationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetArchitectureRecommendations",
+  GetArchitectureRecommendations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRegistriesRequest, DescribeRegistriesResponse } from "../models/models_0";
 import { DescribeRegistries$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeRegistries$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface DescribeRegistriesCommandOutput extends DescribeRegistriesRespo
  *
  * @public
  */
-export class DescribeRegistriesCommand extends $Command
-  .classBuilder<
-    DescribeRegistriesCommandInput,
-    DescribeRegistriesCommandOutput,
-    ECRPUBLICClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRPUBLICClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SpencerFrontendService", "DescribeRegistries", {})
-  .n("ECRPUBLICClient", "DescribeRegistriesCommand")
-  .sc(DescribeRegistries$)
-  .build() {
+export class DescribeRegistriesCommand extends command<DescribeRegistriesCommandInput, DescribeRegistriesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRegistries",
+  DescribeRegistries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

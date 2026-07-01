@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeManagedProductsByVendorRequest,
   DescribeManagedProductsByVendorResponse,
 } from "../models/models_0";
 import { DescribeManagedProductsByVendor$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface DescribeManagedProductsByVendorCommandOutput extends DescribeMa
  *
  * @public
  */
-export class DescribeManagedProductsByVendorCommand extends $Command
-  .classBuilder<
-    DescribeManagedProductsByVendorCommandInput,
-    DescribeManagedProductsByVendorCommandOutput,
-    WAFV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20190729", "DescribeManagedProductsByVendor", {})
-  .n("WAFV2Client", "DescribeManagedProductsByVendorCommand")
-  .sc(DescribeManagedProductsByVendor$)
-  .build() {
+export class DescribeManagedProductsByVendorCommand extends command<DescribeManagedProductsByVendorCommandInput, DescribeManagedProductsByVendorCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeManagedProductsByVendor",
+  DescribeManagedProductsByVendor$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

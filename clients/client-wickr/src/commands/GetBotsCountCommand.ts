@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetBotsCountRequest, GetBotsCountResponse } from "../models/models_0";
 import { GetBotsCount$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface GetBotsCountCommandOutput extends GetBotsCountResponse, __Metad
  *
  * @public
  */
-export class GetBotsCountCommand extends $Command
-  .classBuilder<
-    GetBotsCountCommandInput,
-    GetBotsCountCommandOutput,
-    WickrClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WickrAdminApi", "GetBotsCount", {})
-  .n("WickrClient", "GetBotsCountCommand")
-  .sc(GetBotsCount$)
-  .build() {
+export class GetBotsCountCommand extends command<GetBotsCountCommandInput, GetBotsCountCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetBotsCount",
+  GetBotsCount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type {
   ListAcmeExternalAccountBindingsRequest,
   ListAcmeExternalAccountBindingsResponse,
@@ -15,7 +12,6 @@ import { ListAcmeExternalAccountBindings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,25 +87,12 @@ export interface ListAcmeExternalAccountBindingsCommandOutput extends ListAcmeEx
  *
  * @public
  */
-export class ListAcmeExternalAccountBindingsCommand extends $Command
-  .classBuilder<
-    ListAcmeExternalAccountBindingsCommandInput,
-    ListAcmeExternalAccountBindingsCommandOutput,
-    ACMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ServiceType: { type: "staticContextParams", value: `ACM-ACME` },
-  })
-  .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CertificateManager", "ListAcmeExternalAccountBindings", {})
-  .n("ACMClient", "ListAcmeExternalAccountBindingsCommand")
-  .sc(ListAcmeExternalAccountBindings$)
-  .build() {
+export class ListAcmeExternalAccountBindingsCommand extends command<ListAcmeExternalAccountBindingsCommandInput, ListAcmeExternalAccountBindingsCommandOutput>(
+  _ep1,
+  _mw0,
+  "ListAcmeExternalAccountBindings",
+  ListAcmeExternalAccountBindings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

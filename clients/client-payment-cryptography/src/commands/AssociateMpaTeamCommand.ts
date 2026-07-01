@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateMpaTeamInput, AssociateMpaTeamOutput } from "../models/models_0";
-import type {
-  PaymentCryptographyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PaymentCryptographyClient";
 import { AssociateMpaTeam$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface AssociateMpaTeamCommandOutput extends AssociateMpaTeamOutput, _
  *
  * @public
  */
-export class AssociateMpaTeamCommand extends $Command
-  .classBuilder<
-    AssociateMpaTeamCommandInput,
-    AssociateMpaTeamCommandOutput,
-    PaymentCryptographyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PaymentCryptographyControlPlane", "AssociateMpaTeam", {})
-  .n("PaymentCryptographyClient", "AssociateMpaTeamCommand")
-  .sc(AssociateMpaTeam$)
-  .build() {
+export class AssociateMpaTeamCommand extends command<AssociateMpaTeamCommandInput, AssociateMpaTeamCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateMpaTeam",
+  AssociateMpaTeam$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

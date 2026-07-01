@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeContactVersionRequest, DescribeContactVersionResponse } from "../models/models_0";
 import { DescribeContactVersion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeContactVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -316,22 +312,12 @@ export interface DescribeContactVersionCommandOutput extends DescribeContactVers
  *
  * @public
  */
-export class DescribeContactVersionCommand extends $Command
-  .classBuilder<
-    DescribeContactVersionCommandInput,
-    DescribeContactVersionCommandOutput,
-    GroundStationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GroundStation", "DescribeContactVersion", {})
-  .n("GroundStationClient", "DescribeContactVersionCommand")
-  .sc(DescribeContactVersion$)
-  .build() {
+export class DescribeContactVersionCommand extends command<DescribeContactVersionCommandInput, DescribeContactVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeContactVersion",
+  DescribeContactVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

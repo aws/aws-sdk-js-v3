@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ChangeMessageVisibilityBatchRequest, ChangeMessageVisibilityBatchResult } from "../models/models_0";
 import { ChangeMessageVisibilityBatch$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -129,22 +125,12 @@ export interface ChangeMessageVisibilityBatchCommandOutput extends ChangeMessage
  *
  * @public
  */
-export class ChangeMessageVisibilityBatchCommand extends $Command
-  .classBuilder<
-    ChangeMessageVisibilityBatchCommandInput,
-    ChangeMessageVisibilityBatchCommandOutput,
-    SQSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSQS", "ChangeMessageVisibilityBatch", {})
-  .n("SQSClient", "ChangeMessageVisibilityBatchCommand")
-  .sc(ChangeMessageVisibilityBatch$)
-  .build() {
+export class ChangeMessageVisibilityBatchCommand extends command<ChangeMessageVisibilityBatchCommandInput, ChangeMessageVisibilityBatchCommandOutput>(
+  _ep0,
+  _mw0,
+  "ChangeMessageVisibilityBatch",
+  ChangeMessageVisibilityBatch$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

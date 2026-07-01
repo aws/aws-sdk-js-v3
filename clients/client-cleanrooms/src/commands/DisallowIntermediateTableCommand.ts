@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisallowIntermediateTableInput, DisallowIntermediateTableOutput } from "../models/models_1";
 import { DisallowIntermediateTable$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisallowIntermediateTable$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DisallowIntermediateTableCommandOutput extends DisallowIntermed
  *
  * @public
  */
-export class DisallowIntermediateTableCommand extends $Command
-  .classBuilder<
-    DisallowIntermediateTableCommandInput,
-    DisallowIntermediateTableCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "DisallowIntermediateTable", {})
-  .n("CleanRoomsClient", "DisallowIntermediateTableCommand")
-  .sc(DisallowIntermediateTable$)
-  .build() {
+export class DisallowIntermediateTableCommand extends command<DisallowIntermediateTableCommandInput, DisallowIntermediateTableCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisallowIntermediateTable",
+  DisallowIntermediateTable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

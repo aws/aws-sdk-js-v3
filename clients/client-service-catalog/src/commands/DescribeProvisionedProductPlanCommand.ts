@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeProvisionedProductPlanInput, DescribeProvisionedProductPlanOutput } from "../models/models_0";
 import { DescribeProvisionedProductPlan$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +117,12 @@ export interface DescribeProvisionedProductPlanCommandOutput extends DescribePro
  *
  * @public
  */
-export class DescribeProvisionedProductPlanCommand extends $Command
-  .classBuilder<
-    DescribeProvisionedProductPlanCommandInput,
-    DescribeProvisionedProductPlanCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "DescribeProvisionedProductPlan", {})
-  .n("ServiceCatalogClient", "DescribeProvisionedProductPlanCommand")
-  .sc(DescribeProvisionedProductPlan$)
-  .build() {
+export class DescribeProvisionedProductPlanCommand extends command<DescribeProvisionedProductPlanCommandInput, DescribeProvisionedProductPlanCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeProvisionedProductPlan",
+  DescribeProvisionedProductPlan$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

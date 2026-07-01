@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAssociationRequest, DeleteAssociationResult } from "../models/models_0";
 import { DeleteAssociation$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface DeleteAssociationCommandOutput extends DeleteAssociationResult,
  *
  * @public
  */
-export class DeleteAssociationCommand extends $Command
-  .classBuilder<
-    DeleteAssociationCommandInput,
-    DeleteAssociationCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "DeleteAssociation", {})
-  .n("SSMClient", "DeleteAssociationCommand")
-  .sc(DeleteAssociation$)
-  .build() {
+export class DeleteAssociationCommand extends command<DeleteAssociationCommandInput, DeleteAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAssociation",
+  DeleteAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

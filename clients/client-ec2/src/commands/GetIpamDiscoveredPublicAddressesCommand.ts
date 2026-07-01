@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetIpamDiscoveredPublicAddressesRequest,
   GetIpamDiscoveredPublicAddressesResult,
@@ -15,7 +12,6 @@ import { GetIpamDiscoveredPublicAddresses$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface GetIpamDiscoveredPublicAddressesCommandOutput extends GetIpamDi
  *
  * @public
  */
-export class GetIpamDiscoveredPublicAddressesCommand extends $Command
-  .classBuilder<
-    GetIpamDiscoveredPublicAddressesCommandInput,
-    GetIpamDiscoveredPublicAddressesCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "GetIpamDiscoveredPublicAddresses", {})
-  .n("EC2Client", "GetIpamDiscoveredPublicAddressesCommand")
-  .sc(GetIpamDiscoveredPublicAddresses$)
-  .build() {
+export class GetIpamDiscoveredPublicAddressesCommand extends command<GetIpamDiscoveredPublicAddressesCommandInput, GetIpamDiscoveredPublicAddressesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIpamDiscoveredPublicAddresses",
+  GetIpamDiscoveredPublicAddresses$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

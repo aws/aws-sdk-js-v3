@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeInstanceSqlHaHistoryStatesRequest,
   DescribeInstanceSqlHaHistoryStatesResult,
@@ -15,7 +12,6 @@ import { DescribeInstanceSqlHaHistoryStates$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface DescribeInstanceSqlHaHistoryStatesCommandOutput extends Describ
  *
  * @public
  */
-export class DescribeInstanceSqlHaHistoryStatesCommand extends $Command
-  .classBuilder<
-    DescribeInstanceSqlHaHistoryStatesCommandInput,
-    DescribeInstanceSqlHaHistoryStatesCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeInstanceSqlHaHistoryStates", {})
-  .n("EC2Client", "DescribeInstanceSqlHaHistoryStatesCommand")
-  .sc(DescribeInstanceSqlHaHistoryStates$)
-  .build() {
+export class DescribeInstanceSqlHaHistoryStatesCommand extends command<DescribeInstanceSqlHaHistoryStatesCommandInput, DescribeInstanceSqlHaHistoryStatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeInstanceSqlHaHistoryStates",
+  DescribeInstanceSqlHaHistoryStates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

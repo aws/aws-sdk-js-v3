@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateLoggerDefinitionRequest, UpdateLoggerDefinitionResponse } from "../models/models_0";
 import { UpdateLoggerDefinition$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateLoggerDefinition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -61,22 +57,12 @@ export interface UpdateLoggerDefinitionCommandOutput extends UpdateLoggerDefinit
  *
  * @public
  */
-export class UpdateLoggerDefinitionCommand extends $Command
-  .classBuilder<
-    UpdateLoggerDefinitionCommandInput,
-    UpdateLoggerDefinitionCommandOutput,
-    GreengrassClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Greengrass", "UpdateLoggerDefinition", {})
-  .n("GreengrassClient", "UpdateLoggerDefinitionCommand")
-  .sc(UpdateLoggerDefinition$)
-  .build() {
+export class UpdateLoggerDefinitionCommand extends command<UpdateLoggerDefinitionCommandInput, UpdateLoggerDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateLoggerDefinition",
+  UpdateLoggerDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

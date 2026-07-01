@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetIdMappingTableInput, GetIdMappingTableOutput } from "../models/models_0";
 import { GetIdMappingTable$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetIdMappingTable$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface GetIdMappingTableCommandOutput extends GetIdMappingTableOutput,
  *
  * @public
  */
-export class GetIdMappingTableCommand extends $Command
-  .classBuilder<
-    GetIdMappingTableCommandInput,
-    GetIdMappingTableCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "GetIdMappingTable", {})
-  .n("CleanRoomsClient", "GetIdMappingTableCommand")
-  .sc(GetIdMappingTable$)
-  .build() {
+export class GetIdMappingTableCommand extends command<GetIdMappingTableCommandInput, GetIdMappingTableCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIdMappingTable",
+  GetIdMappingTable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateConfigurationManagerInput, CreateConfigurationManagerOutput } from "../models/models_0";
 import { CreateConfigurationManager$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMQuickSetupClientResolvedConfig } from "../SSMQuickSetupClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface CreateConfigurationManagerCommandOutput extends CreateConfigura
  *
  * @public
  */
-export class CreateConfigurationManagerCommand extends $Command
-  .classBuilder<
-    CreateConfigurationManagerCommandInput,
-    CreateConfigurationManagerCommandOutput,
-    SSMQuickSetupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMQuickSetupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSetup", "CreateConfigurationManager", {})
-  .n("SSMQuickSetupClient", "CreateConfigurationManagerCommand")
-  .sc(CreateConfigurationManager$)
-  .build() {
+export class CreateConfigurationManagerCommand extends command<CreateConfigurationManagerCommandInput, CreateConfigurationManagerCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateConfigurationManager",
+  CreateConfigurationManager$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

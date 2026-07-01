@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LambdaMicrovmsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LambdaMicrovmsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SuspendMicrovmRequest, SuspendMicrovmResponse } from "../models/models_0";
 import { SuspendMicrovm$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { SuspendMicrovm$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface SuspendMicrovmCommandOutput extends SuspendMicrovmResponse, __M
  *
  * @public
  */
-export class SuspendMicrovmCommand extends $Command
-  .classBuilder<
-    SuspendMicrovmCommandInput,
-    SuspendMicrovmCommandOutput,
-    LambdaMicrovmsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaMicrovmsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LambdaMicrovms", "SuspendMicrovm", {})
-  .n("LambdaMicrovmsClient", "SuspendMicrovmCommand")
-  .sc(SuspendMicrovm$)
-  .build() {
+export class SuspendMicrovmCommand extends command<SuspendMicrovmCommandInput, SuspendMicrovmCommandOutput>(
+  _ep0,
+  _mw0,
+  "SuspendMicrovm",
+  SuspendMicrovm$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

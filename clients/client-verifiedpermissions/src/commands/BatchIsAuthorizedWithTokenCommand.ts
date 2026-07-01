@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchIsAuthorizedWithTokenInput, BatchIsAuthorizedWithTokenOutput } from "../models/models_0";
 import { BatchIsAuthorizedWithToken$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  VerifiedPermissionsClientResolvedConfig,
-} from "../VerifiedPermissionsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -376,22 +368,12 @@ export interface BatchIsAuthorizedWithTokenCommandOutput extends BatchIsAuthoriz
  *
  * @public
  */
-export class BatchIsAuthorizedWithTokenCommand extends $Command
-  .classBuilder<
-    BatchIsAuthorizedWithTokenCommandInput,
-    BatchIsAuthorizedWithTokenCommandOutput,
-    VerifiedPermissionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("VerifiedPermissions", "BatchIsAuthorizedWithToken", {})
-  .n("VerifiedPermissionsClient", "BatchIsAuthorizedWithTokenCommand")
-  .sc(BatchIsAuthorizedWithToken$)
-  .build() {
+export class BatchIsAuthorizedWithTokenCommand extends command<BatchIsAuthorizedWithTokenCommandInput, BatchIsAuthorizedWithTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchIsAuthorizedWithToken",
+  BatchIsAuthorizedWithToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

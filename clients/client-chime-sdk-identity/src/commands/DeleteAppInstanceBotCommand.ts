@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKIdentityClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKIdentityClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAppInstanceBotRequest } from "../models/models_0";
 import { DeleteAppInstanceBot$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteAppInstanceBot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface DeleteAppInstanceBotCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteAppInstanceBotCommand extends $Command
-  .classBuilder<
-    DeleteAppInstanceBotCommandInput,
-    DeleteAppInstanceBotCommandOutput,
-    ChimeSDKIdentityClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKIdentityClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeIdentityService", "DeleteAppInstanceBot", {})
-  .n("ChimeSDKIdentityClient", "DeleteAppInstanceBotCommand")
-  .sc(DeleteAppInstanceBot$)
-  .build() {
+export class DeleteAppInstanceBotCommand extends command<DeleteAppInstanceBotCommandInput, DeleteAppInstanceBotCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAppInstanceBot",
+  DeleteAppInstanceBot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

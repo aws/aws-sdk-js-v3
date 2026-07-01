@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEmailTemplateRequest, DeleteEmailTemplateResponse } from "../models/models_0";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { DeleteEmailTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateRes
  *
  * @public
  */
-export class DeleteEmailTemplateCommand extends $Command
-  .classBuilder<
-    DeleteEmailTemplateCommandInput,
-    DeleteEmailTemplateCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "DeleteEmailTemplate", {})
-  .n("PinpointClient", "DeleteEmailTemplateCommand")
-  .sc(DeleteEmailTemplate$)
-  .build() {
+export class DeleteEmailTemplateCommand extends command<DeleteEmailTemplateCommandInput, DeleteEmailTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEmailTemplate",
+  DeleteEmailTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAgentVersionRequest, GetAgentVersionResponse } from "../models/models_1";
 import { GetAgentVersion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetAgentVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +128,12 @@ export interface GetAgentVersionCommandOutput extends GetAgentVersionResponse, _
  *
  * @public
  */
-export class GetAgentVersionCommand extends $Command
-  .classBuilder<
-    GetAgentVersionCommandInput,
-    GetAgentVersionCommandOutput,
-    BedrockAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentBuildTimeLambda", "GetAgentVersion", {})
-  .n("BedrockAgentClient", "GetAgentVersionCommand")
-  .sc(GetAgentVersion$)
-  .build() {
+export class GetAgentVersionCommand extends command<GetAgentVersionCommandInput, GetAgentVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAgentVersion",
+  GetAgentVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

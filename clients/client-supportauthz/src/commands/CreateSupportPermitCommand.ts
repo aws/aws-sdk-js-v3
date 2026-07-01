@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSupportPermitInput, CreateSupportPermitOutput } from "../models/models_0";
 import { CreateSupportPermit$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupportAuthZClientResolvedConfig } from "../SupportAuthZClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -137,22 +133,12 @@ export interface CreateSupportPermitCommandOutput extends CreateSupportPermitOut
  *
  * @public
  */
-export class CreateSupportPermitCommand extends $Command
-  .classBuilder<
-    CreateSupportPermitCommandInput,
-    CreateSupportPermitCommandOutput,
-    SupportAuthZClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupportAuthZClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SupportAuthZ", "CreateSupportPermit", {})
-  .n("SupportAuthZClient", "CreateSupportPermitCommand")
-  .sc(CreateSupportPermit$)
-  .build() {
+export class CreateSupportPermitCommand extends command<CreateSupportPermitCommandInput, CreateSupportPermitCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSupportPermit",
+  CreateSupportPermit$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCustomerGatewayAssociationsRequest, GetCustomerGatewayAssociationsResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { GetCustomerGatewayAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +89,12 @@ export interface GetCustomerGatewayAssociationsCommandOutput extends GetCustomer
  *
  * @public
  */
-export class GetCustomerGatewayAssociationsCommand extends $Command
-  .classBuilder<
-    GetCustomerGatewayAssociationsCommandInput,
-    GetCustomerGatewayAssociationsCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "GetCustomerGatewayAssociations", {})
-  .n("NetworkManagerClient", "GetCustomerGatewayAssociationsCommand")
-  .sc(GetCustomerGatewayAssociations$)
-  .build() {
+export class GetCustomerGatewayAssociationsCommand extends command<GetCustomerGatewayAssociationsCommandInput, GetCustomerGatewayAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCustomerGatewayAssociations",
+  GetCustomerGatewayAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

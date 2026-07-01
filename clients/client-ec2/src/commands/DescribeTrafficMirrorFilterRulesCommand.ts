@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeTrafficMirrorFilterRulesRequest,
   DescribeTrafficMirrorFilterRulesResult,
@@ -15,7 +12,6 @@ import { DescribeTrafficMirrorFilterRules$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface DescribeTrafficMirrorFilterRulesCommandOutput extends DescribeT
  *
  * @public
  */
-export class DescribeTrafficMirrorFilterRulesCommand extends $Command
-  .classBuilder<
-    DescribeTrafficMirrorFilterRulesCommandInput,
-    DescribeTrafficMirrorFilterRulesCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeTrafficMirrorFilterRules", {})
-  .n("EC2Client", "DescribeTrafficMirrorFilterRulesCommand")
-  .sc(DescribeTrafficMirrorFilterRules$)
-  .build() {
+export class DescribeTrafficMirrorFilterRulesCommand extends command<DescribeTrafficMirrorFilterRulesCommandInput, DescribeTrafficMirrorFilterRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeTrafficMirrorFilterRules",
+  DescribeTrafficMirrorFilterRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

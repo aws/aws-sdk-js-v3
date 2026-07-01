@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFaceSearchRequest, GetFaceSearchResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { GetFaceSearch$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -237,22 +233,12 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  *
  * @public
  */
-export class GetFaceSearchCommand extends $Command
-  .classBuilder<
-    GetFaceSearchCommandInput,
-    GetFaceSearchCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "GetFaceSearch", {})
-  .n("RekognitionClient", "GetFaceSearchCommand")
-  .sc(GetFaceSearch$)
-  .build() {
+export class GetFaceSearchCommand extends command<GetFaceSearchCommandInput, GetFaceSearchCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFaceSearch",
+  GetFaceSearch$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

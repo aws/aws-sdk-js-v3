@@ -1,20 +1,14 @@
 // smithy-typescript generated code
-import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3/s3-control";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
-import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateMultiRegionAccessPointRequest, CreateMultiRegionAccessPointResult } from "../models/models_0";
-import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { CreateMultiRegionAccessPoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,30 +105,12 @@ export interface CreateMultiRegionAccessPointCommandOutput extends CreateMultiRe
  *
  * @public
  */
-export class CreateMultiRegionAccessPointCommand extends $Command
-  .classBuilder<
-    CreateMultiRegionAccessPointCommandInput,
-    CreateMultiRegionAccessPointCommandOutput,
-    S3ControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    RequiresAccountId: { type: "staticContextParams", value: true },
-    AccountId: { type: "contextParams", name: "AccountId" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getProcessArnablesPlugin(config),
-      getApplyMd5BodyChecksumPlugin(config),
-    ];
-  })
-  .s("AWSS3ControlServiceV20180820", "CreateMultiRegionAccessPoint", {})
-  .n("S3ControlClient", "CreateMultiRegionAccessPointCommand")
-  .sc(CreateMultiRegionAccessPoint$)
-  .build() {
+export class CreateMultiRegionAccessPointCommand extends command<CreateMultiRegionAccessPointCommandInput, CreateMultiRegionAccessPointCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateMultiRegionAccessPoint",
+  CreateMultiRegionAccessPoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

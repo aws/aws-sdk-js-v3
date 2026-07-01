@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceDataClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceDataClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListGroupsForMemberRequest, ListGroupsForMemberResult } from "../models/models_0";
 import { ListGroupsForMember$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListGroupsForMember$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -142,22 +134,12 @@ export interface ListGroupsForMemberCommandOutput extends ListGroupsForMemberRes
  *
  * @public
  */
-export class ListGroupsForMemberCommand extends $Command
-  .classBuilder<
-    ListGroupsForMemberCommandInput,
-    ListGroupsForMemberCommandOutput,
-    DirectoryServiceDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryServiceData", "ListGroupsForMember", {})
-  .n("DirectoryServiceDataClient", "ListGroupsForMemberCommand")
-  .sc(ListGroupsForMember$)
-  .build() {
+export class ListGroupsForMemberCommand extends command<ListGroupsForMemberCommandInput, ListGroupsForMemberCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListGroupsForMember",
+  ListGroupsForMember$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

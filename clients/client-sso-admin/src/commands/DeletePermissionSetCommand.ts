@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePermissionSetRequest, DeletePermissionSetResponse } from "../models/models_0";
 import { DeletePermissionSet$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeletePermissionSetCommandOutput extends DeletePermissionSetRes
  *
  * @public
  */
-export class DeletePermissionSetCommand extends $Command
-  .classBuilder<
-    DeletePermissionSetCommandInput,
-    DeletePermissionSetCommandOutput,
-    SSOAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBExternalService", "DeletePermissionSet", {})
-  .n("SSOAdminClient", "DeletePermissionSetCommand")
-  .sc(DeletePermissionSet$)
-  .build() {
+export class DeletePermissionSetCommand extends command<DeletePermissionSetCommandInput, DeletePermissionSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePermissionSet",
+  DeletePermissionSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

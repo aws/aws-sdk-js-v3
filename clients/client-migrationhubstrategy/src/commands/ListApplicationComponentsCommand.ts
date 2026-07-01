@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MigrationHubStrategyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MigrationHubStrategyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListApplicationComponentsRequest, ListApplicationComponentsResponse } from "../models/models_0";
 import { ListApplicationComponents$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListApplicationComponents$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -164,22 +156,12 @@ export interface ListApplicationComponentsCommandOutput extends ListApplicationC
  *
  * @public
  */
-export class ListApplicationComponentsCommand extends $Command
-  .classBuilder<
-    ListApplicationComponentsCommandInput,
-    ListApplicationComponentsCommandOutput,
-    MigrationHubStrategyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubStrategyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHubStrategyRecommendation", "ListApplicationComponents", {})
-  .n("MigrationHubStrategyClient", "ListApplicationComponentsCommand")
-  .sc(ListApplicationComponents$)
-  .build() {
+export class ListApplicationComponentsCommand extends command<ListApplicationComponentsCommandInput, ListApplicationComponentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListApplicationComponents",
+  ListApplicationComponents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

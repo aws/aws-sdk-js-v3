@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateLimitRequest, UpdateLimitResponse } from "../models/models_1";
 import { UpdateLimit$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateLimit$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface UpdateLimitCommandOutput extends UpdateLimitResponse, __Metadat
  *
  * @public
  */
-export class UpdateLimitCommand extends $Command
-  .classBuilder<
-    UpdateLimitCommandInput,
-    UpdateLimitCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "UpdateLimit", {})
-  .n("DeadlineClient", "UpdateLimitCommand")
-  .sc(UpdateLimit$)
-  .build() {
+export class UpdateLimitCommand extends command<UpdateLimitCommandInput, UpdateLimitCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateLimit",
+  UpdateLimit$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

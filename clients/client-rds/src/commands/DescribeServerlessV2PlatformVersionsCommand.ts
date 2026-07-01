@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeServerlessV2PlatformVersionsMessage,
   ServerlessV2PlatformVersionsMessage,
 } from "../models/models_0";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DescribeServerlessV2PlatformVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -148,22 +144,12 @@ export interface DescribeServerlessV2PlatformVersionsCommandOutput extends Serve
  *
  * @public
  */
-export class DescribeServerlessV2PlatformVersionsCommand extends $Command
-  .classBuilder<
-    DescribeServerlessV2PlatformVersionsCommandInput,
-    DescribeServerlessV2PlatformVersionsCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DescribeServerlessV2PlatformVersions", {})
-  .n("RDSClient", "DescribeServerlessV2PlatformVersionsCommand")
-  .sc(DescribeServerlessV2PlatformVersions$)
-  .build() {
+export class DescribeServerlessV2PlatformVersionsCommand extends command<DescribeServerlessV2PlatformVersionsCommandInput, DescribeServerlessV2PlatformVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeServerlessV2PlatformVersions",
+  DescribeServerlessV2PlatformVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

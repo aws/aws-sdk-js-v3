@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SelectResourceConfigRequest, SelectResourceConfigResponse } from "../models/models_0";
 import { SelectResourceConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SelectResourceConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface SelectResourceConfigCommandOutput extends SelectResourceConfigR
  *
  * @public
  */
-export class SelectResourceConfigCommand extends $Command
-  .classBuilder<
-    SelectResourceConfigCommandInput,
-    SelectResourceConfigCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "SelectResourceConfig", {})
-  .n("ConfigServiceClient", "SelectResourceConfigCommand")
-  .sc(SelectResourceConfig$)
-  .build() {
+export class SelectResourceConfigCommand extends command<SelectResourceConfigCommandInput, SelectResourceConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "SelectResourceConfig",
+  SelectResourceConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

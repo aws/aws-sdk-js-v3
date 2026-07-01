@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListParticipantsRequest, ListParticipantsResponse } from "../models/models_0";
 import { ListParticipants$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListParticipants$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface ListParticipantsCommandOutput extends ListParticipantsResponse,
  *
  * @public
  */
-export class ListParticipantsCommand extends $Command
-  .classBuilder<
-    ListParticipantsCommandInput,
-    ListParticipantsCommandOutput,
-    IVSRealTimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoServiceRealTime", "ListParticipants", {})
-  .n("IVSRealTimeClient", "ListParticipantsCommand")
-  .sc(ListParticipants$)
-  .build() {
+export class ListParticipantsCommand extends command<ListParticipantsCommandInput, ListParticipantsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListParticipants",
+  ListParticipants$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

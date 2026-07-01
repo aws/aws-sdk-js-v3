@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListActionsRequest, ListActionsResponse } from "../models/models_0";
 import { ListActions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListActions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  *
  * @public
  */
-export class ListActionsCommand extends $Command
-  .classBuilder<
-    ListActionsCommandInput,
-    ListActionsCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "ListActions", {})
-  .n("IoTSiteWiseClient", "ListActionsCommand")
-  .sc(ListActions$)
-  .build() {
+export class ListActionsCommand extends command<ListActionsCommandInput, ListActionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListActions",
+  ListActions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

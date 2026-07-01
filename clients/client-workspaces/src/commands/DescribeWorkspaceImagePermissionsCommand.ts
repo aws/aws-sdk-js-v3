@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeWorkspaceImagePermissionsRequest,
   DescribeWorkspaceImagePermissionsResult,
 } from "../models/models_0";
 import { DescribeWorkspaceImagePermissions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DescribeWorkspaceImagePermissionsCommandOutput extends Describe
  *
  * @public
  */
-export class DescribeWorkspaceImagePermissionsCommand extends $Command
-  .classBuilder<
-    DescribeWorkspaceImagePermissionsCommandInput,
-    DescribeWorkspaceImagePermissionsCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "DescribeWorkspaceImagePermissions", {})
-  .n("WorkSpacesClient", "DescribeWorkspaceImagePermissionsCommand")
-  .sc(DescribeWorkspaceImagePermissions$)
-  .build() {
+export class DescribeWorkspaceImagePermissionsCommand extends command<DescribeWorkspaceImagePermissionsCommandInput, DescribeWorkspaceImagePermissionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeWorkspaceImagePermissions",
+  DescribeWorkspaceImagePermissions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

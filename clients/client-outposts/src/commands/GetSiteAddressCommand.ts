@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSiteAddressInput, GetSiteAddressOutput } from "../models/models_0";
-import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import { GetSiteAddress$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface GetSiteAddressCommandOutput extends GetSiteAddressOutput, __Met
  *
  * @public
  */
-export class GetSiteAddressCommand extends $Command
-  .classBuilder<
-    GetSiteAddressCommandInput,
-    GetSiteAddressCommandOutput,
-    OutpostsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OutpostsOlafService", "GetSiteAddress", {})
-  .n("OutpostsClient", "GetSiteAddressCommand")
-  .sc(GetSiteAddress$)
-  .build() {
+export class GetSiteAddressCommand extends command<GetSiteAddressCommandInput, GetSiteAddressCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSiteAddress",
+  GetSiteAddress$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

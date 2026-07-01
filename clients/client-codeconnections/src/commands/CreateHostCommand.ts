@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeConnectionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeConnectionsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateHostInput, CreateHostOutput } from "../models/models_0";
 import { CreateHost$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateHost$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +89,12 @@ export interface CreateHostCommandOutput extends CreateHostOutput, __MetadataBea
  *
  * @public
  */
-export class CreateHostCommand extends $Command
-  .classBuilder<
-    CreateHostCommandInput,
-    CreateHostCommandOutput,
-    CodeConnectionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeConnectionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeConnections_20231201", "CreateHost", {})
-  .n("CodeConnectionsClient", "CreateHostCommand")
-  .sc(CreateHost$)
-  .build() {
+export class CreateHostCommand extends command<CreateHostCommandInput, CreateHostCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateHost",
+  CreateHost$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3/s3-control";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep8, _mw1, command } from "../commandBuilder";
 import type { TagResourceRequest, TagResourceResult } from "../models/models_0";
-import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { TagResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,30 +110,12 @@ export interface TagResourceCommandOutput extends TagResourceResult, __MetadataB
  *
  * @public
  */
-export class TagResourceCommand extends $Command
-  .classBuilder<
-    TagResourceCommandInput,
-    TagResourceCommandOutput,
-    S3ControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    RequiresAccountId: { type: "staticContextParams", value: true },
-    ResourceArn: { type: "contextParams", name: "ResourceArn" },
-    AccountId: { type: "contextParams", name: "AccountId" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getProcessArnablesPlugin(config),
-    ];
-  })
-  .s("AWSS3ControlServiceV20180820", "TagResource", {})
-  .n("S3ControlClient", "TagResourceCommand")
-  .sc(TagResource$)
-  .build() {
+export class TagResourceCommand extends command<TagResourceCommandInput, TagResourceCommandOutput>(
+  _ep8,
+  _mw1,
+  "TagResource",
+  TagResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

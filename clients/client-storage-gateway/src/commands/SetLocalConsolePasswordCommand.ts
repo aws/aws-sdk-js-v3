@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SetLocalConsolePasswordInput, SetLocalConsolePasswordOutput } from "../models/models_0";
 import { SetLocalConsolePassword$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface SetLocalConsolePasswordCommandOutput extends SetLocalConsolePas
  *
  * @public
  */
-export class SetLocalConsolePasswordCommand extends $Command
-  .classBuilder<
-    SetLocalConsolePasswordCommandInput,
-    SetLocalConsolePasswordCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "SetLocalConsolePassword", {})
-  .n("StorageGatewayClient", "SetLocalConsolePasswordCommand")
-  .sc(SetLocalConsolePassword$)
-  .build() {
+export class SetLocalConsolePasswordCommand extends command<SetLocalConsolePasswordCommandInput, SetLocalConsolePasswordCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetLocalConsolePassword",
+  SetLocalConsolePassword$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

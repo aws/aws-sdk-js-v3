@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ConstantAndVariableQueryStringInput } from "../models/models_0";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
 import { ConstantAndVariableQueryString$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -64,22 +56,12 @@ export interface ConstantAndVariableQueryStringCommandOutput extends __MetadataB
  *
  * @public
  */
-export class ConstantAndVariableQueryStringCommand extends $Command
-  .classBuilder<
-    ConstantAndVariableQueryStringCommandInput,
-    ConstantAndVariableQueryStringCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestJson", "ConstantAndVariableQueryString", {})
-  .n("RestJsonProtocolClient", "ConstantAndVariableQueryStringCommand")
-  .sc(ConstantAndVariableQueryString$)
-  .build() {
+export class ConstantAndVariableQueryStringCommand extends command<ConstantAndVariableQueryStringCommandInput, ConstantAndVariableQueryStringCommandOutput>(
+  _ep0,
+  _mw0,
+  "ConstantAndVariableQueryString",
+  ConstantAndVariableQueryString$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

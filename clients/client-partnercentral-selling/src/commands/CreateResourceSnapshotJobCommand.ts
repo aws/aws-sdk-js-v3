@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateResourceSnapshotJobRequest, CreateResourceSnapshotJobResponse } from "../models/models_0";
-import type {
-  PartnerCentralSellingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralSellingClient";
 import { CreateResourceSnapshotJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface CreateResourceSnapshotJobCommandOutput extends CreateResourceSn
  *
  * @public
  */
-export class CreateResourceSnapshotJobCommand extends $Command
-  .classBuilder<
-    CreateResourceSnapshotJobCommandInput,
-    CreateResourceSnapshotJobCommandOutput,
-    PartnerCentralSellingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPartnerCentralSelling", "CreateResourceSnapshotJob", {})
-  .n("PartnerCentralSellingClient", "CreateResourceSnapshotJobCommand")
-  .sc(CreateResourceSnapshotJob$)
-  .build() {
+export class CreateResourceSnapshotJobCommand extends command<CreateResourceSnapshotJobCommandInput, CreateResourceSnapshotJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateResourceSnapshotJob",
+  CreateResourceSnapshotJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

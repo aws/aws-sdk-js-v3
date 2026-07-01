@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePipelineRequest, UpdatePipelineResponse } from "../models/models_5";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { UpdatePipeline$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineResponse, __M
  *
  * @public
  */
-export class UpdatePipelineCommand extends $Command
-  .classBuilder<
-    UpdatePipelineCommandInput,
-    UpdatePipelineCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "UpdatePipeline", {})
-  .n("SageMakerClient", "UpdatePipelineCommand")
-  .sc(UpdatePipeline$)
-  .build() {
+export class UpdatePipelineCommand extends command<UpdatePipelineCommandInput, UpdatePipelineCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePipeline",
+  UpdatePipeline$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

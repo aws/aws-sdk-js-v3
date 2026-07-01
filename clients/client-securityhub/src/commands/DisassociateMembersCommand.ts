@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateMembersRequest, DisassociateMembersResponse } from "../models/models_2";
 import { DisassociateMembers$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface DisassociateMembersCommandOutput extends DisassociateMembersRes
  *
  * @public
  */
-export class DisassociateMembersCommand extends $Command
-  .classBuilder<
-    DisassociateMembersCommandInput,
-    DisassociateMembersCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "DisassociateMembers", {})
-  .n("SecurityHubClient", "DisassociateMembersCommand")
-  .sc(DisassociateMembers$)
-  .build() {
+export class DisassociateMembersCommand extends command<DisassociateMembersCommandInput, DisassociateMembersCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateMembers",
+  DisassociateMembers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

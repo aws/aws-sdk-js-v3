@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCertificateRequest, CreateCertificateResult } from "../models/models_0";
 import { CreateCertificate$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateCertificate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -200,22 +196,12 @@ export interface CreateCertificateCommandOutput extends CreateCertificateResult,
  *
  * @public
  */
-export class CreateCertificateCommand extends $Command
-  .classBuilder<
-    CreateCertificateCommandInput,
-    CreateCertificateCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "CreateCertificate", {})
-  .n("LightsailClient", "CreateCertificateCommand")
-  .sc(CreateCertificate$)
-  .build() {
+export class CreateCertificateCommand extends command<CreateCertificateCommandInput, CreateCertificateCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCertificate",
+  CreateCertificate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

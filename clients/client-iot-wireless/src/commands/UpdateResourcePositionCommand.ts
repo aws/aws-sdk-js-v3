@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateResourcePositionRequest, UpdateResourcePositionResponse } from "../models/models_1";
 import { UpdateResourcePosition$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateResourcePosition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  */
@@ -83,22 +79,12 @@ export interface UpdateResourcePositionCommandOutput extends UpdateResourcePosit
  *
  * @public
  */
-export class UpdateResourcePositionCommand extends $Command
-  .classBuilder<
-    UpdateResourcePositionCommandInput,
-    UpdateResourcePositionCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "UpdateResourcePosition", {})
-  .n("IoTWirelessClient", "UpdateResourcePositionCommand")
-  .sc(UpdateResourcePosition$)
-  .build() {
+export class UpdateResourcePositionCommand extends command<UpdateResourcePositionCommandInput, UpdateResourcePositionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateResourcePosition",
+  UpdateResourcePosition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

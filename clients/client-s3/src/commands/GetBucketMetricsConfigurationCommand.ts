@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep3, _mw0, command } from "../commandBuilder";
 import type { GetBucketMetricsConfigurationOutput, GetBucketMetricsConfigurationRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { GetBucketMetricsConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -150,29 +145,12 @@ export interface GetBucketMetricsConfigurationCommandOutput extends GetBucketMet
  *
  * @public
  */
-export class GetBucketMetricsConfigurationCommand extends $Command
-  .classBuilder<
-    GetBucketMetricsConfigurationCommandInput,
-    GetBucketMetricsConfigurationCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "GetBucketMetricsConfiguration", {})
-  .n("S3Client", "GetBucketMetricsConfigurationCommand")
-  .sc(GetBucketMetricsConfiguration$)
-  .build() {
+export class GetBucketMetricsConfigurationCommand extends command<GetBucketMetricsConfigurationCommandInput, GetBucketMetricsConfigurationCommandOutput>(
+  _ep3,
+  _mw0,
+  "GetBucketMetricsConfiguration",
+  GetBucketMetricsConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListVpcEndpointAssociationsRequest, ListVpcEndpointAssociationsResponse } from "../models/models_0";
-import type {
-  NetworkFirewallClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFirewallClient";
 import { ListVpcEndpointAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface ListVpcEndpointAssociationsCommandOutput extends ListVpcEndpoin
  *
  * @public
  */
-export class ListVpcEndpointAssociationsCommand extends $Command
-  .classBuilder<
-    ListVpcEndpointAssociationsCommandInput,
-    ListVpcEndpointAssociationsCommandOutput,
-    NetworkFirewallClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFirewall_20201112", "ListVpcEndpointAssociations", {})
-  .n("NetworkFirewallClient", "ListVpcEndpointAssociationsCommand")
-  .sc(ListVpcEndpointAssociations$)
-  .build() {
+export class ListVpcEndpointAssociationsCommand extends command<ListVpcEndpointAssociationsCommandInput, ListVpcEndpointAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListVpcEndpointAssociations",
+  ListVpcEndpointAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

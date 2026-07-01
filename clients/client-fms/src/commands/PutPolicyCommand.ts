@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutPolicyRequest, PutPolicyResponse } from "../models/models_0";
 import { PutPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -318,22 +314,12 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  *
  * @public
  */
-export class PutPolicyCommand extends $Command
-  .classBuilder<
-    PutPolicyCommandInput,
-    PutPolicyCommandOutput,
-    FMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSFMS_20180101", "PutPolicy", {})
-  .n("FMSClient", "PutPolicyCommand")
-  .sc(PutPolicy$)
-  .build() {
+export class PutPolicyCommand extends command<PutPolicyCommandInput, PutPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutPolicy",
+  PutPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

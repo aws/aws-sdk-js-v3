@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSoftwareUpdateJobRequest, CreateSoftwareUpdateJobResponse } from "../models/models_0";
 import { CreateSoftwareUpdateJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateSoftwareUpdateJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface CreateSoftwareUpdateJobCommandOutput extends CreateSoftwareUpda
  *
  * @public
  */
-export class CreateSoftwareUpdateJobCommand extends $Command
-  .classBuilder<
-    CreateSoftwareUpdateJobCommandInput,
-    CreateSoftwareUpdateJobCommandOutput,
-    GreengrassClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Greengrass", "CreateSoftwareUpdateJob", {})
-  .n("GreengrassClient", "CreateSoftwareUpdateJobCommand")
-  .sc(CreateSoftwareUpdateJob$)
-  .build() {
+export class CreateSoftwareUpdateJobCommand extends command<CreateSoftwareUpdateJobCommandInput, CreateSoftwareUpdateJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSoftwareUpdateJob",
+  CreateSoftwareUpdateJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

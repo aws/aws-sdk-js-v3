@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSessionsRequest, ListSessionsResponse } from "../models/models_0";
 import { ListSessions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListSessions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface ListSessionsCommandOutput extends ListSessionsResponse, __Metad
  *
  * @public
  */
-export class ListSessionsCommand extends $Command
-  .classBuilder<
-    ListSessionsCommandInput,
-    ListSessionsCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "ListSessions", {})
-  .n("DeadlineClient", "ListSessionsCommand")
-  .sc(ListSessions$)
-  .build() {
+export class ListSessionsCommand extends command<ListSessionsCommandInput, ListSessionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSessions",
+  ListSessions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

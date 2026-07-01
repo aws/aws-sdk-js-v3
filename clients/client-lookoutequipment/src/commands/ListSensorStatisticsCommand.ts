@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LookoutEquipmentClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LookoutEquipmentClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSensorStatisticsRequest, ListSensorStatisticsResponse } from "../models/models_0";
 import { ListSensorStatistics$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListSensorStatistics$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +120,12 @@ export interface ListSensorStatisticsCommandOutput extends ListSensorStatisticsR
  *
  * @public
  */
-export class ListSensorStatisticsCommand extends $Command
-  .classBuilder<
-    ListSensorStatisticsCommandInput,
-    ListSensorStatisticsCommandOutput,
-    LookoutEquipmentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLookoutEquipmentFrontendService", "ListSensorStatistics", {})
-  .n("LookoutEquipmentClient", "ListSensorStatisticsCommand")
-  .sc(ListSensorStatistics$)
-  .build() {
+export class ListSensorStatisticsCommand extends command<ListSensorStatisticsCommandInput, ListSensorStatisticsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSensorStatistics",
+  ListSensorStatistics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

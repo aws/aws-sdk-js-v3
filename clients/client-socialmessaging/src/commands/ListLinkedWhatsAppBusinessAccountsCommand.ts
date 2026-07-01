@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListLinkedWhatsAppBusinessAccountsInput,
   ListLinkedWhatsAppBusinessAccountsOutput,
 } from "../models/models_0";
 import { ListLinkedWhatsAppBusinessAccounts$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SocialMessagingClientResolvedConfig,
-} from "../SocialMessagingClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +95,12 @@ export interface ListLinkedWhatsAppBusinessAccountsCommandOutput extends ListLin
  *
  * @public
  */
-export class ListLinkedWhatsAppBusinessAccountsCommand extends $Command
-  .classBuilder<
-    ListLinkedWhatsAppBusinessAccountsCommandInput,
-    ListLinkedWhatsAppBusinessAccountsCommandOutput,
-    SocialMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SocialMessaging", "ListLinkedWhatsAppBusinessAccounts", {})
-  .n("SocialMessagingClient", "ListLinkedWhatsAppBusinessAccountsCommand")
-  .sc(ListLinkedWhatsAppBusinessAccounts$)
-  .build() {
+export class ListLinkedWhatsAppBusinessAccountsCommand extends command<ListLinkedWhatsAppBusinessAccountsCommandInput, ListLinkedWhatsAppBusinessAccountsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLinkedWhatsAppBusinessAccounts",
+  ListLinkedWhatsAppBusinessAccounts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

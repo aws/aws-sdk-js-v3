@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DynamoDBStreamsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DynamoDBStreamsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListStreamsInput, ListStreamsOutput } from "../models/models_0";
 import { ListStreams$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListStreams$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +106,12 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  *
  * @public
  */
-export class ListStreamsCommand extends $Command
-  .classBuilder<
-    ListStreamsCommandInput,
-    ListStreamsCommandOutput,
-    DynamoDBStreamsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBStreamsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDBStreams_20120810", "ListStreams", {})
-  .n("DynamoDBStreamsClient", "ListStreamsCommand")
-  .sc(ListStreams$)
-  .build() {
+export class ListStreamsCommand extends command<ListStreamsCommandInput, ListStreamsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListStreams",
+  ListStreams$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

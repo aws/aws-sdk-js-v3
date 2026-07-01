@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  EntityResolutionClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../EntityResolutionClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePolicyStatementInput, DeletePolicyStatementOutput } from "../models/models_0";
 import { DeletePolicyStatement$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeletePolicyStatement$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface DeletePolicyStatementCommandOutput extends DeletePolicyStatemen
  *
  * @public
  */
-export class DeletePolicyStatementCommand extends $Command
-  .classBuilder<
-    DeletePolicyStatementCommandInput,
-    DeletePolicyStatementCommandOutput,
-    EntityResolutionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EntityResolutionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSVeniceService", "DeletePolicyStatement", {})
-  .n("EntityResolutionClient", "DeletePolicyStatementCommand")
-  .sc(DeletePolicyStatement$)
-  .build() {
+export class DeletePolicyStatementCommand extends command<DeletePolicyStatementCommandInput, DeletePolicyStatementCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePolicyStatement",
+  DeletePolicyStatement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

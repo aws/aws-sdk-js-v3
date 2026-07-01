@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetManagedThingCapabilitiesRequest, GetManagedThingCapabilitiesResponse } from "../models/models_0";
 import { GetManagedThingCapabilities$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetManagedThingCapabilities$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +105,12 @@ export interface GetManagedThingCapabilitiesCommandOutput extends GetManagedThin
  *
  * @public
  */
-export class GetManagedThingCapabilitiesCommand extends $Command
-  .classBuilder<
-    GetManagedThingCapabilitiesCommandInput,
-    GetManagedThingCapabilitiesCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "GetManagedThingCapabilities", {})
-  .n("IoTManagedIntegrationsClient", "GetManagedThingCapabilitiesCommand")
-  .sc(GetManagedThingCapabilities$)
-  .build() {
+export class GetManagedThingCapabilitiesCommand extends command<GetManagedThingCapabilitiesCommandInput, GetManagedThingCapabilitiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetManagedThingCapabilities",
+  GetManagedThingCapabilities$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

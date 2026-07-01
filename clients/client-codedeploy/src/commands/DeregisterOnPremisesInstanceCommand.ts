@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeregisterOnPremisesInstanceInput } from "../models/models_0";
 import { DeregisterOnPremisesInstance$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeregisterOnPremisesInstance$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface DeregisterOnPremisesInstanceCommandOutput extends __MetadataBea
  *
  * @public
  */
-export class DeregisterOnPremisesInstanceCommand extends $Command
-  .classBuilder<
-    DeregisterOnPremisesInstanceCommandInput,
-    DeregisterOnPremisesInstanceCommandOutput,
-    CodeDeployClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeDeploy_20141006", "DeregisterOnPremisesInstance", {})
-  .n("CodeDeployClient", "DeregisterOnPremisesInstanceCommand")
-  .sc(DeregisterOnPremisesInstance$)
-  .build() {
+export class DeregisterOnPremisesInstanceCommand extends command<DeregisterOnPremisesInstanceCommandInput, DeregisterOnPremisesInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeregisterOnPremisesInstance",
+  DeregisterOnPremisesInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

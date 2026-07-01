@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElementalInferenceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElementalInferenceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDictionaryRequest, DeleteDictionaryResponse } from "../models/models_0";
 import { DeleteDictionary$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteDictionary$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface DeleteDictionaryCommandOutput extends DeleteDictionaryResponse,
  *
  * @public
  */
-export class DeleteDictionaryCommand extends $Command
-  .classBuilder<
-    DeleteDictionaryCommandInput,
-    DeleteDictionaryCommandOutput,
-    ElementalInferenceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElementalInferenceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElementalInference", "DeleteDictionary", {})
-  .n("ElementalInferenceClient", "DeleteDictionaryCommand")
-  .sc(DeleteDictionary$)
-  .build() {
+export class DeleteDictionaryCommand extends command<DeleteDictionaryCommandInput, DeleteDictionaryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDictionary",
+  DeleteDictionary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

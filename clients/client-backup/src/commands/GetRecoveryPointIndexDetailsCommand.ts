@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRecoveryPointIndexDetailsInput, GetRecoveryPointIndexDetailsOutput } from "../models/models_0";
 import { GetRecoveryPointIndexDetails$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetRecoveryPointIndexDetails$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface GetRecoveryPointIndexDetailsCommandOutput extends GetRecoveryPo
  *
  * @public
  */
-export class GetRecoveryPointIndexDetailsCommand extends $Command
-  .classBuilder<
-    GetRecoveryPointIndexDetailsCommandInput,
-    GetRecoveryPointIndexDetailsCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "GetRecoveryPointIndexDetails", {})
-  .n("BackupClient", "GetRecoveryPointIndexDetailsCommand")
-  .sc(GetRecoveryPointIndexDetails$)
-  .build() {
+export class GetRecoveryPointIndexDetailsCommand extends command<GetRecoveryPointIndexDetailsCommandInput, GetRecoveryPointIndexDetailsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRecoveryPointIndexDetails",
+  GetRecoveryPointIndexDetails$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

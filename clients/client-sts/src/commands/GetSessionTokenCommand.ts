@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSessionTokenRequest, GetSessionTokenResponse } from "../models/models_0";
 import { GetSessionToken$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -152,22 +148,12 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  *
  * @public
  */
-export class GetSessionTokenCommand extends $Command
-  .classBuilder<
-    GetSessionTokenCommandInput,
-    GetSessionTokenCommandOutput,
-    STSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: STSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSecurityTokenServiceV20110615", "GetSessionToken", {})
-  .n("STSClient", "GetSessionTokenCommand")
-  .sc(GetSessionToken$)
-  .build() {
+export class GetSessionTokenCommand extends command<GetSessionTokenCommandInput, GetSessionTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSessionToken",
+  GetSessionToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

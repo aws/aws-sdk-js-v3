@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDataProtectionPolicyInput, GetDataProtectionPolicyResponse } from "../models/models_0";
 import { GetDataProtectionPolicy$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionP
  *
  * @public
  */
-export class GetDataProtectionPolicyCommand extends $Command
-  .classBuilder<
-    GetDataProtectionPolicyCommandInput,
-    GetDataProtectionPolicyCommandOutput,
-    SNSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSimpleNotificationService", "GetDataProtectionPolicy", {})
-  .n("SNSClient", "GetDataProtectionPolicyCommand")
-  .sc(GetDataProtectionPolicy$)
-  .build() {
+export class GetDataProtectionPolicyCommand extends command<GetDataProtectionPolicyCommandInput, GetDataProtectionPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDataProtectionPolicy",
+  GetDataProtectionPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

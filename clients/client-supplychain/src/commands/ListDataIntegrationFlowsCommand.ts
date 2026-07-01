@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDataIntegrationFlowsRequest, ListDataIntegrationFlowsResponse } from "../models/models_0";
 import { ListDataIntegrationFlows$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -248,22 +244,12 @@ export interface ListDataIntegrationFlowsCommandOutput extends ListDataIntegrati
  *
  * @public
  */
-export class ListDataIntegrationFlowsCommand extends $Command
-  .classBuilder<
-    ListDataIntegrationFlowsCommandInput,
-    ListDataIntegrationFlowsCommandOutput,
-    SupplyChainClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupplyChainClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GalaxyPublicAPIGateway", "ListDataIntegrationFlows", {})
-  .n("SupplyChainClient", "ListDataIntegrationFlowsCommand")
-  .sc(ListDataIntegrationFlows$)
-  .build() {
+export class ListDataIntegrationFlowsCommand extends command<ListDataIntegrationFlowsCommandInput, ListDataIntegrationFlowsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDataIntegrationFlows",
+  ListDataIntegrationFlows$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSubscribersRequest, ListSubscribersResponse } from "../models/models_0";
 import { ListSubscribers$ } from "../schemas/schemas_0";
-import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface ListSubscribersCommandOutput extends ListSubscribersResponse, _
  *
  * @public
  */
-export class ListSubscribersCommand extends $Command
-  .classBuilder<
-    ListSubscribersCommandInput,
-    ListSubscribersCommandOutput,
-    SecurityLakeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityLake", "ListSubscribers", {})
-  .n("SecurityLakeClient", "ListSubscribersCommand")
-  .sc(ListSubscribers$)
-  .build() {
+export class ListSubscribersCommand extends command<ListSubscribersCommandInput, ListSubscribersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSubscribers",
+  ListSubscribers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

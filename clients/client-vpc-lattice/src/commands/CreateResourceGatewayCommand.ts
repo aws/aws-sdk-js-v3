@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateResourceGatewayRequest, CreateResourceGatewayResponse } from "../models/models_0";
 import { CreateResourceGateway$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface CreateResourceGatewayCommandOutput extends CreateResourceGatewa
  *
  * @public
  */
-export class CreateResourceGatewayCommand extends $Command
-  .classBuilder<
-    CreateResourceGatewayCommandInput,
-    CreateResourceGatewayCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "CreateResourceGateway", {})
-  .n("VPCLatticeClient", "CreateResourceGatewayCommand")
-  .sc(CreateResourceGateway$)
-  .build() {
+export class CreateResourceGatewayCommand extends command<CreateResourceGatewayCommandInput, CreateResourceGatewayCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateResourceGateway",
+  CreateResourceGateway$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

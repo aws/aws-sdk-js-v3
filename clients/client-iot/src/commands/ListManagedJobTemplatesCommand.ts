@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListManagedJobTemplatesRequest, ListManagedJobTemplatesResponse } from "../models/models_1";
 import { ListManagedJobTemplates$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListManagedJobTemplates$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface ListManagedJobTemplatesCommandOutput extends ListManagedJobTemp
  *
  * @public
  */
-export class ListManagedJobTemplatesCommand extends $Command
-  .classBuilder<
-    ListManagedJobTemplatesCommandInput,
-    ListManagedJobTemplatesCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "ListManagedJobTemplates", {})
-  .n("IoTClient", "ListManagedJobTemplatesCommand")
-  .sc(ListManagedJobTemplates$)
-  .build() {
+export class ListManagedJobTemplatesCommand extends command<ListManagedJobTemplatesCommandInput, ListManagedJobTemplatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListManagedJobTemplates",
+  ListManagedJobTemplates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

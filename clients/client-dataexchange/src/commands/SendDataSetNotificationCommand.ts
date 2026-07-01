@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendDataSetNotificationRequest, SendDataSetNotificationResponse } from "../models/models_0";
 import { SendDataSetNotification$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SendDataSetNotification$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface SendDataSetNotificationCommandOutput extends SendDataSetNotific
  *
  * @public
  */
-export class SendDataSetNotificationCommand extends $Command
-  .classBuilder<
-    SendDataSetNotificationCommandInput,
-    SendDataSetNotificationCommandOutput,
-    DataExchangeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataExchange", "SendDataSetNotification", {})
-  .n("DataExchangeClient", "SendDataSetNotificationCommand")
-  .sc(SendDataSetNotification$)
-  .build() {
+export class SendDataSetNotificationCommand extends command<SendDataSetNotificationCommandInput, SendDataSetNotificationCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendDataSetNotification",
+  SendDataSetNotification$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTargetGroupRequest, DeleteTargetGroupResponse } from "../models/models_0";
 import { DeleteTargetGroup$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteTargetGroupCommandOutput extends DeleteTargetGroupRespons
  *
  * @public
  */
-export class DeleteTargetGroupCommand extends $Command
-  .classBuilder<
-    DeleteTargetGroupCommandInput,
-    DeleteTargetGroupCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "DeleteTargetGroup", {})
-  .n("VPCLatticeClient", "DeleteTargetGroupCommand")
-  .sc(DeleteTargetGroup$)
-  .build() {
+export class DeleteTargetGroupCommand extends command<DeleteTargetGroupCommandInput, DeleteTargetGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTargetGroup",
+  DeleteTargetGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

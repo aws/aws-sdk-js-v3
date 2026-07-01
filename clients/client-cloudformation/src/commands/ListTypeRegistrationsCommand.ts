@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTypeRegistrationsInput, ListTypeRegistrationsOutput } from "../models/models_0";
 import { ListTypeRegistrations$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListTypeRegistrations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +66,12 @@ export interface ListTypeRegistrationsCommandOutput extends ListTypeRegistration
  *
  * @public
  */
-export class ListTypeRegistrationsCommand extends $Command
-  .classBuilder<
-    ListTypeRegistrationsCommandInput,
-    ListTypeRegistrationsCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "ListTypeRegistrations", {})
-  .n("CloudFormationClient", "ListTypeRegistrationsCommand")
-  .sc(ListTypeRegistrations$)
-  .build() {
+export class ListTypeRegistrationsCommand extends command<ListTypeRegistrationsCommandInput, ListTypeRegistrationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTypeRegistrations",
+  ListTypeRegistrations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAppAuthorizationsRequest, ListAppAuthorizationsResponse } from "../models/models_0";
 import { ListAppAuthorizations$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAppAuthorizations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface ListAppAuthorizationsCommandOutput extends ListAppAuthorization
  *
  * @public
  */
-export class ListAppAuthorizationsCommand extends $Command
-  .classBuilder<
-    ListAppAuthorizationsCommandInput,
-    ListAppAuthorizationsCommandOutput,
-    AppFabricClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppFabricClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FabricFrontEndService", "ListAppAuthorizations", {})
-  .n("AppFabricClient", "ListAppAuthorizationsCommand")
-  .sc(ListAppAuthorizations$)
-  .build() {
+export class ListAppAuthorizationsCommand extends command<ListAppAuthorizationsCommandInput, ListAppAuthorizationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAppAuthorizations",
+  ListAppAuthorizations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

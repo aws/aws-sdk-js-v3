@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceDiscoveryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceDiscoveryClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetOfferSetInput, GetOfferSetOutput } from "../models/models_0";
 import { GetOfferSet$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetOfferSet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -181,22 +173,12 @@ export interface GetOfferSetCommandOutput extends GetOfferSetOutput, __MetadataB
  *
  * @public
  */
-export class GetOfferSetCommand extends $Command
-  .classBuilder<
-    GetOfferSetCommandInput,
-    GetOfferSetCommandOutput,
-    MarketplaceDiscoveryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceDiscoveryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMarketplaceDiscovery", "GetOfferSet", {})
-  .n("MarketplaceDiscoveryClient", "GetOfferSetCommand")
-  .sc(GetOfferSet$)
-  .build() {
+export class GetOfferSetCommand extends command<GetOfferSetCommandInput, GetOfferSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetOfferSet",
+  GetOfferSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

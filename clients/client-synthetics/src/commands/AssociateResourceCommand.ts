@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateResourceRequest, AssociateResourceResponse } from "../models/models_0";
 import { AssociateResource$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  *
  * @public
  */
-export class AssociateResourceCommand extends $Command
-  .classBuilder<
-    AssociateResourceCommandInput,
-    AssociateResourceCommandOutput,
-    SyntheticsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Synthetics", "AssociateResource", {})
-  .n("SyntheticsClient", "AssociateResourceCommand")
-  .sc(AssociateResource$)
-  .build() {
+export class AssociateResourceCommand extends command<AssociateResourceCommandInput, AssociateResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateResource",
+  AssociateResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AutoScalingPlansClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AutoScalingPlansClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeScalingPlanResourcesRequest, DescribeScalingPlanResourcesResponse } from "../models/models_0";
 import { DescribeScalingPlanResources$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeScalingPlanResources$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +111,12 @@ export interface DescribeScalingPlanResourcesCommandOutput extends DescribeScali
  *
  * @public
  */
-export class DescribeScalingPlanResourcesCommand extends $Command
-  .classBuilder<
-    DescribeScalingPlanResourcesCommandInput,
-    DescribeScalingPlanResourcesCommandOutput,
-    AutoScalingPlansClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingPlansClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AnyScaleScalingPlannerFrontendService", "DescribeScalingPlanResources", {})
-  .n("AutoScalingPlansClient", "DescribeScalingPlanResourcesCommand")
-  .sc(DescribeScalingPlanResources$)
-  .build() {
+export class DescribeScalingPlanResourcesCommand extends command<DescribeScalingPlanResourcesCommandInput, DescribeScalingPlanResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeScalingPlanResources",
+  DescribeScalingPlanResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

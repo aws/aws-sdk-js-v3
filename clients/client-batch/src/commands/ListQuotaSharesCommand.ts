@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListQuotaSharesRequest, ListQuotaSharesResponse } from "../models/models_0";
 import { ListQuotaShares$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListQuotaShares$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface ListQuotaSharesCommandOutput extends ListQuotaSharesResponse, _
  *
  * @public
  */
-export class ListQuotaSharesCommand extends $Command
-  .classBuilder<
-    ListQuotaSharesCommandInput,
-    ListQuotaSharesCommandOutput,
-    BatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBatchV20160810", "ListQuotaShares", {})
-  .n("BatchClient", "ListQuotaSharesCommand")
-  .sc(ListQuotaShares$)
-  .build() {
+export class ListQuotaSharesCommand extends command<ListQuotaSharesCommandInput, ListQuotaSharesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListQuotaShares",
+  ListQuotaShares$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

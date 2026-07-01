@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticsearchServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticsearchServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PurchaseReservedElasticsearchInstanceOfferingRequest,
   PurchaseReservedElasticsearchInstanceOfferingResponse,
@@ -19,7 +12,6 @@ import { PurchaseReservedElasticsearchInstanceOffering$ } from "../schemas/schem
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface PurchaseReservedElasticsearchInstanceOfferingCommandOutput exte
  *
  * @public
  */
-export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Command
-  .classBuilder<
-    PurchaseReservedElasticsearchInstanceOfferingCommandInput,
-    PurchaseReservedElasticsearchInstanceOfferingCommandOutput,
-    ElasticsearchServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticsearchService2015", "PurchaseReservedElasticsearchInstanceOffering", {})
-  .n("ElasticsearchServiceClient", "PurchaseReservedElasticsearchInstanceOfferingCommand")
-  .sc(PurchaseReservedElasticsearchInstanceOffering$)
-  .build() {
+export class PurchaseReservedElasticsearchInstanceOfferingCommand extends command<PurchaseReservedElasticsearchInstanceOfferingCommandInput, PurchaseReservedElasticsearchInstanceOfferingCommandOutput>(
+  _ep0,
+  _mw0,
+  "PurchaseReservedElasticsearchInstanceOffering",
+  PurchaseReservedElasticsearchInstanceOffering$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

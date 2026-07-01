@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateLocationNfsRequest, CreateLocationNfsResponse } from "../models/models_0";
 import { CreateLocationNfs$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateLocationNfs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface CreateLocationNfsCommandOutput extends CreateLocationNfsRespons
  *
  * @public
  */
-export class CreateLocationNfsCommand extends $Command
-  .classBuilder<
-    CreateLocationNfsCommandInput,
-    CreateLocationNfsCommandOutput,
-    DataSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FmrsService", "CreateLocationNfs", {})
-  .n("DataSyncClient", "CreateLocationNfsCommand")
-  .sc(CreateLocationNfs$)
-  .build() {
+export class CreateLocationNfsCommand extends command<CreateLocationNfsCommandInput, CreateLocationNfsCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateLocationNfs",
+  CreateLocationNfs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

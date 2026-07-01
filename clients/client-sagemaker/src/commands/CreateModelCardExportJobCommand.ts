@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateModelCardExportJobRequest, CreateModelCardExportJobResponse } from "../models/models_1";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreateModelCardExportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface CreateModelCardExportJobCommandOutput extends CreateModelCardEx
  *
  * @public
  */
-export class CreateModelCardExportJobCommand extends $Command
-  .classBuilder<
-    CreateModelCardExportJobCommandInput,
-    CreateModelCardExportJobCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "CreateModelCardExportJob", {})
-  .n("SageMakerClient", "CreateModelCardExportJobCommand")
-  .sc(CreateModelCardExportJob$)
-  .build() {
+export class CreateModelCardExportJobCommand extends command<CreateModelCardExportJobCommandInput, CreateModelCardExportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateModelCardExportJob",
+  CreateModelCardExportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SplitShardInput } from "../models/models_0";
 import { SplitShard$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SplitShard$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -131,27 +127,12 @@ export interface SplitShardCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class SplitShardCommand extends $Command
-  .classBuilder<
-    SplitShardCommandInput,
-    SplitShardCommandOutput,
-    KinesisClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    OperationType: { type: "staticContextParams", value: `control` },
-    StreamId: { type: "contextParams", name: "StreamId" },
-    StreamARN: { type: "contextParams", name: "StreamARN" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kinesis_20131202", "SplitShard", {})
-  .n("KinesisClient", "SplitShardCommand")
-  .sc(SplitShard$)
-  .build() {
+export class SplitShardCommand extends command<SplitShardCommandInput, SplitShardCommandOutput>(
+  _ep0,
+  _mw0,
+  "SplitShard",
+  SplitShard$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

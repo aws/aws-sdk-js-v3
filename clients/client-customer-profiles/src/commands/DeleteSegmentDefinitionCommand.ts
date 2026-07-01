@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSegmentDefinitionRequest, DeleteSegmentDefinitionResponse } from "../models/models_0";
 import { DeleteSegmentDefinition$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteSegmentDefinition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeleteSegmentDefinitionCommandOutput extends DeleteSegmentDefin
  *
  * @public
  */
-export class DeleteSegmentDefinitionCommand extends $Command
-  .classBuilder<
-    DeleteSegmentDefinitionCommandInput,
-    DeleteSegmentDefinitionCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "DeleteSegmentDefinition", {})
-  .n("CustomerProfilesClient", "DeleteSegmentDefinitionCommand")
-  .sc(DeleteSegmentDefinition$)
-  .build() {
+export class DeleteSegmentDefinitionCommand extends command<DeleteSegmentDefinitionCommandInput, DeleteSegmentDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSegmentDefinition",
+  DeleteSegmentDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

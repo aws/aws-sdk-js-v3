@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateTriggerRequest, UpdateTriggerResponse } from "../models/models_3";
 import { UpdateTrigger$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateTrigger$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -148,22 +144,12 @@ export interface UpdateTriggerCommandOutput extends UpdateTriggerResponse, __Met
  *
  * @public
  */
-export class UpdateTriggerCommand extends $Command
-  .classBuilder<
-    UpdateTriggerCommandInput,
-    UpdateTriggerCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "UpdateTrigger", {})
-  .n("GlueClient", "UpdateTriggerCommand")
-  .sc(UpdateTrigger$)
-  .build() {
+export class UpdateTriggerCommand extends command<UpdateTriggerCommandInput, UpdateTriggerCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateTrigger",
+  UpdateTrigger$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

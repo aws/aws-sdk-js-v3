@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DetectSentimentRequest, DetectSentimentResponse } from "../models/models_0";
 import { DetectSentiment$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DetectSentiment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface DetectSentimentCommandOutput extends DetectSentimentResponse, _
  *
  * @public
  */
-export class DetectSentimentCommand extends $Command
-  .classBuilder<
-    DetectSentimentCommandInput,
-    DetectSentimentCommandOutput,
-    ComprehendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Comprehend_20171127", "DetectSentiment", {})
-  .n("ComprehendClient", "DetectSentimentCommand")
-  .sc(DetectSentiment$)
-  .build() {
+export class DetectSentimentCommand extends command<DetectSentimentCommandInput, DetectSentimentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DetectSentiment",
+  DetectSentiment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

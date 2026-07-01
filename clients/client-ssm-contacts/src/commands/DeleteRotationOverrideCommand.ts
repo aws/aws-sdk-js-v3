@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRotationOverrideRequest, DeleteRotationOverrideResult } from "../models/models_0";
 import { DeleteRotationOverride$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DeleteRotationOverrideCommandOutput extends DeleteRotationOverr
  *
  * @public
  */
-export class DeleteRotationOverrideCommand extends $Command
-  .classBuilder<
-    DeleteRotationOverrideCommandInput,
-    DeleteRotationOverrideCommandOutput,
-    SSMContactsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMContacts", "DeleteRotationOverride", {})
-  .n("SSMContactsClient", "DeleteRotationOverrideCommand")
-  .sc(DeleteRotationOverride$)
-  .build() {
+export class DeleteRotationOverrideCommand extends command<DeleteRotationOverrideCommandInput, DeleteRotationOverrideCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRotationOverride",
+  DeleteRotationOverride$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

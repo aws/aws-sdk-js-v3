@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPipelinesInput, ListPipelinesOutput } from "../models/models_0";
 import { ListPipelines$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListPipelines$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  *
  * @public
  */
-export class ListPipelinesCommand extends $Command
-  .classBuilder<
-    ListPipelinesCommandInput,
-    ListPipelinesCommandOutput,
-    DataPipelineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataPipelineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataPipeline", "ListPipelines", {})
-  .n("DataPipelineClient", "ListPipelinesCommand")
-  .sc(ListPipelines$)
-  .build() {
+export class ListPipelinesCommand extends command<ListPipelinesCommandInput, ListPipelinesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPipelines",
+  ListPipelines$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeGuruReviewerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeGuruReviewerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCodeReviewsRequest, ListCodeReviewsResponse } from "../models/models_0";
 import { ListCodeReviews$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListCodeReviews$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -138,22 +130,12 @@ export interface ListCodeReviewsCommandOutput extends ListCodeReviewsResponse, _
  *
  * @public
  */
-export class ListCodeReviewsCommand extends $Command
-  .classBuilder<
-    ListCodeReviewsCommandInput,
-    ListCodeReviewsCommandOutput,
-    CodeGuruReviewerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeGuruReviewerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGuruFrontendService", "ListCodeReviews", {})
-  .n("CodeGuruReviewerClient", "ListCodeReviewsCommand")
-  .sc(ListCodeReviews$)
-  .build() {
+export class ListCodeReviewsCommand extends command<ListCodeReviewsCommandInput, ListCodeReviewsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCodeReviews",
+  ListCodeReviews$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

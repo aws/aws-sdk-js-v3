@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateIndexRequest, UpdateIndexResponse } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { UpdateIndex$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface UpdateIndexCommandOutput extends UpdateIndexResponse, __Metadat
  *
  * @public
  */
-export class UpdateIndexCommand extends $Command
-  .classBuilder<
-    UpdateIndexCommandInput,
-    UpdateIndexCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "UpdateIndex", {})
-  .n("QBusinessClient", "UpdateIndexCommand")
-  .sc(UpdateIndex$)
-  .build() {
+export class UpdateIndexCommand extends command<UpdateIndexCommandInput, UpdateIndexCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateIndex",
+  UpdateIndex$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

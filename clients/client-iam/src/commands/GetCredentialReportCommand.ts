@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCredentialReportResponse } from "../models/models_0";
 import { GetCredentialReport$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetCredentialReport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface GetCredentialReportCommandOutput extends GetCredentialReportRes
  *
  * @public
  */
-export class GetCredentialReportCommand extends $Command
-  .classBuilder<
-    GetCredentialReportCommandInput,
-    GetCredentialReportCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "GetCredentialReport", {})
-  .n("IAMClient", "GetCredentialReportCommand")
-  .sc(GetCredentialReport$)
-  .build() {
+export class GetCredentialReportCommand extends command<GetCredentialReportCommandInput, GetCredentialReportCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCredentialReport",
+  GetCredentialReport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

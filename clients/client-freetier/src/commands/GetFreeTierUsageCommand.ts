@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FreeTierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FreeTierClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFreeTierUsageRequest, GetFreeTierUsageResponse } from "../models/models_0";
 import { GetFreeTierUsage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetFreeTierUsage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +114,12 @@ export interface GetFreeTierUsageCommandOutput extends GetFreeTierUsageResponse,
  *
  * @public
  */
-export class GetFreeTierUsageCommand extends $Command
-  .classBuilder<
-    GetFreeTierUsageCommandInput,
-    GetFreeTierUsageCommandOutput,
-    FreeTierClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FreeTierClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSFreeTierService", "GetFreeTierUsage", {})
-  .n("FreeTierClient", "GetFreeTierUsageCommand")
-  .sc(GetFreeTierUsage$)
-  .build() {
+export class GetFreeTierUsageCommand extends command<GetFreeTierUsageCommandInput, GetFreeTierUsageCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFreeTierUsage",
+  GetFreeTierUsage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

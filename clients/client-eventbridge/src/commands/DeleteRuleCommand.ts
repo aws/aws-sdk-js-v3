@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRuleRequest } from "../models/models_0";
 import { DeleteRule$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface DeleteRuleCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteRuleCommand extends $Command
-  .classBuilder<
-    DeleteRuleCommandInput,
-    DeleteRuleCommandOutput,
-    EventBridgeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSEvents", "DeleteRule", {})
-  .n("EventBridgeClient", "DeleteRuleCommand")
-  .sc(DeleteRule$)
-  .build() {
+export class DeleteRuleCommand extends command<DeleteRuleCommandInput, DeleteRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRule",
+  DeleteRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

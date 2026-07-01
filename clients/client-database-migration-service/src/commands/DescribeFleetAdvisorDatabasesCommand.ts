@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeFleetAdvisorDatabasesRequest, DescribeFleetAdvisorDatabasesResponse } from "../models/models_0";
 import { DescribeFleetAdvisorDatabases$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeFleetAdvisorDatabases$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +100,12 @@ export interface DescribeFleetAdvisorDatabasesCommandOutput extends DescribeFlee
  *
  * @public
  */
-export class DescribeFleetAdvisorDatabasesCommand extends $Command
-  .classBuilder<
-    DescribeFleetAdvisorDatabasesCommandInput,
-    DescribeFleetAdvisorDatabasesCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "DescribeFleetAdvisorDatabases", {})
-  .n("DatabaseMigrationServiceClient", "DescribeFleetAdvisorDatabasesCommand")
-  .sc(DescribeFleetAdvisorDatabases$)
-  .build() {
+export class DescribeFleetAdvisorDatabasesCommand extends command<DescribeFleetAdvisorDatabasesCommandInput, DescribeFleetAdvisorDatabasesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeFleetAdvisorDatabases",
+  DescribeFleetAdvisorDatabases$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

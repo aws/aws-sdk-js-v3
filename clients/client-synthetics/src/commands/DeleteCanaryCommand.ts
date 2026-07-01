@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCanaryRequest, DeleteCanaryResponse } from "../models/models_0";
 import { DeleteCanary$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface DeleteCanaryCommandOutput extends DeleteCanaryResponse, __Metad
  *
  * @public
  */
-export class DeleteCanaryCommand extends $Command
-  .classBuilder<
-    DeleteCanaryCommandInput,
-    DeleteCanaryCommandOutput,
-    SyntheticsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Synthetics", "DeleteCanary", {})
-  .n("SyntheticsClient", "DeleteCanaryCommand")
-  .sc(DeleteCanary$)
-  .build() {
+export class DeleteCanaryCommand extends command<DeleteCanaryCommandInput, DeleteCanaryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCanary",
+  DeleteCanary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

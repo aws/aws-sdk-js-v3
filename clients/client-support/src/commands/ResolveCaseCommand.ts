@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ResolveCaseRequest, ResolveCaseResponse } from "../models/models_0";
 import { ResolveCase$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface ResolveCaseCommandOutput extends ResolveCaseResponse, __Metadat
  *
  * @public
  */
-export class ResolveCaseCommand extends $Command
-  .classBuilder<
-    ResolveCaseCommandInput,
-    ResolveCaseCommandOutput,
-    SupportClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupportClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSupport_20130415", "ResolveCase", {})
-  .n("SupportClient", "ResolveCaseCommand")
-  .sc(ResolveCase$)
-  .build() {
+export class ResolveCaseCommand extends command<ResolveCaseCommandInput, ResolveCaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "ResolveCase",
+  ResolveCase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

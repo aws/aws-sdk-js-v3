@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeOptOutListsRequest, DescribeOptOutListsResult } from "../models/models_0";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { DescribeOptOutLists$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface DescribeOptOutListsCommandOutput extends DescribeOptOutListsRes
  *
  * @public
  */
-export class DescribeOptOutListsCommand extends $Command
-  .classBuilder<
-    DescribeOptOutListsCommandInput,
-    DescribeOptOutListsCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "DescribeOptOutLists", {})
-  .n("PinpointSMSVoiceV2Client", "DescribeOptOutListsCommand")
-  .sc(DescribeOptOutLists$)
-  .build() {
+export class DescribeOptOutListsCommand extends command<DescribeOptOutListsCommandInput, DescribeOptOutListsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeOptOutLists",
+  DescribeOptOutLists$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

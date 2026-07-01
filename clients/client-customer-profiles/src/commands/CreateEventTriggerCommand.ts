@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateEventTriggerRequest, CreateEventTriggerResponse } from "../models/models_0";
 import { CreateEventTrigger$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateEventTrigger$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -156,22 +148,12 @@ export interface CreateEventTriggerCommandOutput extends CreateEventTriggerRespo
  *
  * @public
  */
-export class CreateEventTriggerCommand extends $Command
-  .classBuilder<
-    CreateEventTriggerCommandInput,
-    CreateEventTriggerCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "CreateEventTrigger", {})
-  .n("CustomerProfilesClient", "CreateEventTriggerCommand")
-  .sc(CreateEventTrigger$)
-  .build() {
+export class CreateEventTriggerCommand extends command<CreateEventTriggerCommandInput, CreateEventTriggerCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateEventTrigger",
+  CreateEventTrigger$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

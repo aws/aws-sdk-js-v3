@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteGlobalNetworkRequest, DeleteGlobalNetworkResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { DeleteGlobalNetwork$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface DeleteGlobalNetworkCommandOutput extends DeleteGlobalNetworkRes
  *
  * @public
  */
-export class DeleteGlobalNetworkCommand extends $Command
-  .classBuilder<
-    DeleteGlobalNetworkCommandInput,
-    DeleteGlobalNetworkCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "DeleteGlobalNetwork", {})
-  .n("NetworkManagerClient", "DeleteGlobalNetworkCommand")
-  .sc(DeleteGlobalNetwork$)
-  .build() {
+export class DeleteGlobalNetworkCommand extends command<DeleteGlobalNetworkCommandInput, DeleteGlobalNetworkCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteGlobalNetwork",
+  DeleteGlobalNetwork$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

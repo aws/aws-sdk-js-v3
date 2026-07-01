@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetIntermediateTableAnalysisRuleInput, GetIntermediateTableAnalysisRuleOutput } from "../models/models_0";
 import { GetIntermediateTableAnalysisRule$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetIntermediateTableAnalysisRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface GetIntermediateTableAnalysisRuleCommandOutput extends GetInterm
  *
  * @public
  */
-export class GetIntermediateTableAnalysisRuleCommand extends $Command
-  .classBuilder<
-    GetIntermediateTableAnalysisRuleCommandInput,
-    GetIntermediateTableAnalysisRuleCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "GetIntermediateTableAnalysisRule", {})
-  .n("CleanRoomsClient", "GetIntermediateTableAnalysisRuleCommand")
-  .sc(GetIntermediateTableAnalysisRule$)
-  .build() {
+export class GetIntermediateTableAnalysisRuleCommand extends command<GetIntermediateTableAnalysisRuleCommandInput, GetIntermediateTableAnalysisRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIntermediateTableAnalysisRule",
+  GetIntermediateTableAnalysisRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

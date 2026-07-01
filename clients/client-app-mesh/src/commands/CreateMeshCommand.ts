@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateMeshInput, CreateMeshOutput } from "../models/models_0";
 import { CreateMesh$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateMesh$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface CreateMeshCommandOutput extends CreateMeshOutput, __MetadataBea
  *
  * @public
  */
-export class CreateMeshCommand extends $Command
-  .classBuilder<
-    CreateMeshCommandInput,
-    CreateMeshCommandOutput,
-    AppMeshClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppMeshClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppMesh", "CreateMesh", {})
-  .n("AppMeshClient", "CreateMeshCommand")
-  .sc(CreateMesh$)
-  .build() {
+export class CreateMeshCommand extends command<CreateMeshCommandInput, CreateMeshCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateMesh",
+  CreateMesh$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

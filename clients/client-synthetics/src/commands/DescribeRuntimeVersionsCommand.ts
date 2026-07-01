@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRuntimeVersionsRequest, DescribeRuntimeVersionsResponse } from "../models/models_0";
 import { DescribeRuntimeVersions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DescribeRuntimeVersionsCommandOutput extends DescribeRuntimeVer
  *
  * @public
  */
-export class DescribeRuntimeVersionsCommand extends $Command
-  .classBuilder<
-    DescribeRuntimeVersionsCommandInput,
-    DescribeRuntimeVersionsCommandOutput,
-    SyntheticsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Synthetics", "DescribeRuntimeVersions", {})
-  .n("SyntheticsClient", "DescribeRuntimeVersionsCommand")
-  .sc(DescribeRuntimeVersions$)
-  .build() {
+export class DescribeRuntimeVersionsCommand extends command<DescribeRuntimeVersionsCommandInput, DescribeRuntimeVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRuntimeVersions",
+  DescribeRuntimeVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

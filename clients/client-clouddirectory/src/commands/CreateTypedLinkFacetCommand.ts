@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudDirectoryClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateTypedLinkFacetRequest, CreateTypedLinkFacetResponse } from "../models/models_0";
 import { CreateTypedLinkFacet$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateTypedLinkFacet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -148,22 +140,12 @@ export interface CreateTypedLinkFacetCommandOutput extends CreateTypedLinkFacetR
  *
  * @public
  */
-export class CreateTypedLinkFacetCommand extends $Command
-  .classBuilder<
-    CreateTypedLinkFacetCommandInput,
-    CreateTypedLinkFacetCommandOutput,
-    CloudDirectoryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonCloudDirectory_20170111", "CreateTypedLinkFacet", {})
-  .n("CloudDirectoryClient", "CreateTypedLinkFacetCommand")
-  .sc(CreateTypedLinkFacet$)
-  .build() {
+export class CreateTypedLinkFacetCommand extends command<CreateTypedLinkFacetCommandInput, CreateTypedLinkFacetCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTypedLinkFacet",
+  CreateTypedLinkFacet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

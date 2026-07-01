@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep4, _mw0, command } from "../commandBuilder";
 import type { CreateSessionOutput, CreateSessionRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { CreateSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -183,29 +178,12 @@ export interface CreateSessionCommandOutput extends CreateSessionOutput, __Metad
  *
  * @public
  */
-export class CreateSessionCommand extends $Command
-  .classBuilder<
-    CreateSessionCommandInput,
-    CreateSessionCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    DisableS3ExpressSessionAuth: { type: "staticContextParams", value: true },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "CreateSession", {})
-  .n("S3Client", "CreateSessionCommand")
-  .sc(CreateSession$)
-  .build() {
+export class CreateSessionCommand extends command<CreateSessionCommandInput, CreateSessionCommandOutput>(
+  _ep4,
+  _mw0,
+  "CreateSession",
+  CreateSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

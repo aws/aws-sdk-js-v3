@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateComponentVersionRequest, CreateComponentVersionResponse } from "../models/models_0";
 import { CreateComponentVersion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateComponentVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -196,22 +192,12 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  *
  * @public
  */
-export class CreateComponentVersionCommand extends $Command
-  .classBuilder<
-    CreateComponentVersionCommandInput,
-    CreateComponentVersionCommandOutput,
-    GreengrassV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GreengrassV2", "CreateComponentVersion", {})
-  .n("GreengrassV2Client", "CreateComponentVersionCommand")
-  .sc(CreateComponentVersion$)
-  .build() {
+export class CreateComponentVersionCommand extends command<CreateComponentVersionCommandInput, CreateComponentVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateComponentVersion",
+  CreateComponentVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

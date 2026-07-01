@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRcsAgentRequest, CreateRcsAgentResult } from "../models/models_0";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { CreateRcsAgent$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +105,12 @@ export interface CreateRcsAgentCommandOutput extends CreateRcsAgentResult, __Met
  *
  * @public
  */
-export class CreateRcsAgentCommand extends $Command
-  .classBuilder<
-    CreateRcsAgentCommandInput,
-    CreateRcsAgentCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "CreateRcsAgent", {})
-  .n("PinpointSMSVoiceV2Client", "CreateRcsAgentCommand")
-  .sc(CreateRcsAgent$)
-  .build() {
+export class CreateRcsAgentCommand extends command<CreateRcsAgentCommandInput, CreateRcsAgentCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRcsAgent",
+  CreateRcsAgent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

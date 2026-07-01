@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetIdentityPoolConfigurationRequest, GetIdentityPoolConfigurationResponse } from "../models/models_0";
 import { GetIdentityPoolConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetIdentityPoolConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -136,22 +132,12 @@ export interface GetIdentityPoolConfigurationCommandOutput extends GetIdentityPo
  *
  * @public
  */
-export class GetIdentityPoolConfigurationCommand extends $Command
-  .classBuilder<
-    GetIdentityPoolConfigurationCommandInput,
-    GetIdentityPoolConfigurationCommandOutput,
-    CognitoSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoSyncService", "GetIdentityPoolConfiguration", {})
-  .n("CognitoSyncClient", "GetIdentityPoolConfigurationCommand")
-  .sc(GetIdentityPoolConfiguration$)
-  .build() {
+export class GetIdentityPoolConfigurationCommand extends command<GetIdentityPoolConfigurationCommandInput, GetIdentityPoolConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIdentityPoolConfiguration",
+  GetIdentityPoolConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeCanariesRequest, DescribeCanariesResponse } from "../models/models_0";
 import { DescribeCanaries$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -215,22 +211,12 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  *
  * @public
  */
-export class DescribeCanariesCommand extends $Command
-  .classBuilder<
-    DescribeCanariesCommandInput,
-    DescribeCanariesCommandOutput,
-    SyntheticsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Synthetics", "DescribeCanaries", {})
-  .n("SyntheticsClient", "DescribeCanariesCommand")
-  .sc(DescribeCanaries$)
-  .build() {
+export class DescribeCanariesCommand extends command<DescribeCanariesCommandInput, DescribeCanariesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCanaries",
+  DescribeCanaries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

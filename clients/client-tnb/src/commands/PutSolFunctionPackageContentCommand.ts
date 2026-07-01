@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutSolFunctionPackageContentInput, PutSolFunctionPackageContentOutput } from "../models/models_0";
 import { PutSolFunctionPackageContent$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  */
@@ -125,22 +121,12 @@ export interface PutSolFunctionPackageContentCommandOutput extends PutSolFunctio
  *
  * @public
  */
-export class PutSolFunctionPackageContentCommand extends $Command
-  .classBuilder<
-    PutSolFunctionPackageContentCommandInput,
-    PutSolFunctionPackageContentCommandOutput,
-    TnbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TNB", "PutSolFunctionPackageContent", {})
-  .n("TnbClient", "PutSolFunctionPackageContentCommand")
-  .sc(PutSolFunctionPackageContent$)
-  .build() {
+export class PutSolFunctionPackageContentCommand extends command<PutSolFunctionPackageContentCommandInput, PutSolFunctionPackageContentCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutSolFunctionPackageContent",
+  PutSolFunctionPackageContent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

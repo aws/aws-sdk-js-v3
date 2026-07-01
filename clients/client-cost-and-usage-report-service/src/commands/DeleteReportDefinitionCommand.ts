@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CostAndUsageReportServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CostAndUsageReportServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteReportDefinitionRequest, DeleteReportDefinitionResponse } from "../models/models_0";
 import { DeleteReportDefinition$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteReportDefinition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  *
  * @public
  */
-export class DeleteReportDefinitionCommand extends $Command
-  .classBuilder<
-    DeleteReportDefinitionCommandInput,
-    DeleteReportDefinitionCommandOutput,
-    CostAndUsageReportServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostAndUsageReportServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrigamiServiceGatewayService", "DeleteReportDefinition", {})
-  .n("CostAndUsageReportServiceClient", "DeleteReportDefinitionCommand")
-  .sc(DeleteReportDefinition$)
-  .build() {
+export class DeleteReportDefinitionCommand extends command<DeleteReportDefinitionCommandInput, DeleteReportDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteReportDefinition",
+  DeleteReportDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

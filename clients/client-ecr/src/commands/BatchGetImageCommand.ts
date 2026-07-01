@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetImageRequest, BatchGetImageResponse } from "../models/models_0";
 import { BatchGetImage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetImage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -149,22 +145,12 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  *
  * @public
  */
-export class BatchGetImageCommand extends $Command
-  .classBuilder<
-    BatchGetImageCommandInput,
-    BatchGetImageCommandOutput,
-    ECRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerRegistry_V20150921", "BatchGetImage", {})
-  .n("ECRClient", "BatchGetImageCommand")
-  .sc(BatchGetImage$)
-  .build() {
+export class BatchGetImageCommand extends command<BatchGetImageCommandInput, BatchGetImageCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetImage",
+  BatchGetImage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

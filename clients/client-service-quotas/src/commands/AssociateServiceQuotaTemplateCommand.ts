@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateServiceQuotaTemplateRequest, AssociateServiceQuotaTemplateResponse } from "../models/models_0";
 import { AssociateServiceQuotaTemplate$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface AssociateServiceQuotaTemplateCommandOutput extends AssociateSer
  *
  * @public
  */
-export class AssociateServiceQuotaTemplateCommand extends $Command
-  .classBuilder<
-    AssociateServiceQuotaTemplateCommandInput,
-    AssociateServiceQuotaTemplateCommandOutput,
-    ServiceQuotasClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ServiceQuotasV20190624", "AssociateServiceQuotaTemplate", {})
-  .n("ServiceQuotasClient", "AssociateServiceQuotaTemplateCommand")
-  .sc(AssociateServiceQuotaTemplate$)
-  .build() {
+export class AssociateServiceQuotaTemplateCommand extends command<AssociateServiceQuotaTemplateCommandInput, AssociateServiceQuotaTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateServiceQuotaTemplate",
+  AssociateServiceQuotaTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

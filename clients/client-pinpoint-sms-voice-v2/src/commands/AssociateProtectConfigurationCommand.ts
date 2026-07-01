@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateProtectConfigurationRequest, AssociateProtectConfigurationResult } from "../models/models_0";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { AssociateProtectConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface AssociateProtectConfigurationCommandOutput extends AssociatePro
  *
  * @public
  */
-export class AssociateProtectConfigurationCommand extends $Command
-  .classBuilder<
-    AssociateProtectConfigurationCommandInput,
-    AssociateProtectConfigurationCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "AssociateProtectConfiguration", {})
-  .n("PinpointSMSVoiceV2Client", "AssociateProtectConfigurationCommand")
-  .sc(AssociateProtectConfiguration$)
-  .build() {
+export class AssociateProtectConfigurationCommand extends command<AssociateProtectConfigurationCommandInput, AssociateProtectConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateProtectConfiguration",
+  AssociateProtectConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

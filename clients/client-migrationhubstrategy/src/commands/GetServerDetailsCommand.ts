@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MigrationHubStrategyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MigrationHubStrategyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetServerDetailsRequest, GetServerDetailsResponse } from "../models/models_0";
 import { GetServerDetails$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetServerDetails$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -141,22 +133,12 @@ export interface GetServerDetailsCommandOutput extends GetServerDetailsResponse,
  *
  * @public
  */
-export class GetServerDetailsCommand extends $Command
-  .classBuilder<
-    GetServerDetailsCommandInput,
-    GetServerDetailsCommandOutput,
-    MigrationHubStrategyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubStrategyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHubStrategyRecommendation", "GetServerDetails", {})
-  .n("MigrationHubStrategyClient", "GetServerDetailsCommand")
-  .sc(GetServerDetails$)
-  .build() {
+export class GetServerDetailsCommand extends command<GetServerDetailsCommandInput, GetServerDetailsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetServerDetails",
+  GetServerDetails$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

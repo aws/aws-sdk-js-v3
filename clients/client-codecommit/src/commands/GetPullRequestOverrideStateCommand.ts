@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPullRequestOverrideStateInput, GetPullRequestOverrideStateOutput } from "../models/models_0";
 import { GetPullRequestOverrideState$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetPullRequestOverrideState$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface GetPullRequestOverrideStateCommandOutput extends GetPullRequest
  *
  * @public
  */
-export class GetPullRequestOverrideStateCommand extends $Command
-  .classBuilder<
-    GetPullRequestOverrideStateCommandInput,
-    GetPullRequestOverrideStateCommandOutput,
-    CodeCommitClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCommit_20150413", "GetPullRequestOverrideState", {})
-  .n("CodeCommitClient", "GetPullRequestOverrideStateCommand")
-  .sc(GetPullRequestOverrideState$)
-  .build() {
+export class GetPullRequestOverrideStateCommand extends command<GetPullRequestOverrideStateCommandInput, GetPullRequestOverrideStateCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPullRequestOverrideState",
+  GetPullRequestOverrideState$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

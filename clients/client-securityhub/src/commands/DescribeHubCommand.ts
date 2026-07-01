@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeHubRequest, DescribeHubResponse } from "../models/models_2";
 import { DescribeHub$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
  *
  * @public
  */
-export class DescribeHubCommand extends $Command
-  .classBuilder<
-    DescribeHubCommandInput,
-    DescribeHubCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "DescribeHub", {})
-  .n("SecurityHubClient", "DescribeHubCommand")
-  .sc(DescribeHub$)
-  .build() {
+export class DescribeHubCommand extends command<DescribeHubCommandInput, DescribeHubCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeHub",
+  DescribeHub$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

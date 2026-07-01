@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveUserFromGroupRequest } from "../models/models_0";
 import { RemoveUserFromGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RemoveUserFromGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface RemoveUserFromGroupCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class RemoveUserFromGroupCommand extends $Command
-  .classBuilder<
-    RemoveUserFromGroupCommandInput,
-    RemoveUserFromGroupCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "RemoveUserFromGroup", {})
-  .n("IAMClient", "RemoveUserFromGroupCommand")
-  .sc(RemoveUserFromGroup$)
-  .build() {
+export class RemoveUserFromGroupCommand extends command<RemoveUserFromGroupCommandInput, RemoveUserFromGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveUserFromGroup",
+  RemoveUserFromGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MedicalImagingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MedicalImagingClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetImageSetMetadataRequest, GetImageSetMetadataResponse } from "../models/models_0";
 import { GetImageSetMetadata$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetImageSetMetadata$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +84,12 @@ export interface GetImageSetMetadataCommandOutput extends Omit<GetImageSetMetada
  *
  * @public
  */
-export class GetImageSetMetadataCommand extends $Command
-  .classBuilder<
-    GetImageSetMetadataCommandInput,
-    GetImageSetMetadataCommandOutput,
-    MedicalImagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AHIGatewayService", "GetImageSetMetadata", {})
-  .n("MedicalImagingClient", "GetImageSetMetadataCommand")
-  .sc(GetImageSetMetadata$)
-  .build() {
+export class GetImageSetMetadataCommand extends command<GetImageSetMetadataCommandInput, GetImageSetMetadataCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetImageSetMetadata",
+  GetImageSetMetadata$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

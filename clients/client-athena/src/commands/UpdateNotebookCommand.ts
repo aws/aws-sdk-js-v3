@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateNotebookInput, UpdateNotebookOutput } from "../models/models_0";
 import { UpdateNotebook$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateNotebook$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface UpdateNotebookCommandOutput extends UpdateNotebookOutput, __Met
  *
  * @public
  */
-export class UpdateNotebookCommand extends $Command
-  .classBuilder<
-    UpdateNotebookCommandInput,
-    UpdateNotebookCommandOutput,
-    AthenaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAthena", "UpdateNotebook", {})
-  .n("AthenaClient", "UpdateNotebookCommand")
-  .sc(UpdateNotebook$)
-  .build() {
+export class UpdateNotebookCommand extends command<UpdateNotebookCommandInput, UpdateNotebookCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateNotebook",
+  UpdateNotebook$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

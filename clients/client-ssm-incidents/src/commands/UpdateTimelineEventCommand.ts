@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateTimelineEventInput, UpdateTimelineEventOutput } from "../models/models_0";
 import { UpdateTimelineEvent$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface UpdateTimelineEventCommandOutput extends UpdateTimelineEventOut
  *
  * @public
  */
-export class UpdateTimelineEventCommand extends $Command
-  .classBuilder<
-    UpdateTimelineEventCommandInput,
-    UpdateTimelineEventCommandOutput,
-    SSMIncidentsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMIncidentsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMIncidents", "UpdateTimelineEvent", {})
-  .n("SSMIncidentsClient", "UpdateTimelineEventCommand")
-  .sc(UpdateTimelineEvent$)
-  .build() {
+export class UpdateTimelineEventCommand extends command<UpdateTimelineEventCommandInput, UpdateTimelineEventCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateTimelineEvent",
+  UpdateTimelineEvent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

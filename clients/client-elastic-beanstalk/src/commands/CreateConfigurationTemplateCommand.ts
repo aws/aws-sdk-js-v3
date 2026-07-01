@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ConfigurationSettingsDescription, CreateConfigurationTemplateMessage } from "../models/models_0";
 import { CreateConfigurationTemplate$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateConfigurationTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -156,22 +148,12 @@ export interface CreateConfigurationTemplateCommandOutput extends ConfigurationS
  *
  * @public
  */
-export class CreateConfigurationTemplateCommand extends $Command
-  .classBuilder<
-    CreateConfigurationTemplateCommandInput,
-    CreateConfigurationTemplateCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "CreateConfigurationTemplate", {})
-  .n("ElasticBeanstalkClient", "CreateConfigurationTemplateCommand")
-  .sc(CreateConfigurationTemplate$)
-  .build() {
+export class CreateConfigurationTemplateCommand extends command<CreateConfigurationTemplateCommandInput, CreateConfigurationTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateConfigurationTemplate",
+  CreateConfigurationTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

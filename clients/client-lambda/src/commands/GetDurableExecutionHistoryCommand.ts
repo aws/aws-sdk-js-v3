@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDurableExecutionHistoryRequest, GetDurableExecutionHistoryResponse } from "../models/models_0";
 import { GetDurableExecutionHistory$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDurableExecutionHistory$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -244,22 +240,12 @@ export interface GetDurableExecutionHistoryCommandOutput extends GetDurableExecu
  *
  * @public
  */
-export class GetDurableExecutionHistoryCommand extends $Command
-  .classBuilder<
-    GetDurableExecutionHistoryCommandInput,
-    GetDurableExecutionHistoryCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "GetDurableExecutionHistory", {})
-  .n("LambdaClient", "GetDurableExecutionHistoryCommand")
-  .sc(GetDurableExecutionHistory$)
-  .build() {
+export class GetDurableExecutionHistoryCommand extends command<GetDurableExecutionHistoryCommandInput, GetDurableExecutionHistoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDurableExecutionHistory",
+  GetDurableExecutionHistory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

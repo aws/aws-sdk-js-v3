@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetExportRequest, GetExportResponse } from "../models/models_0";
 import { GetExport$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SimpleDBv2ClientResolvedConfig } from "../SimpleDBv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
  *
  * @public
  */
-export class GetExportCommand extends $Command
-  .classBuilder<
-    GetExportCommandInput,
-    GetExportCommandOutput,
-    SimpleDBv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SimpleDBv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleDBv2", "GetExport", {})
-  .n("SimpleDBv2Client", "GetExportCommand")
-  .sc(GetExport$)
-  .build() {
+export class GetExportCommand extends command<GetExportCommandInput, GetExportCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetExport",
+  GetExport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

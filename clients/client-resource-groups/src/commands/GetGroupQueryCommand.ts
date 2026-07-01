@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetGroupQueryInput, GetGroupQueryOutput } from "../models/models_0";
-import type {
-  ResourceGroupsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceGroupsClient";
 import { GetGroupQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface GetGroupQueryCommandOutput extends GetGroupQueryOutput, __Metad
  *
  * @public
  */
-export class GetGroupQueryCommand extends $Command
-  .classBuilder<
-    GetGroupQueryCommandInput,
-    GetGroupQueryCommandOutput,
-    ResourceGroupsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceGroupsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Ardi", "GetGroupQuery", {})
-  .n("ResourceGroupsClient", "GetGroupQueryCommand")
-  .sc(GetGroupQuery$)
-  .build() {
+export class GetGroupQueryCommand extends command<GetGroupQueryCommandInput, GetGroupQueryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetGroupQuery",
+  GetGroupQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

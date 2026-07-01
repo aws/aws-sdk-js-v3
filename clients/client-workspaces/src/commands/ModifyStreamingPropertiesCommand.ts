@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyStreamingPropertiesRequest, ModifyStreamingPropertiesResult } from "../models/models_0";
 import { ModifyStreamingProperties$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ModifyStreamingPropertiesCommandOutput extends ModifyStreamingP
  *
  * @public
  */
-export class ModifyStreamingPropertiesCommand extends $Command
-  .classBuilder<
-    ModifyStreamingPropertiesCommandInput,
-    ModifyStreamingPropertiesCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "ModifyStreamingProperties", {})
-  .n("WorkSpacesClient", "ModifyStreamingPropertiesCommand")
-  .sc(ModifyStreamingProperties$)
-  .build() {
+export class ModifyStreamingPropertiesCommand extends command<ModifyStreamingPropertiesCommandInput, ModifyStreamingPropertiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyStreamingProperties",
+  ModifyStreamingProperties$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

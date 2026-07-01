@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AccessAnalyzerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AccessAnalyzerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelPolicyGenerationRequest, CancelPolicyGenerationResponse } from "../models/models_0";
 import { CancelPolicyGeneration$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CancelPolicyGeneration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +65,12 @@ export interface CancelPolicyGenerationCommandOutput extends CancelPolicyGenerat
  *
  * @public
  */
-export class CancelPolicyGenerationCommand extends $Command
-  .classBuilder<
-    CancelPolicyGenerationCommandInput,
-    CancelPolicyGenerationCommandOutput,
-    AccessAnalyzerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AccessAnalyzer", "CancelPolicyGeneration", {})
-  .n("AccessAnalyzerClient", "CancelPolicyGenerationCommand")
-  .sc(CancelPolicyGeneration$)
-  .build() {
+export class CancelPolicyGenerationCommand extends command<CancelPolicyGenerationCommandInput, CancelPolicyGenerationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelPolicyGeneration",
+  CancelPolicyGeneration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

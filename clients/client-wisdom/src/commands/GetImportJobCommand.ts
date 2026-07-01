@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetImportJobRequest, GetImportJobResponse } from "../models/models_0";
 import { GetImportJob$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
  *
  * @public
  */
-export class GetImportJobCommand extends $Command
-  .classBuilder<
-    GetImportJobCommandInput,
-    GetImportJobCommandOutput,
-    WisdomClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "GetImportJob", {})
-  .n("WisdomClient", "GetImportJobCommand")
-  .sc(GetImportJob$)
-  .build() {
+export class GetImportJobCommand extends command<GetImportJobCommandInput, GetImportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetImportJob",
+  GetImportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

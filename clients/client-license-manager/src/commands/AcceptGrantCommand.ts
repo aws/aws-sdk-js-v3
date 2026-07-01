@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AcceptGrantRequest, AcceptGrantResponse } from "../models/models_0";
 import { AcceptGrant$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AcceptGrant$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface AcceptGrantCommandOutput extends AcceptGrantResponse, __Metadat
  *
  * @public
  */
-export class AcceptGrantCommand extends $Command
-  .classBuilder<
-    AcceptGrantCommandInput,
-    AcceptGrantCommandOutput,
-    LicenseManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLicenseManager", "AcceptGrant", {})
-  .n("LicenseManagerClient", "AcceptGrantCommand")
-  .sc(AcceptGrant$)
-  .build() {
+export class AcceptGrantCommand extends command<AcceptGrantCommandInput, AcceptGrantCommandOutput>(
+  _ep0,
+  _mw0,
+  "AcceptGrant",
+  AcceptGrant$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { StartSpeechSynthesisStreamInput, StartSpeechSynthesisStreamOutput } from "../models/models_0";
-import type { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
 import { StartSpeechSynthesisStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,33 +128,12 @@ export interface StartSpeechSynthesisStreamCommandOutput extends StartSpeechSynt
  *
  * @public
  */
-export class StartSpeechSynthesisStreamCommand extends $Command
-  .classBuilder<
-    StartSpeechSynthesisStreamCommandInput,
-    StartSpeechSynthesisStreamCommandOutput,
-    PollyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PollyClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEventStreamPlugin(config),
-    ];
-  })
-  .s("Parrot_v1", "StartSpeechSynthesisStream", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      input: true,
-      output: true,
-    },
-  })
-  .n("PollyClient", "StartSpeechSynthesisStreamCommand")
-  .sc(StartSpeechSynthesisStream$)
-  .build() {
+export class StartSpeechSynthesisStreamCommand extends command<StartSpeechSynthesisStreamCommandInput, StartSpeechSynthesisStreamCommandOutput>(
+  _ep0,
+  _mw1,
+  "StartSpeechSynthesisStream",
+  StartSpeechSynthesisStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

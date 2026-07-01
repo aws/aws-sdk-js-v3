@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateServiceSyncConfigInput, CreateServiceSyncConfigOutput } from "../models/models_0";
-import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 import { CreateServiceSyncConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface CreateServiceSyncConfigCommandOutput extends CreateServiceSyncC
  *
  * @public
  */
-export class CreateServiceSyncConfigCommand extends $Command
-  .classBuilder<
-    CreateServiceSyncConfigCommandInput,
-    CreateServiceSyncConfigCommandOutput,
-    ProtonClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsProton20200720", "CreateServiceSyncConfig", {})
-  .n("ProtonClient", "CreateServiceSyncConfigCommand")
-  .sc(CreateServiceSyncConfig$)
-  .build() {
+export class CreateServiceSyncConfigCommand extends command<CreateServiceSyncConfigCommandInput, CreateServiceSyncConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateServiceSyncConfig",
+  CreateServiceSyncConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

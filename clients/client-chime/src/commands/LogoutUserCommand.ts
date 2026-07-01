@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { LogoutUserRequest, LogoutUserResponse } from "../models/models_0";
 import { LogoutUser$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { LogoutUser$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface LogoutUserCommandOutput extends LogoutUserResponse, __MetadataB
  *
  * @public
  */
-export class LogoutUserCommand extends $Command
-  .classBuilder<
-    LogoutUserCommandInput,
-    LogoutUserCommandOutput,
-    ChimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("UCBuzzConsoleService", "LogoutUser", {})
-  .n("ChimeClient", "LogoutUserCommand")
-  .sc(LogoutUser$)
-  .build() {
+export class LogoutUserCommand extends command<LogoutUserCommandInput, LogoutUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "LogoutUser",
+  LogoutUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

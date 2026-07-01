@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeDataSharesForProducerMessage, DescribeDataSharesForProducerResult } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { DescribeDataSharesForProducer$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface DescribeDataSharesForProducerCommandOutput extends DescribeData
  *
  * @public
  */
-export class DescribeDataSharesForProducerCommand extends $Command
-  .classBuilder<
-    DescribeDataSharesForProducerCommandInput,
-    DescribeDataSharesForProducerCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "DescribeDataSharesForProducer", {})
-  .n("RedshiftClient", "DescribeDataSharesForProducerCommand")
-  .sc(DescribeDataSharesForProducer$)
-  .build() {
+export class DescribeDataSharesForProducerCommand extends command<DescribeDataSharesForProducerCommandInput, DescribeDataSharesForProducerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDataSharesForProducer",
+  DescribeDataSharesForProducer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

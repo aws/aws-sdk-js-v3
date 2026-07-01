@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRouteCalculatorRequest, DescribeRouteCalculatorResponse } from "../models/models_0";
 import { DescribeRouteCalculator$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeRouteCalculator$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DescribeRouteCalculatorCommandOutput extends DescribeRouteCalcu
  *
  * @public
  */
-export class DescribeRouteCalculatorCommand extends $Command
-  .classBuilder<
-    DescribeRouteCalculatorCommandInput,
-    DescribeRouteCalculatorCommandOutput,
-    LocationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LocationService", "DescribeRouteCalculator", {})
-  .n("LocationClient", "DescribeRouteCalculatorCommand")
-  .sc(DescribeRouteCalculator$)
-  .build() {
+export class DescribeRouteCalculatorCommand extends command<DescribeRouteCalculatorCommandInput, DescribeRouteCalculatorCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRouteCalculator",
+  DescribeRouteCalculator$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

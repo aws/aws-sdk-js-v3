@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationSignalsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationSignalsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ReportInstrumentationConfigurationStatusRequest,
   ReportInstrumentationConfigurationStatusResponse,
@@ -19,7 +12,6 @@ import { ReportInstrumentationConfigurationStatus$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +86,12 @@ export interface ReportInstrumentationConfigurationStatusCommandOutput extends R
  *
  * @public
  */
-export class ReportInstrumentationConfigurationStatusCommand extends $Command
-  .classBuilder<
-    ReportInstrumentationConfigurationStatusCommandInput,
-    ReportInstrumentationConfigurationStatusCommandOutput,
-    ApplicationSignalsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationSignalsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationSignals", "ReportInstrumentationConfigurationStatus", {})
-  .n("ApplicationSignalsClient", "ReportInstrumentationConfigurationStatusCommand")
-  .sc(ReportInstrumentationConfigurationStatus$)
-  .build() {
+export class ReportInstrumentationConfigurationStatusCommand extends command<ReportInstrumentationConfigurationStatusCommandInput, ReportInstrumentationConfigurationStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "ReportInstrumentationConfigurationStatus",
+  ReportInstrumentationConfigurationStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

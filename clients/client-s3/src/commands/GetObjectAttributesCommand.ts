@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getSsecPlugin, getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep5, _mw1, command } from "../commandBuilder";
 import type { GetObjectAttributesOutput, GetObjectAttributesRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { GetObjectAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -324,29 +319,12 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  *
  * @public
  */
-export class GetObjectAttributesCommand extends $Command
-  .classBuilder<
-    GetObjectAttributesCommandInput,
-    GetObjectAttributesCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-      getSsecPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "GetObjectAttributes", {})
-  .n("S3Client", "GetObjectAttributesCommand")
-  .sc(GetObjectAttributes$)
-  .build() {
+export class GetObjectAttributesCommand extends command<GetObjectAttributesCommandInput, GetObjectAttributesCommandOutput>(
+  _ep5,
+  _mw1,
+  "GetObjectAttributes",
+  GetObjectAttributes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

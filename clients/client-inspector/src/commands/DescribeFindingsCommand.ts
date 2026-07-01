@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeFindingsRequest, DescribeFindingsResponse } from "../models/models_0";
 import { DescribeFindings$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeFindings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -151,22 +147,12 @@ export interface DescribeFindingsCommandOutput extends DescribeFindingsResponse,
  *
  * @public
  */
-export class DescribeFindingsCommand extends $Command
-  .classBuilder<
-    DescribeFindingsCommandInput,
-    DescribeFindingsCommandOutput,
-    InspectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("InspectorService", "DescribeFindings", {})
-  .n("InspectorClient", "DescribeFindingsCommand")
-  .sc(DescribeFindings$)
-  .build() {
+export class DescribeFindingsCommand extends command<DescribeFindingsCommandInput, DescribeFindingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeFindings",
+  DescribeFindings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

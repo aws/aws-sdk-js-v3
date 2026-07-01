@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCustomPermissionsRequest, ListCustomPermissionsResponse } from "../models/models_4";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { ListCustomPermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -323,22 +319,12 @@ export interface ListCustomPermissionsCommandOutput extends ListCustomPermission
  *
  * @public
  */
-export class ListCustomPermissionsCommand extends $Command
-  .classBuilder<
-    ListCustomPermissionsCommandInput,
-    ListCustomPermissionsCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "ListCustomPermissions", {})
-  .n("QuickSightClient", "ListCustomPermissionsCommand")
-  .sc(ListCustomPermissions$)
-  .build() {
+export class ListCustomPermissionsCommand extends command<ListCustomPermissionsCommandInput, ListCustomPermissionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCustomPermissions",
+  ListCustomPermissions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

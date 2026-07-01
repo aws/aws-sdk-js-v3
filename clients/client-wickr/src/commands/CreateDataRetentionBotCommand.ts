@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDataRetentionBotRequest, CreateDataRetentionBotResponse } from "../models/models_0";
 import { CreateDataRetentionBot$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface CreateDataRetentionBotCommandOutput extends CreateDataRetention
  *
  * @public
  */
-export class CreateDataRetentionBotCommand extends $Command
-  .classBuilder<
-    CreateDataRetentionBotCommandInput,
-    CreateDataRetentionBotCommandOutput,
-    WickrClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WickrAdminApi", "CreateDataRetentionBot", {})
-  .n("WickrClient", "CreateDataRetentionBotCommand")
-  .sc(CreateDataRetentionBot$)
-  .build() {
+export class CreateDataRetentionBotCommand extends command<CreateDataRetentionBotCommandInput, CreateDataRetentionBotCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDataRetentionBot",
+  CreateDataRetentionBot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

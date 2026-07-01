@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPersistentAppUIPresignedURLInput, GetPersistentAppUIPresignedURLOutput } from "../models/models_0";
 import { GetPersistentAppUIPresignedURL$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetPersistentAppUIPresignedURL$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface GetPersistentAppUIPresignedURLCommandOutput extends GetPersiste
  *
  * @public
  */
-export class GetPersistentAppUIPresignedURLCommand extends $Command
-  .classBuilder<
-    GetPersistentAppUIPresignedURLCommandInput,
-    GetPersistentAppUIPresignedURLCommandOutput,
-    EMRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticMapReduce", "GetPersistentAppUIPresignedURL", {})
-  .n("EMRClient", "GetPersistentAppUIPresignedURLCommand")
-  .sc(GetPersistentAppUIPresignedURL$)
-  .build() {
+export class GetPersistentAppUIPresignedURLCommand extends command<GetPersistentAppUIPresignedURLCommandInput, GetPersistentAppUIPresignedURLCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPersistentAppUIPresignedURL",
+  GetPersistentAppUIPresignedURL$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

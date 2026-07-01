@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFileShareInput, DeleteFileShareOutput } from "../models/models_0";
 import { DeleteFileShare$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +65,12 @@ export interface DeleteFileShareCommandOutput extends DeleteFileShareOutput, __M
  *
  * @public
  */
-export class DeleteFileShareCommand extends $Command
-  .classBuilder<
-    DeleteFileShareCommandInput,
-    DeleteFileShareCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "DeleteFileShare", {})
-  .n("StorageGatewayClient", "DeleteFileShareCommand")
-  .sc(DeleteFileShare$)
-  .build() {
+export class DeleteFileShareCommand extends command<DeleteFileShareCommandInput, DeleteFileShareCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFileShare",
+  DeleteFileShare$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

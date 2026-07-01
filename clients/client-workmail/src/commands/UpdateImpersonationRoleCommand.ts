@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateImpersonationRoleRequest, UpdateImpersonationRoleResponse } from "../models/models_0";
 import { UpdateImpersonationRole$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface UpdateImpersonationRoleCommandOutput extends UpdateImpersonatio
  *
  * @public
  */
-export class UpdateImpersonationRoleCommand extends $Command
-  .classBuilder<
-    UpdateImpersonationRoleCommandInput,
-    UpdateImpersonationRoleCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "UpdateImpersonationRole", {})
-  .n("WorkMailClient", "UpdateImpersonationRoleCommand")
-  .sc(UpdateImpersonationRole$)
-  .build() {
+export class UpdateImpersonationRoleCommand extends command<UpdateImpersonationRoleCommandInput, UpdateImpersonationRoleCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateImpersonationRole",
+  UpdateImpersonationRole$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

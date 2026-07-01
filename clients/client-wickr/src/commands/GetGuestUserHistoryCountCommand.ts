@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetGuestUserHistoryCountRequest, GetGuestUserHistoryCountResponse } from "../models/models_0";
 import { GetGuestUserHistoryCount$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +136,12 @@ export interface GetGuestUserHistoryCountCommandOutput extends GetGuestUserHisto
  *
  * @public
  */
-export class GetGuestUserHistoryCountCommand extends $Command
-  .classBuilder<
-    GetGuestUserHistoryCountCommandInput,
-    GetGuestUserHistoryCountCommandOutput,
-    WickrClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WickrAdminApi", "GetGuestUserHistoryCount", {})
-  .n("WickrClient", "GetGuestUserHistoryCountCommand")
-  .sc(GetGuestUserHistoryCount$)
-  .build() {
+export class GetGuestUserHistoryCountCommand extends command<GetGuestUserHistoryCountCommandInput, GetGuestUserHistoryCountCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetGuestUserHistoryCount",
+  GetGuestUserHistoryCount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

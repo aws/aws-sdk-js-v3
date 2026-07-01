@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSiteToSiteVpnAttachmentRequest, CreateSiteToSiteVpnAttachmentResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { CreateSiteToSiteVpnAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -145,22 +137,12 @@ export interface CreateSiteToSiteVpnAttachmentCommandOutput extends CreateSiteTo
  *
  * @public
  */
-export class CreateSiteToSiteVpnAttachmentCommand extends $Command
-  .classBuilder<
-    CreateSiteToSiteVpnAttachmentCommandInput,
-    CreateSiteToSiteVpnAttachmentCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "CreateSiteToSiteVpnAttachment", {})
-  .n("NetworkManagerClient", "CreateSiteToSiteVpnAttachmentCommand")
-  .sc(CreateSiteToSiteVpnAttachment$)
-  .build() {
+export class CreateSiteToSiteVpnAttachmentCommand extends command<CreateSiteToSiteVpnAttachmentCommandInput, CreateSiteToSiteVpnAttachmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSiteToSiteVpnAttachment",
+  CreateSiteToSiteVpnAttachment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListConnectionInvitationsRequest, ListConnectionInvitationsResponse } from "../models/models_0";
-import type {
-  PartnerCentralAccountClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralAccountClient";
 import { ListConnectionInvitations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +90,12 @@ export interface ListConnectionInvitationsCommandOutput extends ListConnectionIn
  *
  * @public
  */
-export class ListConnectionInvitationsCommand extends $Command
-  .classBuilder<
-    ListConnectionInvitationsCommandInput,
-    ListConnectionInvitationsCommandOutput,
-    PartnerCentralAccountClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralAccountClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralAccount", "ListConnectionInvitations", {})
-  .n("PartnerCentralAccountClient", "ListConnectionInvitationsCommand")
-  .sc(ListConnectionInvitations$)
-  .build() {
+export class ListConnectionInvitationsCommand extends command<ListConnectionInvitationsCommandInput, ListConnectionInvitationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListConnectionInvitations",
+  ListConnectionInvitations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

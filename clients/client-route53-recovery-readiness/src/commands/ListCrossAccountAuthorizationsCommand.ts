@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCrossAccountAuthorizationsRequest, ListCrossAccountAuthorizationsResponse } from "../models/models_0";
-import type {
-  Route53RecoveryReadinessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryReadinessClient";
 import { ListCrossAccountAuthorizations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface ListCrossAccountAuthorizationsCommandOutput extends ListCrossAc
  *
  * @public
  */
-export class ListCrossAccountAuthorizationsCommand extends $Command
-  .classBuilder<
-    ListCrossAccountAuthorizationsCommandInput,
-    ListCrossAccountAuthorizationsCommandOutput,
-    Route53RecoveryReadinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryReadinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53RecoveryReadiness", "ListCrossAccountAuthorizations", {})
-  .n("Route53RecoveryReadinessClient", "ListCrossAccountAuthorizationsCommand")
-  .sc(ListCrossAccountAuthorizations$)
-  .build() {
+export class ListCrossAccountAuthorizationsCommand extends command<ListCrossAccountAuthorizationsCommandInput, ListCrossAccountAuthorizationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCrossAccountAuthorizations",
+  ListCrossAccountAuthorizations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

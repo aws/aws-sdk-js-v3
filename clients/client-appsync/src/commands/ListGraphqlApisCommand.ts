@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListGraphqlApisRequest, ListGraphqlApisResponse } from "../models/models_0";
 import { ListGraphqlApis$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListGraphqlApis$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -147,22 +143,12 @@ export interface ListGraphqlApisCommandOutput extends ListGraphqlApisResponse, _
  *
  * @public
  */
-export class ListGraphqlApisCommand extends $Command
-  .classBuilder<
-    ListGraphqlApisCommandInput,
-    ListGraphqlApisCommandOutput,
-    AppSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepdishControlPlaneService", "ListGraphqlApis", {})
-  .n("AppSyncClient", "ListGraphqlApisCommand")
-  .sc(ListGraphqlApis$)
-  .build() {
+export class ListGraphqlApisCommand extends command<ListGraphqlApisCommandInput, ListGraphqlApisCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListGraphqlApis",
+  ListGraphqlApis$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

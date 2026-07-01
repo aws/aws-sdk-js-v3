@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElementalInferenceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElementalInferenceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateFeedRequest, DisassociateFeedResponse } from "../models/models_0";
 import { DisassociateFeed$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DisassociateFeed$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface DisassociateFeedCommandOutput extends DisassociateFeedResponse,
  *
  * @public
  */
-export class DisassociateFeedCommand extends $Command
-  .classBuilder<
-    DisassociateFeedCommandInput,
-    DisassociateFeedCommandOutput,
-    ElementalInferenceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElementalInferenceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElementalInference", "DisassociateFeed", {})
-  .n("ElementalInferenceClient", "DisassociateFeedCommand")
-  .sc(DisassociateFeed$)
-  .build() {
+export class DisassociateFeedCommand extends command<DisassociateFeedCommandInput, DisassociateFeedCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateFeed",
+  DisassociateFeed$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

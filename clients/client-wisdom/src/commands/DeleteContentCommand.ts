@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteContentRequest, DeleteContentResponse } from "../models/models_0";
 import { DeleteContent$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface DeleteContentCommandOutput extends DeleteContentResponse, __Met
  *
  * @public
  */
-export class DeleteContentCommand extends $Command
-  .classBuilder<
-    DeleteContentCommandInput,
-    DeleteContentCommandOutput,
-    WisdomClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "DeleteContent", {})
-  .n("WisdomClient", "DeleteContentCommand")
-  .sc(DeleteContent$)
-  .build() {
+export class DeleteContentCommand extends command<DeleteContentCommandInput, DeleteContentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteContent",
+  DeleteContent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

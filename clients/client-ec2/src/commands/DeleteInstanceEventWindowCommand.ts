@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteInstanceEventWindowRequest, DeleteInstanceEventWindowResult } from "../models/models_2";
 import { DeleteInstanceEventWindow$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteInstanceEventWindow$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +62,12 @@ export interface DeleteInstanceEventWindowCommandOutput extends DeleteInstanceEv
  *
  * @public
  */
-export class DeleteInstanceEventWindowCommand extends $Command
-  .classBuilder<
-    DeleteInstanceEventWindowCommandInput,
-    DeleteInstanceEventWindowCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeleteInstanceEventWindow", {})
-  .n("EC2Client", "DeleteInstanceEventWindowCommand")
-  .sc(DeleteInstanceEventWindow$)
-  .build() {
+export class DeleteInstanceEventWindowCommand extends command<DeleteInstanceEventWindowCommandInput, DeleteInstanceEventWindowCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteInstanceEventWindow",
+  DeleteInstanceEventWindow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

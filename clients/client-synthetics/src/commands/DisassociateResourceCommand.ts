@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateResourceRequest, DisassociateResourceResponse } from "../models/models_0";
 import { DisassociateResource$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface DisassociateResourceCommandOutput extends DisassociateResourceR
  *
  * @public
  */
-export class DisassociateResourceCommand extends $Command
-  .classBuilder<
-    DisassociateResourceCommandInput,
-    DisassociateResourceCommandOutput,
-    SyntheticsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Synthetics", "DisassociateResource", {})
-  .n("SyntheticsClient", "DisassociateResourceCommand")
-  .sc(DisassociateResource$)
-  .build() {
+export class DisassociateResourceCommand extends command<DisassociateResourceCommandInput, DisassociateResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateResource",
+  DisassociateResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

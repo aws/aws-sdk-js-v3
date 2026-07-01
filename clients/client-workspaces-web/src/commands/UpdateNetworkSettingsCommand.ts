@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateNetworkSettingsRequest, UpdateNetworkSettingsResponse } from "../models/models_0";
 import { UpdateNetworkSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface UpdateNetworkSettingsCommandOutput extends UpdateNetworkSetting
  *
  * @public
  */
-export class UpdateNetworkSettingsCommand extends $Command
-  .classBuilder<
-    UpdateNetworkSettingsCommandInput,
-    UpdateNetworkSettingsCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "UpdateNetworkSettings", {})
-  .n("WorkSpacesWebClient", "UpdateNetworkSettingsCommand")
-  .sc(UpdateNetworkSettings$)
-  .build() {
+export class UpdateNetworkSettingsCommand extends command<UpdateNetworkSettingsCommandInput, UpdateNetworkSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateNetworkSettings",
+  UpdateNetworkSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

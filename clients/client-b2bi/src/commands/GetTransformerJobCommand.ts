@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTransformerJobRequest, GetTransformerJobResponse } from "../models/models_0";
 import { GetTransformerJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetTransformerJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface GetTransformerJobCommandOutput extends GetTransformerJobRespons
  *
  * @public
  */
-export class GetTransformerJobCommand extends $Command
-  .classBuilder<
-    GetTransformerJobCommandInput,
-    GetTransformerJobCommandOutput,
-    B2biClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("B2BI", "GetTransformerJob", {})
-  .n("B2biClient", "GetTransformerJobCommand")
-  .sc(GetTransformerJob$)
-  .build() {
+export class GetTransformerJobCommand extends command<GetTransformerJobCommandInput, GetTransformerJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTransformerJob",
+  GetTransformerJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

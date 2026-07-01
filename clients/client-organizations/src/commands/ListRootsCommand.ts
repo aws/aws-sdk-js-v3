@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRootsRequest, ListRootsResponse } from "../models/models_0";
-import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { ListRoots$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -281,22 +277,12 @@ export interface ListRootsCommandOutput extends ListRootsResponse, __MetadataBea
  *
  * @public
  */
-export class ListRootsCommand extends $Command
-  .classBuilder<
-    ListRootsCommandInput,
-    ListRootsCommandOutput,
-    OrganizationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrganizationsV20161128", "ListRoots", {})
-  .n("OrganizationsClient", "ListRootsCommand")
-  .sc(ListRoots$)
-  .build() {
+export class ListRootsCommand extends command<ListRootsCommandInput, ListRootsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRoots",
+  ListRoots$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

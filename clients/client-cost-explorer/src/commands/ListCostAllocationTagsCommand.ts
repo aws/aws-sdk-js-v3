@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCostAllocationTagsRequest, ListCostAllocationTagsResponse } from "../models/models_0";
 import { ListCostAllocationTags$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListCostAllocationTags$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface ListCostAllocationTagsCommandOutput extends ListCostAllocationT
  *
  * @public
  */
-export class ListCostAllocationTagsCommand extends $Command
-  .classBuilder<
-    ListCostAllocationTagsCommandInput,
-    ListCostAllocationTagsCommandOutput,
-    CostExplorerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSInsightsIndexService", "ListCostAllocationTags", {})
-  .n("CostExplorerClient", "ListCostAllocationTagsCommand")
-  .sc(ListCostAllocationTags$)
-  .build() {
+export class ListCostAllocationTagsCommand extends command<ListCostAllocationTagsCommandInput, ListCostAllocationTagsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCostAllocationTags",
+  ListCostAllocationTags$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

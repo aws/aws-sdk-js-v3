@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetMaterializedViewRefreshTaskRunRequest,
   GetMaterializedViewRefreshTaskRunResponse,
@@ -15,7 +12,6 @@ import { GetMaterializedViewRefreshTaskRun$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface GetMaterializedViewRefreshTaskRunCommandOutput extends GetMater
  *
  * @public
  */
-export class GetMaterializedViewRefreshTaskRunCommand extends $Command
-  .classBuilder<
-    GetMaterializedViewRefreshTaskRunCommandInput,
-    GetMaterializedViewRefreshTaskRunCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "GetMaterializedViewRefreshTaskRun", {})
-  .n("GlueClient", "GetMaterializedViewRefreshTaskRunCommand")
-  .sc(GetMaterializedViewRefreshTaskRun$)
-  .build() {
+export class GetMaterializedViewRefreshTaskRunCommand extends command<GetMaterializedViewRefreshTaskRunCommandInput, GetMaterializedViewRefreshTaskRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMaterializedViewRefreshTaskRun",
+  GetMaterializedViewRefreshTaskRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

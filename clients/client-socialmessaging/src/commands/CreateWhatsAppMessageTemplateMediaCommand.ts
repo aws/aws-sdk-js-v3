@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateWhatsAppMessageTemplateMediaInput,
   CreateWhatsAppMessageTemplateMediaOutput,
 } from "../models/models_0";
 import { CreateWhatsAppMessageTemplateMedia$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SocialMessagingClientResolvedConfig,
-} from "../SocialMessagingClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface CreateWhatsAppMessageTemplateMediaCommandOutput extends CreateW
  *
  * @public
  */
-export class CreateWhatsAppMessageTemplateMediaCommand extends $Command
-  .classBuilder<
-    CreateWhatsAppMessageTemplateMediaCommandInput,
-    CreateWhatsAppMessageTemplateMediaCommandOutput,
-    SocialMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SocialMessaging", "CreateWhatsAppMessageTemplateMedia", {})
-  .n("SocialMessagingClient", "CreateWhatsAppMessageTemplateMediaCommand")
-  .sc(CreateWhatsAppMessageTemplateMedia$)
-  .build() {
+export class CreateWhatsAppMessageTemplateMediaCommand extends command<CreateWhatsAppMessageTemplateMediaCommandInput, CreateWhatsAppMessageTemplateMediaCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateWhatsAppMessageTemplateMedia",
+  CreateWhatsAppMessageTemplateMedia$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

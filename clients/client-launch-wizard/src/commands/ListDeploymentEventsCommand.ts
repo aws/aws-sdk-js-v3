@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LaunchWizardClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LaunchWizardClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDeploymentEventsInput, ListDeploymentEventsOutput } from "../models/models_0";
 import { ListDeploymentEvents$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDeploymentEvents$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface ListDeploymentEventsCommandOutput extends ListDeploymentEventsO
  *
  * @public
  */
-export class ListDeploymentEventsCommand extends $Command
-  .classBuilder<
-    ListDeploymentEventsCommandInput,
-    ListDeploymentEventsCommandOutput,
-    LaunchWizardClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LaunchWizardClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LaunchWizard", "ListDeploymentEvents", {})
-  .n("LaunchWizardClient", "ListDeploymentEventsCommand")
-  .sc(ListDeploymentEvents$)
-  .build() {
+export class ListDeploymentEventsCommand extends command<ListDeploymentEventsCommandInput, ListDeploymentEventsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDeploymentEvents",
+  ListDeploymentEvents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

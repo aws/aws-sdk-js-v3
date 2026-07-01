@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw2, command } from "../commandBuilder";
 import type { GetCheckerIpRangesRequest, GetCheckerIpRangesResponse } from "../models/models_0";
-import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 import { GetCheckerIpRanges$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface GetCheckerIpRangesCommandOutput extends GetCheckerIpRangesRespo
  *
  * @public
  */
-export class GetCheckerIpRangesCommand extends $Command
-  .classBuilder<
-    GetCheckerIpRangesCommandInput,
-    GetCheckerIpRangesCommandOutput,
-    Route53ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDnsV20130401", "GetCheckerIpRanges", {})
-  .n("Route53Client", "GetCheckerIpRangesCommand")
-  .sc(GetCheckerIpRanges$)
-  .build() {
+export class GetCheckerIpRangesCommand extends command<GetCheckerIpRangesCommandInput, GetCheckerIpRangesCommandOutput>(
+  _ep0,
+  _mw2,
+  "GetCheckerIpRanges",
+  GetCheckerIpRanges$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

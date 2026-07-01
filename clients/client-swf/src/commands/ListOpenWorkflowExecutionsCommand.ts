@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListOpenWorkflowExecutionsInput, WorkflowExecutionInfos } from "../models/models_0";
 import { ListOpenWorkflowExecutions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -153,22 +149,12 @@ export interface ListOpenWorkflowExecutionsCommandOutput extends WorkflowExecuti
  *
  * @public
  */
-export class ListOpenWorkflowExecutionsCommand extends $Command
-  .classBuilder<
-    ListOpenWorkflowExecutionsCommandInput,
-    ListOpenWorkflowExecutionsCommandOutput,
-    SWFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleWorkflowService", "ListOpenWorkflowExecutions", {})
-  .n("SWFClient", "ListOpenWorkflowExecutionsCommand")
-  .sc(ListOpenWorkflowExecutions$)
-  .build() {
+export class ListOpenWorkflowExecutionsCommand extends command<ListOpenWorkflowExecutionsCommandInput, ListOpenWorkflowExecutionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListOpenWorkflowExecutions",
+  ListOpenWorkflowExecutions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

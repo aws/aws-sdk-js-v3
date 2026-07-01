@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateUserDefinedFunctionRequest, CreateUserDefinedFunctionResponse } from "../models/models_1";
 import { CreateUserDefinedFunction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateUserDefinedFunction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface CreateUserDefinedFunctionCommandOutput extends CreateUserDefine
  *
  * @public
  */
-export class CreateUserDefinedFunctionCommand extends $Command
-  .classBuilder<
-    CreateUserDefinedFunctionCommandInput,
-    CreateUserDefinedFunctionCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "CreateUserDefinedFunction", {})
-  .n("GlueClient", "CreateUserDefinedFunctionCommand")
-  .sc(CreateUserDefinedFunction$)
-  .build() {
+export class CreateUserDefinedFunctionCommand extends command<CreateUserDefinedFunctionCommandInput, CreateUserDefinedFunctionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateUserDefinedFunction",
+  CreateUserDefinedFunction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

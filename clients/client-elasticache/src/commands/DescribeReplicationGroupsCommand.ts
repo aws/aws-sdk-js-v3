@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeReplicationGroupsMessage, ReplicationGroupMessage } from "../models/models_0";
 import { DescribeReplicationGroups$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeReplicationGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -263,22 +259,12 @@ export interface DescribeReplicationGroupsCommandOutput extends ReplicationGroup
  *
  * @public
  */
-export class DescribeReplicationGroupsCommand extends $Command
-  .classBuilder<
-    DescribeReplicationGroupsCommandInput,
-    DescribeReplicationGroupsCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "DescribeReplicationGroups", {})
-  .n("ElastiCacheClient", "DescribeReplicationGroupsCommand")
-  .sc(DescribeReplicationGroups$)
-  .build() {
+export class DescribeReplicationGroupsCommand extends command<DescribeReplicationGroupsCommandInput, DescribeReplicationGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeReplicationGroups",
+  DescribeReplicationGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

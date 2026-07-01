@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeIdentityPoolInput, IdentityPool } from "../models/models_0";
 import { DescribeIdentityPool$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeIdentityPool$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +97,12 @@ export interface DescribeIdentityPoolCommandOutput extends IdentityPool, __Metad
  *
  * @public
  */
-export class DescribeIdentityPoolCommand extends $Command
-  .classBuilder<
-    DescribeIdentityPoolCommandInput,
-    DescribeIdentityPoolCommandOutput,
-    CognitoIdentityClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityService", "DescribeIdentityPool", {})
-  .n("CognitoIdentityClient", "DescribeIdentityPoolCommand")
-  .sc(DescribeIdentityPool$)
-  .build() {
+export class DescribeIdentityPoolCommand extends command<DescribeIdentityPoolCommandInput, DescribeIdentityPoolCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeIdentityPool",
+  DescribeIdentityPool$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

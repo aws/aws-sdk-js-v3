@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LexModelBuildingServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LexModelBuildingServiceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutIntentRequest, PutIntentResponse } from "../models/models_0";
 import { PutIntent$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { PutIntent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -615,22 +607,12 @@ export interface PutIntentCommandOutput extends PutIntentResponse, __MetadataBea
  *
  * @public
  */
-export class PutIntentCommand extends $Command
-  .classBuilder<
-    PutIntentCommandInput,
-    PutIntentCommandOutput,
-    LexModelBuildingServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepSenseModelBuildingService", "PutIntent", {})
-  .n("LexModelBuildingServiceClient", "PutIntentCommand")
-  .sc(PutIntent$)
-  .build() {
+export class PutIntentCommand extends command<PutIntentCommandInput, PutIntentCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutIntent",
+  PutIntent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

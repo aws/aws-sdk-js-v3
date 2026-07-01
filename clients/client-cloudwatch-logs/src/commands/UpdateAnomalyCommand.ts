@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAnomalyRequest } from "../models/models_1";
 import { UpdateAnomaly$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateAnomaly$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface UpdateAnomalyCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdateAnomalyCommand extends $Command
-  .classBuilder<
-    UpdateAnomalyCommandInput,
-    UpdateAnomalyCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "UpdateAnomaly", {})
-  .n("CloudWatchLogsClient", "UpdateAnomalyCommand")
-  .sc(UpdateAnomaly$)
-  .build() {
+export class UpdateAnomalyCommand extends command<UpdateAnomalyCommandInput, UpdateAnomalyCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAnomaly",
+  UpdateAnomaly$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

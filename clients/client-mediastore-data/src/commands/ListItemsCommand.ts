@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MediaStoreDataClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MediaStoreDataClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListItemsRequest, ListItemsResponse } from "../models/models_0";
 import { ListItems$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListItems$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface ListItemsCommandOutput extends ListItemsResponse, __MetadataBea
  *
  * @public
  */
-export class ListItemsCommand extends $Command
-  .classBuilder<
-    ListItemsCommandInput,
-    ListItemsCommandOutput,
-    MediaStoreDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaStoreDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaStoreObject_20170901", "ListItems", {})
-  .n("MediaStoreDataClient", "ListItemsCommand")
-  .sc(ListItems$)
-  .build() {
+export class ListItemsCommand extends command<ListItemsCommandInput, ListItemsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListItems",
+  ListItems$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

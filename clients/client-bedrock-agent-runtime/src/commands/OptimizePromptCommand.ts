@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentRuntimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { OptimizePromptRequest, OptimizePromptResponse } from "../models/models_0";
 import { OptimizePrompt$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { OptimizePrompt$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,29 +110,12 @@ export interface OptimizePromptCommandOutput extends OptimizePromptResponse, __M
  *
  * @public
  */
-export class OptimizePromptCommand extends $Command
-  .classBuilder<
-    OptimizePromptCommandInput,
-    OptimizePromptCommandOutput,
-    BedrockAgentRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentRunTimeService", "OptimizePrompt", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      output: true,
-    },
-  })
-  .n("BedrockAgentRuntimeClient", "OptimizePromptCommand")
-  .sc(OptimizePrompt$)
-  .build() {
+export class OptimizePromptCommand extends command<OptimizePromptCommandInput, OptimizePromptCommandOutput>(
+  _ep0,
+  _mw0,
+  "OptimizePrompt",
+  OptimizePrompt$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

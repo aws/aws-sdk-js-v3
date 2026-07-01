@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartSchemaExtensionRequest, StartSchemaExtensionResult } from "../models/models_0";
 import { StartSchemaExtension$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartSchemaExtension$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +106,12 @@ export interface StartSchemaExtensionCommandOutput extends StartSchemaExtensionR
  *
  * @public
  */
-export class StartSchemaExtensionCommand extends $Command
-  .classBuilder<
-    StartSchemaExtensionCommandInput,
-    StartSchemaExtensionCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "StartSchemaExtension", {})
-  .n("DirectoryServiceClient", "StartSchemaExtensionCommand")
-  .sc(StartSchemaExtension$)
-  .build() {
+export class StartSchemaExtensionCommand extends command<StartSchemaExtensionCommandInput, StartSchemaExtensionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartSchemaExtension",
+  StartSchemaExtension$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetVpnConnectionDeviceSampleConfigurationRequest,
   GetVpnConnectionDeviceSampleConfigurationResult,
@@ -15,7 +12,6 @@ import { GetVpnConnectionDeviceSampleConfiguration$ } from "../schemas/schemas_0
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput extends 
  *
  * @public
  */
-export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command
-  .classBuilder<
-    GetVpnConnectionDeviceSampleConfigurationCommandInput,
-    GetVpnConnectionDeviceSampleConfigurationCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "GetVpnConnectionDeviceSampleConfiguration", {})
-  .n("EC2Client", "GetVpnConnectionDeviceSampleConfigurationCommand")
-  .sc(GetVpnConnectionDeviceSampleConfiguration$)
-  .build() {
+export class GetVpnConnectionDeviceSampleConfigurationCommand extends command<GetVpnConnectionDeviceSampleConfigurationCommandInput, GetVpnConnectionDeviceSampleConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetVpnConnectionDeviceSampleConfiguration",
+  GetVpnConnectionDeviceSampleConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

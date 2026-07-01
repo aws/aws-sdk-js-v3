@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetIngressPointRequest, GetIngressPointResponse } from "../models/models_0";
 import { GetIngressPoint$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetIngressPoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -142,22 +138,12 @@ export interface GetIngressPointCommandOutput extends GetIngressPointResponse, _
  *
  * @public
  */
-export class GetIngressPointCommand extends $Command
-  .classBuilder<
-    GetIngressPointCommandInput,
-    GetIngressPointCommandOutput,
-    MailManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MailManagerSvc", "GetIngressPoint", {})
-  .n("MailManagerClient", "GetIngressPointCommand")
-  .sc(GetIngressPoint$)
-  .build() {
+export class GetIngressPointCommand extends command<GetIngressPointCommandInput, GetIngressPointCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIngressPoint",
+  GetIngressPoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

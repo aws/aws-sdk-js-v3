@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApiGatewayManagementApiClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApiGatewayManagementApiClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PostToConnectionRequest } from "../models/models_0";
 import { PostToConnection$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { PostToConnection$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  */
@@ -81,22 +73,12 @@ export interface PostToConnectionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PostToConnectionCommand extends $Command
-  .classBuilder<
-    PostToConnectionCommandInput,
-    PostToConnectionCommandOutput,
-    ApiGatewayManagementApiClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApiGatewayManagementApiClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApiGatewayManagementApi", "PostToConnection", {})
-  .n("ApiGatewayManagementApiClient", "PostToConnectionCommand")
-  .sc(PostToConnection$)
-  .build() {
+export class PostToConnectionCommand extends command<PostToConnectionCommandInput, PostToConnectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "PostToConnection",
+  PostToConnection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

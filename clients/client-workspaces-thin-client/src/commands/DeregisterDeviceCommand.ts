@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeregisterDeviceRequest, DeregisterDeviceResponse } from "../models/models_0";
 import { DeregisterDevice$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkSpacesThinClientClientResolvedConfig,
-} from "../WorkSpacesThinClientClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface DeregisterDeviceCommandOutput extends DeregisterDeviceResponse,
  *
  * @public
  */
-export class DeregisterDeviceCommand extends $Command
-  .classBuilder<
-    DeregisterDeviceCommandInput,
-    DeregisterDeviceCommandOutput,
-    WorkSpacesThinClientClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesThinClientClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ThinClient", "DeregisterDevice", {})
-  .n("WorkSpacesThinClientClient", "DeregisterDeviceCommand")
-  .sc(DeregisterDevice$)
-  .build() {
+export class DeregisterDeviceCommand extends command<DeregisterDeviceCommandInput, DeregisterDeviceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeregisterDevice",
+  DeregisterDevice$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

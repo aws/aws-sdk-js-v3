@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeManagedEndpointRequest, DescribeManagedEndpointResponse } from "../models/models_0";
 import { DescribeManagedEndpoint$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeManagedEndpoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +128,12 @@ export interface DescribeManagedEndpointCommandOutput extends DescribeManagedEnd
  *
  * @public
  */
-export class DescribeManagedEndpointCommand extends $Command
-  .classBuilder<
-    DescribeManagedEndpointCommandInput,
-    DescribeManagedEndpointCommandOutput,
-    EMRContainersClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRContainersClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsChicagoWebService", "DescribeManagedEndpoint", {})
-  .n("EMRContainersClient", "DescribeManagedEndpointCommand")
-  .sc(DescribeManagedEndpoint$)
-  .build() {
+export class DescribeManagedEndpointCommand extends command<DescribeManagedEndpointCommandInput, DescribeManagedEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeManagedEndpoint",
+  DescribeManagedEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

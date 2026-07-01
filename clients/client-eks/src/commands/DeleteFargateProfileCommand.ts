@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFargateProfileRequest, DeleteFargateProfileResponse } from "../models/models_0";
 import { DeleteFargateProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteFargateProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +114,12 @@ export interface DeleteFargateProfileCommandOutput extends DeleteFargateProfileR
  *
  * @public
  */
-export class DeleteFargateProfileCommand extends $Command
-  .classBuilder<
-    DeleteFargateProfileCommandInput,
-    DeleteFargateProfileCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "DeleteFargateProfile", {})
-  .n("EKSClient", "DeleteFargateProfileCommand")
-  .sc(DeleteFargateProfile$)
-  .build() {
+export class DeleteFargateProfileCommand extends command<DeleteFargateProfileCommandInput, DeleteFargateProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFargateProfile",
+  DeleteFargateProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

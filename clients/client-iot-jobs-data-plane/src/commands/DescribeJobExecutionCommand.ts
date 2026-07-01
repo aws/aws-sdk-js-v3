@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTJobsDataPlaneClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTJobsDataPlaneClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeJobExecutionRequest, DescribeJobExecutionResponse } from "../models/models_0";
 import { DescribeJobExecution$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeJobExecution$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface DescribeJobExecutionCommandOutput extends DescribeJobExecutionR
  *
  * @public
  */
-export class DescribeJobExecutionCommand extends $Command
-  .classBuilder<
-    DescribeJobExecutionCommandInput,
-    DescribeJobExecutionCommandOutput,
-    IoTJobsDataPlaneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTJobsDataPlaneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotLaserThingJobManagerExternalService", "DescribeJobExecution", {})
-  .n("IoTJobsDataPlaneClient", "DescribeJobExecutionCommand")
-  .sc(DescribeJobExecution$)
-  .build() {
+export class DescribeJobExecutionCommand extends command<DescribeJobExecutionCommandInput, DescribeJobExecutionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeJobExecution",
+  DescribeJobExecution$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

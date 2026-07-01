@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPhoneNumberOrdersRequest, ListPhoneNumberOrdersResponse } from "../models/models_0";
 import { ListPhoneNumberOrders$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListPhoneNumberOrders$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface ListPhoneNumberOrdersCommandOutput extends ListPhoneNumberOrder
  *
  * @public
  */
-export class ListPhoneNumberOrdersCommand extends $Command
-  .classBuilder<
-    ListPhoneNumberOrdersCommandInput,
-    ListPhoneNumberOrdersCommandOutput,
-    ChimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("UCBuzzConsoleService", "ListPhoneNumberOrders", {})
-  .n("ChimeClient", "ListPhoneNumberOrdersCommand")
-  .sc(ListPhoneNumberOrders$)
-  .build() {
+export class ListPhoneNumberOrdersCommand extends command<ListPhoneNumberOrdersCommandInput, ListPhoneNumberOrdersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPhoneNumberOrders",
+  ListPhoneNumberOrders$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

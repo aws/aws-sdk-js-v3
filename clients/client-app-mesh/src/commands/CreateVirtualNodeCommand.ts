@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateVirtualNodeInput, CreateVirtualNodeOutput } from "../models/models_0";
 import { CreateVirtualNode$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateVirtualNode$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -585,22 +581,12 @@ export interface CreateVirtualNodeCommandOutput extends CreateVirtualNodeOutput,
  *
  * @public
  */
-export class CreateVirtualNodeCommand extends $Command
-  .classBuilder<
-    CreateVirtualNodeCommandInput,
-    CreateVirtualNodeCommandOutput,
-    AppMeshClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppMeshClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppMesh", "CreateVirtualNode", {})
-  .n("AppMeshClient", "CreateVirtualNodeCommand")
-  .sc(CreateVirtualNode$)
-  .build() {
+export class CreateVirtualNodeCommand extends command<CreateVirtualNodeCommandInput, CreateVirtualNodeCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateVirtualNode",
+  CreateVirtualNode$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

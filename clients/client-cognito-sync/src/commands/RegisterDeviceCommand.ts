@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterDeviceRequest, RegisterDeviceResponse } from "../models/models_0";
 import { RegisterDevice$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RegisterDevice$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +124,12 @@ export interface RegisterDeviceCommandOutput extends RegisterDeviceResponse, __M
  *
  * @public
  */
-export class RegisterDeviceCommand extends $Command
-  .classBuilder<
-    RegisterDeviceCommandInput,
-    RegisterDeviceCommandOutput,
-    CognitoSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoSyncService", "RegisterDevice", {})
-  .n("CognitoSyncClient", "RegisterDeviceCommand")
-  .sc(RegisterDevice$)
-  .build() {
+export class RegisterDeviceCommand extends command<RegisterDeviceCommandInput, RegisterDeviceCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterDevice",
+  RegisterDevice$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

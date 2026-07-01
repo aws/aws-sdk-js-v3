@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRunTaskRequest, GetRunTaskResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { GetRunTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface GetRunTaskCommandOutput extends GetRunTaskResponse, __MetadataB
  *
  * @public
  */
-export class GetRunTaskCommand extends $Command
-  .classBuilder<
-    GetRunTaskCommandInput,
-    GetRunTaskCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "GetRunTask", {})
-  .n("OmicsClient", "GetRunTaskCommand")
-  .sc(GetRunTask$)
-  .build() {
+export class GetRunTaskCommand extends command<GetRunTaskCommandInput, GetRunTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRunTask",
+  GetRunTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

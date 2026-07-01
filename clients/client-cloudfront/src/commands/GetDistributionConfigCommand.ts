@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDistributionConfigRequest, GetDistributionConfigResult } from "../models/models_0";
 import { GetDistributionConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDistributionConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -401,22 +397,12 @@ export interface GetDistributionConfigCommandOutput extends GetDistributionConfi
  *
  * @public
  */
-export class GetDistributionConfigCommand extends $Command
-  .classBuilder<
-    GetDistributionConfigCommandInput,
-    GetDistributionConfigCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "GetDistributionConfig", {})
-  .n("CloudFrontClient", "GetDistributionConfigCommand")
-  .sc(GetDistributionConfig$)
-  .build() {
+export class GetDistributionConfigCommand extends command<GetDistributionConfigCommandInput, GetDistributionConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDistributionConfig",
+  GetDistributionConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

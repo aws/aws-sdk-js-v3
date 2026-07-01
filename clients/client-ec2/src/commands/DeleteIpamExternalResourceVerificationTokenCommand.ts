@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteIpamExternalResourceVerificationTokenRequest,
   DeleteIpamExternalResourceVerificationTokenResult,
@@ -15,7 +12,6 @@ import { DeleteIpamExternalResourceVerificationToken$ } from "../schemas/schemas
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface DeleteIpamExternalResourceVerificationTokenCommandOutput extend
  *
  * @public
  */
-export class DeleteIpamExternalResourceVerificationTokenCommand extends $Command
-  .classBuilder<
-    DeleteIpamExternalResourceVerificationTokenCommandInput,
-    DeleteIpamExternalResourceVerificationTokenCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeleteIpamExternalResourceVerificationToken", {})
-  .n("EC2Client", "DeleteIpamExternalResourceVerificationTokenCommand")
-  .sc(DeleteIpamExternalResourceVerificationToken$)
-  .build() {
+export class DeleteIpamExternalResourceVerificationTokenCommand extends command<DeleteIpamExternalResourceVerificationTokenCommandInput, DeleteIpamExternalResourceVerificationTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteIpamExternalResourceVerificationToken",
+  DeleteIpamExternalResourceVerificationToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

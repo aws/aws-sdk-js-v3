@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LexModelBuildingServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LexModelBuildingServiceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetBotAliasesRequest, GetBotAliasesResponse } from "../models/models_0";
 import { GetBotAliases$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetBotAliases$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface GetBotAliasesCommandOutput extends GetBotAliasesResponse, __Met
  *
  * @public
  */
-export class GetBotAliasesCommand extends $Command
-  .classBuilder<
-    GetBotAliasesCommandInput,
-    GetBotAliasesCommandOutput,
-    LexModelBuildingServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepSenseModelBuildingService", "GetBotAliases", {})
-  .n("LexModelBuildingServiceClient", "GetBotAliasesCommand")
-  .sc(GetBotAliases$)
-  .build() {
+export class GetBotAliasesCommand extends command<GetBotAliasesCommandInput, GetBotAliasesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetBotAliases",
+  GetBotAliases$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

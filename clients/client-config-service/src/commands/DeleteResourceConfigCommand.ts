@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteResourceConfigRequest } from "../models/models_0";
 import { DeleteResourceConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteResourceConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface DeleteResourceConfigCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteResourceConfigCommand extends $Command
-  .classBuilder<
-    DeleteResourceConfigCommandInput,
-    DeleteResourceConfigCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DeleteResourceConfig", {})
-  .n("ConfigServiceClient", "DeleteResourceConfigCommand")
-  .sc(DeleteResourceConfig$)
-  .build() {
+export class DeleteResourceConfigCommand extends command<DeleteResourceConfigCommandInput, DeleteResourceConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteResourceConfig",
+  DeleteResourceConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

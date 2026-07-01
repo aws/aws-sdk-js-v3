@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDomainConfigurationRequest, DeleteDomainConfigurationResponse } from "../models/models_0";
 import { DeleteDomainConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteDomainConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteDomainConfigurationCommandOutput extends DeleteDomainConf
  *
  * @public
  */
-export class DeleteDomainConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteDomainConfigurationCommandInput,
-    DeleteDomainConfigurationCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "DeleteDomainConfiguration", {})
-  .n("IoTClient", "DeleteDomainConfigurationCommand")
-  .sc(DeleteDomainConfiguration$)
-  .build() {
+export class DeleteDomainConfigurationCommand extends command<DeleteDomainConfigurationCommandInput, DeleteDomainConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDomainConfiguration",
+  DeleteDomainConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

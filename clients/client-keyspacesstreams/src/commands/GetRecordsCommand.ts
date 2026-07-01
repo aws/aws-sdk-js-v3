@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  KeyspacesStreamsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../KeyspacesStreamsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRecordsInput, GetRecordsOutput } from "../models/models_0";
 import { GetRecords$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetRecords$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -224,22 +216,12 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  *
  * @public
  */
-export class GetRecordsCommand extends $Command
-  .classBuilder<
-    GetRecordsCommandInput,
-    GetRecordsCommandOutput,
-    KeyspacesStreamsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KeyspacesStreamsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KeyspacesStreams", "GetRecords", {})
-  .n("KeyspacesStreamsClient", "GetRecordsCommand")
-  .sc(GetRecords$)
-  .build() {
+export class GetRecordsCommand extends command<GetRecordsCommandInput, GetRecordsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRecords",
+  GetRecords$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

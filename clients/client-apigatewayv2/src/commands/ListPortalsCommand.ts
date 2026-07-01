@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPortalsRequest, ListPortalsResponse } from "../models/models_0";
 import { ListPortals$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListPortals$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +122,12 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  *
  * @public
  */
-export class ListPortalsCommand extends $Command
-  .classBuilder<
-    ListPortalsCommandInput,
-    ListPortalsCommandOutput,
-    ApiGatewayV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApiGatewayV2", "ListPortals", {})
-  .n("ApiGatewayV2Client", "ListPortalsCommand")
-  .sc(ListPortals$)
-  .build() {
+export class ListPortalsCommand extends command<ListPortalsCommandInput, ListPortalsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPortals",
+  ListPortals$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

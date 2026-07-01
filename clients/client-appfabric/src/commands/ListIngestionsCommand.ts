@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListIngestionsRequest, ListIngestionsResponse } from "../models/models_0";
 import { ListIngestions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListIngestions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface ListIngestionsCommandOutput extends ListIngestionsResponse, __M
  *
  * @public
  */
-export class ListIngestionsCommand extends $Command
-  .classBuilder<
-    ListIngestionsCommandInput,
-    ListIngestionsCommandOutput,
-    AppFabricClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppFabricClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FabricFrontEndService", "ListIngestions", {})
-  .n("AppFabricClient", "ListIngestionsCommand")
-  .sc(ListIngestions$)
-  .build() {
+export class ListIngestionsCommand extends command<ListIngestionsCommandInput, ListIngestionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListIngestions",
+  ListIngestions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LookoutEquipmentClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LookoutEquipmentClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ImportModelVersionRequest, ImportModelVersionResponse } from "../models/models_0";
 import { ImportModelVersion$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ImportModelVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +104,12 @@ export interface ImportModelVersionCommandOutput extends ImportModelVersionRespo
  *
  * @public
  */
-export class ImportModelVersionCommand extends $Command
-  .classBuilder<
-    ImportModelVersionCommandInput,
-    ImportModelVersionCommandOutput,
-    LookoutEquipmentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLookoutEquipmentFrontendService", "ImportModelVersion", {})
-  .n("LookoutEquipmentClient", "ImportModelVersionCommand")
-  .sc(ImportModelVersion$)
-  .build() {
+export class ImportModelVersionCommand extends command<ImportModelVersionCommandInput, ImportModelVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ImportModelVersion",
+  ImportModelVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

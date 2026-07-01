@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListNetworkMigrationCodeGenerationsRequest,
   ListNetworkMigrationCodeGenerationsResponse,
@@ -15,7 +12,6 @@ import { ListNetworkMigrationCodeGenerations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +122,12 @@ export interface ListNetworkMigrationCodeGenerationsCommandOutput extends ListNe
  *
  * @public
  */
-export class ListNetworkMigrationCodeGenerationsCommand extends $Command
-  .classBuilder<
-    ListNetworkMigrationCodeGenerationsCommandInput,
-    ListNetworkMigrationCodeGenerationsCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "ListNetworkMigrationCodeGenerations", {})
-  .n("MgnClient", "ListNetworkMigrationCodeGenerationsCommand")
-  .sc(ListNetworkMigrationCodeGenerations$)
-  .build() {
+export class ListNetworkMigrationCodeGenerationsCommand extends command<ListNetworkMigrationCodeGenerationsCommandInput, ListNetworkMigrationCodeGenerationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListNetworkMigrationCodeGenerations",
+  ListNetworkMigrationCodeGenerations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

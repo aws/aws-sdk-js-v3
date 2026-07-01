@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelMLTaskRunRequest, CancelMLTaskRunResponse } from "../models/models_0";
 import { CancelMLTaskRun$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CancelMLTaskRun$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface CancelMLTaskRunCommandOutput extends CancelMLTaskRunResponse, _
  *
  * @public
  */
-export class CancelMLTaskRunCommand extends $Command
-  .classBuilder<
-    CancelMLTaskRunCommandInput,
-    CancelMLTaskRunCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "CancelMLTaskRun", {})
-  .n("GlueClient", "CancelMLTaskRunCommand")
-  .sc(CancelMLTaskRun$)
-  .build() {
+export class CancelMLTaskRunCommand extends command<CancelMLTaskRunCommandInput, CancelMLTaskRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelMLTaskRun",
+  CancelMLTaskRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

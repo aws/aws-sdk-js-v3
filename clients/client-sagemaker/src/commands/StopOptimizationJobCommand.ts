@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopOptimizationJobRequest } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { StopOptimizationJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -60,22 +56,12 @@ export interface StopOptimizationJobCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class StopOptimizationJobCommand extends $Command
-  .classBuilder<
-    StopOptimizationJobCommandInput,
-    StopOptimizationJobCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "StopOptimizationJob", {})
-  .n("SageMakerClient", "StopOptimizationJobCommand")
-  .sc(StopOptimizationJob$)
-  .build() {
+export class StopOptimizationJobCommand extends command<StopOptimizationJobCommandInput, StopOptimizationJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopOptimizationJob",
+  StopOptimizationJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

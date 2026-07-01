@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendDirectMessageRequest, SendDirectMessageResponse } from "../models/models_0";
 import { SendDirectMessage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SendDirectMessage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  */
@@ -106,22 +102,12 @@ export interface SendDirectMessageCommandOutput extends SendDirectMessageRespons
  *
  * @public
  */
-export class SendDirectMessageCommand extends $Command
-  .classBuilder<
-    SendDirectMessageCommandInput,
-    SendDirectMessageCommandOutput,
-    IoTDataPlaneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTDataPlaneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotMoonrakerService", "SendDirectMessage", {})
-  .n("IoTDataPlaneClient", "SendDirectMessageCommand")
-  .sc(SendDirectMessage$)
-  .build() {
+export class SendDirectMessageCommand extends command<SendDirectMessageCommandInput, SendDirectMessageCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendDirectMessage",
+  SendDirectMessage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

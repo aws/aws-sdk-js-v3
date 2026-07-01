@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendBounceRequest, SendBounceResponse } from "../models/models_0";
 import { SendBounce$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface SendBounceCommandOutput extends SendBounceResponse, __MetadataB
  *
  * @public
  */
-export class SendBounceCommand extends $Command
-  .classBuilder<
-    SendBounceCommandInput,
-    SendBounceCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "SendBounce", {})
-  .n("SESClient", "SendBounceCommand")
-  .sc(SendBounce$)
-  .build() {
+export class SendBounceCommand extends command<SendBounceCommandInput, SendBounceCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendBounce",
+  SendBounce$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

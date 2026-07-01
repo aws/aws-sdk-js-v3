@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFileSystemPolicyRequest } from "../models/models_0";
-import type { S3FilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3FilesClient";
 import { DeleteFileSystemPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteFileSystemPolicyCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteFileSystemPolicyCommand extends $Command
-  .classBuilder<
-    DeleteFileSystemPolicyCommandInput,
-    DeleteFileSystemPolicyCommandOutput,
-    S3FilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: S3FilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("S3Files", "DeleteFileSystemPolicy", {})
-  .n("S3FilesClient", "DeleteFileSystemPolicyCommand")
-  .sc(DeleteFileSystemPolicy$)
-  .build() {
+export class DeleteFileSystemPolicyCommand extends command<DeleteFileSystemPolicyCommandInput, DeleteFileSystemPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFileSystemPolicy",
+  DeleteFileSystemPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

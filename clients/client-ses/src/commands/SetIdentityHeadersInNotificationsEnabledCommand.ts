@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   SetIdentityHeadersInNotificationsEnabledRequest,
   SetIdentityHeadersInNotificationsEnabledResponse,
 } from "../models/models_0";
 import { SetIdentityHeadersInNotificationsEnabled$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface SetIdentityHeadersInNotificationsEnabledCommandOutput extends S
  *
  * @public
  */
-export class SetIdentityHeadersInNotificationsEnabledCommand extends $Command
-  .classBuilder<
-    SetIdentityHeadersInNotificationsEnabledCommandInput,
-    SetIdentityHeadersInNotificationsEnabledCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "SetIdentityHeadersInNotificationsEnabled", {})
-  .n("SESClient", "SetIdentityHeadersInNotificationsEnabledCommand")
-  .sc(SetIdentityHeadersInNotificationsEnabled$)
-  .build() {
+export class SetIdentityHeadersInNotificationsEnabledCommand extends command<SetIdentityHeadersInNotificationsEnabledCommandInput, SetIdentityHeadersInNotificationsEnabledCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetIdentityHeadersInNotificationsEnabled",
+  SetIdentityHeadersInNotificationsEnabled$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchStartRecommendationsRequest, BatchStartRecommendationsResponse } from "../models/models_0";
 import { BatchStartRecommendations$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { BatchStartRecommendations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +89,12 @@ export interface BatchStartRecommendationsCommandOutput extends BatchStartRecomm
  *
  * @public
  */
-export class BatchStartRecommendationsCommand extends $Command
-  .classBuilder<
-    BatchStartRecommendationsCommandInput,
-    BatchStartRecommendationsCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "BatchStartRecommendations", {})
-  .n("DatabaseMigrationServiceClient", "BatchStartRecommendationsCommand")
-  .sc(BatchStartRecommendations$)
-  .build() {
+export class BatchStartRecommendationsCommand extends command<BatchStartRecommendationsCommandInput, BatchStartRecommendationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchStartRecommendations",
+  BatchStartRecommendations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

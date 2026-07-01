@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ValidateSolNetworkPackageContentInput, ValidateSolNetworkPackageContentOutput } from "../models/models_0";
 import { ValidateSolNetworkPackageContent$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  */
@@ -141,22 +137,12 @@ export interface ValidateSolNetworkPackageContentCommandOutput extends ValidateS
  *
  * @public
  */
-export class ValidateSolNetworkPackageContentCommand extends $Command
-  .classBuilder<
-    ValidateSolNetworkPackageContentCommandInput,
-    ValidateSolNetworkPackageContentCommandOutput,
-    TnbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TNB", "ValidateSolNetworkPackageContent", {})
-  .n("TnbClient", "ValidateSolNetworkPackageContentCommand")
-  .sc(ValidateSolNetworkPackageContent$)
-  .build() {
+export class ValidateSolNetworkPackageContentCommand extends command<ValidateSolNetworkPackageContentCommandInput, ValidateSolNetworkPackageContentCommandOutput>(
+  _ep0,
+  _mw0,
+  "ValidateSolNetworkPackageContent",
+  ValidateSolNetworkPackageContent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

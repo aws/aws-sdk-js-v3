@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSessionActionRequest, GetSessionActionResponse } from "../models/models_0";
 import { GetSessionAction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetSessionAction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface GetSessionActionCommandOutput extends GetSessionActionResponse,
  *
  * @public
  */
-export class GetSessionActionCommand extends $Command
-  .classBuilder<
-    GetSessionActionCommandInput,
-    GetSessionActionCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "GetSessionAction", {})
-  .n("DeadlineClient", "GetSessionActionCommand")
-  .sc(GetSessionAction$)
-  .build() {
+export class GetSessionActionCommand extends command<GetSessionActionCommandInput, GetSessionActionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSessionAction",
+  GetSessionAction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

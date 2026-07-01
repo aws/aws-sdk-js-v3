@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteModelCardRequest } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DeleteModelCard$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface DeleteModelCardCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteModelCardCommand extends $Command
-  .classBuilder<
-    DeleteModelCardCommandInput,
-    DeleteModelCardCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DeleteModelCard", {})
-  .n("SageMakerClient", "DeleteModelCardCommand")
-  .sc(DeleteModelCard$)
-  .build() {
+export class DeleteModelCardCommand extends command<DeleteModelCardCommandInput, DeleteModelCardCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteModelCard",
+  DeleteModelCard$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

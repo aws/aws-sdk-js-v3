@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SetupInstanceHttpsRequest, SetupInstanceHttpsResult } from "../models/models_1";
 import { SetupInstanceHttps$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SetupInstanceHttps$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface SetupInstanceHttpsCommandOutput extends SetupInstanceHttpsResul
  *
  * @public
  */
-export class SetupInstanceHttpsCommand extends $Command
-  .classBuilder<
-    SetupInstanceHttpsCommandInput,
-    SetupInstanceHttpsCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "SetupInstanceHttps", {})
-  .n("LightsailClient", "SetupInstanceHttpsCommand")
-  .sc(SetupInstanceHttps$)
-  .build() {
+export class SetupInstanceHttpsCommand extends command<SetupInstanceHttpsCommandInput, SetupInstanceHttpsCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetupInstanceHttps",
+  SetupInstanceHttps$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

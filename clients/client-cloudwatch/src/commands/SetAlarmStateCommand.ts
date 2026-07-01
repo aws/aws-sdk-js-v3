@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SetAlarmStateInput } from "../models/models_0";
 import { SetAlarmState$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SetAlarmState$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface SetAlarmStateCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class SetAlarmStateCommand extends $Command
-  .classBuilder<
-    SetAlarmStateCommandInput,
-    SetAlarmStateCommandOutput,
-    CloudWatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GraniteServiceVersion20100801", "SetAlarmState", {})
-  .n("CloudWatchClient", "SetAlarmStateCommand")
-  .sc(SetAlarmState$)
-  .build() {
+export class SetAlarmStateCommand extends command<SetAlarmStateCommandInput, SetAlarmStateCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetAlarmState",
+  SetAlarmState$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

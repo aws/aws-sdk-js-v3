@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSessionStatusRequest, GetSessionStatusResponse } from "../models/models_0";
 import { GetSessionStatus$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetSessionStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface GetSessionStatusCommandOutput extends GetSessionStatusResponse,
  *
  * @public
  */
-export class GetSessionStatusCommand extends $Command
-  .classBuilder<
-    GetSessionStatusCommandInput,
-    GetSessionStatusCommandOutput,
-    AthenaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAthena", "GetSessionStatus", {})
-  .n("AthenaClient", "GetSessionStatusCommand")
-  .sc(GetSessionStatus$)
-  .build() {
+export class GetSessionStatusCommand extends command<GetSessionStatusCommandInput, GetSessionStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSessionStatus",
+  GetSessionStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

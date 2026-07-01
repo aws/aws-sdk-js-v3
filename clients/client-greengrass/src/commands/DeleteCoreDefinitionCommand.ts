@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCoreDefinitionRequest, DeleteCoreDefinitionResponse } from "../models/models_0";
 import { DeleteCoreDefinition$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteCoreDefinition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -60,22 +56,12 @@ export interface DeleteCoreDefinitionCommandOutput extends DeleteCoreDefinitionR
  *
  * @public
  */
-export class DeleteCoreDefinitionCommand extends $Command
-  .classBuilder<
-    DeleteCoreDefinitionCommandInput,
-    DeleteCoreDefinitionCommandOutput,
-    GreengrassClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Greengrass", "DeleteCoreDefinition", {})
-  .n("GreengrassClient", "DeleteCoreDefinitionCommand")
-  .sc(DeleteCoreDefinition$)
-  .build() {
+export class DeleteCoreDefinitionCommand extends command<DeleteCoreDefinitionCommandInput, DeleteCoreDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCoreDefinition",
+  DeleteCoreDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

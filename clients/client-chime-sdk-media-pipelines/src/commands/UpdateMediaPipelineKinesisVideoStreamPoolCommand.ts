@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMediaPipelinesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMediaPipelinesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateMediaPipelineKinesisVideoStreamPoolRequest,
   UpdateMediaPipelineKinesisVideoStreamPoolResponse,
@@ -19,7 +12,6 @@ import { UpdateMediaPipelineKinesisVideoStreamPool$ } from "../schemas/schemas_0
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput extends 
  *
  * @public
  */
-export class UpdateMediaPipelineKinesisVideoStreamPoolCommand extends $Command
-  .classBuilder<
-    UpdateMediaPipelineKinesisVideoStreamPoolCommandInput,
-    UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput,
-    ChimeSDKMediaPipelinesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKMediaPipelinesService", "UpdateMediaPipelineKinesisVideoStreamPool", {})
-  .n("ChimeSDKMediaPipelinesClient", "UpdateMediaPipelineKinesisVideoStreamPoolCommand")
-  .sc(UpdateMediaPipelineKinesisVideoStreamPool$)
-  .build() {
+export class UpdateMediaPipelineKinesisVideoStreamPoolCommand extends command<UpdateMediaPipelineKinesisVideoStreamPoolCommandInput, UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateMediaPipelineKinesisVideoStreamPool",
+  UpdateMediaPipelineKinesisVideoStreamPool$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

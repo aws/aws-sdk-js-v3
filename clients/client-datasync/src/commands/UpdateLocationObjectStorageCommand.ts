@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateLocationObjectStorageRequest, UpdateLocationObjectStorageResponse } from "../models/models_0";
 import { UpdateLocationObjectStorage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateLocationObjectStorage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface UpdateLocationObjectStorageCommandOutput extends UpdateLocation
  *
  * @public
  */
-export class UpdateLocationObjectStorageCommand extends $Command
-  .classBuilder<
-    UpdateLocationObjectStorageCommandInput,
-    UpdateLocationObjectStorageCommandOutput,
-    DataSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FmrsService", "UpdateLocationObjectStorage", {})
-  .n("DataSyncClient", "UpdateLocationObjectStorageCommand")
-  .sc(UpdateLocationObjectStorage$)
-  .build() {
+export class UpdateLocationObjectStorageCommand extends command<UpdateLocationObjectStorageCommandInput, UpdateLocationObjectStorageCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateLocationObjectStorage",
+  UpdateLocationObjectStorage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

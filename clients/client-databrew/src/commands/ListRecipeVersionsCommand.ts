@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRecipeVersionsRequest, ListRecipeVersionsResponse } from "../models/models_0";
 import { ListRecipeVersions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListRecipeVersions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface ListRecipeVersionsCommandOutput extends ListRecipeVersionsRespo
  *
  * @public
  */
-export class ListRecipeVersionsCommand extends $Command
-  .classBuilder<
-    ListRecipeVersionsCommandInput,
-    ListRecipeVersionsCommandOutput,
-    DataBrewClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlueDataBrew", "ListRecipeVersions", {})
-  .n("DataBrewClient", "ListRecipeVersionsCommand")
-  .sc(ListRecipeVersions$)
-  .build() {
+export class ListRecipeVersionsCommand extends command<ListRecipeVersionsCommandInput, ListRecipeVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRecipeVersions",
+  ListRecipeVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ArtifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ArtifactClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTermForReportRequest, GetTermForReportResponse } from "../models/models_0";
 import { GetTermForReport$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetTermForReport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface GetTermForReportCommandOutput extends GetTermForReportResponse,
  *
  * @public
  */
-export class GetTermForReportCommand extends $Command
-  .classBuilder<
-    GetTermForReportCommandInput,
-    GetTermForReportCommandOutput,
-    ArtifactClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ArtifactClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Artifact", "GetTermForReport", {})
-  .n("ArtifactClient", "GetTermForReportCommand")
-  .sc(GetTermForReport$)
-  .build() {
+export class GetTermForReportCommand extends command<GetTermForReportCommandInput, GetTermForReportCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTermForReport",
+  GetTermForReport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

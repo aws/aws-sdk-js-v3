@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDetectorRequest, DeleteDetectorResponse } from "../models/models_0";
 import { DeleteDetector$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteDetector$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface DeleteDetectorCommandOutput extends DeleteDetectorResponse, __M
  *
  * @public
  */
-export class DeleteDetectorCommand extends $Command
-  .classBuilder<
-    DeleteDetectorCommandInput,
-    DeleteDetectorCommandOutput,
-    GuardDutyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GuardDutyAPIService", "DeleteDetector", {})
-  .n("GuardDutyClient", "DeleteDetectorCommand")
-  .sc(DeleteDetector$)
-  .build() {
+export class DeleteDetectorCommand extends command<DeleteDetectorCommandInput, DeleteDetectorCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDetector",
+  DeleteDetector$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

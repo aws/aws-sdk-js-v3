@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFaceLivenessSessionRequest, CreateFaceLivenessSessionResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { CreateFaceLivenessSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivene
  *
  * @public
  */
-export class CreateFaceLivenessSessionCommand extends $Command
-  .classBuilder<
-    CreateFaceLivenessSessionCommandInput,
-    CreateFaceLivenessSessionCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "CreateFaceLivenessSession", {})
-  .n("RekognitionClient", "CreateFaceLivenessSessionCommand")
-  .sc(CreateFaceLivenessSession$)
-  .build() {
+export class CreateFaceLivenessSessionCommand extends command<CreateFaceLivenessSessionCommandInput, CreateFaceLivenessSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateFaceLivenessSession",
+  CreateFaceLivenessSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

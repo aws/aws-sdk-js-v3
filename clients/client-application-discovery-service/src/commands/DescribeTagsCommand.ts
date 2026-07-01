@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationDiscoveryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationDiscoveryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeTagsRequest, DescribeTagsResponse } from "../models/models_0";
 import { DescribeTags$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeTags$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +109,12 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  *
  * @public
  */
-export class DescribeTagsCommand extends $Command
-  .classBuilder<
-    DescribeTagsCommandInput,
-    DescribeTagsCommandOutput,
-    ApplicationDiscoveryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationDiscoveryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPoseidonService_V2015_11_01", "DescribeTags", {})
-  .n("ApplicationDiscoveryServiceClient", "DescribeTagsCommand")
-  .sc(DescribeTags$)
-  .build() {
+export class DescribeTagsCommand extends command<DescribeTagsCommandInput, DescribeTagsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeTags",
+  DescribeTags$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

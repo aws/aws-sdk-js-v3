@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePartitionRequest, UpdatePartitionResponse } from "../models/models_3";
 import { UpdatePartition$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdatePartition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -143,22 +139,12 @@ export interface UpdatePartitionCommandOutput extends UpdatePartitionResponse, _
  *
  * @public
  */
-export class UpdatePartitionCommand extends $Command
-  .classBuilder<
-    UpdatePartitionCommandInput,
-    UpdatePartitionCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "UpdatePartition", {})
-  .n("GlueClient", "UpdatePartitionCommand")
-  .sc(UpdatePartition$)
-  .build() {
+export class UpdatePartitionCommand extends command<UpdatePartitionCommandInput, UpdatePartitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePartition",
+  UpdatePartition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDirectQueryDataSourcesRequest, ListDirectQueryDataSourcesResponse } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { ListDirectQueryDataSources$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface ListDirectQueryDataSourcesCommandOutput extends ListDirectQuery
  *
  * @public
  */
-export class ListDirectQueryDataSourcesCommand extends $Command
-  .classBuilder<
-    ListDirectQueryDataSourcesCommandInput,
-    ListDirectQueryDataSourcesCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "ListDirectQueryDataSources", {})
-  .n("OpenSearchClient", "ListDirectQueryDataSourcesCommand")
-  .sc(ListDirectQueryDataSources$)
-  .build() {
+export class ListDirectQueryDataSourcesCommand extends command<ListDirectQueryDataSourcesCommandInput, ListDirectQueryDataSourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDirectQueryDataSources",
+  ListDirectQueryDataSources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

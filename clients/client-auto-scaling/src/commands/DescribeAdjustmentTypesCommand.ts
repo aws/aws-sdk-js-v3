@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAdjustmentTypesAnswer } from "../models/models_0";
 import { DescribeAdjustmentTypes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeAdjustmentTypes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface DescribeAdjustmentTypesCommandOutput extends DescribeAdjustment
  *
  * @public
  */
-export class DescribeAdjustmentTypesCommand extends $Command
-  .classBuilder<
-    DescribeAdjustmentTypesCommandInput,
-    DescribeAdjustmentTypesCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "DescribeAdjustmentTypes", {})
-  .n("AutoScalingClient", "DescribeAdjustmentTypesCommand")
-  .sc(DescribeAdjustmentTypes$)
-  .build() {
+export class DescribeAdjustmentTypesCommand extends command<DescribeAdjustmentTypesCommandInput, DescribeAdjustmentTypesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAdjustmentTypes",
+  DescribeAdjustmentTypes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

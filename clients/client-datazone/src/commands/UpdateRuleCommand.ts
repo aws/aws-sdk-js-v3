@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRuleInput, UpdateRuleOutput } from "../models/models_2";
 import { UpdateRule$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -162,22 +158,12 @@ export interface UpdateRuleCommandOutput extends UpdateRuleOutput, __MetadataBea
  *
  * @public
  */
-export class UpdateRuleCommand extends $Command
-  .classBuilder<
-    UpdateRuleCommandInput,
-    UpdateRuleCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "UpdateRule", {})
-  .n("DataZoneClient", "UpdateRuleCommand")
-  .sc(UpdateRule$)
-  .build() {
+export class UpdateRuleCommand extends command<UpdateRuleCommandInput, UpdateRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRule",
+  UpdateRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeModelCardRequest, DescribeModelCardResponse } from "../models/models_3";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeModelCard$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface DescribeModelCardCommandOutput extends DescribeModelCardRespons
  *
  * @public
  */
-export class DescribeModelCardCommand extends $Command
-  .classBuilder<
-    DescribeModelCardCommandInput,
-    DescribeModelCardCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DescribeModelCard", {})
-  .n("SageMakerClient", "DescribeModelCardCommand")
-  .sc(DescribeModelCard$)
-  .build() {
+export class DescribeModelCardCommand extends command<DescribeModelCardCommandInput, DescribeModelCardCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeModelCard",
+  DescribeModelCard$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchDeleteCategoryInput } from "../models/models_0";
-import type { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
 import { BatchDeleteCategory$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface BatchDeleteCategoryCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class BatchDeleteCategoryCommand extends $Command
-  .classBuilder<
-    BatchDeleteCategoryCommandInput,
-    BatchDeleteCategoryCommandOutput,
-    QAppsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QAppsService", "BatchDeleteCategory", {})
-  .n("QAppsClient", "BatchDeleteCategoryCommand")
-  .sc(BatchDeleteCategory$)
-  .build() {
+export class BatchDeleteCategoryCommand extends command<BatchDeleteCategoryCommandInput, BatchDeleteCategoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDeleteCategory",
+  BatchDeleteCategory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

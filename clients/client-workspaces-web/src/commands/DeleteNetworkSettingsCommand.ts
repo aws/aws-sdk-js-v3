@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteNetworkSettingsRequest, DeleteNetworkSettingsResponse } from "../models/models_0";
 import { DeleteNetworkSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSetting
  *
  * @public
  */
-export class DeleteNetworkSettingsCommand extends $Command
-  .classBuilder<
-    DeleteNetworkSettingsCommandInput,
-    DeleteNetworkSettingsCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "DeleteNetworkSettings", {})
-  .n("WorkSpacesWebClient", "DeleteNetworkSettingsCommand")
-  .sc(DeleteNetworkSettings$)
-  .build() {
+export class DeleteNetworkSettingsCommand extends command<DeleteNetworkSettingsCommandInput, DeleteNetworkSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteNetworkSettings",
+  DeleteNetworkSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

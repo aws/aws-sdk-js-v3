@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchDisassociateProjectAssetsRequest, BatchDisassociateProjectAssetsResponse } from "../models/models_0";
 import { BatchDisassociateProjectAssets$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchDisassociateProjectAssets$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface BatchDisassociateProjectAssetsCommandOutput extends BatchDisass
  *
  * @public
  */
-export class BatchDisassociateProjectAssetsCommand extends $Command
-  .classBuilder<
-    BatchDisassociateProjectAssetsCommandInput,
-    BatchDisassociateProjectAssetsCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "BatchDisassociateProjectAssets", {})
-  .n("IoTSiteWiseClient", "BatchDisassociateProjectAssetsCommand")
-  .sc(BatchDisassociateProjectAssets$)
-  .build() {
+export class BatchDisassociateProjectAssetsCommand extends command<BatchDisassociateProjectAssetsCommandInput, BatchDisassociateProjectAssetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDisassociateProjectAssets",
+  BatchDisassociateProjectAssets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

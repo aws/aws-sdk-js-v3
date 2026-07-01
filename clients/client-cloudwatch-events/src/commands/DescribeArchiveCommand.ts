@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchEventsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeArchiveRequest, DescribeArchiveResponse } from "../models/models_0";
 import { DescribeArchive$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeArchive$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  *
  * @public
  */
-export class DescribeArchiveCommand extends $Command
-  .classBuilder<
-    DescribeArchiveCommandInput,
-    DescribeArchiveCommandOutput,
-    CloudWatchEventsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSEvents", "DescribeArchive", {})
-  .n("CloudWatchEventsClient", "DescribeArchiveCommand")
-  .sc(DescribeArchive$)
-  .build() {
+export class DescribeArchiveCommand extends command<DescribeArchiveCommandInput, DescribeArchiveCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeArchive",
+  DescribeArchive$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

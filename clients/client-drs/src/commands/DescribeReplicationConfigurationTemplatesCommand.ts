@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeReplicationConfigurationTemplatesRequest,
   DescribeReplicationConfigurationTemplatesResponse,
@@ -15,7 +12,6 @@ import { DescribeReplicationConfigurationTemplates$ } from "../schemas/schemas_0
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface DescribeReplicationConfigurationTemplatesCommandOutput extends 
  *
  * @public
  */
-export class DescribeReplicationConfigurationTemplatesCommand extends $Command
-  .classBuilder<
-    DescribeReplicationConfigurationTemplatesCommandInput,
-    DescribeReplicationConfigurationTemplatesCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "DescribeReplicationConfigurationTemplates", {})
-  .n("DrsClient", "DescribeReplicationConfigurationTemplatesCommand")
-  .sc(DescribeReplicationConfigurationTemplates$)
-  .build() {
+export class DescribeReplicationConfigurationTemplatesCommand extends command<DescribeReplicationConfigurationTemplatesCommandInput, DescribeReplicationConfigurationTemplatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeReplicationConfigurationTemplates",
+  DescribeReplicationConfigurationTemplates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

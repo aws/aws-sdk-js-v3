@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeDocumentVersionsRequest, DescribeDocumentVersionsResponse } from "../models/models_0";
 import { DescribeDocumentVersions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface DescribeDocumentVersionsCommandOutput extends DescribeDocumentV
  *
  * @public
  */
-export class DescribeDocumentVersionsCommand extends $Command
-  .classBuilder<
-    DescribeDocumentVersionsCommandInput,
-    DescribeDocumentVersionsCommandOutput,
-    WorkDocsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGorillaBoyService", "DescribeDocumentVersions", {})
-  .n("WorkDocsClient", "DescribeDocumentVersionsCommand")
-  .sc(DescribeDocumentVersions$)
-  .build() {
+export class DescribeDocumentVersionsCommand extends command<DescribeDocumentVersionsCommandInput, DescribeDocumentVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDocumentVersions",
+  DescribeDocumentVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

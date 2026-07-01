@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationDiscoveryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationDiscoveryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopContinuousExportRequest, StopContinuousExportResponse } from "../models/models_0";
 import { StopContinuousExport$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StopContinuousExport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface StopContinuousExportCommandOutput extends StopContinuousExportR
  *
  * @public
  */
-export class StopContinuousExportCommand extends $Command
-  .classBuilder<
-    StopContinuousExportCommandInput,
-    StopContinuousExportCommandOutput,
-    ApplicationDiscoveryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationDiscoveryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPoseidonService_V2015_11_01", "StopContinuousExport", {})
-  .n("ApplicationDiscoveryServiceClient", "StopContinuousExportCommand")
-  .sc(StopContinuousExport$)
-  .build() {
+export class StopContinuousExportCommand extends command<StopContinuousExportCommandInput, StopContinuousExportCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopContinuousExport",
+  StopContinuousExport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

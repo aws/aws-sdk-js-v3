@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteLabelRequest, DeleteLabelResult } from "../models/models_0";
 import { DeleteLabel$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteLabel$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteLabelCommandOutput extends DeleteLabelResult, __MetadataB
  *
  * @public
  */
-export class DeleteLabelCommand extends $Command
-  .classBuilder<
-    DeleteLabelCommandInput,
-    DeleteLabelCommandOutput,
-    FraudDetectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHawksNestServiceFacade", "DeleteLabel", {})
-  .n("FraudDetectorClient", "DeleteLabelCommand")
-  .sc(DeleteLabel$)
-  .build() {
+export class DeleteLabelCommand extends command<DeleteLabelCommandInput, DeleteLabelCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteLabel",
+  DeleteLabel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

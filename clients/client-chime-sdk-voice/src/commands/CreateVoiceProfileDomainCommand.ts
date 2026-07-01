@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateVoiceProfileDomainRequest, CreateVoiceProfileDomainResponse } from "../models/models_0";
 import { CreateVoiceProfileDomain$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateVoiceProfileDomain$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface CreateVoiceProfileDomainCommandOutput extends CreateVoiceProfil
  *
  * @public
  */
-export class CreateVoiceProfileDomainCommand extends $Command
-  .classBuilder<
-    CreateVoiceProfileDomainCommandInput,
-    CreateVoiceProfileDomainCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "CreateVoiceProfileDomain", {})
-  .n("ChimeSDKVoiceClient", "CreateVoiceProfileDomainCommand")
-  .sc(CreateVoiceProfileDomain$)
-  .build() {
+export class CreateVoiceProfileDomainCommand extends command<CreateVoiceProfileDomainCommandInput, CreateVoiceProfileDomainCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateVoiceProfileDomain",
+  CreateVoiceProfileDomain$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

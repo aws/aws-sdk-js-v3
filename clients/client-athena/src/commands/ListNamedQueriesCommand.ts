@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListNamedQueriesInput, ListNamedQueriesOutput } from "../models/models_0";
 import { ListNamedQueries$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListNamedQueries$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface ListNamedQueriesCommandOutput extends ListNamedQueriesOutput, _
  *
  * @public
  */
-export class ListNamedQueriesCommand extends $Command
-  .classBuilder<
-    ListNamedQueriesCommandInput,
-    ListNamedQueriesCommandOutput,
-    AthenaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAthena", "ListNamedQueries", {})
-  .n("AthenaClient", "ListNamedQueriesCommand")
-  .sc(ListNamedQueries$)
-  .build() {
+export class ListNamedQueriesCommand extends command<ListNamedQueriesCommandInput, ListNamedQueriesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListNamedQueries",
+  ListNamedQueries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchCreateRoomMembershipRequest, BatchCreateRoomMembershipResponse } from "../models/models_0";
 import { BatchCreateRoomMembership$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchCreateRoomMembership$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface BatchCreateRoomMembershipCommandOutput extends BatchCreateRoomM
  *
  * @public
  */
-export class BatchCreateRoomMembershipCommand extends $Command
-  .classBuilder<
-    BatchCreateRoomMembershipCommandInput,
-    BatchCreateRoomMembershipCommandOutput,
-    ChimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("UCBuzzConsoleService", "BatchCreateRoomMembership", {})
-  .n("ChimeClient", "BatchCreateRoomMembershipCommand")
-  .sc(BatchCreateRoomMembership$)
-  .build() {
+export class BatchCreateRoomMembershipCommand extends command<BatchCreateRoomMembershipCommandInput, BatchCreateRoomMembershipCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchCreateRoomMembership",
+  BatchCreateRoomMembership$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

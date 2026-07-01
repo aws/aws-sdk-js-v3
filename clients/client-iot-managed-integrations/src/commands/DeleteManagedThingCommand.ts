@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteManagedThingRequest } from "../models/models_0";
 import { DeleteManagedThing$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteManagedThing$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface DeleteManagedThingCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteManagedThingCommand extends $Command
-  .classBuilder<
-    DeleteManagedThingCommandInput,
-    DeleteManagedThingCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "DeleteManagedThing", {})
-  .n("IoTManagedIntegrationsClient", "DeleteManagedThingCommand")
-  .sc(DeleteManagedThing$)
-  .build() {
+export class DeleteManagedThingCommand extends command<DeleteManagedThingCommandInput, DeleteManagedThingCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteManagedThing",
+  DeleteManagedThing$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

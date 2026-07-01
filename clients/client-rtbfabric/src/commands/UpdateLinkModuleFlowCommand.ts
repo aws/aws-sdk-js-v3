@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateLinkModuleFlowRequest, UpdateLinkModuleFlowResponse } from "../models/models_0";
-import type { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
 import { UpdateLinkModuleFlow$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -161,22 +157,12 @@ export interface UpdateLinkModuleFlowCommandOutput extends UpdateLinkModuleFlowR
  *
  * @public
  */
-export class UpdateLinkModuleFlowCommand extends $Command
-  .classBuilder<
-    UpdateLinkModuleFlowCommandInput,
-    UpdateLinkModuleFlowCommandOutput,
-    RTBFabricClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RTBFabricClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RTBFabric", "UpdateLinkModuleFlow", {})
-  .n("RTBFabricClient", "UpdateLinkModuleFlowCommand")
-  .sc(UpdateLinkModuleFlow$)
-  .build() {
+export class UpdateLinkModuleFlowCommand extends command<UpdateLinkModuleFlowCommandInput, UpdateLinkModuleFlowCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateLinkModuleFlow",
+  UpdateLinkModuleFlow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

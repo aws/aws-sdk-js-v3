@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SourceServer, UpdateSourceServerRequest } from "../models/models_0";
 import { UpdateSourceServer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateSourceServer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -202,22 +198,12 @@ export interface UpdateSourceServerCommandOutput extends SourceServer, __Metadat
  *
  * @public
  */
-export class UpdateSourceServerCommand extends $Command
-  .classBuilder<
-    UpdateSourceServerCommandInput,
-    UpdateSourceServerCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "UpdateSourceServer", {})
-  .n("MgnClient", "UpdateSourceServerCommand")
-  .sc(UpdateSourceServer$)
-  .build() {
+export class UpdateSourceServerCommand extends command<UpdateSourceServerCommandInput, UpdateSourceServerCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSourceServer",
+  UpdateSourceServer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

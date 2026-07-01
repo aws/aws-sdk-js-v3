@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetBatchPredictionJobsRequest, GetBatchPredictionJobsResult } from "../models/models_0";
 import { GetBatchPredictionJobs$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetBatchPredictionJobs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface GetBatchPredictionJobsCommandOutput extends GetBatchPredictionJ
  *
  * @public
  */
-export class GetBatchPredictionJobsCommand extends $Command
-  .classBuilder<
-    GetBatchPredictionJobsCommandInput,
-    GetBatchPredictionJobsCommandOutput,
-    FraudDetectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHawksNestServiceFacade", "GetBatchPredictionJobs", {})
-  .n("FraudDetectorClient", "GetBatchPredictionJobsCommand")
-  .sc(GetBatchPredictionJobs$)
-  .build() {
+export class GetBatchPredictionJobsCommand extends command<GetBatchPredictionJobsCommandInput, GetBatchPredictionJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetBatchPredictionJobs",
+  GetBatchPredictionJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

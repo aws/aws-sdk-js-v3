@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeInsightRequest, DescribeInsightResponse } from "../models/models_0";
 import { DescribeInsight$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeInsight$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -136,22 +132,12 @@ export interface DescribeInsightCommandOutput extends DescribeInsightResponse, _
  *
  * @public
  */
-export class DescribeInsightCommand extends $Command
-  .classBuilder<
-    DescribeInsightCommandInput,
-    DescribeInsightCommandOutput,
-    DevOpsGuruClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CapstoneControlPlaneService", "DescribeInsight", {})
-  .n("DevOpsGuruClient", "DescribeInsightCommand")
-  .sc(DescribeInsight$)
-  .build() {
+export class DescribeInsightCommand extends command<DescribeInsightCommandInput, DescribeInsightCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeInsight",
+  DescribeInsight$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

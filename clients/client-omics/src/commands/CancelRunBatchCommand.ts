@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelRunBatchRequest, CancelRunBatchResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { CancelRunBatch$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface CancelRunBatchCommandOutput extends CancelRunBatchResponse, __M
  *
  * @public
  */
-export class CancelRunBatchCommand extends $Command
-  .classBuilder<
-    CancelRunBatchCommandInput,
-    CancelRunBatchCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "CancelRunBatch", {})
-  .n("OmicsClient", "CancelRunBatchCommand")
-  .sc(CancelRunBatch$)
-  .build() {
+export class CancelRunBatchCommand extends command<CancelRunBatchCommandInput, CancelRunBatchCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelRunBatch",
+  CancelRunBatch$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

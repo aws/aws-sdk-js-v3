@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MediaStoreDataClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MediaStoreDataClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutObjectRequest, PutObjectResponse } from "../models/models_0";
 import { PutObject$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { PutObject$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface PutObjectCommandOutput extends PutObjectResponse, __MetadataBea
  *
  * @public
  */
-export class PutObjectCommand extends $Command
-  .classBuilder<
-    PutObjectCommandInput,
-    PutObjectCommandOutput,
-    MediaStoreDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaStoreDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaStoreObject_20170901", "PutObject", {})
-  .n("MediaStoreDataClient", "PutObjectCommand")
-  .sc(PutObject$)
-  .build() {
+export class PutObjectCommand extends command<PutObjectCommandInput, PutObjectCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutObject",
+  PutObject$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

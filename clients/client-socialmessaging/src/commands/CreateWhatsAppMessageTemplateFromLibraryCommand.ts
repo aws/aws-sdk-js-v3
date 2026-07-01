@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateWhatsAppMessageTemplateFromLibraryInput,
   CreateWhatsAppMessageTemplateFromLibraryOutput,
 } from "../models/models_0";
 import { CreateWhatsAppMessageTemplateFromLibrary$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SocialMessagingClientResolvedConfig,
-} from "../SocialMessagingClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +114,12 @@ export interface CreateWhatsAppMessageTemplateFromLibraryCommandOutput extends C
  *
  * @public
  */
-export class CreateWhatsAppMessageTemplateFromLibraryCommand extends $Command
-  .classBuilder<
-    CreateWhatsAppMessageTemplateFromLibraryCommandInput,
-    CreateWhatsAppMessageTemplateFromLibraryCommandOutput,
-    SocialMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SocialMessaging", "CreateWhatsAppMessageTemplateFromLibrary", {})
-  .n("SocialMessagingClient", "CreateWhatsAppMessageTemplateFromLibraryCommand")
-  .sc(CreateWhatsAppMessageTemplateFromLibrary$)
-  .build() {
+export class CreateWhatsAppMessageTemplateFromLibraryCommand extends command<CreateWhatsAppMessageTemplateFromLibraryCommandInput, CreateWhatsAppMessageTemplateFromLibraryCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateWhatsAppMessageTemplateFromLibrary",
+  CreateWhatsAppMessageTemplateFromLibrary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

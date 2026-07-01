@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListImportErrorsRequest, ListImportErrorsResponse } from "../models/models_0";
 import { ListImportErrors$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListImportErrors$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface ListImportErrorsCommandOutput extends ListImportErrorsResponse,
  *
  * @public
  */
-export class ListImportErrorsCommand extends $Command
-  .classBuilder<
-    ListImportErrorsCommandInput,
-    ListImportErrorsCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "ListImportErrors", {})
-  .n("MgnClient", "ListImportErrorsCommand")
-  .sc(ListImportErrors$)
-  .build() {
+export class ListImportErrorsCommand extends command<ListImportErrorsCommandInput, ListImportErrorsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListImportErrors",
+  ListImportErrors$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

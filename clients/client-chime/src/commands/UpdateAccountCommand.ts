@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAccountRequest, UpdateAccountResponse } from "../models/models_0";
 import { UpdateAccount$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateAccount$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface UpdateAccountCommandOutput extends UpdateAccountResponse, __Met
  *
  * @public
  */
-export class UpdateAccountCommand extends $Command
-  .classBuilder<
-    UpdateAccountCommandInput,
-    UpdateAccountCommandOutput,
-    ChimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("UCBuzzConsoleService", "UpdateAccount", {})
-  .n("ChimeClient", "UpdateAccountCommand")
-  .sc(UpdateAccount$)
-  .build() {
+export class UpdateAccountCommand extends command<UpdateAccountCommandInput, UpdateAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAccount",
+  UpdateAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

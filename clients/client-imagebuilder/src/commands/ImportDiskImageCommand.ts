@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ImportDiskImageRequest, ImportDiskImageResponse } from "../models/models_0";
 import { ImportDiskImage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ImportDiskImage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface ImportDiskImageCommandOutput extends ImportDiskImageResponse, _
  *
  * @public
  */
-export class ImportDiskImageCommand extends $Command
-  .classBuilder<
-    ImportDiskImageCommandInput,
-    ImportDiskImageCommandOutput,
-    ImagebuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("imagebuilder", "ImportDiskImage", {})
-  .n("ImagebuilderClient", "ImportDiskImageCommand")
-  .sc(ImportDiskImage$)
-  .build() {
+export class ImportDiskImageCommand extends command<ImportDiskImageCommandInput, ImportDiskImageCommandOutput>(
+  _ep0,
+  _mw0,
+  "ImportDiskImage",
+  ImportDiskImage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   SendDurableExecutionCallbackSuccessRequest,
   SendDurableExecutionCallbackSuccessResponse,
@@ -15,7 +12,6 @@ import { SendDurableExecutionCallbackSuccess$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  */
@@ -83,22 +79,12 @@ export interface SendDurableExecutionCallbackSuccessCommandOutput extends SendDu
  *
  * @public
  */
-export class SendDurableExecutionCallbackSuccessCommand extends $Command
-  .classBuilder<
-    SendDurableExecutionCallbackSuccessCommandInput,
-    SendDurableExecutionCallbackSuccessCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "SendDurableExecutionCallbackSuccess", {})
-  .n("LambdaClient", "SendDurableExecutionCallbackSuccessCommand")
-  .sc(SendDurableExecutionCallbackSuccess$)
-  .build() {
+export class SendDurableExecutionCallbackSuccessCommand extends command<SendDurableExecutionCallbackSuccessCommandInput, SendDurableExecutionCallbackSuccessCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendDurableExecutionCallbackSuccess",
+  SendDurableExecutionCallbackSuccess$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

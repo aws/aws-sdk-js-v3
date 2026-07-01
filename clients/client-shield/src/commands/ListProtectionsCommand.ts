@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListProtectionsRequest, ListProtectionsResponse } from "../models/models_0";
 import { ListProtections$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface ListProtectionsCommandOutput extends ListProtectionsResponse, _
  *
  * @public
  */
-export class ListProtectionsCommand extends $Command
-  .classBuilder<
-    ListProtectionsCommandInput,
-    ListProtectionsCommandOutput,
-    ShieldClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShield_20160616", "ListProtections", {})
-  .n("ShieldClient", "ListProtectionsCommand")
-  .sc(ListProtections$)
-  .build() {
+export class ListProtectionsCommand extends command<ListProtectionsCommandInput, ListProtectionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListProtections",
+  ListProtections$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

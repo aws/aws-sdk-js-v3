@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetIntegrationTablePropertiesRequest, GetIntegrationTablePropertiesResponse } from "../models/models_2";
 import { GetIntegrationTableProperties$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetIntegrationTableProperties$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface GetIntegrationTablePropertiesCommandOutput extends GetIntegrati
  *
  * @public
  */
-export class GetIntegrationTablePropertiesCommand extends $Command
-  .classBuilder<
-    GetIntegrationTablePropertiesCommandInput,
-    GetIntegrationTablePropertiesCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "GetIntegrationTableProperties", {})
-  .n("GlueClient", "GetIntegrationTablePropertiesCommand")
-  .sc(GetIntegrationTableProperties$)
-  .build() {
+export class GetIntegrationTablePropertiesCommand extends command<GetIntegrationTablePropertiesCommandInput, GetIntegrationTablePropertiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIntegrationTableProperties",
+  GetIntegrationTableProperties$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

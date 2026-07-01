@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IotDeviceAdvisorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IotDeviceAdvisorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEndpointRequest, GetEndpointResponse } from "../models/models_0";
 import { GetEndpoint$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetEndpoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +67,12 @@ export interface GetEndpointCommandOutput extends GetEndpointResponse, __Metadat
  *
  * @public
  */
-export class GetEndpointCommand extends $Command
-  .classBuilder<
-    GetEndpointCommandInput,
-    GetEndpointCommandOutput,
-    IotDeviceAdvisorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IotDeviceAdvisorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotSenateService", "GetEndpoint", {})
-  .n("IotDeviceAdvisorClient", "GetEndpointCommand")
-  .sc(GetEndpoint$)
-  .build() {
+export class GetEndpointCommand extends command<GetEndpointCommandInput, GetEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEndpoint",
+  GetEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { IsAuthorizedWithTokenInput, IsAuthorizedWithTokenOutput } from "../models/models_0";
 import { IsAuthorizedWithToken$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  VerifiedPermissionsClientResolvedConfig,
-} from "../VerifiedPermissionsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -224,22 +216,12 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  *
  * @public
  */
-export class IsAuthorizedWithTokenCommand extends $Command
-  .classBuilder<
-    IsAuthorizedWithTokenCommandInput,
-    IsAuthorizedWithTokenCommandOutput,
-    VerifiedPermissionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("VerifiedPermissions", "IsAuthorizedWithToken", {})
-  .n("VerifiedPermissionsClient", "IsAuthorizedWithTokenCommand")
-  .sc(IsAuthorizedWithToken$)
-  .build() {
+export class IsAuthorizedWithTokenCommand extends command<IsAuthorizedWithTokenCommandInput, IsAuthorizedWithTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "IsAuthorizedWithToken",
+  IsAuthorizedWithToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeregisterMemberFromAddressListRequest,
   DeregisterMemberFromAddressListResponse,
@@ -15,7 +12,6 @@ import { DeregisterMemberFromAddressList$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeregisterMemberFromAddressListCommandOutput extends Deregister
  *
  * @public
  */
-export class DeregisterMemberFromAddressListCommand extends $Command
-  .classBuilder<
-    DeregisterMemberFromAddressListCommandInput,
-    DeregisterMemberFromAddressListCommandOutput,
-    MailManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MailManagerSvc", "DeregisterMemberFromAddressList", {})
-  .n("MailManagerClient", "DeregisterMemberFromAddressListCommand")
-  .sc(DeregisterMemberFromAddressList$)
-  .build() {
+export class DeregisterMemberFromAddressListCommand extends command<DeregisterMemberFromAddressListCommandInput, DeregisterMemberFromAddressListCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeregisterMemberFromAddressList",
+  DeregisterMemberFromAddressList$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

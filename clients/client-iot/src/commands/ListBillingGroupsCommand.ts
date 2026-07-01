@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListBillingGroupsRequest, ListBillingGroupsResponse } from "../models/models_1";
 import { ListBillingGroups$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListBillingGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsRespons
  *
  * @public
  */
-export class ListBillingGroupsCommand extends $Command
-  .classBuilder<
-    ListBillingGroupsCommandInput,
-    ListBillingGroupsCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "ListBillingGroups", {})
-  .n("IoTClient", "ListBillingGroupsCommand")
-  .sc(ListBillingGroups$)
-  .build() {
+export class ListBillingGroupsCommand extends command<ListBillingGroupsCommandInput, ListBillingGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBillingGroups",
+  ListBillingGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelInputDeviceTransferRequest, CancelInputDeviceTransferResponse } from "../models/models_1";
 import { CancelInputDeviceTransfer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CancelInputDeviceTransfer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface CancelInputDeviceTransferCommandOutput extends CancelInputDevic
  *
  * @public
  */
-export class CancelInputDeviceTransferCommand extends $Command
-  .classBuilder<
-    CancelInputDeviceTransferCommandInput,
-    CancelInputDeviceTransferCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "CancelInputDeviceTransfer", {})
-  .n("MediaLiveClient", "CancelInputDeviceTransferCommand")
-  .sc(CancelInputDeviceTransfer$)
-  .build() {
+export class CancelInputDeviceTransferCommand extends command<CancelInputDeviceTransferCommandInput, CancelInputDeviceTransferCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelInputDeviceTransfer",
+  CancelInputDeviceTransfer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

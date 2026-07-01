@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetWorkflowRunRequest, GetWorkflowRunResponse } from "../models/models_0";
-import type {
-  MWAAServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MWAAServerlessClient";
 import { GetWorkflowRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface GetWorkflowRunCommandOutput extends GetWorkflowRunResponse, __M
  *
  * @public
  */
-export class GetWorkflowRunCommand extends $Command
-  .classBuilder<
-    GetWorkflowRunCommandInput,
-    GetWorkflowRunCommandOutput,
-    MWAAServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MWAAServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMWAAServerless", "GetWorkflowRun", {})
-  .n("MWAAServerlessClient", "GetWorkflowRunCommand")
-  .sc(GetWorkflowRun$)
-  .build() {
+export class GetWorkflowRunCommand extends command<GetWorkflowRunCommandInput, GetWorkflowRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetWorkflowRun",
+  GetWorkflowRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

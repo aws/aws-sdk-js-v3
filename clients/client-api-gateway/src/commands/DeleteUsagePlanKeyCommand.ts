@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteUsagePlanKeyRequest } from "../models/models_0";
 import { DeleteUsagePlanKey$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteUsagePlanKey$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteUsagePlanKeyCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteUsagePlanKeyCommand extends $Command
-  .classBuilder<
-    DeleteUsagePlanKeyCommandInput,
-    DeleteUsagePlanKeyCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "DeleteUsagePlanKey", {})
-  .n("APIGatewayClient", "DeleteUsagePlanKeyCommand")
-  .sc(DeleteUsagePlanKey$)
-  .build() {
+export class DeleteUsagePlanKeyCommand extends command<DeleteUsagePlanKeyCommandInput, DeleteUsagePlanKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteUsagePlanKey",
+  DeleteUsagePlanKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

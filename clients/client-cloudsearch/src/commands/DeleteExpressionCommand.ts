@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteExpressionRequest, DeleteExpressionResponse } from "../models/models_0";
 import { DeleteExpression$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteExpression$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface DeleteExpressionCommandOutput extends DeleteExpressionResponse,
  *
  * @public
  */
-export class DeleteExpressionCommand extends $Command
-  .classBuilder<
-    DeleteExpressionCommandInput,
-    DeleteExpressionCommandOutput,
-    CloudSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("A9SearchCloudConfigService2013", "DeleteExpression", {})
-  .n("CloudSearchClient", "DeleteExpressionCommand")
-  .sc(DeleteExpression$)
-  .build() {
+export class DeleteExpressionCommand extends command<DeleteExpressionCommandInput, DeleteExpressionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteExpression",
+  DeleteExpression$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

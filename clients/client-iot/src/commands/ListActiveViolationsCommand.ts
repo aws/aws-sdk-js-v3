@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListActiveViolationsRequest, ListActiveViolationsResponse } from "../models/models_1";
 import { ListActiveViolations$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListActiveViolations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -146,22 +142,12 @@ export interface ListActiveViolationsCommandOutput extends ListActiveViolationsR
  *
  * @public
  */
-export class ListActiveViolationsCommand extends $Command
-  .classBuilder<
-    ListActiveViolationsCommandInput,
-    ListActiveViolationsCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "ListActiveViolations", {})
-  .n("IoTClient", "ListActiveViolationsCommand")
-  .sc(ListActiveViolations$)
-  .build() {
+export class ListActiveViolationsCommand extends command<ListActiveViolationsCommandInput, ListActiveViolationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListActiveViolations",
+  ListActiveViolations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

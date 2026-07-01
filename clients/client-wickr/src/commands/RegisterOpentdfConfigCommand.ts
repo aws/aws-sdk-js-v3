@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterOpentdfConfigRequest, RegisterOpentdfConfigResponse } from "../models/models_0";
 import { RegisterOpentdfConfig$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -185,22 +181,12 @@ export interface RegisterOpentdfConfigCommandOutput extends RegisterOpentdfConfi
  *
  * @public
  */
-export class RegisterOpentdfConfigCommand extends $Command
-  .classBuilder<
-    RegisterOpentdfConfigCommandInput,
-    RegisterOpentdfConfigCommandOutput,
-    WickrClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WickrAdminApi", "RegisterOpentdfConfig", {})
-  .n("WickrClient", "RegisterOpentdfConfigCommand")
-  .sc(RegisterOpentdfConfig$)
-  .build() {
+export class RegisterOpentdfConfigCommand extends command<RegisterOpentdfConfigCommandInput, RegisterOpentdfConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterOpentdfConfig",
+  RegisterOpentdfConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

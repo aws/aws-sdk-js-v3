@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchJobsRequest, SearchJobsResponse } from "../models/models_1";
 import { SearchJobs$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SearchJobs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -196,22 +192,12 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  *
  * @public
  */
-export class SearchJobsCommand extends $Command
-  .classBuilder<
-    SearchJobsCommandInput,
-    SearchJobsCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "SearchJobs", {})
-  .n("DeadlineClient", "SearchJobsCommand")
-  .sc(SearchJobs$)
-  .build() {
+export class SearchJobsCommand extends command<SearchJobsCommandInput, SearchJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchJobs",
+  SearchJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

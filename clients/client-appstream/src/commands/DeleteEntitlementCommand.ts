@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEntitlementRequest, DeleteEntitlementResult } from "../models/models_0";
 import { DeleteEntitlement$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteEntitlement$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface DeleteEntitlementCommandOutput extends DeleteEntitlementResult,
  *
  * @public
  */
-export class DeleteEntitlementCommand extends $Command
-  .classBuilder<
-    DeleteEntitlementCommandInput,
-    DeleteEntitlementCommandOutput,
-    AppStreamClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PhotonAdminProxyService", "DeleteEntitlement", {})
-  .n("AppStreamClient", "DeleteEntitlementCommand")
-  .sc(DeleteEntitlement$)
-  .build() {
+export class DeleteEntitlementCommand extends command<DeleteEntitlementCommandInput, DeleteEntitlementCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEntitlement",
+  DeleteEntitlement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

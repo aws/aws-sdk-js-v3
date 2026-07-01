@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StopColumnStatisticsTaskRunScheduleRequest,
   StopColumnStatisticsTaskRunScheduleResponse,
@@ -15,7 +12,6 @@ import { StopColumnStatisticsTaskRunSchedule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface StopColumnStatisticsTaskRunScheduleCommandOutput extends StopCo
  *
  * @public
  */
-export class StopColumnStatisticsTaskRunScheduleCommand extends $Command
-  .classBuilder<
-    StopColumnStatisticsTaskRunScheduleCommandInput,
-    StopColumnStatisticsTaskRunScheduleCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "StopColumnStatisticsTaskRunSchedule", {})
-  .n("GlueClient", "StopColumnStatisticsTaskRunScheduleCommand")
-  .sc(StopColumnStatisticsTaskRunSchedule$)
-  .build() {
+export class StopColumnStatisticsTaskRunScheduleCommand extends command<StopColumnStatisticsTaskRunScheduleCommandInput, StopColumnStatisticsTaskRunScheduleCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopColumnStatisticsTaskRunSchedule",
+  StopColumnStatisticsTaskRunSchedule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

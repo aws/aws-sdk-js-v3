@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UnarchiveWaveRequest, Wave } from "../models/models_0";
 import { UnarchiveWave$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UnarchiveWave$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface UnarchiveWaveCommandOutput extends Wave, __MetadataBearer {}
  *
  * @public
  */
-export class UnarchiveWaveCommand extends $Command
-  .classBuilder<
-    UnarchiveWaveCommandInput,
-    UnarchiveWaveCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "UnarchiveWave", {})
-  .n("MgnClient", "UnarchiveWaveCommand")
-  .sc(UnarchiveWave$)
-  .build() {
+export class UnarchiveWaveCommand extends command<UnarchiveWaveCommandInput, UnarchiveWaveCommandOutput>(
+  _ep0,
+  _mw0,
+  "UnarchiveWave",
+  UnarchiveWave$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteApplicationGrantRequest } from "../models/models_0";
 import { DeleteApplicationGrant$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteApplicationGrantCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteApplicationGrantCommand extends $Command
-  .classBuilder<
-    DeleteApplicationGrantCommandInput,
-    DeleteApplicationGrantCommandOutput,
-    SSOAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBExternalService", "DeleteApplicationGrant", {})
-  .n("SSOAdminClient", "DeleteApplicationGrantCommand")
-  .sc(DeleteApplicationGrant$)
-  .build() {
+export class DeleteApplicationGrantCommand extends command<DeleteApplicationGrantCommandInput, DeleteApplicationGrantCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteApplicationGrant",
+  DeleteApplicationGrant$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

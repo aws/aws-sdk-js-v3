@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRolePermissionsBoundaryRequest } from "../models/models_0";
 import { DeleteRolePermissionsBoundary$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteRolePermissionsBoundary$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DeleteRolePermissionsBoundaryCommandOutput extends __MetadataBe
  *
  * @public
  */
-export class DeleteRolePermissionsBoundaryCommand extends $Command
-  .classBuilder<
-    DeleteRolePermissionsBoundaryCommandInput,
-    DeleteRolePermissionsBoundaryCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "DeleteRolePermissionsBoundary", {})
-  .n("IAMClient", "DeleteRolePermissionsBoundaryCommand")
-  .sc(DeleteRolePermissionsBoundary$)
-  .build() {
+export class DeleteRolePermissionsBoundaryCommand extends command<DeleteRolePermissionsBoundaryCommandInput, DeleteRolePermissionsBoundaryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRolePermissionsBoundary",
+  DeleteRolePermissionsBoundary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

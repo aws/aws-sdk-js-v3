@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutAttributesRequest, PutAttributesResponse } from "../models/models_0";
 import { PutAttributes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutAttributes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface PutAttributesCommandOutput extends PutAttributesResponse, __Met
  *
  * @public
  */
-export class PutAttributesCommand extends $Command
-  .classBuilder<
-    PutAttributesCommandInput,
-    PutAttributesCommandOutput,
-    ECSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerServiceV20141113", "PutAttributes", {})
-  .n("ECSClient", "PutAttributesCommand")
-  .sc(PutAttributes$)
-  .build() {
+export class PutAttributesCommand extends command<PutAttributesCommandInput, PutAttributesCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAttributes",
+  PutAttributes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

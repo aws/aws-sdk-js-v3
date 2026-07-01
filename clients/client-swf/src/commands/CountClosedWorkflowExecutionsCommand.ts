@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CountClosedWorkflowExecutionsInput, WorkflowExecutionCount } from "../models/models_0";
 import { CountClosedWorkflowExecutions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +129,12 @@ export interface CountClosedWorkflowExecutionsCommandOutput extends WorkflowExec
  *
  * @public
  */
-export class CountClosedWorkflowExecutionsCommand extends $Command
-  .classBuilder<
-    CountClosedWorkflowExecutionsCommandInput,
-    CountClosedWorkflowExecutionsCommandOutput,
-    SWFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleWorkflowService", "CountClosedWorkflowExecutions", {})
-  .n("SWFClient", "CountClosedWorkflowExecutionsCommand")
-  .sc(CountClosedWorkflowExecutions$)
-  .build() {
+export class CountClosedWorkflowExecutionsCommand extends command<CountClosedWorkflowExecutionsCommandInput, CountClosedWorkflowExecutionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "CountClosedWorkflowExecutions",
+  CountClosedWorkflowExecutions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

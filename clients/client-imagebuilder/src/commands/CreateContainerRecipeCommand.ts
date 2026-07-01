@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateContainerRecipeRequest, CreateContainerRecipeResponse } from "../models/models_0";
 import { CreateContainerRecipe$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateContainerRecipe$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -159,22 +155,12 @@ export interface CreateContainerRecipeCommandOutput extends CreateContainerRecip
  *
  * @public
  */
-export class CreateContainerRecipeCommand extends $Command
-  .classBuilder<
-    CreateContainerRecipeCommandInput,
-    CreateContainerRecipeCommandOutput,
-    ImagebuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("imagebuilder", "CreateContainerRecipe", {})
-  .n("ImagebuilderClient", "CreateContainerRecipeCommand")
-  .sc(CreateContainerRecipe$)
-  .build() {
+export class CreateContainerRecipeCommand extends command<CreateContainerRecipeCommandInput, CreateContainerRecipeCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateContainerRecipe",
+  CreateContainerRecipe$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

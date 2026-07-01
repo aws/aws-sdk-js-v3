@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerLinuxSubscriptionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerLinuxSubscriptionsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLinuxSubscriptionsRequest, ListLinuxSubscriptionsResponse } from "../models/models_0";
 import { ListLinuxSubscriptions$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListLinuxSubscriptions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface ListLinuxSubscriptionsCommandOutput extends ListLinuxSubscripti
  *
  * @public
  */
-export class ListLinuxSubscriptionsCommand extends $Command
-  .classBuilder<
-    ListLinuxSubscriptionsCommandInput,
-    ListLinuxSubscriptionsCommandOutput,
-    LicenseManagerLinuxSubscriptionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerLinuxSubscriptionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LicenseManagerLinuxSubscriptions", "ListLinuxSubscriptions", {})
-  .n("LicenseManagerLinuxSubscriptionsClient", "ListLinuxSubscriptionsCommand")
-  .sc(ListLinuxSubscriptions$)
-  .build() {
+export class ListLinuxSubscriptionsCommand extends command<ListLinuxSubscriptionsCommandInput, ListLinuxSubscriptionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLinuxSubscriptions",
+  ListLinuxSubscriptions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFoundationModelAvailabilityRequest, GetFoundationModelAvailabilityResponse } from "../models/models_1";
 import { GetFoundationModelAvailability$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetFoundationModelAvailability$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface GetFoundationModelAvailabilityCommandOutput extends GetFoundati
  *
  * @public
  */
-export class GetFoundationModelAvailabilityCommand extends $Command
-  .classBuilder<
-    GetFoundationModelAvailabilityCommandInput,
-    GetFoundationModelAvailabilityCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "GetFoundationModelAvailability", {})
-  .n("BedrockClient", "GetFoundationModelAvailabilityCommand")
-  .sc(GetFoundationModelAvailability$)
-  .build() {
+export class GetFoundationModelAvailabilityCommand extends command<GetFoundationModelAvailabilityCommandInput, GetFoundationModelAvailabilityCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFoundationModelAvailability",
+  GetFoundationModelAvailability$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

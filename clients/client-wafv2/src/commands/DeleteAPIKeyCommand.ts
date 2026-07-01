@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAPIKeyRequest, DeleteAPIKeyResponse } from "../models/models_0";
 import { DeleteAPIKey$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface DeleteAPIKeyCommandOutput extends DeleteAPIKeyResponse, __Metad
  *
  * @public
  */
-export class DeleteAPIKeyCommand extends $Command
-  .classBuilder<
-    DeleteAPIKeyCommandInput,
-    DeleteAPIKeyCommandOutput,
-    WAFV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20190729", "DeleteAPIKey", {})
-  .n("WAFV2Client", "DeleteAPIKeyCommand")
-  .sc(DeleteAPIKey$)
-  .build() {
+export class DeleteAPIKeyCommand extends command<DeleteAPIKeyCommandInput, DeleteAPIKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAPIKey",
+  DeleteAPIKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

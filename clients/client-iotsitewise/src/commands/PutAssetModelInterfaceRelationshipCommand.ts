@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutAssetModelInterfaceRelationshipRequest,
   PutAssetModelInterfaceRelationshipResponse,
@@ -15,7 +12,6 @@ import { PutAssetModelInterfaceRelationship$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface PutAssetModelInterfaceRelationshipCommandOutput extends PutAsse
  *
  * @public
  */
-export class PutAssetModelInterfaceRelationshipCommand extends $Command
-  .classBuilder<
-    PutAssetModelInterfaceRelationshipCommandInput,
-    PutAssetModelInterfaceRelationshipCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "PutAssetModelInterfaceRelationship", {})
-  .n("IoTSiteWiseClient", "PutAssetModelInterfaceRelationshipCommand")
-  .sc(PutAssetModelInterfaceRelationship$)
-  .build() {
+export class PutAssetModelInterfaceRelationshipCommand extends command<PutAssetModelInterfaceRelationshipCommandInput, PutAssetModelInterfaceRelationshipCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAssetModelInterfaceRelationship",
+  PutAssetModelInterfaceRelationship$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

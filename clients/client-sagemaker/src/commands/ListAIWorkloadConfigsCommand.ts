@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAIWorkloadConfigsRequest, ListAIWorkloadConfigsResponse } from "../models/models_3";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListAIWorkloadConfigs$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface ListAIWorkloadConfigsCommandOutput extends ListAIWorkloadConfig
  *
  * @public
  */
-export class ListAIWorkloadConfigsCommand extends $Command
-  .classBuilder<
-    ListAIWorkloadConfigsCommandInput,
-    ListAIWorkloadConfigsCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "ListAIWorkloadConfigs", {})
-  .n("SageMakerClient", "ListAIWorkloadConfigsCommand")
-  .sc(ListAIWorkloadConfigs$)
-  .build() {
+export class ListAIWorkloadConfigsCommand extends command<ListAIWorkloadConfigsCommandInput, ListAIWorkloadConfigsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAIWorkloadConfigs",
+  ListAIWorkloadConfigs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

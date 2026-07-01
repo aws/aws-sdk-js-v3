@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelZonalShiftRequest, ZonalShift } from "../models/models_0";
 import { CancelZonalShift$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CancelZonalShift$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface CancelZonalShiftCommandOutput extends ZonalShift, __MetadataBea
  *
  * @public
  */
-export class CancelZonalShiftCommand extends $Command
-  .classBuilder<
-    CancelZonalShiftCommandInput,
-    CancelZonalShiftCommandOutput,
-    ARCZonalShiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PercDataPlane", "CancelZonalShift", {})
-  .n("ARCZonalShiftClient", "CancelZonalShiftCommand")
-  .sc(CancelZonalShift$)
-  .build() {
+export class CancelZonalShiftCommand extends command<CancelZonalShiftCommandInput, CancelZonalShiftCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelZonalShift",
+  CancelZonalShift$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

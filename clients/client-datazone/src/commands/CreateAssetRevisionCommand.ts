@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAssetRevisionInput, CreateAssetRevisionOutput } from "../models/models_0";
 import { CreateAssetRevision$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateAssetRevision$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -154,22 +150,12 @@ export interface CreateAssetRevisionCommandOutput extends CreateAssetRevisionOut
  *
  * @public
  */
-export class CreateAssetRevisionCommand extends $Command
-  .classBuilder<
-    CreateAssetRevisionCommandInput,
-    CreateAssetRevisionCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "CreateAssetRevision", {})
-  .n("DataZoneClient", "CreateAssetRevisionCommand")
-  .sc(CreateAssetRevision$)
-  .build() {
+export class CreateAssetRevisionCommand extends command<CreateAssetRevisionCommandInput, CreateAssetRevisionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAssetRevision",
+  CreateAssetRevision$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

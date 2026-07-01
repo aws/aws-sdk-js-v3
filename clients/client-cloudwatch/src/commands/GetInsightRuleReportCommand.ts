@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetInsightRuleReportInput, GetInsightRuleReportOutput } from "../models/models_0";
 import { GetInsightRuleReport$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetInsightRuleReport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -152,22 +148,12 @@ export interface GetInsightRuleReportCommandOutput extends GetInsightRuleReportO
  *
  * @public
  */
-export class GetInsightRuleReportCommand extends $Command
-  .classBuilder<
-    GetInsightRuleReportCommandInput,
-    GetInsightRuleReportCommandOutput,
-    CloudWatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GraniteServiceVersion20100801", "GetInsightRuleReport", {})
-  .n("CloudWatchClient", "GetInsightRuleReportCommand")
-  .sc(GetInsightRuleReport$)
-  .build() {
+export class GetInsightRuleReportCommand extends command<GetInsightRuleReportCommandInput, GetInsightRuleReportCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetInsightRuleReport",
+  GetInsightRuleReport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

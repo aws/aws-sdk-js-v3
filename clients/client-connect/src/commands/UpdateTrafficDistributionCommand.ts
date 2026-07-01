@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateTrafficDistributionRequest, UpdateTrafficDistributionResponse } from "../models/models_3";
 import { UpdateTrafficDistribution$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateTrafficDistribution$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface UpdateTrafficDistributionCommandOutput extends UpdateTrafficDis
  *
  * @public
  */
-export class UpdateTrafficDistributionCommand extends $Command
-  .classBuilder<
-    UpdateTrafficDistributionCommandInput,
-    UpdateTrafficDistributionCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "UpdateTrafficDistribution", {})
-  .n("ConnectClient", "UpdateTrafficDistributionCommand")
-  .sc(UpdateTrafficDistribution$)
-  .build() {
+export class UpdateTrafficDistributionCommand extends command<UpdateTrafficDistributionCommandInput, UpdateTrafficDistributionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateTrafficDistribution",
+  UpdateTrafficDistribution$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCentralizationRuleForOrganizationInput } from "../models/models_0";
-import type {
-  ObservabilityAdminClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ObservabilityAdminClient";
 import { DeleteCentralizationRuleForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +68,12 @@ export interface DeleteCentralizationRuleForOrganizationCommandOutput extends __
  *
  * @public
  */
-export class DeleteCentralizationRuleForOrganizationCommand extends $Command
-  .classBuilder<
-    DeleteCentralizationRuleForOrganizationCommandInput,
-    DeleteCentralizationRuleForOrganizationCommandOutput,
-    ObservabilityAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ObservabilityAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ObservabilityAdmin", "DeleteCentralizationRuleForOrganization", {})
-  .n("ObservabilityAdminClient", "DeleteCentralizationRuleForOrganizationCommand")
-  .sc(DeleteCentralizationRuleForOrganization$)
-  .build() {
+export class DeleteCentralizationRuleForOrganizationCommand extends command<DeleteCentralizationRuleForOrganizationCommandInput, DeleteCentralizationRuleForOrganizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCentralizationRuleForOrganization",
+  DeleteCentralizationRuleForOrganization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

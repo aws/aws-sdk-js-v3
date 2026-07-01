@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateWirelessDeviceFromFuotaTaskRequest,
   DisassociateWirelessDeviceFromFuotaTaskResponse,
@@ -15,7 +12,6 @@ import { DisassociateWirelessDeviceFromFuotaTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DisassociateWirelessDeviceFromFuotaTaskCommandOutput extends Di
  *
  * @public
  */
-export class DisassociateWirelessDeviceFromFuotaTaskCommand extends $Command
-  .classBuilder<
-    DisassociateWirelessDeviceFromFuotaTaskCommandInput,
-    DisassociateWirelessDeviceFromFuotaTaskCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "DisassociateWirelessDeviceFromFuotaTask", {})
-  .n("IoTWirelessClient", "DisassociateWirelessDeviceFromFuotaTaskCommand")
-  .sc(DisassociateWirelessDeviceFromFuotaTask$)
-  .build() {
+export class DisassociateWirelessDeviceFromFuotaTaskCommand extends command<DisassociateWirelessDeviceFromFuotaTaskCommandInput, DisassociateWirelessDeviceFromFuotaTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateWirelessDeviceFromFuotaTask",
+  DisassociateWirelessDeviceFromFuotaTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

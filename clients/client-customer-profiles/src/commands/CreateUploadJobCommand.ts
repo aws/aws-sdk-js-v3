@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateUploadJobRequest, CreateUploadJobResponse } from "../models/models_0";
 import { CreateUploadJob$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateUploadJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface CreateUploadJobCommandOutput extends CreateUploadJobResponse, _
  *
  * @public
  */
-export class CreateUploadJobCommand extends $Command
-  .classBuilder<
-    CreateUploadJobCommandInput,
-    CreateUploadJobCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "CreateUploadJob", {})
-  .n("CustomerProfilesClient", "CreateUploadJobCommand")
-  .sc(CreateUploadJob$)
-  .build() {
+export class CreateUploadJobCommand extends command<CreateUploadJobCommandInput, CreateUploadJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateUploadJob",
+  CreateUploadJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

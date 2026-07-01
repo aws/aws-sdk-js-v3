@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPreparedStatementsInput, ListPreparedStatementsOutput } from "../models/models_0";
 import { ListPreparedStatements$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListPreparedStatements$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface ListPreparedStatementsCommandOutput extends ListPreparedStateme
  *
  * @public
  */
-export class ListPreparedStatementsCommand extends $Command
-  .classBuilder<
-    ListPreparedStatementsCommandInput,
-    ListPreparedStatementsCommandOutput,
-    AthenaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAthena", "ListPreparedStatements", {})
-  .n("AthenaClient", "ListPreparedStatementsCommand")
-  .sc(ListPreparedStatements$)
-  .build() {
+export class ListPreparedStatementsCommand extends command<ListPreparedStatementsCommandInput, ListPreparedStatementsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPreparedStatements",
+  ListPreparedStatements$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

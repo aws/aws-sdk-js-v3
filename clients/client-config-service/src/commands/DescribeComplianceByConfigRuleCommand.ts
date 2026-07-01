@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeComplianceByConfigRuleRequest, DescribeComplianceByConfigRuleResponse } from "../models/models_0";
 import { DescribeComplianceByConfigRule$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeComplianceByConfigRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface DescribeComplianceByConfigRuleCommandOutput extends DescribeCom
  *
  * @public
  */
-export class DescribeComplianceByConfigRuleCommand extends $Command
-  .classBuilder<
-    DescribeComplianceByConfigRuleCommandInput,
-    DescribeComplianceByConfigRuleCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DescribeComplianceByConfigRule", {})
-  .n("ConfigServiceClient", "DescribeComplianceByConfigRuleCommand")
-  .sc(DescribeComplianceByConfigRule$)
-  .build() {
+export class DescribeComplianceByConfigRuleCommand extends command<DescribeComplianceByConfigRuleCommandInput, DescribeComplianceByConfigRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeComplianceByConfigRule",
+  DescribeComplianceByConfigRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

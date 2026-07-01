@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePackageRequest, DeletePackageResult } from "../models/models_0";
 import { DeletePackage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeletePackage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface DeletePackageCommandOutput extends DeletePackageResult, __Metad
  *
  * @public
  */
-export class DeletePackageCommand extends $Command
-  .classBuilder<
-    DeletePackageCommandInput,
-    DeletePackageCommandOutput,
-    CodeartifactClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeArtifactControlPlaneService", "DeletePackage", {})
-  .n("CodeartifactClient", "DeletePackageCommand")
-  .sc(DeletePackage$)
-  .build() {
+export class DeletePackageCommand extends command<DeletePackageCommandInput, DeletePackageCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePackage",
+  DeletePackage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

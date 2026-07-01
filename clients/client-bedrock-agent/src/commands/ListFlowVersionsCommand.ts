@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListFlowVersionsRequest, ListFlowVersionsResponse } from "../models/models_0";
 import { ListFlowVersions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListFlowVersions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface ListFlowVersionsCommandOutput extends ListFlowVersionsResponse,
  *
  * @public
  */
-export class ListFlowVersionsCommand extends $Command
-  .classBuilder<
-    ListFlowVersionsCommandInput,
-    ListFlowVersionsCommandOutput,
-    BedrockAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentBuildTimeLambda", "ListFlowVersions", {})
-  .n("BedrockAgentClient", "ListFlowVersionsCommand")
-  .sc(ListFlowVersions$)
-  .build() {
+export class ListFlowVersionsCommand extends command<ListFlowVersionsCommandInput, ListFlowVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFlowVersions",
+  ListFlowVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

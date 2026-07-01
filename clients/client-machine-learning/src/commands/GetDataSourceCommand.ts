@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MachineLearningClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MachineLearningClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDataSourceInput, GetDataSourceOutput } from "../models/models_0";
 import { GetDataSource$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetDataSource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +104,12 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  *
  * @public
  */
-export class GetDataSourceCommand extends $Command
-  .classBuilder<
-    GetDataSourceCommandInput,
-    GetDataSourceCommandOutput,
-    MachineLearningClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonML_20141212", "GetDataSource", {})
-  .n("MachineLearningClient", "GetDataSourceCommand")
-  .sc(GetDataSource$)
-  .build() {
+export class GetDataSourceCommand extends command<GetDataSourceCommandInput, GetDataSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDataSource",
+  GetDataSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

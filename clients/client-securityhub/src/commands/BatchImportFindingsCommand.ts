@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchImportFindingsRequest, BatchImportFindingsResponse } from "../models/models_2";
 import { BatchImportFindings$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -4469,22 +4465,12 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *
  * @public
  */
-export class BatchImportFindingsCommand extends $Command
-  .classBuilder<
-    BatchImportFindingsCommandInput,
-    BatchImportFindingsCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "BatchImportFindings", {})
-  .n("SecurityHubClient", "BatchImportFindingsCommand")
-  .sc(BatchImportFindings$)
-  .build() {
+export class BatchImportFindingsCommand extends command<BatchImportFindingsCommandInput, BatchImportFindingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchImportFindings",
+  BatchImportFindings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

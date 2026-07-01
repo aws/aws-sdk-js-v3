@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MedicalImagingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MedicalImagingClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDatastoresRequest, ListDatastoresResponse } from "../models/models_0";
 import { ListDatastores$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListDatastores$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __M
  *
  * @public
  */
-export class ListDatastoresCommand extends $Command
-  .classBuilder<
-    ListDatastoresCommandInput,
-    ListDatastoresCommandOutput,
-    MedicalImagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AHIGatewayService", "ListDatastores", {})
-  .n("MedicalImagingClient", "ListDatastoresCommand")
-  .sc(ListDatastores$)
-  .build() {
+export class ListDatastoresCommand extends command<ListDatastoresCommandInput, ListDatastoresCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDatastores",
+  ListDatastores$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

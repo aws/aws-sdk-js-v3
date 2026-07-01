@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartAttachedFileUploadRequest, StartAttachedFileUploadResponse } from "../models/models_3";
 import { StartAttachedFileUpload$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartAttachedFileUpload$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface StartAttachedFileUploadCommandOutput extends StartAttachedFileU
  *
  * @public
  */
-export class StartAttachedFileUploadCommand extends $Command
-  .classBuilder<
-    StartAttachedFileUploadCommandInput,
-    StartAttachedFileUploadCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "StartAttachedFileUpload", {})
-  .n("ConnectClient", "StartAttachedFileUploadCommand")
-  .sc(StartAttachedFileUpload$)
-  .build() {
+export class StartAttachedFileUploadCommand extends command<StartAttachedFileUploadCommandInput, StartAttachedFileUploadCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartAttachedFileUpload",
+  StartAttachedFileUpload$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

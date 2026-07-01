@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  ManagedBlockchainQueryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ManagedBlockchainQueryClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTransactionInput, GetTransactionOutput } from "../models/models_0";
 import { GetTransaction$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetTransaction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +105,12 @@ export interface GetTransactionCommandOutput extends GetTransactionOutput, __Met
  *
  * @public
  */
-export class GetTransactionCommand extends $Command
-  .classBuilder<
-    GetTransactionCommandInput,
-    GetTransactionCommandOutput,
-    ManagedBlockchainQueryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainQueryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TietonChainQueryService", "GetTransaction", {})
-  .n("ManagedBlockchainQueryClient", "GetTransactionCommand")
-  .sc(GetTransaction$)
-  .build() {
+export class GetTransactionCommand extends command<GetTransactionCommandInput, GetTransactionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTransaction",
+  GetTransaction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

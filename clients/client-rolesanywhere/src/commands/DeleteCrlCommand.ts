@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CrlDetailResponse, ScalarCrlRequest } from "../models/models_0";
-import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { DeleteCrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DeleteCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  *
  * @public
  */
-export class DeleteCrlCommand extends $Command
-  .classBuilder<
-    DeleteCrlCommandInput,
-    DeleteCrlCommandOutput,
-    RolesAnywhereClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RolesAnywhereClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RolesAnywhere", "DeleteCrl", {})
-  .n("RolesAnywhereClient", "DeleteCrlCommand")
-  .sc(DeleteCrl$)
-  .build() {
+export class DeleteCrlCommand extends command<DeleteCrlCommandInput, DeleteCrlCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCrl",
+  DeleteCrl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

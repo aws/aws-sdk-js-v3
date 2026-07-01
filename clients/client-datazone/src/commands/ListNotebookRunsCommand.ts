@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListNotebookRunsInput, ListNotebookRunsOutput } from "../models/models_2";
 import { ListNotebookRuns$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListNotebookRuns$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface ListNotebookRunsCommandOutput extends ListNotebookRunsOutput, _
  *
  * @public
  */
-export class ListNotebookRunsCommand extends $Command
-  .classBuilder<
-    ListNotebookRunsCommandInput,
-    ListNotebookRunsCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "ListNotebookRuns", {})
-  .n("DataZoneClient", "ListNotebookRunsCommand")
-  .sc(ListNotebookRuns$)
-  .build() {
+export class ListNotebookRunsCommand extends command<ListNotebookRunsCommandInput, ListNotebookRunsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListNotebookRuns",
+  ListNotebookRuns$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

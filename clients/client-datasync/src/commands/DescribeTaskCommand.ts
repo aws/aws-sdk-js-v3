@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeTaskRequest, DescribeTaskResponse } from "../models/models_0";
 import { DescribeTask$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -159,22 +155,12 @@ export interface DescribeTaskCommandOutput extends DescribeTaskResponse, __Metad
  *
  * @public
  */
-export class DescribeTaskCommand extends $Command
-  .classBuilder<
-    DescribeTaskCommandInput,
-    DescribeTaskCommandOutput,
-    DataSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FmrsService", "DescribeTask", {})
-  .n("DataSyncClient", "DescribeTaskCommand")
-  .sc(DescribeTask$)
-  .build() {
+export class DescribeTaskCommand extends command<DescribeTaskCommandInput, DescribeTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeTask",
+  DescribeTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

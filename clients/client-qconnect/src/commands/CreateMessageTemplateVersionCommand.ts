@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateMessageTemplateVersionRequest, CreateMessageTemplateVersionResponse } from "../models/models_0";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { CreateMessageTemplateVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -287,22 +283,12 @@ export interface CreateMessageTemplateVersionCommandOutput extends CreateMessage
  *
  * @public
  */
-export class CreateMessageTemplateVersionCommand extends $Command
-  .classBuilder<
-    CreateMessageTemplateVersionCommandInput,
-    CreateMessageTemplateVersionCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "CreateMessageTemplateVersion", {})
-  .n("QConnectClient", "CreateMessageTemplateVersionCommand")
-  .sc(CreateMessageTemplateVersion$)
-  .build() {
+export class CreateMessageTemplateVersionCommand extends command<CreateMessageTemplateVersionCommandInput, CreateMessageTemplateVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateMessageTemplateVersion",
+  CreateMessageTemplateVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

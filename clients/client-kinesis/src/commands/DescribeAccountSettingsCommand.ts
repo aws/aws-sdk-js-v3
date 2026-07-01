@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { DescribeAccountSettingsInput, DescribeAccountSettingsOutput } from "../models/models_0";
 import { DescribeAccountSettings$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeAccountSettings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface DescribeAccountSettingsCommandOutput extends DescribeAccountSet
  *
  * @public
  */
-export class DescribeAccountSettingsCommand extends $Command
-  .classBuilder<
-    DescribeAccountSettingsCommandInput,
-    DescribeAccountSettingsCommandOutput,
-    KinesisClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kinesis_20131202", "DescribeAccountSettings", {})
-  .n("KinesisClient", "DescribeAccountSettingsCommand")
-  .sc(DescribeAccountSettings$)
-  .build() {
+export class DescribeAccountSettingsCommand extends command<DescribeAccountSettingsCommandInput, DescribeAccountSettingsCommandOutput>(
+  _ep1,
+  _mw0,
+  "DescribeAccountSettings",
+  DescribeAccountSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

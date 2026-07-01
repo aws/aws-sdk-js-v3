@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeFileCachesRequest, DescribeFileCachesResponse } from "../models/models_0";
 import { DescribeFileCaches$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeFileCaches$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -139,22 +135,12 @@ export interface DescribeFileCachesCommandOutput extends DescribeFileCachesRespo
  *
  * @public
  */
-export class DescribeFileCachesCommand extends $Command
-  .classBuilder<
-    DescribeFileCachesCommandInput,
-    DescribeFileCachesCommandOutput,
-    FSxClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSimbaAPIService_v20180301", "DescribeFileCaches", {})
-  .n("FSxClient", "DescribeFileCachesCommand")
-  .sc(DescribeFileCaches$)
-  .build() {
+export class DescribeFileCachesCommand extends command<DescribeFileCachesCommandInput, DescribeFileCachesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeFileCaches",
+  DescribeFileCaches$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

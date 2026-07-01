@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchProductsAsAdminInput, SearchProductsAsAdminOutput } from "../models/models_0";
 import { SearchProductsAsAdmin$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +110,12 @@ export interface SearchProductsAsAdminCommandOutput extends SearchProductsAsAdmi
  *
  * @public
  */
-export class SearchProductsAsAdminCommand extends $Command
-  .classBuilder<
-    SearchProductsAsAdminCommandInput,
-    SearchProductsAsAdminCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "SearchProductsAsAdmin", {})
-  .n("ServiceCatalogClient", "SearchProductsAsAdminCommand")
-  .sc(SearchProductsAsAdmin$)
-  .build() {
+export class SearchProductsAsAdminCommand extends command<SearchProductsAsAdminCommandInput, SearchProductsAsAdminCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchProductsAsAdmin",
+  SearchProductsAsAdmin$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

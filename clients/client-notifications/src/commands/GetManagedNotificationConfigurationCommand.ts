@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetManagedNotificationConfigurationRequest,
   GetManagedNotificationConfigurationResponse,
 } from "../models/models_0";
-import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
 import { GetManagedNotificationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface GetManagedNotificationConfigurationCommandOutput extends GetMan
  *
  * @public
  */
-export class GetManagedNotificationConfigurationCommand extends $Command
-  .classBuilder<
-    GetManagedNotificationConfigurationCommandInput,
-    GetManagedNotificationConfigurationCommandOutput,
-    NotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Notifications", "GetManagedNotificationConfiguration", {})
-  .n("NotificationsClient", "GetManagedNotificationConfigurationCommand")
-  .sc(GetManagedNotificationConfiguration$)
-  .build() {
+export class GetManagedNotificationConfigurationCommand extends command<GetManagedNotificationConfigurationCommandInput, GetManagedNotificationConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetManagedNotificationConfiguration",
+  GetManagedNotificationConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

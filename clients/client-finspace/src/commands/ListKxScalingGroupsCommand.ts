@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListKxScalingGroupsRequest, ListKxScalingGroupsResponse } from "../models/models_0";
 import { ListKxScalingGroups$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListKxScalingGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface ListKxScalingGroupsCommandOutput extends ListKxScalingGroupsRes
  *
  * @public
  */
-export class ListKxScalingGroupsCommand extends $Command
-  .classBuilder<
-    ListKxScalingGroupsCommandInput,
-    ListKxScalingGroupsCommandOutput,
-    FinspaceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHabaneroManagementService", "ListKxScalingGroups", {})
-  .n("FinspaceClient", "ListKxScalingGroupsCommand")
-  .sc(ListKxScalingGroups$)
-  .build() {
+export class ListKxScalingGroupsCommand extends command<ListKxScalingGroupsCommandInput, ListKxScalingGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListKxScalingGroups",
+  ListKxScalingGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

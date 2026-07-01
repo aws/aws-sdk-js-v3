@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateWorkspaceBundleRequest, UpdateWorkspaceBundleResult } from "../models/models_0";
 import { UpdateWorkspaceBundle$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundl
  *
  * @public
  */
-export class UpdateWorkspaceBundleCommand extends $Command
-  .classBuilder<
-    UpdateWorkspaceBundleCommandInput,
-    UpdateWorkspaceBundleCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "UpdateWorkspaceBundle", {})
-  .n("WorkSpacesClient", "UpdateWorkspaceBundleCommand")
-  .sc(UpdateWorkspaceBundle$)
-  .build() {
+export class UpdateWorkspaceBundleCommand extends command<UpdateWorkspaceBundleCommandInput, UpdateWorkspaceBundleCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateWorkspaceBundle",
+  UpdateWorkspaceBundle$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

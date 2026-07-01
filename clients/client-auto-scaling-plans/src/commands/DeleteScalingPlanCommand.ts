@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AutoScalingPlansClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AutoScalingPlansClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteScalingPlanRequest, DeleteScalingPlanResponse } from "../models/models_0";
 import { DeleteScalingPlan$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteScalingPlan$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanRespons
  *
  * @public
  */
-export class DeleteScalingPlanCommand extends $Command
-  .classBuilder<
-    DeleteScalingPlanCommandInput,
-    DeleteScalingPlanCommandOutput,
-    AutoScalingPlansClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingPlansClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AnyScaleScalingPlannerFrontendService", "DeleteScalingPlan", {})
-  .n("AutoScalingPlansClient", "DeleteScalingPlanCommand")
-  .sc(DeleteScalingPlan$)
-  .build() {
+export class DeleteScalingPlanCommand extends command<DeleteScalingPlanCommandInput, DeleteScalingPlanCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteScalingPlan",
+  DeleteScalingPlan$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

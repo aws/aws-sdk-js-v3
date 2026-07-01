@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCacheClusterMessage, DeleteCacheClusterResult } from "../models/models_0";
 import { DeleteCacheCluster$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteCacheCluster$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -274,22 +270,12 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  *
  * @public
  */
-export class DeleteCacheClusterCommand extends $Command
-  .classBuilder<
-    DeleteCacheClusterCommandInput,
-    DeleteCacheClusterCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "DeleteCacheCluster", {})
-  .n("ElastiCacheClient", "DeleteCacheClusterCommand")
-  .sc(DeleteCacheCluster$)
-  .build() {
+export class DeleteCacheClusterCommand extends command<DeleteCacheClusterCommandInput, DeleteCacheClusterCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCacheCluster",
+  DeleteCacheCluster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

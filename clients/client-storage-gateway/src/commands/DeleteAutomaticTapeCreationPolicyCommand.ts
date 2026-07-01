@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteAutomaticTapeCreationPolicyInput,
   DeleteAutomaticTapeCreationPolicyOutput,
 } from "../models/models_0";
 import { DeleteAutomaticTapeCreationPolicy$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +68,12 @@ export interface DeleteAutomaticTapeCreationPolicyCommandOutput extends DeleteAu
  *
  * @public
  */
-export class DeleteAutomaticTapeCreationPolicyCommand extends $Command
-  .classBuilder<
-    DeleteAutomaticTapeCreationPolicyCommandInput,
-    DeleteAutomaticTapeCreationPolicyCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "DeleteAutomaticTapeCreationPolicy", {})
-  .n("StorageGatewayClient", "DeleteAutomaticTapeCreationPolicyCommand")
-  .sc(DeleteAutomaticTapeCreationPolicy$)
-  .build() {
+export class DeleteAutomaticTapeCreationPolicyCommand extends command<DeleteAutomaticTapeCreationPolicyCommandInput, DeleteAutomaticTapeCreationPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAutomaticTapeCreationPolicy",
+  DeleteAutomaticTapeCreationPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

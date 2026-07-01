@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateWebhookRequest, UpdateWebhookResult } from "../models/models_0";
 import { UpdateWebhook$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateWebhook$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface UpdateWebhookCommandOutput extends UpdateWebhookResult, __Metad
  *
  * @public
  */
-export class UpdateWebhookCommand extends $Command
-  .classBuilder<
-    UpdateWebhookCommandInput,
-    UpdateWebhookCommandOutput,
-    AmplifyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Amplify", "UpdateWebhook", {})
-  .n("AmplifyClient", "UpdateWebhookCommand")
-  .sc(UpdateWebhook$)
-  .build() {
+export class UpdateWebhookCommand extends command<UpdateWebhookCommandInput, UpdateWebhookCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateWebhook",
+  UpdateWebhook$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

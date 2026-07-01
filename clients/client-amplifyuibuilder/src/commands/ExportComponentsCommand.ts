@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyUIBuilderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyUIBuilderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExportComponentsRequest, ExportComponentsResponse } from "../models/models_0";
 import { ExportComponents$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ExportComponents$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -292,22 +284,12 @@ export interface ExportComponentsCommandOutput extends ExportComponentsResponse,
  *
  * @public
  */
-export class ExportComponentsCommand extends $Command
-  .classBuilder<
-    ExportComponentsCommandInput,
-    ExportComponentsCommandOutput,
-    AmplifyUIBuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyUIBuilder", "ExportComponents", {})
-  .n("AmplifyUIBuilderClient", "ExportComponentsCommand")
-  .sc(ExportComponents$)
-  .build() {
+export class ExportComponentsCommand extends command<ExportComponentsCommandInput, ExportComponentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExportComponents",
+  ExportComponents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

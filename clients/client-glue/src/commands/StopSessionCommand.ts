@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopSessionRequest, StopSessionResponse } from "../models/models_3";
 import { StopSession$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopSession$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface StopSessionCommandOutput extends StopSessionResponse, __Metadat
  *
  * @public
  */
-export class StopSessionCommand extends $Command
-  .classBuilder<
-    StopSessionCommandInput,
-    StopSessionCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "StopSession", {})
-  .n("GlueClient", "StopSessionCommand")
-  .sc(StopSession$)
-  .build() {
+export class StopSessionCommand extends command<StopSessionCommandInput, StopSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopSession",
+  StopSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetFreeTrialInfoRequest, BatchGetFreeTrialInfoResponse } from "../models/models_0";
 import { BatchGetFreeTrialInfo$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetFreeTrialInfo$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface BatchGetFreeTrialInfoCommandOutput extends BatchGetFreeTrialInf
  *
  * @public
  */
-export class BatchGetFreeTrialInfoCommand extends $Command
-  .classBuilder<
-    BatchGetFreeTrialInfoCommandInput,
-    BatchGetFreeTrialInfoCommandOutput,
-    Inspector2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Inspector2", "BatchGetFreeTrialInfo", {})
-  .n("Inspector2Client", "BatchGetFreeTrialInfoCommand")
-  .sc(BatchGetFreeTrialInfo$)
-  .build() {
+export class BatchGetFreeTrialInfoCommand extends command<BatchGetFreeTrialInfoCommandInput, BatchGetFreeTrialInfoCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetFreeTrialInfo",
+  BatchGetFreeTrialInfo$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

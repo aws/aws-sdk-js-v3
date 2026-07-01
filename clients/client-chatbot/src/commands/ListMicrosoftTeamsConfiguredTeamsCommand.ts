@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListMicrosoftTeamsConfiguredTeamsRequest,
   ListMicrosoftTeamsConfiguredTeamsResult,
@@ -15,7 +12,6 @@ import { ListMicrosoftTeamsConfiguredTeams$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface ListMicrosoftTeamsConfiguredTeamsCommandOutput extends ListMicr
  *
  * @public
  */
-export class ListMicrosoftTeamsConfiguredTeamsCommand extends $Command
-  .classBuilder<
-    ListMicrosoftTeamsConfiguredTeamsCommandInput,
-    ListMicrosoftTeamsConfiguredTeamsCommandOutput,
-    ChatbotClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WheatleyOrchestration_20171011", "ListMicrosoftTeamsConfiguredTeams", {})
-  .n("ChatbotClient", "ListMicrosoftTeamsConfiguredTeamsCommand")
-  .sc(ListMicrosoftTeamsConfiguredTeams$)
-  .build() {
+export class ListMicrosoftTeamsConfiguredTeamsCommand extends command<ListMicrosoftTeamsConfiguredTeamsCommandInput, ListMicrosoftTeamsConfiguredTeamsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMicrosoftTeamsConfiguredTeams",
+  ListMicrosoftTeamsConfiguredTeams$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

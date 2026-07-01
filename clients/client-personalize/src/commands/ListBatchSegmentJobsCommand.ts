@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListBatchSegmentJobsRequest, ListBatchSegmentJobsResponse } from "../models/models_0";
-import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { ListBatchSegmentJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface ListBatchSegmentJobsCommandOutput extends ListBatchSegmentJobsR
  *
  * @public
  */
-export class ListBatchSegmentJobsCommand extends $Command
-  .classBuilder<
-    ListBatchSegmentJobsCommandInput,
-    ListBatchSegmentJobsCommandOutput,
-    PersonalizeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPersonalize", "ListBatchSegmentJobs", {})
-  .n("PersonalizeClient", "ListBatchSegmentJobsCommand")
-  .sc(ListBatchSegmentJobs$)
-  .build() {
+export class ListBatchSegmentJobsCommand extends command<ListBatchSegmentJobsCommandInput, ListBatchSegmentJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBatchSegmentJobs",
+  ListBatchSegmentJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

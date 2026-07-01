@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopCompositionRequest, StopCompositionResponse } from "../models/models_0";
 import { StopComposition$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopComposition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface StopCompositionCommandOutput extends StopCompositionResponse, _
  *
  * @public
  */
-export class StopCompositionCommand extends $Command
-  .classBuilder<
-    StopCompositionCommandInput,
-    StopCompositionCommandOutput,
-    IVSRealTimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoServiceRealTime", "StopComposition", {})
-  .n("IVSRealTimeClient", "StopCompositionCommand")
-  .sc(StopComposition$)
-  .build() {
+export class StopCompositionCommand extends command<StopCompositionCommandInput, StopCompositionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopComposition",
+  StopComposition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

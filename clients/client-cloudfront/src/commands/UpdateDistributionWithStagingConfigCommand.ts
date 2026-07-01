@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateDistributionWithStagingConfigRequest,
   UpdateDistributionWithStagingConfigResult,
@@ -15,7 +12,6 @@ import { UpdateDistributionWithStagingConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -633,22 +629,12 @@ export interface UpdateDistributionWithStagingConfigCommandOutput extends Update
  *
  * @public
  */
-export class UpdateDistributionWithStagingConfigCommand extends $Command
-  .classBuilder<
-    UpdateDistributionWithStagingConfigCommandInput,
-    UpdateDistributionWithStagingConfigCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "UpdateDistributionWithStagingConfig", {})
-  .n("CloudFrontClient", "UpdateDistributionWithStagingConfigCommand")
-  .sc(UpdateDistributionWithStagingConfig$)
-  .build() {
+export class UpdateDistributionWithStagingConfigCommand extends command<UpdateDistributionWithStagingConfigCommandInput, UpdateDistributionWithStagingConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDistributionWithStagingConfig",
+  UpdateDistributionWithStagingConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

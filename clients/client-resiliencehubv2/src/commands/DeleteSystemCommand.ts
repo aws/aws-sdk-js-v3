@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSystemRequest, DeleteSystemResponse } from "../models/models_0";
-import type {
-  Resiliencehubv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Resiliencehubv2Client";
 import { DeleteSystem$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +70,12 @@ export interface DeleteSystemCommandOutput extends DeleteSystemResponse, __Metad
  *
  * @public
  */
-export class DeleteSystemCommand extends $Command
-  .classBuilder<
-    DeleteSystemCommandInput,
-    DeleteSystemCommandOutput,
-    Resiliencehubv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Resiliencehubv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NGRHServiceCore", "DeleteSystem", {})
-  .n("Resiliencehubv2Client", "DeleteSystemCommand")
-  .sc(DeleteSystem$)
-  .build() {
+export class DeleteSystemCommand extends command<DeleteSystemCommandInput, DeleteSystemCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSystem",
+  DeleteSystem$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeJobsRequest, DescribeJobsResponse } from "../models/models_0";
 import { DescribeJobs$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeJobs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +121,12 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  *
  * @public
  */
-export class DescribeJobsCommand extends $Command
-  .classBuilder<
-    DescribeJobsCommandInput,
-    DescribeJobsCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "DescribeJobs", {})
-  .n("MgnClient", "DescribeJobsCommand")
-  .sc(DescribeJobs$)
-  .build() {
+export class DescribeJobsCommand extends command<DescribeJobsCommandInput, DescribeJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeJobs",
+  DescribeJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

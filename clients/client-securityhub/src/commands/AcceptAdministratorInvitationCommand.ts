@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AcceptAdministratorInvitationRequest, AcceptAdministratorInvitationResponse } from "../models/models_0";
 import { AcceptAdministratorInvitation$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface AcceptAdministratorInvitationCommandOutput extends AcceptAdmini
  *
  * @public
  */
-export class AcceptAdministratorInvitationCommand extends $Command
-  .classBuilder<
-    AcceptAdministratorInvitationCommandInput,
-    AcceptAdministratorInvitationCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "AcceptAdministratorInvitation", {})
-  .n("SecurityHubClient", "AcceptAdministratorInvitationCommand")
-  .sc(AcceptAdministratorInvitation$)
-  .build() {
+export class AcceptAdministratorInvitationCommand extends command<AcceptAdministratorInvitationCommandInput, AcceptAdministratorInvitationCommandOutput>(
+  _ep0,
+  _mw0,
+  "AcceptAdministratorInvitation",
+  AcceptAdministratorInvitation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

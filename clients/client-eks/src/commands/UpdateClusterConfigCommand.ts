@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateClusterConfigRequest, UpdateClusterConfigResponse } from "../models/models_0";
 import { UpdateClusterConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateClusterConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -235,22 +231,12 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *
  * @public
  */
-export class UpdateClusterConfigCommand extends $Command
-  .classBuilder<
-    UpdateClusterConfigCommandInput,
-    UpdateClusterConfigCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "UpdateClusterConfig", {})
-  .n("EKSClient", "UpdateClusterConfigCommand")
-  .sc(UpdateClusterConfig$)
-  .build() {
+export class UpdateClusterConfigCommand extends command<UpdateClusterConfigCommandInput, UpdateClusterConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateClusterConfig",
+  UpdateClusterConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

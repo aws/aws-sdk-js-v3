@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAssociatedPackagesRequest, ListAssociatedPackagesResult } from "../models/models_0";
 import { ListAssociatedPackages$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAssociatedPackages$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface ListAssociatedPackagesCommandOutput extends ListAssociatedPacka
  *
  * @public
  */
-export class ListAssociatedPackagesCommand extends $Command
-  .classBuilder<
-    ListAssociatedPackagesCommandInput,
-    ListAssociatedPackagesCommandOutput,
-    CodeartifactClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeArtifactControlPlaneService", "ListAssociatedPackages", {})
-  .n("CodeartifactClient", "ListAssociatedPackagesCommand")
-  .sc(ListAssociatedPackages$)
-  .build() {
+export class ListAssociatedPackagesCommand extends command<ListAssociatedPackagesCommandInput, ListAssociatedPackagesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAssociatedPackages",
+  ListAssociatedPackages$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddFlowVpcInterfacesRequest, AddFlowVpcInterfacesResponse } from "../models/models_0";
 import { AddFlowVpcInterfaces$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AddFlowVpcInterfaces$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface AddFlowVpcInterfacesCommandOutput extends AddFlowVpcInterfacesR
  *
  * @public
  */
-export class AddFlowVpcInterfacesCommand extends $Command
-  .classBuilder<
-    AddFlowVpcInterfacesCommandInput,
-    AddFlowVpcInterfacesCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "AddFlowVpcInterfaces", {})
-  .n("MediaConnectClient", "AddFlowVpcInterfacesCommand")
-  .sc(AddFlowVpcInterfaces$)
-  .build() {
+export class AddFlowVpcInterfacesCommand extends command<AddFlowVpcInterfacesCommandInput, AddFlowVpcInterfacesCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddFlowVpcInterfaces",
+  AddFlowVpcInterfaces$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

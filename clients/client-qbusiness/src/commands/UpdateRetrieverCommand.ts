@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRetrieverRequest, UpdateRetrieverResponse } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { UpdateRetriever$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface UpdateRetrieverCommandOutput extends UpdateRetrieverResponse, _
  *
  * @public
  */
-export class UpdateRetrieverCommand extends $Command
-  .classBuilder<
-    UpdateRetrieverCommandInput,
-    UpdateRetrieverCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "UpdateRetriever", {})
-  .n("QBusinessClient", "UpdateRetrieverCommand")
-  .sc(UpdateRetriever$)
-  .build() {
+export class UpdateRetrieverCommand extends command<UpdateRetrieverCommandInput, UpdateRetrieverCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRetriever",
+  UpdateRetriever$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

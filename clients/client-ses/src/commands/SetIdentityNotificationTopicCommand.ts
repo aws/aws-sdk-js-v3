@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SetIdentityNotificationTopicRequest, SetIdentityNotificationTopicResponse } from "../models/models_0";
 import { SetIdentityNotificationTopic$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface SetIdentityNotificationTopicCommandOutput extends SetIdentityNo
  *
  * @public
  */
-export class SetIdentityNotificationTopicCommand extends $Command
-  .classBuilder<
-    SetIdentityNotificationTopicCommandInput,
-    SetIdentityNotificationTopicCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "SetIdentityNotificationTopic", {})
-  .n("SESClient", "SetIdentityNotificationTopicCommand")
-  .sc(SetIdentityNotificationTopic$)
-  .build() {
+export class SetIdentityNotificationTopicCommand extends command<SetIdentityNotificationTopicCommandInput, SetIdentityNotificationTopicCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetIdentityNotificationTopic",
+  SetIdentityNotificationTopic$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

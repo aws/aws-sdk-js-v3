@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCasesForContactRequest, ListCasesForContactResponse } from "../models/models_0";
 import { ListCasesForContact$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListCasesForContact$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface ListCasesForContactCommandOutput extends ListCasesForContactRes
  *
  * @public
  */
-export class ListCasesForContactCommand extends $Command
-  .classBuilder<
-    ListCasesForContactCommandInput,
-    ListCasesForContactCommandOutput,
-    ConnectCasesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCases", "ListCasesForContact", {})
-  .n("ConnectCasesClient", "ListCasesForContactCommand")
-  .sc(ListCasesForContact$)
-  .build() {
+export class ListCasesForContactCommand extends command<ListCasesForContactCommandInput, ListCasesForContactCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCasesForContact",
+  ListCasesForContact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

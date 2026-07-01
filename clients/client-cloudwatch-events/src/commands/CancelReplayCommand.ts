@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchEventsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelReplayRequest, CancelReplayResponse } from "../models/models_0";
 import { CancelReplay$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CancelReplay$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +70,12 @@ export interface CancelReplayCommandOutput extends CancelReplayResponse, __Metad
  *
  * @public
  */
-export class CancelReplayCommand extends $Command
-  .classBuilder<
-    CancelReplayCommandInput,
-    CancelReplayCommandOutput,
-    CloudWatchEventsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSEvents", "CancelReplay", {})
-  .n("CloudWatchEventsClient", "CancelReplayCommand")
-  .sc(CancelReplay$)
-  .build() {
+export class CancelReplayCommand extends command<CancelReplayCommandInput, CancelReplayCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelReplay",
+  CancelReplay$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

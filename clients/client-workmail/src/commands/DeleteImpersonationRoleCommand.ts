@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteImpersonationRoleRequest, DeleteImpersonationRoleResponse } from "../models/models_0";
 import { DeleteImpersonationRole$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteImpersonationRoleCommandOutput extends DeleteImpersonatio
  *
  * @public
  */
-export class DeleteImpersonationRoleCommand extends $Command
-  .classBuilder<
-    DeleteImpersonationRoleCommandInput,
-    DeleteImpersonationRoleCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "DeleteImpersonationRole", {})
-  .n("WorkMailClient", "DeleteImpersonationRoleCommand")
-  .sc(DeleteImpersonationRole$)
-  .build() {
+export class DeleteImpersonationRoleCommand extends command<DeleteImpersonationRoleCommandInput, DeleteImpersonationRoleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteImpersonationRole",
+  DeleteImpersonationRole$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

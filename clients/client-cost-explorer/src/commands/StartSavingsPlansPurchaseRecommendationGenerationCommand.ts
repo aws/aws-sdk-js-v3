@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StartSavingsPlansPurchaseRecommendationGenerationRequest,
   StartSavingsPlansPurchaseRecommendationGenerationResponse,
@@ -15,7 +12,6 @@ import { StartSavingsPlansPurchaseRecommendationGeneration$ } from "../schemas/s
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput 
  *
  * @public
  */
-export class StartSavingsPlansPurchaseRecommendationGenerationCommand extends $Command
-  .classBuilder<
-    StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
-    StartSavingsPlansPurchaseRecommendationGenerationCommandOutput,
-    CostExplorerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSInsightsIndexService", "StartSavingsPlansPurchaseRecommendationGeneration", {})
-  .n("CostExplorerClient", "StartSavingsPlansPurchaseRecommendationGenerationCommand")
-  .sc(StartSavingsPlansPurchaseRecommendationGeneration$)
-  .build() {
+export class StartSavingsPlansPurchaseRecommendationGenerationCommand extends command<StartSavingsPlansPurchaseRecommendationGenerationCommandInput, StartSavingsPlansPurchaseRecommendationGenerationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartSavingsPlansPurchaseRecommendationGeneration",
+  StartSavingsPlansPurchaseRecommendationGeneration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

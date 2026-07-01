@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RestoreAutonomousDatabaseInput, RestoreAutonomousDatabaseOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { RestoreAutonomousDatabase$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface RestoreAutonomousDatabaseCommandOutput extends RestoreAutonomou
  *
  * @public
  */
-export class RestoreAutonomousDatabaseCommand extends $Command
-  .classBuilder<
-    RestoreAutonomousDatabaseCommandInput,
-    RestoreAutonomousDatabaseCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "RestoreAutonomousDatabase", {})
-  .n("OdbClient", "RestoreAutonomousDatabaseCommand")
-  .sc(RestoreAutonomousDatabase$)
-  .build() {
+export class RestoreAutonomousDatabaseCommand extends command<RestoreAutonomousDatabaseCommandInput, RestoreAutonomousDatabaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "RestoreAutonomousDatabase",
+  RestoreAutonomousDatabase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

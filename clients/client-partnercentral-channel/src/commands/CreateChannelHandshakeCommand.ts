@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateChannelHandshakeRequest, CreateChannelHandshakeResponse } from "../models/models_0";
-import type {
-  PartnerCentralChannelClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralChannelClient";
 import { CreateChannelHandshake$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -215,22 +207,12 @@ export interface CreateChannelHandshakeCommandOutput extends CreateChannelHandsh
  *
  * @public
  */
-export class CreateChannelHandshakeCommand extends $Command
-  .classBuilder<
-    CreateChannelHandshakeCommandInput,
-    CreateChannelHandshakeCommandOutput,
-    PartnerCentralChannelClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralChannelClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralChannel", "CreateChannelHandshake", {})
-  .n("PartnerCentralChannelClient", "CreateChannelHandshakeCommand")
-  .sc(CreateChannelHandshake$)
-  .build() {
+export class CreateChannelHandshakeCommand extends command<CreateChannelHandshakeCommandInput, CreateChannelHandshakeCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateChannelHandshake",
+  CreateChannelHandshake$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

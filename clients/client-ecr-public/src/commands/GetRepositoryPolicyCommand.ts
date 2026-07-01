@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRepositoryPolicyRequest, GetRepositoryPolicyResponse } from "../models/models_0";
 import { GetRepositoryPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetRepositoryPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface GetRepositoryPolicyCommandOutput extends GetRepositoryPolicyRes
  *
  * @public
  */
-export class GetRepositoryPolicyCommand extends $Command
-  .classBuilder<
-    GetRepositoryPolicyCommandInput,
-    GetRepositoryPolicyCommandOutput,
-    ECRPUBLICClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRPUBLICClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SpencerFrontendService", "GetRepositoryPolicy", {})
-  .n("ECRPUBLICClient", "GetRepositoryPolicyCommand")
-  .sc(GetRepositoryPolicy$)
-  .build() {
+export class GetRepositoryPolicyCommand extends command<GetRepositoryPolicyCommandInput, GetRepositoryPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRepositoryPolicy",
+  GetRepositoryPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

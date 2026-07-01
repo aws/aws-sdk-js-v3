@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePlatformVersionRequest, DeletePlatformVersionResult } from "../models/models_0";
 import { DeletePlatformVersion$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeletePlatformVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +86,12 @@ export interface DeletePlatformVersionCommandOutput extends DeletePlatformVersio
  *
  * @public
  */
-export class DeletePlatformVersionCommand extends $Command
-  .classBuilder<
-    DeletePlatformVersionCommandInput,
-    DeletePlatformVersionCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "DeletePlatformVersion", {})
-  .n("ElasticBeanstalkClient", "DeletePlatformVersionCommand")
-  .sc(DeletePlatformVersion$)
-  .build() {
+export class DeletePlatformVersionCommand extends command<DeletePlatformVersionCommandInput, DeletePlatformVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePlatformVersion",
+  DeletePlatformVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

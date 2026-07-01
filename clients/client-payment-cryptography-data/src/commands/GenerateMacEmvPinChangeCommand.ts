@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GenerateMacEmvPinChangeInput, GenerateMacEmvPinChangeOutput } from "../models/models_0";
-import type {
-  PaymentCryptographyDataClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PaymentCryptographyDataClient";
 import { GenerateMacEmvPinChange$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -141,22 +133,12 @@ export interface GenerateMacEmvPinChangeCommandOutput extends GenerateMacEmvPinC
  *
  * @public
  */
-export class GenerateMacEmvPinChangeCommand extends $Command
-  .classBuilder<
-    GenerateMacEmvPinChangeCommandInput,
-    GenerateMacEmvPinChangeCommandOutput,
-    PaymentCryptographyDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PaymentCryptographyDataPlane", "GenerateMacEmvPinChange", {})
-  .n("PaymentCryptographyDataClient", "GenerateMacEmvPinChangeCommand")
-  .sc(GenerateMacEmvPinChange$)
-  .build() {
+export class GenerateMacEmvPinChangeCommand extends command<GenerateMacEmvPinChangeCommandInput, GenerateMacEmvPinChangeCommandOutput>(
+  _ep0,
+  _mw0,
+  "GenerateMacEmvPinChange",
+  GenerateMacEmvPinChange$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

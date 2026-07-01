@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceAgreementClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceAgreementClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelAgreementPaymentRequestInput, CancelAgreementPaymentRequestOutput } from "../models/models_0";
 import { CancelAgreementPaymentRequest$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CancelAgreementPaymentRequest$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface CancelAgreementPaymentRequestCommandOutput extends CancelAgreem
  *
  * @public
  */
-export class CancelAgreementPaymentRequestCommand extends $Command
-  .classBuilder<
-    CancelAgreementPaymentRequestCommandInput,
-    CancelAgreementPaymentRequestCommandOutput,
-    MarketplaceAgreementClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceAgreementClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMPCommerceService_v20200301", "CancelAgreementPaymentRequest", {})
-  .n("MarketplaceAgreementClient", "CancelAgreementPaymentRequestCommand")
-  .sc(CancelAgreementPaymentRequest$)
-  .build() {
+export class CancelAgreementPaymentRequestCommand extends command<CancelAgreementPaymentRequestCommandInput, CancelAgreementPaymentRequestCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelAgreementPaymentRequest",
+  CancelAgreementPaymentRequest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

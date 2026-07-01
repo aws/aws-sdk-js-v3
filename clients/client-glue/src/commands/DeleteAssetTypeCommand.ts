@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAssetTypeRequest, DeleteAssetTypeResponse } from "../models/models_1";
 import { DeleteAssetType$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAssetType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteAssetTypeCommandOutput extends DeleteAssetTypeResponse, _
  *
  * @public
  */
-export class DeleteAssetTypeCommand extends $Command
-  .classBuilder<
-    DeleteAssetTypeCommandInput,
-    DeleteAssetTypeCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "DeleteAssetType", {})
-  .n("GlueClient", "DeleteAssetTypeCommand")
-  .sc(DeleteAssetType$)
-  .build() {
+export class DeleteAssetTypeCommand extends command<DeleteAssetTypeCommandInput, DeleteAssetTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAssetType",
+  DeleteAssetType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

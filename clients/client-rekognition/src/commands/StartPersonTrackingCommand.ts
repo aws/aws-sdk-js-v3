@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartPersonTrackingRequest, StartPersonTrackingResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { StartPersonTracking$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface StartPersonTrackingCommandOutput extends StartPersonTrackingRes
  *
  * @public
  */
-export class StartPersonTrackingCommand extends $Command
-  .classBuilder<
-    StartPersonTrackingCommandInput,
-    StartPersonTrackingCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "StartPersonTracking", {})
-  .n("RekognitionClient", "StartPersonTrackingCommand")
-  .sc(StartPersonTracking$)
-  .build() {
+export class StartPersonTrackingCommand extends command<StartPersonTrackingCommandInput, StartPersonTrackingCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartPersonTracking",
+  StartPersonTracking$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

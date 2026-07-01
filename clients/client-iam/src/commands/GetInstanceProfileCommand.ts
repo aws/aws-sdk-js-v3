@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetInstanceProfileRequest, GetInstanceProfileResponse } from "../models/models_0";
 import { GetInstanceProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetInstanceProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -139,22 +135,12 @@ export interface GetInstanceProfileCommandOutput extends GetInstanceProfileRespo
  *
  * @public
  */
-export class GetInstanceProfileCommand extends $Command
-  .classBuilder<
-    GetInstanceProfileCommandInput,
-    GetInstanceProfileCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "GetInstanceProfile", {})
-  .n("IAMClient", "GetInstanceProfileCommand")
-  .sc(GetInstanceProfile$)
-  .build() {
+export class GetInstanceProfileCommand extends command<GetInstanceProfileCommandInput, GetInstanceProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetInstanceProfile",
+  GetInstanceProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

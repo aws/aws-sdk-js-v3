@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateSpaceRequest, UpdateSpaceResponse } from "../models/models_0";
 import { UpdateSpace$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateSpace$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface UpdateSpaceCommandOutput extends UpdateSpaceResponse, __Metadat
  *
  * @public
  */
-export class UpdateSpaceCommand extends $Command
-  .classBuilder<
-    UpdateSpaceCommandInput,
-    UpdateSpaceCommandOutput,
-    CodeCatalystClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCatalyst", "UpdateSpace", {})
-  .n("CodeCatalystClient", "UpdateSpaceCommand")
-  .sc(UpdateSpace$)
-  .build() {
+export class UpdateSpaceCommand extends command<UpdateSpaceCommandInput, UpdateSpaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSpace",
+  UpdateSpace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

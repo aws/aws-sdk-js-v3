@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeAggregateComplianceByConfigRulesRequest,
   DescribeAggregateComplianceByConfigRulesResponse,
@@ -15,7 +12,6 @@ import { DescribeAggregateComplianceByConfigRules$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -138,22 +134,12 @@ export interface DescribeAggregateComplianceByConfigRulesCommandOutput extends D
  *
  * @public
  */
-export class DescribeAggregateComplianceByConfigRulesCommand extends $Command
-  .classBuilder<
-    DescribeAggregateComplianceByConfigRulesCommandInput,
-    DescribeAggregateComplianceByConfigRulesCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DescribeAggregateComplianceByConfigRules", {})
-  .n("ConfigServiceClient", "DescribeAggregateComplianceByConfigRulesCommand")
-  .sc(DescribeAggregateComplianceByConfigRules$)
-  .build() {
+export class DescribeAggregateComplianceByConfigRulesCommand extends command<DescribeAggregateComplianceByConfigRulesCommandInput, DescribeAggregateComplianceByConfigRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAggregateComplianceByConfigRules",
+  DescribeAggregateComplianceByConfigRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

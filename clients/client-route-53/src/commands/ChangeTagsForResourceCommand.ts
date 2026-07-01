@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw2, command } from "../commandBuilder";
 import type { ChangeTagsForResourceRequest, ChangeTagsForResourceResponse } from "../models/models_0";
-import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 import { ChangeTagsForResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +111,12 @@ export interface ChangeTagsForResourceCommandOutput extends ChangeTagsForResourc
  *
  * @public
  */
-export class ChangeTagsForResourceCommand extends $Command
-  .classBuilder<
-    ChangeTagsForResourceCommandInput,
-    ChangeTagsForResourceCommandOutput,
-    Route53ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDnsV20130401", "ChangeTagsForResource", {})
-  .n("Route53Client", "ChangeTagsForResourceCommand")
-  .sc(ChangeTagsForResource$)
-  .build() {
+export class ChangeTagsForResourceCommand extends command<ChangeTagsForResourceCommandInput, ChangeTagsForResourceCommandOutput>(
+  _ep0,
+  _mw2,
+  "ChangeTagsForResource",
+  ChangeTagsForResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

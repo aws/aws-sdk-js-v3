@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTargetGroupsRequest, ListTargetGroupsResponse } from "../models/models_0";
 import { ListTargetGroups$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface ListTargetGroupsCommandOutput extends ListTargetGroupsResponse,
  *
  * @public
  */
-export class ListTargetGroupsCommand extends $Command
-  .classBuilder<
-    ListTargetGroupsCommandInput,
-    ListTargetGroupsCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "ListTargetGroups", {})
-  .n("VPCLatticeClient", "ListTargetGroupsCommand")
-  .sc(ListTargetGroups$)
-  .build() {
+export class ListTargetGroupsCommand extends command<ListTargetGroupsCommandInput, ListTargetGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTargetGroups",
+  ListTargetGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

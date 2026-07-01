@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep5, _mw4, command } from "../commandBuilder";
 import type { GetObjectTorrentOutput, GetObjectTorrentRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { GetObjectTorrent$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,25 +106,12 @@ export interface GetObjectTorrentCommandOutput extends Omit<GetObjectTorrentOutp
  *
  * @public
  */
-export class GetObjectTorrentCommand extends $Command
-  .classBuilder<
-    GetObjectTorrentCommandInput,
-    GetObjectTorrentCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonS3", "GetObjectTorrent", {})
-  .n("S3Client", "GetObjectTorrentCommand")
-  .sc(GetObjectTorrent$)
-  .build() {
+export class GetObjectTorrentCommand extends command<GetObjectTorrentCommandInput, GetObjectTorrentCommandOutput>(
+  _ep5,
+  _mw4,
+  "GetObjectTorrent",
+  GetObjectTorrent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

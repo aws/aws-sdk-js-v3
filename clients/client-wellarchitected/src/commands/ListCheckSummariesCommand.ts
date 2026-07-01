@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCheckSummariesInput, ListCheckSummariesOutput } from "../models/models_0";
 import { ListCheckSummaries$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WellArchitectedClientResolvedConfig,
-} from "../WellArchitectedClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +93,12 @@ export interface ListCheckSummariesCommandOutput extends ListCheckSummariesOutpu
  *
  * @public
  */
-export class ListCheckSummariesCommand extends $Command
-  .classBuilder<
-    ListCheckSummariesCommandInput,
-    ListCheckSummariesCommandOutput,
-    WellArchitectedClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WellArchitectedApiServiceLambda", "ListCheckSummaries", {})
-  .n("WellArchitectedClient", "ListCheckSummariesCommand")
-  .sc(ListCheckSummaries$)
-  .build() {
+export class ListCheckSummariesCommand extends command<ListCheckSummariesCommandInput, ListCheckSummariesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCheckSummaries",
+  ListCheckSummaries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

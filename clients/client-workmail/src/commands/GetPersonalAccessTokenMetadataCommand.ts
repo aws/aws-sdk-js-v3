@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPersonalAccessTokenMetadataRequest, GetPersonalAccessTokenMetadataResponse } from "../models/models_0";
 import { GetPersonalAccessTokenMetadata$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface GetPersonalAccessTokenMetadataCommandOutput extends GetPersonal
  *
  * @public
  */
-export class GetPersonalAccessTokenMetadataCommand extends $Command
-  .classBuilder<
-    GetPersonalAccessTokenMetadataCommandInput,
-    GetPersonalAccessTokenMetadataCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "GetPersonalAccessTokenMetadata", {})
-  .n("WorkMailClient", "GetPersonalAccessTokenMetadataCommand")
-  .sc(GetPersonalAccessTokenMetadata$)
-  .build() {
+export class GetPersonalAccessTokenMetadataCommand extends command<GetPersonalAccessTokenMetadataCommandInput, GetPersonalAccessTokenMetadataCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPersonalAccessTokenMetadata",
+  GetPersonalAccessTokenMetadata$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

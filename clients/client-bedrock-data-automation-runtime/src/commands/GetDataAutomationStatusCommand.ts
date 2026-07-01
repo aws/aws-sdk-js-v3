@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockDataAutomationRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockDataAutomationRuntimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDataAutomationStatusRequest, GetDataAutomationStatusResponse } from "../models/models_0";
 import { GetDataAutomationStatus$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetDataAutomationStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface GetDataAutomationStatusCommandOutput extends GetDataAutomationS
  *
  * @public
  */
-export class GetDataAutomationStatusCommand extends $Command
-  .classBuilder<
-    GetDataAutomationStatusCommandInput,
-    GetDataAutomationStatusCommandOutput,
-    BedrockDataAutomationRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockDataAutomationRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockKeystoneRuntimeService", "GetDataAutomationStatus", {})
-  .n("BedrockDataAutomationRuntimeClient", "GetDataAutomationStatusCommand")
-  .sc(GetDataAutomationStatus$)
-  .build() {
+export class GetDataAutomationStatusCommand extends command<GetDataAutomationStatusCommandInput, GetDataAutomationStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDataAutomationStatus",
+  GetDataAutomationStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateConfigurationSetEventDestinationRequest,
   UpdateConfigurationSetEventDestinationResponse,
 } from "../models/models_1";
 import { UpdateConfigurationSetEventDestination$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface UpdateConfigurationSetEventDestinationCommandOutput extends Upd
  *
  * @public
  */
-export class UpdateConfigurationSetEventDestinationCommand extends $Command
-  .classBuilder<
-    UpdateConfigurationSetEventDestinationCommandInput,
-    UpdateConfigurationSetEventDestinationCommandOutput,
-    SESv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService_v2", "UpdateConfigurationSetEventDestination", {})
-  .n("SESv2Client", "UpdateConfigurationSetEventDestinationCommand")
-  .sc(UpdateConfigurationSetEventDestination$)
-  .build() {
+export class UpdateConfigurationSetEventDestinationCommand extends command<UpdateConfigurationSetEventDestinationCommandInput, UpdateConfigurationSetEventDestinationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateConfigurationSetEventDestination",
+  UpdateConfigurationSetEventDestination$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

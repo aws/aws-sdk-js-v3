@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTaxRegistrationRequest, DeleteTaxRegistrationResponse } from "../models/models_0";
 import { DeleteTaxRegistration$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteTaxRegistrationCommandOutput extends DeleteTaxRegistratio
  *
  * @public
  */
-export class DeleteTaxRegistrationCommand extends $Command
-  .classBuilder<
-    DeleteTaxRegistrationCommandInput,
-    DeleteTaxRegistrationCommandOutput,
-    TaxSettingsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TaxSettingsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TaxSettings", "DeleteTaxRegistration", {})
-  .n("TaxSettingsClient", "DeleteTaxRegistrationCommand")
-  .sc(DeleteTaxRegistration$)
-  .build() {
+export class DeleteTaxRegistrationCommand extends command<DeleteTaxRegistrationCommandInput, DeleteTaxRegistrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTaxRegistration",
+  DeleteTaxRegistration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

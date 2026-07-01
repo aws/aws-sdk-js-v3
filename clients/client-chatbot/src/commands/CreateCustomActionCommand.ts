@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCustomActionRequest, CreateCustomActionResult } from "../models/models_0";
 import { CreateCustomAction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateCustomAction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -144,22 +140,12 @@ export interface CreateCustomActionCommandOutput extends CreateCustomActionResul
  *
  * @public
  */
-export class CreateCustomActionCommand extends $Command
-  .classBuilder<
-    CreateCustomActionCommandInput,
-    CreateCustomActionCommandOutput,
-    ChatbotClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WheatleyOrchestration_20171011", "CreateCustomAction", {})
-  .n("ChatbotClient", "CreateCustomActionCommand")
-  .sc(CreateCustomAction$)
-  .build() {
+export class CreateCustomActionCommand extends command<CreateCustomActionCommandInput, CreateCustomActionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCustomAction",
+  CreateCustomAction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

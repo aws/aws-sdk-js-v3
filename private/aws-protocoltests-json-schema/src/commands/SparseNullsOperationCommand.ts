@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SparseNullsOperationInputOutput } from "../models/models_0";
 import { SparseNullsOperation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SparseNullsOperation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface SparseNullsOperationCommandOutput extends SparseNullsOperationI
  *
  *
  */
-export class SparseNullsOperationCommand extends $Command
-  .classBuilder<
-    SparseNullsOperationCommandInput,
-    SparseNullsOperationCommandOutput,
-    JsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("JsonProtocol", "SparseNullsOperation", {})
-  .n("JsonProtocolClient", "SparseNullsOperationCommand")
-  .sc(SparseNullsOperation$)
-  .build() {
+export class SparseNullsOperationCommand extends command<SparseNullsOperationCommandInput, SparseNullsOperationCommandOutput>(
+  _ep0,
+  _mw0,
+  "SparseNullsOperation",
+  SparseNullsOperation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

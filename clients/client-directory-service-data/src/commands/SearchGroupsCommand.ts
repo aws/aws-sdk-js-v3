@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceDataClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceDataClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchGroupsRequest, SearchGroupsResult } from "../models/models_0";
 import { SearchGroups$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { SearchGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -158,22 +150,12 @@ export interface SearchGroupsCommandOutput extends SearchGroupsResult, __Metadat
  *
  * @public
  */
-export class SearchGroupsCommand extends $Command
-  .classBuilder<
-    SearchGroupsCommandInput,
-    SearchGroupsCommandOutput,
-    DirectoryServiceDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryServiceData", "SearchGroups", {})
-  .n("DirectoryServiceDataClient", "SearchGroupsCommand")
-  .sc(SearchGroups$)
-  .build() {
+export class SearchGroupsCommand extends command<SearchGroupsCommandInput, SearchGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchGroups",
+  SearchGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

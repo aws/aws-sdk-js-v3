@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   SetMediaMessageSpendLimitOverrideRequest,
   SetMediaMessageSpendLimitOverrideResult,
 } from "../models/models_0";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { SetMediaMessageSpendLimitOverride$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +70,12 @@ export interface SetMediaMessageSpendLimitOverrideCommandOutput extends SetMedia
  *
  * @public
  */
-export class SetMediaMessageSpendLimitOverrideCommand extends $Command
-  .classBuilder<
-    SetMediaMessageSpendLimitOverrideCommandInput,
-    SetMediaMessageSpendLimitOverrideCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "SetMediaMessageSpendLimitOverride", {})
-  .n("PinpointSMSVoiceV2Client", "SetMediaMessageSpendLimitOverrideCommand")
-  .sc(SetMediaMessageSpendLimitOverride$)
-  .build() {
+export class SetMediaMessageSpendLimitOverrideCommand extends command<SetMediaMessageSpendLimitOverrideCommandInput, SetMediaMessageSpendLimitOverrideCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetMediaMessageSpendLimitOverride",
+  SetMediaMessageSpendLimitOverride$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

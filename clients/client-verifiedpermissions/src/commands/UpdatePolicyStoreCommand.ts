@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePolicyStoreInput, UpdatePolicyStoreOutput } from "../models/models_0";
 import { UpdatePolicyStore$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  VerifiedPermissionsClientResolvedConfig,
-} from "../VerifiedPermissionsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +102,12 @@ export interface UpdatePolicyStoreCommandOutput extends UpdatePolicyStoreOutput,
  *
  * @public
  */
-export class UpdatePolicyStoreCommand extends $Command
-  .classBuilder<
-    UpdatePolicyStoreCommandInput,
-    UpdatePolicyStoreCommandOutput,
-    VerifiedPermissionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("VerifiedPermissions", "UpdatePolicyStore", {})
-  .n("VerifiedPermissionsClient", "UpdatePolicyStoreCommand")
-  .sc(UpdatePolicyStore$)
-  .build() {
+export class UpdatePolicyStoreCommand extends command<UpdatePolicyStoreCommandInput, UpdatePolicyStoreCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePolicyStore",
+  UpdatePolicyStore$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

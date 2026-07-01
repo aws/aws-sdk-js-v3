@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveRegionsFromReplicationRequest, RemoveRegionsFromReplicationResponse } from "../models/models_0";
 import { RemoveRegionsFromReplication$ } from "../schemas/schemas_0";
-import type {
-  SecretsManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SecretsManagerClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +103,12 @@ export interface RemoveRegionsFromReplicationCommandOutput extends RemoveRegions
  *
  * @public
  */
-export class RemoveRegionsFromReplicationCommand extends $Command
-  .classBuilder<
-    RemoveRegionsFromReplicationCommandInput,
-    RemoveRegionsFromReplicationCommandOutput,
-    SecretsManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("secretsmanager", "RemoveRegionsFromReplication", {})
-  .n("SecretsManagerClient", "RemoveRegionsFromReplicationCommand")
-  .sc(RemoveRegionsFromReplication$)
-  .build() {
+export class RemoveRegionsFromReplicationCommand extends command<RemoveRegionsFromReplicationCommandInput, RemoveRegionsFromReplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveRegionsFromReplication",
+  RemoveRegionsFromReplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

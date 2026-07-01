@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ModifySnapshotCopyRetentionPeriodMessage,
   ModifySnapshotCopyRetentionPeriodResult,
 } from "../models/models_1";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { ModifySnapshotCopyRetentionPeriod$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -279,22 +275,12 @@ export interface ModifySnapshotCopyRetentionPeriodCommandOutput extends ModifySn
  *
  * @public
  */
-export class ModifySnapshotCopyRetentionPeriodCommand extends $Command
-  .classBuilder<
-    ModifySnapshotCopyRetentionPeriodCommandInput,
-    ModifySnapshotCopyRetentionPeriodCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "ModifySnapshotCopyRetentionPeriod", {})
-  .n("RedshiftClient", "ModifySnapshotCopyRetentionPeriodCommand")
-  .sc(ModifySnapshotCopyRetentionPeriod$)
-  .build() {
+export class ModifySnapshotCopyRetentionPeriodCommand extends command<ModifySnapshotCopyRetentionPeriodCommandInput, ModifySnapshotCopyRetentionPeriodCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifySnapshotCopyRetentionPeriod",
+  ModifySnapshotCopyRetentionPeriod$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

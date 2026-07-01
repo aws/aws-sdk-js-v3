@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateEvaluationFormResponse } from "../models/models_3";
 import type { UpdateEvaluationFormRequest } from "../models/models_4";
 import { UpdateEvaluationForm$ } from "../schemas/schemas_0";
@@ -13,7 +10,6 @@ import { UpdateEvaluationForm$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -435,22 +431,12 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
  *
  * @public
  */
-export class UpdateEvaluationFormCommand extends $Command
-  .classBuilder<
-    UpdateEvaluationFormCommandInput,
-    UpdateEvaluationFormCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "UpdateEvaluationForm", {})
-  .n("ConnectClient", "UpdateEvaluationFormCommand")
-  .sc(UpdateEvaluationForm$)
-  .build() {
+export class UpdateEvaluationFormCommand extends command<UpdateEvaluationFormCommandInput, UpdateEvaluationFormCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateEvaluationForm",
+  UpdateEvaluationForm$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

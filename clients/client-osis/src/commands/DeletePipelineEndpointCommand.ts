@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePipelineEndpointRequest, DeletePipelineEndpointResponse } from "../models/models_0";
-import type { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
 import { DeletePipelineEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface DeletePipelineEndpointCommandOutput extends DeletePipelineEndpo
  *
  * @public
  */
-export class DeletePipelineEndpointCommand extends $Command
-  .classBuilder<
-    DeletePipelineEndpointCommandInput,
-    DeletePipelineEndpointCommandOutput,
-    OSISClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OSISClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchIngestionService", "DeletePipelineEndpoint", {})
-  .n("OSISClient", "DeletePipelineEndpointCommand")
-  .sc(DeletePipelineEndpoint$)
-  .build() {
+export class DeletePipelineEndpointCommand extends command<DeletePipelineEndpointCommandInput, DeletePipelineEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePipelineEndpoint",
+  DeletePipelineEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

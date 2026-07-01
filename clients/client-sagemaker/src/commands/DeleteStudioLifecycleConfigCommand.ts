@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteStudioLifecycleConfigRequest } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DeleteStudioLifecycleConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface DeleteStudioLifecycleConfigCommandOutput extends __MetadataBear
  *
  * @public
  */
-export class DeleteStudioLifecycleConfigCommand extends $Command
-  .classBuilder<
-    DeleteStudioLifecycleConfigCommandInput,
-    DeleteStudioLifecycleConfigCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DeleteStudioLifecycleConfig", {})
-  .n("SageMakerClient", "DeleteStudioLifecycleConfigCommand")
-  .sc(DeleteStudioLifecycleConfig$)
-  .build() {
+export class DeleteStudioLifecycleConfigCommand extends command<DeleteStudioLifecycleConfigCommandInput, DeleteStudioLifecycleConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteStudioLifecycleConfig",
+  DeleteStudioLifecycleConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

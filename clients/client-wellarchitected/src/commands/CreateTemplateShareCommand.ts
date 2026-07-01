@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateTemplateShareInput, CreateTemplateShareOutput } from "../models/models_0";
 import { CreateTemplateShare$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WellArchitectedClientResolvedConfig,
-} from "../WellArchitectedClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +93,12 @@ export interface CreateTemplateShareCommandOutput extends CreateTemplateShareOut
  *
  * @public
  */
-export class CreateTemplateShareCommand extends $Command
-  .classBuilder<
-    CreateTemplateShareCommandInput,
-    CreateTemplateShareCommandOutput,
-    WellArchitectedClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WellArchitectedApiServiceLambda", "CreateTemplateShare", {})
-  .n("WellArchitectedClient", "CreateTemplateShareCommand")
-  .sc(CreateTemplateShare$)
-  .build() {
+export class CreateTemplateShareCommand extends command<CreateTemplateShareCommandInput, CreateTemplateShareCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTemplateShare",
+  CreateTemplateShare$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

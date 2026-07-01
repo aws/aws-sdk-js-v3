@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTaskDefinitionsRequest, DeleteTaskDefinitionsResponse } from "../models/models_1";
 import { DeleteTaskDefinitions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteTaskDefinitions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -406,22 +402,12 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  *
  * @public
  */
-export class DeleteTaskDefinitionsCommand extends $Command
-  .classBuilder<
-    DeleteTaskDefinitionsCommandInput,
-    DeleteTaskDefinitionsCommandOutput,
-    ECSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerServiceV20141113", "DeleteTaskDefinitions", {})
-  .n("ECSClient", "DeleteTaskDefinitionsCommand")
-  .sc(DeleteTaskDefinitions$)
-  .build() {
+export class DeleteTaskDefinitionsCommand extends command<DeleteTaskDefinitionsCommandInput, DeleteTaskDefinitionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTaskDefinitions",
+  DeleteTaskDefinitions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

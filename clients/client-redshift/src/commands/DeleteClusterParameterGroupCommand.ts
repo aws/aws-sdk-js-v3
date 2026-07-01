@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteClusterParameterGroupMessage } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { DeleteClusterParameterGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteClusterParameterGroupCommandOutput extends __MetadataBear
  *
  * @public
  */
-export class DeleteClusterParameterGroupCommand extends $Command
-  .classBuilder<
-    DeleteClusterParameterGroupCommandInput,
-    DeleteClusterParameterGroupCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "DeleteClusterParameterGroup", {})
-  .n("RedshiftClient", "DeleteClusterParameterGroupCommand")
-  .sc(DeleteClusterParameterGroup$)
-  .build() {
+export class DeleteClusterParameterGroupCommand extends command<DeleteClusterParameterGroupCommandInput, DeleteClusterParameterGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteClusterParameterGroup",
+  DeleteClusterParameterGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopAssessmentRunRequest } from "../models/models_0";
 import { StopAssessmentRun$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopAssessmentRun$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface StopAssessmentRunCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class StopAssessmentRunCommand extends $Command
-  .classBuilder<
-    StopAssessmentRunCommandInput,
-    StopAssessmentRunCommandOutput,
-    InspectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("InspectorService", "StopAssessmentRun", {})
-  .n("InspectorClient", "StopAssessmentRunCommand")
-  .sc(StopAssessmentRun$)
-  .build() {
+export class StopAssessmentRunCommand extends command<StopAssessmentRunCommandInput, StopAssessmentRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopAssessmentRun",
+  StopAssessmentRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAuthorizersRequest, ListAuthorizersResponse } from "../models/models_1";
 import { ListAuthorizers$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAuthorizers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface ListAuthorizersCommandOutput extends ListAuthorizersResponse, _
  *
  * @public
  */
-export class ListAuthorizersCommand extends $Command
-  .classBuilder<
-    ListAuthorizersCommandInput,
-    ListAuthorizersCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "ListAuthorizers", {})
-  .n("IoTClient", "ListAuthorizersCommand")
-  .sc(ListAuthorizers$)
-  .build() {
+export class ListAuthorizersCommand extends command<ListAuthorizersCommandInput, ListAuthorizersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAuthorizers",
+  ListAuthorizers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

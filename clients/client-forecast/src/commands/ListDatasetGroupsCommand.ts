@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDatasetGroupsRequest, ListDatasetGroupsResponse } from "../models/models_0";
 import { ListDatasetGroups$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDatasetGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface ListDatasetGroupsCommandOutput extends ListDatasetGroupsRespons
  *
  * @public
  */
-export class ListDatasetGroupsCommand extends $Command
-  .classBuilder<
-    ListDatasetGroupsCommandInput,
-    ListDatasetGroupsCommandOutput,
-    ForecastClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonForecast", "ListDatasetGroups", {})
-  .n("ForecastClient", "ListDatasetGroupsCommand")
-  .sc(ListDatasetGroups$)
-  .build() {
+export class ListDatasetGroupsCommand extends command<ListDatasetGroupsCommandInput, ListDatasetGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDatasetGroups",
+  ListDatasetGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

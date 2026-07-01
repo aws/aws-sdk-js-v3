@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteResourceShareRequest, DeleteResourceShareResponse } from "../models/models_0";
-import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import { DeleteResourceShare$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface DeleteResourceShareCommandOutput extends DeleteResourceShareRes
  *
  * @public
  */
-export class DeleteResourceShareCommand extends $Command
-  .classBuilder<
-    DeleteResourceShareCommandInput,
-    DeleteResourceShareCommandOutput,
-    RAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonResourceSharing", "DeleteResourceShare", {})
-  .n("RAMClient", "DeleteResourceShareCommand")
-  .sc(DeleteResourceShare$)
-  .build() {
+export class DeleteResourceShareCommand extends command<DeleteResourceShareCommandInput, DeleteResourceShareCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteResourceShare",
+  DeleteResourceShare$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

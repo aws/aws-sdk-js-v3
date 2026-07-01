@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeOrganizationConfigRulesRequest,
   DescribeOrganizationConfigRulesResponse,
@@ -15,7 +12,6 @@ import { DescribeOrganizationConfigRules$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -171,22 +167,12 @@ export interface DescribeOrganizationConfigRulesCommandOutput extends DescribeOr
  *
  * @public
  */
-export class DescribeOrganizationConfigRulesCommand extends $Command
-  .classBuilder<
-    DescribeOrganizationConfigRulesCommandInput,
-    DescribeOrganizationConfigRulesCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DescribeOrganizationConfigRules", {})
-  .n("ConfigServiceClient", "DescribeOrganizationConfigRulesCommand")
-  .sc(DescribeOrganizationConfigRules$)
-  .build() {
+export class DescribeOrganizationConfigRulesCommand extends command<DescribeOrganizationConfigRulesCommandInput, DescribeOrganizationConfigRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeOrganizationConfigRules",
+  DescribeOrganizationConfigRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

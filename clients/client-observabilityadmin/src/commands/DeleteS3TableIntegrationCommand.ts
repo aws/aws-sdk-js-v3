@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteS3TableIntegrationInput } from "../models/models_0";
-import type {
-  ObservabilityAdminClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ObservabilityAdminClient";
 import { DeleteS3TableIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeleteS3TableIntegrationCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class DeleteS3TableIntegrationCommand extends $Command
-  .classBuilder<
-    DeleteS3TableIntegrationCommandInput,
-    DeleteS3TableIntegrationCommandOutput,
-    ObservabilityAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ObservabilityAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ObservabilityAdmin", "DeleteS3TableIntegration", {})
-  .n("ObservabilityAdminClient", "DeleteS3TableIntegrationCommand")
-  .sc(DeleteS3TableIntegration$)
-  .build() {
+export class DeleteS3TableIntegrationCommand extends command<DeleteS3TableIntegrationCommandInput, DeleteS3TableIntegrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteS3TableIntegration",
+  DeleteS3TableIntegration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

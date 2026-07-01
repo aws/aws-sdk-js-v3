@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelBatchPredictionJobRequest, CancelBatchPredictionJobResult } from "../models/models_0";
 import { CancelBatchPredictionJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CancelBatchPredictionJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface CancelBatchPredictionJobCommandOutput extends CancelBatchPredic
  *
  * @public
  */
-export class CancelBatchPredictionJobCommand extends $Command
-  .classBuilder<
-    CancelBatchPredictionJobCommandInput,
-    CancelBatchPredictionJobCommandOutput,
-    FraudDetectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHawksNestServiceFacade", "CancelBatchPredictionJob", {})
-  .n("FraudDetectorClient", "CancelBatchPredictionJobCommand")
-  .sc(CancelBatchPredictionJob$)
-  .build() {
+export class CancelBatchPredictionJobCommand extends command<CancelBatchPredictionJobCommandInput, CancelBatchPredictionJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelBatchPredictionJob",
+  CancelBatchPredictionJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

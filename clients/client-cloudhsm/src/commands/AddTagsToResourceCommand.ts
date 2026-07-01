@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddTagsToResourceRequest, AddTagsToResourceResponse } from "../models/models_0";
 import { AddTagsToResource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AddTagsToResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceRespons
  *
  * @public
  */
-export class AddTagsToResourceCommand extends $Command
-  .classBuilder<
-    AddTagsToResourceCommandInput,
-    AddTagsToResourceCommandOutput,
-    CloudHSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudHSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudHsmFrontendService", "AddTagsToResource", {})
-  .n("CloudHSMClient", "AddTagsToResourceCommand")
-  .sc(AddTagsToResource$)
-  .build() {
+export class AddTagsToResourceCommand extends command<AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddTagsToResource",
+  AddTagsToResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

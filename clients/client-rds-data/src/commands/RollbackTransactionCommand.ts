@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RollbackTransactionRequest, RollbackTransactionResponse } from "../models/models_0";
-import type { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
 import { RollbackTransaction$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface RollbackTransactionCommandOutput extends RollbackTransactionRes
  *
  * @public
  */
-export class RollbackTransactionCommand extends $Command
-  .classBuilder<
-    RollbackTransactionCommandInput,
-    RollbackTransactionCommandOutput,
-    RDSDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RdsDataService", "RollbackTransaction", {})
-  .n("RDSDataClient", "RollbackTransactionCommand")
-  .sc(RollbackTransaction$)
-  .build() {
+export class RollbackTransactionCommand extends command<RollbackTransactionCommandInput, RollbackTransactionCommandOutput>(
+  _ep0,
+  _mw0,
+  "RollbackTransaction",
+  RollbackTransaction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

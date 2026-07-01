@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GenerateDataKeyPairWithoutPlaintextRequest,
   GenerateDataKeyPairWithoutPlaintextResponse,
@@ -15,7 +12,6 @@ import { GenerateDataKeyPairWithoutPlaintext$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -231,22 +227,12 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput extends Genera
  *
  * @public
  */
-export class GenerateDataKeyPairWithoutPlaintextCommand extends $Command
-  .classBuilder<
-    GenerateDataKeyPairWithoutPlaintextCommandInput,
-    GenerateDataKeyPairWithoutPlaintextCommandOutput,
-    KMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrentService", "GenerateDataKeyPairWithoutPlaintext", {})
-  .n("KMSClient", "GenerateDataKeyPairWithoutPlaintextCommand")
-  .sc(GenerateDataKeyPairWithoutPlaintext$)
-  .build() {
+export class GenerateDataKeyPairWithoutPlaintextCommand extends command<GenerateDataKeyPairWithoutPlaintextCommandInput, GenerateDataKeyPairWithoutPlaintextCommandOutput>(
+  _ep0,
+  _mw0,
+  "GenerateDataKeyPairWithoutPlaintext",
+  GenerateDataKeyPairWithoutPlaintext$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

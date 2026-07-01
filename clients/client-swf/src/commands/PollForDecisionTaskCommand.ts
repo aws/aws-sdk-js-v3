@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getLongPollPlugin } from "@aws-sdk/core/client";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { DecisionTask, PollForDecisionTaskInput } from "../models/models_0";
 import { PollForDecisionTask$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -515,25 +510,12 @@ export interface PollForDecisionTaskCommandOutput extends DecisionTask, __Metada
  *
  * @public
  */
-export class PollForDecisionTaskCommand extends $Command
-  .classBuilder<
-    PollForDecisionTaskCommandInput,
-    PollForDecisionTaskCommandOutput,
-    SWFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getLongPollPlugin(config),
-    ];
-  })
-  .s("SimpleWorkflowService", "PollForDecisionTask", {})
-  .n("SWFClient", "PollForDecisionTaskCommand")
-  .sc(PollForDecisionTask$)
-  .build() {
+export class PollForDecisionTaskCommand extends command<PollForDecisionTaskCommandInput, PollForDecisionTaskCommandOutput>(
+  _ep0,
+  _mw1,
+  "PollForDecisionTask",
+  PollForDecisionTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

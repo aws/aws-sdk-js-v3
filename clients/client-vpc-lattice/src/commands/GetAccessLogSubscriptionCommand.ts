@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAccessLogSubscriptionRequest, GetAccessLogSubscriptionResponse } from "../models/models_0";
 import { GetAccessLogSubscription$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface GetAccessLogSubscriptionCommandOutput extends GetAccessLogSubsc
  *
  * @public
  */
-export class GetAccessLogSubscriptionCommand extends $Command
-  .classBuilder<
-    GetAccessLogSubscriptionCommandInput,
-    GetAccessLogSubscriptionCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "GetAccessLogSubscription", {})
-  .n("VPCLatticeClient", "GetAccessLogSubscriptionCommand")
-  .sc(GetAccessLogSubscription$)
-  .build() {
+export class GetAccessLogSubscriptionCommand extends command<GetAccessLogSubscriptionCommandInput, GetAccessLogSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAccessLogSubscription",
+  GetAccessLogSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

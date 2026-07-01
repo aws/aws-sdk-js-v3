@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { EvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEnvironmentConnectorRequest, DeleteEnvironmentConnectorResponse } from "../models/models_0";
 import { DeleteEnvironmentConnector$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteEnvironmentConnector$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface DeleteEnvironmentConnectorCommandOutput extends DeleteEnvironme
  *
  * @public
  */
-export class DeleteEnvironmentConnectorCommand extends $Command
-  .classBuilder<
-    DeleteEnvironmentConnectorCommandInput,
-    DeleteEnvironmentConnectorCommandOutput,
-    EvsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EvsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticVMwareService", "DeleteEnvironmentConnector", {})
-  .n("EvsClient", "DeleteEnvironmentConnectorCommand")
-  .sc(DeleteEnvironmentConnector$)
-  .build() {
+export class DeleteEnvironmentConnectorCommand extends command<DeleteEnvironmentConnectorCommandInput, DeleteEnvironmentConnectorCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEnvironmentConnector",
+  DeleteEnvironmentConnector$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

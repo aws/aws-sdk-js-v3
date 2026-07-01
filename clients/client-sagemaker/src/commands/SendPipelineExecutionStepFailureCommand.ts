@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   SendPipelineExecutionStepFailureRequest,
   SendPipelineExecutionStepFailureResponse,
 } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { SendPipelineExecutionStepFailure$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface SendPipelineExecutionStepFailureCommandOutput extends SendPipel
  *
  * @public
  */
-export class SendPipelineExecutionStepFailureCommand extends $Command
-  .classBuilder<
-    SendPipelineExecutionStepFailureCommandInput,
-    SendPipelineExecutionStepFailureCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "SendPipelineExecutionStepFailure", {})
-  .n("SageMakerClient", "SendPipelineExecutionStepFailureCommand")
-  .sc(SendPipelineExecutionStepFailure$)
-  .build() {
+export class SendPipelineExecutionStepFailureCommand extends command<SendPipelineExecutionStepFailureCommandInput, SendPipelineExecutionStepFailureCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendPipelineExecutionStepFailure",
+  SendPipelineExecutionStepFailure$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerAutomationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerAutomationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEnrollmentConfigurationRequest, GetEnrollmentConfigurationResponse } from "../models/models_0";
 import { GetEnrollmentConfiguration$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetEnrollmentConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface GetEnrollmentConfigurationCommandOutput extends GetEnrollmentCo
  *
  * @public
  */
-export class GetEnrollmentConfigurationCommand extends $Command
-  .classBuilder<
-    GetEnrollmentConfigurationCommandInput,
-    GetEnrollmentConfigurationCommandOutput,
-    ComputeOptimizerAutomationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerAutomationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerAutomationService", "GetEnrollmentConfiguration", {})
-  .n("ComputeOptimizerAutomationClient", "GetEnrollmentConfigurationCommand")
-  .sc(GetEnrollmentConfiguration$)
-  .build() {
+export class GetEnrollmentConfigurationCommand extends command<GetEnrollmentConfigurationCommandInput, GetEnrollmentConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEnrollmentConfiguration",
+  GetEnrollmentConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

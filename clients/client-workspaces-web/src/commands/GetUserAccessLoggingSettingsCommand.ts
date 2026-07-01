@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetUserAccessLoggingSettingsRequest, GetUserAccessLoggingSettingsResponse } from "../models/models_0";
 import { GetUserAccessLoggingSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface GetUserAccessLoggingSettingsCommandOutput extends GetUserAccess
  *
  * @public
  */
-export class GetUserAccessLoggingSettingsCommand extends $Command
-  .classBuilder<
-    GetUserAccessLoggingSettingsCommandInput,
-    GetUserAccessLoggingSettingsCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "GetUserAccessLoggingSettings", {})
-  .n("WorkSpacesWebClient", "GetUserAccessLoggingSettingsCommand")
-  .sc(GetUserAccessLoggingSettings$)
-  .build() {
+export class GetUserAccessLoggingSettingsCommand extends command<GetUserAccessLoggingSettingsCommandInput, GetUserAccessLoggingSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetUserAccessLoggingSettings",
+  GetUserAccessLoggingSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

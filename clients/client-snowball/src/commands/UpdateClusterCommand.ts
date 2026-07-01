@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateClusterRequest, UpdateClusterResult } from "../models/models_0";
 import { UpdateCluster$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -160,22 +156,12 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResult, __Metad
  *
  * @public
  */
-export class UpdateClusterCommand extends $Command
-  .classBuilder<
-    UpdateClusterCommandInput,
-    UpdateClusterCommandOutput,
-    SnowballClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIESnowballJobManagementService", "UpdateCluster", {})
-  .n("SnowballClient", "UpdateClusterCommand")
-  .sc(UpdateCluster$)
-  .build() {
+export class UpdateClusterCommand extends command<UpdateClusterCommandInput, UpdateClusterCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateCluster",
+  UpdateCluster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

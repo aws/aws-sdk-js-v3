@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListCollaborationConfiguredAudienceModelAssociationsInput,
   ListCollaborationConfiguredAudienceModelAssociationsOutput,
@@ -15,7 +12,6 @@ import { ListCollaborationConfiguredAudienceModelAssociations$ } from "../schema
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface ListCollaborationConfiguredAudienceModelAssociationsCommandOutp
  *
  * @public
  */
-export class ListCollaborationConfiguredAudienceModelAssociationsCommand extends $Command
-  .classBuilder<
-    ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
-    ListCollaborationConfiguredAudienceModelAssociationsCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "ListCollaborationConfiguredAudienceModelAssociations", {})
-  .n("CleanRoomsClient", "ListCollaborationConfiguredAudienceModelAssociationsCommand")
-  .sc(ListCollaborationConfiguredAudienceModelAssociations$)
-  .build() {
+export class ListCollaborationConfiguredAudienceModelAssociationsCommand extends command<ListCollaborationConfiguredAudienceModelAssociationsCommandInput, ListCollaborationConfiguredAudienceModelAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCollaborationConfiguredAudienceModelAssociations",
+  ListCollaborationConfiguredAudienceModelAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

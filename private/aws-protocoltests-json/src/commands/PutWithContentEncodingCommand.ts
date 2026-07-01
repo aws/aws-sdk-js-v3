@@ -14,7 +14,6 @@ import { de_PutWithContentEncodingCommand, se_PutWithContentEncodingCommand } fr
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

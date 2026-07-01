@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCallAnalyticsCategoryRequest, DeleteCallAnalyticsCategoryResponse } from "../models/models_0";
 import { DeleteCallAnalyticsCategory$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DeleteCallAnalyticsCategoryCommandOutput extends DeleteCallAnal
  *
  * @public
  */
-export class DeleteCallAnalyticsCategoryCommand extends $Command
-  .classBuilder<
-    DeleteCallAnalyticsCategoryCommandInput,
-    DeleteCallAnalyticsCategoryCommandOutput,
-    TranscribeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Transcribe", "DeleteCallAnalyticsCategory", {})
-  .n("TranscribeClient", "DeleteCallAnalyticsCategoryCommand")
-  .sc(DeleteCallAnalyticsCategory$)
-  .build() {
+export class DeleteCallAnalyticsCategoryCommand extends command<DeleteCallAnalyticsCategoryCommandInput, DeleteCallAnalyticsCategoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCallAnalyticsCategory",
+  DeleteCallAnalyticsCategory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

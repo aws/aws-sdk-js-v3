@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeEventTopicsRequest, DescribeEventTopicsResult } from "../models/models_0";
 import { DescribeEventTopics$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeEventTopics$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +106,12 @@ export interface DescribeEventTopicsCommandOutput extends DescribeEventTopicsRes
  *
  * @public
  */
-export class DescribeEventTopicsCommand extends $Command
-  .classBuilder<
-    DescribeEventTopicsCommandInput,
-    DescribeEventTopicsCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "DescribeEventTopics", {})
-  .n("DirectoryServiceClient", "DescribeEventTopicsCommand")
-  .sc(DescribeEventTopics$)
-  .build() {
+export class DescribeEventTopicsCommand extends command<DescribeEventTopicsCommandInput, DescribeEventTopicsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEventTopics",
+  DescribeEventTopics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

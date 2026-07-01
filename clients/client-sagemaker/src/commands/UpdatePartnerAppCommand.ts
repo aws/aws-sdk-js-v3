@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePartnerAppRequest, UpdatePartnerAppResponse } from "../models/models_5";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { UpdatePartnerApp$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface UpdatePartnerAppCommandOutput extends UpdatePartnerAppResponse,
  *
  * @public
  */
-export class UpdatePartnerAppCommand extends $Command
-  .classBuilder<
-    UpdatePartnerAppCommandInput,
-    UpdatePartnerAppCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "UpdatePartnerApp", {})
-  .n("SageMakerClient", "UpdatePartnerAppCommand")
-  .sc(UpdatePartnerApp$)
-  .build() {
+export class UpdatePartnerAppCommand extends command<UpdatePartnerAppCommandInput, UpdatePartnerAppCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePartnerApp",
+  UpdatePartnerApp$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

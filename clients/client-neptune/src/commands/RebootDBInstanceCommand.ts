@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RebootDBInstanceMessage, RebootDBInstanceResult } from "../models/models_0";
-import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import { RebootDBInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -210,22 +206,12 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  *
  * @public
  */
-export class RebootDBInstanceCommand extends $Command
-  .classBuilder<
-    RebootDBInstanceCommandInput,
-    RebootDBInstanceCommandOutput,
-    NeptuneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "RebootDBInstance", {})
-  .n("NeptuneClient", "RebootDBInstanceCommand")
-  .sc(RebootDBInstance$)
-  .build() {
+export class RebootDBInstanceCommand extends command<RebootDBInstanceCommandInput, RebootDBInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "RebootDBInstance",
+  RebootDBInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

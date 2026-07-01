@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FreeTierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FreeTierClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpgradeAccountPlanRequest, UpgradeAccountPlanResponse } from "../models/models_0";
 import { UpgradeAccountPlan$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpgradeAccountPlan$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -158,22 +154,12 @@ export interface UpgradeAccountPlanCommandOutput extends UpgradeAccountPlanRespo
  *
  * @public
  */
-export class UpgradeAccountPlanCommand extends $Command
-  .classBuilder<
-    UpgradeAccountPlanCommandInput,
-    UpgradeAccountPlanCommandOutput,
-    FreeTierClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FreeTierClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSFreeTierService", "UpgradeAccountPlan", {})
-  .n("FreeTierClient", "UpgradeAccountPlanCommand")
-  .sc(UpgradeAccountPlan$)
-  .build() {
+export class UpgradeAccountPlanCommand extends command<UpgradeAccountPlanCommandInput, UpgradeAccountPlanCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpgradeAccountPlan",
+  UpgradeAccountPlan$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

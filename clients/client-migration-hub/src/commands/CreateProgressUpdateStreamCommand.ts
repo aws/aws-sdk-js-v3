@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateProgressUpdateStreamRequest, CreateProgressUpdateStreamResult } from "../models/models_0";
 import { CreateProgressUpdateStream$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateProgressUpdateStream$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface CreateProgressUpdateStreamCommandOutput extends CreateProgressU
  *
  * @public
  */
-export class CreateProgressUpdateStreamCommand extends $Command
-  .classBuilder<
-    CreateProgressUpdateStreamCommandInput,
-    CreateProgressUpdateStreamCommandOutput,
-    MigrationHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHub", "CreateProgressUpdateStream", {})
-  .n("MigrationHubClient", "CreateProgressUpdateStreamCommand")
-  .sc(CreateProgressUpdateStream$)
-  .build() {
+export class CreateProgressUpdateStreamCommand extends command<CreateProgressUpdateStreamCommandInput, CreateProgressUpdateStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateProgressUpdateStream",
+  CreateProgressUpdateStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RefreshCacheInput, RefreshCacheOutput } from "../models/models_0";
 import { RefreshCache$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +108,12 @@ export interface RefreshCacheCommandOutput extends RefreshCacheOutput, __Metadat
  *
  * @public
  */
-export class RefreshCacheCommand extends $Command
-  .classBuilder<
-    RefreshCacheCommandInput,
-    RefreshCacheCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "RefreshCache", {})
-  .n("StorageGatewayClient", "RefreshCacheCommand")
-  .sc(RefreshCache$)
-  .build() {
+export class RefreshCacheCommand extends command<RefreshCacheCommandInput, RefreshCacheCommandOutput>(
+  _ep0,
+  _mw0,
+  "RefreshCache",
+  RefreshCache$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

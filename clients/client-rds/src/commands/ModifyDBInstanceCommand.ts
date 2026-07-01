@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { ModifyDBInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -522,22 +518,12 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *
  * @public
  */
-export class ModifyDBInstanceCommand extends $Command
-  .classBuilder<
-    ModifyDBInstanceCommandInput,
-    ModifyDBInstanceCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "ModifyDBInstance", {})
-  .n("RDSClient", "ModifyDBInstanceCommand")
-  .sc(ModifyDBInstance$)
-  .build() {
+export class ModifyDBInstanceCommand extends command<ModifyDBInstanceCommandInput, ModifyDBInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyDBInstance",
+  ModifyDBInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

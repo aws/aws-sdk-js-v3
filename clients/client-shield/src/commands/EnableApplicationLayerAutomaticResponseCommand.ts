@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   EnableApplicationLayerAutomaticResponseRequest,
   EnableApplicationLayerAutomaticResponseResponse,
 } from "../models/models_0";
 import { EnableApplicationLayerAutomaticResponse$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface EnableApplicationLayerAutomaticResponseCommandOutput extends En
  *
  * @public
  */
-export class EnableApplicationLayerAutomaticResponseCommand extends $Command
-  .classBuilder<
-    EnableApplicationLayerAutomaticResponseCommandInput,
-    EnableApplicationLayerAutomaticResponseCommandOutput,
-    ShieldClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShield_20160616", "EnableApplicationLayerAutomaticResponse", {})
-  .n("ShieldClient", "EnableApplicationLayerAutomaticResponseCommand")
-  .sc(EnableApplicationLayerAutomaticResponse$)
-  .build() {
+export class EnableApplicationLayerAutomaticResponseCommand extends command<EnableApplicationLayerAutomaticResponseCommandInput, EnableApplicationLayerAutomaticResponseCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableApplicationLayerAutomaticResponse",
+  EnableApplicationLayerAutomaticResponse$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

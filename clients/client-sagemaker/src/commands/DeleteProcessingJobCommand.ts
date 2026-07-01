@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteProcessingJobRequest } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DeleteProcessingJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface DeleteProcessingJobCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteProcessingJobCommand extends $Command
-  .classBuilder<
-    DeleteProcessingJobCommandInput,
-    DeleteProcessingJobCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DeleteProcessingJob", {})
-  .n("SageMakerClient", "DeleteProcessingJobCommand")
-  .sc(DeleteProcessingJob$)
-  .build() {
+export class DeleteProcessingJobCommand extends command<DeleteProcessingJobCommandInput, DeleteProcessingJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteProcessingJob",
+  DeleteProcessingJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

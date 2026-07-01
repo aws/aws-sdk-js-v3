@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AccountSettings } from "../models/models_0";
 import { GetAccountSettings$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetAccountSettings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface GetAccountSettingsCommandOutput extends AccountSettings, __Meta
  *
  * @public
  */
-export class GetAccountSettingsCommand extends $Command
-  .classBuilder<
-    GetAccountSettingsCommandInput,
-    GetAccountSettingsCommandOutput,
-    AppConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAppConfig", "GetAccountSettings", {})
-  .n("AppConfigClient", "GetAccountSettingsCommand")
-  .sc(GetAccountSettings$)
-  .build() {
+export class GetAccountSettingsCommand extends command<GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAccountSettings",
+  GetAccountSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

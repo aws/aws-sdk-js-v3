@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyDBSnapshotAttributeMessage, ModifyDBSnapshotAttributeResult } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { ModifyDBSnapshotAttribute$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -145,22 +141,12 @@ export interface ModifyDBSnapshotAttributeCommandOutput extends ModifyDBSnapshot
  *
  * @public
  */
-export class ModifyDBSnapshotAttributeCommand extends $Command
-  .classBuilder<
-    ModifyDBSnapshotAttributeCommandInput,
-    ModifyDBSnapshotAttributeCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "ModifyDBSnapshotAttribute", {})
-  .n("RDSClient", "ModifyDBSnapshotAttributeCommand")
-  .sc(ModifyDBSnapshotAttribute$)
-  .build() {
+export class ModifyDBSnapshotAttributeCommand extends command<ModifyDBSnapshotAttributeCommandInput, ModifyDBSnapshotAttributeCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyDBSnapshotAttribute",
+  ModifyDBSnapshotAttribute$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

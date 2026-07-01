@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetOdbPeeringConnectionInput, GetOdbPeeringConnectionOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { GetOdbPeeringConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface GetOdbPeeringConnectionCommandOutput extends GetOdbPeeringConne
  *
  * @public
  */
-export class GetOdbPeeringConnectionCommand extends $Command
-  .classBuilder<
-    GetOdbPeeringConnectionCommandInput,
-    GetOdbPeeringConnectionCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "GetOdbPeeringConnection", {})
-  .n("OdbClient", "GetOdbPeeringConnectionCommand")
-  .sc(GetOdbPeeringConnection$)
-  .build() {
+export class GetOdbPeeringConnectionCommand extends command<GetOdbPeeringConnectionCommandInput, GetOdbPeeringConnectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetOdbPeeringConnection",
+  GetOdbPeeringConnection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

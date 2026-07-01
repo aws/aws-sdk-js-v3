@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLabelingJobsRequest, ListLabelingJobsResponse } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListLabelingJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface ListLabelingJobsCommandOutput extends ListLabelingJobsResponse,
  *
  * @public
  */
-export class ListLabelingJobsCommand extends $Command
-  .classBuilder<
-    ListLabelingJobsCommandInput,
-    ListLabelingJobsCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "ListLabelingJobs", {})
-  .n("SageMakerClient", "ListLabelingJobsCommand")
-  .sc(ListLabelingJobs$)
-  .build() {
+export class ListLabelingJobsCommand extends command<ListLabelingJobsCommandInput, ListLabelingJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLabelingJobs",
+  ListLabelingJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateProgramRequest, UpdateProgramResponse } from "../models/models_0";
 import { UpdateProgram$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateProgram$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -265,22 +261,12 @@ export interface UpdateProgramCommandOutput extends UpdateProgramResponse, __Met
  *
  * @public
  */
-export class UpdateProgramCommand extends $Command
-  .classBuilder<
-    UpdateProgramCommandInput,
-    UpdateProgramCommandOutput,
-    MediaTailorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaTailor", "UpdateProgram", {})
-  .n("MediaTailorClient", "UpdateProgramCommand")
-  .sc(UpdateProgram$)
-  .build() {
+export class UpdateProgramCommand extends command<UpdateProgramCommandInput, UpdateProgramCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateProgram",
+  UpdateProgram$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

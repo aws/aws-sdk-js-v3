@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TerminateRecoveryInstancesRequest, TerminateRecoveryInstancesResponse } from "../models/models_0";
 import { TerminateRecoveryInstances$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { TerminateRecoveryInstances$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface TerminateRecoveryInstancesCommandOutput extends TerminateRecove
  *
  * @public
  */
-export class TerminateRecoveryInstancesCommand extends $Command
-  .classBuilder<
-    TerminateRecoveryInstancesCommandInput,
-    TerminateRecoveryInstancesCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "TerminateRecoveryInstances", {})
-  .n("DrsClient", "TerminateRecoveryInstancesCommand")
-  .sc(TerminateRecoveryInstances$)
-  .build() {
+export class TerminateRecoveryInstancesCommand extends command<TerminateRecoveryInstancesCommandInput, TerminateRecoveryInstancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "TerminateRecoveryInstances",
+  TerminateRecoveryInstances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

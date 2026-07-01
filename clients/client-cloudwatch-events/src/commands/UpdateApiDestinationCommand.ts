@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchEventsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateApiDestinationRequest, UpdateApiDestinationResponse } from "../models/models_0";
 import { UpdateApiDestination$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateApiDestination$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface UpdateApiDestinationCommandOutput extends UpdateApiDestinationR
  *
  * @public
  */
-export class UpdateApiDestinationCommand extends $Command
-  .classBuilder<
-    UpdateApiDestinationCommandInput,
-    UpdateApiDestinationCommandOutput,
-    CloudWatchEventsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSEvents", "UpdateApiDestination", {})
-  .n("CloudWatchEventsClient", "UpdateApiDestinationCommand")
-  .sc(UpdateApiDestination$)
-  .build() {
+export class UpdateApiDestinationCommand extends command<UpdateApiDestinationCommandInput, UpdateApiDestinationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateApiDestination",
+  UpdateApiDestination$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

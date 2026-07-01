@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { VerifyAuthRequestCryptogramInput, VerifyAuthRequestCryptogramOutput } from "../models/models_0";
-import type {
-  PaymentCryptographyDataClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PaymentCryptographyDataClient";
 import { VerifyAuthRequestCryptogram$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +113,12 @@ export interface VerifyAuthRequestCryptogramCommandOutput extends VerifyAuthRequ
  *
  * @public
  */
-export class VerifyAuthRequestCryptogramCommand extends $Command
-  .classBuilder<
-    VerifyAuthRequestCryptogramCommandInput,
-    VerifyAuthRequestCryptogramCommandOutput,
-    PaymentCryptographyDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PaymentCryptographyDataPlane", "VerifyAuthRequestCryptogram", {})
-  .n("PaymentCryptographyDataClient", "VerifyAuthRequestCryptogramCommand")
-  .sc(VerifyAuthRequestCryptogram$)
-  .build() {
+export class VerifyAuthRequestCryptogramCommand extends command<VerifyAuthRequestCryptogramCommandInput, VerifyAuthRequestCryptogramCommandOutput>(
+  _ep0,
+  _mw0,
+  "VerifyAuthRequestCryptogram",
+  VerifyAuthRequestCryptogram$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

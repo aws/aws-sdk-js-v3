@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchEventsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeReplayRequest, DescribeReplayResponse } from "../models/models_0";
 import { DescribeReplay$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeReplay$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __M
  *
  * @public
  */
-export class DescribeReplayCommand extends $Command
-  .classBuilder<
-    DescribeReplayCommandInput,
-    DescribeReplayCommandOutput,
-    CloudWatchEventsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSEvents", "DescribeReplay", {})
-  .n("CloudWatchEventsClient", "DescribeReplayCommand")
-  .sc(DescribeReplay$)
-  .build() {
+export class DescribeReplayCommand extends command<DescribeReplayCommandInput, DescribeReplayCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeReplay",
+  DescribeReplay$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

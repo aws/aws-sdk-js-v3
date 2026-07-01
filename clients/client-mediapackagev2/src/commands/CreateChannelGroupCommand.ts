@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MediaPackageV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MediaPackageV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateChannelGroupRequest, CreateChannelGroupResponse } from "../models/models_0";
 import { CreateChannelGroup$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateChannelGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +120,12 @@ export interface CreateChannelGroupCommandOutput extends CreateChannelGroupRespo
  *
  * @public
  */
-export class CreateChannelGroupCommand extends $Command
-  .classBuilder<
-    CreateChannelGroupCommandInput,
-    CreateChannelGroupCommandOutput,
-    MediaPackageV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("mediapackagev2", "CreateChannelGroup", {})
-  .n("MediaPackageV2Client", "CreateChannelGroupCommand")
-  .sc(CreateChannelGroup$)
-  .build() {
+export class CreateChannelGroupCommand extends command<CreateChannelGroupCommandInput, CreateChannelGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateChannelGroup",
+  CreateChannelGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

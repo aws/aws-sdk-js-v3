@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateKeyRequest, UpdateKeyResponse } from "../models/models_0";
 import { UpdateKey$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateKey$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface UpdateKeyCommandOutput extends UpdateKeyResponse, __MetadataBea
  *
  * @public
  */
-export class UpdateKeyCommand extends $Command
-  .classBuilder<
-    UpdateKeyCommandInput,
-    UpdateKeyCommandOutput,
-    LocationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LocationService", "UpdateKey", {})
-  .n("LocationClient", "UpdateKeyCommand")
-  .sc(UpdateKey$)
-  .build() {
+export class UpdateKeyCommand extends command<UpdateKeyCommandInput, UpdateKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateKey",
+  UpdateKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

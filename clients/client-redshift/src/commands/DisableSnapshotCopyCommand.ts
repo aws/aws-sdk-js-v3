@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisableSnapshotCopyMessage, DisableSnapshotCopyResult } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { DisableSnapshotCopy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -270,22 +266,12 @@ export interface DisableSnapshotCopyCommandOutput extends DisableSnapshotCopyRes
  *
  * @public
  */
-export class DisableSnapshotCopyCommand extends $Command
-  .classBuilder<
-    DisableSnapshotCopyCommandInput,
-    DisableSnapshotCopyCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "DisableSnapshotCopy", {})
-  .n("RedshiftClient", "DisableSnapshotCopyCommand")
-  .sc(DisableSnapshotCopy$)
-  .build() {
+export class DisableSnapshotCopyCommand extends command<DisableSnapshotCopyCommandInput, DisableSnapshotCopyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableSnapshotCopy",
+  DisableSnapshotCopy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

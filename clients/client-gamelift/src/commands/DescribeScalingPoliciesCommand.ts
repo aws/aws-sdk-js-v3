@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeScalingPoliciesInput, DescribeScalingPoliciesOutput } from "../models/models_0";
 import { DescribeScalingPolicies$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeScalingPolicies$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  *
  * @public
  */
-export class DescribeScalingPoliciesCommand extends $Command
-  .classBuilder<
-    DescribeScalingPoliciesCommandInput,
-    DescribeScalingPoliciesCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "DescribeScalingPolicies", {})
-  .n("GameLiftClient", "DescribeScalingPoliciesCommand")
-  .sc(DescribeScalingPolicies$)
-  .build() {
+export class DescribeScalingPoliciesCommand extends command<DescribeScalingPoliciesCommandInput, DescribeScalingPoliciesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeScalingPolicies",
+  DescribeScalingPolicies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RollbackStageInput, RollbackStageOutput } from "../models/models_0";
 import { RollbackStage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RollbackStage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface RollbackStageCommandOutput extends RollbackStageOutput, __Metad
  *
  * @public
  */
-export class RollbackStageCommand extends $Command
-  .classBuilder<
-    RollbackStageCommandInput,
-    RollbackStageCommandOutput,
-    CodePipelineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodePipeline_20150709", "RollbackStage", {})
-  .n("CodePipelineClient", "RollbackStageCommand")
-  .sc(RollbackStage$)
-  .build() {
+export class RollbackStageCommand extends command<RollbackStageCommandInput, RollbackStageCommandOutput>(
+  _ep0,
+  _mw0,
+  "RollbackStage",
+  RollbackStage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

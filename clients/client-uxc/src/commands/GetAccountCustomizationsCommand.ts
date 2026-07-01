@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAccountCustomizationsInput, GetAccountCustomizationsOutput } from "../models/models_0";
 import { GetAccountCustomizations$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, UxcClientResolvedConfig } from "../UxcClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface GetAccountCustomizationsCommandOutput extends GetAccountCustomi
  *
  * @public
  */
-export class GetAccountCustomizationsCommand extends $Command
-  .classBuilder<
-    GetAccountCustomizationsCommandInput,
-    GetAccountCustomizationsCommandOutput,
-    UxcClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: UxcClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSAccountUXSetting", "GetAccountCustomizations", {})
-  .n("UxcClient", "GetAccountCustomizationsCommand")
-  .sc(GetAccountCustomizations$)
-  .build() {
+export class GetAccountCustomizationsCommand extends command<GetAccountCustomizationsCommandInput, GetAccountCustomizationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAccountCustomizations",
+  GetAccountCustomizations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

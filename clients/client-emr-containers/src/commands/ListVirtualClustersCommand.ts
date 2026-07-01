@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListVirtualClustersRequest, ListVirtualClustersResponse } from "../models/models_0";
 import { ListVirtualClusters$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListVirtualClusters$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface ListVirtualClustersCommandOutput extends ListVirtualClustersRes
  *
  * @public
  */
-export class ListVirtualClustersCommand extends $Command
-  .classBuilder<
-    ListVirtualClustersCommandInput,
-    ListVirtualClustersCommandOutput,
-    EMRContainersClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRContainersClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsChicagoWebService", "ListVirtualClusters", {})
-  .n("EMRContainersClient", "ListVirtualClustersCommand")
-  .sc(ListVirtualClusters$)
-  .build() {
+export class ListVirtualClustersCommand extends command<ListVirtualClustersCommandInput, ListVirtualClustersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListVirtualClusters",
+  ListVirtualClusters$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

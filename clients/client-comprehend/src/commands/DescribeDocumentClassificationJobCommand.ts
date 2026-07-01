@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeDocumentClassificationJobRequest,
   DescribeDocumentClassificationJobResponse,
@@ -15,7 +12,6 @@ import { DescribeDocumentClassificationJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface DescribeDocumentClassificationJobCommandOutput extends Describe
  *
  * @public
  */
-export class DescribeDocumentClassificationJobCommand extends $Command
-  .classBuilder<
-    DescribeDocumentClassificationJobCommandInput,
-    DescribeDocumentClassificationJobCommandOutput,
-    ComprehendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Comprehend_20171127", "DescribeDocumentClassificationJob", {})
-  .n("ComprehendClient", "DescribeDocumentClassificationJobCommand")
-  .sc(DescribeDocumentClassificationJob$)
-  .build() {
+export class DescribeDocumentClassificationJobCommand extends command<DescribeDocumentClassificationJobCommandInput, DescribeDocumentClassificationJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDocumentClassificationJob",
+  DescribeDocumentClassificationJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

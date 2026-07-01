@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateBrowserSettingsRequest, CreateBrowserSettingsResponse } from "../models/models_0";
 import { CreateBrowserSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface CreateBrowserSettingsCommandOutput extends CreateBrowserSetting
  *
  * @public
  */
-export class CreateBrowserSettingsCommand extends $Command
-  .classBuilder<
-    CreateBrowserSettingsCommandInput,
-    CreateBrowserSettingsCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "CreateBrowserSettings", {})
-  .n("WorkSpacesWebClient", "CreateBrowserSettingsCommand")
-  .sc(CreateBrowserSettings$)
-  .build() {
+export class CreateBrowserSettingsCommand extends command<CreateBrowserSettingsCommandInput, CreateBrowserSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateBrowserSettings",
+  CreateBrowserSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

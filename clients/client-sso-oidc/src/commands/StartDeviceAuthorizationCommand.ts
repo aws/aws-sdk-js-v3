@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartDeviceAuthorizationRequest, StartDeviceAuthorizationResponse } from "../models/models_0";
 import { StartDeviceAuthorization$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthor
  *
  * @public
  */
-export class StartDeviceAuthorizationCommand extends $Command
-  .classBuilder<
-    StartDeviceAuthorizationCommandInput,
-    StartDeviceAuthorizationCommandOutput,
-    SSOOIDCClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOOIDCClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSSOOIDCService", "StartDeviceAuthorization", {})
-  .n("SSOOIDCClient", "StartDeviceAuthorizationCommand")
-  .sc(StartDeviceAuthorization$)
-  .build() {
+export class StartDeviceAuthorizationCommand extends command<StartDeviceAuthorizationCommandInput, StartDeviceAuthorizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartDeviceAuthorization",
+  StartDeviceAuthorization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetNotebookMetadataInput, GetNotebookMetadataOutput } from "../models/models_0";
 import { GetNotebookMetadata$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetNotebookMetadata$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface GetNotebookMetadataCommandOutput extends GetNotebookMetadataOut
  *
  * @public
  */
-export class GetNotebookMetadataCommand extends $Command
-  .classBuilder<
-    GetNotebookMetadataCommandInput,
-    GetNotebookMetadataCommandOutput,
-    AthenaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAthena", "GetNotebookMetadata", {})
-  .n("AthenaClient", "GetNotebookMetadataCommand")
-  .sc(GetNotebookMetadata$)
-  .build() {
+export class GetNotebookMetadataCommand extends command<GetNotebookMetadataCommandInput, GetNotebookMetadataCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetNotebookMetadata",
+  GetNotebookMetadata$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

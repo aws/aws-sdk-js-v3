@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetMetricsRequest, BatchGetMetricsResponse } from "../models/models_0";
-import type {
-  SageMakerMetricsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SageMakerMetricsClient";
 import { BatchGetMetrics$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface BatchGetMetricsCommandOutput extends BatchGetMetricsResponse, _
  *
  * @public
  */
-export class BatchGetMetricsCommand extends $Command
-  .classBuilder<
-    BatchGetMetricsCommandInput,
-    BatchGetMetricsCommandOutput,
-    SageMakerMetricsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerMetricsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMakerMetricsService", "BatchGetMetrics", {})
-  .n("SageMakerMetricsClient", "BatchGetMetricsCommand")
-  .sc(BatchGetMetrics$)
-  .build() {
+export class BatchGetMetricsCommand extends command<BatchGetMetricsCommandInput, BatchGetMetricsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetMetrics",
+  BatchGetMetrics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

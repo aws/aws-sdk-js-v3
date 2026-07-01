@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListScriptsInput, ListScriptsOutput } from "../models/models_0";
 import { ListScripts$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListScripts$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataB
  *
  * @public
  */
-export class ListScriptsCommand extends $Command
-  .classBuilder<
-    ListScriptsCommandInput,
-    ListScriptsCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "ListScripts", {})
-  .n("GameLiftClient", "ListScriptsCommand")
-  .sc(ListScripts$)
-  .build() {
+export class ListScriptsCommand extends command<ListScriptsCommandInput, ListScriptsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListScripts",
+  ListScripts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

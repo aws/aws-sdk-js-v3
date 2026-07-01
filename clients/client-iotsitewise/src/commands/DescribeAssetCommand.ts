@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAssetRequest, DescribeAssetResponse } from "../models/models_0";
 import { DescribeAsset$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeAsset$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -169,22 +165,12 @@ export interface DescribeAssetCommandOutput extends DescribeAssetResponse, __Met
  *
  * @public
  */
-export class DescribeAssetCommand extends $Command
-  .classBuilder<
-    DescribeAssetCommandInput,
-    DescribeAssetCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "DescribeAsset", {})
-  .n("IoTSiteWiseClient", "DescribeAssetCommand")
-  .sc(DescribeAsset$)
-  .build() {
+export class DescribeAssetCommand extends command<DescribeAssetCommandInput, DescribeAssetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAsset",
+  DescribeAsset$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

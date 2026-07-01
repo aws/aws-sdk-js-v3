@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeLoggingStatusMessage, LoggingStatus } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { DescribeLoggingStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DescribeLoggingStatusCommandOutput extends LoggingStatus, __Met
  *
  * @public
  */
-export class DescribeLoggingStatusCommand extends $Command
-  .classBuilder<
-    DescribeLoggingStatusCommandInput,
-    DescribeLoggingStatusCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "DescribeLoggingStatus", {})
-  .n("RedshiftClient", "DescribeLoggingStatusCommand")
-  .sc(DescribeLoggingStatus$)
-  .build() {
+export class DescribeLoggingStatusCommand extends command<DescribeLoggingStatusCommandInput, DescribeLoggingStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeLoggingStatus",
+  DescribeLoggingStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

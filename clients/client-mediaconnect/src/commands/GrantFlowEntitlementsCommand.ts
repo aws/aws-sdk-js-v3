@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GrantFlowEntitlementsRequest, GrantFlowEntitlementsResponse } from "../models/models_0";
 import { GrantFlowEntitlements$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GrantFlowEntitlements$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +124,12 @@ export interface GrantFlowEntitlementsCommandOutput extends GrantFlowEntitlement
  *
  * @public
  */
-export class GrantFlowEntitlementsCommand extends $Command
-  .classBuilder<
-    GrantFlowEntitlementsCommandInput,
-    GrantFlowEntitlementsCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "GrantFlowEntitlements", {})
-  .n("MediaConnectClient", "GrantFlowEntitlementsCommand")
-  .sc(GrantFlowEntitlements$)
-  .build() {
+export class GrantFlowEntitlementsCommand extends command<GrantFlowEntitlementsCommandInput, GrantFlowEntitlementsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GrantFlowEntitlements",
+  GrantFlowEntitlements$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

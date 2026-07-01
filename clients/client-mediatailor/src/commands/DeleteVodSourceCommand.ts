@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteVodSourceRequest, DeleteVodSourceResponse } from "../models/models_0";
 import { DeleteVodSource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteVodSource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -58,22 +54,12 @@ export interface DeleteVodSourceCommandOutput extends DeleteVodSourceResponse, _
  *
  * @public
  */
-export class DeleteVodSourceCommand extends $Command
-  .classBuilder<
-    DeleteVodSourceCommandInput,
-    DeleteVodSourceCommandOutput,
-    MediaTailorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaTailor", "DeleteVodSource", {})
-  .n("MediaTailorClient", "DeleteVodSourceCommand")
-  .sc(DeleteVodSource$)
-  .build() {
+export class DeleteVodSourceCommand extends command<DeleteVodSourceCommandInput, DeleteVodSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteVodSource",
+  DeleteVodSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateIdentityProviderConfigRequest,
   DisassociateIdentityProviderConfigResponse,
@@ -15,7 +12,6 @@ import { DisassociateIdentityProviderConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface DisassociateIdentityProviderConfigCommandOutput extends Disasso
  *
  * @public
  */
-export class DisassociateIdentityProviderConfigCommand extends $Command
-  .classBuilder<
-    DisassociateIdentityProviderConfigCommandInput,
-    DisassociateIdentityProviderConfigCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "DisassociateIdentityProviderConfig", {})
-  .n("EKSClient", "DisassociateIdentityProviderConfigCommand")
-  .sc(DisassociateIdentityProviderConfig$)
-  .build() {
+export class DisassociateIdentityProviderConfigCommand extends command<DisassociateIdentityProviderConfigCommandInput, DisassociateIdentityProviderConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateIdentityProviderConfig",
+  DisassociateIdentityProviderConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

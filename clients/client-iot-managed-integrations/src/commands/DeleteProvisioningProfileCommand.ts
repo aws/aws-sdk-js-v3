@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteProvisioningProfileRequest } from "../models/models_0";
 import { DeleteProvisioningProfile$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteProvisioningProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface DeleteProvisioningProfileCommandOutput extends __MetadataBearer
  *
  * @public
  */
-export class DeleteProvisioningProfileCommand extends $Command
-  .classBuilder<
-    DeleteProvisioningProfileCommandInput,
-    DeleteProvisioningProfileCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "DeleteProvisioningProfile", {})
-  .n("IoTManagedIntegrationsClient", "DeleteProvisioningProfileCommand")
-  .sc(DeleteProvisioningProfile$)
-  .build() {
+export class DeleteProvisioningProfileCommand extends command<DeleteProvisioningProfileCommandInput, DeleteProvisioningProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteProvisioningProfile",
+  DeleteProvisioningProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

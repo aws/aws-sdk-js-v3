@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchUpdateAutomatedDiscoveryAccountsRequest,
   BatchUpdateAutomatedDiscoveryAccountsResponse,
@@ -15,7 +12,6 @@ import { BatchUpdateAutomatedDiscoveryAccounts$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface BatchUpdateAutomatedDiscoveryAccountsCommandOutput extends Batc
  *
  * @public
  */
-export class BatchUpdateAutomatedDiscoveryAccountsCommand extends $Command
-  .classBuilder<
-    BatchUpdateAutomatedDiscoveryAccountsCommandInput,
-    BatchUpdateAutomatedDiscoveryAccountsCommandOutput,
-    Macie2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Macie2", "BatchUpdateAutomatedDiscoveryAccounts", {})
-  .n("Macie2Client", "BatchUpdateAutomatedDiscoveryAccountsCommand")
-  .sc(BatchUpdateAutomatedDiscoveryAccounts$)
-  .build() {
+export class BatchUpdateAutomatedDiscoveryAccountsCommand extends command<BatchUpdateAutomatedDiscoveryAccountsCommandInput, BatchUpdateAutomatedDiscoveryAccountsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchUpdateAutomatedDiscoveryAccounts",
+  BatchUpdateAutomatedDiscoveryAccounts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

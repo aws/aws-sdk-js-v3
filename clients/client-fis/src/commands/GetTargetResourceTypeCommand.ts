@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTargetResourceTypeRequest, GetTargetResourceTypeResponse } from "../models/models_0";
 import { GetTargetResourceType$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetTargetResourceType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface GetTargetResourceTypeCommandOutput extends GetTargetResourceTyp
  *
  * @public
  */
-export class GetTargetResourceTypeCommand extends $Command
-  .classBuilder<
-    GetTargetResourceTypeCommandInput,
-    GetTargetResourceTypeCommandOutput,
-    FisClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FisClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FaultInjectionSimulator", "GetTargetResourceType", {})
-  .n("FisClient", "GetTargetResourceTypeCommand")
-  .sc(GetTargetResourceType$)
-  .build() {
+export class GetTargetResourceTypeCommand extends command<GetTargetResourceTypeCommandInput, GetTargetResourceTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTargetResourceType",
+  GetTargetResourceType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

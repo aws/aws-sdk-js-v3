@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateIpGroupRequest, CreateIpGroupResult } from "../models/models_0";
 import { CreateIpGroup$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface CreateIpGroupCommandOutput extends CreateIpGroupResult, __Metad
  *
  * @public
  */
-export class CreateIpGroupCommand extends $Command
-  .classBuilder<
-    CreateIpGroupCommandInput,
-    CreateIpGroupCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "CreateIpGroup", {})
-  .n("WorkSpacesClient", "CreateIpGroupCommand")
-  .sc(CreateIpGroup$)
-  .build() {
+export class CreateIpGroupCommand extends command<CreateIpGroupCommandInput, CreateIpGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateIpGroup",
+  CreateIpGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

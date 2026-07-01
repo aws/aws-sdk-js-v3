@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRetainedMessagesRequest, ListRetainedMessagesResponse } from "../models/models_0";
 import { ListRetainedMessages$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListRetainedMessages$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface ListRetainedMessagesCommandOutput extends ListRetainedMessagesR
  *
  * @public
  */
-export class ListRetainedMessagesCommand extends $Command
-  .classBuilder<
-    ListRetainedMessagesCommandInput,
-    ListRetainedMessagesCommandOutput,
-    IoTDataPlaneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTDataPlaneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotMoonrakerService", "ListRetainedMessages", {})
-  .n("IoTDataPlaneClient", "ListRetainedMessagesCommand")
-  .sc(ListRetainedMessages$)
-  .build() {
+export class ListRetainedMessagesCommand extends command<ListRetainedMessagesCommandInput, ListRetainedMessagesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRetainedMessages",
+  ListRetainedMessages$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

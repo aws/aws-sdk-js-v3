@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTaskTemplateRequest, GetTaskTemplateResponse } from "../models/models_2";
 import { GetTaskTemplate$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetTaskTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +129,12 @@ export interface GetTaskTemplateCommandOutput extends GetTaskTemplateResponse, _
  *
  * @public
  */
-export class GetTaskTemplateCommand extends $Command
-  .classBuilder<
-    GetTaskTemplateCommandInput,
-    GetTaskTemplateCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "GetTaskTemplate", {})
-  .n("ConnectClient", "GetTaskTemplateCommand")
-  .sc(GetTaskTemplate$)
-  .build() {
+export class GetTaskTemplateCommand extends command<GetTaskTemplateCommandInput, GetTaskTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTaskTemplate",
+  GetTaskTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

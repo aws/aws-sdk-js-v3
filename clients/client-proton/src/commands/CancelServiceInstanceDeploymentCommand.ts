@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelServiceInstanceDeploymentInput, CancelServiceInstanceDeploymentOutput } from "../models/models_0";
-import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 import { CancelServiceInstanceDeployment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +111,12 @@ export interface CancelServiceInstanceDeploymentCommandOutput extends CancelServ
  *
  * @public
  */
-export class CancelServiceInstanceDeploymentCommand extends $Command
-  .classBuilder<
-    CancelServiceInstanceDeploymentCommandInput,
-    CancelServiceInstanceDeploymentCommandOutput,
-    ProtonClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsProton20200720", "CancelServiceInstanceDeployment", {})
-  .n("ProtonClient", "CancelServiceInstanceDeploymentCommand")
-  .sc(CancelServiceInstanceDeployment$)
-  .build() {
+export class CancelServiceInstanceDeploymentCommand extends command<CancelServiceInstanceDeploymentCommandInput, CancelServiceInstanceDeploymentCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelServiceInstanceDeployment",
+  CancelServiceInstanceDeployment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

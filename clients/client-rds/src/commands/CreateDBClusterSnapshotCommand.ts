@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDBClusterSnapshotMessage, CreateDBClusterSnapshotResult } from "../models/models_0";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { CreateDBClusterSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -158,22 +154,12 @@ export interface CreateDBClusterSnapshotCommandOutput extends CreateDBClusterSna
  *
  * @public
  */
-export class CreateDBClusterSnapshotCommand extends $Command
-  .classBuilder<
-    CreateDBClusterSnapshotCommandInput,
-    CreateDBClusterSnapshotCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "CreateDBClusterSnapshot", {})
-  .n("RDSClient", "CreateDBClusterSnapshotCommand")
-  .sc(CreateDBClusterSnapshot$)
-  .build() {
+export class CreateDBClusterSnapshotCommand extends command<CreateDBClusterSnapshotCommandInput, CreateDBClusterSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDBClusterSnapshot",
+  CreateDBClusterSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

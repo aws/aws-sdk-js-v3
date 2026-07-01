@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMessagingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMessagingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchChannelsRequest, SearchChannelsResponse } from "../models/models_0";
 import { SearchChannels$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { SearchChannels$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +102,12 @@ export interface SearchChannelsCommandOutput extends SearchChannelsResponse, __M
  *
  * @public
  */
-export class SearchChannelsCommand extends $Command
-  .classBuilder<
-    SearchChannelsCommandInput,
-    SearchChannelsCommandOutput,
-    ChimeSDKMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeMessagingService", "SearchChannels", {})
-  .n("ChimeSDKMessagingClient", "SearchChannelsCommand")
-  .sc(SearchChannels$)
-  .build() {
+export class SearchChannelsCommand extends command<SearchChannelsCommandInput, SearchChannelsCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchChannels",
+  SearchChannels$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

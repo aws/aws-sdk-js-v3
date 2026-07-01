@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RenderMessageTemplateRequest, RenderMessageTemplateResponse } from "../models/models_1";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { RenderMessageTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -254,22 +250,12 @@ export interface RenderMessageTemplateCommandOutput extends RenderMessageTemplat
  *
  * @public
  */
-export class RenderMessageTemplateCommand extends $Command
-  .classBuilder<
-    RenderMessageTemplateCommandInput,
-    RenderMessageTemplateCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "RenderMessageTemplate", {})
-  .n("QConnectClient", "RenderMessageTemplateCommand")
-  .sc(RenderMessageTemplate$)
-  .build() {
+export class RenderMessageTemplateCommand extends command<RenderMessageTemplateCommandInput, RenderMessageTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "RenderMessageTemplate",
+  RenderMessageTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

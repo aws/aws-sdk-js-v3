@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCustomActionTypeInput } from "../models/models_0";
 import { DeleteCustomActionType$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteCustomActionType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteCustomActionTypeCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteCustomActionTypeCommand extends $Command
-  .classBuilder<
-    DeleteCustomActionTypeCommandInput,
-    DeleteCustomActionTypeCommandOutput,
-    CodePipelineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodePipeline_20150709", "DeleteCustomActionType", {})
-  .n("CodePipelineClient", "DeleteCustomActionTypeCommand")
-  .sc(DeleteCustomActionType$)
-  .build() {
+export class DeleteCustomActionTypeCommand extends command<DeleteCustomActionTypeCommandInput, DeleteCustomActionTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCustomActionType",
+  DeleteCustomActionType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

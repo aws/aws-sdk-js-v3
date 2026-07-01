@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAutomationRulesRequest, ListAutomationRulesResponse } from "../models/models_2";
 import { ListAutomationRules$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface ListAutomationRulesCommandOutput extends ListAutomationRulesRes
  *
  * @public
  */
-export class ListAutomationRulesCommand extends $Command
-  .classBuilder<
-    ListAutomationRulesCommandInput,
-    ListAutomationRulesCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "ListAutomationRules", {})
-  .n("SecurityHubClient", "ListAutomationRulesCommand")
-  .sc(ListAutomationRules$)
-  .build() {
+export class ListAutomationRulesCommand extends command<ListAutomationRulesCommandInput, ListAutomationRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAutomationRules",
+  ListAutomationRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

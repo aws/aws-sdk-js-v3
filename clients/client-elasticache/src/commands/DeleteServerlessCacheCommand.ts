@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteServerlessCacheRequest, DeleteServerlessCacheResponse } from "../models/models_0";
 import { DeleteServerlessCache$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteServerlessCache$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +122,12 @@ export interface DeleteServerlessCacheCommandOutput extends DeleteServerlessCach
  *
  * @public
  */
-export class DeleteServerlessCacheCommand extends $Command
-  .classBuilder<
-    DeleteServerlessCacheCommandInput,
-    DeleteServerlessCacheCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "DeleteServerlessCache", {})
-  .n("ElastiCacheClient", "DeleteServerlessCacheCommand")
-  .sc(DeleteServerlessCache$)
-  .build() {
+export class DeleteServerlessCacheCommand extends command<DeleteServerlessCacheCommandInput, DeleteServerlessCacheCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteServerlessCache",
+  DeleteServerlessCache$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

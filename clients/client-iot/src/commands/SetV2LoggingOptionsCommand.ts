@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SetV2LoggingOptionsRequest } from "../models/models_2";
 import { SetV2LoggingOptions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SetV2LoggingOptions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface SetV2LoggingOptionsCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class SetV2LoggingOptionsCommand extends $Command
-  .classBuilder<
-    SetV2LoggingOptionsCommandInput,
-    SetV2LoggingOptionsCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "SetV2LoggingOptions", {})
-  .n("IoTClient", "SetV2LoggingOptionsCommand")
-  .sc(SetV2LoggingOptions$)
-  .build() {
+export class SetV2LoggingOptionsCommand extends command<SetV2LoggingOptionsCommandInput, SetV2LoggingOptionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetV2LoggingOptions",
+  SetV2LoggingOptions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

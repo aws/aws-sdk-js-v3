@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateUserRequest } from "../models/models_1";
 import { UpdateUser$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateUser$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface UpdateUserCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdateUserCommand extends $Command
-  .classBuilder<
-    UpdateUserCommandInput,
-    UpdateUserCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "UpdateUser", {})
-  .n("IAMClient", "UpdateUserCommand")
-  .sc(UpdateUser$)
-  .build() {
+export class UpdateUserCommand extends command<UpdateUserCommandInput, UpdateUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateUser",
+  UpdateUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

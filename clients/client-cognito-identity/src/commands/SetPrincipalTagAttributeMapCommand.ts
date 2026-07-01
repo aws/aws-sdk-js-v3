@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SetPrincipalTagAttributeMapInput, SetPrincipalTagAttributeMapResponse } from "../models/models_0";
 import { SetPrincipalTagAttributeMap$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { SetPrincipalTagAttributeMap$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface SetPrincipalTagAttributeMapCommandOutput extends SetPrincipalTa
  *
  * @public
  */
-export class SetPrincipalTagAttributeMapCommand extends $Command
-  .classBuilder<
-    SetPrincipalTagAttributeMapCommandInput,
-    SetPrincipalTagAttributeMapCommandOutput,
-    CognitoIdentityClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityService", "SetPrincipalTagAttributeMap", {})
-  .n("CognitoIdentityClient", "SetPrincipalTagAttributeMapCommand")
-  .sc(SetPrincipalTagAttributeMap$)
-  .build() {
+export class SetPrincipalTagAttributeMapCommand extends command<SetPrincipalTagAttributeMapCommandInput, SetPrincipalTagAttributeMapCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetPrincipalTagAttributeMap",
+  SetPrincipalTagAttributeMap$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

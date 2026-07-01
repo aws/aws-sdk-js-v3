@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeResourceRequest, DescribeResourceResponse } from "../models/models_0";
 import { DescribeResource$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  *
  * @public
  */
-export class DescribeResourceCommand extends $Command
-  .classBuilder<
-    DescribeResourceCommandInput,
-    DescribeResourceCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "DescribeResource", {})
-  .n("WorkMailClient", "DescribeResourceCommand")
-  .sc(DescribeResource$)
-  .build() {
+export class DescribeResourceCommand extends command<DescribeResourceCommandInput, DescribeResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeResource",
+  DescribeResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

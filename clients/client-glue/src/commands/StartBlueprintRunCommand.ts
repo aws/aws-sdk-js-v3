@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartBlueprintRunRequest, StartBlueprintRunResponse } from "../models/models_2";
 import { StartBlueprintRun$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartBlueprintRun$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface StartBlueprintRunCommandOutput extends StartBlueprintRunRespons
  *
  * @public
  */
-export class StartBlueprintRunCommand extends $Command
-  .classBuilder<
-    StartBlueprintRunCommandInput,
-    StartBlueprintRunCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "StartBlueprintRun", {})
-  .n("GlueClient", "StartBlueprintRunCommand")
-  .sc(StartBlueprintRun$)
-  .build() {
+export class StartBlueprintRunCommand extends command<StartBlueprintRunCommandInput, StartBlueprintRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartBlueprintRun",
+  StartBlueprintRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

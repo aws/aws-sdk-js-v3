@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutAnomalyDetectorRequest, PutAnomalyDetectorResponse } from "../models/models_0";
 import { PutAnomalyDetector$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutAnomalyDetector$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorRespo
  *
  * @public
  */
-export class PutAnomalyDetectorCommand extends $Command
-  .classBuilder<
-    PutAnomalyDetectorCommandInput,
-    PutAnomalyDetectorCommandOutput,
-    AmpClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPrometheusService", "PutAnomalyDetector", {})
-  .n("AmpClient", "PutAnomalyDetectorCommand")
-  .sc(PutAnomalyDetector$)
-  .build() {
+export class PutAnomalyDetectorCommand extends command<PutAnomalyDetectorCommandInput, PutAnomalyDetectorCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAnomalyDetector",
+  PutAnomalyDetector$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

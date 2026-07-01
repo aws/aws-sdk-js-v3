@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListBackendEnvironmentsRequest, ListBackendEnvironmentsResult } from "../models/models_0";
 import { ListBackendEnvironments$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListBackendEnvironments$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface ListBackendEnvironmentsCommandOutput extends ListBackendEnviron
  *
  * @public
  */
-export class ListBackendEnvironmentsCommand extends $Command
-  .classBuilder<
-    ListBackendEnvironmentsCommandInput,
-    ListBackendEnvironmentsCommandOutput,
-    AmplifyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Amplify", "ListBackendEnvironments", {})
-  .n("AmplifyClient", "ListBackendEnvironmentsCommand")
-  .sc(ListBackendEnvironments$)
-  .build() {
+export class ListBackendEnvironmentsCommand extends command<ListBackendEnvironmentsCommandInput, ListBackendEnvironmentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBackendEnvironments",
+  ListBackendEnvironments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

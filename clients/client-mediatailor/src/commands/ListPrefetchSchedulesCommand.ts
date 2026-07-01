@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPrefetchSchedulesRequest, ListPrefetchSchedulesResponse } from "../models/models_0";
 import { ListPrefetchSchedules$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListPrefetchSchedules$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +121,12 @@ export interface ListPrefetchSchedulesCommandOutput extends ListPrefetchSchedule
  *
  * @public
  */
-export class ListPrefetchSchedulesCommand extends $Command
-  .classBuilder<
-    ListPrefetchSchedulesCommandInput,
-    ListPrefetchSchedulesCommandOutput,
-    MediaTailorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaTailor", "ListPrefetchSchedules", {})
-  .n("MediaTailorClient", "ListPrefetchSchedulesCommand")
-  .sc(ListPrefetchSchedules$)
-  .build() {
+export class ListPrefetchSchedulesCommand extends command<ListPrefetchSchedulesCommandInput, ListPrefetchSchedulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPrefetchSchedules",
+  ListPrefetchSchedules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

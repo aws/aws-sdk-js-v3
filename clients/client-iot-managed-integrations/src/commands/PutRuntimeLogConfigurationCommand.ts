@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutRuntimeLogConfigurationRequest } from "../models/models_0";
 import { PutRuntimeLogConfiguration$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { PutRuntimeLogConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface PutRuntimeLogConfigurationCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class PutRuntimeLogConfigurationCommand extends $Command
-  .classBuilder<
-    PutRuntimeLogConfigurationCommandInput,
-    PutRuntimeLogConfigurationCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "PutRuntimeLogConfiguration", {})
-  .n("IoTManagedIntegrationsClient", "PutRuntimeLogConfigurationCommand")
-  .sc(PutRuntimeLogConfiguration$)
-  .build() {
+export class PutRuntimeLogConfigurationCommand extends command<PutRuntimeLogConfigurationCommandInput, PutRuntimeLogConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutRuntimeLogConfiguration",
+  PutRuntimeLogConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

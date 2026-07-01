@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartStreamEncryptionInput } from "../models/models_0";
 import { StartStreamEncryption$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartStreamEncryption$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,27 +124,12 @@ export interface StartStreamEncryptionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class StartStreamEncryptionCommand extends $Command
-  .classBuilder<
-    StartStreamEncryptionCommandInput,
-    StartStreamEncryptionCommandOutput,
-    KinesisClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    OperationType: { type: "staticContextParams", value: `control` },
-    StreamId: { type: "contextParams", name: "StreamId" },
-    StreamARN: { type: "contextParams", name: "StreamARN" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kinesis_20131202", "StartStreamEncryption", {})
-  .n("KinesisClient", "StartStreamEncryptionCommand")
-  .sc(StartStreamEncryption$)
-  .build() {
+export class StartStreamEncryptionCommand extends command<StartStreamEncryptionCommandInput, StartStreamEncryptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartStreamEncryption",
+  StartStreamEncryption$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSdiSourcesRequest, ListSdiSourcesResponse } from "../models/models_1";
 import { ListSdiSources$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListSdiSources$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface ListSdiSourcesCommandOutput extends ListSdiSourcesResponse, __M
  *
  * @public
  */
-export class ListSdiSourcesCommand extends $Command
-  .classBuilder<
-    ListSdiSourcesCommandInput,
-    ListSdiSourcesCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "ListSdiSources", {})
-  .n("MediaLiveClient", "ListSdiSourcesCommand")
-  .sc(ListSdiSources$)
-  .build() {
+export class ListSdiSourcesCommand extends command<ListSdiSourcesCommandInput, ListSdiSourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSdiSources",
+  ListSdiSources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

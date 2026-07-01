@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetChangeTokenStatusRequest, GetChangeTokenStatusResponse } from "../models/models_0";
 import { GetChangeTokenStatus$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  *
  * @public
  */
-export class GetChangeTokenStatusCommand extends $Command
-  .classBuilder<
-    GetChangeTokenStatusCommandInput,
-    GetChangeTokenStatusCommandOutput,
-    WAFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20150824", "GetChangeTokenStatus", {})
-  .n("WAFClient", "GetChangeTokenStatusCommand")
-  .sc(GetChangeTokenStatus$)
-  .build() {
+export class GetChangeTokenStatusCommand extends command<GetChangeTokenStatusCommandInput, GetChangeTokenStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetChangeTokenStatus",
+  GetChangeTokenStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

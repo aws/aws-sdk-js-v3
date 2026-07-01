@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTThingsGraphClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTThingsGraphClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UploadEntityDefinitionsRequest, UploadEntityDefinitionsResponse } from "../models/models_0";
 import { UploadEntityDefinitions$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UploadEntityDefinitions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefini
  *
  * @public
  */
-export class UploadEntityDefinitionsCommand extends $Command
-  .classBuilder<
-    UploadEntityDefinitionsCommandInput,
-    UploadEntityDefinitionsCommandOutput,
-    IoTThingsGraphClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotThingsGraphFrontEndService", "UploadEntityDefinitions", {})
-  .n("IoTThingsGraphClient", "UploadEntityDefinitionsCommand")
-  .sc(UploadEntityDefinitions$)
-  .build() {
+export class UploadEntityDefinitionsCommand extends command<UploadEntityDefinitionsCommandInput, UploadEntityDefinitionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UploadEntityDefinitions",
+  UploadEntityDefinitions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

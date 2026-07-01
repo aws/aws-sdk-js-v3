@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateTaskSetRequest, UpdateTaskSetResponse } from "../models/models_1";
 import { UpdateTaskSet$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateTaskSet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -218,22 +214,12 @@ export interface UpdateTaskSetCommandOutput extends UpdateTaskSetResponse, __Met
  *
  * @public
  */
-export class UpdateTaskSetCommand extends $Command
-  .classBuilder<
-    UpdateTaskSetCommandInput,
-    UpdateTaskSetCommandOutput,
-    ECSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerServiceV20141113", "UpdateTaskSet", {})
-  .n("ECSClient", "UpdateTaskSetCommand")
-  .sc(UpdateTaskSet$)
-  .build() {
+export class UpdateTaskSetCommand extends command<UpdateTaskSetCommandInput, UpdateTaskSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateTaskSet",
+  UpdateTaskSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

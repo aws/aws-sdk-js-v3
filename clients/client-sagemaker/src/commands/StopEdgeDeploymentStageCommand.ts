@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopEdgeDeploymentStageRequest } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { StopEdgeDeploymentStage$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -58,22 +54,12 @@ export interface StopEdgeDeploymentStageCommandOutput extends __MetadataBearer {
  *
  * @public
  */
-export class StopEdgeDeploymentStageCommand extends $Command
-  .classBuilder<
-    StopEdgeDeploymentStageCommandInput,
-    StopEdgeDeploymentStageCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "StopEdgeDeploymentStage", {})
-  .n("SageMakerClient", "StopEdgeDeploymentStageCommand")
-  .sc(StopEdgeDeploymentStage$)
-  .build() {
+export class StopEdgeDeploymentStageCommand extends command<StopEdgeDeploymentStageCommandInput, StopEdgeDeploymentStageCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopEdgeDeploymentStage",
+  StopEdgeDeploymentStage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

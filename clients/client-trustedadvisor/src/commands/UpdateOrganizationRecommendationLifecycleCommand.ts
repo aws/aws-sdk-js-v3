@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateOrganizationRecommendationLifecycleRequest } from "../models/models_0";
 import { UpdateOrganizationRecommendationLifecycle$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TrustedAdvisorClientResolvedConfig,
-} from "../TrustedAdvisorClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +90,12 @@ export interface UpdateOrganizationRecommendationLifecycleCommandOutput extends 
  *
  * @public
  */
-export class UpdateOrganizationRecommendationLifecycleCommand extends $Command
-  .classBuilder<
-    UpdateOrganizationRecommendationLifecycleCommandInput,
-    UpdateOrganizationRecommendationLifecycleCommandOutput,
-    TrustedAdvisorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TrustedAdvisorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrustedAdvisor", "UpdateOrganizationRecommendationLifecycle", {})
-  .n("TrustedAdvisorClient", "UpdateOrganizationRecommendationLifecycleCommand")
-  .sc(UpdateOrganizationRecommendationLifecycle$)
-  .build() {
+export class UpdateOrganizationRecommendationLifecycleCommand extends command<UpdateOrganizationRecommendationLifecycleCommandInput, UpdateOrganizationRecommendationLifecycleCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateOrganizationRecommendationLifecycle",
+  UpdateOrganizationRecommendationLifecycle$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

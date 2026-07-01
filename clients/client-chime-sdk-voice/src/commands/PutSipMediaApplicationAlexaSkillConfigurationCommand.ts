@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutSipMediaApplicationAlexaSkillConfigurationRequest,
   PutSipMediaApplicationAlexaSkillConfigurationResponse,
@@ -15,7 +12,6 @@ import { PutSipMediaApplicationAlexaSkillConfiguration$ } from "../schemas/schem
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface PutSipMediaApplicationAlexaSkillConfigurationCommandOutput exte
  *
  * @public
  */
-export class PutSipMediaApplicationAlexaSkillConfigurationCommand extends $Command
-  .classBuilder<
-    PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
-    PutSipMediaApplicationAlexaSkillConfigurationCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "PutSipMediaApplicationAlexaSkillConfiguration", {})
-  .n("ChimeSDKVoiceClient", "PutSipMediaApplicationAlexaSkillConfigurationCommand")
-  .sc(PutSipMediaApplicationAlexaSkillConfiguration$)
-  .build() {
+export class PutSipMediaApplicationAlexaSkillConfigurationCommand extends command<PutSipMediaApplicationAlexaSkillConfigurationCommandInput, PutSipMediaApplicationAlexaSkillConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutSipMediaApplicationAlexaSkillConfiguration",
+  PutSipMediaApplicationAlexaSkillConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

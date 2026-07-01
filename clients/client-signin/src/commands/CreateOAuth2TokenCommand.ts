@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateOAuth2TokenRequest, CreateOAuth2TokenResponse } from "../models/models_0";
 import { CreateOAuth2Token$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SigninClientResolvedConfig } from "../SigninClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -142,25 +138,12 @@ export interface CreateOAuth2TokenCommandOutput extends CreateOAuth2TokenRespons
  *
  * @public
  */
-export class CreateOAuth2TokenCommand extends $Command
-  .classBuilder<
-    CreateOAuth2TokenCommandInput,
-    CreateOAuth2TokenCommandOutput,
-    SigninClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    IsControlPlane: { type: "staticContextParams", value: false },
-  })
-  .m(function (this: any, Command: any, cs: any, config: SigninClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Signin", "CreateOAuth2Token", {})
-  .n("SigninClient", "CreateOAuth2TokenCommand")
-  .sc(CreateOAuth2Token$)
-  .build() {
+export class CreateOAuth2TokenCommand extends command<CreateOAuth2TokenCommandInput, CreateOAuth2TokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateOAuth2Token",
+  CreateOAuth2Token$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

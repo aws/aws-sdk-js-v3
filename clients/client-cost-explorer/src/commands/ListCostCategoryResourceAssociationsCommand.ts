@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListCostCategoryResourceAssociationsRequest,
   ListCostCategoryResourceAssociationsResponse,
@@ -15,7 +12,6 @@ import { ListCostCategoryResourceAssociations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface ListCostCategoryResourceAssociationsCommandOutput extends ListC
  *
  * @public
  */
-export class ListCostCategoryResourceAssociationsCommand extends $Command
-  .classBuilder<
-    ListCostCategoryResourceAssociationsCommandInput,
-    ListCostCategoryResourceAssociationsCommandOutput,
-    CostExplorerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSInsightsIndexService", "ListCostCategoryResourceAssociations", {})
-  .n("CostExplorerClient", "ListCostCategoryResourceAssociationsCommand")
-  .sc(ListCostCategoryResourceAssociations$)
-  .build() {
+export class ListCostCategoryResourceAssociationsCommand extends command<ListCostCategoryResourceAssociationsCommandInput, ListCostCategoryResourceAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCostCategoryResourceAssociations",
+  ListCostCategoryResourceAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

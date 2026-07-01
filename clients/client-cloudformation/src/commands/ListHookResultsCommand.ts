@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListHookResultsInput, ListHookResultsOutput } from "../models/models_0";
 import { ListHookResults$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListHookResults$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +102,12 @@ export interface ListHookResultsCommandOutput extends ListHookResultsOutput, __M
  *
  * @public
  */
-export class ListHookResultsCommand extends $Command
-  .classBuilder<
-    ListHookResultsCommandInput,
-    ListHookResultsCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "ListHookResults", {})
-  .n("CloudFormationClient", "ListHookResultsCommand")
-  .sc(ListHookResults$)
-  .build() {
+export class ListHookResultsCommand extends command<ListHookResultsCommandInput, ListHookResultsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListHookResults",
+  ListHookResults$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

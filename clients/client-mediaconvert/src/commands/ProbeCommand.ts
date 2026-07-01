@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ProbeRequest, ProbeResponse } from "../models/models_0";
 import { Probe$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { Probe$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -187,22 +183,12 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  *
  * @public
  */
-export class ProbeCommand extends $Command
-  .classBuilder<
-    ProbeCommandInput,
-    ProbeCommandOutput,
-    MediaConvertClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConvert", "Probe", {})
-  .n("MediaConvertClient", "ProbeCommand")
-  .sc(Probe$)
-  .build() {
+export class ProbeCommand extends command<ProbeCommandInput, ProbeCommandOutput>(
+  _ep0,
+  _mw0,
+  "Probe",
+  Probe$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

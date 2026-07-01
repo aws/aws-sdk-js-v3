@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePortalRequest, DeletePortalResponse } from "../models/models_0";
 import { DeletePortal$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeletePortalCommandOutput extends DeletePortalResponse, __Metad
  *
  * @public
  */
-export class DeletePortalCommand extends $Command
-  .classBuilder<
-    DeletePortalCommandInput,
-    DeletePortalCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "DeletePortal", {})
-  .n("WorkSpacesWebClient", "DeletePortalCommand")
-  .sc(DeletePortal$)
-  .build() {
+export class DeletePortalCommand extends command<DeletePortalCommandInput, DeletePortalCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePortal",
+  DeletePortal$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

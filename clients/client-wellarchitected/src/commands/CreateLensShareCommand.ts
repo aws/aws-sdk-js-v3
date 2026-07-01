@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateLensShareInput, CreateLensShareOutput } from "../models/models_0";
 import { CreateLensShare$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WellArchitectedClientResolvedConfig,
-} from "../WellArchitectedClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface CreateLensShareCommandOutput extends CreateLensShareOutput, __M
  *
  * @public
  */
-export class CreateLensShareCommand extends $Command
-  .classBuilder<
-    CreateLensShareCommandInput,
-    CreateLensShareCommandOutput,
-    WellArchitectedClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WellArchitectedApiServiceLambda", "CreateLensShare", {})
-  .n("WellArchitectedClient", "CreateLensShareCommand")
-  .sc(CreateLensShare$)
-  .build() {
+export class CreateLensShareCommand extends command<CreateLensShareCommandInput, CreateLensShareCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateLensShare",
+  CreateLensShare$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   SubmitRegistryRecordForApprovalRequest,
   SubmitRegistryRecordForApprovalResponse,
@@ -19,7 +12,6 @@ import { SubmitRegistryRecordForApproval$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface SubmitRegistryRecordForApprovalCommandOutput extends SubmitRegi
  *
  * @public
  */
-export class SubmitRegistryRecordForApprovalCommand extends $Command
-  .classBuilder<
-    SubmitRegistryRecordForApprovalCommandInput,
-    SubmitRegistryRecordForApprovalCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "SubmitRegistryRecordForApproval", {})
-  .n("BedrockAgentCoreControlClient", "SubmitRegistryRecordForApprovalCommand")
-  .sc(SubmitRegistryRecordForApproval$)
-  .build() {
+export class SubmitRegistryRecordForApprovalCommand extends command<SubmitRegistryRecordForApprovalCommandInput, SubmitRegistryRecordForApprovalCommandOutput>(
+  _ep0,
+  _mw0,
+  "SubmitRegistryRecordForApproval",
+  SubmitRegistryRecordForApproval$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

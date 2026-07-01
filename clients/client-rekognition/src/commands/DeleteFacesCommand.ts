@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFacesRequest, DeleteFacesResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { DeleteFaces$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __Metadat
  *
  * @public
  */
-export class DeleteFacesCommand extends $Command
-  .classBuilder<
-    DeleteFacesCommandInput,
-    DeleteFacesCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "DeleteFaces", {})
-  .n("RekognitionClient", "DeleteFacesCommand")
-  .sc(DeleteFaces$)
-  .build() {
+export class DeleteFacesCommand extends command<DeleteFacesCommandInput, DeleteFacesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFaces",
+  DeleteFaces$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

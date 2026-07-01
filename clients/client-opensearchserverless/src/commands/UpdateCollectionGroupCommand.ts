@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateCollectionGroupRequest, UpdateCollectionGroupResponse } from "../models/models_0";
-import type {
-  OpenSearchServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../OpenSearchServerlessClient";
 import { UpdateCollectionGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +89,12 @@ export interface UpdateCollectionGroupCommandOutput extends UpdateCollectionGrou
  *
  * @public
  */
-export class UpdateCollectionGroupCommand extends $Command
-  .classBuilder<
-    UpdateCollectionGroupCommandInput,
-    UpdateCollectionGroupCommandOutput,
-    OpenSearchServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OpenSearchServerless", "UpdateCollectionGroup", {})
-  .n("OpenSearchServerlessClient", "UpdateCollectionGroupCommand")
-  .sc(UpdateCollectionGroup$)
-  .build() {
+export class UpdateCollectionGroupCommand extends command<UpdateCollectionGroupCommandInput, UpdateCollectionGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateCollectionGroup",
+  UpdateCollectionGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

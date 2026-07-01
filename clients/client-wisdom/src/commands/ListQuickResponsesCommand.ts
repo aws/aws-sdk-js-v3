@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListQuickResponsesRequest, ListQuickResponsesResponse } from "../models/models_0";
 import { ListQuickResponses$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface ListQuickResponsesCommandOutput extends ListQuickResponsesRespo
  *
  * @public
  */
-export class ListQuickResponsesCommand extends $Command
-  .classBuilder<
-    ListQuickResponsesCommandInput,
-    ListQuickResponsesCommandOutput,
-    WisdomClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "ListQuickResponses", {})
-  .n("WisdomClient", "ListQuickResponsesCommand")
-  .sc(ListQuickResponses$)
-  .build() {
+export class ListQuickResponsesCommand extends command<ListQuickResponsesCommandInput, ListQuickResponsesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListQuickResponses",
+  ListQuickResponses$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

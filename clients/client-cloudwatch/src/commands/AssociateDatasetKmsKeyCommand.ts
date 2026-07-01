@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateDatasetKmsKeyInput, AssociateDatasetKmsKeyOutput } from "../models/models_0";
 import { AssociateDatasetKmsKey$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateDatasetKmsKey$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -144,22 +140,12 @@ export interface AssociateDatasetKmsKeyCommandOutput extends AssociateDatasetKms
  *
  * @public
  */
-export class AssociateDatasetKmsKeyCommand extends $Command
-  .classBuilder<
-    AssociateDatasetKmsKeyCommandInput,
-    AssociateDatasetKmsKeyCommandOutput,
-    CloudWatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GraniteServiceVersion20100801", "AssociateDatasetKmsKey", {})
-  .n("CloudWatchClient", "AssociateDatasetKmsKeyCommand")
-  .sc(AssociateDatasetKmsKey$)
-  .build() {
+export class AssociateDatasetKmsKeyCommand extends command<AssociateDatasetKmsKeyCommandInput, AssociateDatasetKmsKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateDatasetKmsKey",
+  AssociateDatasetKmsKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

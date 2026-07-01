@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LexModelBuildingServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LexModelBuildingServiceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteIntentRequest } from "../models/models_0";
 import { DeleteIntent$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteIntent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +108,12 @@ export interface DeleteIntentCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteIntentCommand extends $Command
-  .classBuilder<
-    DeleteIntentCommandInput,
-    DeleteIntentCommandOutput,
-    LexModelBuildingServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepSenseModelBuildingService", "DeleteIntent", {})
-  .n("LexModelBuildingServiceClient", "DeleteIntentCommand")
-  .sc(DeleteIntent$)
-  .build() {
+export class DeleteIntentCommand extends command<DeleteIntentCommandInput, DeleteIntentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteIntent",
+  DeleteIntent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

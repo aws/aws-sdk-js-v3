@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateConnectionPreferencesRequest, UpdateConnectionPreferencesResponse } from "../models/models_0";
-import type {
-  PartnerCentralAccountClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralAccountClient";
 import { UpdateConnectionPreferences$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface UpdateConnectionPreferencesCommandOutput extends UpdateConnecti
  *
  * @public
  */
-export class UpdateConnectionPreferencesCommand extends $Command
-  .classBuilder<
-    UpdateConnectionPreferencesCommandInput,
-    UpdateConnectionPreferencesCommandOutput,
-    PartnerCentralAccountClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralAccountClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralAccount", "UpdateConnectionPreferences", {})
-  .n("PartnerCentralAccountClient", "UpdateConnectionPreferencesCommand")
-  .sc(UpdateConnectionPreferences$)
-  .build() {
+export class UpdateConnectionPreferencesCommand extends command<UpdateConnectionPreferencesCommandInput, UpdateConnectionPreferencesCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateConnectionPreferences",
+  UpdateConnectionPreferences$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

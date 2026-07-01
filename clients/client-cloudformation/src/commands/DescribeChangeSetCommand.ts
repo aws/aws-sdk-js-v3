@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeChangeSetInput, DescribeChangeSetOutput } from "../models/models_0";
 import { DescribeChangeSet$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeChangeSet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -177,22 +169,12 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput,
  *
  * @public
  */
-export class DescribeChangeSetCommand extends $Command
-  .classBuilder<
-    DescribeChangeSetCommandInput,
-    DescribeChangeSetCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "DescribeChangeSet", {})
-  .n("CloudFormationClient", "DescribeChangeSetCommand")
-  .sc(DescribeChangeSet$)
-  .build() {
+export class DescribeChangeSetCommand extends command<DescribeChangeSetCommandInput, DescribeChangeSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeChangeSet",
+  DescribeChangeSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

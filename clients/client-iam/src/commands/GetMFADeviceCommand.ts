@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMFADeviceRequest, GetMFADeviceResponse } from "../models/models_0";
 import { GetMFADevice$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetMFADevice$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface GetMFADeviceCommandOutput extends GetMFADeviceResponse, __Metad
  *
  * @public
  */
-export class GetMFADeviceCommand extends $Command
-  .classBuilder<
-    GetMFADeviceCommandInput,
-    GetMFADeviceCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "GetMFADevice", {})
-  .n("IAMClient", "GetMFADeviceCommand")
-  .sc(GetMFADevice$)
-  .build() {
+export class GetMFADeviceCommand extends command<GetMFADeviceCommandInput, GetMFADeviceCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMFADevice",
+  GetMFADevice$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

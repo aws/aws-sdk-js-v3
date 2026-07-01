@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateThesaurusRequest, CreateThesaurusResponse } from "../models/models_0";
 import { CreateThesaurus$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateThesaurus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface CreateThesaurusCommandOutput extends CreateThesaurusResponse, _
  *
  * @public
  */
-export class CreateThesaurusCommand extends $Command
-  .classBuilder<
-    CreateThesaurusCommandInput,
-    CreateThesaurusCommandOutput,
-    KendraClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSKendraFrontendService", "CreateThesaurus", {})
-  .n("KendraClient", "CreateThesaurusCommand")
-  .sc(CreateThesaurus$)
-  .build() {
+export class CreateThesaurusCommand extends command<CreateThesaurusCommandInput, CreateThesaurusCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateThesaurus",
+  CreateThesaurus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

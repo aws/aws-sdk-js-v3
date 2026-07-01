@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyNetworkInterfaceAttributeRequest } from "../models/models_7";
 import { ModifyNetworkInterfaceAttribute$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ModifyNetworkInterfaceAttribute$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -157,22 +153,12 @@ export interface ModifyNetworkInterfaceAttributeCommandOutput extends __Metadata
  *
  * @public
  */
-export class ModifyNetworkInterfaceAttributeCommand extends $Command
-  .classBuilder<
-    ModifyNetworkInterfaceAttributeCommandInput,
-    ModifyNetworkInterfaceAttributeCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "ModifyNetworkInterfaceAttribute", {})
-  .n("EC2Client", "ModifyNetworkInterfaceAttributeCommand")
-  .sc(ModifyNetworkInterfaceAttribute$)
-  .build() {
+export class ModifyNetworkInterfaceAttributeCommand extends command<ModifyNetworkInterfaceAttributeCommandInput, ModifyNetworkInterfaceAttributeCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyNetworkInterfaceAttribute",
+  ModifyNetworkInterfaceAttribute$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

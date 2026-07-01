@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDomainVerificationsRequest, ListDomainVerificationsResponse } from "../models/models_0";
 import { ListDomainVerifications$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface ListDomainVerificationsCommandOutput extends ListDomainVerifica
  *
  * @public
  */
-export class ListDomainVerificationsCommand extends $Command
-  .classBuilder<
-    ListDomainVerificationsCommandInput,
-    ListDomainVerificationsCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "ListDomainVerifications", {})
-  .n("VPCLatticeClient", "ListDomainVerificationsCommand")
-  .sc(ListDomainVerifications$)
-  .build() {
+export class ListDomainVerificationsCommand extends command<ListDomainVerificationsCommandInput, ListDomainVerificationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDomainVerifications",
+  ListDomainVerifications$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

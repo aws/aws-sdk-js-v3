@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchPlaceIndexForPositionRequest, SearchPlaceIndexForPositionResponse } from "../models/models_0";
 import { SearchPlaceIndexForPosition$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SearchPlaceIndexForPosition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface SearchPlaceIndexForPositionCommandOutput extends SearchPlaceInd
  *
  * @public
  */
-export class SearchPlaceIndexForPositionCommand extends $Command
-  .classBuilder<
-    SearchPlaceIndexForPositionCommandInput,
-    SearchPlaceIndexForPositionCommandOutput,
-    LocationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LocationService", "SearchPlaceIndexForPosition", {})
-  .n("LocationClient", "SearchPlaceIndexForPositionCommand")
-  .sc(SearchPlaceIndexForPosition$)
-  .build() {
+export class SearchPlaceIndexForPositionCommand extends command<SearchPlaceIndexForPositionCommandInput, SearchPlaceIndexForPositionCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchPlaceIndexForPosition",
+  SearchPlaceIndexForPosition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

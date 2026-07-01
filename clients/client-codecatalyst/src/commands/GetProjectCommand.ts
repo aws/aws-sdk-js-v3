@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetProjectRequest, GetProjectResponse } from "../models/models_0";
 import { GetProject$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetProject$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface GetProjectCommandOutput extends GetProjectResponse, __MetadataB
  *
  * @public
  */
-export class GetProjectCommand extends $Command
-  .classBuilder<
-    GetProjectCommandInput,
-    GetProjectCommandOutput,
-    CodeCatalystClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCatalyst", "GetProject", {})
-  .n("CodeCatalystClient", "GetProjectCommand")
-  .sc(GetProject$)
-  .build() {
+export class GetProjectCommand extends command<GetProjectCommandInput, GetProjectCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetProject",
+  GetProject$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

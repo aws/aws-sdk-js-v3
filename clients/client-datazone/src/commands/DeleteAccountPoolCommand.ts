@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAccountPoolInput, DeleteAccountPoolOutput } from "../models/models_1";
 import { DeleteAccountPool$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAccountPool$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteAccountPoolCommandOutput extends DeleteAccountPoolOutput,
  *
  * @public
  */
-export class DeleteAccountPoolCommand extends $Command
-  .classBuilder<
-    DeleteAccountPoolCommandInput,
-    DeleteAccountPoolCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "DeleteAccountPool", {})
-  .n("DataZoneClient", "DeleteAccountPoolCommand")
-  .sc(DeleteAccountPool$)
-  .build() {
+export class DeleteAccountPoolCommand extends command<DeleteAccountPoolCommandInput, DeleteAccountPoolCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAccountPool",
+  DeleteAccountPool$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceMeteringClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceMeteringClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchMeterUsageRequest, BatchMeterUsageResult } from "../models/models_0";
 import { BatchMeterUsage$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { BatchMeterUsage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -196,22 +188,12 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *
  * @public
  */
-export class BatchMeterUsageCommand extends $Command
-  .classBuilder<
-    BatchMeterUsageCommandInput,
-    BatchMeterUsageCommandOutput,
-    MarketplaceMeteringClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceMeteringClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMPMeteringService", "BatchMeterUsage", {})
-  .n("MarketplaceMeteringClient", "BatchMeterUsageCommand")
-  .sc(BatchMeterUsage$)
-  .build() {
+export class BatchMeterUsageCommand extends command<BatchMeterUsageCommandInput, BatchMeterUsageCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchMeterUsage",
+  BatchMeterUsage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

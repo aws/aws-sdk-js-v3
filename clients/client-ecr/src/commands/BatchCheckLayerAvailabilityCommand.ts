@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchCheckLayerAvailabilityRequest, BatchCheckLayerAvailabilityResponse } from "../models/models_0";
 import { BatchCheckLayerAvailability$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchCheckLayerAvailability$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface BatchCheckLayerAvailabilityCommandOutput extends BatchCheckLaye
  *
  * @public
  */
-export class BatchCheckLayerAvailabilityCommand extends $Command
-  .classBuilder<
-    BatchCheckLayerAvailabilityCommandInput,
-    BatchCheckLayerAvailabilityCommandOutput,
-    ECRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerRegistry_V20150921", "BatchCheckLayerAvailability", {})
-  .n("ECRClient", "BatchCheckLayerAvailabilityCommand")
-  .sc(BatchCheckLayerAvailability$)
-  .build() {
+export class BatchCheckLayerAvailabilityCommand extends command<BatchCheckLayerAvailabilityCommandInput, BatchCheckLayerAvailabilityCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchCheckLayerAvailability",
+  BatchCheckLayerAvailability$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

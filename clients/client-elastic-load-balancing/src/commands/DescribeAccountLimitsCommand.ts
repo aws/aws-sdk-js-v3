@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticLoadBalancingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticLoadBalancingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAccountLimitsInput, DescribeAccountLimitsOutput } from "../models/models_0";
 import { DescribeAccountLimits$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeAccountLimits$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +64,12 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  *
  * @public
  */
-export class DescribeAccountLimitsCommand extends $Command
-  .classBuilder<
-    DescribeAccountLimitsCommandInput,
-    DescribeAccountLimitsCommandOutput,
-    ElasticLoadBalancingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticLoadBalancing_v7", "DescribeAccountLimits", {})
-  .n("ElasticLoadBalancingClient", "DescribeAccountLimitsCommand")
-  .sc(DescribeAccountLimits$)
-  .build() {
+export class DescribeAccountLimitsCommand extends command<DescribeAccountLimitsCommandInput, DescribeAccountLimitsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAccountLimits",
+  DescribeAccountLimits$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceCatalogClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelChangeSetRequest, CancelChangeSetResponse } from "../models/models_0";
 import { CancelChangeSet$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CancelChangeSet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface CancelChangeSetCommandOutput extends CancelChangeSetResponse, _
  *
  * @public
  */
-export class CancelChangeSetCommand extends $Command
-  .classBuilder<
-    CancelChangeSetCommandInput,
-    CancelChangeSetCommandOutput,
-    MarketplaceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMPSeymour", "CancelChangeSet", {})
-  .n("MarketplaceCatalogClient", "CancelChangeSetCommand")
-  .sc(CancelChangeSet$)
-  .build() {
+export class CancelChangeSetCommand extends command<CancelChangeSetCommandInput, CancelChangeSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelChangeSet",
+  CancelChangeSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateChatResponseConfigurationRequest,
   CreateChatResponseConfigurationResponse,
 } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { CreateChatResponseConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface CreateChatResponseConfigurationCommandOutput extends CreateChat
  *
  * @public
  */
-export class CreateChatResponseConfigurationCommand extends $Command
-  .classBuilder<
-    CreateChatResponseConfigurationCommandInput,
-    CreateChatResponseConfigurationCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "CreateChatResponseConfiguration", {})
-  .n("QBusinessClient", "CreateChatResponseConfigurationCommand")
-  .sc(CreateChatResponseConfiguration$)
-  .build() {
+export class CreateChatResponseConfigurationCommand extends command<CreateChatResponseConfigurationCommandInput, CreateChatResponseConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateChatResponseConfiguration",
+  CreateChatResponseConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateManagedLoginBrandingRequest, UpdateManagedLoginBrandingResponse } from "../models/models_1";
 import { UpdateManagedLoginBranding$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateManagedLoginBranding$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -144,22 +136,12 @@ export interface UpdateManagedLoginBrandingCommandOutput extends UpdateManagedLo
  *
  * @public
  */
-export class UpdateManagedLoginBrandingCommand extends $Command
-  .classBuilder<
-    UpdateManagedLoginBrandingCommandInput,
-    UpdateManagedLoginBrandingCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "UpdateManagedLoginBranding", {})
-  .n("CognitoIdentityProviderClient", "UpdateManagedLoginBrandingCommand")
-  .sc(UpdateManagedLoginBranding$)
-  .build() {
+export class UpdateManagedLoginBrandingCommand extends command<UpdateManagedLoginBrandingCommandInput, UpdateManagedLoginBrandingCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateManagedLoginBranding",
+  UpdateManagedLoginBranding$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

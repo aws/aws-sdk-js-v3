@@ -18,7 +18,6 @@ import { de_PredictCommand, se_PredictCommand } from "../protocols/Aws_json1_1";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

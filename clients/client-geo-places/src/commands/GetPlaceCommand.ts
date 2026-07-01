@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GeoPlacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoPlacesClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPlaceRequest, GetPlaceResponse } from "../models/models_0";
 import { GetPlace$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetPlace$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -372,22 +368,12 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  *
  * @public
  */
-export class GetPlaceCommand extends $Command
-  .classBuilder<
-    GetPlaceCommandInput,
-    GetPlaceCommandOutput,
-    GeoPlacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GeoPlacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PlacesService", "GetPlace", {})
-  .n("GeoPlacesClient", "GetPlaceCommand")
-  .sc(GetPlace$)
-  .build() {
+export class GetPlaceCommand extends command<GetPlaceCommandInput, GetPlaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPlace",
+  GetPlace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

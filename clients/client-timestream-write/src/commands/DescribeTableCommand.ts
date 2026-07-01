@@ -1,23 +1,14 @@
 // smithy-typescript generated code
-import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeTableRequest, DescribeTableResponse } from "../models/models_0";
 import { DescribeTable$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TimestreamWriteClientResolvedConfig,
-} from "../TimestreamWriteClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,29 +112,12 @@ export interface DescribeTableCommandOutput extends DescribeTableResponse, __Met
  *
  * @public
  */
-export class DescribeTableCommand extends $Command
-  .classBuilder<
-    DescribeTableCommandInput,
-    DescribeTableCommandOutput,
-    TimestreamWriteClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TimestreamWriteClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEndpointDiscoveryPlugin(config, {
-        clientStack: cs,
-        isDiscoveredEndpointRequired: true,
-        options: o,
-      }),
-    ];
-  })
-  .s("Timestream_20181101", "DescribeTable", {})
-  .n("TimestreamWriteClient", "DescribeTableCommand")
-  .sc(DescribeTable$)
-  .build() {
+export class DescribeTableCommand extends command<DescribeTableCommandInput, DescribeTableCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeTable",
+  DescribeTable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

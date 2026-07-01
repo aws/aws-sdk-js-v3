@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { InvokeBrowserRequest, InvokeBrowserResponse } from "../models/models_0";
 import { InvokeBrowser$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { InvokeBrowser$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -157,22 +149,12 @@ export interface InvokeBrowserCommandOutput extends InvokeBrowserResponse, __Met
  *
  * @public
  */
-export class InvokeBrowserCommand extends $Command
-  .classBuilder<
-    InvokeBrowserCommandInput,
-    InvokeBrowserCommandOutput,
-    BedrockAgentCoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCore", "InvokeBrowser", {})
-  .n("BedrockAgentCoreClient", "InvokeBrowserCommand")
-  .sc(InvokeBrowser$)
-  .build() {
+export class InvokeBrowserCommand extends command<InvokeBrowserCommandInput, InvokeBrowserCommandOutput>(
+  _ep0,
+  _mw0,
+  "InvokeBrowser",
+  InvokeBrowser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

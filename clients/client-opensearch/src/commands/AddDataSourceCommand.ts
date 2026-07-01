@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddDataSourceRequest, AddDataSourceResponse } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { AddDataSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface AddDataSourceCommandOutput extends AddDataSourceResponse, __Met
  *
  * @public
  */
-export class AddDataSourceCommand extends $Command
-  .classBuilder<
-    AddDataSourceCommandInput,
-    AddDataSourceCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "AddDataSource", {})
-  .n("OpenSearchClient", "AddDataSourceCommand")
-  .sc(AddDataSource$)
-  .build() {
+export class AddDataSourceCommand extends command<AddDataSourceCommandInput, AddDataSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddDataSource",
+  AddDataSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

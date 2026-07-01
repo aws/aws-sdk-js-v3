@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EnableDNSViewInput, EnableDNSViewOutput } from "../models/models_0";
-import type {
-  Route53GlobalResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53GlobalResolverClient";
 import { EnableDNSView$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface EnableDNSViewCommandOutput extends EnableDNSViewOutput, __Metad
  *
  * @public
  */
-export class EnableDNSViewCommand extends $Command
-  .classBuilder<
-    EnableDNSViewCommandInput,
-    EnableDNSViewCommandOutput,
-    Route53GlobalResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53GlobalResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EC2DNSGlobalResolverCustomerAPI", "EnableDNSView", {})
-  .n("Route53GlobalResolverClient", "EnableDNSViewCommand")
-  .sc(EnableDNSView$)
-  .build() {
+export class EnableDNSViewCommand extends command<EnableDNSViewCommandInput, EnableDNSViewCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableDNSView",
+  EnableDNSView$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

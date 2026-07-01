@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SynchronizeGatewayTargetsRequest } from "../models/models_0";
 import type { SynchronizeGatewayTargetsResponse } from "../models/models_2";
 import { SynchronizeGatewayTargets$ } from "../schemas/schemas_0";
@@ -17,7 +10,6 @@ import { SynchronizeGatewayTargets$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -338,22 +330,12 @@ export interface SynchronizeGatewayTargetsCommandOutput extends SynchronizeGatew
  *
  * @public
  */
-export class SynchronizeGatewayTargetsCommand extends $Command
-  .classBuilder<
-    SynchronizeGatewayTargetsCommandInput,
-    SynchronizeGatewayTargetsCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "SynchronizeGatewayTargets", {})
-  .n("BedrockAgentCoreControlClient", "SynchronizeGatewayTargetsCommand")
-  .sc(SynchronizeGatewayTargets$)
-  .build() {
+export class SynchronizeGatewayTargetsCommand extends command<SynchronizeGatewayTargetsCommandInput, SynchronizeGatewayTargetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "SynchronizeGatewayTargets",
+  SynchronizeGatewayTargets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

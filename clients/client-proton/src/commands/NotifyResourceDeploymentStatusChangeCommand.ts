@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   NotifyResourceDeploymentStatusChangeInput,
   NotifyResourceDeploymentStatusChangeOutput,
 } from "../models/models_0";
-import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 import { NotifyResourceDeploymentStatusChange$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface NotifyResourceDeploymentStatusChangeCommandOutput extends Notif
  *
  * @public
  */
-export class NotifyResourceDeploymentStatusChangeCommand extends $Command
-  .classBuilder<
-    NotifyResourceDeploymentStatusChangeCommandInput,
-    NotifyResourceDeploymentStatusChangeCommandOutput,
-    ProtonClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsProton20200720", "NotifyResourceDeploymentStatusChange", {})
-  .n("ProtonClient", "NotifyResourceDeploymentStatusChangeCommand")
-  .sc(NotifyResourceDeploymentStatusChange$)
-  .build() {
+export class NotifyResourceDeploymentStatusChangeCommand extends command<NotifyResourceDeploymentStatusChangeCommandInput, NotifyResourceDeploymentStatusChangeCommandOutput>(
+  _ep0,
+  _mw0,
+  "NotifyResourceDeploymentStatusChange",
+  NotifyResourceDeploymentStatusChange$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

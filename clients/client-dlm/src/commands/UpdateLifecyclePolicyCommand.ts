@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DLMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DLMClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateLifecyclePolicyRequest, UpdateLifecyclePolicyResponse } from "../models/models_0";
 import { UpdateLifecyclePolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateLifecyclePolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -258,22 +254,12 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  *
  * @public
  */
-export class UpdateLifecyclePolicyCommand extends $Command
-  .classBuilder<
-    UpdateLifecyclePolicyCommandInput,
-    UpdateLifecyclePolicyCommandOutput,
-    DLMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DLMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("dlm_20180112", "UpdateLifecyclePolicy", {})
-  .n("DLMClient", "UpdateLifecyclePolicyCommand")
-  .sc(UpdateLifecyclePolicy$)
-  .build() {
+export class UpdateLifecyclePolicyCommand extends command<UpdateLifecyclePolicyCommandInput, UpdateLifecyclePolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateLifecyclePolicy",
+  UpdateLifecyclePolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteGlobalClusterMessage, DeleteGlobalClusterResult } from "../models/models_0";
-import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import { DeleteGlobalCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
  *
  * @public
  */
-export class DeleteGlobalClusterCommand extends $Command
-  .classBuilder<
-    DeleteGlobalClusterCommandInput,
-    DeleteGlobalClusterCommandOutput,
-    NeptuneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DeleteGlobalCluster", {})
-  .n("NeptuneClient", "DeleteGlobalClusterCommand")
-  .sc(DeleteGlobalCluster$)
-  .build() {
+export class DeleteGlobalClusterCommand extends command<DeleteGlobalClusterCommandInput, DeleteGlobalClusterCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteGlobalCluster",
+  DeleteGlobalCluster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

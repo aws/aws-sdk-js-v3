@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyClusterInput, ModifyClusterOutput } from "../models/models_0";
 import { ModifyCluster$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ModifyCluster$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __Metad
  *
  * @public
  */
-export class ModifyClusterCommand extends $Command
-  .classBuilder<
-    ModifyClusterCommandInput,
-    ModifyClusterCommandOutput,
-    EMRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticMapReduce", "ModifyCluster", {})
-  .n("EMRClient", "ModifyClusterCommand")
-  .sc(ModifyCluster$)
-  .build() {
+export class ModifyClusterCommand extends command<ModifyClusterCommandInput, ModifyClusterCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyCluster",
+  ModifyCluster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

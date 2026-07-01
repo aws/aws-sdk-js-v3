@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteResourceInput, DeleteResourceOutput } from "../models/models_0";
 import { DeleteResource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -152,22 +148,12 @@ export interface DeleteResourceCommandOutput extends DeleteResourceOutput, __Met
  *
  * @public
  */
-export class DeleteResourceCommand extends $Command
-  .classBuilder<
-    DeleteResourceCommandInput,
-    DeleteResourceCommandOutput,
-    CloudControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudApiService", "DeleteResource", {})
-  .n("CloudControlClient", "DeleteResourceCommand")
-  .sc(DeleteResource$)
-  .build() {
+export class DeleteResourceCommand extends command<DeleteResourceCommandInput, DeleteResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteResource",
+  DeleteResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

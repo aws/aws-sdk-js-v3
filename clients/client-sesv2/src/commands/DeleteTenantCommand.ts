@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTenantRequest, DeleteTenantResponse } from "../models/models_0";
 import { DeleteTenant$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface DeleteTenantCommandOutput extends DeleteTenantResponse, __Metad
  *
  * @public
  */
-export class DeleteTenantCommand extends $Command
-  .classBuilder<
-    DeleteTenantCommandInput,
-    DeleteTenantCommandOutput,
-    SESv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService_v2", "DeleteTenant", {})
-  .n("SESv2Client", "DeleteTenantCommand")
-  .sc(DeleteTenant$)
-  .build() {
+export class DeleteTenantCommand extends command<DeleteTenantCommandInput, DeleteTenantCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTenant",
+  DeleteTenant$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutDestinationPolicyRequest } from "../models/models_0";
 import { PutDestinationPolicy$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { PutDestinationPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +67,12 @@ export interface PutDestinationPolicyCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutDestinationPolicyCommand extends $Command
-  .classBuilder<
-    PutDestinationPolicyCommandInput,
-    PutDestinationPolicyCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "PutDestinationPolicy", {})
-  .n("CloudWatchLogsClient", "PutDestinationPolicyCommand")
-  .sc(PutDestinationPolicy$)
-  .build() {
+export class PutDestinationPolicyCommand extends command<PutDestinationPolicyCommandInput, PutDestinationPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutDestinationPolicy",
+  PutDestinationPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

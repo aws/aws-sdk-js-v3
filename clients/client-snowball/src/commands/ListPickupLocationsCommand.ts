@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPickupLocationsRequest, ListPickupLocationsResult } from "../models/models_0";
 import { ListPickupLocations$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface ListPickupLocationsCommandOutput extends ListPickupLocationsRes
  *
  * @public
  */
-export class ListPickupLocationsCommand extends $Command
-  .classBuilder<
-    ListPickupLocationsCommandInput,
-    ListPickupLocationsCommandOutput,
-    SnowballClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIESnowballJobManagementService", "ListPickupLocations", {})
-  .n("SnowballClient", "ListPickupLocationsCommand")
-  .sc(ListPickupLocations$)
-  .build() {
+export class ListPickupLocationsCommand extends command<ListPickupLocationsCommandInput, ListPickupLocationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPickupLocations",
+  ListPickupLocations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

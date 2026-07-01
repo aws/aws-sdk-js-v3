@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteUserPoolClientSecretRequest, DeleteUserPoolClientSecretResponse } from "../models/models_0";
 import { DeleteUserPoolClientSecret$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteUserPoolClientSecret$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface DeleteUserPoolClientSecretCommandOutput extends DeleteUserPoolC
  *
  * @public
  */
-export class DeleteUserPoolClientSecretCommand extends $Command
-  .classBuilder<
-    DeleteUserPoolClientSecretCommandInput,
-    DeleteUserPoolClientSecretCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "DeleteUserPoolClientSecret", {})
-  .n("CognitoIdentityProviderClient", "DeleteUserPoolClientSecretCommand")
-  .sc(DeleteUserPoolClientSecret$)
-  .build() {
+export class DeleteUserPoolClientSecretCommand extends command<DeleteUserPoolClientSecretCommandInput, DeleteUserPoolClientSecretCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteUserPoolClientSecret",
+  DeleteUserPoolClientSecret$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

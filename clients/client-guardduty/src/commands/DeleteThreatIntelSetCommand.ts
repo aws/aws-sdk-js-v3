@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteThreatIntelSetRequest, DeleteThreatIntelSetResponse } from "../models/models_0";
 import { DeleteThreatIntelSet$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteThreatIntelSet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -64,22 +60,12 @@ export interface DeleteThreatIntelSetCommandOutput extends DeleteThreatIntelSetR
  *
  * @public
  */
-export class DeleteThreatIntelSetCommand extends $Command
-  .classBuilder<
-    DeleteThreatIntelSetCommandInput,
-    DeleteThreatIntelSetCommandOutput,
-    GuardDutyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GuardDutyAPIService", "DeleteThreatIntelSet", {})
-  .n("GuardDutyClient", "DeleteThreatIntelSetCommand")
-  .sc(DeleteThreatIntelSet$)
-  .build() {
+export class DeleteThreatIntelSetCommand extends command<DeleteThreatIntelSetCommandInput, DeleteThreatIntelSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteThreatIntelSet",
+  DeleteThreatIntelSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

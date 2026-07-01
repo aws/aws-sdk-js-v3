@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeIdentityUsageRequest, DescribeIdentityUsageResponse } from "../models/models_0";
 import { DescribeIdentityUsage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeIdentityUsage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -135,22 +131,12 @@ export interface DescribeIdentityUsageCommandOutput extends DescribeIdentityUsag
  *
  * @public
  */
-export class DescribeIdentityUsageCommand extends $Command
-  .classBuilder<
-    DescribeIdentityUsageCommandInput,
-    DescribeIdentityUsageCommandOutput,
-    CognitoSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoSyncService", "DescribeIdentityUsage", {})
-  .n("CognitoSyncClient", "DescribeIdentityUsageCommand")
-  .sc(DescribeIdentityUsage$)
-  .build() {
+export class DescribeIdentityUsageCommand extends command<DescribeIdentityUsageCommandInput, DescribeIdentityUsageCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeIdentityUsage",
+  DescribeIdentityUsage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

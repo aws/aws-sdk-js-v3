@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetWorkgroupRequest, GetWorkgroupResponse } from "../models/models_0";
-import type {
-  RedshiftServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RedshiftServerlessClient";
 import { GetWorkgroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -131,22 +123,12 @@ export interface GetWorkgroupCommandOutput extends GetWorkgroupResponse, __Metad
  *
  * @public
  */
-export class GetWorkgroupCommand extends $Command
-  .classBuilder<
-    GetWorkgroupCommandInput,
-    GetWorkgroupCommandOutput,
-    RedshiftServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServerless", "GetWorkgroup", {})
-  .n("RedshiftServerlessClient", "GetWorkgroupCommand")
-  .sc(GetWorkgroup$)
-  .build() {
+export class GetWorkgroupCommand extends command<GetWorkgroupCommandInput, GetWorkgroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetWorkgroup",
+  GetWorkgroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3/s3-control";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep4, _mw1, command } from "../commandBuilder";
 import type { DeleteAccessPointScopeRequest } from "../models/models_0";
-import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { DeleteAccessPointScope$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,31 +61,12 @@ export interface DeleteAccessPointScopeCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteAccessPointScopeCommand extends $Command
-  .classBuilder<
-    DeleteAccessPointScopeCommandInput,
-    DeleteAccessPointScopeCommandOutput,
-    S3ControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    RequiresAccountId: { type: "staticContextParams", value: true },
-    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
-    AccessPointName: { type: "contextParams", name: "Name" },
-    AccountId: { type: "contextParams", name: "AccountId" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getProcessArnablesPlugin(config),
-    ];
-  })
-  .s("AWSS3ControlServiceV20180820", "DeleteAccessPointScope", {})
-  .n("S3ControlClient", "DeleteAccessPointScopeCommand")
-  .sc(DeleteAccessPointScope$)
-  .build() {
+export class DeleteAccessPointScopeCommand extends command<DeleteAccessPointScopeCommandInput, DeleteAccessPointScopeCommandOutput>(
+  _ep4,
+  _mw1,
+  "DeleteAccessPointScope",
+  DeleteAccessPointScope$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

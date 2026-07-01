@@ -25,12 +25,12 @@
     "@aws-sdk/eventstream-handler-node": "workspace:^3.972.24",
     "@aws-sdk/middleware-eventstream": "workspace:^3.972.20",
     "@aws-sdk/types": "workspace:^3.973.14",
-    "@smithy/core": "^3.28.0",
-    "@smithy/fetch-http-handler": "^5.6.1",
-    "@smithy/middleware-apply-body-checksum": "^4.5.4",
-    "@smithy/middleware-compression": "^4.5.4",
-    "@smithy/node-http-handler": "^4.9.1",
-    "@smithy/types": "^4.15.0",
+    "@smithy/core": "^3.29.0",
+    "@smithy/fetch-http-handler": "^5.6.2",
+    "@smithy/middleware-apply-body-checksum": "^4.5.5",
+    "@smithy/middleware-compression": "^4.5.5",
+    "@smithy/node-http-handler": "^4.9.2",
+    "@smithy/types": "^4.15.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

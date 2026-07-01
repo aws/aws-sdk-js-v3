@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTablesRequest, ListTablesResponse } from "../models/models_0";
-import type { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 import { ListTables$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  *
  * @public
  */
-export class ListTablesCommand extends $Command
-  .classBuilder<
-    ListTablesCommandInput,
-    ListTablesCommandOutput,
-    RedshiftDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftData", "ListTables", {})
-  .n("RedshiftDataClient", "ListTablesCommand")
-  .sc(ListTables$)
-  .build() {
+export class ListTablesCommand extends command<ListTablesCommandInput, ListTablesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTables",
+  ListTables$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

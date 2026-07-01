@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeregisterWorkspaceDirectoryRequest, DeregisterWorkspaceDirectoryResult } from "../models/models_0";
 import { DeregisterWorkspaceDirectory$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface DeregisterWorkspaceDirectoryCommandOutput extends DeregisterWor
  *
  * @public
  */
-export class DeregisterWorkspaceDirectoryCommand extends $Command
-  .classBuilder<
-    DeregisterWorkspaceDirectoryCommandInput,
-    DeregisterWorkspaceDirectoryCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "DeregisterWorkspaceDirectory", {})
-  .n("WorkSpacesClient", "DeregisterWorkspaceDirectoryCommand")
-  .sc(DeregisterWorkspaceDirectory$)
-  .build() {
+export class DeregisterWorkspaceDirectoryCommand extends command<DeregisterWorkspaceDirectoryCommandInput, DeregisterWorkspaceDirectoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeregisterWorkspaceDirectory",
+  DeregisterWorkspaceDirectory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

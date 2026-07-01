@@ -1,22 +1,17 @@
 // smithy-typescript generated code
-import { getCrossRegionPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-rds";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type {
   StartDBInstanceAutomatedBackupsReplicationMessage,
   StartDBInstanceAutomatedBackupsReplicationResult,
 } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { StartDBInstanceAutomatedBackupsReplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -183,25 +178,12 @@ export interface StartDBInstanceAutomatedBackupsReplicationCommandOutput extends
  *
  * @public
  */
-export class StartDBInstanceAutomatedBackupsReplicationCommand extends $Command
-  .classBuilder<
-    StartDBInstanceAutomatedBackupsReplicationCommandInput,
-    StartDBInstanceAutomatedBackupsReplicationCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getCrossRegionPresignedUrlPlugin(config),
-    ];
-  })
-  .s("AmazonRDSv19", "StartDBInstanceAutomatedBackupsReplication", {})
-  .n("RDSClient", "StartDBInstanceAutomatedBackupsReplicationCommand")
-  .sc(StartDBInstanceAutomatedBackupsReplication$)
-  .build() {
+export class StartDBInstanceAutomatedBackupsReplicationCommand extends command<StartDBInstanceAutomatedBackupsReplicationCommandInput, StartDBInstanceAutomatedBackupsReplicationCommandOutput>(
+  _ep0,
+  _mw1,
+  "StartDBInstanceAutomatedBackupsReplication",
+  StartDBInstanceAutomatedBackupsReplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

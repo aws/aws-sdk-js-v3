@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListBulkDeploymentDetailedReportsRequest,
   ListBulkDeploymentDetailedReportsResponse,
@@ -15,7 +12,6 @@ import { ListBulkDeploymentDetailedReports$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface ListBulkDeploymentDetailedReportsCommandOutput extends ListBulk
  *
  * @public
  */
-export class ListBulkDeploymentDetailedReportsCommand extends $Command
-  .classBuilder<
-    ListBulkDeploymentDetailedReportsCommandInput,
-    ListBulkDeploymentDetailedReportsCommandOutput,
-    GreengrassClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Greengrass", "ListBulkDeploymentDetailedReports", {})
-  .n("GreengrassClient", "ListBulkDeploymentDetailedReportsCommand")
-  .sc(ListBulkDeploymentDetailedReports$)
-  .build() {
+export class ListBulkDeploymentDetailedReportsCommand extends command<ListBulkDeploymentDetailedReportsCommandInput, ListBulkDeploymentDetailedReportsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBulkDeploymentDetailedReports",
+  ListBulkDeploymentDetailedReports$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

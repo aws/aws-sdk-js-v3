@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddPermissionRequest, AddPermissionResponse } from "../models/models_0";
 import { AddPermission$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AddPermission$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +128,12 @@ export interface AddPermissionCommandOutput extends AddPermissionResponse, __Met
  *
  * @public
  */
-export class AddPermissionCommand extends $Command
-  .classBuilder<
-    AddPermissionCommandInput,
-    AddPermissionCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "AddPermission", {})
-  .n("LambdaClient", "AddPermissionCommand")
-  .sc(AddPermission$)
-  .build() {
+export class AddPermissionCommand extends command<AddPermissionCommandInput, AddPermissionCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddPermission",
+  AddPermission$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

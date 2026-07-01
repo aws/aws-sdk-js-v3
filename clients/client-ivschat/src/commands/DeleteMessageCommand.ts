@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMessageRequest, DeleteMessageResponse } from "../models/models_0";
 import { DeleteMessage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteMessage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DeleteMessageCommandOutput extends DeleteMessageResponse, __Met
  *
  * @public
  */
-export class DeleteMessageCommand extends $Command
-  .classBuilder<
-    DeleteMessageCommandInput,
-    DeleteMessageCommandOutput,
-    IvschatClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IvschatClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoServiceChat", "DeleteMessage", {})
-  .n("IvschatClient", "DeleteMessageCommand")
-  .sc(DeleteMessage$)
-  .build() {
+export class DeleteMessageCommand extends command<DeleteMessageCommandInput, DeleteMessageCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMessage",
+  DeleteMessage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

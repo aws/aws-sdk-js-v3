@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateUserImportJobRequest, CreateUserImportJobResponse } from "../models/models_0";
 import { CreateUserImportJob$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateUserImportJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +120,12 @@ export interface CreateUserImportJobCommandOutput extends CreateUserImportJobRes
  *
  * @public
  */
-export class CreateUserImportJobCommand extends $Command
-  .classBuilder<
-    CreateUserImportJobCommandInput,
-    CreateUserImportJobCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "CreateUserImportJob", {})
-  .n("CognitoIdentityProviderClient", "CreateUserImportJobCommand")
-  .sc(CreateUserImportJob$)
-  .build() {
+export class CreateUserImportJobCommand extends command<CreateUserImportJobCommandInput, CreateUserImportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateUserImportJob",
+  CreateUserImportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

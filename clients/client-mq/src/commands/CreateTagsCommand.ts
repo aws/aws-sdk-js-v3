@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateTagsRequest } from "../models/models_0";
-import type { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import { CreateTags$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class CreateTagsCommand extends $Command
-  .classBuilder<
-    CreateTagsCommandInput,
-    CreateTagsCommandOutput,
-    MqClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MqClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("mq", "CreateTags", {})
-  .n("MqClient", "CreateTagsCommand")
-  .sc(CreateTags$)
-  .build() {
+export class CreateTagsCommand extends command<CreateTagsCommandInput, CreateTagsCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTags",
+  CreateTags$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssumeRoleRequest, AssumeRoleResponse } from "../models/models_0";
 import { AssumeRole$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -255,22 +251,12 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *
  * @public
  */
-export class AssumeRoleCommand extends $Command
-  .classBuilder<
-    AssumeRoleCommandInput,
-    AssumeRoleCommandOutput,
-    STSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: STSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSecurityTokenServiceV20110615", "AssumeRole", {})
-  .n("STSClient", "AssumeRoleCommand")
-  .sc(AssumeRole$)
-  .build() {
+export class AssumeRoleCommand extends command<AssumeRoleCommandInput, AssumeRoleCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssumeRole",
+  AssumeRole$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

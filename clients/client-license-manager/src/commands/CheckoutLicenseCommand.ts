@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CheckoutLicenseRequest, CheckoutLicenseResponse } from "../models/models_0";
 import { CheckoutLicense$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CheckoutLicense$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +115,12 @@ export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, _
  *
  * @public
  */
-export class CheckoutLicenseCommand extends $Command
-  .classBuilder<
-    CheckoutLicenseCommandInput,
-    CheckoutLicenseCommandOutput,
-    LicenseManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLicenseManager", "CheckoutLicense", {})
-  .n("LicenseManagerClient", "CheckoutLicenseCommand")
-  .sc(CheckoutLicense$)
-  .build() {
+export class CheckoutLicenseCommand extends command<CheckoutLicenseCommandInput, CheckoutLicenseCommandOutput>(
+  _ep0,
+  _mw0,
+  "CheckoutLicense",
+  CheckoutLicense$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

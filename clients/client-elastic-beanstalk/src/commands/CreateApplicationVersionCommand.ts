@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ApplicationVersionDescriptionMessage, CreateApplicationVersionMessage } from "../models/models_0";
 import { CreateApplicationVersion$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateApplicationVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -184,22 +176,12 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  *
  * @public
  */
-export class CreateApplicationVersionCommand extends $Command
-  .classBuilder<
-    CreateApplicationVersionCommandInput,
-    CreateApplicationVersionCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "CreateApplicationVersion", {})
-  .n("ElasticBeanstalkClient", "CreateApplicationVersionCommand")
-  .sc(CreateApplicationVersion$)
-  .build() {
+export class CreateApplicationVersionCommand extends command<CreateApplicationVersionCommandInput, CreateApplicationVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateApplicationVersion",
+  CreateApplicationVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

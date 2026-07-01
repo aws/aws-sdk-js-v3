@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFunctionRequest, GetFunctionResponse } from "../models/models_0";
 import { GetFunction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetFunction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  *
  * @public
  */
-export class GetFunctionCommand extends $Command
-  .classBuilder<
-    GetFunctionCommandInput,
-    GetFunctionCommandOutput,
-    MediaTailorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaTailor", "GetFunction", {})
-  .n("MediaTailorClient", "GetFunctionCommand")
-  .sc(GetFunction$)
-  .build() {
+export class GetFunctionCommand extends command<GetFunctionCommandInput, GetFunctionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFunction",
+  GetFunction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BillingconductorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BillingconductorClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchDisassociateResourcesFromCustomLineItemInput,
   BatchDisassociateResourcesFromCustomLineItemOutput,
@@ -19,7 +12,6 @@ import { BatchDisassociateResourcesFromCustomLineItem$ } from "../schemas/schema
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +100,12 @@ export interface BatchDisassociateResourcesFromCustomLineItemCommandOutput exten
  *
  * @public
  */
-export class BatchDisassociateResourcesFromCustomLineItemCommand extends $Command
-  .classBuilder<
-    BatchDisassociateResourcesFromCustomLineItemCommandInput,
-    BatchDisassociateResourcesFromCustomLineItemCommandOutput,
-    BillingconductorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBillingConductor", "BatchDisassociateResourcesFromCustomLineItem", {})
-  .n("BillingconductorClient", "BatchDisassociateResourcesFromCustomLineItemCommand")
-  .sc(BatchDisassociateResourcesFromCustomLineItem$)
-  .build() {
+export class BatchDisassociateResourcesFromCustomLineItemCommand extends command<BatchDisassociateResourcesFromCustomLineItemCommandInput, BatchDisassociateResourcesFromCustomLineItemCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDisassociateResourcesFromCustomLineItem",
+  BatchDisassociateResourcesFromCustomLineItem$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

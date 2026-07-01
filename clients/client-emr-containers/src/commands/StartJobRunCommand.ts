@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartJobRunRequest, StartJobRunResponse } from "../models/models_0";
 import { StartJobRun$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartJobRun$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -136,22 +132,12 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  *
  * @public
  */
-export class StartJobRunCommand extends $Command
-  .classBuilder<
-    StartJobRunCommandInput,
-    StartJobRunCommandOutput,
-    EMRContainersClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRContainersClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsChicagoWebService", "StartJobRun", {})
-  .n("EMRContainersClient", "StartJobRunCommand")
-  .sc(StartJobRun$)
-  .build() {
+export class StartJobRunCommand extends command<StartJobRunCommandInput, StartJobRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartJobRun",
+  StartJobRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateMemoryInput, UpdateMemoryOutput } from "../models/models_1";
 import { UpdateMemory$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateMemory$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -666,22 +658,12 @@ export interface UpdateMemoryCommandOutput extends UpdateMemoryOutput, __Metadat
  *
  * @public
  */
-export class UpdateMemoryCommand extends $Command
-  .classBuilder<
-    UpdateMemoryCommandInput,
-    UpdateMemoryCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "UpdateMemory", {})
-  .n("BedrockAgentCoreControlClient", "UpdateMemoryCommand")
-  .sc(UpdateMemory$)
-  .build() {
+export class UpdateMemoryCommand extends command<UpdateMemoryCommandInput, UpdateMemoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateMemory",
+  UpdateMemory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

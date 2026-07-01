@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateServiceQuotaTemplateRequest,
   DisassociateServiceQuotaTemplateResponse,
 } from "../models/models_0";
 import { DisassociateServiceQuotaTemplate$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface DisassociateServiceQuotaTemplateCommandOutput extends Disassoci
  *
  * @public
  */
-export class DisassociateServiceQuotaTemplateCommand extends $Command
-  .classBuilder<
-    DisassociateServiceQuotaTemplateCommandInput,
-    DisassociateServiceQuotaTemplateCommandOutput,
-    ServiceQuotasClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ServiceQuotasV20190624", "DisassociateServiceQuotaTemplate", {})
-  .n("ServiceQuotasClient", "DisassociateServiceQuotaTemplateCommand")
-  .sc(DisassociateServiceQuotaTemplate$)
-  .build() {
+export class DisassociateServiceQuotaTemplateCommand extends command<DisassociateServiceQuotaTemplateCommandInput, DisassociateServiceQuotaTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateServiceQuotaTemplate",
+  DisassociateServiceQuotaTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { NoInputAndOutputOutput } from "../models/models_0";
 import { NoInputAndOutput$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { NoInputAndOutput$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -58,22 +54,12 @@ export interface NoInputAndOutputCommandOutput extends NoInputAndOutputOutput, _
  *
  * @public
  */
-export class NoInputAndOutputCommand extends $Command
-  .classBuilder<
-    NoInputAndOutputCommandInput,
-    NoInputAndOutputCommandOutput,
-    JSONRPC10ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: JSONRPC10ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("JsonRpc10", "NoInputAndOutput", {})
-  .n("JSONRPC10Client", "NoInputAndOutputCommand")
-  .sc(NoInputAndOutput$)
-  .build() {
+export class NoInputAndOutputCommand extends command<NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput>(
+  _ep0,
+  _mw0,
+  "NoInputAndOutput",
+  NoInputAndOutput$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListCentralizationRulesForOrganizationInput,
   ListCentralizationRulesForOrganizationOutput,
 } from "../models/models_0";
-import type {
-  ObservabilityAdminClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ObservabilityAdminClient";
 import { ListCentralizationRulesForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface ListCentralizationRulesForOrganizationCommandOutput extends Lis
  *
  * @public
  */
-export class ListCentralizationRulesForOrganizationCommand extends $Command
-  .classBuilder<
-    ListCentralizationRulesForOrganizationCommandInput,
-    ListCentralizationRulesForOrganizationCommandOutput,
-    ObservabilityAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ObservabilityAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ObservabilityAdmin", "ListCentralizationRulesForOrganization", {})
-  .n("ObservabilityAdminClient", "ListCentralizationRulesForOrganizationCommand")
-  .sc(ListCentralizationRulesForOrganization$)
-  .build() {
+export class ListCentralizationRulesForOrganizationCommand extends command<ListCentralizationRulesForOrganizationCommandInput, ListCentralizationRulesForOrganizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCentralizationRulesForOrganization",
+  ListCentralizationRulesForOrganization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

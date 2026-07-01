@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCodeRepositoriesInput, ListCodeRepositoriesOutput } from "../models/models_3";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListCodeRepositories$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface ListCodeRepositoriesCommandOutput extends ListCodeRepositoriesO
  *
  * @public
  */
-export class ListCodeRepositoriesCommand extends $Command
-  .classBuilder<
-    ListCodeRepositoriesCommandInput,
-    ListCodeRepositoriesCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "ListCodeRepositories", {})
-  .n("SageMakerClient", "ListCodeRepositoriesCommand")
-  .sc(ListCodeRepositories$)
-  .build() {
+export class ListCodeRepositoriesCommand extends command<ListCodeRepositoriesCommandInput, ListCodeRepositoriesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCodeRepositories",
+  ListCodeRepositories$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

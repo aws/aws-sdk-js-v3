@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeConfigurationRevisionRequest, DescribeConfigurationRevisionResponse } from "../models/models_0";
-import type { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import { DescribeConfigurationRevision$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DescribeConfigurationRevisionCommandOutput extends DescribeConf
  *
  * @public
  */
-export class DescribeConfigurationRevisionCommand extends $Command
-  .classBuilder<
-    DescribeConfigurationRevisionCommandInput,
-    DescribeConfigurationRevisionCommandOutput,
-    MqClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MqClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("mq", "DescribeConfigurationRevision", {})
-  .n("MqClient", "DescribeConfigurationRevisionCommand")
-  .sc(DescribeConfigurationRevision$)
-  .build() {
+export class DescribeConfigurationRevisionCommand extends command<DescribeConfigurationRevisionCommandInput, DescribeConfigurationRevisionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeConfigurationRevision",
+  DescribeConfigurationRevision$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

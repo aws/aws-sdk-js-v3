@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetSchemaInput, BatchGetSchemaOutput } from "../models/models_0";
 import { BatchGetSchema$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetSchema$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -148,22 +144,12 @@ export interface BatchGetSchemaCommandOutput extends BatchGetSchemaOutput, __Met
  *
  * @public
  */
-export class BatchGetSchemaCommand extends $Command
-  .classBuilder<
-    BatchGetSchemaCommandInput,
-    BatchGetSchemaCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "BatchGetSchema", {})
-  .n("CleanRoomsClient", "BatchGetSchemaCommand")
-  .sc(BatchGetSchema$)
-  .build() {
+export class BatchGetSchemaCommand extends command<BatchGetSchemaCommandInput, BatchGetSchemaCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetSchema",
+  BatchGetSchema$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

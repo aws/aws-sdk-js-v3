@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetWorkflowExecutionHistoryInput, History } from "../models/models_0";
 import { GetWorkflowExecutionHistory$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -487,22 +483,12 @@ export interface GetWorkflowExecutionHistoryCommandOutput extends History, __Met
  *
  * @public
  */
-export class GetWorkflowExecutionHistoryCommand extends $Command
-  .classBuilder<
-    GetWorkflowExecutionHistoryCommandInput,
-    GetWorkflowExecutionHistoryCommandOutput,
-    SWFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleWorkflowService", "GetWorkflowExecutionHistory", {})
-  .n("SWFClient", "GetWorkflowExecutionHistoryCommand")
-  .sc(GetWorkflowExecutionHistory$)
-  .build() {
+export class GetWorkflowExecutionHistoryCommand extends command<GetWorkflowExecutionHistoryCommandInput, GetWorkflowExecutionHistoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetWorkflowExecutionHistory",
+  GetWorkflowExecutionHistory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

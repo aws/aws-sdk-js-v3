@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEventStreamRequest, DeleteEventStreamResponse } from "../models/models_0";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { DeleteEventStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface DeleteEventStreamCommandOutput extends DeleteEventStreamRespons
  *
  * @public
  */
-export class DeleteEventStreamCommand extends $Command
-  .classBuilder<
-    DeleteEventStreamCommandInput,
-    DeleteEventStreamCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "DeleteEventStream", {})
-  .n("PinpointClient", "DeleteEventStreamCommand")
-  .sc(DeleteEventStream$)
-  .build() {
+export class DeleteEventStreamCommand extends command<DeleteEventStreamCommandInput, DeleteEventStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEventStream",
+  DeleteEventStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

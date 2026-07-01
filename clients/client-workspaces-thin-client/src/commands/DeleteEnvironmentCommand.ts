@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEnvironmentRequest, DeleteEnvironmentResponse } from "../models/models_0";
 import { DeleteEnvironment$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkSpacesThinClientClientResolvedConfig,
-} from "../WorkSpacesThinClientClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentRespons
  *
  * @public
  */
-export class DeleteEnvironmentCommand extends $Command
-  .classBuilder<
-    DeleteEnvironmentCommandInput,
-    DeleteEnvironmentCommandOutput,
-    WorkSpacesThinClientClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesThinClientClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ThinClient", "DeleteEnvironment", {})
-  .n("WorkSpacesThinClientClient", "DeleteEnvironmentCommand")
-  .sc(DeleteEnvironment$)
-  .build() {
+export class DeleteEnvironmentCommand extends command<DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEnvironment",
+  DeleteEnvironment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

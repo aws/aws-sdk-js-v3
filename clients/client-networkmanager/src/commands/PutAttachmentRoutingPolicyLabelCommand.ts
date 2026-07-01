@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutAttachmentRoutingPolicyLabelRequest,
   PutAttachmentRoutingPolicyLabelResponse,
 } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { PutAttachmentRoutingPolicyLabel$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface PutAttachmentRoutingPolicyLabelCommandOutput extends PutAttachm
  *
  * @public
  */
-export class PutAttachmentRoutingPolicyLabelCommand extends $Command
-  .classBuilder<
-    PutAttachmentRoutingPolicyLabelCommandInput,
-    PutAttachmentRoutingPolicyLabelCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "PutAttachmentRoutingPolicyLabel", {})
-  .n("NetworkManagerClient", "PutAttachmentRoutingPolicyLabelCommand")
-  .sc(PutAttachmentRoutingPolicyLabel$)
-  .build() {
+export class PutAttachmentRoutingPolicyLabelCommand extends command<PutAttachmentRoutingPolicyLabelCommandInput, PutAttachmentRoutingPolicyLabelCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAttachmentRoutingPolicyLabel",
+  PutAttachmentRoutingPolicyLabel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

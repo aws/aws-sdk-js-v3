@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeCacheInput, DescribeCacheOutput } from "../models/models_0";
 import { DescribeCache$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface DescribeCacheCommandOutput extends DescribeCacheOutput, __Metad
  *
  * @public
  */
-export class DescribeCacheCommand extends $Command
-  .classBuilder<
-    DescribeCacheCommandInput,
-    DescribeCacheCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "DescribeCache", {})
-  .n("StorageGatewayClient", "DescribeCacheCommand")
-  .sc(DescribeCache$)
-  .build() {
+export class DescribeCacheCommand extends command<DescribeCacheCommandInput, DescribeCacheCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCache",
+  DescribeCache$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

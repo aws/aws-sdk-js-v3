@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RestoreDBInstanceToPointInTimeMessage, RestoreDBInstanceToPointInTimeResult } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { RestoreDBInstanceToPointInTime$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -564,22 +560,12 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput extends RestoreDBIn
  *
  * @public
  */
-export class RestoreDBInstanceToPointInTimeCommand extends $Command
-  .classBuilder<
-    RestoreDBInstanceToPointInTimeCommandInput,
-    RestoreDBInstanceToPointInTimeCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "RestoreDBInstanceToPointInTime", {})
-  .n("RDSClient", "RestoreDBInstanceToPointInTimeCommand")
-  .sc(RestoreDBInstanceToPointInTime$)
-  .build() {
+export class RestoreDBInstanceToPointInTimeCommand extends command<RestoreDBInstanceToPointInTimeCommandInput, RestoreDBInstanceToPointInTimeCommandOutput>(
+  _ep0,
+  _mw0,
+  "RestoreDBInstanceToPointInTime",
+  RestoreDBInstanceToPointInTime$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

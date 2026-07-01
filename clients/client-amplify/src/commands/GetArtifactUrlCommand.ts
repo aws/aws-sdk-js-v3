@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetArtifactUrlRequest, GetArtifactUrlResult } from "../models/models_0";
 import { GetArtifactUrl$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetArtifactUrl$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface GetArtifactUrlCommandOutput extends GetArtifactUrlResult, __Met
  *
  * @public
  */
-export class GetArtifactUrlCommand extends $Command
-  .classBuilder<
-    GetArtifactUrlCommandInput,
-    GetArtifactUrlCommandOutput,
-    AmplifyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Amplify", "GetArtifactUrl", {})
-  .n("AmplifyClient", "GetArtifactUrlCommand")
-  .sc(GetArtifactUrl$)
-  .build() {
+export class GetArtifactUrlCommand extends command<GetArtifactUrlCommandInput, GetArtifactUrlCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetArtifactUrl",
+  GetArtifactUrl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

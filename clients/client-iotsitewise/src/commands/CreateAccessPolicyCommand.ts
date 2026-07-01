@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAccessPolicyRequest, CreateAccessPolicyResponse } from "../models/models_0";
 import { CreateAccessPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateAccessPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyRespo
  *
  * @public
  */
-export class CreateAccessPolicyCommand extends $Command
-  .classBuilder<
-    CreateAccessPolicyCommandInput,
-    CreateAccessPolicyCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "CreateAccessPolicy", {})
-  .n("IoTSiteWiseClient", "CreateAccessPolicyCommand")
-  .sc(CreateAccessPolicy$)
-  .build() {
+export class CreateAccessPolicyCommand extends command<CreateAccessPolicyCommandInput, CreateAccessPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAccessPolicy",
+  CreateAccessPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

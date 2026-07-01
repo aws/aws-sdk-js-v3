@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchAssociateScramSecretRequest, BatchAssociateScramSecretResponse } from "../models/models_0";
 import { BatchAssociateScramSecret$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchAssociateScramSecret$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface BatchAssociateScramSecretCommandOutput extends BatchAssociateSc
  *
  * @public
  */
-export class BatchAssociateScramSecretCommand extends $Command
-  .classBuilder<
-    BatchAssociateScramSecretCommandInput,
-    BatchAssociateScramSecretCommandOutput,
-    KafkaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kafka", "BatchAssociateScramSecret", {})
-  .n("KafkaClient", "BatchAssociateScramSecretCommand")
-  .sc(BatchAssociateScramSecret$)
-  .build() {
+export class BatchAssociateScramSecretCommand extends command<BatchAssociateScramSecretCommandInput, BatchAssociateScramSecretCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchAssociateScramSecret",
+  BatchAssociateScramSecret$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

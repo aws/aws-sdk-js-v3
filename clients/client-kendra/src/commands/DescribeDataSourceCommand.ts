@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeDataSourceRequest, DescribeDataSourceResponse } from "../models/models_0";
 import { DescribeDataSource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeDataSource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -644,22 +640,12 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  *
  * @public
  */
-export class DescribeDataSourceCommand extends $Command
-  .classBuilder<
-    DescribeDataSourceCommandInput,
-    DescribeDataSourceCommandOutput,
-    KendraClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSKendraFrontendService", "DescribeDataSource", {})
-  .n("KendraClient", "DescribeDataSourceCommand")
-  .sc(DescribeDataSource$)
-  .build() {
+export class DescribeDataSourceCommand extends command<DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDataSource",
+  DescribeDataSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

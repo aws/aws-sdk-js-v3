@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTranscriptionJobsRequest, ListTranscriptionJobsResponse } from "../models/models_0";
 import { ListTranscriptionJobs$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface ListTranscriptionJobsCommandOutput extends ListTranscriptionJob
  *
  * @public
  */
-export class ListTranscriptionJobsCommand extends $Command
-  .classBuilder<
-    ListTranscriptionJobsCommandInput,
-    ListTranscriptionJobsCommandOutput,
-    TranscribeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Transcribe", "ListTranscriptionJobs", {})
-  .n("TranscribeClient", "ListTranscriptionJobsCommand")
-  .sc(ListTranscriptionJobs$)
-  .build() {
+export class ListTranscriptionJobsCommand extends command<ListTranscriptionJobsCommandInput, ListTranscriptionJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTranscriptionJobs",
+  ListTranscriptionJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

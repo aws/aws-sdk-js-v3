@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribePoliciesType, PoliciesType } from "../models/models_0";
 import { DescribePolicies$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribePolicies$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -265,22 +261,12 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  *
  * @public
  */
-export class DescribePoliciesCommand extends $Command
-  .classBuilder<
-    DescribePoliciesCommandInput,
-    DescribePoliciesCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "DescribePolicies", {})
-  .n("AutoScalingClient", "DescribePoliciesCommand")
-  .sc(DescribePolicies$)
-  .build() {
+export class DescribePoliciesCommand extends command<DescribePoliciesCommandInput, DescribePoliciesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribePolicies",
+  DescribePolicies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

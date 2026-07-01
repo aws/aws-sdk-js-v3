@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { InvokeEndpointWithResponseStreamInput, InvokeEndpointWithResponseStreamOutput } from "../models/models_0";
-import type {
-  SageMakerRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SageMakerRuntimeClient";
 import { InvokeEndpointWithResponseStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  */
@@ -147,29 +139,12 @@ export interface InvokeEndpointWithResponseStreamCommandOutput extends InvokeEnd
  *
  * @public
  */
-export class InvokeEndpointWithResponseStreamCommand extends $Command
-  .classBuilder<
-    InvokeEndpointWithResponseStreamCommandInput,
-    InvokeEndpointWithResponseStreamCommandOutput,
-    SageMakerRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSageMakerRuntime", "InvokeEndpointWithResponseStream", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      output: true,
-    },
-  })
-  .n("SageMakerRuntimeClient", "InvokeEndpointWithResponseStreamCommand")
-  .sc(InvokeEndpointWithResponseStream$)
-  .build() {
+export class InvokeEndpointWithResponseStreamCommand extends command<InvokeEndpointWithResponseStreamCommandInput, InvokeEndpointWithResponseStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "InvokeEndpointWithResponseStream",
+  InvokeEndpointWithResponseStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

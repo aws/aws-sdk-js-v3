@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListInstancesRequest, ListInstancesResponse } from "../models/models_0";
 import { ListInstances$ } from "../schemas/schemas_0";
-import type {
-  ServiceDiscoveryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceDiscoveryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -131,22 +123,12 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  *
  * @public
  */
-export class ListInstancesCommand extends $Command
-  .classBuilder<
-    ListInstancesCommandInput,
-    ListInstancesCommandOutput,
-    ServiceDiscoveryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53AutoNaming_v20170314", "ListInstances", {})
-  .n("ServiceDiscoveryClient", "ListInstancesCommand")
-  .sc(ListInstances$)
-  .build() {
+export class ListInstancesCommand extends command<ListInstancesCommandInput, ListInstancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListInstances",
+  ListInstances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

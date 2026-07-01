@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListOtaTasksRequest, ListOtaTasksResponse } from "../models/models_0";
 import { ListOtaTasks$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListOtaTasks$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface ListOtaTasksCommandOutput extends ListOtaTasksResponse, __Metad
  *
  * @public
  */
-export class ListOtaTasksCommand extends $Command
-  .classBuilder<
-    ListOtaTasksCommandInput,
-    ListOtaTasksCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "ListOtaTasks", {})
-  .n("IoTManagedIntegrationsClient", "ListOtaTasksCommand")
-  .sc(ListOtaTasks$)
-  .build() {
+export class ListOtaTasksCommand extends command<ListOtaTasksCommandInput, ListOtaTasksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListOtaTasks",
+  ListOtaTasks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetLicenseManagerReportGeneratorRequest,
   GetLicenseManagerReportGeneratorResponse,
@@ -19,7 +12,6 @@ import { GetLicenseManagerReportGenerator$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -127,22 +119,12 @@ export interface GetLicenseManagerReportGeneratorCommandOutput extends GetLicens
  *
  * @public
  */
-export class GetLicenseManagerReportGeneratorCommand extends $Command
-  .classBuilder<
-    GetLicenseManagerReportGeneratorCommandInput,
-    GetLicenseManagerReportGeneratorCommandOutput,
-    LicenseManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLicenseManager", "GetLicenseManagerReportGenerator", {})
-  .n("LicenseManagerClient", "GetLicenseManagerReportGeneratorCommand")
-  .sc(GetLicenseManagerReportGenerator$)
-  .build() {
+export class GetLicenseManagerReportGeneratorCommand extends command<GetLicenseManagerReportGeneratorCommandInput, GetLicenseManagerReportGeneratorCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetLicenseManagerReportGenerator",
+  GetLicenseManagerReportGenerator$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteStoredQueryRequest, DeleteStoredQueryResponse } from "../models/models_0";
 import { DeleteStoredQuery$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteStoredQuery$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryRespons
  *
  * @public
  */
-export class DeleteStoredQueryCommand extends $Command
-  .classBuilder<
-    DeleteStoredQueryCommandInput,
-    DeleteStoredQueryCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DeleteStoredQuery", {})
-  .n("ConfigServiceClient", "DeleteStoredQueryCommand")
-  .sc(DeleteStoredQuery$)
-  .build() {
+export class DeleteStoredQueryCommand extends command<DeleteStoredQueryCommandInput, DeleteStoredQueryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteStoredQuery",
+  DeleteStoredQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

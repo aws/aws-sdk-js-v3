@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { NotifyRecommendationsReceivedRequest, NotifyRecommendationsReceivedResponse } from "../models/models_0";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { NotifyRecommendationsReceived$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface NotifyRecommendationsReceivedCommandOutput extends NotifyRecomm
  *
  * @public
  */
-export class NotifyRecommendationsReceivedCommand extends $Command
-  .classBuilder<
-    NotifyRecommendationsReceivedCommandInput,
-    NotifyRecommendationsReceivedCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "NotifyRecommendationsReceived", {})
-  .n("QConnectClient", "NotifyRecommendationsReceivedCommand")
-  .sc(NotifyRecommendationsReceived$)
-  .build() {
+export class NotifyRecommendationsReceivedCommand extends command<NotifyRecommendationsReceivedCommandInput, NotifyRecommendationsReceivedCommandOutput>(
+  _ep0,
+  _mw0,
+  "NotifyRecommendationsReceived",
+  NotifyRecommendationsReceived$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

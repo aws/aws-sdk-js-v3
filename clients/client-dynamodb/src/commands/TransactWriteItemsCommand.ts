@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep12, _mw0, command } from "../commandBuilder";
 import type { TransactWriteItemsInput, TransactWriteItemsOutput } from "../models/models_0";
 import { TransactWriteItems$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { TransactWriteItems$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -644,26 +640,12 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  *
  * @public
  */
-export class TransactWriteItemsCommand extends $Command
-  .classBuilder<
-    TransactWriteItemsCommandInput,
-    TransactWriteItemsCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArnList: { type: "operationContextParams", get: (input?: any) => input?.TransactItems?.map((obj: any) => [obj?.ConditionCheck?.TableName,obj?.Put?.TableName,obj?.Delete?.TableName,obj?.Update?.TableName].filter((i) => i)).flat() },
-
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "TransactWriteItems", {})
-  .n("DynamoDBClient", "TransactWriteItemsCommand")
-  .sc(TransactWriteItems$)
-  .build() {
+export class TransactWriteItemsCommand extends command<TransactWriteItemsCommandInput, TransactWriteItemsCommandOutput>(
+  _ep12,
+  _mw0,
+  "TransactWriteItems",
+  TransactWriteItems$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

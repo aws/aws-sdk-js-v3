@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationInsightsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationInsightsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveWorkloadRequest, RemoveWorkloadResponse } from "../models/models_0";
 import { RemoveWorkload$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { RemoveWorkload$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +64,12 @@ export interface RemoveWorkloadCommandOutput extends RemoveWorkloadResponse, __M
  *
  * @public
  */
-export class RemoveWorkloadCommand extends $Command
-  .classBuilder<
-    RemoveWorkloadCommandInput,
-    RemoveWorkloadCommandOutput,
-    ApplicationInsightsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EC2WindowsBarleyService", "RemoveWorkload", {})
-  .n("ApplicationInsightsClient", "RemoveWorkloadCommand")
-  .sc(RemoveWorkload$)
-  .build() {
+export class RemoveWorkloadCommand extends command<RemoveWorkloadCommandInput, RemoveWorkloadCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveWorkload",
+  RemoveWorkload$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

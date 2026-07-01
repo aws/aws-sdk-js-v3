@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CarrierLookupRequest, CarrierLookupResult } from "../models/models_0";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { CarrierLookup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +99,12 @@ export interface CarrierLookupCommandOutput extends CarrierLookupResult, __Metad
  *
  * @public
  */
-export class CarrierLookupCommand extends $Command
-  .classBuilder<
-    CarrierLookupCommandInput,
-    CarrierLookupCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "CarrierLookup", {})
-  .n("PinpointSMSVoiceV2Client", "CarrierLookupCommand")
-  .sc(CarrierLookup$)
-  .build() {
+export class CarrierLookupCommand extends command<CarrierLookupCommandInput, CarrierLookupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CarrierLookup",
+  CarrierLookup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

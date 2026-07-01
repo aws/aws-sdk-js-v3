@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ConfigIdResponse, UpdateConfigRequest } from "../models/models_0";
 import { UpdateConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -145,22 +141,12 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  *
  * @public
  */
-export class UpdateConfigCommand extends $Command
-  .classBuilder<
-    UpdateConfigCommandInput,
-    UpdateConfigCommandOutput,
-    GroundStationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GroundStation", "UpdateConfig", {})
-  .n("GroundStationClient", "UpdateConfigCommand")
-  .sc(UpdateConfig$)
-  .build() {
+export class UpdateConfigCommand extends command<UpdateConfigCommandInput, UpdateConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateConfig",
+  UpdateConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

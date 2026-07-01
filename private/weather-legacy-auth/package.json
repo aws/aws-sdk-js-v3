@@ -21,10 +21,10 @@
     "@aws-sdk/middleware-signing": "workspace:^3.972.20",
     "@aws-sdk/middleware-token": "workspace:^3.972.21",
     "@aws-sdk/types": "workspace:^3.973.14",
-    "@smithy/core": "^3.28.0",
-    "@smithy/fetch-http-handler": "^5.6.1",
-    "@smithy/node-http-handler": "^4.9.1",
-    "@smithy/types": "^4.15.0",
+    "@smithy/core": "^3.29.0",
+    "@smithy/fetch-http-handler": "^5.6.2",
+    "@smithy/node-http-handler": "^4.9.2",
+    "@smithy/types": "^4.15.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

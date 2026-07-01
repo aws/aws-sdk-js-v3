@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisableInsightRulesInput, DisableInsightRulesOutput } from "../models/models_0";
 import { DisableInsightRules$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisableInsightRules$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOut
  *
  * @public
  */
-export class DisableInsightRulesCommand extends $Command
-  .classBuilder<
-    DisableInsightRulesCommandInput,
-    DisableInsightRulesCommandOutput,
-    CloudWatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GraniteServiceVersion20100801", "DisableInsightRules", {})
-  .n("CloudWatchClient", "DisableInsightRulesCommand")
-  .sc(DisableInsightRules$)
-  .build() {
+export class DisableInsightRulesCommand extends command<DisableInsightRulesCommandInput, DisableInsightRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableInsightRules",
+  DisableInsightRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

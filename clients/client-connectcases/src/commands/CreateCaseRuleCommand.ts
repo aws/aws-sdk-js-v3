@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCaseRuleRequest, CreateCaseRuleResponse } from "../models/models_0";
 import { CreateCaseRule$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateCaseRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -171,22 +167,12 @@ export interface CreateCaseRuleCommandOutput extends CreateCaseRuleResponse, __M
  *
  * @public
  */
-export class CreateCaseRuleCommand extends $Command
-  .classBuilder<
-    CreateCaseRuleCommandInput,
-    CreateCaseRuleCommandOutput,
-    ConnectCasesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCases", "CreateCaseRule", {})
-  .n("ConnectCasesClient", "CreateCaseRuleCommand")
-  .sc(CreateCaseRule$)
-  .build() {
+export class CreateCaseRuleCommand extends command<CreateCaseRuleCommandInput, CreateCaseRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCaseRule",
+  CreateCaseRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

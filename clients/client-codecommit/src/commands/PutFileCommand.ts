@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutFileInput, PutFileOutput } from "../models/models_0";
 import { PutFile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutFile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -177,22 +173,12 @@ export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
  *
  * @public
  */
-export class PutFileCommand extends $Command
-  .classBuilder<
-    PutFileCommandInput,
-    PutFileCommandOutput,
-    CodeCommitClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCommit_20150413", "PutFile", {})
-  .n("CodeCommitClient", "PutFileCommand")
-  .sc(PutFile$)
-  .build() {
+export class PutFileCommand extends command<PutFileCommandInput, PutFileCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutFile",
+  PutFile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

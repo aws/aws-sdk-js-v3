@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StartMisconfiguredStateRecoveryRequest,
   StartMisconfiguredStateRecoveryResponse,
@@ -15,7 +12,6 @@ import { StartMisconfiguredStateRecovery$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -685,22 +681,12 @@ export interface StartMisconfiguredStateRecoveryCommandOutput extends StartMisco
  *
  * @public
  */
-export class StartMisconfiguredStateRecoveryCommand extends $Command
-  .classBuilder<
-    StartMisconfiguredStateRecoveryCommandInput,
-    StartMisconfiguredStateRecoveryCommandOutput,
-    FSxClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSimbaAPIService_v20180301", "StartMisconfiguredStateRecovery", {})
-  .n("FSxClient", "StartMisconfiguredStateRecoveryCommand")
-  .sc(StartMisconfiguredStateRecovery$)
-  .build() {
+export class StartMisconfiguredStateRecoveryCommand extends command<StartMisconfiguredStateRecoveryCommandInput, StartMisconfiguredStateRecoveryCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartMisconfiguredStateRecovery",
+  StartMisconfiguredStateRecovery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

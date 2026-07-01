@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetHypervisorPropertyMappingsInput, GetHypervisorPropertyMappingsOutput } from "../models/models_0";
 import { GetHypervisorPropertyMappings$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetHypervisorPropertyMappings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface GetHypervisorPropertyMappingsCommandOutput extends GetHyperviso
  *
  * @public
  */
-export class GetHypervisorPropertyMappingsCommand extends $Command
-  .classBuilder<
-    GetHypervisorPropertyMappingsCommandInput,
-    GetHypervisorPropertyMappingsCommandOutput,
-    BackupGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackupOnPremises_v20210101", "GetHypervisorPropertyMappings", {})
-  .n("BackupGatewayClient", "GetHypervisorPropertyMappingsCommand")
-  .sc(GetHypervisorPropertyMappings$)
-  .build() {
+export class GetHypervisorPropertyMappingsCommand extends command<GetHypervisorPropertyMappingsCommandInput, GetHypervisorPropertyMappingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetHypervisorPropertyMappings",
+  GetHypervisorPropertyMappings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

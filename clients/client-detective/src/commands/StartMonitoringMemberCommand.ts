@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartMonitoringMemberRequest } from "../models/models_0";
 import { StartMonitoringMember$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartMonitoringMember$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface StartMonitoringMemberCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class StartMonitoringMemberCommand extends $Command
-  .classBuilder<
-    StartMonitoringMemberCommandInput,
-    StartMonitoringMemberCommandOutput,
-    DetectiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDetective", "StartMonitoringMember", {})
-  .n("DetectiveClient", "StartMonitoringMemberCommand")
-  .sc(StartMonitoringMember$)
-  .build() {
+export class StartMonitoringMemberCommand extends command<StartMonitoringMemberCommandInput, StartMonitoringMemberCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartMonitoringMember",
+  StartMonitoringMember$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

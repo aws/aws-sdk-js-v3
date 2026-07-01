@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPromptsRequest, ListPromptsResponse } from "../models/models_1";
 import { ListPrompts$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListPrompts$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface ListPromptsCommandOutput extends ListPromptsResponse, __Metadat
  *
  * @public
  */
-export class ListPromptsCommand extends $Command
-  .classBuilder<
-    ListPromptsCommandInput,
-    ListPromptsCommandOutput,
-    BedrockAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentBuildTimeLambda", "ListPrompts", {})
-  .n("BedrockAgentClient", "ListPromptsCommand")
-  .sc(ListPrompts$)
-  .build() {
+export class ListPromptsCommand extends command<ListPromptsCommandInput, ListPromptsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPrompts",
+  ListPrompts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

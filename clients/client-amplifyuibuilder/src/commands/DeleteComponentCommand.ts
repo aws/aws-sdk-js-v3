@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyUIBuilderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyUIBuilderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteComponentRequest } from "../models/models_0";
 import { DeleteComponent$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteComponent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +64,12 @@ export interface DeleteComponentCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteComponentCommand extends $Command
-  .classBuilder<
-    DeleteComponentCommandInput,
-    DeleteComponentCommandOutput,
-    AmplifyUIBuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyUIBuilder", "DeleteComponent", {})
-  .n("AmplifyUIBuilderClient", "DeleteComponentCommand")
-  .sc(DeleteComponent$)
-  .build() {
+export class DeleteComponentCommand extends command<DeleteComponentCommandInput, DeleteComponentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteComponent",
+  DeleteComponent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

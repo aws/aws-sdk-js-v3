@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTimeSeriesDataPointsInput, ListTimeSeriesDataPointsOutput } from "../models/models_1";
 import { ListTimeSeriesDataPoints$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListTimeSeriesDataPoints$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface ListTimeSeriesDataPointsCommandOutput extends ListTimeSeriesDat
  *
  * @public
  */
-export class ListTimeSeriesDataPointsCommand extends $Command
-  .classBuilder<
-    ListTimeSeriesDataPointsCommandInput,
-    ListTimeSeriesDataPointsCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "ListTimeSeriesDataPoints", {})
-  .n("DataZoneClient", "ListTimeSeriesDataPointsCommand")
-  .sc(ListTimeSeriesDataPoints$)
-  .build() {
+export class ListTimeSeriesDataPointsCommand extends command<ListTimeSeriesDataPointsCommandInput, ListTimeSeriesDataPointsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTimeSeriesDataPoints",
+  ListTimeSeriesDataPoints$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

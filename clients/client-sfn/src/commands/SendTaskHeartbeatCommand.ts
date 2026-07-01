@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendTaskHeartbeatInput, SendTaskHeartbeatOutput } from "../models/models_0";
 import { SendTaskHeartbeat$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface SendTaskHeartbeatCommandOutput extends SendTaskHeartbeatOutput,
  *
  * @public
  */
-export class SendTaskHeartbeatCommand extends $Command
-  .classBuilder<
-    SendTaskHeartbeatCommandInput,
-    SendTaskHeartbeatCommandOutput,
-    SFNClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStepFunctions", "SendTaskHeartbeat", {})
-  .n("SFNClient", "SendTaskHeartbeatCommand")
-  .sc(SendTaskHeartbeat$)
-  .build() {
+export class SendTaskHeartbeatCommand extends command<SendTaskHeartbeatCommandInput, SendTaskHeartbeatCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendTaskHeartbeat",
+  SendTaskHeartbeat$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

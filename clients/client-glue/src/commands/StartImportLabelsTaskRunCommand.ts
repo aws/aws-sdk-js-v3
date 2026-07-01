@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartImportLabelsTaskRunRequest, StartImportLabelsTaskRunResponse } from "../models/models_3";
 import { StartImportLabelsTaskRun$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartImportLabelsTaskRun$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface StartImportLabelsTaskRunCommandOutput extends StartImportLabels
  *
  * @public
  */
-export class StartImportLabelsTaskRunCommand extends $Command
-  .classBuilder<
-    StartImportLabelsTaskRunCommandInput,
-    StartImportLabelsTaskRunCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "StartImportLabelsTaskRun", {})
-  .n("GlueClient", "StartImportLabelsTaskRunCommand")
-  .sc(StartImportLabelsTaskRun$)
-  .build() {
+export class StartImportLabelsTaskRunCommand extends command<StartImportLabelsTaskRunCommandInput, StartImportLabelsTaskRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartImportLabelsTaskRun",
+  StartImportLabelsTaskRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

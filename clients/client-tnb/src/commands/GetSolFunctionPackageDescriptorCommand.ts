@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import { Uint8ArrayBlobAdapter } from "@smithy/core/serde";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSolFunctionPackageDescriptorInput, GetSolFunctionPackageDescriptorOutput } from "../models/models_0";
 import { GetSolFunctionPackageDescriptor$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface GetSolFunctionPackageDescriptorCommandOutput extends GetSolFunc
  *
  * @public
  */
-export class GetSolFunctionPackageDescriptorCommand extends $Command
-  .classBuilder<
-    GetSolFunctionPackageDescriptorCommandInput,
-    GetSolFunctionPackageDescriptorCommandOutput,
-    TnbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TNB", "GetSolFunctionPackageDescriptor", {})
-  .n("TnbClient", "GetSolFunctionPackageDescriptorCommand")
-  .sc(GetSolFunctionPackageDescriptor$)
-  .build() {
+export class GetSolFunctionPackageDescriptorCommand extends command<GetSolFunctionPackageDescriptorCommandInput, GetSolFunctionPackageDescriptorCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSolFunctionPackageDescriptor",
+  GetSolFunctionPackageDescriptor$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

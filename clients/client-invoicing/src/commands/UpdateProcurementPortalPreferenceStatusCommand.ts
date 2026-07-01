@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InvoicingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InvoicingClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateProcurementPortalPreferenceStatusRequest,
   UpdateProcurementPortalPreferenceStatusResponse,
@@ -15,7 +12,6 @@ import { UpdateProcurementPortalPreferenceStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface UpdateProcurementPortalPreferenceStatusCommandOutput extends Up
  *
  * @public
  */
-export class UpdateProcurementPortalPreferenceStatusCommand extends $Command
-  .classBuilder<
-    UpdateProcurementPortalPreferenceStatusCommandInput,
-    UpdateProcurementPortalPreferenceStatusCommandOutput,
-    InvoicingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InvoicingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Invoicing", "UpdateProcurementPortalPreferenceStatus", {})
-  .n("InvoicingClient", "UpdateProcurementPortalPreferenceStatusCommand")
-  .sc(UpdateProcurementPortalPreferenceStatus$)
-  .build() {
+export class UpdateProcurementPortalPreferenceStatusCommand extends command<UpdateProcurementPortalPreferenceStatusCommandInput, UpdateProcurementPortalPreferenceStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateProcurementPortalPreferenceStatus",
+  UpdateProcurementPortalPreferenceStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

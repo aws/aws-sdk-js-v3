@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListOpsItemEventsRequest, ListOpsItemEventsResponse } from "../models/models_1";
 import { ListOpsItemEvents$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface ListOpsItemEventsCommandOutput extends ListOpsItemEventsRespons
  *
  * @public
  */
-export class ListOpsItemEventsCommand extends $Command
-  .classBuilder<
-    ListOpsItemEventsCommandInput,
-    ListOpsItemEventsCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "ListOpsItemEvents", {})
-  .n("SSMClient", "ListOpsItemEventsCommand")
-  .sc(ListOpsItemEvents$)
-  .build() {
+export class ListOpsItemEventsCommand extends command<ListOpsItemEventsCommandInput, ListOpsItemEventsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListOpsItemEvents",
+  ListOpsItemEvents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

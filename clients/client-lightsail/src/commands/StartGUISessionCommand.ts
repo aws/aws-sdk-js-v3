@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartGUISessionRequest, StartGUISessionResult } from "../models/models_1";
 import { StartGUISession$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartGUISession$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface StartGUISessionCommandOutput extends StartGUISessionResult, __M
  *
  * @public
  */
-export class StartGUISessionCommand extends $Command
-  .classBuilder<
-    StartGUISessionCommandInput,
-    StartGUISessionCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "StartGUISession", {})
-  .n("LightsailClient", "StartGUISessionCommand")
-  .sc(StartGUISession$)
-  .build() {
+export class StartGUISessionCommand extends command<StartGUISessionCommandInput, StartGUISessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartGUISession",
+  StartGUISession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

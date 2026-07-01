@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateRepositoryCreationTemplateRequest,
   CreateRepositoryCreationTemplateResponse,
@@ -15,7 +12,6 @@ import { CreateRepositoryCreationTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -138,22 +134,12 @@ export interface CreateRepositoryCreationTemplateCommandOutput extends CreateRep
  *
  * @public
  */
-export class CreateRepositoryCreationTemplateCommand extends $Command
-  .classBuilder<
-    CreateRepositoryCreationTemplateCommandInput,
-    CreateRepositoryCreationTemplateCommandOutput,
-    ECRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerRegistry_V20150921", "CreateRepositoryCreationTemplate", {})
-  .n("ECRClient", "CreateRepositoryCreationTemplateCommand")
-  .sc(CreateRepositoryCreationTemplate$)
-  .build() {
+export class CreateRepositoryCreationTemplateCommand extends command<CreateRepositoryCreationTemplateCommandInput, CreateRepositoryCreationTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRepositoryCreationTemplate",
+  CreateRepositoryCreationTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

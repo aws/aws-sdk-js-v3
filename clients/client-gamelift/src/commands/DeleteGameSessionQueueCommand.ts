@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteGameSessionQueueInput, DeleteGameSessionQueueOutput } from "../models/models_0";
 import { DeleteGameSessionQueue$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteGameSessionQueue$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DeleteGameSessionQueueCommandOutput extends DeleteGameSessionQu
  *
  * @public
  */
-export class DeleteGameSessionQueueCommand extends $Command
-  .classBuilder<
-    DeleteGameSessionQueueCommandInput,
-    DeleteGameSessionQueueCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "DeleteGameSessionQueue", {})
-  .n("GameLiftClient", "DeleteGameSessionQueueCommand")
-  .sc(DeleteGameSessionQueue$)
-  .build() {
+export class DeleteGameSessionQueueCommand extends command<DeleteGameSessionQueueCommandInput, DeleteGameSessionQueueCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteGameSessionQueue",
+  DeleteGameSessionQueue$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

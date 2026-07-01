@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAdapterVersionsRequest, ListAdapterVersionsResponse } from "../models/models_0";
 import { ListAdapterVersions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface ListAdapterVersionsCommandOutput extends ListAdapterVersionsRes
  *
  * @public
  */
-export class ListAdapterVersionsCommand extends $Command
-  .classBuilder<
-    ListAdapterVersionsCommandInput,
-    ListAdapterVersionsCommandOutput,
-    TextractClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Textract", "ListAdapterVersions", {})
-  .n("TextractClient", "ListAdapterVersionsCommand")
-  .sc(ListAdapterVersions$)
-  .build() {
+export class ListAdapterVersionsCommand extends command<ListAdapterVersionsCommandInput, ListAdapterVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAdapterVersions",
+  ListAdapterVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

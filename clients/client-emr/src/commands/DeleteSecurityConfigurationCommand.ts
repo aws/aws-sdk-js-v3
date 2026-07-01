@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSecurityConfigurationInput, DeleteSecurityConfigurationOutput } from "../models/models_0";
 import { DeleteSecurityConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteSecurityConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -64,22 +60,12 @@ export interface DeleteSecurityConfigurationCommandOutput extends DeleteSecurity
  *
  * @public
  */
-export class DeleteSecurityConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteSecurityConfigurationCommandInput,
-    DeleteSecurityConfigurationCommandOutput,
-    EMRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticMapReduce", "DeleteSecurityConfiguration", {})
-  .n("EMRClient", "DeleteSecurityConfigurationCommand")
-  .sc(DeleteSecurityConfiguration$)
-  .build() {
+export class DeleteSecurityConfigurationCommand extends command<DeleteSecurityConfigurationCommandInput, DeleteSecurityConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSecurityConfiguration",
+  DeleteSecurityConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

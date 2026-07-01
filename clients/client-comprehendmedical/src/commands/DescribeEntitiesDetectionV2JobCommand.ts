@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComprehendMedicalClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComprehendMedicalClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeEntitiesDetectionV2JobRequest, DescribeEntitiesDetectionV2JobResponse } from "../models/models_0";
 import { DescribeEntitiesDetectionV2Job$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeEntitiesDetectionV2Job$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +93,12 @@ export interface DescribeEntitiesDetectionV2JobCommandOutput extends DescribeEnt
  *
  * @public
  */
-export class DescribeEntitiesDetectionV2JobCommand extends $Command
-  .classBuilder<
-    DescribeEntitiesDetectionV2JobCommandInput,
-    DescribeEntitiesDetectionV2JobCommandOutput,
-    ComprehendMedicalClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComprehendMedical_20181030", "DescribeEntitiesDetectionV2Job", {})
-  .n("ComprehendMedicalClient", "DescribeEntitiesDetectionV2JobCommand")
-  .sc(DescribeEntitiesDetectionV2Job$)
-  .build() {
+export class DescribeEntitiesDetectionV2JobCommand extends command<DescribeEntitiesDetectionV2JobCommandInput, DescribeEntitiesDetectionV2JobCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEntitiesDetectionV2Job",
+  DescribeEntitiesDetectionV2Job$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

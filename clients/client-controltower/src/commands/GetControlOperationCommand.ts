@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetControlOperationInput, GetControlOperationOutput } from "../models/models_0";
 import { GetControlOperation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetControlOperation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
  *
  * @public
  */
-export class GetControlOperationCommand extends $Command
-  .classBuilder<
-    GetControlOperationCommandInput,
-    GetControlOperationCommandOutput,
-    ControlTowerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSControlTowerApis", "GetControlOperation", {})
-  .n("ControlTowerClient", "GetControlOperationCommand")
-  .sc(GetControlOperation$)
-  .build() {
+export class GetControlOperationCommand extends command<GetControlOperationCommandInput, GetControlOperationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetControlOperation",
+  GetControlOperation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

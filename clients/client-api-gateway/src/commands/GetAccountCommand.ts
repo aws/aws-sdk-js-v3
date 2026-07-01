@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { Account, GetAccountRequest } from "../models/models_0";
 import { GetAccount$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetAccount$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface GetAccountCommandOutput extends Account, __MetadataBearer {}
  *
  * @public
  */
-export class GetAccountCommand extends $Command
-  .classBuilder<
-    GetAccountCommandInput,
-    GetAccountCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "GetAccount", {})
-  .n("APIGatewayClient", "GetAccountCommand")
-  .sc(GetAccount$)
-  .build() {
+export class GetAccountCommand extends command<GetAccountCommandInput, GetAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAccount",
+  GetAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

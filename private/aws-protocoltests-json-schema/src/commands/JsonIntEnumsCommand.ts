@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { JsonIntEnumsInputOutput } from "../models/models_0";
 import { JsonIntEnums$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { JsonIntEnums$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface JsonIntEnumsCommandOutput extends JsonIntEnumsInputOutput, __Me
  *
  * @public
  */
-export class JsonIntEnumsCommand extends $Command
-  .classBuilder<
-    JsonIntEnumsCommandInput,
-    JsonIntEnumsCommandOutput,
-    JsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("JsonProtocol", "JsonIntEnums", {})
-  .n("JsonProtocolClient", "JsonIntEnumsCommand")
-  .sc(JsonIntEnums$)
-  .build() {
+export class JsonIntEnumsCommand extends command<JsonIntEnumsCommandInput, JsonIntEnumsCommandOutput>(
+  _ep0,
+  _mw0,
+  "JsonIntEnums",
+  JsonIntEnums$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

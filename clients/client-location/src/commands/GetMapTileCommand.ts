@@ -1,11 +1,8 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import { Uint8ArrayBlobAdapter } from "@smithy/core/serde";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMapTileRequest, GetMapTileResponse } from "../models/models_0";
 import { GetMapTile$ } from "../schemas/schemas_0";
 
@@ -13,7 +10,6 @@ import { GetMapTile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface GetMapTileCommandOutput extends GetMapTileCommandOutputType, __
  *
  * @public
  */
-export class GetMapTileCommand extends $Command
-  .classBuilder<
-    GetMapTileCommandInput,
-    GetMapTileCommandOutput,
-    LocationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LocationService", "GetMapTile", {})
-  .n("LocationClient", "GetMapTileCommand")
-  .sc(GetMapTile$)
-  .build() {
+export class GetMapTileCommand extends command<GetMapTileCommandInput, GetMapTileCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMapTile",
+  GetMapTile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

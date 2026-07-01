@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateClusterInput, UpdateClusterOutput } from "../models/models_0";
 import { UpdateCluster$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateCluster$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  *
  * @public
  */
-export class UpdateClusterCommand extends $Command
-  .classBuilder<
-    UpdateClusterCommandInput,
-    UpdateClusterCommandOutput,
-    DocDBElasticClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DocDBElasticClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeraDbLionfishServiceLambda", "UpdateCluster", {})
-  .n("DocDBElasticClient", "UpdateClusterCommand")
-  .sc(UpdateCluster$)
-  .build() {
+export class UpdateClusterCommand extends command<UpdateClusterCommandInput, UpdateClusterCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateCluster",
+  UpdateCluster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

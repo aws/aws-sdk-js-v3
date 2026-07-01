@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyVolumeRequest, ModifyVolumeResult } from "../models/models_7";
 import { ModifyVolume$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ModifyVolume$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __Metadat
  *
  * @public
  */
-export class ModifyVolumeCommand extends $Command
-  .classBuilder<
-    ModifyVolumeCommandInput,
-    ModifyVolumeCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "ModifyVolume", {})
-  .n("EC2Client", "ModifyVolumeCommand")
-  .sc(ModifyVolume$)
-  .build() {
+export class ModifyVolumeCommand extends command<ModifyVolumeCommandInput, ModifyVolumeCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyVolume",
+  ModifyVolume$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

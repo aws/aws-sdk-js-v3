@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchGetStandardsControlAssociationsRequest,
   BatchGetStandardsControlAssociationsResponse,
 } from "../models/models_2";
 import { BatchGetStandardsControlAssociations$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface BatchGetStandardsControlAssociationsCommandOutput extends Batch
  *
  * @public
  */
-export class BatchGetStandardsControlAssociationsCommand extends $Command
-  .classBuilder<
-    BatchGetStandardsControlAssociationsCommandInput,
-    BatchGetStandardsControlAssociationsCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "BatchGetStandardsControlAssociations", {})
-  .n("SecurityHubClient", "BatchGetStandardsControlAssociationsCommand")
-  .sc(BatchGetStandardsControlAssociations$)
-  .build() {
+export class BatchGetStandardsControlAssociationsCommand extends command<BatchGetStandardsControlAssociationsCommandInput, BatchGetStandardsControlAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetStandardsControlAssociations",
+  BatchGetStandardsControlAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

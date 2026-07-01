@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BCMPricingCalculatorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BCMPricingCalculatorClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListBillEstimateInputCommitmentModificationsRequest,
   ListBillEstimateInputCommitmentModificationsResponse,
@@ -19,7 +12,6 @@ import { ListBillEstimateInputCommitmentModifications$ } from "../schemas/schema
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +101,12 @@ export interface ListBillEstimateInputCommitmentModificationsCommandOutput exten
  *
  * @public
  */
-export class ListBillEstimateInputCommitmentModificationsCommand extends $Command
-  .classBuilder<
-    ListBillEstimateInputCommitmentModificationsCommandInput,
-    ListBillEstimateInputCommitmentModificationsCommandOutput,
-    BCMPricingCalculatorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BCMPricingCalculatorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBCMPricingCalculator", "ListBillEstimateInputCommitmentModifications", {})
-  .n("BCMPricingCalculatorClient", "ListBillEstimateInputCommitmentModificationsCommand")
-  .sc(ListBillEstimateInputCommitmentModifications$)
-  .build() {
+export class ListBillEstimateInputCommitmentModificationsCommand extends command<ListBillEstimateInputCommitmentModificationsCommandInput, ListBillEstimateInputCommitmentModificationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBillEstimateInputCommitmentModifications",
+  ListBillEstimateInputCommitmentModifications$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

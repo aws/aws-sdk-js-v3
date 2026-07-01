@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchPutDocumentRequest, BatchPutDocumentResponse } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { BatchPutDocument$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -203,22 +199,12 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  *
  * @public
  */
-export class BatchPutDocumentCommand extends $Command
-  .classBuilder<
-    BatchPutDocumentCommandInput,
-    BatchPutDocumentCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "BatchPutDocument", {})
-  .n("QBusinessClient", "BatchPutDocumentCommand")
-  .sc(BatchPutDocument$)
-  .build() {
+export class BatchPutDocumentCommand extends command<BatchPutDocumentCommandInput, BatchPutDocumentCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchPutDocument",
+  BatchPutDocument$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

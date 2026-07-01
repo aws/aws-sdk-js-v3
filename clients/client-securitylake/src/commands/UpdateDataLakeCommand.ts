@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDataLakeRequest, UpdateDataLakeResponse } from "../models/models_0";
 import { UpdateDataLake$ } from "../schemas/schemas_0";
-import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -154,22 +150,12 @@ export interface UpdateDataLakeCommandOutput extends UpdateDataLakeResponse, __M
  *
  * @public
  */
-export class UpdateDataLakeCommand extends $Command
-  .classBuilder<
-    UpdateDataLakeCommandInput,
-    UpdateDataLakeCommandOutput,
-    SecurityLakeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityLake", "UpdateDataLake", {})
-  .n("SecurityLakeClient", "UpdateDataLakeCommand")
-  .sc(UpdateDataLake$)
-  .build() {
+export class UpdateDataLakeCommand extends command<UpdateDataLakeCommandInput, UpdateDataLakeCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDataLake",
+  UpdateDataLake$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

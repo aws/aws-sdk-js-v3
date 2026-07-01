@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListIdentityPoliciesRequest, ListIdentityPoliciesResponse } from "../models/models_0";
 import { ListIdentityPolicies$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ListIdentityPoliciesCommandOutput extends ListIdentityPoliciesR
  *
  * @public
  */
-export class ListIdentityPoliciesCommand extends $Command
-  .classBuilder<
-    ListIdentityPoliciesCommandInput,
-    ListIdentityPoliciesCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "ListIdentityPolicies", {})
-  .n("SESClient", "ListIdentityPoliciesCommand")
-  .sc(ListIdentityPolicies$)
-  .build() {
+export class ListIdentityPoliciesCommand extends command<ListIdentityPoliciesCommandInput, ListIdentityPoliciesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListIdentityPolicies",
+  ListIdentityPolicies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

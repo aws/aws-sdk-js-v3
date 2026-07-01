@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateConfigurationSetReputationMetricsEnabledRequest } from "../models/models_0";
 import { UpdateConfigurationSetReputationMetricsEnabled$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput ext
  *
  * @public
  */
-export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Command
-  .classBuilder<
-    UpdateConfigurationSetReputationMetricsEnabledCommandInput,
-    UpdateConfigurationSetReputationMetricsEnabledCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "UpdateConfigurationSetReputationMetricsEnabled", {})
-  .n("SESClient", "UpdateConfigurationSetReputationMetricsEnabledCommand")
-  .sc(UpdateConfigurationSetReputationMetricsEnabled$)
-  .build() {
+export class UpdateConfigurationSetReputationMetricsEnabledCommand extends command<UpdateConfigurationSetReputationMetricsEnabledCommandInput, UpdateConfigurationSetReputationMetricsEnabledCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateConfigurationSetReputationMetricsEnabled",
+  UpdateConfigurationSetReputationMetricsEnabled$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDimensionValuesRequest, GetDimensionValuesResponse } from "../models/models_0";
 import { GetDimensionValues$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDimensionValues$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -176,22 +172,12 @@ export interface GetDimensionValuesCommandOutput extends GetDimensionValuesRespo
  *
  * @public
  */
-export class GetDimensionValuesCommand extends $Command
-  .classBuilder<
-    GetDimensionValuesCommandInput,
-    GetDimensionValuesCommandOutput,
-    CostExplorerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSInsightsIndexService", "GetDimensionValues", {})
-  .n("CostExplorerClient", "GetDimensionValuesCommand")
-  .sc(GetDimensionValues$)
-  .build() {
+export class GetDimensionValuesCommand extends command<GetDimensionValuesCommandInput, GetDimensionValuesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDimensionValues",
+  GetDimensionValues$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

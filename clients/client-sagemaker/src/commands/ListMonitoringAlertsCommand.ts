@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListMonitoringAlertsRequest, ListMonitoringAlertsResponse } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListMonitoringAlerts$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface ListMonitoringAlertsCommandOutput extends ListMonitoringAlertsR
  *
  * @public
  */
-export class ListMonitoringAlertsCommand extends $Command
-  .classBuilder<
-    ListMonitoringAlertsCommandInput,
-    ListMonitoringAlertsCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "ListMonitoringAlerts", {})
-  .n("SageMakerClient", "ListMonitoringAlertsCommand")
-  .sc(ListMonitoringAlerts$)
-  .build() {
+export class ListMonitoringAlertsCommand extends command<ListMonitoringAlertsCommandInput, ListMonitoringAlertsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMonitoringAlerts",
+  ListMonitoringAlerts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

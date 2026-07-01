@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopDBInstanceMessage, StopDBInstanceResult } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { StopDBInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -340,22 +336,12 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  *
  * @public
  */
-export class StopDBInstanceCommand extends $Command
-  .classBuilder<
-    StopDBInstanceCommandInput,
-    StopDBInstanceCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "StopDBInstance", {})
-  .n("RDSClient", "StopDBInstanceCommand")
-  .sc(StopDBInstance$)
-  .build() {
+export class StopDBInstanceCommand extends command<StopDBInstanceCommandInput, StopDBInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopDBInstance",
+  StopDBInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

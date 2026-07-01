@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRolePolicyRequest } from "../models/models_0";
 import { DeleteRolePolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteRolePolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface DeleteRolePolicyCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteRolePolicyCommand extends $Command
-  .classBuilder<
-    DeleteRolePolicyCommandInput,
-    DeleteRolePolicyCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "DeleteRolePolicy", {})
-  .n("IAMClient", "DeleteRolePolicyCommand")
-  .sc(DeleteRolePolicy$)
-  .build() {
+export class DeleteRolePolicyCommand extends command<DeleteRolePolicyCommandInput, DeleteRolePolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRolePolicy",
+  DeleteRolePolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

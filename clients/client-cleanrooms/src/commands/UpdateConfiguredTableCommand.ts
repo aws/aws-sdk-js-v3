@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateConfiguredTableInput, UpdateConfiguredTableOutput } from "../models/models_0";
 import { UpdateConfiguredTable$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateConfiguredTable$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -166,22 +162,12 @@ export interface UpdateConfiguredTableCommandOutput extends UpdateConfiguredTabl
  *
  * @public
  */
-export class UpdateConfiguredTableCommand extends $Command
-  .classBuilder<
-    UpdateConfiguredTableCommandInput,
-    UpdateConfiguredTableCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "UpdateConfiguredTable", {})
-  .n("CleanRoomsClient", "UpdateConfiguredTableCommand")
-  .sc(UpdateConfiguredTable$)
-  .build() {
+export class UpdateConfiguredTableCommand extends command<UpdateConfiguredTableCommandInput, UpdateConfiguredTableCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateConfiguredTable",
+  UpdateConfiguredTable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

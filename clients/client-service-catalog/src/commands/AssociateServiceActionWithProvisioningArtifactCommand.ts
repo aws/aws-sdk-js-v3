@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AssociateServiceActionWithProvisioningArtifactInput,
   AssociateServiceActionWithProvisioningArtifactOutput,
 } from "../models/models_0";
 import { AssociateServiceActionWithProvisioningArtifact$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface AssociateServiceActionWithProvisioningArtifactCommandOutput ext
  *
  * @public
  */
-export class AssociateServiceActionWithProvisioningArtifactCommand extends $Command
-  .classBuilder<
-    AssociateServiceActionWithProvisioningArtifactCommandInput,
-    AssociateServiceActionWithProvisioningArtifactCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "AssociateServiceActionWithProvisioningArtifact", {})
-  .n("ServiceCatalogClient", "AssociateServiceActionWithProvisioningArtifactCommand")
-  .sc(AssociateServiceActionWithProvisioningArtifact$)
-  .build() {
+export class AssociateServiceActionWithProvisioningArtifactCommand extends command<AssociateServiceActionWithProvisioningArtifactCommandInput, AssociateServiceActionWithProvisioningArtifactCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateServiceActionWithProvisioningArtifact",
+  AssociateServiceActionWithProvisioningArtifact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

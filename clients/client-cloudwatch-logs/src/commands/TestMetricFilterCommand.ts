@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TestMetricFilterRequest, TestMetricFilterResponse } from "../models/models_0";
 import { TestMetricFilter$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { TestMetricFilter$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface TestMetricFilterCommandOutput extends TestMetricFilterResponse,
  *
  * @public
  */
-export class TestMetricFilterCommand extends $Command
-  .classBuilder<
-    TestMetricFilterCommandInput,
-    TestMetricFilterCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "TestMetricFilter", {})
-  .n("CloudWatchLogsClient", "TestMetricFilterCommand")
-  .sc(TestMetricFilter$)
-  .build() {
+export class TestMetricFilterCommand extends command<TestMetricFilterCommandInput, TestMetricFilterCommandOutput>(
+  _ep0,
+  _mw0,
+  "TestMetricFilter",
+  TestMetricFilter$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

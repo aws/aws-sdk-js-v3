@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreatePresignedNotebookInstanceUrlInput,
   CreatePresignedNotebookInstanceUrlOutput,
 } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreatePresignedNotebookInstanceUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface CreatePresignedNotebookInstanceUrlCommandOutput extends CreateP
  *
  * @public
  */
-export class CreatePresignedNotebookInstanceUrlCommand extends $Command
-  .classBuilder<
-    CreatePresignedNotebookInstanceUrlCommandInput,
-    CreatePresignedNotebookInstanceUrlCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "CreatePresignedNotebookInstanceUrl", {})
-  .n("SageMakerClient", "CreatePresignedNotebookInstanceUrlCommand")
-  .sc(CreatePresignedNotebookInstanceUrl$)
-  .build() {
+export class CreatePresignedNotebookInstanceUrlCommand extends command<CreatePresignedNotebookInstanceUrlCommandInput, CreatePresignedNotebookInstanceUrlCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePresignedNotebookInstanceUrl",
+  CreatePresignedNotebookInstanceUrl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

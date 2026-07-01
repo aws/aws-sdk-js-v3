@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteWorkflowDefinitionRequest, DeleteWorkflowDefinitionResponse } from "../models/models_0";
-import type { NovaActClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NovaActClient";
 import { DeleteWorkflowDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DeleteWorkflowDefinitionCommandOutput extends DeleteWorkflowDef
  *
  * @public
  */
-export class DeleteWorkflowDefinitionCommand extends $Command
-  .classBuilder<
-    DeleteWorkflowDefinitionCommandInput,
-    DeleteWorkflowDefinitionCommandOutput,
-    NovaActClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NovaActClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNovaAgentsDataPlane", "DeleteWorkflowDefinition", {})
-  .n("NovaActClient", "DeleteWorkflowDefinitionCommand")
-  .sc(DeleteWorkflowDefinition$)
-  .build() {
+export class DeleteWorkflowDefinitionCommand extends command<DeleteWorkflowDefinitionCommandInput, DeleteWorkflowDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteWorkflowDefinition",
+  DeleteWorkflowDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

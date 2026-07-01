@@ -1,20 +1,14 @@
 // smithy-typescript generated code
-import { getLongPollPlugin } from "@aws-sdk/core/client";
-import { getReceiveMessagePlugin } from "@aws-sdk/middleware-sdk-sqs";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { ReceiveMessageRequest, ReceiveMessageResult } from "../models/models_0";
 import { ReceiveMessage$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -207,26 +201,12 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  *
  * @public
  */
-export class ReceiveMessageCommand extends $Command
-  .classBuilder<
-    ReceiveMessageCommandInput,
-    ReceiveMessageCommandOutput,
-    SQSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getReceiveMessagePlugin(config),
-      getLongPollPlugin(config),
-    ];
-  })
-  .s("AmazonSQS", "ReceiveMessage", {})
-  .n("SQSClient", "ReceiveMessageCommand")
-  .sc(ReceiveMessage$)
-  .build() {
+export class ReceiveMessageCommand extends command<ReceiveMessageCommandInput, ReceiveMessageCommandOutput>(
+  _ep0,
+  _mw1,
+  "ReceiveMessage",
+  ReceiveMessage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopCrawlerRequest, StopCrawlerResponse } from "../models/models_3";
 import { StopCrawler$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopCrawler$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __Metadat
  *
  * @public
  */
-export class StopCrawlerCommand extends $Command
-  .classBuilder<
-    StopCrawlerCommandInput,
-    StopCrawlerCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "StopCrawler", {})
-  .n("GlueClient", "StopCrawlerCommand")
-  .sc(StopCrawler$)
-  .build() {
+export class StopCrawlerCommand extends command<StopCrawlerCommandInput, StopCrawlerCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopCrawler",
+  StopCrawler$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopRecommenderRequest, StopRecommenderResponse } from "../models/models_0";
-import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { StopRecommender$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface StopRecommenderCommandOutput extends StopRecommenderResponse, _
  *
  * @public
  */
-export class StopRecommenderCommand extends $Command
-  .classBuilder<
-    StopRecommenderCommandInput,
-    StopRecommenderCommandOutput,
-    PersonalizeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPersonalize", "StopRecommender", {})
-  .n("PersonalizeClient", "StopRecommenderCommand")
-  .sc(StopRecommender$)
-  .build() {
+export class StopRecommenderCommand extends command<StopRecommenderCommandInput, StopRecommenderCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopRecommender",
+  StopRecommender$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

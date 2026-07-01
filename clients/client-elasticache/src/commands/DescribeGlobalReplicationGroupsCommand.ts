@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeGlobalReplicationGroupsMessage, DescribeGlobalReplicationGroupsResult } from "../models/models_0";
 import { DescribeGlobalReplicationGroups$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeGlobalReplicationGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface DescribeGlobalReplicationGroupsCommandOutput extends DescribeGl
  *
  * @public
  */
-export class DescribeGlobalReplicationGroupsCommand extends $Command
-  .classBuilder<
-    DescribeGlobalReplicationGroupsCommandInput,
-    DescribeGlobalReplicationGroupsCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "DescribeGlobalReplicationGroups", {})
-  .n("ElastiCacheClient", "DescribeGlobalReplicationGroupsCommand")
-  .sc(DescribeGlobalReplicationGroups$)
-  .build() {
+export class DescribeGlobalReplicationGroupsCommand extends command<DescribeGlobalReplicationGroupsCommandInput, DescribeGlobalReplicationGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeGlobalReplicationGroups",
+  DescribeGlobalReplicationGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

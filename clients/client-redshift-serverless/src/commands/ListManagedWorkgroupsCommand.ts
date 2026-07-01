@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListManagedWorkgroupsRequest, ListManagedWorkgroupsResponse } from "../models/models_0";
-import type {
-  RedshiftServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RedshiftServerlessClient";
 import { ListManagedWorkgroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface ListManagedWorkgroupsCommandOutput extends ListManagedWorkgroup
  *
  * @public
  */
-export class ListManagedWorkgroupsCommand extends $Command
-  .classBuilder<
-    ListManagedWorkgroupsCommandInput,
-    ListManagedWorkgroupsCommandOutput,
-    RedshiftServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServerless", "ListManagedWorkgroups", {})
-  .n("RedshiftServerlessClient", "ListManagedWorkgroupsCommand")
-  .sc(ListManagedWorkgroups$)
-  .build() {
+export class ListManagedWorkgroupsCommand extends command<ListManagedWorkgroupsCommandInput, ListManagedWorkgroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListManagedWorkgroups",
+  ListManagedWorkgroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

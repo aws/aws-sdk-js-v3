@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateAttributeGroupRequest, AssociateAttributeGroupResponse } from "../models/models_0";
 import { AssociateAttributeGroup$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogAppRegistryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogAppRegistryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface AssociateAttributeGroupCommandOutput extends AssociateAttribute
  *
  * @public
  */
-export class AssociateAttributeGroupCommand extends $Command
-  .classBuilder<
-    AssociateAttributeGroupCommandInput,
-    AssociateAttributeGroupCommandOutput,
-    ServiceCatalogAppRegistryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogAppRegistryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242AppRegistry", "AssociateAttributeGroup", {})
-  .n("ServiceCatalogAppRegistryClient", "AssociateAttributeGroupCommand")
-  .sc(AssociateAttributeGroup$)
-  .build() {
+export class AssociateAttributeGroupCommand extends command<AssociateAttributeGroupCommandInput, AssociateAttributeGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateAttributeGroup",
+  AssociateAttributeGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

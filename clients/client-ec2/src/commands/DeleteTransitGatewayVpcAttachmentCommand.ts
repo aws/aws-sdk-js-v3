@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteTransitGatewayVpcAttachmentRequest,
   DeleteTransitGatewayVpcAttachmentResult,
@@ -15,7 +12,6 @@ import { DeleteTransitGatewayVpcAttachment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface DeleteTransitGatewayVpcAttachmentCommandOutput extends DeleteTr
  *
  * @public
  */
-export class DeleteTransitGatewayVpcAttachmentCommand extends $Command
-  .classBuilder<
-    DeleteTransitGatewayVpcAttachmentCommandInput,
-    DeleteTransitGatewayVpcAttachmentCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeleteTransitGatewayVpcAttachment", {})
-  .n("EC2Client", "DeleteTransitGatewayVpcAttachmentCommand")
-  .sc(DeleteTransitGatewayVpcAttachment$)
-  .build() {
+export class DeleteTransitGatewayVpcAttachmentCommand extends command<DeleteTransitGatewayVpcAttachmentCommandInput, DeleteTransitGatewayVpcAttachmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTransitGatewayVpcAttachment",
+  DeleteTransitGatewayVpcAttachment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

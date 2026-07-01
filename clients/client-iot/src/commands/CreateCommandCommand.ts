@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCommandRequest, CreateCommandResponse } from "../models/models_0";
 import { CreateCommand$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateCommand$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -141,22 +137,12 @@ export interface CreateCommandCommandOutput extends CreateCommandResponse, __Met
  *
  * @public
  */
-export class CreateCommandCommand extends $Command
-  .classBuilder<
-    CreateCommandCommandInput,
-    CreateCommandCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "CreateCommand", {})
-  .n("IoTClient", "CreateCommandCommand")
-  .sc(CreateCommand$)
-  .build() {
+export class CreateCommandCommand extends command<CreateCommandCommandInput, CreateCommandCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCommand",
+  CreateCommand$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

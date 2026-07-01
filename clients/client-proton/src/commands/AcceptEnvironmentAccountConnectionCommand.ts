@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AcceptEnvironmentAccountConnectionInput,
   AcceptEnvironmentAccountConnectionOutput,
 } from "../models/models_0";
-import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 import { AcceptEnvironmentAccountConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface AcceptEnvironmentAccountConnectionCommandOutput extends AcceptE
  *
  * @public
  */
-export class AcceptEnvironmentAccountConnectionCommand extends $Command
-  .classBuilder<
-    AcceptEnvironmentAccountConnectionCommandInput,
-    AcceptEnvironmentAccountConnectionCommandOutput,
-    ProtonClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsProton20200720", "AcceptEnvironmentAccountConnection", {})
-  .n("ProtonClient", "AcceptEnvironmentAccountConnectionCommand")
-  .sc(AcceptEnvironmentAccountConnection$)
-  .build() {
+export class AcceptEnvironmentAccountConnectionCommand extends command<AcceptEnvironmentAccountConnectionCommandInput, AcceptEnvironmentAccountConnectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "AcceptEnvironmentAccountConnection",
+  AcceptEnvironmentAccountConnection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

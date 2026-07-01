@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListAttributeGroupsForApplicationRequest,
   ListAttributeGroupsForApplicationResponse,
 } from "../models/models_0";
 import { ListAttributeGroupsForApplication$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogAppRegistryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogAppRegistryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface ListAttributeGroupsForApplicationCommandOutput extends ListAttr
  *
  * @public
  */
-export class ListAttributeGroupsForApplicationCommand extends $Command
-  .classBuilder<
-    ListAttributeGroupsForApplicationCommandInput,
-    ListAttributeGroupsForApplicationCommandOutput,
-    ServiceCatalogAppRegistryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogAppRegistryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242AppRegistry", "ListAttributeGroupsForApplication", {})
-  .n("ServiceCatalogAppRegistryClient", "ListAttributeGroupsForApplicationCommand")
-  .sc(ListAttributeGroupsForApplication$)
-  .build() {
+export class ListAttributeGroupsForApplicationCommand extends command<ListAttributeGroupsForApplicationCommandInput, ListAttributeGroupsForApplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAttributeGroupsForApplication",
+  ListAttributeGroupsForApplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

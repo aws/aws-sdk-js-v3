@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListControlPanelsRequest, ListControlPanelsResponse } from "../models/models_0";
-import type {
-  Route53RecoveryControlConfigClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryControlConfigClient";
 import { ListControlPanels$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface ListControlPanelsCommandOutput extends ListControlPanelsRespons
  *
  * @public
  */
-export class ListControlPanelsCommand extends $Command
-  .classBuilder<
-    ListControlPanelsCommandInput,
-    ListControlPanelsCommandOutput,
-    Route53RecoveryControlConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53RecoveryControlConfig", "ListControlPanels", {})
-  .n("Route53RecoveryControlConfigClient", "ListControlPanelsCommand")
-  .sc(ListControlPanels$)
-  .build() {
+export class ListControlPanelsCommand extends command<ListControlPanelsCommandInput, ListControlPanelsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListControlPanels",
+  ListControlPanels$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

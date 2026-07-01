@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AccessAnalyzerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AccessAnalyzerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ValidatePolicyRequest, ValidatePolicyResponse } from "../models/models_0";
 import { ValidatePolicy$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ValidatePolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +107,12 @@ export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __M
  *
  * @public
  */
-export class ValidatePolicyCommand extends $Command
-  .classBuilder<
-    ValidatePolicyCommandInput,
-    ValidatePolicyCommandOutput,
-    AccessAnalyzerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AccessAnalyzer", "ValidatePolicy", {})
-  .n("AccessAnalyzerClient", "ValidatePolicyCommand")
-  .sc(ValidatePolicy$)
-  .build() {
+export class ValidatePolicyCommand extends command<ValidatePolicyCommandInput, ValidatePolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "ValidatePolicy",
+  ValidatePolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

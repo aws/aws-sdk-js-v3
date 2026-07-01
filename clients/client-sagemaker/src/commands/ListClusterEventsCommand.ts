@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListClusterEventsRequest, ListClusterEventsResponse } from "../models/models_3";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListClusterEvents$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface ListClusterEventsCommandOutput extends ListClusterEventsRespons
  *
  * @public
  */
-export class ListClusterEventsCommand extends $Command
-  .classBuilder<
-    ListClusterEventsCommandInput,
-    ListClusterEventsCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "ListClusterEvents", {})
-  .n("SageMakerClient", "ListClusterEventsCommand")
-  .sc(ListClusterEvents$)
-  .build() {
+export class ListClusterEventsCommand extends command<ListClusterEventsCommandInput, ListClusterEventsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListClusterEvents",
+  ListClusterEvents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

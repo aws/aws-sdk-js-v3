@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { SendBulkEmailRequest, SendBulkEmailResponse } from "../models/models_1";
 import { SendBulkEmail$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -167,25 +163,12 @@ export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __Met
  *
  * @public
  */
-export class SendBulkEmailCommand extends $Command
-  .classBuilder<
-    SendBulkEmailCommandInput,
-    SendBulkEmailCommandOutput,
-    SESv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    EndpointId: { type: "contextParams", name: "EndpointId" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService_v2", "SendBulkEmail", {})
-  .n("SESv2Client", "SendBulkEmailCommand")
-  .sc(SendBulkEmail$)
-  .build() {
+export class SendBulkEmailCommand extends command<SendBulkEmailCommandInput, SendBulkEmailCommandOutput>(
+  _ep1,
+  _mw0,
+  "SendBulkEmail",
+  SendBulkEmail$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

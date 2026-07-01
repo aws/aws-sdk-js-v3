@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteRepositoryPermissionsPolicyRequest,
   DeleteRepositoryPermissionsPolicyResult,
@@ -15,7 +12,6 @@ import { DeleteRepositoryPermissionsPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface DeleteRepositoryPermissionsPolicyCommandOutput extends DeleteRe
  *
  * @public
  */
-export class DeleteRepositoryPermissionsPolicyCommand extends $Command
-  .classBuilder<
-    DeleteRepositoryPermissionsPolicyCommandInput,
-    DeleteRepositoryPermissionsPolicyCommandOutput,
-    CodeartifactClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeArtifactControlPlaneService", "DeleteRepositoryPermissionsPolicy", {})
-  .n("CodeartifactClient", "DeleteRepositoryPermissionsPolicyCommand")
-  .sc(DeleteRepositoryPermissionsPolicy$)
-  .build() {
+export class DeleteRepositoryPermissionsPolicyCommand extends command<DeleteRepositoryPermissionsPolicyCommandInput, DeleteRepositoryPermissionsPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRepositoryPermissionsPolicy",
+  DeleteRepositoryPermissionsPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

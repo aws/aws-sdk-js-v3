@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateGlobalClusterMessage, CreateGlobalClusterResult } from "../models/models_0";
 import { CreateGlobalCluster$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateGlobalCluster$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  *
  * @public
  */
-export class CreateGlobalClusterCommand extends $Command
-  .classBuilder<
-    CreateGlobalClusterCommandInput,
-    CreateGlobalClusterCommandOutput,
-    DocDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "CreateGlobalCluster", {})
-  .n("DocDBClient", "CreateGlobalClusterCommand")
-  .sc(CreateGlobalCluster$)
-  .build() {
+export class CreateGlobalClusterCommand extends command<CreateGlobalClusterCommandInput, CreateGlobalClusterCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateGlobalCluster",
+  CreateGlobalCluster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

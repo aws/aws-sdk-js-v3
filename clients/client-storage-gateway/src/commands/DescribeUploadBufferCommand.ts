@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeUploadBufferInput, DescribeUploadBufferOutput } from "../models/models_0";
 import { DescribeUploadBuffer$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +113,12 @@ export interface DescribeUploadBufferCommandOutput extends DescribeUploadBufferO
  *
  * @public
  */
-export class DescribeUploadBufferCommand extends $Command
-  .classBuilder<
-    DescribeUploadBufferCommandInput,
-    DescribeUploadBufferCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "DescribeUploadBuffer", {})
-  .n("StorageGatewayClient", "DescribeUploadBufferCommand")
-  .sc(DescribeUploadBuffer$)
-  .build() {
+export class DescribeUploadBufferCommand extends command<DescribeUploadBufferCommandInput, DescribeUploadBufferCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeUploadBuffer",
+  DescribeUploadBuffer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

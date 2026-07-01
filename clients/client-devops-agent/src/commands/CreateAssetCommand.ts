@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAssetRequest, CreateAssetResponse } from "../models/models_0";
 import { CreateAsset$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateAsset$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface CreateAssetCommandOutput extends CreateAssetResponse, __Metadat
  *
  * @public
  */
-export class CreateAssetCommand extends $Command
-  .classBuilder<
-    CreateAssetCommandInput,
-    CreateAssetCommandOutput,
-    DevOpsAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DevOpsAgent", "CreateAsset", {})
-  .n("DevOpsAgentClient", "CreateAssetCommand")
-  .sc(CreateAsset$)
-  .build() {
+export class CreateAssetCommand extends command<CreateAssetCommandInput, CreateAssetCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAsset",
+  CreateAsset$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

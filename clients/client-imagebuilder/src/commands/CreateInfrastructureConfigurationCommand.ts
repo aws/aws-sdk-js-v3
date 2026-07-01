@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateInfrastructureConfigurationRequest,
   CreateInfrastructureConfigurationResponse,
@@ -15,7 +12,6 @@ import { CreateInfrastructureConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -137,22 +133,12 @@ export interface CreateInfrastructureConfigurationCommandOutput extends CreateIn
  *
  * @public
  */
-export class CreateInfrastructureConfigurationCommand extends $Command
-  .classBuilder<
-    CreateInfrastructureConfigurationCommandInput,
-    CreateInfrastructureConfigurationCommandOutput,
-    ImagebuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("imagebuilder", "CreateInfrastructureConfiguration", {})
-  .n("ImagebuilderClient", "CreateInfrastructureConfigurationCommand")
-  .sc(CreateInfrastructureConfiguration$)
-  .build() {
+export class CreateInfrastructureConfigurationCommand extends command<CreateInfrastructureConfigurationCommandInput, CreateInfrastructureConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateInfrastructureConfiguration",
+  CreateInfrastructureConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

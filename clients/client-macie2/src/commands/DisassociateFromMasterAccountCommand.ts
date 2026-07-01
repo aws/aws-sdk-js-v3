@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateFromMasterAccountRequest, DisassociateFromMasterAccountResponse } from "../models/models_0";
 import { DisassociateFromMasterAccount$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateFromMasterAccount$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DisassociateFromMasterAccountCommandOutput extends Disassociate
  *
  * @public
  */
-export class DisassociateFromMasterAccountCommand extends $Command
-  .classBuilder<
-    DisassociateFromMasterAccountCommandInput,
-    DisassociateFromMasterAccountCommandOutput,
-    Macie2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Macie2", "DisassociateFromMasterAccount", {})
-  .n("Macie2Client", "DisassociateFromMasterAccountCommand")
-  .sc(DisassociateFromMasterAccount$)
-  .build() {
+export class DisassociateFromMasterAccountCommand extends command<DisassociateFromMasterAccountCommandInput, DisassociateFromMasterAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateFromMasterAccount",
+  DisassociateFromMasterAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

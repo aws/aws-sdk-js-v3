@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ConnectCampaignsV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ConnectCampaignsV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetInstanceCommunicationLimitsRequest, GetInstanceCommunicationLimitsResponse } from "../models/models_0";
 import { GetInstanceCommunicationLimits$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetInstanceCommunicationLimits$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface GetInstanceCommunicationLimitsCommandOutput extends GetInstance
  *
  * @public
  */
-export class GetInstanceCommunicationLimitsCommand extends $Command
-  .classBuilder<
-    GetInstanceCommunicationLimitsCommandInput,
-    GetInstanceCommunicationLimitsCommandOutput,
-    ConnectCampaignsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCampaignServiceV2", "GetInstanceCommunicationLimits", {})
-  .n("ConnectCampaignsV2Client", "GetInstanceCommunicationLimitsCommand")
-  .sc(GetInstanceCommunicationLimits$)
-  .build() {
+export class GetInstanceCommunicationLimitsCommand extends command<GetInstanceCommunicationLimitsCommandInput, GetInstanceCommunicationLimitsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetInstanceCommunicationLimits",
+  GetInstanceCommunicationLimits$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

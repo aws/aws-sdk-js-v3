@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutCodeBindingRequest, PutCodeBindingResponse } from "../models/models_0";
 import { PutCodeBinding$ } from "../schemas/schemas_0";
-import type { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface PutCodeBindingCommandOutput extends PutCodeBindingResponse, __M
  *
  * @public
  */
-export class PutCodeBindingCommand extends $Command
-  .classBuilder<
-    PutCodeBindingCommandInput,
-    PutCodeBindingCommandOutput,
-    SchemasClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SchemasClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("schemas", "PutCodeBinding", {})
-  .n("SchemasClient", "PutCodeBindingCommand")
-  .sc(PutCodeBinding$)
-  .build() {
+export class PutCodeBindingCommand extends command<PutCodeBindingCommandInput, PutCodeBindingCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutCodeBinding",
+  PutCodeBinding$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

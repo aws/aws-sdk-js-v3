@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DetectTextRequest, DetectTextResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { DetectText$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -163,22 +159,12 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  *
  * @public
  */
-export class DetectTextCommand extends $Command
-  .classBuilder<
-    DetectTextCommandInput,
-    DetectTextCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "DetectText", {})
-  .n("RekognitionClient", "DetectTextCommand")
-  .sc(DetectText$)
-  .build() {
+export class DetectTextCommand extends command<DetectTextCommandInput, DetectTextCommandOutput>(
+  _ep0,
+  _mw0,
+  "DetectText",
+  DetectText$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

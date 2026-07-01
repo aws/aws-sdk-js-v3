@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteServiceActionInput, DeleteServiceActionOutput } from "../models/models_0";
 import { DeleteServiceAction$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +64,12 @@ export interface DeleteServiceActionCommandOutput extends DeleteServiceActionOut
  *
  * @public
  */
-export class DeleteServiceActionCommand extends $Command
-  .classBuilder<
-    DeleteServiceActionCommandInput,
-    DeleteServiceActionCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "DeleteServiceAction", {})
-  .n("ServiceCatalogClient", "DeleteServiceActionCommand")
-  .sc(DeleteServiceAction$)
-  .build() {
+export class DeleteServiceActionCommand extends command<DeleteServiceActionCommandInput, DeleteServiceActionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteServiceAction",
+  DeleteServiceAction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

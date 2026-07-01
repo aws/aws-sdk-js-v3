@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListClassificationJobsRequest, ListClassificationJobsResponse } from "../models/models_0";
 import { ListClassificationJobs$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListClassificationJobs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -176,22 +172,12 @@ export interface ListClassificationJobsCommandOutput extends ListClassificationJ
  *
  * @public
  */
-export class ListClassificationJobsCommand extends $Command
-  .classBuilder<
-    ListClassificationJobsCommandInput,
-    ListClassificationJobsCommandOutput,
-    Macie2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Macie2", "ListClassificationJobs", {})
-  .n("Macie2Client", "ListClassificationJobsCommand")
-  .sc(ListClassificationJobs$)
-  .build() {
+export class ListClassificationJobsCommand extends command<ListClassificationJobsCommandInput, ListClassificationJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListClassificationJobs",
+  ListClassificationJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

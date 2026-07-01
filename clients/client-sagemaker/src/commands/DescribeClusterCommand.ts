@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeClusterRequest, DescribeClusterResponse } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -344,22 +340,12 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  *
  * @public
  */
-export class DescribeClusterCommand extends $Command
-  .classBuilder<
-    DescribeClusterCommandInput,
-    DescribeClusterCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DescribeCluster", {})
-  .n("SageMakerClient", "DescribeClusterCommand")
-  .sc(DescribeCluster$)
-  .build() {
+export class DescribeClusterCommand extends command<DescribeClusterCommandInput, DescribeClusterCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCluster",
+  DescribeCluster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

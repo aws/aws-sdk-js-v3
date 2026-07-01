@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getSigV4AuthPlugin } from "@aws-sdk/middleware-signing";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SameAsServiceOutput } from "../models/models_0";
 import { SameAsService$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -58,25 +53,12 @@ export interface SameAsServiceCommandOutput extends SameAsServiceOutput, __Metad
  *
  *
  */
-export class SameAsServiceCommand extends $Command
-  .classBuilder<
-    SameAsServiceCommandInput,
-    SameAsServiceCommandOutput,
-    WeatherClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getSigV4AuthPlugin(config),
-    ];
-  })
-  .s("Weather", "SameAsService", {})
-  .n("WeatherClient", "SameAsServiceCommand")
-  .sc(SameAsService$)
-  .build() {
+export class SameAsServiceCommand extends command<SameAsServiceCommandInput, SameAsServiceCommandOutput>(
+  _ep0,
+  _mw0,
+  "SameAsService",
+  SameAsService$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

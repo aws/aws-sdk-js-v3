@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyUIBuilderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyUIBuilderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFormRequest } from "../models/models_0";
 import { DeleteForm$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteForm$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +64,12 @@ export interface DeleteFormCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteFormCommand extends $Command
-  .classBuilder<
-    DeleteFormCommandInput,
-    DeleteFormCommandOutput,
-    AmplifyUIBuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyUIBuilder", "DeleteForm", {})
-  .n("AmplifyUIBuilderClient", "DeleteFormCommand")
-  .sc(DeleteForm$)
-  .build() {
+export class DeleteFormCommand extends command<DeleteFormCommandInput, DeleteFormCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteForm",
+  DeleteForm$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

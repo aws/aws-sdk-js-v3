@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CostOptimizationHubClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CostOptimizationHubClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePreferencesRequest, UpdatePreferencesResponse } from "../models/models_0";
 import { UpdatePreferences$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdatePreferences$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface UpdatePreferencesCommandOutput extends UpdatePreferencesRespons
  *
  * @public
  */
-export class UpdatePreferencesCommand extends $Command
-  .classBuilder<
-    UpdatePreferencesCommandInput,
-    UpdatePreferencesCommandOutput,
-    CostOptimizationHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostOptimizationHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CostOptimizationHubService", "UpdatePreferences", {})
-  .n("CostOptimizationHubClient", "UpdatePreferencesCommand")
-  .sc(UpdatePreferences$)
-  .build() {
+export class UpdatePreferencesCommand extends command<UpdatePreferencesCommandInput, UpdatePreferencesCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePreferences",
+  UpdatePreferences$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,17 @@
 // smithy-typescript generated code
-import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3/s3-control";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep6, _mw1, command } from "../commandBuilder";
 import type {
   ListAccessPointsForDirectoryBucketsRequest,
   ListAccessPointsForDirectoryBucketsResult,
 } from "../models/models_0";
-import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { ListAccessPointsForDirectoryBuckets$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,30 +80,12 @@ export interface ListAccessPointsForDirectoryBucketsCommandOutput extends ListAc
  *
  * @public
  */
-export class ListAccessPointsForDirectoryBucketsCommand extends $Command
-  .classBuilder<
-    ListAccessPointsForDirectoryBucketsCommandInput,
-    ListAccessPointsForDirectoryBucketsCommandOutput,
-    S3ControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    RequiresAccountId: { type: "staticContextParams", value: true },
-    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
-    AccountId: { type: "contextParams", name: "AccountId" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getProcessArnablesPlugin(config),
-    ];
-  })
-  .s("AWSS3ControlServiceV20180820", "ListAccessPointsForDirectoryBuckets", {})
-  .n("S3ControlClient", "ListAccessPointsForDirectoryBucketsCommand")
-  .sc(ListAccessPointsForDirectoryBuckets$)
-  .build() {
+export class ListAccessPointsForDirectoryBucketsCommand extends command<ListAccessPointsForDirectoryBucketsCommandInput, ListAccessPointsForDirectoryBucketsCommandOutput>(
+  _ep6,
+  _mw1,
+  "ListAccessPointsForDirectoryBuckets",
+  ListAccessPointsForDirectoryBuckets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

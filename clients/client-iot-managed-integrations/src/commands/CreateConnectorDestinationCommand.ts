@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateConnectorDestinationRequest, CreateConnectorDestinationResponse } from "../models/models_0";
 import { CreateConnectorDestination$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateConnectorDestination$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +106,12 @@ export interface CreateConnectorDestinationCommandOutput extends CreateConnector
  *
  * @public
  */
-export class CreateConnectorDestinationCommand extends $Command
-  .classBuilder<
-    CreateConnectorDestinationCommandInput,
-    CreateConnectorDestinationCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "CreateConnectorDestination", {})
-  .n("IoTManagedIntegrationsClient", "CreateConnectorDestinationCommand")
-  .sc(CreateConnectorDestination$)
-  .build() {
+export class CreateConnectorDestinationCommand extends command<CreateConnectorDestinationCommandInput, CreateConnectorDestinationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateConnectorDestination",
+  CreateConnectorDestination$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

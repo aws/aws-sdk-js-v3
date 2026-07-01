@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCisScanConfigurationRequest, DeleteCisScanConfigurationResponse } from "../models/models_0";
 import { DeleteCisScanConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteCisScanConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface DeleteCisScanConfigurationCommandOutput extends DeleteCisScanCo
  *
  * @public
  */
-export class DeleteCisScanConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteCisScanConfigurationCommandInput,
-    DeleteCisScanConfigurationCommandOutput,
-    Inspector2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Inspector2", "DeleteCisScanConfiguration", {})
-  .n("Inspector2Client", "DeleteCisScanConfigurationCommand")
-  .sc(DeleteCisScanConfiguration$)
-  .build() {
+export class DeleteCisScanConfigurationCommand extends command<DeleteCisScanConfigurationCommandInput, DeleteCisScanConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCisScanConfiguration",
+  DeleteCisScanConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

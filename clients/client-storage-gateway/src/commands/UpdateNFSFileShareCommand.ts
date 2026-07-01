@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateNFSFileShareInput, UpdateNFSFileShareOutput } from "../models/models_0";
 import { UpdateNFSFileShare$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +110,12 @@ export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutpu
  *
  * @public
  */
-export class UpdateNFSFileShareCommand extends $Command
-  .classBuilder<
-    UpdateNFSFileShareCommandInput,
-    UpdateNFSFileShareCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "UpdateNFSFileShare", {})
-  .n("StorageGatewayClient", "UpdateNFSFileShareCommand")
-  .sc(UpdateNFSFileShare$)
-  .build() {
+export class UpdateNFSFileShareCommand extends command<UpdateNFSFileShareCommandInput, UpdateNFSFileShareCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateNFSFileShare",
+  UpdateNFSFileShare$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

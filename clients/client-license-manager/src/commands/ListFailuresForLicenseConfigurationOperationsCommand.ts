@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListFailuresForLicenseConfigurationOperationsRequest,
   ListFailuresForLicenseConfigurationOperationsResponse,
@@ -19,7 +12,6 @@ import { ListFailuresForLicenseConfigurationOperations$ } from "../schemas/schem
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +93,12 @@ export interface ListFailuresForLicenseConfigurationOperationsCommandOutput exte
  *
  * @public
  */
-export class ListFailuresForLicenseConfigurationOperationsCommand extends $Command
-  .classBuilder<
-    ListFailuresForLicenseConfigurationOperationsCommandInput,
-    ListFailuresForLicenseConfigurationOperationsCommandOutput,
-    LicenseManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLicenseManager", "ListFailuresForLicenseConfigurationOperations", {})
-  .n("LicenseManagerClient", "ListFailuresForLicenseConfigurationOperationsCommand")
-  .sc(ListFailuresForLicenseConfigurationOperations$)
-  .build() {
+export class ListFailuresForLicenseConfigurationOperationsCommand extends command<ListFailuresForLicenseConfigurationOperationsCommandInput, ListFailuresForLicenseConfigurationOperationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFailuresForLicenseConfigurationOperations",
+  ListFailuresForLicenseConfigurationOperations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

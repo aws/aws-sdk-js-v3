@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDirectoryRegistrationRequest } from "../models/models_0";
-import type {
-  PcaConnectorAdClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PcaConnectorAdClient";
 import { DeleteDirectoryRegistration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface DeleteDirectoryRegistrationCommandOutput extends __MetadataBear
  *
  * @public
  */
-export class DeleteDirectoryRegistrationCommand extends $Command
-  .classBuilder<
-    DeleteDirectoryRegistrationCommandInput,
-    DeleteDirectoryRegistrationCommandOutput,
-    PcaConnectorAdClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PcaConnectorAdClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PcaConnectorAd", "DeleteDirectoryRegistration", {})
-  .n("PcaConnectorAdClient", "DeleteDirectoryRegistrationCommand")
-  .sc(DeleteDirectoryRegistration$)
-  .build() {
+export class DeleteDirectoryRegistrationCommand extends command<DeleteDirectoryRegistrationCommandInput, DeleteDirectoryRegistrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDirectoryRegistration",
+  DeleteDirectoryRegistration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetResolverRequest, GetResolverResponse } from "../models/models_0";
 import { GetResolver$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetResolver$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface GetResolverCommandOutput extends GetResolverResponse, __Metadat
  *
  * @public
  */
-export class GetResolverCommand extends $Command
-  .classBuilder<
-    GetResolverCommandInput,
-    GetResolverCommandOutput,
-    AppSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepdishControlPlaneService", "GetResolver", {})
-  .n("AppSyncClient", "GetResolverCommand")
-  .sc(GetResolver$)
-  .build() {
+export class GetResolverCommand extends command<GetResolverCommandInput, GetResolverCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetResolver",
+  GetResolver$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

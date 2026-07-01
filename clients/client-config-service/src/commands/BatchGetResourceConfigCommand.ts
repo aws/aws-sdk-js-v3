@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetResourceConfigRequest, BatchGetResourceConfigResponse } from "../models/models_0";
 import { BatchGetResourceConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetResourceConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -149,22 +145,12 @@ export interface BatchGetResourceConfigCommandOutput extends BatchGetResourceCon
  *
  * @public
  */
-export class BatchGetResourceConfigCommand extends $Command
-  .classBuilder<
-    BatchGetResourceConfigCommandInput,
-    BatchGetResourceConfigCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "BatchGetResourceConfig", {})
-  .n("ConfigServiceClient", "BatchGetResourceConfigCommand")
-  .sc(BatchGetResourceConfig$)
-  .build() {
+export class BatchGetResourceConfigCommand extends command<BatchGetResourceConfigCommandInput, BatchGetResourceConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetResourceConfig",
+  BatchGetResourceConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

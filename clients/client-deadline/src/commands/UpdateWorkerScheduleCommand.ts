@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateWorkerScheduleRequest, UpdateWorkerScheduleResponse } from "../models/models_0";
 import { UpdateWorkerSchedule$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateWorkerSchedule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -147,22 +143,12 @@ export interface UpdateWorkerScheduleCommandOutput extends UpdateWorkerScheduleR
  *
  * @public
  */
-export class UpdateWorkerScheduleCommand extends $Command
-  .classBuilder<
-    UpdateWorkerScheduleCommandInput,
-    UpdateWorkerScheduleCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "UpdateWorkerSchedule", {})
-  .n("DeadlineClient", "UpdateWorkerScheduleCommand")
-  .sc(UpdateWorkerSchedule$)
-  .build() {
+export class UpdateWorkerScheduleCommand extends command<UpdateWorkerScheduleCommandInput, UpdateWorkerScheduleCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateWorkerSchedule",
+  UpdateWorkerSchedule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

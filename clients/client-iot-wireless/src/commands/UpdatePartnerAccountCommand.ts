@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePartnerAccountRequest, UpdatePartnerAccountResponse } from "../models/models_1";
 import { UpdatePartnerAccount$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdatePartnerAccount$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface UpdatePartnerAccountCommandOutput extends UpdatePartnerAccountR
  *
  * @public
  */
-export class UpdatePartnerAccountCommand extends $Command
-  .classBuilder<
-    UpdatePartnerAccountCommandInput,
-    UpdatePartnerAccountCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "UpdatePartnerAccount", {})
-  .n("IoTWirelessClient", "UpdatePartnerAccountCommand")
-  .sc(UpdatePartnerAccount$)
-  .build() {
+export class UpdatePartnerAccountCommand extends command<UpdatePartnerAccountCommandInput, UpdatePartnerAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePartnerAccount",
+  UpdatePartnerAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

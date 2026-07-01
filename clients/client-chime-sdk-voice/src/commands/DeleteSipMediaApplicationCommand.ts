@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSipMediaApplicationRequest } from "../models/models_0";
 import { DeleteSipMediaApplication$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteSipMediaApplication$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface DeleteSipMediaApplicationCommandOutput extends __MetadataBearer
  *
  * @public
  */
-export class DeleteSipMediaApplicationCommand extends $Command
-  .classBuilder<
-    DeleteSipMediaApplicationCommandInput,
-    DeleteSipMediaApplicationCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "DeleteSipMediaApplication", {})
-  .n("ChimeSDKVoiceClient", "DeleteSipMediaApplicationCommand")
-  .sc(DeleteSipMediaApplication$)
-  .build() {
+export class DeleteSipMediaApplicationCommand extends command<DeleteSipMediaApplicationCommandInput, DeleteSipMediaApplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSipMediaApplication",
+  DeleteSipMediaApplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

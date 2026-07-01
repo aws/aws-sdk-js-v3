@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRunGroupRequest, CreateRunGroupResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { CreateRunGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface CreateRunGroupCommandOutput extends CreateRunGroupResponse, __M
  *
  * @public
  */
-export class CreateRunGroupCommand extends $Command
-  .classBuilder<
-    CreateRunGroupCommandInput,
-    CreateRunGroupCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "CreateRunGroup", {})
-  .n("OmicsClient", "CreateRunGroupCommand")
-  .sc(CreateRunGroup$)
-  .build() {
+export class CreateRunGroupCommand extends command<CreateRunGroupCommandInput, CreateRunGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRunGroup",
+  CreateRunGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

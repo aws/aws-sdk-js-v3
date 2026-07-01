@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteIntegrationResourcePropertyRequest,
   DeleteIntegrationResourcePropertyResponse,
@@ -15,7 +12,6 @@ import { DeleteIntegrationResourceProperty$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface DeleteIntegrationResourcePropertyCommandOutput extends DeleteIn
  *
  * @public
  */
-export class DeleteIntegrationResourcePropertyCommand extends $Command
-  .classBuilder<
-    DeleteIntegrationResourcePropertyCommandInput,
-    DeleteIntegrationResourcePropertyCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "DeleteIntegrationResourceProperty", {})
-  .n("GlueClient", "DeleteIntegrationResourcePropertyCommand")
-  .sc(DeleteIntegrationResourceProperty$)
-  .build() {
+export class DeleteIntegrationResourcePropertyCommand extends command<DeleteIntegrationResourcePropertyCommandInput, DeleteIntegrationResourcePropertyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteIntegrationResourceProperty",
+  DeleteIntegrationResourceProperty$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

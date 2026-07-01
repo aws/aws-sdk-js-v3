@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateConnectorRequest, CreateConnectorResponse } from "../models/models_0";
-import type {
-  PcaConnectorScepClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PcaConnectorScepClient";
 import { CreateConnector$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  *
  * @public
  */
-export class CreateConnectorCommand extends $Command
-  .classBuilder<
-    CreateConnectorCommandInput,
-    CreateConnectorCommandOutput,
-    PcaConnectorScepClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PcaConnectorScepClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PcaConnectorScep", "CreateConnector", {})
-  .n("PcaConnectorScepClient", "CreateConnectorCommand")
-  .sc(CreateConnector$)
-  .build() {
+export class CreateConnectorCommand extends command<CreateConnectorCommandInput, CreateConnectorCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateConnector",
+  CreateConnector$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

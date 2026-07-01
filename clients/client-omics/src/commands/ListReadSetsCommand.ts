@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListReadSetsRequest, ListReadSetsResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { ListReadSets$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +114,12 @@ export interface ListReadSetsCommandOutput extends ListReadSetsResponse, __Metad
  *
  * @public
  */
-export class ListReadSetsCommand extends $Command
-  .classBuilder<
-    ListReadSetsCommandInput,
-    ListReadSetsCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "ListReadSets", {})
-  .n("OmicsClient", "ListReadSetsCommand")
-  .sc(ListReadSets$)
-  .build() {
+export class ListReadSetsCommand extends command<ListReadSetsCommandInput, ListReadSetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListReadSets",
+  ListReadSets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

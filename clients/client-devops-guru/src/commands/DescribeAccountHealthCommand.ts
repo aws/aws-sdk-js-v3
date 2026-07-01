@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAccountHealthRequest, DescribeAccountHealthResponse } from "../models/models_0";
 import { DescribeAccountHealth$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeAccountHealth$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DescribeAccountHealthCommandOutput extends DescribeAccountHealt
  *
  * @public
  */
-export class DescribeAccountHealthCommand extends $Command
-  .classBuilder<
-    DescribeAccountHealthCommandInput,
-    DescribeAccountHealthCommandOutput,
-    DevOpsGuruClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CapstoneControlPlaneService", "DescribeAccountHealth", {})
-  .n("DevOpsGuruClient", "DescribeAccountHealthCommand")
-  .sc(DescribeAccountHealth$)
-  .build() {
+export class DescribeAccountHealthCommand extends command<DescribeAccountHealthCommandInput, DescribeAccountHealthCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAccountHealth",
+  DescribeAccountHealth$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

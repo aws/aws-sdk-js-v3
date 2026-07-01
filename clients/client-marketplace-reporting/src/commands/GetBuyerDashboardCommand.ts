@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceReportingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceReportingClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetBuyerDashboardInput, GetBuyerDashboardOutput } from "../models/models_0";
 import { GetBuyerDashboard$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetBuyerDashboard$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +132,12 @@ export interface GetBuyerDashboardCommandOutput extends GetBuyerDashboardOutput,
  *
  * @public
  */
-export class GetBuyerDashboardCommand extends $Command
-  .classBuilder<
-    GetBuyerDashboardCommandInput,
-    GetBuyerDashboardCommandOutput,
-    MarketplaceReportingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceReportingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMarketplaceReporting", "GetBuyerDashboard", {})
-  .n("MarketplaceReportingClient", "GetBuyerDashboardCommand")
-  .sc(GetBuyerDashboard$)
-  .build() {
+export class GetBuyerDashboardCommand extends command<GetBuyerDashboardCommandInput, GetBuyerDashboardCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetBuyerDashboard",
+  GetBuyerDashboard$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

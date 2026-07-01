@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListComputationModelResolveToResourcesRequest,
   ListComputationModelResolveToResourcesResponse,
@@ -15,7 +12,6 @@ import { ListComputationModelResolveToResources$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface ListComputationModelResolveToResourcesCommandOutput extends Lis
  *
  * @public
  */
-export class ListComputationModelResolveToResourcesCommand extends $Command
-  .classBuilder<
-    ListComputationModelResolveToResourcesCommandInput,
-    ListComputationModelResolveToResourcesCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "ListComputationModelResolveToResources", {})
-  .n("IoTSiteWiseClient", "ListComputationModelResolveToResourcesCommand")
-  .sc(ListComputationModelResolveToResources$)
-  .build() {
+export class ListComputationModelResolveToResourcesCommand extends command<ListComputationModelResolveToResourcesCommandInput, ListComputationModelResolveToResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListComputationModelResolveToResources",
+  ListComputationModelResolveToResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

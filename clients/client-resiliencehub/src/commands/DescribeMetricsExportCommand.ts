@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeMetricsExportRequest, DescribeMetricsExportResponse } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { DescribeMetricsExport$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DescribeMetricsExportCommandOutput extends DescribeMetricsExpor
  *
  * @public
  */
-export class DescribeMetricsExportCommand extends $Command
-  .classBuilder<
-    DescribeMetricsExportCommandInput,
-    DescribeMetricsExportCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "DescribeMetricsExport", {})
-  .n("ResiliencehubClient", "DescribeMetricsExportCommand")
-  .sc(DescribeMetricsExport$)
-  .build() {
+export class DescribeMetricsExportCommand extends command<DescribeMetricsExportCommandInput, DescribeMetricsExportCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeMetricsExport",
+  DescribeMetricsExport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

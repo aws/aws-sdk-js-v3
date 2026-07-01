@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { FlushStageCacheRequest } from "../models/models_0";
 import { FlushStageCache$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { FlushStageCache$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface FlushStageCacheCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class FlushStageCacheCommand extends $Command
-  .classBuilder<
-    FlushStageCacheCommandInput,
-    FlushStageCacheCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "FlushStageCache", {})
-  .n("APIGatewayClient", "FlushStageCacheCommand")
-  .sc(FlushStageCache$)
-  .build() {
+export class FlushStageCacheCommand extends command<FlushStageCacheCommandInput, FlushStageCacheCommandOutput>(
+  _ep0,
+  _mw0,
+  "FlushStageCache",
+  FlushStageCache$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

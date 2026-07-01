@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { FailoverGlobalReplicationGroupMessage, FailoverGlobalReplicationGroupResult } from "../models/models_0";
 import { FailoverGlobalReplicationGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { FailoverGlobalReplicationGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface FailoverGlobalReplicationGroupCommandOutput extends FailoverGlo
  *
  * @public
  */
-export class FailoverGlobalReplicationGroupCommand extends $Command
-  .classBuilder<
-    FailoverGlobalReplicationGroupCommandInput,
-    FailoverGlobalReplicationGroupCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "FailoverGlobalReplicationGroup", {})
-  .n("ElastiCacheClient", "FailoverGlobalReplicationGroupCommand")
-  .sc(FailoverGlobalReplicationGroup$)
-  .build() {
+export class FailoverGlobalReplicationGroupCommand extends command<FailoverGlobalReplicationGroupCommandInput, FailoverGlobalReplicationGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "FailoverGlobalReplicationGroup",
+  FailoverGlobalReplicationGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListStepConsumersRequest } from "../models/models_0";
 import type { ListStepConsumersResponse } from "../models/models_1";
 import { ListStepConsumers$ } from "../schemas/schemas_0";
@@ -13,7 +10,6 @@ import { ListStepConsumers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface ListStepConsumersCommandOutput extends ListStepConsumersRespons
  *
  * @public
  */
-export class ListStepConsumersCommand extends $Command
-  .classBuilder<
-    ListStepConsumersCommandInput,
-    ListStepConsumersCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "ListStepConsumers", {})
-  .n("DeadlineClient", "ListStepConsumersCommand")
-  .sc(ListStepConsumers$)
-  .build() {
+export class ListStepConsumersCommand extends command<ListStepConsumersCommandInput, ListStepConsumersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListStepConsumers",
+  ListStepConsumers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

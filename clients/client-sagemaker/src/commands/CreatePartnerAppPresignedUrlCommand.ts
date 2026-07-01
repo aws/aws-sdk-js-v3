@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePartnerAppPresignedUrlRequest, CreatePartnerAppPresignedUrlResponse } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreatePartnerAppPresignedUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -64,22 +60,12 @@ export interface CreatePartnerAppPresignedUrlCommandOutput extends CreatePartner
  *
  * @public
  */
-export class CreatePartnerAppPresignedUrlCommand extends $Command
-  .classBuilder<
-    CreatePartnerAppPresignedUrlCommandInput,
-    CreatePartnerAppPresignedUrlCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "CreatePartnerAppPresignedUrl", {})
-  .n("SageMakerClient", "CreatePartnerAppPresignedUrlCommand")
-  .sc(CreatePartnerAppPresignedUrl$)
-  .build() {
+export class CreatePartnerAppPresignedUrlCommand extends command<CreatePartnerAppPresignedUrlCommandInput, CreatePartnerAppPresignedUrlCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePartnerAppPresignedUrl",
+  CreatePartnerAppPresignedUrl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

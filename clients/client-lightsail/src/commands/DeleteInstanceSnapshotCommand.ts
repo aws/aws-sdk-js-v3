@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteInstanceSnapshotRequest, DeleteInstanceSnapshotResult } from "../models/models_0";
 import { DeleteInstanceSnapshot$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteInstanceSnapshot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +111,12 @@ export interface DeleteInstanceSnapshotCommandOutput extends DeleteInstanceSnaps
  *
  * @public
  */
-export class DeleteInstanceSnapshotCommand extends $Command
-  .classBuilder<
-    DeleteInstanceSnapshotCommandInput,
-    DeleteInstanceSnapshotCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "DeleteInstanceSnapshot", {})
-  .n("LightsailClient", "DeleteInstanceSnapshotCommand")
-  .sc(DeleteInstanceSnapshot$)
-  .build() {
+export class DeleteInstanceSnapshotCommand extends command<DeleteInstanceSnapshotCommandInput, DeleteInstanceSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteInstanceSnapshot",
+  DeleteInstanceSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

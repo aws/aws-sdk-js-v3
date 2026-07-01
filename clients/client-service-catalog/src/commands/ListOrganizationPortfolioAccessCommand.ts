@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListOrganizationPortfolioAccessInput, ListOrganizationPortfolioAccessOutput } from "../models/models_0";
 import { ListOrganizationPortfolioAccess$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface ListOrganizationPortfolioAccessCommandOutput extends ListOrgani
  *
  * @public
  */
-export class ListOrganizationPortfolioAccessCommand extends $Command
-  .classBuilder<
-    ListOrganizationPortfolioAccessCommandInput,
-    ListOrganizationPortfolioAccessCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "ListOrganizationPortfolioAccess", {})
-  .n("ServiceCatalogClient", "ListOrganizationPortfolioAccessCommand")
-  .sc(ListOrganizationPortfolioAccess$)
-  .build() {
+export class ListOrganizationPortfolioAccessCommand extends command<ListOrganizationPortfolioAccessCommandInput, ListOrganizationPortfolioAccessCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListOrganizationPortfolioAccess",
+  ListOrganizationPortfolioAccess$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetAgentSpacesInput, BatchGetAgentSpacesOutput } from "../models/models_0";
 import { BatchGetAgentSpaces$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface BatchGetAgentSpacesCommandOutput extends BatchGetAgentSpacesOut
  *
  * @public
  */
-export class BatchGetAgentSpacesCommand extends $Command
-  .classBuilder<
-    BatchGetAgentSpacesCommandInput,
-    BatchGetAgentSpacesCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "BatchGetAgentSpaces", {})
-  .n("SecurityAgentClient", "BatchGetAgentSpacesCommand")
-  .sc(BatchGetAgentSpaces$)
-  .build() {
+export class BatchGetAgentSpacesCommand extends command<BatchGetAgentSpacesCommandInput, BatchGetAgentSpacesCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetAgentSpaces",
+  BatchGetAgentSpaces$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

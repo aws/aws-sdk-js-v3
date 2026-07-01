@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ContinueServiceDeploymentRequest, ContinueServiceDeploymentResponse } from "../models/models_0";
 import { ContinueServiceDeployment$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ContinueServiceDeployment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface ContinueServiceDeploymentCommandOutput extends ContinueServiceD
  *
  * @public
  */
-export class ContinueServiceDeploymentCommand extends $Command
-  .classBuilder<
-    ContinueServiceDeploymentCommandInput,
-    ContinueServiceDeploymentCommandOutput,
-    ECSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerServiceV20141113", "ContinueServiceDeployment", {})
-  .n("ECSClient", "ContinueServiceDeploymentCommand")
-  .sc(ContinueServiceDeployment$)
-  .build() {
+export class ContinueServiceDeploymentCommand extends command<ContinueServiceDeploymentCommandInput, ContinueServiceDeploymentCommandOutput>(
+  _ep0,
+  _mw0,
+  "ContinueServiceDeployment",
+  ContinueServiceDeployment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

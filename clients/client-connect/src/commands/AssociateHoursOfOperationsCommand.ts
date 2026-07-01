@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateHoursOfOperationsRequest } from "../models/models_0";
 import { AssociateHoursOfOperations$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateHoursOfOperations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface AssociateHoursOfOperationsCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class AssociateHoursOfOperationsCommand extends $Command
-  .classBuilder<
-    AssociateHoursOfOperationsCommandInput,
-    AssociateHoursOfOperationsCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "AssociateHoursOfOperations", {})
-  .n("ConnectClient", "AssociateHoursOfOperationsCommand")
-  .sc(AssociateHoursOfOperations$)
-  .build() {
+export class AssociateHoursOfOperationsCommand extends command<AssociateHoursOfOperationsCommandInput, AssociateHoursOfOperationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateHoursOfOperations",
+  AssociateHoursOfOperations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

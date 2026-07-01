@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CostAndUsageReportServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CostAndUsageReportServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeReportDefinitionsRequest, DescribeReportDefinitionsResponse } from "../models/models_0";
 import { DescribeReportDefinitions$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeReportDefinitions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -137,22 +129,12 @@ export interface DescribeReportDefinitionsCommandOutput extends DescribeReportDe
  *
  * @public
  */
-export class DescribeReportDefinitionsCommand extends $Command
-  .classBuilder<
-    DescribeReportDefinitionsCommandInput,
-    DescribeReportDefinitionsCommandOutput,
-    CostAndUsageReportServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostAndUsageReportServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrigamiServiceGatewayService", "DescribeReportDefinitions", {})
-  .n("CostAndUsageReportServiceClient", "DescribeReportDefinitionsCommand")
-  .sc(DescribeReportDefinitions$)
-  .build() {
+export class DescribeReportDefinitionsCommand extends command<DescribeReportDefinitionsCommandInput, DescribeReportDefinitionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeReportDefinitions",
+  DescribeReportDefinitions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

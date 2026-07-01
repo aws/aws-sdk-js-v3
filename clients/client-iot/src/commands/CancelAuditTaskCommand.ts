@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelAuditTaskRequest, CancelAuditTaskResponse } from "../models/models_0";
 import { CancelAuditTask$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CancelAuditTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface CancelAuditTaskCommandOutput extends CancelAuditTaskResponse, _
  *
  * @public
  */
-export class CancelAuditTaskCommand extends $Command
-  .classBuilder<
-    CancelAuditTaskCommandInput,
-    CancelAuditTaskCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "CancelAuditTask", {})
-  .n("IoTClient", "CancelAuditTaskCommand")
-  .sc(CancelAuditTask$)
-  .build() {
+export class CancelAuditTaskCommand extends command<CancelAuditTaskCommandInput, CancelAuditTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelAuditTask",
+  CancelAuditTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

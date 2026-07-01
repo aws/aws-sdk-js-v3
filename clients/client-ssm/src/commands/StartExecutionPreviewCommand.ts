@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartExecutionPreviewRequest, StartExecutionPreviewResponse } from "../models/models_1";
 import { StartExecutionPreview$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -144,22 +140,12 @@ export interface StartExecutionPreviewCommandOutput extends StartExecutionPrevie
  *
  * @public
  */
-export class StartExecutionPreviewCommand extends $Command
-  .classBuilder<
-    StartExecutionPreviewCommandInput,
-    StartExecutionPreviewCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "StartExecutionPreview", {})
-  .n("SSMClient", "StartExecutionPreviewCommand")
-  .sc(StartExecutionPreview$)
-  .build() {
+export class StartExecutionPreviewCommand extends command<StartExecutionPreviewCommandInput, StartExecutionPreviewCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartExecutionPreview",
+  StartExecutionPreview$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

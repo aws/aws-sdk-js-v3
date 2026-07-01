@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSamplingTargetsRequest, GetSamplingTargetsResult } from "../models/models_0";
 import { GetSamplingTargets$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface GetSamplingTargetsCommandOutput extends GetSamplingTargetsResul
  *
  * @public
  */
-export class GetSamplingTargetsCommand extends $Command
-  .classBuilder<
-    GetSamplingTargetsCommandInput,
-    GetSamplingTargetsCommandOutput,
-    XRayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSXRay", "GetSamplingTargets", {})
-  .n("XRayClient", "GetSamplingTargetsCommand")
-  .sc(GetSamplingTargets$)
-  .build() {
+export class GetSamplingTargetsCommand extends command<GetSamplingTargetsCommandInput, GetSamplingTargetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSamplingTargets",
+  GetSamplingTargets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

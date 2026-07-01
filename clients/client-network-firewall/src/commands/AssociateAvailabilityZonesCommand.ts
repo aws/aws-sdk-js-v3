@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateAvailabilityZonesRequest, AssociateAvailabilityZonesResponse } from "../models/models_0";
-import type {
-  NetworkFirewallClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFirewallClient";
 import { AssociateAvailabilityZones$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +107,12 @@ export interface AssociateAvailabilityZonesCommandOutput extends AssociateAvaila
  *
  * @public
  */
-export class AssociateAvailabilityZonesCommand extends $Command
-  .classBuilder<
-    AssociateAvailabilityZonesCommandInput,
-    AssociateAvailabilityZonesCommandOutput,
-    NetworkFirewallClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFirewall_20201112", "AssociateAvailabilityZones", {})
-  .n("NetworkFirewallClient", "AssociateAvailabilityZonesCommand")
-  .sc(AssociateAvailabilityZones$)
-  .build() {
+export class AssociateAvailabilityZonesCommand extends command<AssociateAvailabilityZonesCommandInput, AssociateAvailabilityZonesCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateAvailabilityZones",
+  AssociateAvailabilityZones$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

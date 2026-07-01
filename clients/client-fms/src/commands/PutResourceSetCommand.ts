@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutResourceSetRequest, PutResourceSetResponse } from "../models/models_0";
 import { PutResourceSet$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutResourceSet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface PutResourceSetCommandOutput extends PutResourceSetResponse, __M
  *
  * @public
  */
-export class PutResourceSetCommand extends $Command
-  .classBuilder<
-    PutResourceSetCommandInput,
-    PutResourceSetCommandOutput,
-    FMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSFMS_20180101", "PutResourceSet", {})
-  .n("FMSClient", "PutResourceSetCommand")
-  .sc(PutResourceSet$)
-  .build() {
+export class PutResourceSetCommand extends command<PutResourceSetCommandInput, PutResourceSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutResourceSet",
+  PutResourceSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

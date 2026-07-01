@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListApplicationAssignmentsForPrincipalRequest,
   ListApplicationAssignmentsForPrincipalResponse,
 } from "../models/models_0";
 import { ListApplicationAssignmentsForPrincipal$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface ListApplicationAssignmentsForPrincipalCommandOutput extends Lis
  *
  * @public
  */
-export class ListApplicationAssignmentsForPrincipalCommand extends $Command
-  .classBuilder<
-    ListApplicationAssignmentsForPrincipalCommandInput,
-    ListApplicationAssignmentsForPrincipalCommandOutput,
-    SSOAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBExternalService", "ListApplicationAssignmentsForPrincipal", {})
-  .n("SSOAdminClient", "ListApplicationAssignmentsForPrincipalCommand")
-  .sc(ListApplicationAssignmentsForPrincipal$)
-  .build() {
+export class ListApplicationAssignmentsForPrincipalCommand extends command<ListApplicationAssignmentsForPrincipalCommandInput, ListApplicationAssignmentsForPrincipalCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListApplicationAssignmentsForPrincipal",
+  ListApplicationAssignmentsForPrincipal$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

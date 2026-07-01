@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteServiceLinkedConfigurationRecorderRequest,
   DeleteServiceLinkedConfigurationRecorderResponse,
@@ -15,7 +12,6 @@ import { DeleteServiceLinkedConfigurationRecorder$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -129,22 +125,12 @@ export interface DeleteServiceLinkedConfigurationRecorderCommandOutput extends D
  *
  * @public
  */
-export class DeleteServiceLinkedConfigurationRecorderCommand extends $Command
-  .classBuilder<
-    DeleteServiceLinkedConfigurationRecorderCommandInput,
-    DeleteServiceLinkedConfigurationRecorderCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DeleteServiceLinkedConfigurationRecorder", {})
-  .n("ConfigServiceClient", "DeleteServiceLinkedConfigurationRecorderCommand")
-  .sc(DeleteServiceLinkedConfigurationRecorder$)
-  .build() {
+export class DeleteServiceLinkedConfigurationRecorderCommand extends command<DeleteServiceLinkedConfigurationRecorderCommandInput, DeleteServiceLinkedConfigurationRecorderCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteServiceLinkedConfigurationRecorder",
+  DeleteServiceLinkedConfigurationRecorder$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

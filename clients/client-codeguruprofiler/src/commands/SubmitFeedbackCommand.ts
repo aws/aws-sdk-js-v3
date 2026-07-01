@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeGuruProfilerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeGuruProfilerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SubmitFeedbackRequest, SubmitFeedbackResponse } from "../models/models_0";
 import { SubmitFeedback$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { SubmitFeedback$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +69,12 @@ export interface SubmitFeedbackCommandOutput extends SubmitFeedbackResponse, __M
  *
  * @public
  */
-export class SubmitFeedbackCommand extends $Command
-  .classBuilder<
-    SubmitFeedbackCommandInput,
-    SubmitFeedbackCommandOutput,
-    CodeGuruProfilerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeGuruProfilerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeGuruProfiler", "SubmitFeedback", {})
-  .n("CodeGuruProfilerClient", "SubmitFeedbackCommand")
-  .sc(SubmitFeedback$)
-  .build() {
+export class SubmitFeedbackCommand extends command<SubmitFeedbackCommandInput, SubmitFeedbackCommandOutput>(
+  _ep0,
+  _mw0,
+  "SubmitFeedback",
+  SubmitFeedback$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

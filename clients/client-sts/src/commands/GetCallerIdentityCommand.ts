@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCallerIdentityRequest, GetCallerIdentityResponse } from "../models/models_0";
 import { GetCallerIdentity$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface GetCallerIdentityCommandOutput extends GetCallerIdentityRespons
  *
  * @public
  */
-export class GetCallerIdentityCommand extends $Command
-  .classBuilder<
-    GetCallerIdentityCommandInput,
-    GetCallerIdentityCommandOutput,
-    STSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: STSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSecurityTokenServiceV20110615", "GetCallerIdentity", {})
-  .n("STSClient", "GetCallerIdentityCommand")
-  .sc(GetCallerIdentity$)
-  .build() {
+export class GetCallerIdentityCommand extends command<GetCallerIdentityCommandInput, GetCallerIdentityCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCallerIdentity",
+  GetCallerIdentity$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

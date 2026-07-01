@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRevocationStatusRequest, GetRevocationStatusResponse } from "../models/models_0";
 import { GetRevocationStatus$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SignerDataClientResolvedConfig } from "../SignerDataClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface GetRevocationStatusCommandOutput extends GetRevocationStatusRes
  *
  * @public
  */
-export class GetRevocationStatusCommand extends $Command
-  .classBuilder<
-    GetRevocationStatusCommandInput,
-    GetRevocationStatusCommandOutput,
-    SignerDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SignerDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SignerDataPlane", "GetRevocationStatus", {})
-  .n("SignerDataClient", "GetRevocationStatusCommand")
-  .sc(GetRevocationStatus$)
-  .build() {
+export class GetRevocationStatusCommand extends command<GetRevocationStatusCommandInput, GetRevocationStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRevocationStatus",
+  GetRevocationStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

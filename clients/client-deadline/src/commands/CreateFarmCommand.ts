@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFarmRequest, CreateFarmResponse } from "../models/models_0";
 import { CreateFarm$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateFarm$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface CreateFarmCommandOutput extends CreateFarmResponse, __MetadataB
  *
  * @public
  */
-export class CreateFarmCommand extends $Command
-  .classBuilder<
-    CreateFarmCommandInput,
-    CreateFarmCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "CreateFarm", {})
-  .n("DeadlineClient", "CreateFarmCommand")
-  .sc(CreateFarm$)
-  .build() {
+export class CreateFarmCommand extends command<CreateFarmCommandInput, CreateFarmCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateFarm",
+  CreateFarm$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

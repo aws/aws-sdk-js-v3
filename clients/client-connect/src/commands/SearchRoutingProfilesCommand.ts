@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchRoutingProfilesRequest, SearchRoutingProfilesResponse } from "../models/models_3";
 import { SearchRoutingProfiles$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SearchRoutingProfiles$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -161,22 +157,12 @@ export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfile
  *
  * @public
  */
-export class SearchRoutingProfilesCommand extends $Command
-  .classBuilder<
-    SearchRoutingProfilesCommandInput,
-    SearchRoutingProfilesCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "SearchRoutingProfiles", {})
-  .n("ConnectClient", "SearchRoutingProfilesCommand")
-  .sc(SearchRoutingProfiles$)
-  .build() {
+export class SearchRoutingProfilesCommand extends command<SearchRoutingProfilesCommandInput, SearchRoutingProfilesCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchRoutingProfiles",
+  SearchRoutingProfiles$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

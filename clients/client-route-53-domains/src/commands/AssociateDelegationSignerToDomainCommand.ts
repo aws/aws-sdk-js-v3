@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AssociateDelegationSignerToDomainRequest,
   AssociateDelegationSignerToDomainResponse,
 } from "../models/models_0";
-import type {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53DomainsClient";
 import { AssociateDelegationSignerToDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface AssociateDelegationSignerToDomainCommandOutput extends Associat
  *
  * @public
  */
-export class AssociateDelegationSignerToDomainCommand extends $Command
-  .classBuilder<
-    AssociateDelegationSignerToDomainCommandInput,
-    AssociateDelegationSignerToDomainCommandOutput,
-    Route53DomainsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Domains_v20140515", "AssociateDelegationSignerToDomain", {})
-  .n("Route53DomainsClient", "AssociateDelegationSignerToDomainCommand")
-  .sc(AssociateDelegationSignerToDomain$)
-  .build() {
+export class AssociateDelegationSignerToDomainCommand extends command<AssociateDelegationSignerToDomainCommandInput, AssociateDelegationSignerToDomainCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateDelegationSignerToDomain",
+  AssociateDelegationSignerToDomain$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CopyDistributionRequest, CopyDistributionResult } from "../models/models_0";
 import { CopyDistribution$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CopyDistribution$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -636,22 +632,12 @@ export interface CopyDistributionCommandOutput extends CopyDistributionResult, _
  *
  * @public
  */
-export class CopyDistributionCommand extends $Command
-  .classBuilder<
-    CopyDistributionCommandInput,
-    CopyDistributionCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "CopyDistribution", {})
-  .n("CloudFrontClient", "CopyDistributionCommand")
-  .sc(CopyDistribution$)
-  .build() {
+export class CopyDistributionCommand extends command<CopyDistributionCommandInput, CopyDistributionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CopyDistribution",
+  CopyDistribution$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

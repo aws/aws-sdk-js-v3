@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteComponentTypeRequest, DeleteComponentTypeResponse } from "../models/models_0";
 import { DeleteComponentType$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteComponentType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteComponentTypeCommandOutput extends DeleteComponentTypeRes
  *
  * @public
  */
-export class DeleteComponentTypeCommand extends $Command
-  .classBuilder<
-    DeleteComponentTypeCommandInput,
-    DeleteComponentTypeCommandOutput,
-    IoTTwinMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTTwinMaker", "DeleteComponentType", {})
-  .n("IoTTwinMakerClient", "DeleteComponentTypeCommand")
-  .sc(DeleteComponentType$)
-  .build() {
+export class DeleteComponentTypeCommand extends command<DeleteComponentTypeCommandInput, DeleteComponentTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteComponentType",
+  DeleteComponentType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

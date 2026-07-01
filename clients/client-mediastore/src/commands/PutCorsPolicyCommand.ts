@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutCorsPolicyInput, PutCorsPolicyOutput } from "../models/models_0";
 import { PutCorsPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutCorsPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface PutCorsPolicyCommandOutput extends PutCorsPolicyOutput, __Metad
  *
  * @public
  */
-export class PutCorsPolicyCommand extends $Command
-  .classBuilder<
-    PutCorsPolicyCommandInput,
-    PutCorsPolicyCommandOutput,
-    MediaStoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaStoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaStore_20170901", "PutCorsPolicy", {})
-  .n("MediaStoreClient", "PutCorsPolicyCommand")
-  .sc(PutCorsPolicy$)
-  .build() {
+export class PutCorsPolicyCommand extends command<PutCorsPolicyCommandInput, PutCorsPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutCorsPolicy",
+  PutCorsPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

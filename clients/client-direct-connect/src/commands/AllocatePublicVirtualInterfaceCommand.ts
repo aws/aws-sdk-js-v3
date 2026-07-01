@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AllocatePublicVirtualInterfaceRequest, VirtualInterface } from "../models/models_0";
 import { AllocatePublicVirtualInterface$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AllocatePublicVirtualInterface$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -152,22 +148,12 @@ export interface AllocatePublicVirtualInterfaceCommandOutput extends VirtualInte
  *
  * @public
  */
-export class AllocatePublicVirtualInterfaceCommand extends $Command
-  .classBuilder<
-    AllocatePublicVirtualInterfaceCommandInput,
-    AllocatePublicVirtualInterfaceCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "AllocatePublicVirtualInterface", {})
-  .n("DirectConnectClient", "AllocatePublicVirtualInterfaceCommand")
-  .sc(AllocatePublicVirtualInterface$)
-  .build() {
+export class AllocatePublicVirtualInterfaceCommand extends command<AllocatePublicVirtualInterfaceCommandInput, AllocatePublicVirtualInterfaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "AllocatePublicVirtualInterface",
+  AllocatePublicVirtualInterface$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

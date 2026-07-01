@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAssetRevisionsInput, ListAssetRevisionsOutput } from "../models/models_1";
 import { ListAssetRevisions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAssetRevisions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ListAssetRevisionsCommandOutput extends ListAssetRevisionsOutpu
  *
  * @public
  */
-export class ListAssetRevisionsCommand extends $Command
-  .classBuilder<
-    ListAssetRevisionsCommandInput,
-    ListAssetRevisionsCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "ListAssetRevisions", {})
-  .n("DataZoneClient", "ListAssetRevisionsCommand")
-  .sc(ListAssetRevisions$)
-  .build() {
+export class ListAssetRevisionsCommand extends command<ListAssetRevisionsCommandInput, ListAssetRevisionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAssetRevisions",
+  ListAssetRevisions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

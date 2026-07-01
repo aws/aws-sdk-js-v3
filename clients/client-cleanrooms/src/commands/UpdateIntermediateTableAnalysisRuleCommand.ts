@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateIntermediateTableAnalysisRuleInput } from "../models/models_0";
 import type { UpdateIntermediateTableAnalysisRuleOutput } from "../models/models_1";
 import { UpdateIntermediateTableAnalysisRule$ } from "../schemas/schemas_0";
@@ -13,7 +10,6 @@ import { UpdateIntermediateTableAnalysisRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -144,22 +140,12 @@ export interface UpdateIntermediateTableAnalysisRuleCommandOutput extends Update
  *
  * @public
  */
-export class UpdateIntermediateTableAnalysisRuleCommand extends $Command
-  .classBuilder<
-    UpdateIntermediateTableAnalysisRuleCommandInput,
-    UpdateIntermediateTableAnalysisRuleCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "UpdateIntermediateTableAnalysisRule", {})
-  .n("CleanRoomsClient", "UpdateIntermediateTableAnalysisRuleCommand")
-  .sc(UpdateIntermediateTableAnalysisRule$)
-  .build() {
+export class UpdateIntermediateTableAnalysisRuleCommand extends command<UpdateIntermediateTableAnalysisRuleCommandInput, UpdateIntermediateTableAnalysisRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateIntermediateTableAnalysisRule",
+  UpdateIntermediateTableAnalysisRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

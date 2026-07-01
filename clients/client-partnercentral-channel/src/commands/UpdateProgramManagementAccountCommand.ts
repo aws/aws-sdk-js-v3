@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateProgramManagementAccountRequest, UpdateProgramManagementAccountResponse } from "../models/models_0";
-import type {
-  PartnerCentralChannelClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralChannelClient";
 import { UpdateProgramManagementAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +104,12 @@ export interface UpdateProgramManagementAccountCommandOutput extends UpdateProgr
  *
  * @public
  */
-export class UpdateProgramManagementAccountCommand extends $Command
-  .classBuilder<
-    UpdateProgramManagementAccountCommandInput,
-    UpdateProgramManagementAccountCommandOutput,
-    PartnerCentralChannelClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralChannelClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralChannel", "UpdateProgramManagementAccount", {})
-  .n("PartnerCentralChannelClient", "UpdateProgramManagementAccountCommand")
-  .sc(UpdateProgramManagementAccount$)
-  .build() {
+export class UpdateProgramManagementAccountCommand extends command<UpdateProgramManagementAccountCommandInput, UpdateProgramManagementAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateProgramManagementAccount",
+  UpdateProgramManagementAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

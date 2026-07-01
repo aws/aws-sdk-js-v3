@@ -1,22 +1,17 @@
 // smithy-typescript generated code
-import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep3, _mw0, command } from "../commandBuilder";
 import type {
   ListBucketIntelligentTieringConfigurationsOutput,
   ListBucketIntelligentTieringConfigurationsRequest,
 } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { ListBucketIntelligentTieringConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,29 +117,12 @@ export interface ListBucketIntelligentTieringConfigurationsCommandOutput extends
  *
  * @public
  */
-export class ListBucketIntelligentTieringConfigurationsCommand extends $Command
-  .classBuilder<
-    ListBucketIntelligentTieringConfigurationsCommandInput,
-    ListBucketIntelligentTieringConfigurationsCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "ListBucketIntelligentTieringConfigurations", {})
-  .n("S3Client", "ListBucketIntelligentTieringConfigurationsCommand")
-  .sc(ListBucketIntelligentTieringConfigurations$)
-  .build() {
+export class ListBucketIntelligentTieringConfigurationsCommand extends command<ListBucketIntelligentTieringConfigurationsCommandInput, ListBucketIntelligentTieringConfigurationsCommandOutput>(
+  _ep3,
+  _mw0,
+  "ListBucketIntelligentTieringConfigurations",
+  ListBucketIntelligentTieringConfigurations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

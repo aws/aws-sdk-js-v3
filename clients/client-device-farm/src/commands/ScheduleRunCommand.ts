@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ScheduleRunRequest, ScheduleRunResult } from "../models/models_0";
 import { ScheduleRun$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ScheduleRun$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -277,22 +273,12 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  *
  * @public
  */
-export class ScheduleRunCommand extends $Command
-  .classBuilder<
-    ScheduleRunCommandInput,
-    ScheduleRunCommandOutput,
-    DeviceFarmClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DeviceFarm_20150623", "ScheduleRun", {})
-  .n("DeviceFarmClient", "ScheduleRunCommand")
-  .sc(ScheduleRun$)
-  .build() {
+export class ScheduleRunCommand extends command<ScheduleRunCommandInput, ScheduleRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "ScheduleRun",
+  ScheduleRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

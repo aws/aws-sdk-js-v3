@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  GlobalAcceleratorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../GlobalAcceleratorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCrossAccountAttachmentRequest, CreateCrossAccountAttachmentResponse } from "../models/models_0";
 import { CreateCrossAccountAttachment$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateCrossAccountAttachment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -127,22 +119,12 @@ export interface CreateCrossAccountAttachmentCommandOutput extends CreateCrossAc
  *
  * @public
  */
-export class CreateCrossAccountAttachmentCommand extends $Command
-  .classBuilder<
-    CreateCrossAccountAttachmentCommandInput,
-    CreateCrossAccountAttachmentCommandOutput,
-    GlobalAcceleratorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GlobalAccelerator_V20180706", "CreateCrossAccountAttachment", {})
-  .n("GlobalAcceleratorClient", "CreateCrossAccountAttachmentCommand")
-  .sc(CreateCrossAccountAttachment$)
-  .build() {
+export class CreateCrossAccountAttachmentCommand extends command<CreateCrossAccountAttachmentCommandInput, CreateCrossAccountAttachmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCrossAccountAttachment",
+  CreateCrossAccountAttachment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

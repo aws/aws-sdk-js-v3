@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAttackRequest, DescribeAttackResponse } from "../models/models_0";
 import { DescribeAttack$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __M
  *
  * @public
  */
-export class DescribeAttackCommand extends $Command
-  .classBuilder<
-    DescribeAttackCommandInput,
-    DescribeAttackCommandOutput,
-    ShieldClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShield_20160616", "DescribeAttack", {})
-  .n("ShieldClient", "DescribeAttackCommand")
-  .sc(DescribeAttack$)
-  .build() {
+export class DescribeAttackCommand extends command<DescribeAttackCommandInput, DescribeAttackCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAttack",
+  DescribeAttack$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

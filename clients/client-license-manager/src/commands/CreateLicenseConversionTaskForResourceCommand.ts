@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateLicenseConversionTaskForResourceRequest,
   CreateLicenseConversionTaskForResourceResponse,
@@ -19,7 +12,6 @@ import { CreateLicenseConversionTaskForResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +95,12 @@ export interface CreateLicenseConversionTaskForResourceCommandOutput extends Cre
  *
  * @public
  */
-export class CreateLicenseConversionTaskForResourceCommand extends $Command
-  .classBuilder<
-    CreateLicenseConversionTaskForResourceCommandInput,
-    CreateLicenseConversionTaskForResourceCommandOutput,
-    LicenseManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLicenseManager", "CreateLicenseConversionTaskForResource", {})
-  .n("LicenseManagerClient", "CreateLicenseConversionTaskForResourceCommand")
-  .sc(CreateLicenseConversionTaskForResource$)
-  .build() {
+export class CreateLicenseConversionTaskForResourceCommand extends command<CreateLicenseConversionTaskForResourceCommandInput, CreateLicenseConversionTaskForResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateLicenseConversionTaskForResource",
+  CreateLicenseConversionTaskForResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

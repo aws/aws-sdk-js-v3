@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDomainsRequest, GetDomainsResult } from "../models/models_0";
 import { GetDomains$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDomains$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -134,22 +130,12 @@ export interface GetDomainsCommandOutput extends GetDomainsResult, __MetadataBea
  *
  * @public
  */
-export class GetDomainsCommand extends $Command
-  .classBuilder<
-    GetDomainsCommandInput,
-    GetDomainsCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "GetDomains", {})
-  .n("LightsailClient", "GetDomainsCommand")
-  .sc(GetDomains$)
-  .build() {
+export class GetDomainsCommand extends command<GetDomainsCommandInput, GetDomainsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDomains",
+  GetDomains$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteUserRequest, DeleteUserResponse } from "../models/models_0";
 import { DeleteUser$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface DeleteUserCommandOutput extends DeleteUserResponse, __MetadataB
  *
  * @public
  */
-export class DeleteUserCommand extends $Command
-  .classBuilder<
-    DeleteUserCommandInput,
-    DeleteUserCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "DeleteUser", {})
-  .n("WorkMailClient", "DeleteUserCommand")
-  .sc(DeleteUser$)
-  .build() {
+export class DeleteUserCommand extends command<DeleteUserCommandInput, DeleteUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteUser",
+  DeleteUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

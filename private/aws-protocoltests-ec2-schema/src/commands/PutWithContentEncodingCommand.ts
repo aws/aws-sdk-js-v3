@@ -1,11 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
-import { getCompressionPlugin } from "@smithy/middleware-compression";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { PutWithContentEncodingInput } from "../models/models_0";
 import { PutWithContentEncoding$ } from "../schemas/schemas_0";
 
@@ -13,7 +9,6 @@ import { PutWithContentEncoding$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -59,27 +54,12 @@ export interface PutWithContentEncodingCommandOutput extends __MetadataBearer {}
  *
  *
  */
-export class PutWithContentEncodingCommand extends $Command
-  .classBuilder<
-    PutWithContentEncodingCommandInput,
-    PutWithContentEncodingCommandOutput,
-    EC2ProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ProtocolClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getCompressionPlugin(config, {
-        'encodings': ['gzip'],
-      }),
-    ];
-  })
-  .s("AwsEc2", "PutWithContentEncoding", {})
-  .n("EC2ProtocolClient", "PutWithContentEncodingCommand")
-  .sc(PutWithContentEncoding$)
-  .build() {
+export class PutWithContentEncodingCommand extends command<PutWithContentEncodingCommandInput, PutWithContentEncodingCommandOutput>(
+  _ep0,
+  _mw1,
+  "PutWithContentEncoding",
+  PutWithContentEncoding$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

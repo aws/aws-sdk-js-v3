@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDirectoryRegistrationsRequest, ListDirectoryRegistrationsResponse } from "../models/models_0";
-import type {
-  PcaConnectorAdClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PcaConnectorAdClient";
 import { ListDirectoryRegistrations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface ListDirectoryRegistrationsCommandOutput extends ListDirectoryRe
  *
  * @public
  */
-export class ListDirectoryRegistrationsCommand extends $Command
-  .classBuilder<
-    ListDirectoryRegistrationsCommandInput,
-    ListDirectoryRegistrationsCommandOutput,
-    PcaConnectorAdClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PcaConnectorAdClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PcaConnectorAd", "ListDirectoryRegistrations", {})
-  .n("PcaConnectorAdClient", "ListDirectoryRegistrationsCommand")
-  .sc(ListDirectoryRegistrations$)
-  .build() {
+export class ListDirectoryRegistrationsCommand extends command<ListDirectoryRegistrationsCommandInput, ListDirectoryRegistrationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDirectoryRegistrations",
+  ListDirectoryRegistrations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

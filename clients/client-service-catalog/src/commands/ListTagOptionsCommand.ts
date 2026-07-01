@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTagOptionsInput, ListTagOptionsOutput } from "../models/models_0";
 import { ListTagOptions$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface ListTagOptionsCommandOutput extends ListTagOptionsOutput, __Met
  *
  * @public
  */
-export class ListTagOptionsCommand extends $Command
-  .classBuilder<
-    ListTagOptionsCommandInput,
-    ListTagOptionsCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "ListTagOptions", {})
-  .n("ServiceCatalogClient", "ListTagOptionsCommand")
-  .sc(ListTagOptions$)
-  .build() {
+export class ListTagOptionsCommand extends command<ListTagOptionsCommandInput, ListTagOptionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTagOptions",
+  ListTagOptions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

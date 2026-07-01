@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAuthorizerRequest, GetAuthorizerResponse } from "../models/models_0";
 import { GetAuthorizer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetAuthorizer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface GetAuthorizerCommandOutput extends GetAuthorizerResponse, __Met
  *
  * @public
  */
-export class GetAuthorizerCommand extends $Command
-  .classBuilder<
-    GetAuthorizerCommandInput,
-    GetAuthorizerCommandOutput,
-    ApiGatewayV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApiGatewayV2", "GetAuthorizer", {})
-  .n("ApiGatewayV2Client", "GetAuthorizerCommand")
-  .sc(GetAuthorizer$)
-  .build() {
+export class GetAuthorizerCommand extends command<GetAuthorizerCommandInput, GetAuthorizerCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAuthorizer",
+  GetAuthorizer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

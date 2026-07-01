@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPriceListsRequest, ListPriceListsResponse } from "../models/models_0";
-import type { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
 import { ListPriceLists$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __M
  *
  * @public
  */
-export class ListPriceListsCommand extends $Command
-  .classBuilder<
-    ListPriceListsCommandInput,
-    ListPriceListsCommandOutput,
-    PricingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PricingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPriceListService", "ListPriceLists", {})
-  .n("PricingClient", "ListPriceListsCommand")
-  .sc(ListPriceLists$)
-  .build() {
+export class ListPriceListsCommand extends command<ListPriceListsCommandInput, ListPriceListsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPriceLists",
+  ListPriceLists$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

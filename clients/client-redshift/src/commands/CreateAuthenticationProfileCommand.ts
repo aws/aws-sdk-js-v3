@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAuthenticationProfileMessage, CreateAuthenticationProfileResult } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { CreateAuthenticationProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface CreateAuthenticationProfileCommandOutput extends CreateAuthenti
  *
  * @public
  */
-export class CreateAuthenticationProfileCommand extends $Command
-  .classBuilder<
-    CreateAuthenticationProfileCommandInput,
-    CreateAuthenticationProfileCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "CreateAuthenticationProfile", {})
-  .n("RedshiftClient", "CreateAuthenticationProfileCommand")
-  .sc(CreateAuthenticationProfile$)
-  .build() {
+export class CreateAuthenticationProfileCommand extends command<CreateAuthenticationProfileCommandInput, CreateAuthenticationProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAuthenticationProfile",
+  CreateAuthenticationProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

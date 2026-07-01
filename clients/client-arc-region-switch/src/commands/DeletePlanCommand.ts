@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ARCRegionSwitchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ARCRegionSwitchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { DeletePlanRequest, DeletePlanResponse } from "../models/models_0";
 import { DeletePlan$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeletePlan$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,25 +59,12 @@ export interface DeletePlanCommandOutput extends DeletePlanResponse, __MetadataB
  *
  * @public
  */
-export class DeletePlanCommand extends $Command
-  .classBuilder<
-    DeletePlanCommandInput,
-    DeletePlanCommandOutput,
-    ARCRegionSwitchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    UseControlPlaneEndpoint: { type: "staticContextParams", value: true },
-  })
-  .m(function (this: any, Command: any, cs: any, config: ARCRegionSwitchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ArcRegionSwitch", "DeletePlan", {})
-  .n("ARCRegionSwitchClient", "DeletePlanCommand")
-  .sc(DeletePlan$)
-  .build() {
+export class DeletePlanCommand extends command<DeletePlanCommandInput, DeletePlanCommandOutput>(
+  _ep1,
+  _mw0,
+  "DeletePlan",
+  DeletePlan$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

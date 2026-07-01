@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateStepRequest, UpdateStepResponse } from "../models/models_1";
 import { UpdateStep$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateStep$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface UpdateStepCommandOutput extends UpdateStepResponse, __MetadataB
  *
  * @public
  */
-export class UpdateStepCommand extends $Command
-  .classBuilder<
-    UpdateStepCommandInput,
-    UpdateStepCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "UpdateStep", {})
-  .n("DeadlineClient", "UpdateStepCommand")
-  .sc(UpdateStep$)
-  .build() {
+export class UpdateStepCommand extends command<UpdateStepCommandInput, UpdateStepCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateStep",
+  UpdateStep$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

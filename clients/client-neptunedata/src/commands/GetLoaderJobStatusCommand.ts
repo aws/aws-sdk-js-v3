@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetLoaderJobStatusInput, GetLoaderJobStatusOutput } from "../models/models_0";
-import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
 import { GetLoaderJobStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface GetLoaderJobStatusCommandOutput extends GetLoaderJobStatusOutpu
  *
  * @public
  */
-export class GetLoaderJobStatusCommand extends $Command
-  .classBuilder<
-    GetLoaderJobStatusCommandInput,
-    GetLoaderJobStatusCommandOutput,
-    NeptunedataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneDataplane", "GetLoaderJobStatus", {})
-  .n("NeptunedataClient", "GetLoaderJobStatusCommand")
-  .sc(GetLoaderJobStatus$)
-  .build() {
+export class GetLoaderJobStatusCommand extends command<GetLoaderJobStatusCommandInput, GetLoaderJobStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetLoaderJobStatus",
+  GetLoaderJobStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

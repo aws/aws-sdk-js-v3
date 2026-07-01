@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateActionTypeInput } from "../models/models_0";
 import { UpdateActionType$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateActionType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface UpdateActionTypeCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdateActionTypeCommand extends $Command
-  .classBuilder<
-    UpdateActionTypeCommandInput,
-    UpdateActionTypeCommandOutput,
-    CodePipelineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodePipeline_20150709", "UpdateActionType", {})
-  .n("CodePipelineClient", "UpdateActionTypeCommand")
-  .sc(UpdateActionType$)
-  .build() {
+export class UpdateActionTypeCommand extends command<UpdateActionTypeCommandInput, UpdateActionTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateActionType",
+  UpdateActionType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

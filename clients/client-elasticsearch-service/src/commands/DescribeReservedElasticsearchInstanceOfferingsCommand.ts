@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticsearchServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticsearchServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeReservedElasticsearchInstanceOfferingsRequest,
   DescribeReservedElasticsearchInstanceOfferingsResponse,
@@ -19,7 +12,6 @@ import { DescribeReservedElasticsearchInstanceOfferings$ } from "../schemas/sche
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +89,12 @@ export interface DescribeReservedElasticsearchInstanceOfferingsCommandOutput ext
  *
  * @public
  */
-export class DescribeReservedElasticsearchInstanceOfferingsCommand extends $Command
-  .classBuilder<
-    DescribeReservedElasticsearchInstanceOfferingsCommandInput,
-    DescribeReservedElasticsearchInstanceOfferingsCommandOutput,
-    ElasticsearchServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticsearchService2015", "DescribeReservedElasticsearchInstanceOfferings", {})
-  .n("ElasticsearchServiceClient", "DescribeReservedElasticsearchInstanceOfferingsCommand")
-  .sc(DescribeReservedElasticsearchInstanceOfferings$)
-  .build() {
+export class DescribeReservedElasticsearchInstanceOfferingsCommand extends command<DescribeReservedElasticsearchInstanceOfferingsCommandInput, DescribeReservedElasticsearchInstanceOfferingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeReservedElasticsearchInstanceOfferings",
+  DescribeReservedElasticsearchInstanceOfferings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

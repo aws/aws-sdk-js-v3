@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PublishBatchInput, PublishBatchResponse } from "../models/models_0";
 import { PublishBatch$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -194,22 +190,12 @@ export interface PublishBatchCommandOutput extends PublishBatchResponse, __Metad
  *
  * @public
  */
-export class PublishBatchCommand extends $Command
-  .classBuilder<
-    PublishBatchCommandInput,
-    PublishBatchCommandOutput,
-    SNSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSimpleNotificationService", "PublishBatch", {})
-  .n("SNSClient", "PublishBatchCommand")
-  .sc(PublishBatch$)
-  .build() {
+export class PublishBatchCommand extends command<PublishBatchCommandInput, PublishBatchCommandOutput>(
+  _ep0,
+  _mw0,
+  "PublishBatch",
+  PublishBatch$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

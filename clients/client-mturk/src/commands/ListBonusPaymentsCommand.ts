@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListBonusPaymentsRequest, ListBonusPaymentsResponse } from "../models/models_0";
-import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { ListBonusPayments$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface ListBonusPaymentsCommandOutput extends ListBonusPaymentsRespons
  *
  * @public
  */
-export class ListBonusPaymentsCommand extends $Command
-  .classBuilder<
-    ListBonusPaymentsCommandInput,
-    ListBonusPaymentsCommandOutput,
-    MTurkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MTurkRequesterServiceV20170117", "ListBonusPayments", {})
-  .n("MTurkClient", "ListBonusPaymentsCommand")
-  .sc(ListBonusPayments$)
-  .build() {
+export class ListBonusPaymentsCommand extends command<ListBonusPaymentsCommandInput, ListBonusPaymentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBonusPayments",
+  ListBonusPayments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

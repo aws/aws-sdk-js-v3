@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceAgreementClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceAgreementClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   RejectAgreementCancellationRequestInput,
   RejectAgreementCancellationRequestOutput,
@@ -19,7 +12,6 @@ import { RejectAgreementCancellationRequest$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface RejectAgreementCancellationRequestCommandOutput extends RejectA
  *
  * @public
  */
-export class RejectAgreementCancellationRequestCommand extends $Command
-  .classBuilder<
-    RejectAgreementCancellationRequestCommandInput,
-    RejectAgreementCancellationRequestCommandOutput,
-    MarketplaceAgreementClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceAgreementClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMPCommerceService_v20200301", "RejectAgreementCancellationRequest", {})
-  .n("MarketplaceAgreementClient", "RejectAgreementCancellationRequestCommand")
-  .sc(RejectAgreementCancellationRequest$)
-  .build() {
+export class RejectAgreementCancellationRequestCommand extends command<RejectAgreementCancellationRequestCommandInput, RejectAgreementCancellationRequestCommandOutput>(
+  _ep0,
+  _mw0,
+  "RejectAgreementCancellationRequest",
+  RejectAgreementCancellationRequest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

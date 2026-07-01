@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListFileSystemsRequest, ListFileSystemsResponse } from "../models/models_0";
-import type { S3FilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3FilesClient";
 import { ListFileSystems$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface ListFileSystemsCommandOutput extends ListFileSystemsResponse, _
  *
  * @public
  */
-export class ListFileSystemsCommand extends $Command
-  .classBuilder<
-    ListFileSystemsCommandInput,
-    ListFileSystemsCommandOutput,
-    S3FilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: S3FilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("S3Files", "ListFileSystems", {})
-  .n("S3FilesClient", "ListFileSystemsCommand")
-  .sc(ListFileSystems$)
-  .build() {
+export class ListFileSystemsCommand extends command<ListFileSystemsCommandInput, ListFileSystemsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFileSystems",
+  ListFileSystems$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

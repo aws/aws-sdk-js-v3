@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateIPSetRequest, CreateIPSetResponse } from "../models/models_0";
 import { CreateIPSet$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -186,22 +182,12 @@ export interface CreateIPSetCommandOutput extends CreateIPSetResponse, __Metadat
  *
  * @public
  */
-export class CreateIPSetCommand extends $Command
-  .classBuilder<
-    CreateIPSetCommandInput,
-    CreateIPSetCommandOutput,
-    WAFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20150824", "CreateIPSet", {})
-  .n("WAFClient", "CreateIPSetCommand")
-  .sc(CreateIPSet$)
-  .build() {
+export class CreateIPSetCommand extends command<CreateIPSetCommandInput, CreateIPSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateIPSet",
+  CreateIPSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

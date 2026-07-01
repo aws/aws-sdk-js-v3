@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetGameSessionLogUrlInput, GetGameSessionLogUrlOutput } from "../models/models_0";
 import { GetGameSessionLogUrl$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetGameSessionLogUrl$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlO
  *
  * @public
  */
-export class GetGameSessionLogUrlCommand extends $Command
-  .classBuilder<
-    GetGameSessionLogUrlCommandInput,
-    GetGameSessionLogUrlCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "GetGameSessionLogUrl", {})
-  .n("GameLiftClient", "GetGameSessionLogUrlCommand")
-  .sc(GetGameSessionLogUrl$)
-  .build() {
+export class GetGameSessionLogUrlCommand extends command<GetGameSessionLogUrlCommandInput, GetGameSessionLogUrlCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetGameSessionLogUrl",
+  GetGameSessionLogUrl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

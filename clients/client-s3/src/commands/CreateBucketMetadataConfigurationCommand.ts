@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getFlexibleChecksumsPlugin } from "@aws-sdk/checksums/flexible-checksums";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep3, _mw3, command } from "../commandBuilder";
 import type { CreateBucketMetadataConfigurationRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { CreateBucketMetadataConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -200,32 +195,12 @@ export interface CreateBucketMetadataConfigurationCommandOutput extends __Metada
  *
  * @public
  */
-export class CreateBucketMetadataConfigurationCommand extends $Command
-  .classBuilder<
-    CreateBucketMetadataConfigurationCommandInput,
-    CreateBucketMetadataConfigurationCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
-        requestChecksumRequired: true,
-      }),
-    ];
-  })
-  .s("AmazonS3", "CreateBucketMetadataConfiguration", {})
-  .n("S3Client", "CreateBucketMetadataConfigurationCommand")
-  .sc(CreateBucketMetadataConfiguration$)
-  .build() {
+export class CreateBucketMetadataConfigurationCommand extends command<CreateBucketMetadataConfigurationCommandInput, CreateBucketMetadataConfigurationCommandOutput>(
+  _ep3,
+  _mw3,
+  "CreateBucketMetadataConfiguration",
+  CreateBucketMetadataConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

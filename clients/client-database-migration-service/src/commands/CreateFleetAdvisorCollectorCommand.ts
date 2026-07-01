@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFleetAdvisorCollectorRequest, CreateFleetAdvisorCollectorResponse } from "../models/models_0";
 import { CreateFleetAdvisorCollector$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateFleetAdvisorCollector$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +84,12 @@ export interface CreateFleetAdvisorCollectorCommandOutput extends CreateFleetAdv
  *
  * @public
  */
-export class CreateFleetAdvisorCollectorCommand extends $Command
-  .classBuilder<
-    CreateFleetAdvisorCollectorCommandInput,
-    CreateFleetAdvisorCollectorCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "CreateFleetAdvisorCollector", {})
-  .n("DatabaseMigrationServiceClient", "CreateFleetAdvisorCollectorCommand")
-  .sc(CreateFleetAdvisorCollector$)
-  .build() {
+export class CreateFleetAdvisorCollectorCommand extends command<CreateFleetAdvisorCollectorCommandInput, CreateFleetAdvisorCollectorCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateFleetAdvisorCollector",
+  CreateFleetAdvisorCollector$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

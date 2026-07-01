@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListAssessmentControlInsightsByControlDomainRequest,
   ListAssessmentControlInsightsByControlDomainResponse,
@@ -15,7 +12,6 @@ import { ListAssessmentControlInsightsByControlDomain$ } from "../schemas/schema
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface ListAssessmentControlInsightsByControlDomainCommandOutput exten
  *
  * @public
  */
-export class ListAssessmentControlInsightsByControlDomainCommand extends $Command
-  .classBuilder<
-    ListAssessmentControlInsightsByControlDomainCommandInput,
-    ListAssessmentControlInsightsByControlDomainCommandOutput,
-    AuditManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BedrockAssessmentManagerLambda", "ListAssessmentControlInsightsByControlDomain", {})
-  .n("AuditManagerClient", "ListAssessmentControlInsightsByControlDomainCommand")
-  .sc(ListAssessmentControlInsightsByControlDomain$)
-  .build() {
+export class ListAssessmentControlInsightsByControlDomainCommand extends command<ListAssessmentControlInsightsByControlDomainCommandInput, ListAssessmentControlInsightsByControlDomainCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAssessmentControlInsightsByControlDomain",
+  ListAssessmentControlInsightsByControlDomain$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

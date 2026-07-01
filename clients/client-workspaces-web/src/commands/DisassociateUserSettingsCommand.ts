@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateUserSettingsRequest, DisassociateUserSettingsResponse } from "../models/models_0";
 import { DisassociateUserSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DisassociateUserSettingsCommandOutput extends DisassociateUserS
  *
  * @public
  */
-export class DisassociateUserSettingsCommand extends $Command
-  .classBuilder<
-    DisassociateUserSettingsCommandInput,
-    DisassociateUserSettingsCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "DisassociateUserSettings", {})
-  .n("WorkSpacesWebClient", "DisassociateUserSettingsCommand")
-  .sc(DisassociateUserSettings$)
-  .build() {
+export class DisassociateUserSettingsCommand extends command<DisassociateUserSettingsCommandInput, DisassociateUserSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateUserSettings",
+  DisassociateUserSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

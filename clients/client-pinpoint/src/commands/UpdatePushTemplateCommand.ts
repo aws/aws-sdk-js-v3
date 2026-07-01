@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePushTemplateRequest, UpdatePushTemplateResponse } from "../models/models_1";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { UpdatePushTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -142,22 +138,12 @@ export interface UpdatePushTemplateCommandOutput extends UpdatePushTemplateRespo
  *
  * @public
  */
-export class UpdatePushTemplateCommand extends $Command
-  .classBuilder<
-    UpdatePushTemplateCommandInput,
-    UpdatePushTemplateCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "UpdatePushTemplate", {})
-  .n("PinpointClient", "UpdatePushTemplateCommand")
-  .sc(UpdatePushTemplate$)
-  .build() {
+export class UpdatePushTemplateCommand extends command<UpdatePushTemplateCommandInput, UpdatePushTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePushTemplate",
+  UpdatePushTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

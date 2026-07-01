@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ReportTaskRunnerHeartbeatInput, ReportTaskRunnerHeartbeatOutput } from "../models/models_0";
 import { ReportTaskRunnerHeartbeat$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ReportTaskRunnerHeartbeat$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface ReportTaskRunnerHeartbeatCommandOutput extends ReportTaskRunner
  *
  * @public
  */
-export class ReportTaskRunnerHeartbeatCommand extends $Command
-  .classBuilder<
-    ReportTaskRunnerHeartbeatCommandInput,
-    ReportTaskRunnerHeartbeatCommandOutput,
-    DataPipelineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataPipelineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataPipeline", "ReportTaskRunnerHeartbeat", {})
-  .n("DataPipelineClient", "ReportTaskRunnerHeartbeatCommand")
-  .sc(ReportTaskRunnerHeartbeat$)
-  .build() {
+export class ReportTaskRunnerHeartbeatCommand extends command<ReportTaskRunnerHeartbeatCommandInput, ReportTaskRunnerHeartbeatCommandOutput>(
+  _ep0,
+  _mw0,
+  "ReportTaskRunnerHeartbeat",
+  ReportTaskRunnerHeartbeat$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

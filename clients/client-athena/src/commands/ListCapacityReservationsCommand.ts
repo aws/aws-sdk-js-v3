@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCapacityReservationsInput, ListCapacityReservationsOutput } from "../models/models_0";
 import { ListCapacityReservations$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListCapacityReservations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface ListCapacityReservationsCommandOutput extends ListCapacityReser
  *
  * @public
  */
-export class ListCapacityReservationsCommand extends $Command
-  .classBuilder<
-    ListCapacityReservationsCommandInput,
-    ListCapacityReservationsCommandOutput,
-    AthenaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAthena", "ListCapacityReservations", {})
-  .n("AthenaClient", "ListCapacityReservationsCommand")
-  .sc(ListCapacityReservations$)
-  .build() {
+export class ListCapacityReservationsCommand extends command<ListCapacityReservationsCommandInput, ListCapacityReservationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCapacityReservations",
+  ListCapacityReservations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

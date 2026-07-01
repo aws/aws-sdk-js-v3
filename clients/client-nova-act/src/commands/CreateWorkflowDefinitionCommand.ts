@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateWorkflowDefinitionRequest, CreateWorkflowDefinitionResponse } from "../models/models_0";
-import type { NovaActClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NovaActClient";
 import { CreateWorkflowDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface CreateWorkflowDefinitionCommandOutput extends CreateWorkflowDef
  *
  * @public
  */
-export class CreateWorkflowDefinitionCommand extends $Command
-  .classBuilder<
-    CreateWorkflowDefinitionCommandInput,
-    CreateWorkflowDefinitionCommandOutput,
-    NovaActClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NovaActClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNovaAgentsDataPlane", "CreateWorkflowDefinition", {})
-  .n("NovaActClient", "CreateWorkflowDefinitionCommand")
-  .sc(CreateWorkflowDefinition$)
-  .build() {
+export class CreateWorkflowDefinitionCommand extends command<CreateWorkflowDefinitionCommandInput, CreateWorkflowDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateWorkflowDefinition",
+  CreateWorkflowDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

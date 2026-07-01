@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ValidateStateMachineDefinitionInput, ValidateStateMachineDefinitionOutput } from "../models/models_0";
 import { ValidateStateMachineDefinition$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface ValidateStateMachineDefinitionCommandOutput extends ValidateSta
  *
  * @public
  */
-export class ValidateStateMachineDefinitionCommand extends $Command
-  .classBuilder<
-    ValidateStateMachineDefinitionCommandInput,
-    ValidateStateMachineDefinitionCommandOutput,
-    SFNClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStepFunctions", "ValidateStateMachineDefinition", {})
-  .n("SFNClient", "ValidateStateMachineDefinitionCommand")
-  .sc(ValidateStateMachineDefinition$)
-  .build() {
+export class ValidateStateMachineDefinitionCommand extends command<ValidateStateMachineDefinitionCommandInput, ValidateStateMachineDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ValidateStateMachineDefinition",
+  ValidateStateMachineDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

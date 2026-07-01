@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetIdentityDkimAttributesRequest, GetIdentityDkimAttributesResponse } from "../models/models_0";
 import { GetIdentityDkimAttributes$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimA
  *
  * @public
  */
-export class GetIdentityDkimAttributesCommand extends $Command
-  .classBuilder<
-    GetIdentityDkimAttributesCommandInput,
-    GetIdentityDkimAttributesCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "GetIdentityDkimAttributes", {})
-  .n("SESClient", "GetIdentityDkimAttributesCommand")
-  .sc(GetIdentityDkimAttributes$)
-  .build() {
+export class GetIdentityDkimAttributesCommand extends command<GetIdentityDkimAttributesCommandInput, GetIdentityDkimAttributesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIdentityDkimAttributes",
+  GetIdentityDkimAttributes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

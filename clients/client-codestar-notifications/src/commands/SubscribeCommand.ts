@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodestarNotificationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodestarNotificationsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SubscribeRequest, SubscribeResult } from "../models/models_0";
 import { Subscribe$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { Subscribe$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBeare
  *
  * @public
  */
-export class SubscribeCommand extends $Command
-  .classBuilder<
-    SubscribeCommandInput,
-    SubscribeCommandOutput,
-    CodestarNotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodestarNotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeStarNotifications_20191015", "Subscribe", {})
-  .n("CodestarNotificationsClient", "SubscribeCommand")
-  .sc(Subscribe$)
-  .build() {
+export class SubscribeCommand extends command<SubscribeCommandInput, SubscribeCommandOutput>(
+  _ep0,
+  _mw0,
+  "Subscribe",
+  Subscribe$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

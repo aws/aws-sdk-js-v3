@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyUIBuilderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyUIBuilderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RefreshTokenRequest, RefreshTokenResponse } from "../models/models_0";
 import { RefreshToken$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { RefreshToken$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +66,12 @@ export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __Metad
  *
  * @public
  */
-export class RefreshTokenCommand extends $Command
-  .classBuilder<
-    RefreshTokenCommandInput,
-    RefreshTokenCommandOutput,
-    AmplifyUIBuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyUIBuilder", "RefreshToken", {})
-  .n("AmplifyUIBuilderClient", "RefreshTokenCommand")
-  .sc(RefreshToken$)
-  .build() {
+export class RefreshTokenCommand extends command<RefreshTokenCommandInput, RefreshTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "RefreshToken",
+  RefreshToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

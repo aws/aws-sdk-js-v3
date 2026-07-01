@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateVpnConcentratorRequest, CreateVpnConcentratorResult } from "../models/models_2";
 import { CreateVpnConcentrator$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateVpnConcentrator$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface CreateVpnConcentratorCommandOutput extends CreateVpnConcentrato
  *
  * @public
  */
-export class CreateVpnConcentratorCommand extends $Command
-  .classBuilder<
-    CreateVpnConcentratorCommandInput,
-    CreateVpnConcentratorCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "CreateVpnConcentrator", {})
-  .n("EC2Client", "CreateVpnConcentratorCommand")
-  .sc(CreateVpnConcentrator$)
-  .build() {
+export class CreateVpnConcentratorCommand extends command<CreateVpnConcentratorCommandInput, CreateVpnConcentratorCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateVpnConcentrator",
+  CreateVpnConcentrator$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

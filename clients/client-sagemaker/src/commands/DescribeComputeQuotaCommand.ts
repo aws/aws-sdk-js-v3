@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeComputeQuotaRequest, DescribeComputeQuotaResponse } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeComputeQuota$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface DescribeComputeQuotaCommandOutput extends DescribeComputeQuotaR
  *
  * @public
  */
-export class DescribeComputeQuotaCommand extends $Command
-  .classBuilder<
-    DescribeComputeQuotaCommandInput,
-    DescribeComputeQuotaCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DescribeComputeQuota", {})
-  .n("SageMakerClient", "DescribeComputeQuotaCommand")
-  .sc(DescribeComputeQuota$)
-  .build() {
+export class DescribeComputeQuotaCommand extends command<DescribeComputeQuotaCommandInput, DescribeComputeQuotaCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeComputeQuota",
+  DescribeComputeQuota$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

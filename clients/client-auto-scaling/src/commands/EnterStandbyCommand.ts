@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EnterStandbyAnswer, EnterStandbyQuery } from "../models/models_0";
 import { EnterStandby$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { EnterStandby$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __Metadat
  *
  * @public
  */
-export class EnterStandbyCommand extends $Command
-  .classBuilder<
-    EnterStandbyCommandInput,
-    EnterStandbyCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "EnterStandby", {})
-  .n("AutoScalingClient", "EnterStandbyCommand")
-  .sc(EnterStandby$)
-  .build() {
+export class EnterStandbyCommand extends command<EnterStandbyCommandInput, EnterStandbyCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnterStandby",
+  EnterStandby$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

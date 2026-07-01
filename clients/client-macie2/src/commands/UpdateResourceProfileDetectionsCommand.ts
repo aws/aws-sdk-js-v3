@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateResourceProfileDetectionsRequest,
   UpdateResourceProfileDetectionsResponse,
@@ -15,7 +12,6 @@ import { UpdateResourceProfileDetections$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface UpdateResourceProfileDetectionsCommandOutput extends UpdateReso
  *
  * @public
  */
-export class UpdateResourceProfileDetectionsCommand extends $Command
-  .classBuilder<
-    UpdateResourceProfileDetectionsCommandInput,
-    UpdateResourceProfileDetectionsCommandOutput,
-    Macie2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Macie2", "UpdateResourceProfileDetections", {})
-  .n("Macie2Client", "UpdateResourceProfileDetectionsCommand")
-  .sc(UpdateResourceProfileDetections$)
-  .build() {
+export class UpdateResourceProfileDetectionsCommand extends command<UpdateResourceProfileDetectionsCommandInput, UpdateResourceProfileDetectionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateResourceProfileDetections",
+  UpdateResourceProfileDetections$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

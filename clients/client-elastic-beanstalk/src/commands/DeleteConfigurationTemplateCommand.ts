@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteConfigurationTemplateMessage } from "../models/models_0";
 import { DeleteConfigurationTemplate$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteConfigurationTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface DeleteConfigurationTemplateCommandOutput extends __MetadataBear
  *
  * @public
  */
-export class DeleteConfigurationTemplateCommand extends $Command
-  .classBuilder<
-    DeleteConfigurationTemplateCommandInput,
-    DeleteConfigurationTemplateCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "DeleteConfigurationTemplate", {})
-  .n("ElasticBeanstalkClient", "DeleteConfigurationTemplateCommand")
-  .sc(DeleteConfigurationTemplate$)
-  .build() {
+export class DeleteConfigurationTemplateCommand extends command<DeleteConfigurationTemplateCommandInput, DeleteConfigurationTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteConfigurationTemplate",
+  DeleteConfigurationTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

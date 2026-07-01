@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeAggregationAuthorizationsRequest,
   DescribeAggregationAuthorizationsResponse,
@@ -15,7 +12,6 @@ import { DescribeAggregationAuthorizations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DescribeAggregationAuthorizationsCommandOutput extends Describe
  *
  * @public
  */
-export class DescribeAggregationAuthorizationsCommand extends $Command
-  .classBuilder<
-    DescribeAggregationAuthorizationsCommandInput,
-    DescribeAggregationAuthorizationsCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DescribeAggregationAuthorizations", {})
-  .n("ConfigServiceClient", "DescribeAggregationAuthorizationsCommand")
-  .sc(DescribeAggregationAuthorizations$)
-  .build() {
+export class DescribeAggregationAuthorizationsCommand extends command<DescribeAggregationAuthorizationsCommandInput, DescribeAggregationAuthorizationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAggregationAuthorizations",
+  DescribeAggregationAuthorizations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

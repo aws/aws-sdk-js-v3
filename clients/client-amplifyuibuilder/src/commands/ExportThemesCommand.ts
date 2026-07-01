@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyUIBuilderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyUIBuilderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExportThemesRequest, ExportThemesResponse } from "../models/models_0";
 import { ExportThemes$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ExportThemes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface ExportThemesCommandOutput extends ExportThemesResponse, __Metad
  *
  * @public
  */
-export class ExportThemesCommand extends $Command
-  .classBuilder<
-    ExportThemesCommandInput,
-    ExportThemesCommandOutput,
-    AmplifyUIBuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyUIBuilder", "ExportThemes", {})
-  .n("AmplifyUIBuilderClient", "ExportThemesCommand")
-  .sc(ExportThemes$)
-  .build() {
+export class ExportThemesCommand extends command<ExportThemesCommandInput, ExportThemesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExportThemes",
+  ExportThemes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

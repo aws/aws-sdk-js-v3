@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDynamicThingGroupRequest, UpdateDynamicThingGroupResponse } from "../models/models_2";
 import { UpdateDynamicThingGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateDynamicThingGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface UpdateDynamicThingGroupCommandOutput extends UpdateDynamicThing
  *
  * @public
  */
-export class UpdateDynamicThingGroupCommand extends $Command
-  .classBuilder<
-    UpdateDynamicThingGroupCommandInput,
-    UpdateDynamicThingGroupCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "UpdateDynamicThingGroup", {})
-  .n("IoTClient", "UpdateDynamicThingGroupCommand")
-  .sc(UpdateDynamicThingGroup$)
-  .build() {
+export class UpdateDynamicThingGroupCommand extends command<UpdateDynamicThingGroupCommandInput, UpdateDynamicThingGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDynamicThingGroup",
+  UpdateDynamicThingGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

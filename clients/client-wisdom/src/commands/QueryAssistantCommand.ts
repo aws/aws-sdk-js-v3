@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { QueryAssistantRequest, QueryAssistantResponse } from "../models/models_0";
 import { QueryAssistant$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  *
  * @public
  */
-export class QueryAssistantCommand extends $Command
-  .classBuilder<
-    QueryAssistantCommandInput,
-    QueryAssistantCommandOutput,
-    WisdomClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "QueryAssistant", {})
-  .n("WisdomClient", "QueryAssistantCommand")
-  .sc(QueryAssistant$)
-  .build() {
+export class QueryAssistantCommand extends command<QueryAssistantCommandInput, QueryAssistantCommandOutput>(
+  _ep0,
+  _mw0,
+  "QueryAssistant",
+  QueryAssistant$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

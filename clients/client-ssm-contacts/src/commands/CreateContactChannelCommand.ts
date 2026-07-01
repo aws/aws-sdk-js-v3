@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateContactChannelRequest, CreateContactChannelResult } from "../models/models_0";
 import { CreateContactChannel$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface CreateContactChannelCommandOutput extends CreateContactChannelR
  *
  * @public
  */
-export class CreateContactChannelCommand extends $Command
-  .classBuilder<
-    CreateContactChannelCommandInput,
-    CreateContactChannelCommandOutput,
-    SSMContactsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMContacts", "CreateContactChannel", {})
-  .n("SSMContactsClient", "CreateContactChannelCommand")
-  .sc(CreateContactChannel$)
-  .build() {
+export class CreateContactChannelCommand extends command<CreateContactChannelCommandInput, CreateContactChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateContactChannel",
+  CreateContactChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

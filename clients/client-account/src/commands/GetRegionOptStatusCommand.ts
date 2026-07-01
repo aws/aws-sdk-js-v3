@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRegionOptStatusRequest, GetRegionOptStatusResponse } from "../models/models_0";
 import { GetRegionOptStatus$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetRegionOptStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface GetRegionOptStatusCommandOutput extends GetRegionOptStatusRespo
  *
  * @public
  */
-export class GetRegionOptStatusCommand extends $Command
-  .classBuilder<
-    GetRegionOptStatusCommandInput,
-    GetRegionOptStatusCommandOutput,
-    AccountClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AccountClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Account", "GetRegionOptStatus", {})
-  .n("AccountClient", "GetRegionOptStatusCommand")
-  .sc(GetRegionOptStatus$)
-  .build() {
+export class GetRegionOptStatusCommand extends command<GetRegionOptStatusCommandInput, GetRegionOptStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRegionOptStatus",
+  GetRegionOptStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteServiceNetworkVpcAssociationRequest,
   DeleteServiceNetworkVpcAssociationResponse,
 } from "../models/models_0";
 import { DeleteServiceNetworkVpcAssociation$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface DeleteServiceNetworkVpcAssociationCommandOutput extends DeleteS
  *
  * @public
  */
-export class DeleteServiceNetworkVpcAssociationCommand extends $Command
-  .classBuilder<
-    DeleteServiceNetworkVpcAssociationCommandInput,
-    DeleteServiceNetworkVpcAssociationCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "DeleteServiceNetworkVpcAssociation", {})
-  .n("VPCLatticeClient", "DeleteServiceNetworkVpcAssociationCommand")
-  .sc(DeleteServiceNetworkVpcAssociation$)
-  .build() {
+export class DeleteServiceNetworkVpcAssociationCommand extends command<DeleteServiceNetworkVpcAssociationCommandInput, DeleteServiceNetworkVpcAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteServiceNetworkVpcAssociation",
+  DeleteServiceNetworkVpcAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

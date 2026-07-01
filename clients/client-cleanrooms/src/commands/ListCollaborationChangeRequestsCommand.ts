@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCollaborationChangeRequestsInput, ListCollaborationChangeRequestsOutput } from "../models/models_0";
 import { ListCollaborationChangeRequests$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListCollaborationChangeRequests$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -138,22 +134,12 @@ export interface ListCollaborationChangeRequestsCommandOutput extends ListCollab
  *
  * @public
  */
-export class ListCollaborationChangeRequestsCommand extends $Command
-  .classBuilder<
-    ListCollaborationChangeRequestsCommandInput,
-    ListCollaborationChangeRequestsCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "ListCollaborationChangeRequests", {})
-  .n("CleanRoomsClient", "ListCollaborationChangeRequestsCommand")
-  .sc(ListCollaborationChangeRequests$)
-  .build() {
+export class ListCollaborationChangeRequestsCommand extends command<ListCollaborationChangeRequestsCommandInput, ListCollaborationChangeRequestsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCollaborationChangeRequests",
+  ListCollaborationChangeRequests$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

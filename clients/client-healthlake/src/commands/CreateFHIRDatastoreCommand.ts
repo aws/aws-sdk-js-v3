@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFHIRDatastoreRequest, CreateFHIRDatastoreResponse } from "../models/models_0";
 import { CreateFHIRDatastore$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateFHIRDatastore$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  *
  * @public
  */
-export class CreateFHIRDatastoreCommand extends $Command
-  .classBuilder<
-    CreateFHIRDatastoreCommandInput,
-    CreateFHIRDatastoreCommandOutput,
-    HealthLakeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: HealthLakeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("HealthLake", "CreateFHIRDatastore", {})
-  .n("HealthLakeClient", "CreateFHIRDatastoreCommand")
-  .sc(CreateFHIRDatastore$)
-  .build() {
+export class CreateFHIRDatastoreCommand extends command<CreateFHIRDatastoreCommandInput, CreateFHIRDatastoreCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateFHIRDatastore",
+  CreateFHIRDatastore$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

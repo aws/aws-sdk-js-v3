@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRelationalDatabasesRequest, GetRelationalDatabasesResult } from "../models/models_1";
 import { GetRelationalDatabases$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetRelationalDatabases$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -148,22 +144,12 @@ export interface GetRelationalDatabasesCommandOutput extends GetRelationalDataba
  *
  * @public
  */
-export class GetRelationalDatabasesCommand extends $Command
-  .classBuilder<
-    GetRelationalDatabasesCommandInput,
-    GetRelationalDatabasesCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "GetRelationalDatabases", {})
-  .n("LightsailClient", "GetRelationalDatabasesCommand")
-  .sc(GetRelationalDatabases$)
-  .build() {
+export class GetRelationalDatabasesCommand extends command<GetRelationalDatabasesCommandInput, GetRelationalDatabasesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRelationalDatabases",
+  GetRelationalDatabases$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

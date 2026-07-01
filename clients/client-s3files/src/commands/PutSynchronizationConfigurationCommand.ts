@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutSynchronizationConfigurationRequest,
   PutSynchronizationConfigurationResponse,
 } from "../models/models_0";
-import type { S3FilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3FilesClient";
 import { PutSynchronizationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface PutSynchronizationConfigurationCommandOutput extends PutSynchro
  *
  * @public
  */
-export class PutSynchronizationConfigurationCommand extends $Command
-  .classBuilder<
-    PutSynchronizationConfigurationCommandInput,
-    PutSynchronizationConfigurationCommandOutput,
-    S3FilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: S3FilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("S3Files", "PutSynchronizationConfiguration", {})
-  .n("S3FilesClient", "PutSynchronizationConfigurationCommand")
-  .sc(PutSynchronizationConfiguration$)
-  .build() {
+export class PutSynchronizationConfigurationCommand extends command<PutSynchronizationConfigurationCommandInput, PutSynchronizationConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutSynchronizationConfiguration",
+  PutSynchronizationConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

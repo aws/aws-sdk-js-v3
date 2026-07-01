@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteIngressPointRequest, DeleteIngressPointResponse } from "../models/models_0";
 import { DeleteIngressPoint$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteIngressPoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DeleteIngressPointCommandOutput extends DeleteIngressPointRespo
  *
  * @public
  */
-export class DeleteIngressPointCommand extends $Command
-  .classBuilder<
-    DeleteIngressPointCommandInput,
-    DeleteIngressPointCommandOutput,
-    MailManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MailManagerSvc", "DeleteIngressPoint", {})
-  .n("MailManagerClient", "DeleteIngressPointCommand")
-  .sc(DeleteIngressPoint$)
-  .build() {
+export class DeleteIngressPointCommand extends command<DeleteIngressPointCommandInput, DeleteIngressPointCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteIngressPoint",
+  DeleteIngressPoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

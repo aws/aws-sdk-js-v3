@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAccessKeyRequest, CreateAccessKeyResponse } from "../models/models_0";
 import { CreateAccessKey$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateAccessKey$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface CreateAccessKeyCommandOutput extends CreateAccessKeyResponse, _
  *
  * @public
  */
-export class CreateAccessKeyCommand extends $Command
-  .classBuilder<
-    CreateAccessKeyCommandInput,
-    CreateAccessKeyCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "CreateAccessKey", {})
-  .n("IAMClient", "CreateAccessKeyCommand")
-  .sc(CreateAccessKey$)
-  .build() {
+export class CreateAccessKeyCommand extends command<CreateAccessKeyCommandInput, CreateAccessKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAccessKey",
+  CreateAccessKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

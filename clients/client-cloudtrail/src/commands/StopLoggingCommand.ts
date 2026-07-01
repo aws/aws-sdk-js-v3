@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopLoggingRequest, StopLoggingResponse } from "../models/models_0";
 import { StopLogging$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopLogging$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -137,22 +133,12 @@ export interface StopLoggingCommandOutput extends StopLoggingResponse, __Metadat
  *
  * @public
  */
-export class StopLoggingCommand extends $Command
-  .classBuilder<
-    StopLoggingCommandInput,
-    StopLoggingCommandOutput,
-    CloudTrailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudTrail_20131101", "StopLogging", {})
-  .n("CloudTrailClient", "StopLoggingCommand")
-  .sc(StopLogging$)
-  .build() {
+export class StopLoggingCommand extends command<StopLoggingCommandInput, StopLoggingCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopLogging",
+  StopLogging$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

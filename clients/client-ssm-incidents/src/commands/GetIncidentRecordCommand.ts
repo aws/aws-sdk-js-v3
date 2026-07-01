@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetIncidentRecordInput, GetIncidentRecordOutput } from "../models/models_0";
 import { GetIncidentRecord$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface GetIncidentRecordCommandOutput extends GetIncidentRecordOutput,
  *
  * @public
  */
-export class GetIncidentRecordCommand extends $Command
-  .classBuilder<
-    GetIncidentRecordCommandInput,
-    GetIncidentRecordCommandOutput,
-    SSMIncidentsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMIncidentsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMIncidents", "GetIncidentRecord", {})
-  .n("SSMIncidentsClient", "GetIncidentRecordCommand")
-  .sc(GetIncidentRecord$)
-  .build() {
+export class GetIncidentRecordCommand extends command<GetIncidentRecordCommandInput, GetIncidentRecordCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIncidentRecord",
+  GetIncidentRecord$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

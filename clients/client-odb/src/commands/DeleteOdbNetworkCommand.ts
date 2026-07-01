@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteOdbNetworkInput, DeleteOdbNetworkOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { DeleteOdbNetwork$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteOdbNetworkCommandOutput extends DeleteOdbNetworkOutput, _
  *
  * @public
  */
-export class DeleteOdbNetworkCommand extends $Command
-  .classBuilder<
-    DeleteOdbNetworkCommandInput,
-    DeleteOdbNetworkCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "DeleteOdbNetwork", {})
-  .n("OdbClient", "DeleteOdbNetworkCommand")
-  .sc(DeleteOdbNetwork$)
-  .build() {
+export class DeleteOdbNetworkCommand extends command<DeleteOdbNetworkCommandInput, DeleteOdbNetworkCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteOdbNetwork",
+  DeleteOdbNetwork$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

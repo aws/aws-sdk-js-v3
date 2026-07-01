@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateRelationalDatabaseFromSnapshotRequest,
   CreateRelationalDatabaseFromSnapshotResult,
@@ -15,7 +12,6 @@ import { CreateRelationalDatabaseFromSnapshot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +129,12 @@ export interface CreateRelationalDatabaseFromSnapshotCommandOutput extends Creat
  *
  * @public
  */
-export class CreateRelationalDatabaseFromSnapshotCommand extends $Command
-  .classBuilder<
-    CreateRelationalDatabaseFromSnapshotCommandInput,
-    CreateRelationalDatabaseFromSnapshotCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "CreateRelationalDatabaseFromSnapshot", {})
-  .n("LightsailClient", "CreateRelationalDatabaseFromSnapshotCommand")
-  .sc(CreateRelationalDatabaseFromSnapshot$)
-  .build() {
+export class CreateRelationalDatabaseFromSnapshotCommand extends command<CreateRelationalDatabaseFromSnapshotCommandInput, CreateRelationalDatabaseFromSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRelationalDatabaseFromSnapshot",
+  CreateRelationalDatabaseFromSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

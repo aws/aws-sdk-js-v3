@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMessagingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMessagingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutChannelMembershipPreferencesRequest,
   PutChannelMembershipPreferencesResponse,
@@ -19,7 +12,6 @@ import { PutChannelMembershipPreferences$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +107,12 @@ export interface PutChannelMembershipPreferencesCommandOutput extends PutChannel
  *
  * @public
  */
-export class PutChannelMembershipPreferencesCommand extends $Command
-  .classBuilder<
-    PutChannelMembershipPreferencesCommandInput,
-    PutChannelMembershipPreferencesCommandOutput,
-    ChimeSDKMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeMessagingService", "PutChannelMembershipPreferences", {})
-  .n("ChimeSDKMessagingClient", "PutChannelMembershipPreferencesCommand")
-  .sc(PutChannelMembershipPreferences$)
-  .build() {
+export class PutChannelMembershipPreferencesCommand extends command<PutChannelMembershipPreferencesCommandInput, PutChannelMembershipPreferencesCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutChannelMembershipPreferences",
+  PutChannelMembershipPreferences$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

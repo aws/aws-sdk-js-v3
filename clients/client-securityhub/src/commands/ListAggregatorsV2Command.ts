@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAggregatorsV2Request, ListAggregatorsV2Response } from "../models/models_2";
 import { ListAggregatorsV2$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface ListAggregatorsV2CommandOutput extends ListAggregatorsV2Respons
  *
  * @public
  */
-export class ListAggregatorsV2Command extends $Command
-  .classBuilder<
-    ListAggregatorsV2CommandInput,
-    ListAggregatorsV2CommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "ListAggregatorsV2", {})
-  .n("SecurityHubClient", "ListAggregatorsV2Command")
-  .sc(ListAggregatorsV2$)
-  .build() {
+export class ListAggregatorsV2Command extends command<ListAggregatorsV2CommandInput, ListAggregatorsV2CommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAggregatorsV2",
+  ListAggregatorsV2$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

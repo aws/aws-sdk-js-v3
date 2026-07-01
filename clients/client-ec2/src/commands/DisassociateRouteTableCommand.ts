@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateRouteTableRequest } from "../models/models_5";
 import { DisassociateRouteTable$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateRouteTable$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DisassociateRouteTableCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DisassociateRouteTableCommand extends $Command
-  .classBuilder<
-    DisassociateRouteTableCommandInput,
-    DisassociateRouteTableCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DisassociateRouteTable", {})
-  .n("EC2Client", "DisassociateRouteTableCommand")
-  .sc(DisassociateRouteTable$)
-  .build() {
+export class DisassociateRouteTableCommand extends command<DisassociateRouteTableCommandInput, DisassociateRouteTableCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateRouteTable",
+  DisassociateRouteTable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

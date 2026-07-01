@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateGeofenceCollectionRequest, CreateGeofenceCollectionResponse } from "../models/models_0";
 import { CreateGeofenceCollection$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateGeofenceCollection$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface CreateGeofenceCollectionCommandOutput extends CreateGeofenceCol
  *
  * @public
  */
-export class CreateGeofenceCollectionCommand extends $Command
-  .classBuilder<
-    CreateGeofenceCollectionCommandInput,
-    CreateGeofenceCollectionCommandOutput,
-    LocationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LocationService", "CreateGeofenceCollection", {})
-  .n("LocationClient", "CreateGeofenceCollectionCommand")
-  .sc(CreateGeofenceCollection$)
-  .build() {
+export class CreateGeofenceCollectionCommand extends command<CreateGeofenceCollectionCommandInput, CreateGeofenceCollectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateGeofenceCollection",
+  CreateGeofenceCollection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

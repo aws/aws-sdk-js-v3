@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeSlotTypeRequest, DescribeSlotTypeResponse } from "../models/models_0";
 import { DescribeSlotType$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeSlotType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -127,22 +123,12 @@ export interface DescribeSlotTypeCommandOutput extends DescribeSlotTypeResponse,
  *
  * @public
  */
-export class DescribeSlotTypeCommand extends $Command
-  .classBuilder<
-    DescribeSlotTypeCommandInput,
-    DescribeSlotTypeCommandOutput,
-    LexModelsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LexModelBuildingServiceV2", "DescribeSlotType", {})
-  .n("LexModelsV2Client", "DescribeSlotTypeCommand")
-  .sc(DescribeSlotType$)
-  .build() {
+export class DescribeSlotTypeCommand extends command<DescribeSlotTypeCommandInput, DescribeSlotTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSlotType",
+  DescribeSlotType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

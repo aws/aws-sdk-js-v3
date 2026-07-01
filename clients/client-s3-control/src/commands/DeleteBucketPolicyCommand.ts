@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3/s3-control";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep5, _mw1, command } from "../commandBuilder";
 import type { DeleteBucketPolicyRequest } from "../models/models_0";
-import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { DeleteBucketPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,30 +89,12 @@ export interface DeleteBucketPolicyCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteBucketPolicyCommand extends $Command
-  .classBuilder<
-    DeleteBucketPolicyCommandInput,
-    DeleteBucketPolicyCommandOutput,
-    S3ControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    RequiresAccountId: { type: "staticContextParams", value: true },
-    AccountId: { type: "contextParams", name: "AccountId" },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getProcessArnablesPlugin(config),
-    ];
-  })
-  .s("AWSS3ControlServiceV20180820", "DeleteBucketPolicy", {})
-  .n("S3ControlClient", "DeleteBucketPolicyCommand")
-  .sc(DeleteBucketPolicy$)
-  .build() {
+export class DeleteBucketPolicyCommand extends command<DeleteBucketPolicyCommandInput, DeleteBucketPolicyCommandOutput>(
+  _ep5,
+  _mw1,
+  "DeleteBucketPolicy",
+  DeleteBucketPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

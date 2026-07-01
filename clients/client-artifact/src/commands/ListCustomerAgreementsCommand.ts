@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ArtifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ArtifactClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCustomerAgreementsRequest, ListCustomerAgreementsResponse } from "../models/models_0";
 import { ListCustomerAgreements$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListCustomerAgreements$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +121,12 @@ export interface ListCustomerAgreementsCommandOutput extends ListCustomerAgreeme
  *
  * @public
  */
-export class ListCustomerAgreementsCommand extends $Command
-  .classBuilder<
-    ListCustomerAgreementsCommandInput,
-    ListCustomerAgreementsCommandOutput,
-    ArtifactClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ArtifactClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Artifact", "ListCustomerAgreements", {})
-  .n("ArtifactClient", "ListCustomerAgreementsCommand")
-  .sc(ListCustomerAgreements$)
-  .build() {
+export class ListCustomerAgreementsCommand extends command<ListCustomerAgreementsCommandInput, ListCustomerAgreementsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCustomerAgreements",
+  ListCustomerAgreements$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

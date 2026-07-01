@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateSoftwareToImageBuilderRequest, AssociateSoftwareToImageBuilderResult } from "../models/models_0";
 import { AssociateSoftwareToImageBuilder$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateSoftwareToImageBuilder$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface AssociateSoftwareToImageBuilderCommandOutput extends AssociateS
  *
  * @public
  */
-export class AssociateSoftwareToImageBuilderCommand extends $Command
-  .classBuilder<
-    AssociateSoftwareToImageBuilderCommandInput,
-    AssociateSoftwareToImageBuilderCommandOutput,
-    AppStreamClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PhotonAdminProxyService", "AssociateSoftwareToImageBuilder", {})
-  .n("AppStreamClient", "AssociateSoftwareToImageBuilderCommand")
-  .sc(AssociateSoftwareToImageBuilder$)
-  .build() {
+export class AssociateSoftwareToImageBuilderCommand extends command<AssociateSoftwareToImageBuilderCommandInput, AssociateSoftwareToImageBuilderCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateSoftwareToImageBuilder",
+  AssociateSoftwareToImageBuilder$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

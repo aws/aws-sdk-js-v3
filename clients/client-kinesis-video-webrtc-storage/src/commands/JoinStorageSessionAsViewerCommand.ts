@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  KinesisVideoWebRTCStorageClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../KinesisVideoWebRTCStorageClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { JoinStorageSessionAsViewerInput } from "../models/models_0";
 import { JoinStorageSessionAsViewer$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { JoinStorageSessionAsViewer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface JoinStorageSessionAsViewerCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class JoinStorageSessionAsViewerCommand extends $Command
-  .classBuilder<
-    JoinStorageSessionAsViewerCommandInput,
-    JoinStorageSessionAsViewerCommandOutput,
-    KinesisVideoWebRTCStorageClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisVideoWebRTCStorageClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSAcuityRoutingServiceLambda", "JoinStorageSessionAsViewer", {})
-  .n("KinesisVideoWebRTCStorageClient", "JoinStorageSessionAsViewerCommand")
-  .sc(JoinStorageSessionAsViewer$)
-  .build() {
+export class JoinStorageSessionAsViewerCommand extends command<JoinStorageSessionAsViewerCommandInput, JoinStorageSessionAsViewerCommandOutput>(
+  _ep0,
+  _mw0,
+  "JoinStorageSessionAsViewer",
+  JoinStorageSessionAsViewer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

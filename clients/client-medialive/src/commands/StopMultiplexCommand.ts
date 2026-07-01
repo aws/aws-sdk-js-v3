@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopMultiplexRequest, StopMultiplexResponse } from "../models/models_1";
 import { StopMultiplex$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopMultiplex$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface StopMultiplexCommandOutput extends StopMultiplexResponse, __Met
  *
  * @public
  */
-export class StopMultiplexCommand extends $Command
-  .classBuilder<
-    StopMultiplexCommandInput,
-    StopMultiplexCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "StopMultiplex", {})
-  .n("MediaLiveClient", "StopMultiplexCommand")
-  .sc(StopMultiplex$)
-  .build() {
+export class StopMultiplexCommand extends command<StopMultiplexCommandInput, StopMultiplexCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopMultiplex",
+  StopMultiplex$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDataIntegrationEventsRequest, ListDataIntegrationEventsResponse } from "../models/models_0";
 import { ListDataIntegrationEvents$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface ListDataIntegrationEventsCommandOutput extends ListDataIntegrat
  *
  * @public
  */
-export class ListDataIntegrationEventsCommand extends $Command
-  .classBuilder<
-    ListDataIntegrationEventsCommandInput,
-    ListDataIntegrationEventsCommandOutput,
-    SupplyChainClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupplyChainClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GalaxyPublicAPIGateway", "ListDataIntegrationEvents", {})
-  .n("SupplyChainClient", "ListDataIntegrationEventsCommand")
-  .sc(ListDataIntegrationEvents$)
-  .build() {
+export class ListDataIntegrationEventsCommand extends command<ListDataIntegrationEventsCommandInput, ListDataIntegrationEventsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDataIntegrationEvents",
+  ListDataIntegrationEvents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

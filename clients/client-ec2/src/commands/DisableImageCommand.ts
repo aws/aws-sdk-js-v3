@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisableImageRequest, DisableImageResult } from "../models/models_5";
 import { DisableImage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisableImage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface DisableImageCommandOutput extends DisableImageResult, __Metadat
  *
  * @public
  */
-export class DisableImageCommand extends $Command
-  .classBuilder<
-    DisableImageCommandInput,
-    DisableImageCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DisableImage", {})
-  .n("EC2Client", "DisableImageCommand")
-  .sc(DisableImage$)
-  .build() {
+export class DisableImageCommand extends command<DisableImageCommandInput, DisableImageCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableImage",
+  DisableImage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

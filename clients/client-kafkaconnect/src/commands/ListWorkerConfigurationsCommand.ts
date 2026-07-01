@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListWorkerConfigurationsRequest, ListWorkerConfigurationsResponse } from "../models/models_0";
 import { ListWorkerConfigurations$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListWorkerConfigurations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface ListWorkerConfigurationsCommandOutput extends ListWorkerConfigu
  *
  * @public
  */
-export class ListWorkerConfigurationsCommand extends $Command
-  .classBuilder<
-    ListWorkerConfigurationsCommandInput,
-    ListWorkerConfigurationsCommandOutput,
-    KafkaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KafkaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KafkaConnect", "ListWorkerConfigurations", {})
-  .n("KafkaConnectClient", "ListWorkerConfigurationsCommand")
-  .sc(ListWorkerConfigurations$)
-  .build() {
+export class ListWorkerConfigurationsCommand extends command<ListWorkerConfigurationsCommandInput, ListWorkerConfigurationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListWorkerConfigurations",
+  ListWorkerConfigurations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

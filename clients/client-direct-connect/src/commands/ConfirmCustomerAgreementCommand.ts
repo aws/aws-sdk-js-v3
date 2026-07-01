@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ConfirmCustomerAgreementRequest, ConfirmCustomerAgreementResponse } from "../models/models_0";
 import { ConfirmCustomerAgreement$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ConfirmCustomerAgreement$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface ConfirmCustomerAgreementCommandOutput extends ConfirmCustomerAg
  *
  * @public
  */
-export class ConfirmCustomerAgreementCommand extends $Command
-  .classBuilder<
-    ConfirmCustomerAgreementCommandInput,
-    ConfirmCustomerAgreementCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "ConfirmCustomerAgreement", {})
-  .n("DirectConnectClient", "ConfirmCustomerAgreementCommand")
-  .sc(ConfirmCustomerAgreement$)
-  .build() {
+export class ConfirmCustomerAgreementCommand extends command<ConfirmCustomerAgreementCommandInput, ConfirmCustomerAgreementCommandOutput>(
+  _ep0,
+  _mw0,
+  "ConfirmCustomerAgreement",
+  ConfirmCustomerAgreement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

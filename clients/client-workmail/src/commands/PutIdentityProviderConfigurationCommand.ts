@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutIdentityProviderConfigurationRequest,
   PutIdentityProviderConfigurationResponse,
 } from "../models/models_0";
 import { PutIdentityProviderConfiguration$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface PutIdentityProviderConfigurationCommandOutput extends PutIdenti
  *
  * @public
  */
-export class PutIdentityProviderConfigurationCommand extends $Command
-  .classBuilder<
-    PutIdentityProviderConfigurationCommandInput,
-    PutIdentityProviderConfigurationCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "PutIdentityProviderConfiguration", {})
-  .n("WorkMailClient", "PutIdentityProviderConfigurationCommand")
-  .sc(PutIdentityProviderConfiguration$)
-  .build() {
+export class PutIdentityProviderConfigurationCommand extends command<PutIdentityProviderConfigurationCommandInput, PutIdentityProviderConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutIdentityProviderConfiguration",
+  PutIdentityProviderConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

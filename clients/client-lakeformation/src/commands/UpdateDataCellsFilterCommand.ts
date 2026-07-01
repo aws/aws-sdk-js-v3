@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDataCellsFilterRequest, UpdateDataCellsFilterResponse } from "../models/models_0";
 import { UpdateDataCellsFilter$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateDataCellsFilter$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface UpdateDataCellsFilterCommandOutput extends UpdateDataCellsFilte
  *
  * @public
  */
-export class UpdateDataCellsFilterCommand extends $Command
-  .classBuilder<
-    UpdateDataCellsFilterCommandInput,
-    UpdateDataCellsFilterCommandOutput,
-    LakeFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLakeFormation", "UpdateDataCellsFilter", {})
-  .n("LakeFormationClient", "UpdateDataCellsFilterCommand")
-  .sc(UpdateDataCellsFilter$)
-  .build() {
+export class UpdateDataCellsFilterCommand extends command<UpdateDataCellsFilterCommandInput, UpdateDataCellsFilterCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDataCellsFilter",
+  UpdateDataCellsFilter$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

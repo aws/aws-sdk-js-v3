@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMessagingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMessagingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeChannelModeratedByAppInstanceUserRequest,
   DescribeChannelModeratedByAppInstanceUserResponse,
@@ -19,7 +12,6 @@ import { DescribeChannelModeratedByAppInstanceUser$ } from "../schemas/schemas_0
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +93,12 @@ export interface DescribeChannelModeratedByAppInstanceUserCommandOutput extends 
  *
  * @public
  */
-export class DescribeChannelModeratedByAppInstanceUserCommand extends $Command
-  .classBuilder<
-    DescribeChannelModeratedByAppInstanceUserCommandInput,
-    DescribeChannelModeratedByAppInstanceUserCommandOutput,
-    ChimeSDKMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeMessagingService", "DescribeChannelModeratedByAppInstanceUser", {})
-  .n("ChimeSDKMessagingClient", "DescribeChannelModeratedByAppInstanceUserCommand")
-  .sc(DescribeChannelModeratedByAppInstanceUser$)
-  .build() {
+export class DescribeChannelModeratedByAppInstanceUserCommand extends command<DescribeChannelModeratedByAppInstanceUserCommandInput, DescribeChannelModeratedByAppInstanceUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeChannelModeratedByAppInstanceUser",
+  DescribeChannelModeratedByAppInstanceUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

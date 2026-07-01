@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { InvokeEndpointAsyncInput, InvokeEndpointAsyncOutput } from "../models/models_0";
-import type {
-  SageMakerRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SageMakerRuntimeClient";
 import { InvokeEndpointAsync$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  */
@@ -102,22 +94,12 @@ export interface InvokeEndpointAsyncCommandOutput extends InvokeEndpointAsyncOut
  *
  * @public
  */
-export class InvokeEndpointAsyncCommand extends $Command
-  .classBuilder<
-    InvokeEndpointAsyncCommandInput,
-    InvokeEndpointAsyncCommandOutput,
-    SageMakerRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSageMakerRuntime", "InvokeEndpointAsync", {})
-  .n("SageMakerRuntimeClient", "InvokeEndpointAsyncCommand")
-  .sc(InvokeEndpointAsync$)
-  .build() {
+export class InvokeEndpointAsyncCommand extends command<InvokeEndpointAsyncCommandInput, InvokeEndpointAsyncCommandOutput>(
+  _ep0,
+  _mw0,
+  "InvokeEndpointAsync",
+  InvokeEndpointAsync$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

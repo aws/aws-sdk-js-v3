@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveAutoTerminationPolicyInput, RemoveAutoTerminationPolicyOutput } from "../models/models_0";
 import { RemoveAutoTerminationPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RemoveAutoTerminationPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -57,22 +53,12 @@ export interface RemoveAutoTerminationPolicyCommandOutput extends RemoveAutoTerm
  *
  * @public
  */
-export class RemoveAutoTerminationPolicyCommand extends $Command
-  .classBuilder<
-    RemoveAutoTerminationPolicyCommandInput,
-    RemoveAutoTerminationPolicyCommandOutput,
-    EMRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticMapReduce", "RemoveAutoTerminationPolicy", {})
-  .n("EMRClient", "RemoveAutoTerminationPolicyCommand")
-  .sc(RemoveAutoTerminationPolicy$)
-  .build() {
+export class RemoveAutoTerminationPolicyCommand extends command<RemoveAutoTerminationPolicyCommandInput, RemoveAutoTerminationPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveAutoTerminationPolicy",
+  RemoveAutoTerminationPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

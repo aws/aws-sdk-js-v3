@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ReportTaskProgressInput, ReportTaskProgressOutput } from "../models/models_0";
 import { ReportTaskProgress$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ReportTaskProgress$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +114,12 @@ export interface ReportTaskProgressCommandOutput extends ReportTaskProgressOutpu
  *
  * @public
  */
-export class ReportTaskProgressCommand extends $Command
-  .classBuilder<
-    ReportTaskProgressCommandInput,
-    ReportTaskProgressCommandOutput,
-    DataPipelineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataPipelineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataPipeline", "ReportTaskProgress", {})
-  .n("DataPipelineClient", "ReportTaskProgressCommand")
-  .sc(ReportTaskProgress$)
-  .build() {
+export class ReportTaskProgressCommand extends command<ReportTaskProgressCommandInput, ReportTaskProgressCommandOutput>(
+  _ep0,
+  _mw0,
+  "ReportTaskProgress",
+  ReportTaskProgress$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

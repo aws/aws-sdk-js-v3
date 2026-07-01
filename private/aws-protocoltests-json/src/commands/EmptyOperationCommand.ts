@@ -12,7 +12,6 @@ import { de_EmptyOperationCommand, se_EmptyOperationCommand } from "../protocols
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

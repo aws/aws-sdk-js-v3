@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchDeleteUserRequest, BatchDeleteUserResponse } from "../models/models_0";
 import { BatchDeleteUser$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -156,22 +152,12 @@ export interface BatchDeleteUserCommandOutput extends BatchDeleteUserResponse, _
  *
  * @public
  */
-export class BatchDeleteUserCommand extends $Command
-  .classBuilder<
-    BatchDeleteUserCommandInput,
-    BatchDeleteUserCommandOutput,
-    WickrClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WickrAdminApi", "BatchDeleteUser", {})
-  .n("WickrClient", "BatchDeleteUserCommand")
-  .sc(BatchDeleteUser$)
-  .build() {
+export class BatchDeleteUserCommand extends command<BatchDeleteUserCommandInput, BatchDeleteUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDeleteUser",
+  BatchDeleteUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

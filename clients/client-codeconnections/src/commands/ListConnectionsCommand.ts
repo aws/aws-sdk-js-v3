@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeConnectionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeConnectionsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListConnectionsInput, ListConnectionsOutput } from "../models/models_0";
 import { ListConnections$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListConnections$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface ListConnectionsCommandOutput extends ListConnectionsOutput, __M
  *
  * @public
  */
-export class ListConnectionsCommand extends $Command
-  .classBuilder<
-    ListConnectionsCommandInput,
-    ListConnectionsCommandOutput,
-    CodeConnectionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeConnectionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeConnections_20231201", "ListConnections", {})
-  .n("CodeConnectionsClient", "ListConnectionsCommand")
-  .sc(ListConnections$)
-  .build() {
+export class ListConnectionsCommand extends command<ListConnectionsCommandInput, ListConnectionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListConnections",
+  ListConnections$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

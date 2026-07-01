@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTieringConfigurationInput, DeleteTieringConfigurationOutput } from "../models/models_0";
 import { DeleteTieringConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteTieringConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface DeleteTieringConfigurationCommandOutput extends DeleteTieringCo
  *
  * @public
  */
-export class DeleteTieringConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteTieringConfigurationCommandInput,
-    DeleteTieringConfigurationCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "DeleteTieringConfiguration", {})
-  .n("BackupClient", "DeleteTieringConfigurationCommand")
-  .sc(DeleteTieringConfiguration$)
-  .build() {
+export class DeleteTieringConfigurationCommand extends command<DeleteTieringConfigurationCommandInput, DeleteTieringConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTieringConfiguration",
+  DeleteTieringConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

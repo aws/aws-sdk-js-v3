@@ -1,20 +1,14 @@
 // smithy-typescript generated code
-import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3/s3-control";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
-import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMultiRegionAccessPointRequest, DeleteMultiRegionAccessPointResult } from "../models/models_0";
-import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { DeleteMultiRegionAccessPoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,30 +93,12 @@ export interface DeleteMultiRegionAccessPointCommandOutput extends DeleteMultiRe
  *
  * @public
  */
-export class DeleteMultiRegionAccessPointCommand extends $Command
-  .classBuilder<
-    DeleteMultiRegionAccessPointCommandInput,
-    DeleteMultiRegionAccessPointCommandOutput,
-    S3ControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    RequiresAccountId: { type: "staticContextParams", value: true },
-    AccountId: { type: "contextParams", name: "AccountId" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getProcessArnablesPlugin(config),
-      getApplyMd5BodyChecksumPlugin(config),
-    ];
-  })
-  .s("AWSS3ControlServiceV20180820", "DeleteMultiRegionAccessPoint", {})
-  .n("S3ControlClient", "DeleteMultiRegionAccessPointCommand")
-  .sc(DeleteMultiRegionAccessPoint$)
-  .build() {
+export class DeleteMultiRegionAccessPointCommand extends command<DeleteMultiRegionAccessPointCommandInput, DeleteMultiRegionAccessPointCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMultiRegionAccessPoint",
+  DeleteMultiRegionAccessPoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

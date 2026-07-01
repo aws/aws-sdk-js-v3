@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelBenefitApplicationInput, CancelBenefitApplicationOutput } from "../models/models_0";
-import type {
-  PartnerCentralBenefitsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralBenefitsClient";
 import { CancelBenefitApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface CancelBenefitApplicationCommandOutput extends CancelBenefitAppl
  *
  * @public
  */
-export class CancelBenefitApplicationCommand extends $Command
-  .classBuilder<
-    CancelBenefitApplicationCommandInput,
-    CancelBenefitApplicationCommandOutput,
-    PartnerCentralBenefitsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralBenefitsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralBenefitsService", "CancelBenefitApplication", {})
-  .n("PartnerCentralBenefitsClient", "CancelBenefitApplicationCommand")
-  .sc(CancelBenefitApplication$)
-  .build() {
+export class CancelBenefitApplicationCommand extends command<CancelBenefitApplicationCommandInput, CancelBenefitApplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelBenefitApplication",
+  CancelBenefitApplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

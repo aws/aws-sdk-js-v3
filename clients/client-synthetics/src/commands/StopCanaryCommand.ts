@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopCanaryRequest, StopCanaryResponse } from "../models/models_0";
 import { StopCanary$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface StopCanaryCommandOutput extends StopCanaryResponse, __MetadataB
  *
  * @public
  */
-export class StopCanaryCommand extends $Command
-  .classBuilder<
-    StopCanaryCommandInput,
-    StopCanaryCommandOutput,
-    SyntheticsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Synthetics", "StopCanary", {})
-  .n("SyntheticsClient", "StopCanaryCommand")
-  .sc(StopCanary$)
-  .build() {
+export class StopCanaryCommand extends command<StopCanaryCommandInput, StopCanaryCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopCanary",
+  StopCanary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

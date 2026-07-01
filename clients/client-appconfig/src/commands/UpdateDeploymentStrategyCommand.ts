@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeploymentStrategy, UpdateDeploymentStrategyRequest } from "../models/models_0";
 import { UpdateDeploymentStrategy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateDeploymentStrategy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface UpdateDeploymentStrategyCommandOutput extends DeploymentStrateg
  *
  * @public
  */
-export class UpdateDeploymentStrategyCommand extends $Command
-  .classBuilder<
-    UpdateDeploymentStrategyCommandInput,
-    UpdateDeploymentStrategyCommandOutput,
-    AppConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAppConfig", "UpdateDeploymentStrategy", {})
-  .n("AppConfigClient", "UpdateDeploymentStrategyCommand")
-  .sc(UpdateDeploymentStrategy$)
-  .build() {
+export class UpdateDeploymentStrategyCommand extends command<UpdateDeploymentStrategyCommandInput, UpdateDeploymentStrategyCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDeploymentStrategy",
+  UpdateDeploymentStrategy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

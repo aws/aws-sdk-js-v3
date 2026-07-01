@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_2";
 import { GetInvitationsCount$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  *
  * @public
  */
-export class GetInvitationsCountCommand extends $Command
-  .classBuilder<
-    GetInvitationsCountCommandInput,
-    GetInvitationsCountCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "GetInvitationsCount", {})
-  .n("SecurityHubClient", "GetInvitationsCountCommand")
-  .sc(GetInvitationsCount$)
-  .build() {
+export class GetInvitationsCountCommand extends command<GetInvitationsCountCommandInput, GetInvitationsCountCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetInvitationsCount",
+  GetInvitationsCount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

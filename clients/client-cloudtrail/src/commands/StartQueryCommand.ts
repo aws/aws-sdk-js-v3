@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartQueryRequest, StartQueryResponse } from "../models/models_0";
 import { StartQuery$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartQuery$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  *
  * @public
  */
-export class StartQueryCommand extends $Command
-  .classBuilder<
-    StartQueryCommandInput,
-    StartQueryCommandOutput,
-    CloudTrailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudTrail_20131101", "StartQuery", {})
-  .n("CloudTrailClient", "StartQueryCommand")
-  .sc(StartQuery$)
-  .build() {
+export class StartQueryCommand extends command<StartQueryCommandInput, StartQueryCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartQuery",
+  StartQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

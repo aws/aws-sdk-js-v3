@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFlowAliasRequest, DeleteFlowAliasResponse } from "../models/models_0";
 import { DeleteFlowAlias$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteFlowAlias$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DeleteFlowAliasCommandOutput extends DeleteFlowAliasResponse, _
  *
  * @public
  */
-export class DeleteFlowAliasCommand extends $Command
-  .classBuilder<
-    DeleteFlowAliasCommandInput,
-    DeleteFlowAliasCommandOutput,
-    BedrockAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentBuildTimeLambda", "DeleteFlowAlias", {})
-  .n("BedrockAgentClient", "DeleteFlowAliasCommand")
-  .sc(DeleteFlowAlias$)
-  .build() {
+export class DeleteFlowAliasCommand extends command<DeleteFlowAliasCommandInput, DeleteFlowAliasCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFlowAlias",
+  DeleteFlowAlias$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

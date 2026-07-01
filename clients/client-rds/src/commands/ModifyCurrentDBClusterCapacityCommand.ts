@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DBClusterCapacityInfo, ModifyCurrentDBClusterCapacityMessage } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { ModifyCurrentDBClusterCapacity$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface ModifyCurrentDBClusterCapacityCommandOutput extends DBClusterCa
  *
  * @public
  */
-export class ModifyCurrentDBClusterCapacityCommand extends $Command
-  .classBuilder<
-    ModifyCurrentDBClusterCapacityCommandInput,
-    ModifyCurrentDBClusterCapacityCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "ModifyCurrentDBClusterCapacity", {})
-  .n("RDSClient", "ModifyCurrentDBClusterCapacityCommand")
-  .sc(ModifyCurrentDBClusterCapacity$)
-  .build() {
+export class ModifyCurrentDBClusterCapacityCommand extends command<ModifyCurrentDBClusterCapacityCommandInput, ModifyCurrentDBClusterCapacityCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyCurrentDBClusterCapacity",
+  ModifyCurrentDBClusterCapacity$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

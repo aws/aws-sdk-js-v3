@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDocumentationPartRequest } from "../models/models_0";
 import { DeleteDocumentationPart$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteDocumentationPart$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteDocumentationPartCommandOutput extends __MetadataBearer {
  *
  * @public
  */
-export class DeleteDocumentationPartCommand extends $Command
-  .classBuilder<
-    DeleteDocumentationPartCommandInput,
-    DeleteDocumentationPartCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "DeleteDocumentationPart", {})
-  .n("APIGatewayClient", "DeleteDocumentationPartCommand")
-  .sc(DeleteDocumentationPart$)
-  .build() {
+export class DeleteDocumentationPartCommand extends command<DeleteDocumentationPartCommandInput, DeleteDocumentationPartCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDocumentationPart",
+  DeleteDocumentationPart$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

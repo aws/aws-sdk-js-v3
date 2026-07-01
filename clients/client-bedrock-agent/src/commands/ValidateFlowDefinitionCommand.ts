@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ValidateFlowDefinitionRequest, ValidateFlowDefinitionResponse } from "../models/models_1";
 import { ValidateFlowDefinition$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ValidateFlowDefinition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -634,22 +630,12 @@ export interface ValidateFlowDefinitionCommandOutput extends ValidateFlowDefinit
  *
  * @public
  */
-export class ValidateFlowDefinitionCommand extends $Command
-  .classBuilder<
-    ValidateFlowDefinitionCommandInput,
-    ValidateFlowDefinitionCommandOutput,
-    BedrockAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentBuildTimeLambda", "ValidateFlowDefinition", {})
-  .n("BedrockAgentClient", "ValidateFlowDefinitionCommand")
-  .sc(ValidateFlowDefinition$)
-  .build() {
+export class ValidateFlowDefinitionCommand extends command<ValidateFlowDefinitionCommandInput, ValidateFlowDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ValidateFlowDefinition",
+  ValidateFlowDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

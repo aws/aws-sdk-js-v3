@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateExtendedSourceServerRequest, CreateExtendedSourceServerResponse } from "../models/models_0";
 import { CreateExtendedSourceServer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateExtendedSourceServer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -188,22 +184,12 @@ export interface CreateExtendedSourceServerCommandOutput extends CreateExtendedS
  *
  * @public
  */
-export class CreateExtendedSourceServerCommand extends $Command
-  .classBuilder<
-    CreateExtendedSourceServerCommandInput,
-    CreateExtendedSourceServerCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "CreateExtendedSourceServer", {})
-  .n("DrsClient", "CreateExtendedSourceServerCommand")
-  .sc(CreateExtendedSourceServer$)
-  .build() {
+export class CreateExtendedSourceServerCommand extends command<CreateExtendedSourceServerCommandInput, CreateExtendedSourceServerCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateExtendedSourceServer",
+  CreateExtendedSourceServer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

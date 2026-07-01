@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationSignalsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationSignalsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAuditFindingsInput, ListAuditFindingsOutput } from "../models/models_0";
 import { ListAuditFindings$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListAuditFindings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -179,22 +171,12 @@ export interface ListAuditFindingsCommandOutput extends ListAuditFindingsOutput,
  *
  * @public
  */
-export class ListAuditFindingsCommand extends $Command
-  .classBuilder<
-    ListAuditFindingsCommandInput,
-    ListAuditFindingsCommandOutput,
-    ApplicationSignalsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationSignalsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationSignals", "ListAuditFindings", {})
-  .n("ApplicationSignalsClient", "ListAuditFindingsCommand")
-  .sc(ListAuditFindings$)
-  .build() {
+export class ListAuditFindingsCommand extends command<ListAuditFindingsCommandInput, ListAuditFindingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAuditFindings",
+  ListAuditFindings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

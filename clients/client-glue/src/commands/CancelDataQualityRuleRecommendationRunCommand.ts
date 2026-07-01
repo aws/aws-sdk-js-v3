@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CancelDataQualityRuleRecommendationRunRequest,
   CancelDataQualityRuleRecommendationRunResponse,
@@ -15,7 +12,6 @@ import { CancelDataQualityRuleRecommendationRun$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface CancelDataQualityRuleRecommendationRunCommandOutput extends Can
  *
  * @public
  */
-export class CancelDataQualityRuleRecommendationRunCommand extends $Command
-  .classBuilder<
-    CancelDataQualityRuleRecommendationRunCommandInput,
-    CancelDataQualityRuleRecommendationRunCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "CancelDataQualityRuleRecommendationRun", {})
-  .n("GlueClient", "CancelDataQualityRuleRecommendationRunCommand")
-  .sc(CancelDataQualityRuleRecommendationRun$)
-  .build() {
+export class CancelDataQualityRuleRecommendationRunCommand extends command<CancelDataQualityRuleRecommendationRunCommandInput, CancelDataQualityRuleRecommendationRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelDataQualityRuleRecommendationRun",
+  CancelDataQualityRuleRecommendationRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

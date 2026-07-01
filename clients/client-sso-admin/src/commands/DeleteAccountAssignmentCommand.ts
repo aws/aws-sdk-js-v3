@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAccountAssignmentRequest, DeleteAccountAssignmentResponse } from "../models/models_0";
 import { DeleteAccountAssignment$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface DeleteAccountAssignmentCommandOutput extends DeleteAccountAssig
  *
  * @public
  */
-export class DeleteAccountAssignmentCommand extends $Command
-  .classBuilder<
-    DeleteAccountAssignmentCommandInput,
-    DeleteAccountAssignmentCommandOutput,
-    SSOAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBExternalService", "DeleteAccountAssignment", {})
-  .n("SSOAdminClient", "DeleteAccountAssignmentCommand")
-  .sc(DeleteAccountAssignment$)
-  .build() {
+export class DeleteAccountAssignmentCommand extends command<DeleteAccountAssignmentCommandInput, DeleteAccountAssignmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAccountAssignment",
+  DeleteAccountAssignment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

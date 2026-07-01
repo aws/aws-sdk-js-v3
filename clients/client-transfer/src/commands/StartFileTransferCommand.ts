@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartFileTransferRequest, StartFileTransferResponse } from "../models/models_0";
 import { StartFileTransfer$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface StartFileTransferCommandOutput extends StartFileTransferRespons
  *
  * @public
  */
-export class StartFileTransferCommand extends $Command
-  .classBuilder<
-    StartFileTransferCommandInput,
-    StartFileTransferCommandOutput,
-    TransferClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TransferService", "StartFileTransfer", {})
-  .n("TransferClient", "StartFileTransferCommand")
-  .sc(StartFileTransfer$)
-  .build() {
+export class StartFileTransferCommand extends command<StartFileTransferCommandInput, StartFileTransferCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartFileTransfer",
+  StartFileTransfer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

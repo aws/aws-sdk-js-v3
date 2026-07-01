@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateEnvironmentRequest, Environment } from "../models/models_0";
 import { CreateEnvironment$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateEnvironment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface CreateEnvironmentCommandOutput extends Environment, __MetadataB
  *
  * @public
  */
-export class CreateEnvironmentCommand extends $Command
-  .classBuilder<
-    CreateEnvironmentCommandInput,
-    CreateEnvironmentCommandOutput,
-    AppConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAppConfig", "CreateEnvironment", {})
-  .n("AppConfigClient", "CreateEnvironmentCommand")
-  .sc(CreateEnvironment$)
-  .build() {
+export class CreateEnvironmentCommand extends command<CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateEnvironment",
+  CreateEnvironment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

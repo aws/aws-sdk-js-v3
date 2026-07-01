@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { IncreaseReplicationFactorRequest, IncreaseReplicationFactorResponse } from "../models/models_0";
 import { IncreaseReplicationFactor$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { IncreaseReplicationFactor$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -149,22 +145,12 @@ export interface IncreaseReplicationFactorCommandOutput extends IncreaseReplicat
  *
  * @public
  */
-export class IncreaseReplicationFactorCommand extends $Command
-  .classBuilder<
-    IncreaseReplicationFactorCommandInput,
-    IncreaseReplicationFactorCommandOutput,
-    DAXClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DAXClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDAXV3", "IncreaseReplicationFactor", {})
-  .n("DAXClient", "IncreaseReplicationFactorCommand")
-  .sc(IncreaseReplicationFactor$)
-  .build() {
+export class IncreaseReplicationFactorCommand extends command<IncreaseReplicationFactorCommandInput, IncreaseReplicationFactorCommandOutput>(
+  _ep0,
+  _mw0,
+  "IncreaseReplicationFactor",
+  IncreaseReplicationFactor$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

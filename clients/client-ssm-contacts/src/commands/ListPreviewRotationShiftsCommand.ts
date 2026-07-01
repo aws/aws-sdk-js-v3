@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPreviewRotationShiftsRequest, ListPreviewRotationShiftsResult } from "../models/models_0";
 import { ListPreviewRotationShifts$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -143,22 +139,12 @@ export interface ListPreviewRotationShiftsCommandOutput extends ListPreviewRotat
  *
  * @public
  */
-export class ListPreviewRotationShiftsCommand extends $Command
-  .classBuilder<
-    ListPreviewRotationShiftsCommandInput,
-    ListPreviewRotationShiftsCommandOutput,
-    SSMContactsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMContacts", "ListPreviewRotationShifts", {})
-  .n("SSMContactsClient", "ListPreviewRotationShiftsCommand")
-  .sc(ListPreviewRotationShifts$)
-  .build() {
+export class ListPreviewRotationShiftsCommand extends command<ListPreviewRotationShiftsCommandInput, ListPreviewRotationShiftsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPreviewRotationShifts",
+  ListPreviewRotationShifts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

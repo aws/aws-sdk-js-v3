@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListInstanceTypeDetailsRequest, ListInstanceTypeDetailsResponse } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { ListInstanceTypeDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface ListInstanceTypeDetailsCommandOutput extends ListInstanceTypeDe
  *
  * @public
  */
-export class ListInstanceTypeDetailsCommand extends $Command
-  .classBuilder<
-    ListInstanceTypeDetailsCommandInput,
-    ListInstanceTypeDetailsCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "ListInstanceTypeDetails", {})
-  .n("OpenSearchClient", "ListInstanceTypeDetailsCommand")
-  .sc(ListInstanceTypeDetails$)
-  .build() {
+export class ListInstanceTypeDetailsCommand extends command<ListInstanceTypeDetailsCommandInput, ListInstanceTypeDetailsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListInstanceTypeDetails",
+  ListInstanceTypeDetails$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

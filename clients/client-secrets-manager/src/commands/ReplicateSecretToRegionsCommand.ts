@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ReplicateSecretToRegionsRequest, ReplicateSecretToRegionsResponse } from "../models/models_0";
 import { ReplicateSecretToRegions$ } from "../schemas/schemas_0";
-import type {
-  SecretsManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SecretsManagerClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -146,22 +138,12 @@ export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretTo
  *
  * @public
  */
-export class ReplicateSecretToRegionsCommand extends $Command
-  .classBuilder<
-    ReplicateSecretToRegionsCommandInput,
-    ReplicateSecretToRegionsCommandOutput,
-    SecretsManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("secretsmanager", "ReplicateSecretToRegions", {})
-  .n("SecretsManagerClient", "ReplicateSecretToRegionsCommand")
-  .sc(ReplicateSecretToRegions$)
-  .build() {
+export class ReplicateSecretToRegionsCommand extends command<ReplicateSecretToRegionsCommandInput, ReplicateSecretToRegionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ReplicateSecretToRegions",
+  ReplicateSecretToRegions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

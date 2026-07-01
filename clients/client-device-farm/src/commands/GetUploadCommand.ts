@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetUploadRequest, GetUploadResult } from "../models/models_0";
 import { GetUpload$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetUpload$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface GetUploadCommandOutput extends GetUploadResult, __MetadataBeare
  *
  * @public
  */
-export class GetUploadCommand extends $Command
-  .classBuilder<
-    GetUploadCommandInput,
-    GetUploadCommandOutput,
-    DeviceFarmClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DeviceFarm_20150623", "GetUpload", {})
-  .n("DeviceFarmClient", "GetUploadCommand")
-  .sc(GetUpload$)
-  .build() {
+export class GetUploadCommand extends command<GetUploadCommandInput, GetUploadCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetUpload",
+  GetUpload$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

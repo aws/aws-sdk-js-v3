@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRootDomainUnitOwnerInput, UpdateRootDomainUnitOwnerOutput } from "../models/models_2";
 import { UpdateRootDomainUnitOwner$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateRootDomainUnitOwner$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface UpdateRootDomainUnitOwnerCommandOutput extends UpdateRootDomain
  *
  * @public
  */
-export class UpdateRootDomainUnitOwnerCommand extends $Command
-  .classBuilder<
-    UpdateRootDomainUnitOwnerCommandInput,
-    UpdateRootDomainUnitOwnerCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "UpdateRootDomainUnitOwner", {})
-  .n("DataZoneClient", "UpdateRootDomainUnitOwnerCommand")
-  .sc(UpdateRootDomainUnitOwner$)
-  .build() {
+export class UpdateRootDomainUnitOwnerCommand extends command<UpdateRootDomainUnitOwnerCommandInput, UpdateRootDomainUnitOwnerCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRootDomainUnitOwner",
+  UpdateRootDomainUnitOwner$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

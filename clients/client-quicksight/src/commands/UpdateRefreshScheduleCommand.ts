@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRefreshScheduleRequest, UpdateRefreshScheduleResponse } from "../models/models_5";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { UpdateRefreshSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface UpdateRefreshScheduleCommandOutput extends UpdateRefreshSchedul
  *
  * @public
  */
-export class UpdateRefreshScheduleCommand extends $Command
-  .classBuilder<
-    UpdateRefreshScheduleCommandInput,
-    UpdateRefreshScheduleCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "UpdateRefreshSchedule", {})
-  .n("QuickSightClient", "UpdateRefreshScheduleCommand")
-  .sc(UpdateRefreshSchedule$)
-  .build() {
+export class UpdateRefreshScheduleCommand extends command<UpdateRefreshScheduleCommandInput, UpdateRefreshScheduleCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRefreshSchedule",
+  UpdateRefreshSchedule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCapabilityRequest, CreateCapabilityResponse } from "../models/models_0";
 import { CreateCapability$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateCapability$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -221,22 +217,12 @@ export interface CreateCapabilityCommandOutput extends CreateCapabilityResponse,
  *
  * @public
  */
-export class CreateCapabilityCommand extends $Command
-  .classBuilder<
-    CreateCapabilityCommandInput,
-    CreateCapabilityCommandOutput,
-    B2biClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("B2BI", "CreateCapability", {})
-  .n("B2biClient", "CreateCapabilityCommand")
-  .sc(CreateCapability$)
-  .build() {
+export class CreateCapabilityCommand extends command<CreateCapabilityCommandInput, CreateCapabilityCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCapability",
+  CreateCapability$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

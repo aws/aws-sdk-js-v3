@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateProductInput, UpdateProductOutput } from "../models/models_0";
 import { UpdateProduct$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -143,22 +135,12 @@ export interface UpdateProductCommandOutput extends UpdateProductOutput, __Metad
  *
  * @public
  */
-export class UpdateProductCommand extends $Command
-  .classBuilder<
-    UpdateProductCommandInput,
-    UpdateProductCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "UpdateProduct", {})
-  .n("ServiceCatalogClient", "UpdateProductCommand")
-  .sc(UpdateProduct$)
-  .build() {
+export class UpdateProductCommand extends command<UpdateProductCommandInput, UpdateProductCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateProduct",
+  UpdateProduct$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCustomPluginRequest, CreateCustomPluginResponse } from "../models/models_0";
 import { CreateCustomPlugin$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateCustomPlugin$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface CreateCustomPluginCommandOutput extends CreateCustomPluginRespo
  *
  * @public
  */
-export class CreateCustomPluginCommand extends $Command
-  .classBuilder<
-    CreateCustomPluginCommandInput,
-    CreateCustomPluginCommandOutput,
-    KafkaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KafkaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KafkaConnect", "CreateCustomPlugin", {})
-  .n("KafkaConnectClient", "CreateCustomPluginCommand")
-  .sc(CreateCustomPlugin$)
-  .build() {
+export class CreateCustomPluginCommand extends command<CreateCustomPluginCommandInput, CreateCustomPluginCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCustomPlugin",
+  CreateCustomPlugin$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

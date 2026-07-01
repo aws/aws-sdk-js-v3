@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeDRTAccessRequest, DescribeDRTAccessResponse } from "../models/models_0";
 import { DescribeDRTAccess$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +62,12 @@ export interface DescribeDRTAccessCommandOutput extends DescribeDRTAccessRespons
  *
  * @public
  */
-export class DescribeDRTAccessCommand extends $Command
-  .classBuilder<
-    DescribeDRTAccessCommandInput,
-    DescribeDRTAccessCommandOutput,
-    ShieldClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShield_20160616", "DescribeDRTAccess", {})
-  .n("ShieldClient", "DescribeDRTAccessCommand")
-  .sc(DescribeDRTAccess$)
-  .build() {
+export class DescribeDRTAccessCommand extends command<DescribeDRTAccessCommandInput, DescribeDRTAccessCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDRTAccess",
+  DescribeDRTAccess$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

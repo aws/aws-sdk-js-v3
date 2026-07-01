@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetECSServiceRecommendationsRequest, GetECSServiceRecommendationsResponse } from "../models/models_0";
 import { GetECSServiceRecommendations$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetECSServiceRecommendations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -206,22 +198,12 @@ export interface GetECSServiceRecommendationsCommandOutput extends GetECSService
  *
  * @public
  */
-export class GetECSServiceRecommendationsCommand extends $Command
-  .classBuilder<
-    GetECSServiceRecommendationsCommandInput,
-    GetECSServiceRecommendationsCommandOutput,
-    ComputeOptimizerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerService", "GetECSServiceRecommendations", {})
-  .n("ComputeOptimizerClient", "GetECSServiceRecommendationsCommand")
-  .sc(GetECSServiceRecommendations$)
-  .build() {
+export class GetECSServiceRecommendationsCommand extends command<GetECSServiceRecommendationsCommandInput, GetECSServiceRecommendationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetECSServiceRecommendations",
+  GetECSServiceRecommendations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

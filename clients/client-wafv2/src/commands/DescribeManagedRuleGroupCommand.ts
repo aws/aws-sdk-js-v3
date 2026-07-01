@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeManagedRuleGroupRequest, DescribeManagedRuleGroupResponse } from "../models/models_0";
 import { DescribeManagedRuleGroup$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -180,22 +176,12 @@ export interface DescribeManagedRuleGroupCommandOutput extends DescribeManagedRu
  *
  * @public
  */
-export class DescribeManagedRuleGroupCommand extends $Command
-  .classBuilder<
-    DescribeManagedRuleGroupCommandInput,
-    DescribeManagedRuleGroupCommandOutput,
-    WAFV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20190729", "DescribeManagedRuleGroup", {})
-  .n("WAFV2Client", "DescribeManagedRuleGroupCommand")
-  .sc(DescribeManagedRuleGroup$)
-  .build() {
+export class DescribeManagedRuleGroupCommand extends command<DescribeManagedRuleGroupCommandInput, DescribeManagedRuleGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeManagedRuleGroup",
+  DescribeManagedRuleGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

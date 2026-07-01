@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAggregateLogGroupSummariesRequest, ListAggregateLogGroupSummariesResponse } from "../models/models_0";
 import { ListAggregateLogGroupSummaries$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListAggregateLogGroupSummaries$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +99,12 @@ export interface ListAggregateLogGroupSummariesCommandOutput extends ListAggrega
  *
  * @public
  */
-export class ListAggregateLogGroupSummariesCommand extends $Command
-  .classBuilder<
-    ListAggregateLogGroupSummariesCommandInput,
-    ListAggregateLogGroupSummariesCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "ListAggregateLogGroupSummaries", {})
-  .n("CloudWatchLogsClient", "ListAggregateLogGroupSummariesCommand")
-  .sc(ListAggregateLogGroupSummaries$)
-  .build() {
+export class ListAggregateLogGroupSummariesCommand extends command<ListAggregateLogGroupSummariesCommandInput, ListAggregateLogGroupSummariesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAggregateLogGroupSummaries",
+  ListAggregateLogGroupSummaries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

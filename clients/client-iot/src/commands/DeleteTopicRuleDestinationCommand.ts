@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTopicRuleDestinationRequest, DeleteTopicRuleDestinationResponse } from "../models/models_0";
 import { DeleteTopicRuleDestination$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteTopicRuleDestination$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DeleteTopicRuleDestinationCommandOutput extends DeleteTopicRule
  *
  * @public
  */
-export class DeleteTopicRuleDestinationCommand extends $Command
-  .classBuilder<
-    DeleteTopicRuleDestinationCommandInput,
-    DeleteTopicRuleDestinationCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "DeleteTopicRuleDestination", {})
-  .n("IoTClient", "DeleteTopicRuleDestinationCommand")
-  .sc(DeleteTopicRuleDestination$)
-  .build() {
+export class DeleteTopicRuleDestinationCommand extends command<DeleteTopicRuleDestinationCommandInput, DeleteTopicRuleDestinationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTopicRuleDestination",
+  DeleteTopicRuleDestination$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

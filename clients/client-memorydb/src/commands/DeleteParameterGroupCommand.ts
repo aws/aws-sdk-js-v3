@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteParameterGroupRequest, DeleteParameterGroupResponse } from "../models/models_0";
 import { DeleteParameterGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteParameterGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface DeleteParameterGroupCommandOutput extends DeleteParameterGroupR
  *
  * @public
  */
-export class DeleteParameterGroupCommand extends $Command
-  .classBuilder<
-    DeleteParameterGroupCommandInput,
-    DeleteParameterGroupCommandOutput,
-    MemoryDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMemoryDB", "DeleteParameterGroup", {})
-  .n("MemoryDBClient", "DeleteParameterGroupCommand")
-  .sc(DeleteParameterGroup$)
-  .build() {
+export class DeleteParameterGroupCommand extends command<DeleteParameterGroupCommandInput, DeleteParameterGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteParameterGroup",
+  DeleteParameterGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
