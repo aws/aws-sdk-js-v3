@@ -1,5 +1,6 @@
-import { Kinesis } from "@aws-sdk/client-kinesis";
+import { CreateStreamCommand, Kinesis } from "@aws-sdk/client-kinesis";
 import { NodeHttp2Handler } from "@aws-sdk/config/requestHandler";
+import { getEndpointFromInstructions } from "@smithy/core/endpoints";
 import { type MetadataBearer } from "@smithy/types";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
@@ -21,6 +22,13 @@ describe("@aws-sdk/client-kinesis", () => {
   const debug = () => {
     return (client.config.requestHandler as any).connectionManager?.debug?.();
   };
+
+  /**
+   * The endpoint the client resolves to, used as the connection pool key.
+   * Resolved from the client config instead of being hardcoded, so the test
+   * follows the client's configured region/endpoint.
+   */
+  let endpoint: string;
 
   async function setup() {
     await client.createStream({ StreamName: STREAM_NAME, ShardCount: SHARD_COUNT });
@@ -113,10 +121,14 @@ describe("@aws-sdk/client-kinesis", () => {
    * ```
    */
   function getSessions(state: any) {
-    return state?.["https://kinesis.us-west-2.amazonaws.com/"]?.sessions ?? [];
+    return state?.[endpoint]?.sessions ?? [];
   }
 
   beforeAll(async () => {
+    // Resolve the endpoint the same way the SDK does at request time.
+    const { url } = await getEndpointFromInstructions({}, CreateStreamCommand, client.config);
+    endpoint = url.toString();
+
     connectionManagerStates.initial = debug();
     await setup();
 
@@ -161,7 +173,6 @@ describe("@aws-sdk/client-kinesis", () => {
   });
 
   describe("Node.js HTTP2 session concurrency", () => {
-    const usWest2Endpoint = "https://kinesis.us-west-2.amazonaws.com/";
     const sessionType = {
       id: expect.any(Number),
       active: expect.any(Number),
@@ -179,20 +190,20 @@ describe("@aws-sdk/client-kinesis", () => {
 
       expect(getSessions(connectionManagerStates.requestsFinished)).not.toEqual([]);
       expect(connectionManagerStates.requestsFinished).toMatchObject({
-        [usWest2Endpoint]: {
+        [endpoint]: {
           sessions: getSessions(connectionManagerStates.requestsFinished).map(() => sessionType),
         },
       });
 
       expect(getSessions(connectionManagerStates.secondBatchRequestsFinished)).not.toEqual([]);
       expect(connectionManagerStates.secondBatchRequestsFinished).toMatchObject({
-        [usWest2Endpoint]: {
+        [endpoint]: {
           sessions: getSessions(connectionManagerStates.secondBatchRequestsFinished).map(() => sessionType),
         },
       });
 
       expect(connectionManagerStates.idle).toEqual({
-        "https://kinesis.us-west-2.amazonaws.com/": {
+        [endpoint]: {
           sessions: [],
         },
       });
