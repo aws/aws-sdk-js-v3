@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-env",
-  "version": "3.972.51",
+  "version": "3.972.52",
   "description": "AWS credential provider that sources credentials from known environment variables",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -26,8 +26,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.25",
-    "@aws-sdk/types": "workspace:^3.973.14",
+    "@aws-sdk/core": "workspace:^3.974.26",
+    "@aws-sdk/types": "workspace:^3.973.15",
     "@smithy/core": "^3.29.0",
     "@smithy/types": "^4.15.1",
     "tslib": "^2.6.2"

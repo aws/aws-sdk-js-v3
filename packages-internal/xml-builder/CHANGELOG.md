@@ -16,6 +16,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.33 (2026-07-01)
+### Chores
+* **codegen:** sync for thinner command classes, endpoint parameter type fix ([#8136](https://github.com/aws/aws-sdk-js-v3/issues/8136)) ([c39b676](https://github.com/aws/aws-sdk-js-v3/commit/c39b6765a3b49a48a9e2f4000cc6e97e82f4ae2e))
+
+
+
 # 3.972.32 (2026-06-29)
 ### Chores
 * **scripts:** drop bundler support in dist-cjs (use dist-es instead) ([#8124](https://github.com/aws/aws-sdk-js-v3/issues/8124)) ([775bc03](https://github.com/aws/aws-sdk-js-v3/commit/775bc034fad8cb5587434718133ce592da4e1b3e))

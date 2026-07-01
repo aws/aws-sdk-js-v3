@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1078.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1077.0...v3.1078.0) (2026-07-01)
+
+
+### Features
+
+* **client-artifact:** Add support for Assurance Assistant APIs for managing compliance inquiries along with tagging features. ([a1aeba1](https://github.com/aws/aws-sdk-js-v3/commit/a1aeba10d896dff4b5a8c4525854812ae0e29c38))
+
+
+
+
+
 # [3.1077.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1076.0...v3.1077.0) (2026-06-30)
 
 **Note:** Version bump only for package @aws-sdk/client-artifact

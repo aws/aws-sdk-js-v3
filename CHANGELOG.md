@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1078.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1077.0...v3.1078.0) (2026-07-01)
+
+
+### Features
+
+* **client-artifact:** Add support for Assurance Assistant APIs for managing compliance inquiries along with tagging features. ([a1aeba1](https://github.com/aws/aws-sdk-js-v3/commit/a1aeba10d896dff4b5a8c4525854812ae0e29c38))
+* **client-connect:** Adds a new Amazon Connect Service API, SendOutboundWebNotification, that delivers web notifications to end-customer chat widget sessions. Callable only by the Amazon Connect Outbound Campaigns service principal. ([68a3994](https://github.com/aws/aws-sdk-js-v3/commit/68a399419e31730c0ae135f183082ae8675e9ff9))
+* **client-ec2:** Use declarative policies to enable VPC Encryption Controls across your organization or select accounts. Added AMD SEV-SNP support for EC2 Dedicated Hosts. Managed resource visibility settings control whether AWS-provisioned resources in your account appear in console views and API list operations. ([6d82b78](https://github.com/aws/aws-sdk-js-v3/commit/6d82b78d175808ca5fd5ab7d414d75c705d42930))
+* **client-gameliftstreams:** Added CreateStreamSessionAdminShell API operation to enable customers to establish secure terminal connections to the live runtime environment of streaming sessions for troubleshooting purposes. ([6040732](https://github.com/aws/aws-sdk-js-v3/commit/60407323a7acd73a6422139ac15274fb94d13abe))
+* **client-mediaconvert:** Adds support for integer-second duration normalization and the option to disable explicit weighted prediction. ([0a11644](https://github.com/aws/aws-sdk-js-v3/commit/0a11644bbd2284c8fd5cd9a8ec898b77ba552b9c))
+* **client-opensearch:** To create a Mustang domain via the AWS CLI, you must pass EngineMode OPTIMIZED (along with UseCase OBSERVABILITY or MIXED)  without it, the domain defaults to a regular (GENERAL) domain. Also this release includes Insights Feedback API which user can use to provide feedback for Insight API. ([8927c3a](https://github.com/aws/aws-sdk-js-v3/commit/8927c3ad57503d069a5a764d931b8ce554c2fe1e))
+* **client-quicksight:** Adding support for FileSource PhysicalTables.  This adds support for datasets with file sources. ([1ce4d09](https://github.com/aws/aws-sdk-js-v3/commit/1ce4d09aabc4016bf88bf542c6c64386982bc514))
+* **clients:** update client endpoints as of 2026-07-01 ([0c0bc42](https://github.com/aws/aws-sdk-js-v3/commit/0c0bc427405e032df4028b786271e7938cf83b5f))
+
+
+
+
+
 # [3.1077.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1076.0...v3.1077.0) (2026-06-30)
 
 

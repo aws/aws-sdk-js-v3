@@ -20,6 +20,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.18 (2026-07-01)
+### Chores
+* **util-dns:** update dependencies.
+
+
+
 # 3.972.17 (2026-06-29)
 ### Chores
 * **scripts:** drop bundler support in dist-cjs (use dist-es instead) ([#8124](https://github.com/aws/aws-sdk-js-v3/issues/8124)) ([775bc03](https://github.com/aws/aws-sdk-js-v3/commit/775bc034fad8cb5587434718133ce592da4e1b3e))

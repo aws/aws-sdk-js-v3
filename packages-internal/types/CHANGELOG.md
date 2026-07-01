@@ -18,6 +18,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.15 (2026-07-01)
+### Chores
+* **codegen:** sync for thinner command classes, endpoint parameter type fix ([#8136](https://github.com/aws/aws-sdk-js-v3/issues/8136)) ([c39b676](https://github.com/aws/aws-sdk-js-v3/commit/c39b6765a3b49a48a9e2f4000cc6e97e82f4ae2e))
+
+
+
 # 3.973.14 (2026-06-25)
 ### Chores
 * **codegen:** sync for CBOR serde performance and retry fixes ([#8125](https://github.com/aws/aws-sdk-js-v3/issues/8125)) ([b6d6a75](https://github.com/aws/aws-sdk-js-v3/commit/b6d6a759f15f2c36745fb85905a90533998cae0e))

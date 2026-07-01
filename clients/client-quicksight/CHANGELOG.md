@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1078.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1077.0...v3.1078.0) (2026-07-01)
+
+
+### Features
+
+* **client-quicksight:** Adding support for FileSource PhysicalTables.  This adds support for datasets with file sources. ([1ce4d09](https://github.com/aws/aws-sdk-js-v3/commit/1ce4d09aabc4016bf88bf542c6c64386982bc514))
+
+
+
+
+
 # [3.1077.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1076.0...v3.1077.0) (2026-06-30)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

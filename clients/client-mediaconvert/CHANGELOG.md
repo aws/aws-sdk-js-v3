@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1078.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1077.0...v3.1078.0) (2026-07-01)
+
+
+### Features
+
+* **client-mediaconvert:** Adds support for integer-second duration normalization and the option to disable explicit weighted prediction. ([0a11644](https://github.com/aws/aws-sdk-js-v3/commit/0a11644bbd2284c8fd5cd9a8ec898b77ba552b9c))
+
+
+
+
+
 # [3.1077.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1076.0...v3.1077.0) (2026-06-30)
 
 **Note:** Version bump only for package @aws-sdk/client-mediaconvert
