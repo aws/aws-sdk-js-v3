@@ -34,7 +34,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *       want to meter usage for multiple products, you must make multiple
  *         <code>BatchMeterUsage</code> calls.</p>
  *          <p>Usage records should be submitted in quick succession following a
- *       recorded event. Usage records aren't accepted 6 hours or more after an
+ *       recorded event. Usage records aren't accepted 24 hours or more after an
  *       event.</p>
  *          <p>
  *             <code>BatchMeterUsage</code> can process up to 25
