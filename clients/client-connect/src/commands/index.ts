@@ -281,6 +281,7 @@ export * from "./SearchWorkspaceAssociationsCommand";
 export * from "./SearchWorkspacesCommand";
 export * from "./SendChatIntegrationEventCommand";
 export * from "./SendOutboundEmailCommand";
+export * from "./SendOutboundWebNotificationCommand";
 export * from "./StartAttachedFileUploadCommand";
 export * from "./StartChatContactCommand";
 export * from "./StartContactConversationalAnalyticsJobCommand";

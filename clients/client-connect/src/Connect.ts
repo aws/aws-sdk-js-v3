@@ -1397,6 +1397,11 @@ import {
   SendOutboundEmailCommand,
 } from "./commands/SendOutboundEmailCommand";
 import {
+  type SendOutboundWebNotificationCommandInput,
+  type SendOutboundWebNotificationCommandOutput,
+  SendOutboundWebNotificationCommand,
+} from "./commands/SendOutboundWebNotificationCommand";
+import {
   type StartAttachedFileUploadCommandInput,
   type StartAttachedFileUploadCommandOutput,
   StartAttachedFileUploadCommand,
@@ -2231,6 +2236,7 @@ const commands = {
   SearchWorkspacesCommand,
   SendChatIntegrationEventCommand,
   SendOutboundEmailCommand,
+  SendOutboundWebNotificationCommand,
   StartAttachedFileUploadCommand,
   StartChatContactCommand,
   StartContactConversationalAnalyticsJobCommand,
@@ -7209,6 +7215,23 @@ export interface Connect {
     args: SendOutboundEmailCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SendOutboundEmailCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendOutboundWebNotificationCommand}
+   */
+  sendOutboundWebNotification(
+    args: SendOutboundWebNotificationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendOutboundWebNotificationCommandOutput>;
+  sendOutboundWebNotification(
+    args: SendOutboundWebNotificationCommandInput,
+    cb: (err: any, data?: SendOutboundWebNotificationCommandOutput) => void
+  ): void;
+  sendOutboundWebNotification(
+    args: SendOutboundWebNotificationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendOutboundWebNotificationCommandOutput) => void
   ): void;
 
   /**

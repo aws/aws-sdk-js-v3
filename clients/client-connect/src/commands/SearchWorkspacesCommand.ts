@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { SearchWorkspacesRequest, SearchWorkspacesResponse } from "../models/models_3";
+import type { SearchWorkspacesResponse } from "../models/models_3";
+import type { SearchWorkspacesRequest } from "../models/models_4";
 import { SearchWorkspaces$ } from "../schemas/schemas_0";
 
 /**

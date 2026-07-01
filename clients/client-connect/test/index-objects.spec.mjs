@@ -271,6 +271,7 @@ import {
   ContactSearchSummaryQueueInfo$,
   ContactSearchSummarySegmentAttributeValue$,
   ContactState,
+  ContentAttributes$,
   ControlPlaneAttributeFilter$,
   ControlPlaneTagFilter$,
   ControlPlaneUserAttributeFilter$,
@@ -1409,6 +1410,7 @@ import {
   NotificationSearchSummary$,
   NotificationSource,
   NotificationStatus,
+  NotificationType,
   NumberComparisonType,
   NumberCondition$,
   NumberReference$,
@@ -1625,6 +1627,7 @@ import {
   RealTimeContactAnalysisTranscriptItemRedaction$,
   RealTimeContactAnalysisTranscriptItemWithCharacterOffsets$,
   RealTimeContactAnalysisTranscriptItemWithContent$,
+  RecommenderConfig$,
   RecordingInfo$,
   RecordingStatus,
   RecordPrimaryValue$,
@@ -1826,6 +1829,10 @@ import {
   SendOutboundEmailCommand,
   SendOutboundEmailRequest$,
   SendOutboundEmailResponse$,
+  SendOutboundWebNotification$,
+  SendOutboundWebNotificationCommand,
+  SendOutboundWebNotificationRequest$,
+  SendOutboundWebNotificationResponse$,
   SentimentConfiguration$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
@@ -2278,6 +2285,9 @@ import {
   VoiceEnhancementMode,
   VoiceRecordingConfiguration$,
   VoiceRecordingTrack,
+  WebNotificationContent$,
+  WebNotificationSource$,
+  WidgetDestination$,
   WisdomInfo$,
   Workspace$,
   WorkspaceAssociationSearchCriteria$,
@@ -2864,6 +2874,8 @@ assert(typeof SendChatIntegrationEventCommand === "function");
 assert(typeof SendChatIntegrationEvent$ === "object");
 assert(typeof SendOutboundEmailCommand === "function");
 assert(typeof SendOutboundEmail$ === "object");
+assert(typeof SendOutboundWebNotificationCommand === "function");
+assert(typeof SendOutboundWebNotification$ === "object");
 assert(typeof StartAttachedFileUploadCommand === "function");
 assert(typeof StartAttachedFileUpload$ === "object");
 assert(typeof StartChatContactCommand === "function");
@@ -3208,6 +3220,7 @@ assert(typeof ContactSearchSummaryAgentInfo$ === "object");
 assert(typeof ContactSearchSummaryAiAgentInfo$ === "object");
 assert(typeof ContactSearchSummaryQueueInfo$ === "object");
 assert(typeof ContactSearchSummarySegmentAttributeValue$ === "object");
+assert(typeof ContentAttributes$ === "object");
 assert(typeof ControlPlaneAttributeFilter$ === "object");
 assert(typeof ControlPlaneTagFilter$ === "object");
 assert(typeof ControlPlaneUserAttributeFilter$ === "object");
@@ -3909,6 +3922,7 @@ assert(typeof RealTimeContactAnalysisTimeData$ === "object");
 assert(typeof RealTimeContactAnalysisTranscriptItemRedaction$ === "object");
 assert(typeof RealTimeContactAnalysisTranscriptItemWithCharacterOffsets$ === "object");
 assert(typeof RealTimeContactAnalysisTranscriptItemWithContent$ === "object");
+assert(typeof RecommenderConfig$ === "object");
 assert(typeof RecordingInfo$ === "object");
 assert(typeof RecordPrimaryValue$ === "object");
 assert(typeof RecurrenceConfig$ === "object");
@@ -4024,6 +4038,8 @@ assert(typeof SendChatIntegrationEventResponse$ === "object");
 assert(typeof SendNotificationActionDefinition$ === "object");
 assert(typeof SendOutboundEmailRequest$ === "object");
 assert(typeof SendOutboundEmailResponse$ === "object");
+assert(typeof SendOutboundWebNotificationRequest$ === "object");
+assert(typeof SendOutboundWebNotificationResponse$ === "object");
 assert(typeof SentimentConfiguration$ === "object");
 assert(typeof ServiceQuotaExceededExceptionReason$ === "object");
 assert(typeof SignInConfig$ === "object");
@@ -4254,6 +4270,9 @@ assert(typeof VocabularySummary$ === "object");
 assert(typeof VoiceCallEntryPointParameters$ === "object");
 assert(typeof VoiceEnhancementConfig$ === "object");
 assert(typeof VoiceRecordingConfiguration$ === "object");
+assert(typeof WebNotificationContent$ === "object");
+assert(typeof WebNotificationSource$ === "object");
+assert(typeof WidgetDestination$ === "object");
 assert(typeof WisdomInfo$ === "object");
 assert(typeof Workspace$ === "object");
 assert(typeof WorkspaceAssociationSearchCriteria$ === "object");
@@ -4377,6 +4396,7 @@ assert(typeof NotificationDeliveryType === "object");
 assert(typeof NotificationPriority === "object");
 assert(typeof NotificationSource === "object");
 assert(typeof NotificationStatus === "object");
+assert(typeof NotificationType === "object");
 assert(typeof NumberComparisonType === "object");
 assert(typeof NumericQuestionPropertyAutomationLabel === "object");
 assert(typeof OperationalStatus === "object");

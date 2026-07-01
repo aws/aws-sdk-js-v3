@@ -970,6 +970,10 @@ import type {
   SendOutboundEmailCommandOutput,
 } from "./commands/SendOutboundEmailCommand";
 import type {
+  SendOutboundWebNotificationCommandInput,
+  SendOutboundWebNotificationCommandOutput,
+} from "./commands/SendOutboundWebNotificationCommand";
+import type {
   StartAttachedFileUploadCommandInput,
   StartAttachedFileUploadCommandOutput,
 } from "./commands/StartAttachedFileUploadCommand";
@@ -1592,6 +1596,7 @@ export type ServiceInputTypes =
   | SearchWorkspacesCommandInput
   | SendChatIntegrationEventCommandInput
   | SendOutboundEmailCommandInput
+  | SendOutboundWebNotificationCommandInput
   | StartAttachedFileUploadCommandInput
   | StartChatContactCommandInput
   | StartContactConversationalAnalyticsJobCommandInput
@@ -1971,6 +1976,7 @@ export type ServiceOutputTypes =
   | SearchWorkspacesCommandOutput
   | SendChatIntegrationEventCommandOutput
   | SendOutboundEmailCommandOutput
+  | SendOutboundWebNotificationCommandOutput
   | StartAttachedFileUploadCommandOutput
   | StartChatContactCommandOutput
   | StartContactConversationalAnalyticsJobCommandOutput

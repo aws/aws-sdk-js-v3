@@ -2802,6 +2802,19 @@ export type TrafficType = (typeof TrafficType)[keyof typeof TrafficType];
  * @public
  * @enum
  */
+export const NotificationType = {
+  WIDGET_ACTION: "WIDGET_ACTION",
+  WIDGET_VIEW: "WIDGET_VIEW",
+} as const;
+/**
+ * @public
+ */
+export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const DisconnectOnCustomerExitParticipantType = {
   AGENT: "AGENT",
 } as const;

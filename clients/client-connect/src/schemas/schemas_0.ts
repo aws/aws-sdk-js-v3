@@ -276,6 +276,7 @@ const _BGFA = "BatchGetFlowAssociation";
 const _BGFAR = "BatchGetFlowAssociationRequest";
 const _BGFARa = "BatchGetFlowAssociationResponse";
 const _BI = "BlockedIps";
+const _BIr = "BrowserId";
 const _BM = "ByMonth";
 const _BMD = "ByMonthDay";
 const _BN = "BotName";
@@ -315,7 +316,8 @@ const _CASR = "CreateAgentStatusRequest";
 const _CASRr = "CreateAgentStatusResponse";
 const _CAc = "CcAddresses";
 const _CAo = "ContactAnalysis";
-const _CAon = "ConversationAbandon";
+const _CAon = "ContentAttributes";
+const _CAonv = "ConversationAbandon";
 const _CAr = "CreatedAt";
 const _CAu = "CustomAttributes";
 const _CB = "CreatedBy";
@@ -586,6 +588,7 @@ const _Conf = "Config";
 const _Cons = "Constraints";
 const _Cont = "Contact";
 const _Conta = "Contacts";
+const _Conte = "Context";
 const _Cr = "Criteria";
 const _Cre = "Created";
 const _Cred = "Credentials";
@@ -727,6 +730,7 @@ const _DNRes = "DescribeNotificationRequest";
 const _DNResc = "DescribeNotificationResponse";
 const _DNe = "DeleteNotification";
 const _DNes = "DescribeNotification";
+const _DNo = "DomainName";
 const _DO = "DisplayOrder";
 const _DOCE = "DisconnectOnCustomerExit";
 const _DOQI = "DefaultOutboundQueueId";
@@ -907,6 +911,7 @@ const _De = "Deleted";
 const _Def = "Defaults";
 const _Defa = "Default";
 const _Del = "Delay";
+const _Des = "Destination";
 const _Di = "Distributions";
 const _Dim = "Dimensions";
 const _Dis = "Distribution";
@@ -1822,6 +1827,7 @@ const _PHOOI = "ParentHoursOfOperationIds";
 const _PHOOL = "ParentHoursOfOperationsList";
 const _PI = "ParticipantId";
 const _PIr = "PromptId";
+const _PIro = "ProfileId";
 const _PL = "PropertyList";
 const _PLr = "ProficiencyLevel";
 const _PLro = "PromptList";
@@ -1964,10 +1970,11 @@ const _RCRR = "ResumeContactRecordingRequest";
 const _RCRRe = "ResumeContactRecordingResponse";
 const _RCRe = "ResumeContactResponse";
 const _RCRes = "ResumeContactRecording";
-const _RCe = "ReviewConfiguration";
+const _RCe = "RecommenderConfig";
 const _RCec = "RecurrenceConfig";
 const _RCep = "ReplicationConfiguration";
 const _RCes = "ResumeContact";
+const _RCev = "ReviewConfiguration";
 const _RCo = "RoutingCriteria";
 const _RCu = "RulesConfiguration";
 const _RCul = "RuleCategory";
@@ -1990,10 +1997,11 @@ const _RIev = "ReviewId";
 const _RIu = "RuleId";
 const _RM = "RawMessage";
 const _RMe = "ResponseMode";
-const _RN = "ResourceName";
+const _RN = "RecommenderName";
 const _RNFE = "ResourceNotFoundException";
 const _RNR = "ReviewNotificationRecipients";
 const _RNRE = "ResourceNotReadyException";
+const _RNe = "ResourceName";
 const _ROF = "ReadOnlyFields";
 const _ROFI = "ReadOnlyFieldInfo";
 const _RON = "ResetOrderNumber";
@@ -2226,6 +2234,7 @@ const _SIDL = "SignInDistributionList";
 const _SIDi = "SignInDistribution";
 const _SIHE = "SessionInactivityHandlingEnabled";
 const _SIU = "SignInUrl";
+const _SIe = "SessionId";
 const _SIt = "StreamingId";
 const _SJI = "SamplingJobId";
 const _SK = "SecurityKeys";
@@ -2255,6 +2264,9 @@ const _SOERe = "SendOutboundEmailResponse";
 const _SOVC = "StartOutboundVoiceContact";
 const _SOVCR = "StartOutboundVoiceContactRequest";
 const _SOVCRt = "StartOutboundVoiceContactResponse";
+const _SOWN = "SendOutboundWebNotification";
+const _SOWNR = "SendOutboundWebNotificationRequest";
+const _SOWNRe = "SendOutboundWebNotificationResponse";
 const _SP = "SecurityProfiles";
 const _SPA = "SecurityProfileArn";
 const _SPAR = "SearchPredefinedAttributesRequest";
@@ -2740,7 +2752,8 @@ const _Use = "Users";
 const _V = "Value";
 const _VA = "ViewAction";
 const _VAa = "ValueArn";
-const _VAi = "ViewActions";
+const _VAi = "ViewArn";
+const _VAie = "ViewActions";
 const _VAo = "VocabularyArn";
 const _VC = "ViewContent";
 const _VCEPP = "VoiceCallEntryPointParameters";
@@ -2796,8 +2809,12 @@ const _WASF = "WorkspaceAssociationSearchFilter";
 const _WASS = "WorkspaceAssociationSearchSummary";
 const _WASSL = "WorkspaceAssociationSearchSummaryList";
 const _WAo = "WorkspaceAssociations";
+const _WD = "WidgetDestination";
 const _WI = "WorkspaceId";
 const _WIi = "WisdomInfo";
+const _WIid = "WidgetId";
+const _WNC = "WebNotificationContent";
+const _WNS = "WebNotificationSource";
 const _WP = "WorkspacePage";
 const _WPL = "WorkspacePageList";
 const _WS = "WorkspaceSummary";
@@ -3918,6 +3935,11 @@ export var ContactSearchSummarySegmentAttributeValue$: StaticStructureSchema = [
   [_VS, _VM],
   [0, () => SegmentAttributeValueMap]
 ];
+export var ContentAttributes$: StaticStructureSchema = [3, n0, _CAon,
+  0,
+  [_RCe],
+  [() => RecommenderConfig$]
+];
 export var ControlPlaneAttributeFilter$: StaticStructureSchema = [3, n0, _CPAF,
   0,
   [_OC, _ACnd, _TCa],
@@ -4050,7 +4072,7 @@ export var CreateEmailAddressResponse$: StaticStructureSchema = [3, n0, _CEARr,
 ];
 export var CreateEvaluationFormRequest$: StaticStructureSchema = [3, n0, _CEFR,
   0,
-  [_II, _Ti, _It, _D, _SS, _AEC, _CT, _ADs, _Ta, _RCe, _TCar, _LC],
+  [_II, _Ti, _It, _D, _SS, _AEC, _CT, _ADs, _Ta, _RCev, _TCar, _LC],
   [[0, 1], 0, () => EvaluationFormItemsList, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, [0, 4], 2, 128 | 0, () => EvaluationReviewConfiguration$, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$], 3
 ];
 export var CreateEvaluationFormResponse$: StaticStructureSchema = [3, n0, _CEFRr,
@@ -5370,7 +5392,7 @@ export var EvaluationContactParticipant$: StaticStructureSchema = [3, n0, _ECP,
 ];
 export var EvaluationForm$: StaticStructureSchema = [3, n0, _EFv,
   0,
-  [_EFI, _EFV, _L, _EFA, _Ti, _St, _It, _CTre, _CB, _LMT, _LMB, _D, _SS, _AEC, _RCe, _Ta, _TCar, _LC, _LVS, _LVT],
+  [_EFI, _EFV, _L, _EFA, _Ti, _St, _It, _CTre, _CB, _LMT, _LMB, _D, _SS, _AEC, _RCev, _Ta, _TCar, _LC, _LVS, _LVT],
   [0, 1, 2, 0, 0, 0, () => EvaluationFormItemsList, 4, 0, 4, 0, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, () => EvaluationReviewConfiguration$, 128 | 0, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$, 0, 4], 11
 ];
 export var EvaluationFormAutoEvaluationConfiguration$: StaticStructureSchema = [3, n0, _EFAEC,
@@ -5380,7 +5402,7 @@ export var EvaluationFormAutoEvaluationConfiguration$: StaticStructureSchema = [
 ];
 export var EvaluationFormContent$: StaticStructureSchema = [3, n0, _EFC,
   0,
-  [_EFV, _EFI, _EFA, _Ti, _It, _D, _SS, _AEC, _TCar, _LC, _RCe],
+  [_EFV, _EFI, _EFA, _Ti, _It, _D, _SS, _AEC, _TCar, _LC, _RCev],
   [1, 0, 0, 0, () => EvaluationFormItemsList, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$, () => EvaluationReviewConfiguration$], 5
 ];
 export var EvaluationFormItemEnablementCondition$: StaticStructureSchema = [3, n0, _EFIEC,
@@ -7030,7 +7052,7 @@ export var ParticipantDetailsToAdd$: StaticStructureSchema = [3, n0, _PDTA,
 ];
 export var ParticipantMetrics$: StaticStructureSchema = [3, n0, _PM,
   0,
-  [_PI, _PT, _CAon, _MSe, _NRu, _MLIC, _TRTIM, _MRTIM, _LMTa],
+  [_PI, _PT, _CAonv, _MSe, _NRu, _MLIC, _TRTIM, _MRTIM, _LMTa],
   [0, 0, 2, 1, 1, 1, 1, 1, 4]
 ];
 export var ParticipantTimerConfiguration$: StaticStructureSchema = [3, n0, _PTC,
@@ -7342,6 +7364,11 @@ export var RealTimeContactAnalysisTranscriptItemWithContent$: StaticStructureSch
   0,
   [_I, _Co, _COh],
   [0, 0, () => RealTimeContactAnalysisCharacterInterval$], 1
+];
+export var RecommenderConfig$: StaticStructureSchema = [3, n0, _RCe,
+  0,
+  [_DNo, _RN, _Conte],
+  [0, 0, 128 | 0], 2
 ];
 export var RecordingInfo$: StaticStructureSchema = [3, n0, _RIeco,
   0,
@@ -7909,6 +7936,16 @@ export var SendOutboundEmailRequest$: StaticStructureSchema = [3, n0, _SOER,
   [[0, 1], [() => EmailAddressInfo$, 0], [() => EmailAddressInfo$, 0], [() => OutboundEmailContent$, 0], 0, [() => OutboundAdditionalRecipients$, 0], () => SourceCampaign$, [0, 4]], 5
 ];
 export var SendOutboundEmailResponse$: StaticStructureSchema = [3, n0, _SOERe,
+  0,
+  [],
+  []
+];
+export var SendOutboundWebNotificationRequest$: StaticStructureSchema = [3, n0, _SOWNR,
+  0,
+  [_II, _BIr, _SIe, _EAx, _So, _Des, _Co, _CT],
+  [[0, 1], 0, 0, 4, () => WebNotificationSource$, () => WidgetDestination$, () => WebNotificationContent$, [0, 4]], 7
+];
+export var SendOutboundWebNotificationResponse$: StaticStructureSchema = [3, n0, _SOWNRe,
   0,
   [],
   []
@@ -8570,7 +8607,7 @@ export var UpdateEmailAddressMetadataResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var UpdateEvaluationFormRequest$: StaticStructureSchema = [3, n0, _UEFR,
   0,
-  [_II, _EFI, _EFV, _Ti, _It, _CNV, _D, _SS, _AEC, _RCe, _ADs, _CT, _TCar, _LC],
+  [_II, _EFI, _EFV, _Ti, _It, _CNV, _D, _SS, _AEC, _RCev, _ADs, _CT, _TCar, _LC],
   [[0, 1], [0, 1], 1, 0, () => EvaluationFormItemsList, 2, 0, () => EvaluationFormScoringStrategy$, () => EvaluationFormAutoEvaluationConfiguration$, () => EvaluationReviewConfiguration$, 2, [0, 4], () => EvaluationFormTargetConfiguration$, () => EvaluationFormLanguageConfiguration$], 5
 ];
 export var UpdateEvaluationFormResponse$: StaticStructureSchema = [3, n0, _UEFRp,
@@ -9053,6 +9090,21 @@ export var VoiceRecordingConfiguration$: StaticStructureSchema = [3, n0, _VRC,
   [_VRT, _IRT],
   [0, 0]
 ];
+export var WebNotificationContent$: StaticStructureSchema = [3, n0, _WNC,
+  0,
+  [_T, _VAi, _Attr],
+  [0, 0, () => ContentAttributes$], 1
+];
+export var WebNotificationSource$: StaticStructureSchema = [3, n0, _WNS,
+  0,
+  [_SCou],
+  [() => SourceCampaign$], 1
+];
+export var WidgetDestination$: StaticStructureSchema = [3, n0, _WD,
+  0,
+  [_WIid, _PIro],
+  [0, 0], 2
+];
 export var WisdomInfo$: StaticStructureSchema = [3, n0, _WIi,
   0,
   [_SAes, _AAi],
@@ -9075,7 +9127,7 @@ export var WorkspaceAssociationSearchFilter$: StaticStructureSchema = [3, n0, _W
 ];
 export var WorkspaceAssociationSearchSummary$: StaticStructureSchema = [3, n0, _WASS,
   0,
-  [_WI, _WA, _RI, _RAe, _RT, _RN],
+  [_WI, _WA, _RI, _RAe, _RT, _RNe],
   [0, 0, 0, 0, 0, 0]
 ];
 export var WorkspacePage$: StaticStructureSchema = [3, n0, _WP,
@@ -9901,7 +9953,7 @@ var UserSummaryList: StaticListSchema = [1, n0, _USL,
 var ValidationEnumValues = 64 | 0;
 var ValidationTestTypes = 64 | 0;
 var ValueList = 64 | 0;
-var ViewActions: StaticListSchema = [1, n0, _VAi,
+var ViewActions: StaticListSchema = [1, n0, _VAie,
   0, [() => ViewAction,
     0]
 ];
@@ -9977,6 +10029,7 @@ var NotificationContent = 128 | 0;
 var RealTimeContactAnalysisMatchedDetails: StaticMapSchema = [2, n0, _RTCAMD,
   0, 0, () => RealTimeContactAnalysisCategoryDetails$
 ];
+var RecommenderContext = 128 | 0;
 var SegmentAttributes: StaticMapSchema = [2, n0, _SAe,
   0, 0, () => SegmentAttributeValue$
 ];
@@ -10931,6 +10984,9 @@ export var SendChatIntegrationEvent$: StaticOperationSchema = [9, n0, _SCIE,
 ];
 export var SendOutboundEmail$: StaticOperationSchema = [9, n0, _SOE,
   { [_h]: ["PUT", "/instance/{InstanceId}/outbound-email", 200] }, () => SendOutboundEmailRequest$, () => SendOutboundEmailResponse$
+];
+export var SendOutboundWebNotification$: StaticOperationSchema = [9, n0, _SOWN,
+  { [_h]: ["POST", "/instance/{InstanceId}/outbound-web-notification", 200] }, () => SendOutboundWebNotificationRequest$, () => SendOutboundWebNotificationResponse$
 ];
 export var StartAttachedFileUpload$: StaticOperationSchema = [9, n0, _SAFU,
   { [_h]: ["PUT", "/attached-files/{InstanceId}", 200] }, () => StartAttachedFileUploadRequest$, () => StartAttachedFileUploadResponse$

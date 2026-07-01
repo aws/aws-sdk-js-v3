@@ -2180,6 +2180,13 @@ SendOutboundEmail
 </details>
 <details>
 <summary>
+SendOutboundWebNotification
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/SendOutboundWebNotificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SendOutboundWebNotificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SendOutboundWebNotificationCommandOutput/)
+</details>
+<details>
+<summary>
 StartAttachedFileUpload
 </summary>
 

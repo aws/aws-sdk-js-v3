@@ -5,14 +5,12 @@ import type {
   AnalyticsMode,
   AttachmentScope,
   Behavior,
-  Channel,
   ChatEventType,
   ContactFlowModuleState,
   ContactFlowModuleStatus,
   ContactFlowState,
   ContactFlowStatus,
   ContactFlowType,
-  ContactInitiationMethod,
   ContactInteractionType,
   ContactMediaProcessingFailureMode,
   ContactRecordingType,
@@ -29,7 +27,6 @@ import type {
   FileUseCaseType,
   HierarchyGroupMatchType,
   InboundMessageSourceType,
-  InitiateAs,
   InstanceAttributeType,
   InstanceStorageResourceType,
   IvrRecordingTrack,
@@ -38,6 +35,7 @@ import type {
   MeetingFeatureStatus,
   NotificationPriority,
   NotificationStatus,
+  NotificationType,
   OutboundMessageSourceType,
   OverrideType,
   ParticipantTimerAction,
@@ -46,7 +44,6 @@ import type {
   QueueStatus,
   RehydrationType,
   ResponseMode,
-  RoutingCriteriaStepStatus,
   RulePublishStatus,
   SearchableQueueType,
   StringComparisonType,
@@ -104,7 +101,6 @@ import type {
   TaskTemplateField,
   TestCaseEntryPoint,
   UserIdentityInfo,
-  UserInfo,
   UserPhoneConfig,
   UserProficiency,
   Validation,
@@ -115,7 +111,6 @@ import type {
   AttributeCondition,
   EvaluationAnswerData,
   EvaluationNote,
-  Expiry,
   ExtensionConfiguration,
   HierarchyGroup,
   HoursOfOperation,
@@ -2101,6 +2096,171 @@ export interface SendOutboundEmailRequest {
  * @public
  */
 export interface SendOutboundEmailResponse {}
+
+/**
+ * <p>Configuration for the recommender used to generate personalized recommendations included in an outbound web
+ *    notification.</p>
+ * @public
+ */
+export interface RecommenderConfig {
+  /**
+   * <p>The name of the Amazon Personalize domain that hosts the recommender.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the recommender used to generate the recommendations.</p>
+   * @public
+   */
+  RecommenderName: string | undefined;
+
+  /**
+   * <p>A map of contextual key-value pairs supplied to the recommender to influence the recommendations
+   *    returned.</p>
+   * @public
+   */
+  Context?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Optional attributes used to populate the content of an outbound web notification, such as recommender
+ *    configuration for personalized content.</p>
+ * @public
+ */
+export interface ContentAttributes {
+  /**
+   * <p>Configuration for the recommender used to generate personalized recommendations for the notification
+   *    content.</p>
+   * @public
+   */
+  RecommenderConfig?: RecommenderConfig | undefined;
+}
+
+/**
+ * <p>The content of an outbound web notification, including the notification type, the view to render, and any
+ *    optional attributes used to populate the view.</p>
+ * @public
+ */
+export interface WebNotificationContent {
+  /**
+   * <p>The type of web notification to send.</p>
+   * @public
+   */
+  Type: NotificationType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the view to render for the notification.</p>
+   * @public
+   */
+  ViewArn?: string | undefined;
+
+  /**
+   * <p>Optional attributes used to populate the notification content, such as recommender configuration for
+   *    personalized content.</p>
+   * @public
+   */
+  Attributes?: ContentAttributes | undefined;
+}
+
+/**
+ * <p>The destination for an outbound web notification, specifying the communication widget that delivers the
+ *    notification and the customer profile of the recipient.</p>
+ * @public
+ */
+export interface WidgetDestination {
+  /**
+   * <p>The identifier of the communication widget that delivers the notification to the customer's browser.</p>
+   * @public
+   */
+  WidgetId: string | undefined;
+
+  /**
+   * <p>The identifier of the customer profile associated with the browser session that should receive the
+   *    notification.</p>
+   * @public
+   */
+  ProfileId: string | undefined;
+}
+
+/**
+ * <p>The source of an outbound web notification. Identifies the campaign and outbound request that triggered the
+ *    notification.</p>
+ * @public
+ */
+export interface WebNotificationSource {
+  /**
+   * <p>Information about the campaign that triggered the web notification, including the campaign identifier and
+   *    outbound request identifier.</p>
+   * @public
+   */
+  SourceCampaign: SourceCampaign | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendOutboundWebNotificationRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the customer's web browser instance to which the notification is being sent.</p>
+   * @public
+   */
+  BrowserId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the customer's web session to which the notification is being sent.</p>
+   * @public
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>The timestamp, in Unix epoch time format, at which the web notification expires. After this time, the
+   *    notification is no longer delivered to the customer's browser.</p>
+   * @public
+   */
+  ExpiresAt: Date | undefined;
+
+  /**
+   * <p>The source of the web notification. A <code>SourceCampaign</code> object identifies the campaign and outbound
+   *    request that triggered this notification.</p>
+   * @public
+   */
+  Source: WebNotificationSource | undefined;
+
+  /**
+   * <p>The destination for the web notification, specifying the communication widget that delivers the notification
+   *    and the customer profile of the recipient.</p>
+   * @public
+   */
+  Destination: WidgetDestination | undefined;
+
+  /**
+   * <p>The content of the web notification, including the notification type, the view to render, and any optional
+   *    attributes used to populate it.</p>
+   * @public
+   */
+  Content: WebNotificationContent | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendOutboundWebNotificationResponse {}
 
 /**
  * @public
@@ -8199,333 +8359,4 @@ export interface SearchUserHierarchyGroupsRequest {
    * @public
    */
   SearchCriteria?: UserHierarchyGroupSearchCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchUsersRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Filters to be applied to search results.</p>
-   * @public
-   */
-  SearchFilter?: UserSearchFilter | undefined;
-
-  /**
-   * <p>The search criteria to be used to return users.</p>
-   *          <note>
-   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
-   *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
-   *     outside of this range will throw invalid results.  </p>
-   *          </note>
-   * @public
-   */
-  SearchCriteria?: UserSearchCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchViewsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
-   *    the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Filters to apply to the search, such as tag-based filters.</p>
-   * @public
-   */
-  SearchFilter?: ViewSearchFilter | undefined;
-
-  /**
-   * <p>The search criteria, including field names and comparison types.</p>
-   * @public
-   */
-  SearchCriteria?: ViewSearchCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchWorkspaceAssociationsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
-   *    the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Filters to apply to the search, such as tag-based filters.</p>
-   * @public
-   */
-  SearchFilter?: WorkspaceAssociationSearchFilter | undefined;
-
-  /**
-   * <p>The search criteria, including workspace ID, resource ID, or resource type.</p>
-   * @public
-   */
-  SearchCriteria?: WorkspaceAssociationSearchCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchWorkspacesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
-   *    the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Filters to apply to the search, such as tag-based filters.</p>
-   * @public
-   */
-  SearchFilter?: WorkspaceSearchFilter | undefined;
-
-  /**
-   * <p>The search criteria, including field names and comparison types.</p>
-   * @public
-   */
-  SearchCriteria?: WorkspaceSearchCriteria | undefined;
-}
-
-/**
- * <p>Step signifies the criteria to be used for routing to an agent</p>
- * @public
- */
-export interface Step {
-  /**
-   * <p>An object to specify the expiration of a routing step.</p>
-   * @public
-   */
-  Expiry?: Expiry | undefined;
-
-  /**
-   * <p>A tagged union to specify expression for a routing step.</p>
-   * @public
-   */
-  Expression?: Expression | undefined;
-
-  /**
-   * <p>Represents status of the Routing step.</p>
-   * @public
-   */
-  Status?: RoutingCriteriaStepStatus | undefined;
-}
-
-/**
- * <p>The value of a segment attribute. This is structured as a map with a single key-value pair. The key
- *    'valueString' indicates that the attribute type is a string, and its corresponding value is the actual string value
- *    of the segment attribute.</p>
- * @public
- */
-export interface ContactSearchSummarySegmentAttributeValue {
-  /**
-   * <p>The value of a segment attribute represented as a string.</p>
-   * @public
-   */
-  ValueString?: string | undefined;
-
-  /**
-   * <p>The key and value of a segment attribute.</p>
-   * @public
-   */
-  ValueMap?: Record<string, SegmentAttributeValue> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateContactRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The identifier of the contact in this instance of Connect Customer. </p>
-   * @public
-   */
-  RelatedContactId?: string | undefined;
-
-  /**
-   * <p>A custom key-value pair using an attribute map. The attributes are standard Connect Customer attributes, and
-   *    can be accessed in flows just like any other contact attributes.</p>
-   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only
-   *    alphanumeric, dash, and underscore characters.</p>
-   * @public
-   */
-  Attributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks can have the following
-   *    reference types at the time of creation: <code>URL</code> | <code>NUMBER</code> | <code>STRING</code> |
-   *     <code>DATE</code> | <code>EMAIL</code> | <code>ATTACHMENT</code>.</p>
-   * @public
-   */
-  References?: Record<string, Reference> | undefined;
-
-  /**
-   * <p>The channel for the contact.</p>
-   *          <important>
-   *             <p>The CHAT channel is not supported. The following information is incorrect. We're working to correct it.</p>
-   *          </important>
-   * @public
-   */
-  Channel: Channel | undefined;
-
-  /**
-   * <p>Indicates how the contact was initiated. </p>
-   *          <important>
-   *             <p>CreateContact only supports the following initiation methods. Valid values by channel are: </p>
-   *             <ul>
-   *                <li>
-   *                   <p>For VOICE: <code>TRANSFER</code> and the subtype <code>connect:ExternalAudio</code>
-   *                   </p>
-   *                </li>
-   *                <li>
-   *                   <p>For EMAIL: <code>OUTBOUND</code> | <code>AGENT_REPLY</code> | <code>FLOW</code>
-   *                   </p>
-   *                </li>
-   *                <li>
-   *                   <p>For TASK: <code>API</code>
-   *                   </p>
-   *                </li>
-   *             </ul>
-   *             <p>The other channels listed below are incorrect. We're working to correct this information.</p>
-   *          </important>
-   * @public
-   */
-  InitiationMethod: ContactInitiationMethod | undefined;
-
-  /**
-   * <p>Number of minutes the contact will be active for before expiring</p>
-   * @public
-   */
-  ExpiryDurationInMinutes?: number | undefined;
-
-  /**
-   * <p>User details for the contact</p>
-   *          <important>
-   *             <p>UserInfo is required when creating an EMAIL contact with <code>OUTBOUND</code> and <code>AGENT_REPLY</code>
-   *     contact initiation methods.</p>
-   *          </important>
-   * @public
-   */
-  UserInfo?: UserInfo | undefined;
-
-  /**
-   * <p>Initial state of the contact when it's created. Only TASK channel contacts can be initiated with
-   *     <code>COMPLETED</code> state.</p>
-   * @public
-   */
-  InitiateAs?: InitiateAs | undefined;
-
-  /**
-   * <p>The name of a the contact.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A description of the contact.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A set of system defined key-value pairs stored on individual contact segments (unique contact ID) using an
-   *    attribute map. The attributes are standard Connect Customer attributes. They can be accessed in flows.</p>
-   *          <p>Attribute keys can include only alphanumeric, -, and _.</p>
-   *          <p>This field can be used to set Segment Contact Expiry as a duration in minutes.</p>
-   *          <note>
-   *             <p>To set contact expiry, a ValueMap must be specified containing the integer number of minutes the contact will
-   *     be active for before expiring, with <code>SegmentAttributes</code> like \{ <code> "connect:ContactExpiry":
-   *      \{"ValueMap" : \{ "ExpiryDuration": \{ "ValueInteger": 135\}\}\}\}</code>. </p>
-   *          </note>
-   * @public
-   */
-  SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
-
-  /**
-   * <p>The ID of the previous contact when creating a transfer contact. This value can be provided only for external
-   *    audio contacts. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html">Integrate Connect Customer Contact Lens with external voice
-   *     systems</a> in the <i>Connect Customer Administrator Guide</i>.</p>
-   * @public
-   */
-  PreviousContactId?: string | undefined;
 }
