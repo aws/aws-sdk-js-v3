@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListEngagementInvitationsRequest, ListEngagementInvitationsResponse } from "../models/models_0";
-import type {
-  PartnerCentralSellingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralSellingClient";
 import { ListEngagementInvitations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +111,12 @@ export interface ListEngagementInvitationsCommandOutput extends ListEngagementIn
  *
  * @public
  */
-export class ListEngagementInvitationsCommand extends $Command
-  .classBuilder<
-    ListEngagementInvitationsCommandInput,
-    ListEngagementInvitationsCommandOutput,
-    PartnerCentralSellingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPartnerCentralSelling", "ListEngagementInvitations", {})
-  .n("PartnerCentralSellingClient", "ListEngagementInvitationsCommand")
-  .sc(ListEngagementInvitations$)
-  .build() {
+export class ListEngagementInvitationsCommand extends command<ListEngagementInvitationsCommandInput, ListEngagementInvitationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEngagementInvitations",
+  ListEngagementInvitations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

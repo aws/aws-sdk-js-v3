@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteConnectionAliasRequest, DeleteConnectionAliasResult } from "../models/models_0";
 import { DeleteConnectionAlias$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface DeleteConnectionAliasCommandOutput extends DeleteConnectionAlia
  *
  * @public
  */
-export class DeleteConnectionAliasCommand extends $Command
-  .classBuilder<
-    DeleteConnectionAliasCommandInput,
-    DeleteConnectionAliasCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "DeleteConnectionAlias", {})
-  .n("WorkSpacesClient", "DeleteConnectionAliasCommand")
-  .sc(DeleteConnectionAlias$)
-  .build() {
+export class DeleteConnectionAliasCommand extends command<DeleteConnectionAliasCommandInput, DeleteConnectionAliasCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteConnectionAlias",
+  DeleteConnectionAlias$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

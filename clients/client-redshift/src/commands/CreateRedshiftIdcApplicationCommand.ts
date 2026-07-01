@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRedshiftIdcApplicationMessage, CreateRedshiftIdcApplicationResult } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { CreateRedshiftIdcApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -180,22 +176,12 @@ export interface CreateRedshiftIdcApplicationCommandOutput extends CreateRedshif
  *
  * @public
  */
-export class CreateRedshiftIdcApplicationCommand extends $Command
-  .classBuilder<
-    CreateRedshiftIdcApplicationCommandInput,
-    CreateRedshiftIdcApplicationCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "CreateRedshiftIdcApplication", {})
-  .n("RedshiftClient", "CreateRedshiftIdcApplicationCommand")
-  .sc(CreateRedshiftIdcApplication$)
-  .build() {
+export class CreateRedshiftIdcApplicationCommand extends command<CreateRedshiftIdcApplicationCommandInput, CreateRedshiftIdcApplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRedshiftIdcApplication",
+  CreateRedshiftIdcApplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

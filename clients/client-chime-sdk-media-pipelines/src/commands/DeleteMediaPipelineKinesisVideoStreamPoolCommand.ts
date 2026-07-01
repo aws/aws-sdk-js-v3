@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMediaPipelinesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMediaPipelinesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMediaPipelineKinesisVideoStreamPoolRequest } from "../models/models_0";
 import { DeleteMediaPipelineKinesisVideoStreamPool$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteMediaPipelineKinesisVideoStreamPool$ } from "../schemas/schemas_0
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput extends 
  *
  * @public
  */
-export class DeleteMediaPipelineKinesisVideoStreamPoolCommand extends $Command
-  .classBuilder<
-    DeleteMediaPipelineKinesisVideoStreamPoolCommandInput,
-    DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput,
-    ChimeSDKMediaPipelinesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKMediaPipelinesService", "DeleteMediaPipelineKinesisVideoStreamPool", {})
-  .n("ChimeSDKMediaPipelinesClient", "DeleteMediaPipelineKinesisVideoStreamPoolCommand")
-  .sc(DeleteMediaPipelineKinesisVideoStreamPool$)
-  .build() {
+export class DeleteMediaPipelineKinesisVideoStreamPoolCommand extends command<DeleteMediaPipelineKinesisVideoStreamPoolCommandInput, DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMediaPipelineKinesisVideoStreamPool",
+  DeleteMediaPipelineKinesisVideoStreamPool$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

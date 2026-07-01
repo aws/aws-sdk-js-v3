@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AssociatePhoneNumbersWithVoiceConnectorGroupRequest,
   AssociatePhoneNumbersWithVoiceConnectorGroupResponse,
@@ -15,7 +12,6 @@ import { AssociatePhoneNumbersWithVoiceConnectorGroup$ } from "../schemas/schema
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput exten
  *
  * @public
  */
-export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends $Command
-  .classBuilder<
-    AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
-    AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "AssociatePhoneNumbersWithVoiceConnectorGroup", {})
-  .n("ChimeSDKVoiceClient", "AssociatePhoneNumbersWithVoiceConnectorGroupCommand")
-  .sc(AssociatePhoneNumbersWithVoiceConnectorGroup$)
-  .build() {
+export class AssociatePhoneNumbersWithVoiceConnectorGroupCommand extends command<AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput, AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociatePhoneNumbersWithVoiceConnectorGroup",
+  AssociatePhoneNumbersWithVoiceConnectorGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

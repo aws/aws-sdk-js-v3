@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutEventStreamRequest, PutEventStreamResponse } from "../models/models_1";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { PutEventStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface PutEventStreamCommandOutput extends PutEventStreamResponse, __M
  *
  * @public
  */
-export class PutEventStreamCommand extends $Command
-  .classBuilder<
-    PutEventStreamCommandInput,
-    PutEventStreamCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "PutEventStream", {})
-  .n("PinpointClient", "PutEventStreamCommand")
-  .sc(PutEventStream$)
-  .build() {
+export class PutEventStreamCommand extends command<PutEventStreamCommandInput, PutEventStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutEventStream",
+  PutEventStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

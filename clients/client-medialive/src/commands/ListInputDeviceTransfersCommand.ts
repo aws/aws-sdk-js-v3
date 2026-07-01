@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListInputDeviceTransfersRequest, ListInputDeviceTransfersResponse } from "../models/models_1";
 import { ListInputDeviceTransfers$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListInputDeviceTransfers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface ListInputDeviceTransfersCommandOutput extends ListInputDeviceTr
  *
  * @public
  */
-export class ListInputDeviceTransfersCommand extends $Command
-  .classBuilder<
-    ListInputDeviceTransfersCommandInput,
-    ListInputDeviceTransfersCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "ListInputDeviceTransfers", {})
-  .n("MediaLiveClient", "ListInputDeviceTransfersCommand")
-  .sc(ListInputDeviceTransfers$)
-  .build() {
+export class ListInputDeviceTransfersCommand extends command<ListInputDeviceTransfersCommandInput, ListInputDeviceTransfersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListInputDeviceTransfers",
+  ListInputDeviceTransfers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

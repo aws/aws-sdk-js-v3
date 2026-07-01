@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteAutomatedReasoningPolicyTestCaseRequest,
   DeleteAutomatedReasoningPolicyTestCaseResponse,
@@ -15,7 +12,6 @@ import { DeleteAutomatedReasoningPolicyTestCase$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DeleteAutomatedReasoningPolicyTestCaseCommandOutput extends Del
  *
  * @public
  */
-export class DeleteAutomatedReasoningPolicyTestCaseCommand extends $Command
-  .classBuilder<
-    DeleteAutomatedReasoningPolicyTestCaseCommandInput,
-    DeleteAutomatedReasoningPolicyTestCaseCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "DeleteAutomatedReasoningPolicyTestCase", {})
-  .n("BedrockClient", "DeleteAutomatedReasoningPolicyTestCaseCommand")
-  .sc(DeleteAutomatedReasoningPolicyTestCase$)
-  .build() {
+export class DeleteAutomatedReasoningPolicyTestCaseCommand extends command<DeleteAutomatedReasoningPolicyTestCaseCommandInput, DeleteAutomatedReasoningPolicyTestCaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAutomatedReasoningPolicyTestCase",
+  DeleteAutomatedReasoningPolicyTestCase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

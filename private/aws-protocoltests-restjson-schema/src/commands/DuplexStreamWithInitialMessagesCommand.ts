@@ -1,23 +1,14 @@
 // smithy-typescript generated code
-import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { DuplexStreamWithInitialMessagesInput, DuplexStreamWithInitialMessagesOutput } from "../models/models_0";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
 import { DuplexStreamWithInitialMessages$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -148,33 +139,12 @@ export interface DuplexStreamWithInitialMessagesCommandOutput extends DuplexStre
  *
  *
  */
-export class DuplexStreamWithInitialMessagesCommand extends $Command
-  .classBuilder<
-    DuplexStreamWithInitialMessagesCommandInput,
-    DuplexStreamWithInitialMessagesCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEventStreamPlugin(config),
-    ];
-  })
-  .s("RestJson", "DuplexStreamWithInitialMessages", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      input: true,
-      output: true,
-    },
-  })
-  .n("RestJsonProtocolClient", "DuplexStreamWithInitialMessagesCommand")
-  .sc(DuplexStreamWithInitialMessages$)
-  .build() {
+export class DuplexStreamWithInitialMessagesCommand extends command<DuplexStreamWithInitialMessagesCommandInput, DuplexStreamWithInitialMessagesCommandOutput>(
+  _ep0,
+  _mw1,
+  "DuplexStreamWithInitialMessages",
+  DuplexStreamWithInitialMessages$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

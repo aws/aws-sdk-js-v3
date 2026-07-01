@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLexiconsInput, ListLexiconsOutput } from "../models/models_0";
-import type { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
 import { ListLexicons$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface ListLexiconsCommandOutput extends ListLexiconsOutput, __Metadat
  *
  * @public
  */
-export class ListLexiconsCommand extends $Command
-  .classBuilder<
-    ListLexiconsCommandInput,
-    ListLexiconsCommandOutput,
-    PollyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PollyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Parrot_v1", "ListLexicons", {})
-  .n("PollyClient", "ListLexiconsCommand")
-  .sc(ListLexicons$)
-  .build() {
+export class ListLexiconsCommand extends command<ListLexiconsCommandInput, ListLexiconsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLexicons",
+  ListLexicons$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetBrowserSettingsRequest, GetBrowserSettingsResponse } from "../models/models_0";
 import { GetBrowserSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface GetBrowserSettingsCommandOutput extends GetBrowserSettingsRespo
  *
  * @public
  */
-export class GetBrowserSettingsCommand extends $Command
-  .classBuilder<
-    GetBrowserSettingsCommandInput,
-    GetBrowserSettingsCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "GetBrowserSettings", {})
-  .n("WorkSpacesWebClient", "GetBrowserSettingsCommand")
-  .sc(GetBrowserSettings$)
-  .build() {
+export class GetBrowserSettingsCommand extends command<GetBrowserSettingsCommandInput, GetBrowserSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetBrowserSettings",
+  GetBrowserSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

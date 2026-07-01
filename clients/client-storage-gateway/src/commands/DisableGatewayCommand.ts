@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisableGatewayInput, DisableGatewayOutput } from "../models/models_0";
 import { DisableGateway$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +84,12 @@ export interface DisableGatewayCommandOutput extends DisableGatewayOutput, __Met
  *
  * @public
  */
-export class DisableGatewayCommand extends $Command
-  .classBuilder<
-    DisableGatewayCommandInput,
-    DisableGatewayCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "DisableGateway", {})
-  .n("StorageGatewayClient", "DisableGatewayCommand")
-  .sc(DisableGateway$)
-  .build() {
+export class DisableGatewayCommand extends command<DisableGatewayCommandInput, DisableGatewayCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableGateway",
+  DisableGateway$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

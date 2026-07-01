@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTThingsGraphClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTThingsGraphClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEntitiesRequest, GetEntitiesResponse } from "../models/models_0";
 import { GetEntities$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetEntities$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +114,12 @@ export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __Metadat
  *
  * @public
  */
-export class GetEntitiesCommand extends $Command
-  .classBuilder<
-    GetEntitiesCommandInput,
-    GetEntitiesCommandOutput,
-    IoTThingsGraphClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotThingsGraphFrontEndService", "GetEntities", {})
-  .n("IoTThingsGraphClient", "GetEntitiesCommand")
-  .sc(GetEntities$)
-  .build() {
+export class GetEntitiesCommand extends command<GetEntitiesCommandInput, GetEntitiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEntities",
+  GetEntities$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

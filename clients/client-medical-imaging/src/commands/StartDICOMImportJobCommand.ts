@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MedicalImagingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MedicalImagingClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartDICOMImportJobRequest, StartDICOMImportJobResponse } from "../models/models_0";
 import { StartDICOMImportJob$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartDICOMImportJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface StartDICOMImportJobCommandOutput extends StartDICOMImportJobRes
  *
  * @public
  */
-export class StartDICOMImportJobCommand extends $Command
-  .classBuilder<
-    StartDICOMImportJobCommandInput,
-    StartDICOMImportJobCommandOutput,
-    MedicalImagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AHIGatewayService", "StartDICOMImportJob", {})
-  .n("MedicalImagingClient", "StartDICOMImportJobCommand")
-  .sc(StartDICOMImportJob$)
-  .build() {
+export class StartDICOMImportJobCommand extends command<StartDICOMImportJobCommandInput, StartDICOMImportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartDICOMImportJob",
+  StartDICOMImportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

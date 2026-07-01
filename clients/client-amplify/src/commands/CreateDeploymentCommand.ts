@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDeploymentRequest, CreateDeploymentResult } from "../models/models_0";
 import { CreateDeployment$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateDeployment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResult, _
  *
  * @public
  */
-export class CreateDeploymentCommand extends $Command
-  .classBuilder<
-    CreateDeploymentCommandInput,
-    CreateDeploymentCommandOutput,
-    AmplifyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Amplify", "CreateDeployment", {})
-  .n("AmplifyClient", "CreateDeploymentCommand")
-  .sc(CreateDeployment$)
-  .build() {
+export class CreateDeploymentCommand extends command<CreateDeploymentCommandInput, CreateDeploymentCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDeployment",
+  CreateDeployment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

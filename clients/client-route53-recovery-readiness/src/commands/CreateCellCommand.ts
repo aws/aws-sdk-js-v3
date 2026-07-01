@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCellRequest, CreateCellResponse } from "../models/models_0";
-import type {
-  Route53RecoveryReadinessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryReadinessClient";
 import { CreateCell$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +86,12 @@ export interface CreateCellCommandOutput extends CreateCellResponse, __MetadataB
  *
  * @public
  */
-export class CreateCellCommand extends $Command
-  .classBuilder<
-    CreateCellCommandInput,
-    CreateCellCommandOutput,
-    Route53RecoveryReadinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryReadinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53RecoveryReadiness", "CreateCell", {})
-  .n("Route53RecoveryReadinessClient", "CreateCellCommand")
-  .sc(CreateCell$)
-  .build() {
+export class CreateCellCommand extends command<CreateCellCommandInput, CreateCellCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCell",
+  CreateCell$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

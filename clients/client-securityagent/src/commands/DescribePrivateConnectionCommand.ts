@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribePrivateConnectionInput, DescribePrivateConnectionOutput } from "../models/models_0";
 import { DescribePrivateConnection$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface DescribePrivateConnectionCommandOutput extends DescribePrivateC
  *
  * @public
  */
-export class DescribePrivateConnectionCommand extends $Command
-  .classBuilder<
-    DescribePrivateConnectionCommandInput,
-    DescribePrivateConnectionCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "DescribePrivateConnection", {})
-  .n("SecurityAgentClient", "DescribePrivateConnectionCommand")
-  .sc(DescribePrivateConnection$)
-  .build() {
+export class DescribePrivateConnectionCommand extends command<DescribePrivateConnectionCommandInput, DescribePrivateConnectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribePrivateConnection",
+  DescribePrivateConnection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

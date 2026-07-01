@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePromptRequest, DeletePromptResponse } from "../models/models_1";
 import { DeletePrompt$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeletePrompt$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DeletePromptCommandOutput extends DeletePromptResponse, __Metad
  *
  * @public
  */
-export class DeletePromptCommand extends $Command
-  .classBuilder<
-    DeletePromptCommandInput,
-    DeletePromptCommandOutput,
-    BedrockAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentBuildTimeLambda", "DeletePrompt", {})
-  .n("BedrockAgentClient", "DeletePromptCommand")
-  .sc(DeletePrompt$)
-  .build() {
+export class DeletePromptCommand extends command<DeletePromptCommandInput, DeletePromptCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePrompt",
+  DeletePrompt$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

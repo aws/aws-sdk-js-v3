@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateNetworkSettingsRequest, DisassociateNetworkSettingsResponse } from "../models/models_0";
 import { DisassociateNetworkSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DisassociateNetworkSettingsCommandOutput extends DisassociateNe
  *
  * @public
  */
-export class DisassociateNetworkSettingsCommand extends $Command
-  .classBuilder<
-    DisassociateNetworkSettingsCommandInput,
-    DisassociateNetworkSettingsCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "DisassociateNetworkSettings", {})
-  .n("WorkSpacesWebClient", "DisassociateNetworkSettingsCommand")
-  .sc(DisassociateNetworkSettings$)
-  .build() {
+export class DisassociateNetworkSettingsCommand extends command<DisassociateNetworkSettingsCommandInput, DisassociateNetworkSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateNetworkSettings",
+  DisassociateNetworkSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

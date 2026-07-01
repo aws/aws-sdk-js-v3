@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteApnsSandboxChannelRequest, DeleteApnsSandboxChannelResponse } from "../models/models_0";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { DeleteApnsSandboxChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface DeleteApnsSandboxChannelCommandOutput extends DeleteApnsSandbox
  *
  * @public
  */
-export class DeleteApnsSandboxChannelCommand extends $Command
-  .classBuilder<
-    DeleteApnsSandboxChannelCommandInput,
-    DeleteApnsSandboxChannelCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "DeleteApnsSandboxChannel", {})
-  .n("PinpointClient", "DeleteApnsSandboxChannelCommand")
-  .sc(DeleteApnsSandboxChannel$)
-  .build() {
+export class DeleteApnsSandboxChannelCommand extends command<DeleteApnsSandboxChannelCommandInput, DeleteApnsSandboxChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteApnsSandboxChannel",
+  DeleteApnsSandboxChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

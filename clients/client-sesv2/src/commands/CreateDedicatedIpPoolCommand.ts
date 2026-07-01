@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDedicatedIpPoolRequest, CreateDedicatedIpPoolResponse } from "../models/models_0";
 import { CreateDedicatedIpPool$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface CreateDedicatedIpPoolCommandOutput extends CreateDedicatedIpPoo
  *
  * @public
  */
-export class CreateDedicatedIpPoolCommand extends $Command
-  .classBuilder<
-    CreateDedicatedIpPoolCommandInput,
-    CreateDedicatedIpPoolCommandOutput,
-    SESv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService_v2", "CreateDedicatedIpPool", {})
-  .n("SESv2Client", "CreateDedicatedIpPoolCommand")
-  .sc(CreateDedicatedIpPool$)
-  .build() {
+export class CreateDedicatedIpPoolCommand extends command<CreateDedicatedIpPoolCommandInput, CreateDedicatedIpPoolCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDedicatedIpPool",
+  CreateDedicatedIpPool$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

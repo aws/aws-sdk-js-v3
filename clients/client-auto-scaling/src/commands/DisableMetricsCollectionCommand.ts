@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisableMetricsCollectionQuery } from "../models/models_0";
 import { DisableMetricsCollection$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisableMetricsCollection$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface DisableMetricsCollectionCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class DisableMetricsCollectionCommand extends $Command
-  .classBuilder<
-    DisableMetricsCollectionCommandInput,
-    DisableMetricsCollectionCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "DisableMetricsCollection", {})
-  .n("AutoScalingClient", "DisableMetricsCollectionCommand")
-  .sc(DisableMetricsCollection$)
-  .build() {
+export class DisableMetricsCollectionCommand extends command<DisableMetricsCollectionCommandInput, DisableMetricsCollectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableMetricsCollection",
+  DisableMetricsCollection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDocumentMetadataHistoryRequest, ListDocumentMetadataHistoryResponse } from "../models/models_1";
 import { ListDocumentMetadataHistory$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface ListDocumentMetadataHistoryCommandOutput extends ListDocumentMe
  *
  * @public
  */
-export class ListDocumentMetadataHistoryCommand extends $Command
-  .classBuilder<
-    ListDocumentMetadataHistoryCommandInput,
-    ListDocumentMetadataHistoryCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "ListDocumentMetadataHistory", {})
-  .n("SSMClient", "ListDocumentMetadataHistoryCommand")
-  .sc(ListDocumentMetadataHistory$)
-  .build() {
+export class ListDocumentMetadataHistoryCommand extends command<ListDocumentMetadataHistoryCommandInput, ListDocumentMetadataHistoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDocumentMetadataHistory",
+  ListDocumentMetadataHistory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

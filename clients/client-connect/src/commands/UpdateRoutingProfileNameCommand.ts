@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRoutingProfileNameRequest } from "../models/models_3";
 import { UpdateRoutingProfileName$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateRoutingProfileName$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface UpdateRoutingProfileNameCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class UpdateRoutingProfileNameCommand extends $Command
-  .classBuilder<
-    UpdateRoutingProfileNameCommandInput,
-    UpdateRoutingProfileNameCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "UpdateRoutingProfileName", {})
-  .n("ConnectClient", "UpdateRoutingProfileNameCommand")
-  .sc(UpdateRoutingProfileName$)
-  .build() {
+export class UpdateRoutingProfileNameCommand extends command<UpdateRoutingProfileNameCommandInput, UpdateRoutingProfileNameCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRoutingProfileName",
+  UpdateRoutingProfileName$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AccessAnalyzerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AccessAnalyzerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAnalyzedResourcesRequest, ListAnalyzedResourcesResponse } from "../models/models_0";
 import { ListAnalyzedResources$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListAnalyzedResources$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResource
  *
  * @public
  */
-export class ListAnalyzedResourcesCommand extends $Command
-  .classBuilder<
-    ListAnalyzedResourcesCommandInput,
-    ListAnalyzedResourcesCommandOutput,
-    AccessAnalyzerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AccessAnalyzer", "ListAnalyzedResources", {})
-  .n("AccessAnalyzerClient", "ListAnalyzedResourcesCommand")
-  .sc(ListAnalyzedResources$)
-  .build() {
+export class ListAnalyzedResourcesCommand extends command<ListAnalyzedResourcesCommandInput, ListAnalyzedResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAnalyzedResources",
+  ListAnalyzedResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

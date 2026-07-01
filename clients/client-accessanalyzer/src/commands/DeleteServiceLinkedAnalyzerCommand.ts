@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AccessAnalyzerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AccessAnalyzerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteServiceLinkedAnalyzerRequest } from "../models/models_0";
 import { DeleteServiceLinkedAnalyzer$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteServiceLinkedAnalyzer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface DeleteServiceLinkedAnalyzerCommandOutput extends __MetadataBear
  *
  * @public
  */
-export class DeleteServiceLinkedAnalyzerCommand extends $Command
-  .classBuilder<
-    DeleteServiceLinkedAnalyzerCommandInput,
-    DeleteServiceLinkedAnalyzerCommandOutput,
-    AccessAnalyzerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AccessAnalyzer", "DeleteServiceLinkedAnalyzer", {})
-  .n("AccessAnalyzerClient", "DeleteServiceLinkedAnalyzerCommand")
-  .sc(DeleteServiceLinkedAnalyzer$)
-  .build() {
+export class DeleteServiceLinkedAnalyzerCommand extends command<DeleteServiceLinkedAnalyzerCommandInput, DeleteServiceLinkedAnalyzerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteServiceLinkedAnalyzer",
+  DeleteServiceLinkedAnalyzer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

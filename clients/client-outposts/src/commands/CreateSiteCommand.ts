@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSiteInput, CreateSiteOutput } from "../models/models_0";
-import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import { CreateSite$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +136,12 @@ export interface CreateSiteCommandOutput extends CreateSiteOutput, __MetadataBea
  *
  * @public
  */
-export class CreateSiteCommand extends $Command
-  .classBuilder<
-    CreateSiteCommandInput,
-    CreateSiteCommandOutput,
-    OutpostsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OutpostsOlafService", "CreateSite", {})
-  .n("OutpostsClient", "CreateSiteCommand")
-  .sc(CreateSite$)
-  .build() {
+export class CreateSiteCommand extends command<CreateSiteCommandInput, CreateSiteCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSite",
+  CreateSite$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

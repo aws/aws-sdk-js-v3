@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSnapshotMessage, CreateSnapshotResult } from "../models/models_0";
 import { CreateSnapshot$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateSnapshot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -297,22 +293,12 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  *
  * @public
  */
-export class CreateSnapshotCommand extends $Command
-  .classBuilder<
-    CreateSnapshotCommandInput,
-    CreateSnapshotCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "CreateSnapshot", {})
-  .n("ElastiCacheClient", "CreateSnapshotCommand")
-  .sc(CreateSnapshot$)
-  .build() {
+export class CreateSnapshotCommand extends command<CreateSnapshotCommandInput, CreateSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSnapshot",
+  CreateSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

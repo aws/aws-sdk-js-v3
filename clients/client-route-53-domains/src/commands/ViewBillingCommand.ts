@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ViewBillingRequest, ViewBillingResponse } from "../models/models_0";
-import type {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53DomainsClient";
 import { ViewBilling$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface ViewBillingCommandOutput extends ViewBillingResponse, __Metadat
  *
  * @public
  */
-export class ViewBillingCommand extends $Command
-  .classBuilder<
-    ViewBillingCommandInput,
-    ViewBillingCommandOutput,
-    Route53DomainsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Domains_v20140515", "ViewBilling", {})
-  .n("Route53DomainsClient", "ViewBillingCommand")
-  .sc(ViewBilling$)
-  .build() {
+export class ViewBillingCommand extends command<ViewBillingCommandInput, ViewBillingCommandOutput>(
+  _ep0,
+  _mw0,
+  "ViewBilling",
+  ViewBilling$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

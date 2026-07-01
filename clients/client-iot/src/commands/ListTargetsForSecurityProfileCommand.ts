@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTargetsForSecurityProfileRequest, ListTargetsForSecurityProfileResponse } from "../models/models_2";
 import { ListTargetsForSecurityProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListTargetsForSecurityProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface ListTargetsForSecurityProfileCommandOutput extends ListTargetsF
  *
  * @public
  */
-export class ListTargetsForSecurityProfileCommand extends $Command
-  .classBuilder<
-    ListTargetsForSecurityProfileCommandInput,
-    ListTargetsForSecurityProfileCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "ListTargetsForSecurityProfile", {})
-  .n("IoTClient", "ListTargetsForSecurityProfileCommand")
-  .sc(ListTargetsForSecurityProfile$)
-  .build() {
+export class ListTargetsForSecurityProfileCommand extends command<ListTargetsForSecurityProfileCommandInput, ListTargetsForSecurityProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTargetsForSecurityProfile",
+  ListTargetsForSecurityProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

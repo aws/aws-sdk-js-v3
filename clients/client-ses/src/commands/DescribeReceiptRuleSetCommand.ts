@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeReceiptRuleSetRequest, DescribeReceiptRuleSetResponse } from "../models/models_0";
 import { DescribeReceiptRuleSet$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -156,22 +152,12 @@ export interface DescribeReceiptRuleSetCommandOutput extends DescribeReceiptRule
  *
  * @public
  */
-export class DescribeReceiptRuleSetCommand extends $Command
-  .classBuilder<
-    DescribeReceiptRuleSetCommandInput,
-    DescribeReceiptRuleSetCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "DescribeReceiptRuleSet", {})
-  .n("SESClient", "DescribeReceiptRuleSetCommand")
-  .sc(DescribeReceiptRuleSet$)
-  .build() {
+export class DescribeReceiptRuleSetCommand extends command<DescribeReceiptRuleSetCommandInput, DescribeReceiptRuleSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeReceiptRuleSet",
+  DescribeReceiptRuleSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

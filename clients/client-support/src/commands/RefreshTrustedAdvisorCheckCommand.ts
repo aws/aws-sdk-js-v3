@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RefreshTrustedAdvisorCheckRequest, RefreshTrustedAdvisorCheckResponse } from "../models/models_0";
 import { RefreshTrustedAdvisorCheck$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface RefreshTrustedAdvisorCheckCommandOutput extends RefreshTrustedA
  *
  * @public
  */
-export class RefreshTrustedAdvisorCheckCommand extends $Command
-  .classBuilder<
-    RefreshTrustedAdvisorCheckCommandInput,
-    RefreshTrustedAdvisorCheckCommandOutput,
-    SupportClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupportClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSupport_20130415", "RefreshTrustedAdvisorCheck", {})
-  .n("SupportClient", "RefreshTrustedAdvisorCheckCommand")
-  .sc(RefreshTrustedAdvisorCheck$)
-  .build() {
+export class RefreshTrustedAdvisorCheckCommand extends command<RefreshTrustedAdvisorCheckCommandInput, RefreshTrustedAdvisorCheckCommandOutput>(
+  _ep0,
+  _mw0,
+  "RefreshTrustedAdvisorCheck",
+  RefreshTrustedAdvisorCheck$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockRuntimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { InvokeModelWithResponseStreamRequest, InvokeModelWithResponseStreamResponse } from "../models/models_0";
 import { InvokeModelWithResponseStream$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { InvokeModelWithResponseStream$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  */
@@ -139,29 +131,12 @@ export interface InvokeModelWithResponseStreamCommandOutput extends InvokeModelW
  *
  * @public
  */
-export class InvokeModelWithResponseStreamCommand extends $Command
-  .classBuilder<
-    InvokeModelWithResponseStreamCommandInput,
-    InvokeModelWithResponseStreamCommandOutput,
-    BedrockRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockFrontendService", "InvokeModelWithResponseStream", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      output: true,
-    },
-  })
-  .n("BedrockRuntimeClient", "InvokeModelWithResponseStreamCommand")
-  .sc(InvokeModelWithResponseStream$)
-  .build() {
+export class InvokeModelWithResponseStreamCommand extends command<InvokeModelWithResponseStreamCommandInput, InvokeModelWithResponseStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "InvokeModelWithResponseStream",
+  InvokeModelWithResponseStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCliTokenRequest, CreateCliTokenResponse } from "../models/models_0";
-import type { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
 import { CreateCliToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface CreateCliTokenCommandOutput extends CreateCliTokenResponse, __M
  *
  * @public
  */
-export class CreateCliTokenCommand extends $Command
-  .classBuilder<
-    CreateCliTokenCommandInput,
-    CreateCliTokenCommandOutput,
-    MWAAClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MWAAClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMWAA", "CreateCliToken", {})
-  .n("MWAAClient", "CreateCliTokenCommand")
-  .sc(CreateCliToken$)
-  .build() {
+export class CreateCliTokenCommand extends command<CreateCliTokenCommandInput, CreateCliTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCliToken",
+  CreateCliToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

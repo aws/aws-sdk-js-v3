@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFlowRequest, CreateFlowResponse } from "../models/models_0";
 import { CreateFlow$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateFlow$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -767,22 +763,12 @@ export interface CreateFlowCommandOutput extends CreateFlowResponse, __MetadataB
  *
  * @public
  */
-export class CreateFlowCommand extends $Command
-  .classBuilder<
-    CreateFlowCommandInput,
-    CreateFlowCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "CreateFlow", {})
-  .n("MediaConnectClient", "CreateFlowCommand")
-  .sc(CreateFlow$)
-  .build() {
+export class CreateFlowCommand extends command<CreateFlowCommandInput, CreateFlowCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateFlow",
+  CreateFlow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

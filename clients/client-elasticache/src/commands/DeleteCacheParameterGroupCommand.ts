@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCacheParameterGroupMessage } from "../models/models_0";
 import { DeleteCacheParameterGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteCacheParameterGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer
  *
  * @public
  */
-export class DeleteCacheParameterGroupCommand extends $Command
-  .classBuilder<
-    DeleteCacheParameterGroupCommandInput,
-    DeleteCacheParameterGroupCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "DeleteCacheParameterGroup", {})
-  .n("ElastiCacheClient", "DeleteCacheParameterGroupCommand")
-  .sc(DeleteCacheParameterGroup$)
-  .build() {
+export class DeleteCacheParameterGroupCommand extends command<DeleteCacheParameterGroupCommandInput, DeleteCacheParameterGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCacheParameterGroup",
+  DeleteCacheParameterGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

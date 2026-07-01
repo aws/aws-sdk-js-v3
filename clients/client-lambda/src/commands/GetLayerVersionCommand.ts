@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetLayerVersionRequest, GetLayerVersionResponse } from "../models/models_0";
 import { GetLayerVersion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetLayerVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +121,12 @@ export interface GetLayerVersionCommandOutput extends GetLayerVersionResponse, _
  *
  * @public
  */
-export class GetLayerVersionCommand extends $Command
-  .classBuilder<
-    GetLayerVersionCommandInput,
-    GetLayerVersionCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "GetLayerVersion", {})
-  .n("LambdaClient", "GetLayerVersionCommand")
-  .sc(GetLayerVersion$)
-  .build() {
+export class GetLayerVersionCommand extends command<GetLayerVersionCommandInput, GetLayerVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetLayerVersion",
+  GetLayerVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

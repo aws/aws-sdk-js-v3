@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDBProxyEndpointRequest, DeleteDBProxyEndpointResponse } from "../models/models_0";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DeleteDBProxyEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface DeleteDBProxyEndpointCommandOutput extends DeleteDBProxyEndpoin
  *
  * @public
  */
-export class DeleteDBProxyEndpointCommand extends $Command
-  .classBuilder<
-    DeleteDBProxyEndpointCommandInput,
-    DeleteDBProxyEndpointCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DeleteDBProxyEndpoint", {})
-  .n("RDSClient", "DeleteDBProxyEndpointCommand")
-  .sc(DeleteDBProxyEndpoint$)
-  .build() {
+export class DeleteDBProxyEndpointCommand extends command<DeleteDBProxyEndpointCommandInput, DeleteDBProxyEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDBProxyEndpoint",
+  DeleteDBProxyEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

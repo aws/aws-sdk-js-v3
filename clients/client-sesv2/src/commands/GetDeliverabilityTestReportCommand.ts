@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDeliverabilityTestReportRequest, GetDeliverabilityTestReportResponse } from "../models/models_0";
 import { GetDeliverabilityTestReport$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface GetDeliverabilityTestReportCommandOutput extends GetDeliverabil
  *
  * @public
  */
-export class GetDeliverabilityTestReportCommand extends $Command
-  .classBuilder<
-    GetDeliverabilityTestReportCommandInput,
-    GetDeliverabilityTestReportCommandOutput,
-    SESv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService_v2", "GetDeliverabilityTestReport", {})
-  .n("SESv2Client", "GetDeliverabilityTestReportCommand")
-  .sc(GetDeliverabilityTestReport$)
-  .build() {
+export class GetDeliverabilityTestReportCommand extends command<GetDeliverabilityTestReportCommandInput, GetDeliverabilityTestReportCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDeliverabilityTestReport",
+  GetDeliverabilityTestReport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

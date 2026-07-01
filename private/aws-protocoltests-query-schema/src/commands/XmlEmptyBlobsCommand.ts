@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { XmlBlobsOutput } from "../models/models_0";
-import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 import { XmlEmptyBlobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -57,22 +53,12 @@ export interface XmlEmptyBlobsCommandOutput extends XmlBlobsOutput, __MetadataBe
  *
  *
  */
-export class XmlEmptyBlobsCommand extends $Command
-  .classBuilder<
-    XmlEmptyBlobsCommandInput,
-    XmlEmptyBlobsCommandOutput,
-    QueryProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QueryProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsQuery", "XmlEmptyBlobs", {})
-  .n("QueryProtocolClient", "XmlEmptyBlobsCommand")
-  .sc(XmlEmptyBlobs$)
-  .build() {
+export class XmlEmptyBlobsCommand extends command<XmlEmptyBlobsCommandInput, XmlEmptyBlobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "XmlEmptyBlobs",
+  XmlEmptyBlobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

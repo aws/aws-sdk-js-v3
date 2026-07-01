@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMapRequest, DeleteMapResponse } from "../models/models_0";
 import { DeleteMap$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteMap$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteMapCommandOutput extends DeleteMapResponse, __MetadataBea
  *
  * @public
  */
-export class DeleteMapCommand extends $Command
-  .classBuilder<
-    DeleteMapCommandInput,
-    DeleteMapCommandOutput,
-    LocationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LocationService", "DeleteMap", {})
-  .n("LocationClient", "DeleteMapCommand")
-  .sc(DeleteMap$)
-  .build() {
+export class DeleteMapCommand extends command<DeleteMapCommandInput, DeleteMapCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMap",
+  DeleteMap$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEventInput, GetEventOutput } from "../models/models_0";
 import { GetEvent$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetEvent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +105,12 @@ export interface GetEventCommandOutput extends GetEventOutput, __MetadataBearer 
  *
  * @public
  */
-export class GetEventCommand extends $Command
-  .classBuilder<
-    GetEventCommandInput,
-    GetEventCommandOutput,
-    BedrockAgentCoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCore", "GetEvent", {})
-  .n("BedrockAgentCoreClient", "GetEventCommand")
-  .sc(GetEvent$)
-  .build() {
+export class GetEventCommand extends command<GetEventCommandInput, GetEventCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEvent",
+  GetEvent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

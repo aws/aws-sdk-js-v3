@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListLicenseConfigurationsForOrganizationRequest,
   ListLicenseConfigurationsForOrganizationResponse,
@@ -19,7 +12,6 @@ import { ListLicenseConfigurationsForOrganization$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -145,22 +137,12 @@ export interface ListLicenseConfigurationsForOrganizationCommandOutput extends L
  *
  * @public
  */
-export class ListLicenseConfigurationsForOrganizationCommand extends $Command
-  .classBuilder<
-    ListLicenseConfigurationsForOrganizationCommandInput,
-    ListLicenseConfigurationsForOrganizationCommandOutput,
-    LicenseManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLicenseManager", "ListLicenseConfigurationsForOrganization", {})
-  .n("LicenseManagerClient", "ListLicenseConfigurationsForOrganizationCommand")
-  .sc(ListLicenseConfigurationsForOrganization$)
-  .build() {
+export class ListLicenseConfigurationsForOrganizationCommand extends command<ListLicenseConfigurationsForOrganizationCommandInput, ListLicenseConfigurationsForOrganizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLicenseConfigurationsForOrganization",
+  ListLicenseConfigurationsForOrganization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

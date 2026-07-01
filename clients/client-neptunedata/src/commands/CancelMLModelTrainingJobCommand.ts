@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelMLModelTrainingJobInput, CancelMLModelTrainingJobOutput } from "../models/models_0";
-import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
 import { CancelMLModelTrainingJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface CancelMLModelTrainingJobCommandOutput extends CancelMLModelTrai
  *
  * @public
  */
-export class CancelMLModelTrainingJobCommand extends $Command
-  .classBuilder<
-    CancelMLModelTrainingJobCommandInput,
-    CancelMLModelTrainingJobCommandOutput,
-    NeptunedataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneDataplane", "CancelMLModelTrainingJob", {})
-  .n("NeptunedataClient", "CancelMLModelTrainingJobCommand")
-  .sc(CancelMLModelTrainingJob$)
-  .build() {
+export class CancelMLModelTrainingJobCommand extends command<CancelMLModelTrainingJobCommandInput, CancelMLModelTrainingJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelMLModelTrainingJob",
+  CancelMLModelTrainingJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

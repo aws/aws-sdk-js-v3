@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListUpdatesRequest, ListUpdatesResponse } from "../models/models_0";
 import { ListUpdates$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListUpdates$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface ListUpdatesCommandOutput extends ListUpdatesResponse, __Metadat
  *
  * @public
  */
-export class ListUpdatesCommand extends $Command
-  .classBuilder<
-    ListUpdatesCommandInput,
-    ListUpdatesCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "ListUpdates", {})
-  .n("EKSClient", "ListUpdatesCommand")
-  .sc(ListUpdates$)
-  .build() {
+export class ListUpdatesCommand extends command<ListUpdatesCommandInput, ListUpdatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListUpdates",
+  ListUpdates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MediaPackageV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MediaPackageV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetHarvestJobRequest, GetHarvestJobResponse } from "../models/models_0";
 import { GetHarvestJob$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetHarvestJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -179,22 +171,12 @@ export interface GetHarvestJobCommandOutput extends GetHarvestJobResponse, __Met
  *
  * @public
  */
-export class GetHarvestJobCommand extends $Command
-  .classBuilder<
-    GetHarvestJobCommandInput,
-    GetHarvestJobCommandOutput,
-    MediaPackageV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("mediapackagev2", "GetHarvestJob", {})
-  .n("MediaPackageV2Client", "GetHarvestJobCommand")
-  .sc(GetHarvestJob$)
-  .build() {
+export class GetHarvestJobCommand extends command<GetHarvestJobCommandInput, GetHarvestJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetHarvestJob",
+  GetHarvestJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

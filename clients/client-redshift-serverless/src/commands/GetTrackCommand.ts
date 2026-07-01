@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTrackRequest, GetTrackResponse } from "../models/models_0";
-import type {
-  RedshiftServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RedshiftServerlessClient";
 import { GetTrack$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface GetTrackCommandOutput extends GetTrackResponse, __MetadataBeare
  *
  * @public
  */
-export class GetTrackCommand extends $Command
-  .classBuilder<
-    GetTrackCommandInput,
-    GetTrackCommandOutput,
-    RedshiftServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServerless", "GetTrack", {})
-  .n("RedshiftServerlessClient", "GetTrackCommand")
-  .sc(GetTrack$)
-  .build() {
+export class GetTrackCommand extends command<GetTrackCommandInput, GetTrackCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTrack",
+  GetTrack$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

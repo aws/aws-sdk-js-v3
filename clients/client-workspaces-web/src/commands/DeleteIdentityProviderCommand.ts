@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteIdentityProviderRequest, DeleteIdentityProviderResponse } from "../models/models_0";
 import { DeleteIdentityProvider$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteIdentityProviderCommandOutput extends DeleteIdentityProvi
  *
  * @public
  */
-export class DeleteIdentityProviderCommand extends $Command
-  .classBuilder<
-    DeleteIdentityProviderCommandInput,
-    DeleteIdentityProviderCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "DeleteIdentityProvider", {})
-  .n("WorkSpacesWebClient", "DeleteIdentityProviderCommand")
-  .sc(DeleteIdentityProvider$)
-  .build() {
+export class DeleteIdentityProviderCommand extends command<DeleteIdentityProviderCommandInput, DeleteIdentityProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteIdentityProvider",
+  DeleteIdentityProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

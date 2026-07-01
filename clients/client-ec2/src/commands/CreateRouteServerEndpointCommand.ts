@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRouteServerEndpointRequest, CreateRouteServerEndpointResult } from "../models/models_1";
 import { CreateRouteServerEndpoint$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateRouteServerEndpoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface CreateRouteServerEndpointCommandOutput extends CreateRouteServe
  *
  * @public
  */
-export class CreateRouteServerEndpointCommand extends $Command
-  .classBuilder<
-    CreateRouteServerEndpointCommandInput,
-    CreateRouteServerEndpointCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "CreateRouteServerEndpoint", {})
-  .n("EC2Client", "CreateRouteServerEndpointCommand")
-  .sc(CreateRouteServerEndpoint$)
-  .build() {
+export class CreateRouteServerEndpointCommand extends command<CreateRouteServerEndpointCommandInput, CreateRouteServerEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRouteServerEndpoint",
+  CreateRouteServerEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

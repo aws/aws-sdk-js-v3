@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListOfferingPromotionsRequest, ListOfferingPromotionsResult } from "../models/models_0";
 import { ListOfferingPromotions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListOfferingPromotions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface ListOfferingPromotionsCommandOutput extends ListOfferingPromoti
  *
  * @public
  */
-export class ListOfferingPromotionsCommand extends $Command
-  .classBuilder<
-    ListOfferingPromotionsCommandInput,
-    ListOfferingPromotionsCommandOutput,
-    DeviceFarmClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DeviceFarm_20150623", "ListOfferingPromotions", {})
-  .n("DeviceFarmClient", "ListOfferingPromotionsCommand")
-  .sc(ListOfferingPromotions$)
-  .build() {
+export class ListOfferingPromotionsCommand extends command<ListOfferingPromotionsCommandInput, ListOfferingPromotionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListOfferingPromotions",
+  ListOfferingPromotions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

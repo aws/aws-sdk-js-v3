@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRegistryInput, CreateRegistryResponse } from "../models/models_1";
 import { CreateRegistry$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateRegistry$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface CreateRegistryCommandOutput extends CreateRegistryResponse, __M
  *
  * @public
  */
-export class CreateRegistryCommand extends $Command
-  .classBuilder<
-    CreateRegistryCommandInput,
-    CreateRegistryCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "CreateRegistry", {})
-  .n("GlueClient", "CreateRegistryCommand")
-  .sc(CreateRegistry$)
-  .build() {
+export class CreateRegistryCommand extends command<CreateRegistryCommandInput, CreateRegistryCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRegistry",
+  CreateRegistry$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

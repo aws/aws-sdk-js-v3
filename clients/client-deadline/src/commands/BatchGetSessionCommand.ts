@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetSessionRequest, BatchGetSessionResponse } from "../models/models_0";
 import { BatchGetSession$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetSession$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -162,22 +158,12 @@ export interface BatchGetSessionCommandOutput extends BatchGetSessionResponse, _
  *
  * @public
  */
-export class BatchGetSessionCommand extends $Command
-  .classBuilder<
-    BatchGetSessionCommandInput,
-    BatchGetSessionCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "BatchGetSession", {})
-  .n("DeadlineClient", "BatchGetSessionCommand")
-  .sc(BatchGetSession$)
-  .build() {
+export class BatchGetSessionCommand extends command<BatchGetSessionCommandInput, BatchGetSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetSession",
+  BatchGetSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

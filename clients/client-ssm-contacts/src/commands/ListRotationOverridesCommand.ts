@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRotationOverridesRequest, ListRotationOverridesResult } from "../models/models_0";
 import { ListRotationOverrides$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface ListRotationOverridesCommandOutput extends ListRotationOverride
  *
  * @public
  */
-export class ListRotationOverridesCommand extends $Command
-  .classBuilder<
-    ListRotationOverridesCommandInput,
-    ListRotationOverridesCommandOutput,
-    SSMContactsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMContacts", "ListRotationOverrides", {})
-  .n("SSMContactsClient", "ListRotationOverridesCommand")
-  .sc(ListRotationOverrides$)
-  .build() {
+export class ListRotationOverridesCommand extends command<ListRotationOverridesCommandInput, ListRotationOverridesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRotationOverrides",
+  ListRotationOverrides$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

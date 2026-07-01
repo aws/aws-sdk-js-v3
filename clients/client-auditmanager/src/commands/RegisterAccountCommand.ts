@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterAccountRequest, RegisterAccountResponse } from "../models/models_0";
 import { RegisterAccount$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RegisterAccount$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface RegisterAccountCommandOutput extends RegisterAccountResponse, _
  *
  * @public
  */
-export class RegisterAccountCommand extends $Command
-  .classBuilder<
-    RegisterAccountCommandInput,
-    RegisterAccountCommandOutput,
-    AuditManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BedrockAssessmentManagerLambda", "RegisterAccount", {})
-  .n("AuditManagerClient", "RegisterAccountCommand")
-  .sc(RegisterAccount$)
-  .build() {
+export class RegisterAccountCommand extends command<RegisterAccountCommandInput, RegisterAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterAccount",
+  RegisterAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

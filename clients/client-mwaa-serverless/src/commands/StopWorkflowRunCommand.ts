@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopWorkflowRunRequest, StopWorkflowRunResponse } from "../models/models_0";
-import type {
-  MWAAServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MWAAServerlessClient";
 import { StopWorkflowRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface StopWorkflowRunCommandOutput extends StopWorkflowRunResponse, _
  *
  * @public
  */
-export class StopWorkflowRunCommand extends $Command
-  .classBuilder<
-    StopWorkflowRunCommandInput,
-    StopWorkflowRunCommandOutput,
-    MWAAServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MWAAServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMWAAServerless", "StopWorkflowRun", {})
-  .n("MWAAServerlessClient", "StopWorkflowRunCommand")
-  .sc(StopWorkflowRun$)
-  .build() {
+export class StopWorkflowRunCommand extends command<StopWorkflowRunCommandInput, StopWorkflowRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopWorkflowRun",
+  StopWorkflowRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

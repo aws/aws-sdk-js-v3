@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3/s3-control";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep4, _mw1, command } from "../commandBuilder";
 import type { PutAccessPointScopeRequest } from "../models/models_0";
-import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { PutAccessPointScope$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,31 +68,12 @@ export interface PutAccessPointScopeCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutAccessPointScopeCommand extends $Command
-  .classBuilder<
-    PutAccessPointScopeCommandInput,
-    PutAccessPointScopeCommandOutput,
-    S3ControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    RequiresAccountId: { type: "staticContextParams", value: true },
-    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
-    AccessPointName: { type: "contextParams", name: "Name" },
-    AccountId: { type: "contextParams", name: "AccountId" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getProcessArnablesPlugin(config),
-    ];
-  })
-  .s("AWSS3ControlServiceV20180820", "PutAccessPointScope", {})
-  .n("S3ControlClient", "PutAccessPointScopeCommand")
-  .sc(PutAccessPointScope$)
-  .build() {
+export class PutAccessPointScopeCommand extends command<PutAccessPointScopeCommandInput, PutAccessPointScopeCommandOutput>(
+  _ep4,
+  _mw1,
+  "PutAccessPointScope",
+  PutAccessPointScope$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

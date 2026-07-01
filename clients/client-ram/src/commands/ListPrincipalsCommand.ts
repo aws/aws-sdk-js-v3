@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPrincipalsRequest, ListPrincipalsResponse } from "../models/models_0";
-import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import { ListPrincipals$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __M
  *
  * @public
  */
-export class ListPrincipalsCommand extends $Command
-  .classBuilder<
-    ListPrincipalsCommandInput,
-    ListPrincipalsCommandOutput,
-    RAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonResourceSharing", "ListPrincipals", {})
-  .n("RAMClient", "ListPrincipalsCommand")
-  .sc(ListPrincipals$)
-  .build() {
+export class ListPrincipalsCommand extends command<ListPrincipalsCommandInput, ListPrincipalsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPrincipals",
+  ListPrincipals$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

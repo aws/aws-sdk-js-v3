@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeSeverityLevelsRequest, DescribeSeverityLevelsResponse } from "../models/models_0";
 import { DescribeSeverityLevels$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DescribeSeverityLevelsCommandOutput extends DescribeSeverityLev
  *
  * @public
  */
-export class DescribeSeverityLevelsCommand extends $Command
-  .classBuilder<
-    DescribeSeverityLevelsCommandInput,
-    DescribeSeverityLevelsCommandOutput,
-    SupportClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupportClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSupport_20130415", "DescribeSeverityLevels", {})
-  .n("SupportClient", "DescribeSeverityLevelsCommand")
-  .sc(DescribeSeverityLevels$)
-  .build() {
+export class DescribeSeverityLevelsCommand extends command<DescribeSeverityLevelsCommandInput, DescribeSeverityLevelsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSeverityLevels",
+  DescribeSeverityLevels$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

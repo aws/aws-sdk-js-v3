@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSchemaVersionRequest } from "../models/models_0";
 import { DeleteSchemaVersion$ } from "../schemas/schemas_0";
-import type { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface DeleteSchemaVersionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteSchemaVersionCommand extends $Command
-  .classBuilder<
-    DeleteSchemaVersionCommandInput,
-    DeleteSchemaVersionCommandOutput,
-    SchemasClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SchemasClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("schemas", "DeleteSchemaVersion", {})
-  .n("SchemasClient", "DeleteSchemaVersionCommand")
-  .sc(DeleteSchemaVersion$)
-  .build() {
+export class DeleteSchemaVersionCommand extends command<DeleteSchemaVersionCommandInput, DeleteSchemaVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSchemaVersion",
+  DeleteSchemaVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

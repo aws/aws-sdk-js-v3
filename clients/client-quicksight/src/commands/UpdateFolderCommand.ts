@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateFolderRequest, UpdateFolderResponse } from "../models/models_5";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { UpdateFolder$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface UpdateFolderCommandOutput extends UpdateFolderResponse, __Metad
  *
  * @public
  */
-export class UpdateFolderCommand extends $Command
-  .classBuilder<
-    UpdateFolderCommandInput,
-    UpdateFolderCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "UpdateFolder", {})
-  .n("QuickSightClient", "UpdateFolderCommand")
-  .sc(UpdateFolder$)
-  .build() {
+export class UpdateFolderCommand extends command<UpdateFolderCommandInput, UpdateFolderCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateFolder",
+  UpdateFolder$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

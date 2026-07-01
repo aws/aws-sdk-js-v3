@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticLoadBalancingV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticLoadBalancingV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeTargetGroupsInput, DescribeTargetGroupsOutput } from "../models/models_0";
 import { DescribeTargetGroups$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeTargetGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -146,22 +138,12 @@ export interface DescribeTargetGroupsCommandOutput extends DescribeTargetGroupsO
  *
  * @public
  */
-export class DescribeTargetGroupsCommand extends $Command
-  .classBuilder<
-    DescribeTargetGroupsCommandInput,
-    DescribeTargetGroupsCommandOutput,
-    ElasticLoadBalancingV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticLoadBalancing_v10", "DescribeTargetGroups", {})
-  .n("ElasticLoadBalancingV2Client", "DescribeTargetGroupsCommand")
-  .sc(DescribeTargetGroups$)
-  .build() {
+export class DescribeTargetGroupsCommand extends command<DescribeTargetGroupsCommandInput, DescribeTargetGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeTargetGroups",
+  DescribeTargetGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ResetAllResourceLogLevelsRequest, ResetAllResourceLogLevelsResponse } from "../models/models_0";
 import { ResetAllResourceLogLevels$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ResetAllResourceLogLevels$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface ResetAllResourceLogLevelsCommandOutput extends ResetAllResource
  *
  * @public
  */
-export class ResetAllResourceLogLevelsCommand extends $Command
-  .classBuilder<
-    ResetAllResourceLogLevelsCommandInput,
-    ResetAllResourceLogLevelsCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "ResetAllResourceLogLevels", {})
-  .n("IoTWirelessClient", "ResetAllResourceLogLevelsCommand")
-  .sc(ResetAllResourceLogLevels$)
-  .build() {
+export class ResetAllResourceLogLevelsCommand extends command<ResetAllResourceLogLevelsCommandInput, ResetAllResourceLogLevelsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ResetAllResourceLogLevels",
+  ResetAllResourceLogLevels$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

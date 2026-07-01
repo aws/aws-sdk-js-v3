@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateApprovedOriginRequest } from "../models/models_1";
 import { DisassociateApprovedOrigin$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateApprovedOrigin$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DisassociateApprovedOriginCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class DisassociateApprovedOriginCommand extends $Command
-  .classBuilder<
-    DisassociateApprovedOriginCommandInput,
-    DisassociateApprovedOriginCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DisassociateApprovedOrigin", {})
-  .n("ConnectClient", "DisassociateApprovedOriginCommand")
-  .sc(DisassociateApprovedOrigin$)
-  .build() {
+export class DisassociateApprovedOriginCommand extends command<DisassociateApprovedOriginCommandInput, DisassociateApprovedOriginCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateApprovedOrigin",
+  DisassociateApprovedOrigin$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

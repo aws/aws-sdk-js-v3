@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceDiscoveryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceDiscoveryClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchFacetsInput, SearchFacetsOutput } from "../models/models_0";
 import { SearchFacets$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { SearchFacets$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -230,22 +222,12 @@ export interface SearchFacetsCommandOutput extends SearchFacetsOutput, __Metadat
  *
  * @public
  */
-export class SearchFacetsCommand extends $Command
-  .classBuilder<
-    SearchFacetsCommandInput,
-    SearchFacetsCommandOutput,
-    MarketplaceDiscoveryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceDiscoveryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMarketplaceDiscovery", "SearchFacets", {})
-  .n("MarketplaceDiscoveryClient", "SearchFacetsCommand")
-  .sc(SearchFacets$)
-  .build() {
+export class SearchFacetsCommand extends command<SearchFacetsCommandInput, SearchFacetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchFacets",
+  SearchFacets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

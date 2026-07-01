@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetIpamResourceCidrsRequest, GetIpamResourceCidrsResult } from "../models/models_6";
 import { GetIpamResourceCidrs$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetIpamResourceCidrs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsR
  *
  * @public
  */
-export class GetIpamResourceCidrsCommand extends $Command
-  .classBuilder<
-    GetIpamResourceCidrsCommandInput,
-    GetIpamResourceCidrsCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "GetIpamResourceCidrs", {})
-  .n("EC2Client", "GetIpamResourceCidrsCommand")
-  .sc(GetIpamResourceCidrs$)
-  .build() {
+export class GetIpamResourceCidrsCommand extends command<GetIpamResourceCidrsCommandInput, GetIpamResourceCidrsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIpamResourceCidrs",
+  GetIpamResourceCidrs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

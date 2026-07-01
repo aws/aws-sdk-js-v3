@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ImportCertificateRequest, ImportCertificateResponse } from "../models/models_0";
 import { ImportCertificate$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  *
  * @public
  */
-export class ImportCertificateCommand extends $Command
-  .classBuilder<
-    ImportCertificateCommandInput,
-    ImportCertificateCommandOutput,
-    TransferClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TransferService", "ImportCertificate", {})
-  .n("TransferClient", "ImportCertificateCommand")
-  .sc(ImportCertificate$)
-  .build() {
+export class ImportCertificateCommand extends command<ImportCertificateCommandInput, ImportCertificateCommandOutput>(
+  _ep0,
+  _mw0,
+  "ImportCertificate",
+  ImportCertificate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

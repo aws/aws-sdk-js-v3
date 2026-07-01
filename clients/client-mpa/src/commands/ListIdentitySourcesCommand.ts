@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListIdentitySourcesRequest, ListIdentitySourcesResponse } from "../models/models_0";
-import type { MPAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MPAClient";
 import { ListIdentitySources$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ListIdentitySourcesCommandOutput extends ListIdentitySourcesRes
  *
  * @public
  */
-export class ListIdentitySourcesCommand extends $Command
-  .classBuilder<
-    ListIdentitySourcesCommandInput,
-    ListIdentitySourcesCommandOutput,
-    MPAClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MPAClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSFluffyCoreService", "ListIdentitySources", {})
-  .n("MPAClient", "ListIdentitySourcesCommand")
-  .sc(ListIdentitySources$)
-  .build() {
+export class ListIdentitySourcesCommand extends command<ListIdentitySourcesCommandInput, ListIdentitySourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListIdentitySources",
+  ListIdentitySources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

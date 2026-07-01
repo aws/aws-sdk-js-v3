@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentRuntimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EndSessionRequest, EndSessionResponse } from "../models/models_0";
 import { EndSession$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { EndSession$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface EndSessionCommandOutput extends EndSessionResponse, __MetadataB
  *
  * @public
  */
-export class EndSessionCommand extends $Command
-  .classBuilder<
-    EndSessionCommandInput,
-    EndSessionCommandOutput,
-    BedrockAgentRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentRunTimeService", "EndSession", {})
-  .n("BedrockAgentRuntimeClient", "EndSessionCommand")
-  .sc(EndSession$)
-  .build() {
+export class EndSessionCommand extends command<EndSessionCommandInput, EndSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "EndSession",
+  EndSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

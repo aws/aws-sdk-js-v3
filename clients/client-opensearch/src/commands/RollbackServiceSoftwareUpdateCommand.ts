@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RollbackServiceSoftwareUpdateRequest, RollbackServiceSoftwareUpdateResponse } from "../models/models_1";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { RollbackServiceSoftwareUpdate$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface RollbackServiceSoftwareUpdateCommandOutput extends RollbackServ
  *
  * @public
  */
-export class RollbackServiceSoftwareUpdateCommand extends $Command
-  .classBuilder<
-    RollbackServiceSoftwareUpdateCommandInput,
-    RollbackServiceSoftwareUpdateCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "RollbackServiceSoftwareUpdate", {})
-  .n("OpenSearchClient", "RollbackServiceSoftwareUpdateCommand")
-  .sc(RollbackServiceSoftwareUpdate$)
-  .build() {
+export class RollbackServiceSoftwareUpdateCommand extends command<RollbackServiceSoftwareUpdateCommandInput, RollbackServiceSoftwareUpdateCommandOutput>(
+  _ep0,
+  _mw0,
+  "RollbackServiceSoftwareUpdate",
+  RollbackServiceSoftwareUpdate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

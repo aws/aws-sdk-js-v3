@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { VerifyDestinationNumberRequest, VerifyDestinationNumberResult } from "../models/models_1";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { VerifyDestinationNumber$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface VerifyDestinationNumberCommandOutput extends VerifyDestinationN
  *
  * @public
  */
-export class VerifyDestinationNumberCommand extends $Command
-  .classBuilder<
-    VerifyDestinationNumberCommandInput,
-    VerifyDestinationNumberCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "VerifyDestinationNumber", {})
-  .n("PinpointSMSVoiceV2Client", "VerifyDestinationNumberCommand")
-  .sc(VerifyDestinationNumber$)
-  .build() {
+export class VerifyDestinationNumberCommand extends command<VerifyDestinationNumberCommandInput, VerifyDestinationNumberCommandOutput>(
+  _ep0,
+  _mw0,
+  "VerifyDestinationNumber",
+  VerifyDestinationNumber$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

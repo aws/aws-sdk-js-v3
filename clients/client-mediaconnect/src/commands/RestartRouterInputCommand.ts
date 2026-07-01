@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RestartRouterInputRequest, RestartRouterInputResponse } from "../models/models_1";
 import { RestartRouterInput$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RestartRouterInput$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface RestartRouterInputCommandOutput extends RestartRouterInputRespo
  *
  * @public
  */
-export class RestartRouterInputCommand extends $Command
-  .classBuilder<
-    RestartRouterInputCommandInput,
-    RestartRouterInputCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "RestartRouterInput", {})
-  .n("MediaConnectClient", "RestartRouterInputCommand")
-  .sc(RestartRouterInput$)
-  .build() {
+export class RestartRouterInputCommand extends command<RestartRouterInputCommandInput, RestartRouterInputCommandOutput>(
+  _ep0,
+  _mw0,
+  "RestartRouterInput",
+  RestartRouterInput$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

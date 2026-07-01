@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SwapEnvironmentCNAMEsMessage } from "../models/models_0";
 import { SwapEnvironmentCNAMEs$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { SwapEnvironmentCNAMEs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +70,12 @@ export interface SwapEnvironmentCNAMEsCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class SwapEnvironmentCNAMEsCommand extends $Command
-  .classBuilder<
-    SwapEnvironmentCNAMEsCommandInput,
-    SwapEnvironmentCNAMEsCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "SwapEnvironmentCNAMEs", {})
-  .n("ElasticBeanstalkClient", "SwapEnvironmentCNAMEsCommand")
-  .sc(SwapEnvironmentCNAMEs$)
-  .build() {
+export class SwapEnvironmentCNAMEsCommand extends command<SwapEnvironmentCNAMEsCommandInput, SwapEnvironmentCNAMEsCommandOutput>(
+  _ep0,
+  _mw0,
+  "SwapEnvironmentCNAMEs",
+  SwapEnvironmentCNAMEs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

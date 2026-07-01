@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaCoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaCoreClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteNetworkConnectorRequest, DeleteNetworkConnectorResponse } from "../models/models_0";
 import { DeleteNetworkConnector$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteNetworkConnector$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface DeleteNetworkConnectorCommandOutput extends DeleteNetworkConnec
  *
  * @public
  */
-export class DeleteNetworkConnectorCommand extends $Command
-  .classBuilder<
-    DeleteNetworkConnectorCommandInput,
-    DeleteNetworkConnectorCommandOutput,
-    LambdaCoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaCoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LambdaCoreApiService", "DeleteNetworkConnector", {})
-  .n("LambdaCoreClient", "DeleteNetworkConnectorCommand")
-  .sc(DeleteNetworkConnector$)
-  .build() {
+export class DeleteNetworkConnectorCommand extends command<DeleteNetworkConnectorCommandInput, DeleteNetworkConnectorCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteNetworkConnector",
+  DeleteNetworkConnector$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

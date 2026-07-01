@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDefaultKeyReplicationRegionsInput, GetDefaultKeyReplicationRegionsOutput } from "../models/models_0";
-import type {
-  PaymentCryptographyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PaymentCryptographyClient";
 import { GetDefaultKeyReplicationRegions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface GetDefaultKeyReplicationRegionsCommandOutput extends GetDefault
  *
  * @public
  */
-export class GetDefaultKeyReplicationRegionsCommand extends $Command
-  .classBuilder<
-    GetDefaultKeyReplicationRegionsCommandInput,
-    GetDefaultKeyReplicationRegionsCommandOutput,
-    PaymentCryptographyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PaymentCryptographyControlPlane", "GetDefaultKeyReplicationRegions", {})
-  .n("PaymentCryptographyClient", "GetDefaultKeyReplicationRegionsCommand")
-  .sc(GetDefaultKeyReplicationRegions$)
-  .build() {
+export class GetDefaultKeyReplicationRegionsCommand extends command<GetDefaultKeyReplicationRegionsCommandInput, GetDefaultKeyReplicationRegionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDefaultKeyReplicationRegions",
+  GetDefaultKeyReplicationRegions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

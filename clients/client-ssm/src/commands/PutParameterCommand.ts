@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutParameterRequest, PutParameterResult } from "../models/models_1";
 import { PutParameter$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -142,22 +138,12 @@ export interface PutParameterCommandOutput extends PutParameterResult, __Metadat
  *
  * @public
  */
-export class PutParameterCommand extends $Command
-  .classBuilder<
-    PutParameterCommandInput,
-    PutParameterCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "PutParameter", {})
-  .n("SSMClient", "PutParameterCommand")
-  .sc(PutParameter$)
-  .build() {
+export class PutParameterCommand extends command<PutParameterCommandInput, PutParameterCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutParameter",
+  PutParameter$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

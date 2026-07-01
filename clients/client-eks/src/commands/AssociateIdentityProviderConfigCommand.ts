@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AssociateIdentityProviderConfigRequest,
   AssociateIdentityProviderConfigResponse,
@@ -15,7 +12,6 @@ import { AssociateIdentityProviderConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -141,22 +137,12 @@ export interface AssociateIdentityProviderConfigCommandOutput extends AssociateI
  *
  * @public
  */
-export class AssociateIdentityProviderConfigCommand extends $Command
-  .classBuilder<
-    AssociateIdentityProviderConfigCommandInput,
-    AssociateIdentityProviderConfigCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "AssociateIdentityProviderConfig", {})
-  .n("EKSClient", "AssociateIdentityProviderConfigCommand")
-  .sc(AssociateIdentityProviderConfig$)
-  .build() {
+export class AssociateIdentityProviderConfigCommand extends command<AssociateIdentityProviderConfigCommandInput, AssociateIdentityProviderConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateIdentityProviderConfig",
+  AssociateIdentityProviderConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

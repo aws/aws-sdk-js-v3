@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudDirectoryClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSchemaAsJsonRequest, GetSchemaAsJsonResponse } from "../models/models_0";
 import { GetSchemaAsJson$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetSchemaAsJson$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface GetSchemaAsJsonCommandOutput extends GetSchemaAsJsonResponse, _
  *
  * @public
  */
-export class GetSchemaAsJsonCommand extends $Command
-  .classBuilder<
-    GetSchemaAsJsonCommandInput,
-    GetSchemaAsJsonCommandOutput,
-    CloudDirectoryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonCloudDirectory_20170111", "GetSchemaAsJson", {})
-  .n("CloudDirectoryClient", "GetSchemaAsJsonCommand")
-  .sc(GetSchemaAsJson$)
-  .build() {
+export class GetSchemaAsJsonCommand extends command<GetSchemaAsJsonCommandInput, GetSchemaAsJsonCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSchemaAsJson",
+  GetSchemaAsJson$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

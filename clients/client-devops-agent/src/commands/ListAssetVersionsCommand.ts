@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAssetVersionsRequest, ListAssetVersionsResponse } from "../models/models_0";
 import { ListAssetVersions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAssetVersions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface ListAssetVersionsCommandOutput extends ListAssetVersionsRespons
  *
  * @public
  */
-export class ListAssetVersionsCommand extends $Command
-  .classBuilder<
-    ListAssetVersionsCommandInput,
-    ListAssetVersionsCommandOutput,
-    DevOpsAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DevOpsAgent", "ListAssetVersions", {})
-  .n("DevOpsAgentClient", "ListAssetVersionsCommand")
-  .sc(ListAssetVersions$)
-  .build() {
+export class ListAssetVersionsCommand extends command<ListAssetVersionsCommandInput, ListAssetVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAssetVersions",
+  ListAssetVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

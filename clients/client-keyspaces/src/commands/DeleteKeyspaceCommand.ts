@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteKeyspaceRequest, DeleteKeyspaceResponse } from "../models/models_0";
 import { DeleteKeyspace$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteKeyspace$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteKeyspaceCommandOutput extends DeleteKeyspaceResponse, __M
  *
  * @public
  */
-export class DeleteKeyspaceCommand extends $Command
-  .classBuilder<
-    DeleteKeyspaceCommandInput,
-    DeleteKeyspaceCommandOutput,
-    KeyspacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KeyspacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KeyspacesService", "DeleteKeyspace", {})
-  .n("KeyspacesClient", "DeleteKeyspaceCommand")
-  .sc(DeleteKeyspace$)
-  .build() {
+export class DeleteKeyspaceCommand extends command<DeleteKeyspaceCommandInput, DeleteKeyspaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteKeyspace",
+  DeleteKeyspace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

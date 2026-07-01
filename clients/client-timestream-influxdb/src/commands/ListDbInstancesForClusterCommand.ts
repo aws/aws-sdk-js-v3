@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDbInstancesForClusterInput, ListDbInstancesForClusterOutput } from "../models/models_0";
 import { ListDbInstancesForCluster$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TimestreamInfluxDBClientResolvedConfig,
-} from "../TimestreamInfluxDBClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface ListDbInstancesForClusterCommandOutput extends ListDbInstancesF
  *
  * @public
  */
-export class ListDbInstancesForClusterCommand extends $Command
-  .classBuilder<
-    ListDbInstancesForClusterCommandInput,
-    ListDbInstancesForClusterCommandOutput,
-    TimestreamInfluxDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TimestreamInfluxDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonTimestreamInfluxDB", "ListDbInstancesForCluster", {})
-  .n("TimestreamInfluxDBClient", "ListDbInstancesForClusterCommand")
-  .sc(ListDbInstancesForCluster$)
-  .build() {
+export class ListDbInstancesForClusterCommand extends command<ListDbInstancesForClusterCommandInput, ListDbInstancesForClusterCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDbInstancesForCluster",
+  ListDbInstancesForCluster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

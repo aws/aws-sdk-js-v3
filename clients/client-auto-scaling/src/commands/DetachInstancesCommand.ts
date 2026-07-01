@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DetachInstancesAnswer, DetachInstancesQuery } from "../models/models_0";
 import { DetachInstances$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DetachInstances$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface DetachInstancesCommandOutput extends DetachInstancesAnswer, __M
  *
  * @public
  */
-export class DetachInstancesCommand extends $Command
-  .classBuilder<
-    DetachInstancesCommandInput,
-    DetachInstancesCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "DetachInstances", {})
-  .n("AutoScalingClient", "DetachInstancesCommand")
-  .sc(DetachInstances$)
-  .build() {
+export class DetachInstancesCommand extends command<DetachInstancesCommandInput, DetachInstancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DetachInstances",
+  DetachInstances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

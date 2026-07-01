@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteGcmChannelRequest, DeleteGcmChannelResponse } from "../models/models_0";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { DeleteGcmChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface DeleteGcmChannelCommandOutput extends DeleteGcmChannelResponse,
  *
  * @public
  */
-export class DeleteGcmChannelCommand extends $Command
-  .classBuilder<
-    DeleteGcmChannelCommandInput,
-    DeleteGcmChannelCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "DeleteGcmChannel", {})
-  .n("PinpointClient", "DeleteGcmChannelCommand")
-  .sc(DeleteGcmChannel$)
-  .build() {
+export class DeleteGcmChannelCommand extends command<DeleteGcmChannelCommandInput, DeleteGcmChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteGcmChannel",
+  DeleteGcmChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

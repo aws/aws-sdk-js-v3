@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateGlobalSettingsInput } from "../models/models_0";
 import { UpdateGlobalSettings$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WellArchitectedClientResolvedConfig,
-} from "../WellArchitectedClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface UpdateGlobalSettingsCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdateGlobalSettingsCommand extends $Command
-  .classBuilder<
-    UpdateGlobalSettingsCommandInput,
-    UpdateGlobalSettingsCommandOutput,
-    WellArchitectedClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WellArchitectedApiServiceLambda", "UpdateGlobalSettings", {})
-  .n("WellArchitectedClient", "UpdateGlobalSettingsCommand")
-  .sc(UpdateGlobalSettings$)
-  .build() {
+export class UpdateGlobalSettingsCommand extends command<UpdateGlobalSettingsCommandInput, UpdateGlobalSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateGlobalSettings",
+  UpdateGlobalSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

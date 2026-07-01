@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeChannelPlacementGroupRequest, DescribeChannelPlacementGroupResponse } from "../models/models_1";
 import { DescribeChannelPlacementGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeChannelPlacementGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface DescribeChannelPlacementGroupCommandOutput extends DescribeChan
  *
  * @public
  */
-export class DescribeChannelPlacementGroupCommand extends $Command
-  .classBuilder<
-    DescribeChannelPlacementGroupCommandInput,
-    DescribeChannelPlacementGroupCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "DescribeChannelPlacementGroup", {})
-  .n("MediaLiveClient", "DescribeChannelPlacementGroupCommand")
-  .sc(DescribeChannelPlacementGroup$)
-  .build() {
+export class DescribeChannelPlacementGroupCommand extends command<DescribeChannelPlacementGroupCommandInput, DescribeChannelPlacementGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeChannelPlacementGroup",
+  DescribeChannelPlacementGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

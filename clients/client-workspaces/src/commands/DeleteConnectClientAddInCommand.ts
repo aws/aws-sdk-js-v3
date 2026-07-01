@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteConnectClientAddInRequest, DeleteConnectClientAddInResult } from "../models/models_0";
 import { DeleteConnectClientAddIn$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface DeleteConnectClientAddInCommandOutput extends DeleteConnectClie
  *
  * @public
  */
-export class DeleteConnectClientAddInCommand extends $Command
-  .classBuilder<
-    DeleteConnectClientAddInCommandInput,
-    DeleteConnectClientAddInCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "DeleteConnectClientAddIn", {})
-  .n("WorkSpacesClient", "DeleteConnectClientAddInCommand")
-  .sc(DeleteConnectClientAddIn$)
-  .build() {
+export class DeleteConnectClientAddInCommand extends command<DeleteConnectClientAddInCommandInput, DeleteConnectClientAddInCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteConnectClientAddIn",
+  DeleteConnectClientAddIn$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

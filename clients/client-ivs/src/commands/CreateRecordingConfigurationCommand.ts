@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRecordingConfigurationRequest, CreateRecordingConfigurationResponse } from "../models/models_0";
 import { CreateRecordingConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateRecordingConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -127,22 +123,12 @@ export interface CreateRecordingConfigurationCommandOutput extends CreateRecordi
  *
  * @public
  */
-export class CreateRecordingConfigurationCommand extends $Command
-  .classBuilder<
-    CreateRecordingConfigurationCommandInput,
-    CreateRecordingConfigurationCommandOutput,
-    IvsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoService", "CreateRecordingConfiguration", {})
-  .n("IvsClient", "CreateRecordingConfigurationCommand")
-  .sc(CreateRecordingConfiguration$)
-  .build() {
+export class CreateRecordingConfigurationCommand extends command<CreateRecordingConfigurationCommandInput, CreateRecordingConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRecordingConfiguration",
+  CreateRecordingConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateReviewTemplateAnswerInput, UpdateReviewTemplateAnswerOutput } from "../models/models_0";
 import { UpdateReviewTemplateAnswer$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WellArchitectedClientResolvedConfig,
-} from "../WellArchitectedClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -147,22 +139,12 @@ export interface UpdateReviewTemplateAnswerCommandOutput extends UpdateReviewTem
  *
  * @public
  */
-export class UpdateReviewTemplateAnswerCommand extends $Command
-  .classBuilder<
-    UpdateReviewTemplateAnswerCommandInput,
-    UpdateReviewTemplateAnswerCommandOutput,
-    WellArchitectedClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WellArchitectedApiServiceLambda", "UpdateReviewTemplateAnswer", {})
-  .n("WellArchitectedClient", "UpdateReviewTemplateAnswerCommand")
-  .sc(UpdateReviewTemplateAnswer$)
-  .build() {
+export class UpdateReviewTemplateAnswerCommand extends command<UpdateReviewTemplateAnswerCommandInput, UpdateReviewTemplateAnswerCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateReviewTemplateAnswer",
+  UpdateReviewTemplateAnswer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

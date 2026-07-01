@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  ManagedBlockchainClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ManagedBlockchainClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateNetworkInput, CreateNetworkOutput } from "../models/models_0";
 import { CreateNetwork$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateNetwork$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +124,12 @@ export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __Metad
  *
  * @public
  */
-export class CreateNetworkCommand extends $Command
-  .classBuilder<
-    CreateNetworkCommandInput,
-    CreateNetworkCommandOutput,
-    ManagedBlockchainClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TaigaWebService", "CreateNetwork", {})
-  .n("ManagedBlockchainClient", "CreateNetworkCommand")
-  .sc(CreateNetwork$)
-  .build() {
+export class CreateNetworkCommand extends command<CreateNetworkCommandInput, CreateNetworkCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateNetwork",
+  CreateNetwork$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

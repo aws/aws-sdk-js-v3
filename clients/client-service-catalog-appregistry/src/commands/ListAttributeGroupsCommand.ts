@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAttributeGroupsRequest, ListAttributeGroupsResponse } from "../models/models_0";
 import { ListAttributeGroups$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogAppRegistryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogAppRegistryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface ListAttributeGroupsCommandOutput extends ListAttributeGroupsRes
  *
  * @public
  */
-export class ListAttributeGroupsCommand extends $Command
-  .classBuilder<
-    ListAttributeGroupsCommandInput,
-    ListAttributeGroupsCommandOutput,
-    ServiceCatalogAppRegistryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogAppRegistryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242AppRegistry", "ListAttributeGroups", {})
-  .n("ServiceCatalogAppRegistryClient", "ListAttributeGroupsCommand")
-  .sc(ListAttributeGroups$)
-  .build() {
+export class ListAttributeGroupsCommand extends command<ListAttributeGroupsCommandInput, ListAttributeGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAttributeGroups",
+  ListAttributeGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

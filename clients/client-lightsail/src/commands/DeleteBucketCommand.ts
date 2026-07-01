@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteBucketRequest, DeleteBucketResult } from "../models/models_0";
 import { DeleteBucket$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteBucket$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface DeleteBucketCommandOutput extends DeleteBucketResult, __Metadat
  *
  * @public
  */
-export class DeleteBucketCommand extends $Command
-  .classBuilder<
-    DeleteBucketCommandInput,
-    DeleteBucketCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "DeleteBucket", {})
-  .n("LightsailClient", "DeleteBucketCommand")
-  .sc(DeleteBucket$)
-  .build() {
+export class DeleteBucketCommand extends command<DeleteBucketCommandInput, DeleteBucketCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteBucket",
+  DeleteBucket$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

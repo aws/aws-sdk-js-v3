@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { InitiateDocumentVersionUploadRequest, InitiateDocumentVersionUploadResponse } from "../models/models_0";
 import { InitiateDocumentVersionUpload$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -151,22 +147,12 @@ export interface InitiateDocumentVersionUploadCommandOutput extends InitiateDocu
  *
  * @public
  */
-export class InitiateDocumentVersionUploadCommand extends $Command
-  .classBuilder<
-    InitiateDocumentVersionUploadCommandInput,
-    InitiateDocumentVersionUploadCommandOutput,
-    WorkDocsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGorillaBoyService", "InitiateDocumentVersionUpload", {})
-  .n("WorkDocsClient", "InitiateDocumentVersionUploadCommand")
-  .sc(InitiateDocumentVersionUpload$)
-  .build() {
+export class InitiateDocumentVersionUploadCommand extends command<InitiateDocumentVersionUploadCommandInput, InitiateDocumentVersionUploadCommandOutput>(
+  _ep0,
+  _mw0,
+  "InitiateDocumentVersionUpload",
+  InitiateDocumentVersionUpload$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

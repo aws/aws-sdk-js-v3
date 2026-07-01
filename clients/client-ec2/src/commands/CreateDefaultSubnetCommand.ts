@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDefaultSubnetRequest } from "../models/models_0";
 import type { CreateDefaultSubnetResult } from "../models/models_1";
 import { CreateDefaultSubnet$ } from "../schemas/schemas_0";
@@ -13,7 +10,6 @@ import { CreateDefaultSubnet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetRes
  *
  * @public
  */
-export class CreateDefaultSubnetCommand extends $Command
-  .classBuilder<
-    CreateDefaultSubnetCommandInput,
-    CreateDefaultSubnetCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "CreateDefaultSubnet", {})
-  .n("EC2Client", "CreateDefaultSubnetCommand")
-  .sc(CreateDefaultSubnet$)
-  .build() {
+export class CreateDefaultSubnetCommand extends command<CreateDefaultSubnetCommandInput, CreateDefaultSubnetCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDefaultSubnet",
+  CreateDefaultSubnet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
-import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PublishPackageVersionRequest, PublishPackageVersionResult } from "../models/models_0";
 import { PublishPackageVersion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PublishPackageVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +122,12 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  *
  * @public
  */
-export class PublishPackageVersionCommand extends $Command
-  .classBuilder<
-    PublishPackageVersionCommandInput,
-    PublishPackageVersionCommandOutput,
-    CodeartifactClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeArtifactControlPlaneService", "PublishPackageVersion", {})
-  .n("CodeartifactClient", "PublishPackageVersionCommand")
-  .sc(PublishPackageVersion$)
-  .build() {
+export class PublishPackageVersionCommand extends command<PublishPackageVersionCommandInput, PublishPackageVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "PublishPackageVersion",
+  PublishPackageVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

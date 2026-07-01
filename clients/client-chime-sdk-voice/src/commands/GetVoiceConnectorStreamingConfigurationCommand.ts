@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetVoiceConnectorStreamingConfigurationRequest,
   GetVoiceConnectorStreamingConfigurationResponse,
@@ -15,7 +12,6 @@ import { GetVoiceConnectorStreamingConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface GetVoiceConnectorStreamingConfigurationCommandOutput extends Ge
  *
  * @public
  */
-export class GetVoiceConnectorStreamingConfigurationCommand extends $Command
-  .classBuilder<
-    GetVoiceConnectorStreamingConfigurationCommandInput,
-    GetVoiceConnectorStreamingConfigurationCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "GetVoiceConnectorStreamingConfiguration", {})
-  .n("ChimeSDKVoiceClient", "GetVoiceConnectorStreamingConfigurationCommand")
-  .sc(GetVoiceConnectorStreamingConfiguration$)
-  .build() {
+export class GetVoiceConnectorStreamingConfigurationCommand extends command<GetVoiceConnectorStreamingConfigurationCommandInput, GetVoiceConnectorStreamingConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetVoiceConnectorStreamingConfiguration",
+  GetVoiceConnectorStreamingConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

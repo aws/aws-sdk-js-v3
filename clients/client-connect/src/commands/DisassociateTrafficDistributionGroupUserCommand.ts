@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateTrafficDistributionGroupUserRequest,
   DisassociateTrafficDistributionGroupUserResponse,
@@ -15,7 +12,6 @@ import { DisassociateTrafficDistributionGroupUser$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface DisassociateTrafficDistributionGroupUserCommandOutput extends D
  *
  * @public
  */
-export class DisassociateTrafficDistributionGroupUserCommand extends $Command
-  .classBuilder<
-    DisassociateTrafficDistributionGroupUserCommandInput,
-    DisassociateTrafficDistributionGroupUserCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DisassociateTrafficDistributionGroupUser", {})
-  .n("ConnectClient", "DisassociateTrafficDistributionGroupUserCommand")
-  .sc(DisassociateTrafficDistributionGroupUser$)
-  .build() {
+export class DisassociateTrafficDistributionGroupUserCommand extends command<DisassociateTrafficDistributionGroupUserCommandInput, DisassociateTrafficDistributionGroupUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateTrafficDistributionGroupUser",
+  DisassociateTrafficDistributionGroupUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

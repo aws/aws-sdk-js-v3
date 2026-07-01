@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveProfilePermissionRequest, RemoveProfilePermissionResponse } from "../models/models_0";
 import { RemoveProfilePermission$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface RemoveProfilePermissionCommandOutput extends RemoveProfilePermi
  *
  * @public
  */
-export class RemoveProfilePermissionCommand extends $Command
-  .classBuilder<
-    RemoveProfilePermissionCommandInput,
-    RemoveProfilePermissionCommandOutput,
-    SignerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SignerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WallabyService", "RemoveProfilePermission", {})
-  .n("SignerClient", "RemoveProfilePermissionCommand")
-  .sc(RemoveProfilePermission$)
-  .build() {
+export class RemoveProfilePermissionCommand extends command<RemoveProfilePermissionCommandInput, RemoveProfilePermissionCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveProfilePermission",
+  RemoveProfilePermission$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

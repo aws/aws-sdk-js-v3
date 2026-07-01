@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BCMPricingCalculatorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BCMPricingCalculatorClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListBillEstimateCommitmentsRequest, ListBillEstimateCommitmentsResponse } from "../models/models_0";
 import { ListBillEstimateCommitments$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListBillEstimateCommitments$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface ListBillEstimateCommitmentsCommandOutput extends ListBillEstima
  *
  * @public
  */
-export class ListBillEstimateCommitmentsCommand extends $Command
-  .classBuilder<
-    ListBillEstimateCommitmentsCommandInput,
-    ListBillEstimateCommitmentsCommandOutput,
-    BCMPricingCalculatorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BCMPricingCalculatorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBCMPricingCalculator", "ListBillEstimateCommitments", {})
-  .n("BCMPricingCalculatorClient", "ListBillEstimateCommitmentsCommand")
-  .sc(ListBillEstimateCommitments$)
-  .build() {
+export class ListBillEstimateCommitmentsCommand extends command<ListBillEstimateCommitmentsCommandInput, ListBillEstimateCommitmentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBillEstimateCommitments",
+  ListBillEstimateCommitments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

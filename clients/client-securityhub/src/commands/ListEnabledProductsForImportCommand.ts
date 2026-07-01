@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListEnabledProductsForImportRequest, ListEnabledProductsForImportResponse } from "../models/models_2";
 import { ListEnabledProductsForImport$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface ListEnabledProductsForImportCommandOutput extends ListEnabledPr
  *
  * @public
  */
-export class ListEnabledProductsForImportCommand extends $Command
-  .classBuilder<
-    ListEnabledProductsForImportCommandInput,
-    ListEnabledProductsForImportCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "ListEnabledProductsForImport", {})
-  .n("SecurityHubClient", "ListEnabledProductsForImportCommand")
-  .sc(ListEnabledProductsForImport$)
-  .build() {
+export class ListEnabledProductsForImportCommand extends command<ListEnabledProductsForImportCommandInput, ListEnabledProductsForImportCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEnabledProductsForImport",
+  ListEnabledProductsForImport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

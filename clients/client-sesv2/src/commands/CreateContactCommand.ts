@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateContactRequest, CreateContactResponse } from "../models/models_0";
 import { CreateContact$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  *
  * @public
  */
-export class CreateContactCommand extends $Command
-  .classBuilder<
-    CreateContactCommandInput,
-    CreateContactCommandOutput,
-    SESv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService_v2", "CreateContact", {})
-  .n("SESv2Client", "CreateContactCommand")
-  .sc(CreateContact$)
-  .build() {
+export class CreateContactCommand extends command<CreateContactCommandInput, CreateContactCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateContact",
+  CreateContact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

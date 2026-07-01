@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartImportJobRequest, StartImportJobResponse } from "../models/models_1";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { StartImportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface StartImportJobCommandOutput extends StartImportJobResponse, __M
  *
  * @public
  */
-export class StartImportJobCommand extends $Command
-  .classBuilder<
-    StartImportJobCommandInput,
-    StartImportJobCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "StartImportJob", {})
-  .n("QConnectClient", "StartImportJobCommand")
-  .sc(StartImportJob$)
-  .build() {
+export class StartImportJobCommand extends command<StartImportJobCommandInput, StartImportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartImportJob",
+  StartImportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

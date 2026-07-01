@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetGraphqlApiEnvironmentVariablesRequest,
   GetGraphqlApiEnvironmentVariablesResponse,
@@ -15,7 +12,6 @@ import { GetGraphqlApiEnvironmentVariables$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface GetGraphqlApiEnvironmentVariablesCommandOutput extends GetGraph
  *
  * @public
  */
-export class GetGraphqlApiEnvironmentVariablesCommand extends $Command
-  .classBuilder<
-    GetGraphqlApiEnvironmentVariablesCommandInput,
-    GetGraphqlApiEnvironmentVariablesCommandOutput,
-    AppSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepdishControlPlaneService", "GetGraphqlApiEnvironmentVariables", {})
-  .n("AppSyncClient", "GetGraphqlApiEnvironmentVariablesCommand")
-  .sc(GetGraphqlApiEnvironmentVariables$)
-  .build() {
+export class GetGraphqlApiEnvironmentVariablesCommand extends command<GetGraphqlApiEnvironmentVariablesCommandInput, GetGraphqlApiEnvironmentVariablesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetGraphqlApiEnvironmentVariables",
+  GetGraphqlApiEnvironmentVariables$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

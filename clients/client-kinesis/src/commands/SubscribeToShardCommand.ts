@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
+import { _ep5, _mw0, command } from "../commandBuilder";
 import type { SubscribeToShardInput, SubscribeToShardOutput } from "../models/models_0";
 import { SubscribeToShard$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SubscribeToShard$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -161,34 +157,12 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  *
  * @public
  */
-export class SubscribeToShardCommand extends $Command
-  .classBuilder<
-    SubscribeToShardCommandInput,
-    SubscribeToShardCommandOutput,
-    KinesisClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    OperationType: { type: "staticContextParams", value: `data` },
-    StreamId: { type: "contextParams", name: "StreamId" },
-    ConsumerARN: { type: "contextParams", name: "ConsumerARN" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kinesis_20131202", "SubscribeToShard", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      output: true,
-    },
-  })
-  .n("KinesisClient", "SubscribeToShardCommand")
-  .sc(SubscribeToShard$)
-  .build() {
+export class SubscribeToShardCommand extends command<SubscribeToShardCommandInput, SubscribeToShardCommandOutput>(
+  _ep5,
+  _mw0,
+  "SubscribeToShard",
+  SubscribeToShard$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

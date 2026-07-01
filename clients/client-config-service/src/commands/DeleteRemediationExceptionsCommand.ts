@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRemediationExceptionsRequest, DeleteRemediationExceptionsResponse } from "../models/models_0";
 import { DeleteRemediationExceptions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteRemediationExceptions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface DeleteRemediationExceptionsCommandOutput extends DeleteRemediat
  *
  * @public
  */
-export class DeleteRemediationExceptionsCommand extends $Command
-  .classBuilder<
-    DeleteRemediationExceptionsCommandInput,
-    DeleteRemediationExceptionsCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DeleteRemediationExceptions", {})
-  .n("ConfigServiceClient", "DeleteRemediationExceptionsCommand")
-  .sc(DeleteRemediationExceptions$)
-  .build() {
+export class DeleteRemediationExceptionsCommand extends command<DeleteRemediationExceptionsCommandInput, DeleteRemediationExceptionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRemediationExceptions",
+  DeleteRemediationExceptions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

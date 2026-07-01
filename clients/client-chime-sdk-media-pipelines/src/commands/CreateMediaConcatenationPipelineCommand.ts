@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMediaPipelinesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMediaPipelinesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateMediaConcatenationPipelineRequest,
   CreateMediaConcatenationPipelineResponse,
@@ -19,7 +12,6 @@ import { CreateMediaConcatenationPipeline$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -181,22 +173,12 @@ export interface CreateMediaConcatenationPipelineCommandOutput extends CreateMed
  *
  * @public
  */
-export class CreateMediaConcatenationPipelineCommand extends $Command
-  .classBuilder<
-    CreateMediaConcatenationPipelineCommandInput,
-    CreateMediaConcatenationPipelineCommandOutput,
-    ChimeSDKMediaPipelinesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKMediaPipelinesService", "CreateMediaConcatenationPipeline", {})
-  .n("ChimeSDKMediaPipelinesClient", "CreateMediaConcatenationPipelineCommand")
-  .sc(CreateMediaConcatenationPipeline$)
-  .build() {
+export class CreateMediaConcatenationPipelineCommand extends command<CreateMediaConcatenationPipelineCommandInput, CreateMediaConcatenationPipelineCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateMediaConcatenationPipeline",
+  CreateMediaConcatenationPipeline$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

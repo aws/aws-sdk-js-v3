@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AcknowledgeThirdPartyJobInput, AcknowledgeThirdPartyJobOutput } from "../models/models_0";
 import { AcknowledgeThirdPartyJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AcknowledgeThirdPartyJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface AcknowledgeThirdPartyJobCommandOutput extends AcknowledgeThirdP
  *
  * @public
  */
-export class AcknowledgeThirdPartyJobCommand extends $Command
-  .classBuilder<
-    AcknowledgeThirdPartyJobCommandInput,
-    AcknowledgeThirdPartyJobCommandOutput,
-    CodePipelineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodePipeline_20150709", "AcknowledgeThirdPartyJob", {})
-  .n("CodePipelineClient", "AcknowledgeThirdPartyJobCommand")
-  .sc(AcknowledgeThirdPartyJob$)
-  .build() {
+export class AcknowledgeThirdPartyJobCommand extends command<AcknowledgeThirdPartyJobCommandInput, AcknowledgeThirdPartyJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "AcknowledgeThirdPartyJob",
+  AcknowledgeThirdPartyJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

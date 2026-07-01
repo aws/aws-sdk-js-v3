@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   RegisterDataLakeDelegatedAdministratorRequest,
   RegisterDataLakeDelegatedAdministratorResponse,
 } from "../models/models_0";
 import { RegisterDataLakeDelegatedAdministrator$ } from "../schemas/schemas_0";
-import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface RegisterDataLakeDelegatedAdministratorCommandOutput extends Reg
  *
  * @public
  */
-export class RegisterDataLakeDelegatedAdministratorCommand extends $Command
-  .classBuilder<
-    RegisterDataLakeDelegatedAdministratorCommandInput,
-    RegisterDataLakeDelegatedAdministratorCommandOutput,
-    SecurityLakeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityLake", "RegisterDataLakeDelegatedAdministrator", {})
-  .n("SecurityLakeClient", "RegisterDataLakeDelegatedAdministratorCommand")
-  .sc(RegisterDataLakeDelegatedAdministrator$)
-  .build() {
+export class RegisterDataLakeDelegatedAdministratorCommand extends command<RegisterDataLakeDelegatedAdministratorCommandInput, RegisterDataLakeDelegatedAdministratorCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterDataLakeDelegatedAdministrator",
+  RegisterDataLakeDelegatedAdministrator$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

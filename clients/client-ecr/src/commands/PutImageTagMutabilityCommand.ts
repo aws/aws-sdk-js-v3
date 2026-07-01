@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutImageTagMutabilityRequest, PutImageTagMutabilityResponse } from "../models/models_0";
 import { PutImageTagMutability$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutImageTagMutability$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface PutImageTagMutabilityCommandOutput extends PutImageTagMutabilit
  *
  * @public
  */
-export class PutImageTagMutabilityCommand extends $Command
-  .classBuilder<
-    PutImageTagMutabilityCommandInput,
-    PutImageTagMutabilityCommandOutput,
-    ECRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerRegistry_V20150921", "PutImageTagMutability", {})
-  .n("ECRClient", "PutImageTagMutabilityCommand")
-  .sc(PutImageTagMutability$)
-  .build() {
+export class PutImageTagMutabilityCommand extends command<PutImageTagMutabilityCommandInput, PutImageTagMutabilityCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutImageTagMutability",
+  PutImageTagMutability$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

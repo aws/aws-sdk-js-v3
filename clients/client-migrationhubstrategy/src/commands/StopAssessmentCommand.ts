@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MigrationHubStrategyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MigrationHubStrategyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopAssessmentRequest, StopAssessmentResponse } from "../models/models_0";
 import { StopAssessment$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StopAssessment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +66,12 @@ export interface StopAssessmentCommandOutput extends StopAssessmentResponse, __M
  *
  * @public
  */
-export class StopAssessmentCommand extends $Command
-  .classBuilder<
-    StopAssessmentCommandInput,
-    StopAssessmentCommandOutput,
-    MigrationHubStrategyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubStrategyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHubStrategyRecommendation", "StopAssessment", {})
-  .n("MigrationHubStrategyClient", "StopAssessmentCommand")
-  .sc(StopAssessment$)
-  .build() {
+export class StopAssessmentCommand extends command<StopAssessmentCommandInput, StopAssessmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopAssessment",
+  StopAssessment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

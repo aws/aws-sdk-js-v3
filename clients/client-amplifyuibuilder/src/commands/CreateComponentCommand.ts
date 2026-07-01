@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyUIBuilderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyUIBuilderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateComponentRequest, CreateComponentResponse } from "../models/models_0";
 import { CreateComponent$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateComponent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -510,22 +502,12 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  *
  * @public
  */
-export class CreateComponentCommand extends $Command
-  .classBuilder<
-    CreateComponentCommandInput,
-    CreateComponentCommandOutput,
-    AmplifyUIBuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyUIBuilder", "CreateComponent", {})
-  .n("AmplifyUIBuilderClient", "CreateComponentCommand")
-  .sc(CreateComponent$)
-  .build() {
+export class CreateComponentCommand extends command<CreateComponentCommandInput, CreateComponentCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateComponent",
+  CreateComponent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

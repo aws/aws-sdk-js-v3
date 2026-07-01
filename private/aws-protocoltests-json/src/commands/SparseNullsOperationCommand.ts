@@ -13,7 +13,6 @@ import { de_SparseNullsOperationCommand, se_SparseNullsOperationCommand } from "
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

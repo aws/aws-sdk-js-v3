@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchDetectDominantLanguageRequest, BatchDetectDominantLanguageResponse } from "../models/models_0";
 import { BatchDetectDominantLanguage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchDetectDominantLanguage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface BatchDetectDominantLanguageCommandOutput extends BatchDetectDom
  *
  * @public
  */
-export class BatchDetectDominantLanguageCommand extends $Command
-  .classBuilder<
-    BatchDetectDominantLanguageCommandInput,
-    BatchDetectDominantLanguageCommandOutput,
-    ComprehendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Comprehend_20171127", "BatchDetectDominantLanguage", {})
-  .n("ComprehendClient", "BatchDetectDominantLanguageCommand")
-  .sc(BatchDetectDominantLanguage$)
-  .build() {
+export class BatchDetectDominantLanguageCommand extends command<BatchDetectDominantLanguageCommandInput, BatchDetectDominantLanguageCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDetectDominantLanguage",
+  BatchDetectDominantLanguage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

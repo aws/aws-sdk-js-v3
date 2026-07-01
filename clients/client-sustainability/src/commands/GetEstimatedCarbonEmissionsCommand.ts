@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEstimatedCarbonEmissionsRequest, GetEstimatedCarbonEmissionsResponse } from "../models/models_0";
 import { GetEstimatedCarbonEmissions$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SustainabilityClientResolvedConfig,
-} from "../SustainabilityClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -187,22 +179,12 @@ export interface GetEstimatedCarbonEmissionsCommandOutput extends GetEstimatedCa
  *
  * @public
  */
-export class GetEstimatedCarbonEmissionsCommand extends $Command
-  .classBuilder<
-    GetEstimatedCarbonEmissionsCommandInput,
-    GetEstimatedCarbonEmissionsCommandOutput,
-    SustainabilityClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SustainabilityClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsSustainabilityApiService", "GetEstimatedCarbonEmissions", {})
-  .n("SustainabilityClient", "GetEstimatedCarbonEmissionsCommand")
-  .sc(GetEstimatedCarbonEmissions$)
-  .build() {
+export class GetEstimatedCarbonEmissionsCommand extends command<GetEstimatedCarbonEmissionsCommandInput, GetEstimatedCarbonEmissionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEstimatedCarbonEmissions",
+  GetEstimatedCarbonEmissions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

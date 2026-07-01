@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticLoadBalancingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticLoadBalancingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ConfigureHealthCheckInput, ConfigureHealthCheckOutput } from "../models/models_0";
 import { ConfigureHealthCheck$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ConfigureHealthCheck$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +101,12 @@ export interface ConfigureHealthCheckCommandOutput extends ConfigureHealthCheckO
  *
  * @public
  */
-export class ConfigureHealthCheckCommand extends $Command
-  .classBuilder<
-    ConfigureHealthCheckCommandInput,
-    ConfigureHealthCheckCommandOutput,
-    ElasticLoadBalancingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticLoadBalancing_v7", "ConfigureHealthCheck", {})
-  .n("ElasticLoadBalancingClient", "ConfigureHealthCheckCommand")
-  .sc(ConfigureHealthCheck$)
-  .build() {
+export class ConfigureHealthCheckCommand extends command<ConfigureHealthCheckCommandInput, ConfigureHealthCheckCommandOutput>(
+  _ep0,
+  _mw0,
+  "ConfigureHealthCheck",
+  ConfigureHealthCheck$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

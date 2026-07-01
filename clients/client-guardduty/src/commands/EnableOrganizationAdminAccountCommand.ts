@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EnableOrganizationAdminAccountRequest, EnableOrganizationAdminAccountResponse } from "../models/models_0";
 import { EnableOrganizationAdminAccount$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { EnableOrganizationAdminAccount$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface EnableOrganizationAdminAccountCommandOutput extends EnableOrgan
  *
  * @public
  */
-export class EnableOrganizationAdminAccountCommand extends $Command
-  .classBuilder<
-    EnableOrganizationAdminAccountCommandInput,
-    EnableOrganizationAdminAccountCommandOutput,
-    GuardDutyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GuardDutyAPIService", "EnableOrganizationAdminAccount", {})
-  .n("GuardDutyClient", "EnableOrganizationAdminAccountCommand")
-  .sc(EnableOrganizationAdminAccount$)
-  .build() {
+export class EnableOrganizationAdminAccountCommand extends command<EnableOrganizationAdminAccountCommandInput, EnableOrganizationAdminAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableOrganizationAdminAccount",
+  EnableOrganizationAdminAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateConstraintInput, CreateConstraintOutput } from "../models/models_0";
 import { CreateConstraint$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +84,12 @@ export interface CreateConstraintCommandOutput extends CreateConstraintOutput, _
  *
  * @public
  */
-export class CreateConstraintCommand extends $Command
-  .classBuilder<
-    CreateConstraintCommandInput,
-    CreateConstraintCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "CreateConstraint", {})
-  .n("ServiceCatalogClient", "CreateConstraintCommand")
-  .sc(CreateConstraint$)
-  .build() {
+export class CreateConstraintCommand extends command<CreateConstraintCommandInput, CreateConstraintCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateConstraint",
+  CreateConstraint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

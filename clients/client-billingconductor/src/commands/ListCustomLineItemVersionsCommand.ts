@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BillingconductorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BillingconductorClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCustomLineItemVersionsInput, ListCustomLineItemVersionsOutput } from "../models/models_0";
 import { ListCustomLineItemVersions$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListCustomLineItemVersions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +117,12 @@ export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineI
  *
  * @public
  */
-export class ListCustomLineItemVersionsCommand extends $Command
-  .classBuilder<
-    ListCustomLineItemVersionsCommandInput,
-    ListCustomLineItemVersionsCommandOutput,
-    BillingconductorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBillingConductor", "ListCustomLineItemVersions", {})
-  .n("BillingconductorClient", "ListCustomLineItemVersionsCommand")
-  .sc(ListCustomLineItemVersions$)
-  .build() {
+export class ListCustomLineItemVersionsCommand extends command<ListCustomLineItemVersionsCommandInput, ListCustomLineItemVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCustomLineItemVersions",
+  ListCustomLineItemVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

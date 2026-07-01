@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetEc2DeepInspectionConfigurationRequest,
   GetEc2DeepInspectionConfigurationResponse,
@@ -15,7 +12,6 @@ import { GetEc2DeepInspectionConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface GetEc2DeepInspectionConfigurationCommandOutput extends GetEc2De
  *
  * @public
  */
-export class GetEc2DeepInspectionConfigurationCommand extends $Command
-  .classBuilder<
-    GetEc2DeepInspectionConfigurationCommandInput,
-    GetEc2DeepInspectionConfigurationCommandOutput,
-    Inspector2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Inspector2", "GetEc2DeepInspectionConfiguration", {})
-  .n("Inspector2Client", "GetEc2DeepInspectionConfigurationCommand")
-  .sc(GetEc2DeepInspectionConfiguration$)
-  .build() {
+export class GetEc2DeepInspectionConfigurationCommand extends command<GetEc2DeepInspectionConfigurationCommandInput, GetEc2DeepInspectionConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEc2DeepInspectionConfiguration",
+  GetEc2DeepInspectionConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

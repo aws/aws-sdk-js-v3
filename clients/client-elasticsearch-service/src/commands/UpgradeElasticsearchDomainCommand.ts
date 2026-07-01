@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticsearchServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticsearchServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpgradeElasticsearchDomainRequest, UpgradeElasticsearchDomainResponse } from "../models/models_0";
 import { UpgradeElasticsearchDomain$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpgradeElasticsearchDomain$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface UpgradeElasticsearchDomainCommandOutput extends UpgradeElastics
  *
  * @public
  */
-export class UpgradeElasticsearchDomainCommand extends $Command
-  .classBuilder<
-    UpgradeElasticsearchDomainCommandInput,
-    UpgradeElasticsearchDomainCommandOutput,
-    ElasticsearchServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticsearchService2015", "UpgradeElasticsearchDomain", {})
-  .n("ElasticsearchServiceClient", "UpgradeElasticsearchDomainCommand")
-  .sc(UpgradeElasticsearchDomain$)
-  .build() {
+export class UpgradeElasticsearchDomainCommand extends command<UpgradeElasticsearchDomainCommandInput, UpgradeElasticsearchDomainCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpgradeElasticsearchDomain",
+  UpgradeElasticsearchDomain$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

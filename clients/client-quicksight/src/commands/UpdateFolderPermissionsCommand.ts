@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateFolderPermissionsRequest, UpdateFolderPermissionsResponse } from "../models/models_5";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { UpdateFolderPermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface UpdateFolderPermissionsCommandOutput extends UpdateFolderPermis
  *
  * @public
  */
-export class UpdateFolderPermissionsCommand extends $Command
-  .classBuilder<
-    UpdateFolderPermissionsCommandInput,
-    UpdateFolderPermissionsCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "UpdateFolderPermissions", {})
-  .n("QuickSightClient", "UpdateFolderPermissionsCommand")
-  .sc(UpdateFolderPermissions$)
-  .build() {
+export class UpdateFolderPermissionsCommand extends command<UpdateFolderPermissionsCommandInput, UpdateFolderPermissionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateFolderPermissions",
+  UpdateFolderPermissions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

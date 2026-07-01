@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetJourneyExecutionMetricsRequest, GetJourneyExecutionMetricsResponse } from "../models/models_1";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { GetJourneyExecutionMetrics$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface GetJourneyExecutionMetricsCommandOutput extends GetJourneyExecu
  *
  * @public
  */
-export class GetJourneyExecutionMetricsCommand extends $Command
-  .classBuilder<
-    GetJourneyExecutionMetricsCommandInput,
-    GetJourneyExecutionMetricsCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "GetJourneyExecutionMetrics", {})
-  .n("PinpointClient", "GetJourneyExecutionMetricsCommand")
-  .sc(GetJourneyExecutionMetrics$)
-  .build() {
+export class GetJourneyExecutionMetricsCommand extends command<GetJourneyExecutionMetricsCommandInput, GetJourneyExecutionMetricsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetJourneyExecutionMetrics",
+  GetJourneyExecutionMetrics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

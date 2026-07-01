@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateNodeRegistrationScriptRequest, CreateNodeRegistrationScriptResponse } from "../models/models_1";
 import { CreateNodeRegistrationScript$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateNodeRegistrationScript$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface CreateNodeRegistrationScriptCommandOutput extends CreateNodeReg
  *
  * @public
  */
-export class CreateNodeRegistrationScriptCommand extends $Command
-  .classBuilder<
-    CreateNodeRegistrationScriptCommandInput,
-    CreateNodeRegistrationScriptCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "CreateNodeRegistrationScript", {})
-  .n("MediaLiveClient", "CreateNodeRegistrationScriptCommand")
-  .sc(CreateNodeRegistrationScript$)
-  .build() {
+export class CreateNodeRegistrationScriptCommand extends command<CreateNodeRegistrationScriptCommandInput, CreateNodeRegistrationScriptCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateNodeRegistrationScript",
+  CreateNodeRegistrationScript$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

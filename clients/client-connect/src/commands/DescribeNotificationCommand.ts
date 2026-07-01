@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeNotificationRequest, DescribeNotificationResponse } from "../models/models_1";
 import { DescribeNotification$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeNotification$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface DescribeNotificationCommandOutput extends DescribeNotificationR
  *
  * @public
  */
-export class DescribeNotificationCommand extends $Command
-  .classBuilder<
-    DescribeNotificationCommandInput,
-    DescribeNotificationCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DescribeNotification", {})
-  .n("ConnectClient", "DescribeNotificationCommand")
-  .sc(DescribeNotification$)
-  .build() {
+export class DescribeNotificationCommand extends command<DescribeNotificationCommandInput, DescribeNotificationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeNotification",
+  DescribeNotification$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

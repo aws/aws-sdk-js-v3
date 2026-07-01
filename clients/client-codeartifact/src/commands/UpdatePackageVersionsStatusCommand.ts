@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePackageVersionsStatusRequest, UpdatePackageVersionsStatusResult } from "../models/models_0";
 import { UpdatePackageVersionsStatus$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdatePackageVersionsStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageV
  *
  * @public
  */
-export class UpdatePackageVersionsStatusCommand extends $Command
-  .classBuilder<
-    UpdatePackageVersionsStatusCommandInput,
-    UpdatePackageVersionsStatusCommandOutput,
-    CodeartifactClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeArtifactControlPlaneService", "UpdatePackageVersionsStatus", {})
-  .n("CodeartifactClient", "UpdatePackageVersionsStatusCommand")
-  .sc(UpdatePackageVersionsStatus$)
-  .build() {
+export class UpdatePackageVersionsStatusCommand extends command<UpdatePackageVersionsStatusCommandInput, UpdatePackageVersionsStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePackageVersionsStatus",
+  UpdatePackageVersionsStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

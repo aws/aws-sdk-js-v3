@@ -1,17 +1,13 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import { OnlyHttpBearerAuthOptional$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -54,22 +50,12 @@ export interface OnlyHttpBearerAuthOptionalCommandOutput extends __MetadataBeare
  *
  *
  */
-export class OnlyHttpBearerAuthOptionalCommand extends $Command
-  .classBuilder<
-    OnlyHttpBearerAuthOptionalCommandInput,
-    OnlyHttpBearerAuthOptionalCommandOutput,
-    WeatherClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Weather", "OnlyHttpBearerAuthOptional", {})
-  .n("WeatherClient", "OnlyHttpBearerAuthOptionalCommand")
-  .sc(OnlyHttpBearerAuthOptional$)
-  .build() {
+export class OnlyHttpBearerAuthOptionalCommand extends command<OnlyHttpBearerAuthOptionalCommandInput, OnlyHttpBearerAuthOptionalCommandOutput>(
+  _ep0,
+  _mw1,
+  "OnlyHttpBearerAuthOptional",
+  OnlyHttpBearerAuthOptional$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

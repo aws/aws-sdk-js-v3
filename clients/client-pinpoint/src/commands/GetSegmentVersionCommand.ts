@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSegmentVersionRequest, GetSegmentVersionResponse } from "../models/models_1";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { GetSegmentVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -234,22 +230,12 @@ export interface GetSegmentVersionCommandOutput extends GetSegmentVersionRespons
  *
  * @public
  */
-export class GetSegmentVersionCommand extends $Command
-  .classBuilder<
-    GetSegmentVersionCommandInput,
-    GetSegmentVersionCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "GetSegmentVersion", {})
-  .n("PinpointClient", "GetSegmentVersionCommand")
-  .sc(GetSegmentVersion$)
-  .build() {
+export class GetSegmentVersionCommand extends command<GetSegmentVersionCommandInput, GetSegmentVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSegmentVersion",
+  GetSegmentVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSpeakerEnrollmentJobsRequest, ListSpeakerEnrollmentJobsResponse } from "../models/models_0";
 import { ListSpeakerEnrollmentJobs$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface ListSpeakerEnrollmentJobsCommandOutput extends ListSpeakerEnrol
  *
  * @public
  */
-export class ListSpeakerEnrollmentJobsCommand extends $Command
-  .classBuilder<
-    ListSpeakerEnrollmentJobsCommandInput,
-    ListSpeakerEnrollmentJobsCommandOutput,
-    VoiceIDClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("VoiceID", "ListSpeakerEnrollmentJobs", {})
-  .n("VoiceIDClient", "ListSpeakerEnrollmentJobsCommand")
-  .sc(ListSpeakerEnrollmentJobs$)
-  .build() {
+export class ListSpeakerEnrollmentJobsCommand extends command<ListSpeakerEnrollmentJobsCommandInput, ListSpeakerEnrollmentJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSpeakerEnrollmentJobs",
+  ListSpeakerEnrollmentJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

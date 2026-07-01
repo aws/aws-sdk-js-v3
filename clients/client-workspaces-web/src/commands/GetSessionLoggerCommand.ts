@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSessionLoggerRequest, GetSessionLoggerResponse } from "../models/models_0";
 import { GetSessionLogger$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -174,22 +170,12 @@ export interface GetSessionLoggerCommandOutput extends GetSessionLoggerResponse,
  *
  * @public
  */
-export class GetSessionLoggerCommand extends $Command
-  .classBuilder<
-    GetSessionLoggerCommandInput,
-    GetSessionLoggerCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "GetSessionLogger", {})
-  .n("WorkSpacesWebClient", "GetSessionLoggerCommand")
-  .sc(GetSessionLogger$)
-  .build() {
+export class GetSessionLoggerCommand extends command<GetSessionLoggerCommandInput, GetSessionLoggerCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSessionLogger",
+  GetSessionLogger$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

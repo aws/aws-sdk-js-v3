@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisableNotificationsAccessForOrganizationRequest,
   DisableNotificationsAccessForOrganizationResponse,
 } from "../models/models_0";
-import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
 import { DisableNotificationsAccessForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DisableNotificationsAccessForOrganizationCommandOutput extends 
  *
  * @public
  */
-export class DisableNotificationsAccessForOrganizationCommand extends $Command
-  .classBuilder<
-    DisableNotificationsAccessForOrganizationCommandInput,
-    DisableNotificationsAccessForOrganizationCommandOutput,
-    NotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Notifications", "DisableNotificationsAccessForOrganization", {})
-  .n("NotificationsClient", "DisableNotificationsAccessForOrganizationCommand")
-  .sc(DisableNotificationsAccessForOrganization$)
-  .build() {
+export class DisableNotificationsAccessForOrganizationCommand extends command<DisableNotificationsAccessForOrganizationCommandInput, DisableNotificationsAccessForOrganizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableNotificationsAccessForOrganization",
+  DisableNotificationsAccessForOrganization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

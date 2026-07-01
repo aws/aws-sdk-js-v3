@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RejectSharedDirectoryRequest, RejectSharedDirectoryResult } from "../models/models_0";
 import { RejectSharedDirectory$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { RejectSharedDirectory$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +70,12 @@ export interface RejectSharedDirectoryCommandOutput extends RejectSharedDirector
  *
  * @public
  */
-export class RejectSharedDirectoryCommand extends $Command
-  .classBuilder<
-    RejectSharedDirectoryCommandInput,
-    RejectSharedDirectoryCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "RejectSharedDirectory", {})
-  .n("DirectoryServiceClient", "RejectSharedDirectoryCommand")
-  .sc(RejectSharedDirectory$)
-  .build() {
+export class RejectSharedDirectoryCommand extends command<RejectSharedDirectoryCommandInput, RejectSharedDirectoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "RejectSharedDirectory",
+  RejectSharedDirectory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

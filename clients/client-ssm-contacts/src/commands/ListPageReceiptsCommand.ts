@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPageReceiptsRequest, ListPageReceiptsResult } from "../models/models_0";
 import { ListPageReceipts$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface ListPageReceiptsCommandOutput extends ListPageReceiptsResult, _
  *
  * @public
  */
-export class ListPageReceiptsCommand extends $Command
-  .classBuilder<
-    ListPageReceiptsCommandInput,
-    ListPageReceiptsCommandOutput,
-    SSMContactsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMContacts", "ListPageReceipts", {})
-  .n("SSMContactsClient", "ListPageReceiptsCommand")
-  .sc(ListPageReceipts$)
-  .build() {
+export class ListPageReceiptsCommand extends command<ListPageReceiptsCommandInput, ListPageReceiptsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPageReceipts",
+  ListPageReceipts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

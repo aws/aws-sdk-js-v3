@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelSubscriptionInput, CancelSubscriptionOutput } from "../models/models_0";
 import { CancelSubscription$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CancelSubscription$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -172,22 +168,12 @@ export interface CancelSubscriptionCommandOutput extends CancelSubscriptionOutpu
  *
  * @public
  */
-export class CancelSubscriptionCommand extends $Command
-  .classBuilder<
-    CancelSubscriptionCommandInput,
-    CancelSubscriptionCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "CancelSubscription", {})
-  .n("DataZoneClient", "CancelSubscriptionCommand")
-  .sc(CancelSubscription$)
-  .build() {
+export class CancelSubscriptionCommand extends command<CancelSubscriptionCommandInput, CancelSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelSubscription",
+  CancelSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchUnsuspendUserRequest, BatchUnsuspendUserResponse } from "../models/models_0";
 import { BatchUnsuspendUser$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchUnsuspendUser$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface BatchUnsuspendUserCommandOutput extends BatchUnsuspendUserRespo
  *
  * @public
  */
-export class BatchUnsuspendUserCommand extends $Command
-  .classBuilder<
-    BatchUnsuspendUserCommandInput,
-    BatchUnsuspendUserCommandOutput,
-    ChimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("UCBuzzConsoleService", "BatchUnsuspendUser", {})
-  .n("ChimeClient", "BatchUnsuspendUserCommand")
-  .sc(BatchUnsuspendUser$)
-  .build() {
+export class BatchUnsuspendUserCommand extends command<BatchUnsuspendUserCommandInput, BatchUnsuspendUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchUnsuspendUser",
+  BatchUnsuspendUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

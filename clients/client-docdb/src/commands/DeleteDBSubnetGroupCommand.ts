@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDBSubnetGroupMessage } from "../models/models_0";
 import { DeleteDBSubnetGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteDBSubnetGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface DeleteDBSubnetGroupCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteDBSubnetGroupCommand extends $Command
-  .classBuilder<
-    DeleteDBSubnetGroupCommandInput,
-    DeleteDBSubnetGroupCommandOutput,
-    DocDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DeleteDBSubnetGroup", {})
-  .n("DocDBClient", "DeleteDBSubnetGroupCommand")
-  .sc(DeleteDBSubnetGroup$)
-  .build() {
+export class DeleteDBSubnetGroupCommand extends command<DeleteDBSubnetGroupCommandInput, DeleteDBSubnetGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDBSubnetGroup",
+  DeleteDBSubnetGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateWebACLRequest, AssociateWebACLResponse } from "../models/models_0";
 import { AssociateWebACL$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +115,12 @@ export interface AssociateWebACLCommandOutput extends AssociateWebACLResponse, _
  *
  * @public
  */
-export class AssociateWebACLCommand extends $Command
-  .classBuilder<
-    AssociateWebACLCommandInput,
-    AssociateWebACLCommandOutput,
-    WAFRegionalClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_Regional_20161128", "AssociateWebACL", {})
-  .n("WAFRegionalClient", "AssociateWebACLCommand")
-  .sc(AssociateWebACL$)
-  .build() {
+export class AssociateWebACLCommand extends command<AssociateWebACLCommandInput, AssociateWebACLCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateWebACL",
+  AssociateWebACL$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

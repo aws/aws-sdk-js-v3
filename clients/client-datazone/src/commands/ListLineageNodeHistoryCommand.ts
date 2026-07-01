@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLineageNodeHistoryInput, ListLineageNodeHistoryOutput } from "../models/models_1";
 import { ListLineageNodeHistory$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListLineageNodeHistory$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface ListLineageNodeHistoryCommandOutput extends ListLineageNodeHist
  *
  * @public
  */
-export class ListLineageNodeHistoryCommand extends $Command
-  .classBuilder<
-    ListLineageNodeHistoryCommandInput,
-    ListLineageNodeHistoryCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "ListLineageNodeHistory", {})
-  .n("DataZoneClient", "ListLineageNodeHistoryCommand")
-  .sc(ListLineageNodeHistory$)
-  .build() {
+export class ListLineageNodeHistoryCommand extends command<ListLineageNodeHistoryCommandInput, ListLineageNodeHistoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLineageNodeHistory",
+  ListLineageNodeHistory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

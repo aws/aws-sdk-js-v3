@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCollectorRequest } from "../models/models_0";
 import { DeleteFleetAdvisorCollector$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteFleetAdvisorCollector$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +68,12 @@ export interface DeleteFleetAdvisorCollectorCommandOutput extends __MetadataBear
  *
  * @public
  */
-export class DeleteFleetAdvisorCollectorCommand extends $Command
-  .classBuilder<
-    DeleteFleetAdvisorCollectorCommandInput,
-    DeleteFleetAdvisorCollectorCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "DeleteFleetAdvisorCollector", {})
-  .n("DatabaseMigrationServiceClient", "DeleteFleetAdvisorCollectorCommand")
-  .sc(DeleteFleetAdvisorCollector$)
-  .build() {
+export class DeleteFleetAdvisorCollectorCommand extends command<DeleteFleetAdvisorCollectorCommandInput, DeleteFleetAdvisorCollectorCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFleetAdvisorCollector",
+  DeleteFleetAdvisorCollector$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSecurityConfigurationRequest, GetSecurityConfigurationResponse } from "../models/models_2";
 import { GetSecurityConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetSecurityConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface GetSecurityConfigurationCommandOutput extends GetSecurityConfig
  *
  * @public
  */
-export class GetSecurityConfigurationCommand extends $Command
-  .classBuilder<
-    GetSecurityConfigurationCommandInput,
-    GetSecurityConfigurationCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "GetSecurityConfiguration", {})
-  .n("GlueClient", "GetSecurityConfigurationCommand")
-  .sc(GetSecurityConfiguration$)
-  .build() {
+export class GetSecurityConfigurationCommand extends command<GetSecurityConfigurationCommandInput, GetSecurityConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSecurityConfiguration",
+  GetSecurityConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

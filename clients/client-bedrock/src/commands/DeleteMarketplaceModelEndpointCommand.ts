@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMarketplaceModelEndpointRequest, DeleteMarketplaceModelEndpointResponse } from "../models/models_0";
 import { DeleteMarketplaceModelEndpoint$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteMarketplaceModelEndpoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteMarketplaceModelEndpointCommandOutput extends DeleteMarke
  *
  * @public
  */
-export class DeleteMarketplaceModelEndpointCommand extends $Command
-  .classBuilder<
-    DeleteMarketplaceModelEndpointCommandInput,
-    DeleteMarketplaceModelEndpointCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "DeleteMarketplaceModelEndpoint", {})
-  .n("BedrockClient", "DeleteMarketplaceModelEndpointCommand")
-  .sc(DeleteMarketplaceModelEndpoint$)
-  .build() {
+export class DeleteMarketplaceModelEndpointCommand extends command<DeleteMarketplaceModelEndpointCommandInput, DeleteMarketplaceModelEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMarketplaceModelEndpoint",
+  DeleteMarketplaceModelEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

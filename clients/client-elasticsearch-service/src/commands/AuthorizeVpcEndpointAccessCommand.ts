@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticsearchServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticsearchServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AuthorizeVpcEndpointAccessRequest, AuthorizeVpcEndpointAccessResponse } from "../models/models_0";
 import { AuthorizeVpcEndpointAccess$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AuthorizeVpcEndpointAccess$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface AuthorizeVpcEndpointAccessCommandOutput extends AuthorizeVpcEnd
  *
  * @public
  */
-export class AuthorizeVpcEndpointAccessCommand extends $Command
-  .classBuilder<
-    AuthorizeVpcEndpointAccessCommandInput,
-    AuthorizeVpcEndpointAccessCommandOutput,
-    ElasticsearchServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticsearchService2015", "AuthorizeVpcEndpointAccess", {})
-  .n("ElasticsearchServiceClient", "AuthorizeVpcEndpointAccessCommand")
-  .sc(AuthorizeVpcEndpointAccess$)
-  .build() {
+export class AuthorizeVpcEndpointAccessCommand extends command<AuthorizeVpcEndpointAccessCommandInput, AuthorizeVpcEndpointAccessCommandOutput>(
+  _ep0,
+  _mw0,
+  "AuthorizeVpcEndpointAccess",
+  AuthorizeVpcEndpointAccess$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

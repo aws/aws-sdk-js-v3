@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BCMPricingCalculatorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BCMPricingCalculatorClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetBillScenarioRequest, GetBillScenarioResponse } from "../models/models_0";
 import { GetBillScenario$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetBillScenario$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +84,12 @@ export interface GetBillScenarioCommandOutput extends GetBillScenarioResponse, _
  *
  * @public
  */
-export class GetBillScenarioCommand extends $Command
-  .classBuilder<
-    GetBillScenarioCommandInput,
-    GetBillScenarioCommandOutput,
-    BCMPricingCalculatorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BCMPricingCalculatorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBCMPricingCalculator", "GetBillScenario", {})
-  .n("BCMPricingCalculatorClient", "GetBillScenarioCommand")
-  .sc(GetBillScenario$)
-  .build() {
+export class GetBillScenarioCommand extends command<GetBillScenarioCommandInput, GetBillScenarioCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetBillScenario",
+  GetBillScenario$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

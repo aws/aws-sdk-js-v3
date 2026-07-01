@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPlatformApplicationsInput, ListPlatformApplicationsResponse } from "../models/models_0";
 import { ListPlatformApplications$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface ListPlatformApplicationsCommandOutput extends ListPlatformAppli
  *
  * @public
  */
-export class ListPlatformApplicationsCommand extends $Command
-  .classBuilder<
-    ListPlatformApplicationsCommandInput,
-    ListPlatformApplicationsCommandOutput,
-    SNSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSimpleNotificationService", "ListPlatformApplications", {})
-  .n("SNSClient", "ListPlatformApplicationsCommand")
-  .sc(ListPlatformApplications$)
-  .build() {
+export class ListPlatformApplicationsCommand extends command<ListPlatformApplicationsCommandInput, ListPlatformApplicationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPlatformApplications",
+  ListPlatformApplications$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

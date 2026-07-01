@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DownloadDBLogFilePortionDetails, DownloadDBLogFilePortionMessage } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DownloadDBLogFilePortion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  *
  * @public
  */
-export class DownloadDBLogFilePortionCommand extends $Command
-  .classBuilder<
-    DownloadDBLogFilePortionCommandInput,
-    DownloadDBLogFilePortionCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DownloadDBLogFilePortion", {})
-  .n("RDSClient", "DownloadDBLogFilePortionCommand")
-  .sc(DownloadDBLogFilePortion$)
-  .build() {
+export class DownloadDBLogFilePortionCommand extends command<DownloadDBLogFilePortionCommandInput, DownloadDBLogFilePortionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DownloadDBLogFilePortion",
+  DownloadDBLogFilePortion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

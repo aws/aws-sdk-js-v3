@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateKeyspaceRequest, CreateKeyspaceResponse } from "../models/models_0";
 import { CreateKeyspace$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateKeyspace$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface CreateKeyspaceCommandOutput extends CreateKeyspaceResponse, __M
  *
  * @public
  */
-export class CreateKeyspaceCommand extends $Command
-  .classBuilder<
-    CreateKeyspaceCommandInput,
-    CreateKeyspaceCommandOutput,
-    KeyspacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KeyspacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KeyspacesService", "CreateKeyspace", {})
-  .n("KeyspacesClient", "CreateKeyspaceCommand")
-  .sc(CreateKeyspace$)
-  .build() {
+export class CreateKeyspaceCommand extends command<CreateKeyspaceCommandInput, CreateKeyspaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateKeyspace",
+  CreateKeyspace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

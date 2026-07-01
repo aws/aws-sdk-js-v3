@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetSagemakerServicecatalogPortfolioStatusInput,
   GetSagemakerServicecatalogPortfolioStatusOutput,
 } from "../models/models_3";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { GetSagemakerServicecatalogPortfolioStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -60,22 +56,12 @@ export interface GetSagemakerServicecatalogPortfolioStatusCommandOutput extends 
  *
  * @public
  */
-export class GetSagemakerServicecatalogPortfolioStatusCommand extends $Command
-  .classBuilder<
-    GetSagemakerServicecatalogPortfolioStatusCommandInput,
-    GetSagemakerServicecatalogPortfolioStatusCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "GetSagemakerServicecatalogPortfolioStatus", {})
-  .n("SageMakerClient", "GetSagemakerServicecatalogPortfolioStatusCommand")
-  .sc(GetSagemakerServicecatalogPortfolioStatus$)
-  .build() {
+export class GetSagemakerServicecatalogPortfolioStatusCommand extends command<GetSagemakerServicecatalogPortfolioStatusCommandInput, GetSagemakerServicecatalogPortfolioStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSagemakerServicecatalogPortfolioStatus",
+  GetSagemakerServicecatalogPortfolioStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

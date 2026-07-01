@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateDelegateToResourceRequest, AssociateDelegateToResourceResponse } from "../models/models_0";
 import { AssociateDelegateToResource$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface AssociateDelegateToResourceCommandOutput extends AssociateDeleg
  *
  * @public
  */
-export class AssociateDelegateToResourceCommand extends $Command
-  .classBuilder<
-    AssociateDelegateToResourceCommandInput,
-    AssociateDelegateToResourceCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "AssociateDelegateToResource", {})
-  .n("WorkMailClient", "AssociateDelegateToResourceCommand")
-  .sc(AssociateDelegateToResource$)
-  .build() {
+export class AssociateDelegateToResourceCommand extends command<AssociateDelegateToResourceCommandInput, AssociateDelegateToResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateDelegateToResource",
+  AssociateDelegateToResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

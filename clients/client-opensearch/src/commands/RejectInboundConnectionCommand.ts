@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RejectInboundConnectionRequest, RejectInboundConnectionResponse } from "../models/models_1";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { RejectInboundConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface RejectInboundConnectionCommandOutput extends RejectInboundConne
  *
  * @public
  */
-export class RejectInboundConnectionCommand extends $Command
-  .classBuilder<
-    RejectInboundConnectionCommandInput,
-    RejectInboundConnectionCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "RejectInboundConnection", {})
-  .n("OpenSearchClient", "RejectInboundConnectionCommand")
-  .sc(RejectInboundConnection$)
-  .build() {
+export class RejectInboundConnectionCommand extends command<RejectInboundConnectionCommandInput, RejectInboundConnectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "RejectInboundConnection",
+  RejectInboundConnection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

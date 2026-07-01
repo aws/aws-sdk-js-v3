@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateClusterSettingsRequest, UpdateClusterSettingsResponse } from "../models/models_0";
 import { UpdateClusterSettings$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateClusterSettings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -190,22 +186,12 @@ export interface UpdateClusterSettingsCommandOutput extends UpdateClusterSetting
  *
  * @public
  */
-export class UpdateClusterSettingsCommand extends $Command
-  .classBuilder<
-    UpdateClusterSettingsCommandInput,
-    UpdateClusterSettingsCommandOutput,
-    ECSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerServiceV20141113", "UpdateClusterSettings", {})
-  .n("ECSClient", "UpdateClusterSettingsCommand")
-  .sc(UpdateClusterSettings$)
-  .build() {
+export class UpdateClusterSettingsCommand extends command<UpdateClusterSettingsCommandInput, UpdateClusterSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateClusterSettings",
+  UpdateClusterSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyBackendClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyBackendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ImportBackendAuthRequest, ImportBackendAuthResponse } from "../models/models_0";
 import { ImportBackendAuth$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ImportBackendAuth$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface ImportBackendAuthCommandOutput extends ImportBackendAuthRespons
  *
  * @public
  */
-export class ImportBackendAuthCommand extends $Command
-  .classBuilder<
-    ImportBackendAuthCommandInput,
-    ImportBackendAuthCommandOutput,
-    AmplifyBackendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyBackendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyBackend", "ImportBackendAuth", {})
-  .n("AmplifyBackendClient", "ImportBackendAuthCommand")
-  .sc(ImportBackendAuth$)
-  .build() {
+export class ImportBackendAuthCommand extends command<ImportBackendAuthCommandInput, ImportBackendAuthCommandOutput>(
+  _ep0,
+  _mw0,
+  "ImportBackendAuth",
+  ImportBackendAuth$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

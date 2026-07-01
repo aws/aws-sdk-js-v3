@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetWorkingLocationRequest, GetWorkingLocationResponse } from "../models/models_0";
 import { GetWorkingLocation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetWorkingLocation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface GetWorkingLocationCommandOutput extends GetWorkingLocationRespo
  *
  * @public
  */
-export class GetWorkingLocationCommand extends $Command
-  .classBuilder<
-    GetWorkingLocationCommandInput,
-    GetWorkingLocationCommandOutput,
-    FinspaceDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHabaneroPublicAPI", "GetWorkingLocation", {})
-  .n("FinspaceDataClient", "GetWorkingLocationCommand")
-  .sc(GetWorkingLocation$)
-  .build() {
+export class GetWorkingLocationCommand extends command<GetWorkingLocationCommandInput, GetWorkingLocationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetWorkingLocation",
+  GetWorkingLocation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

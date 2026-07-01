@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { IgnoreQueryParamsInResponseOutput } from "../models/models_0";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
 import { IgnoreQueryParamsInResponse$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +55,12 @@ export interface IgnoreQueryParamsInResponseCommandOutput extends IgnoreQueryPar
  *
  * @public
  */
-export class IgnoreQueryParamsInResponseCommand extends $Command
-  .classBuilder<
-    IgnoreQueryParamsInResponseCommandInput,
-    IgnoreQueryParamsInResponseCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestJson", "IgnoreQueryParamsInResponse", {})
-  .n("RestJsonProtocolClient", "IgnoreQueryParamsInResponseCommand")
-  .sc(IgnoreQueryParamsInResponse$)
-  .build() {
+export class IgnoreQueryParamsInResponseCommand extends command<IgnoreQueryParamsInResponseCommandInput, IgnoreQueryParamsInResponseCommandOutput>(
+  _ep0,
+  _mw0,
+  "IgnoreQueryParamsInResponse",
+  IgnoreQueryParamsInResponse$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

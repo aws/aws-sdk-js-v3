@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPolicyEngineRequest, GetPolicyEngineResponse } from "../models/models_1";
 import { GetPolicyEngine$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetPolicyEngine$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface GetPolicyEngineCommandOutput extends GetPolicyEngineResponse, _
  *
  * @public
  */
-export class GetPolicyEngineCommand extends $Command
-  .classBuilder<
-    GetPolicyEngineCommandInput,
-    GetPolicyEngineCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "GetPolicyEngine", {})
-  .n("BedrockAgentCoreControlClient", "GetPolicyEngineCommand")
-  .sc(GetPolicyEngine$)
-  .build() {
+export class GetPolicyEngineCommand extends command<GetPolicyEngineCommandInput, GetPolicyEngineCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPolicyEngine",
+  GetPolicyEngine$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

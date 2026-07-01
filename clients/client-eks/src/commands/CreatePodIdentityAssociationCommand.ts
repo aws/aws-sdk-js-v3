@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePodIdentityAssociationRequest, CreatePodIdentityAssociationResponse } from "../models/models_0";
 import { CreatePodIdentityAssociation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreatePodIdentityAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -131,22 +127,12 @@ export interface CreatePodIdentityAssociationCommandOutput extends CreatePodIden
  *
  * @public
  */
-export class CreatePodIdentityAssociationCommand extends $Command
-  .classBuilder<
-    CreatePodIdentityAssociationCommandInput,
-    CreatePodIdentityAssociationCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "CreatePodIdentityAssociation", {})
-  .n("EKSClient", "CreatePodIdentityAssociationCommand")
-  .sc(CreatePodIdentityAssociation$)
-  .build() {
+export class CreatePodIdentityAssociationCommand extends command<CreatePodIdentityAssociationCommandInput, CreatePodIdentityAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePodIdentityAssociation",
+  CreatePodIdentityAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

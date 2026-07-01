@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeDirectConnectGatewayAttachmentsRequest,
   DescribeDirectConnectGatewayAttachmentsResult,
@@ -15,7 +12,6 @@ import { DescribeDirectConnectGatewayAttachments$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface DescribeDirectConnectGatewayAttachmentsCommandOutput extends De
  *
  * @public
  */
-export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command
-  .classBuilder<
-    DescribeDirectConnectGatewayAttachmentsCommandInput,
-    DescribeDirectConnectGatewayAttachmentsCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "DescribeDirectConnectGatewayAttachments", {})
-  .n("DirectConnectClient", "DescribeDirectConnectGatewayAttachmentsCommand")
-  .sc(DescribeDirectConnectGatewayAttachments$)
-  .build() {
+export class DescribeDirectConnectGatewayAttachmentsCommand extends command<DescribeDirectConnectGatewayAttachmentsCommandInput, DescribeDirectConnectGatewayAttachmentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDirectConnectGatewayAttachments",
+  DescribeDirectConnectGatewayAttachments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

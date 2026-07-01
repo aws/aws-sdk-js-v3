@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDocumentRequest } from "../models/models_0";
 import { UpdateDocument$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface UpdateDocumentCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdateDocumentCommand extends $Command
-  .classBuilder<
-    UpdateDocumentCommandInput,
-    UpdateDocumentCommandOutput,
-    WorkDocsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGorillaBoyService", "UpdateDocument", {})
-  .n("WorkDocsClient", "UpdateDocumentCommand")
-  .sc(UpdateDocument$)
-  .build() {
+export class UpdateDocumentCommand extends command<UpdateDocumentCommandInput, UpdateDocumentCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDocument",
+  UpdateDocument$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

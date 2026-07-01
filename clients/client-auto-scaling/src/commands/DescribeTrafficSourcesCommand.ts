@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeTrafficSourcesRequest, DescribeTrafficSourcesResponse } from "../models/models_0";
 import { DescribeTrafficSources$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeTrafficSources$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface DescribeTrafficSourcesCommandOutput extends DescribeTrafficSour
  *
  * @public
  */
-export class DescribeTrafficSourcesCommand extends $Command
-  .classBuilder<
-    DescribeTrafficSourcesCommandInput,
-    DescribeTrafficSourcesCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "DescribeTrafficSources", {})
-  .n("AutoScalingClient", "DescribeTrafficSourcesCommand")
-  .sc(DescribeTrafficSources$)
-  .build() {
+export class DescribeTrafficSourcesCommand extends command<DescribeTrafficSourcesCommandInput, DescribeTrafficSourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeTrafficSources",
+  DescribeTrafficSources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

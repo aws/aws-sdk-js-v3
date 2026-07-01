@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeCertificateAuthorityAuditReportRequest,
   DescribeCertificateAuthorityAuditReportResponse,
@@ -15,7 +12,6 @@ import { DescribeCertificateAuthorityAuditReport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DescribeCertificateAuthorityAuditReportCommandOutput extends De
  *
  * @public
  */
-export class DescribeCertificateAuthorityAuditReportCommand extends $Command
-  .classBuilder<
-    DescribeCertificateAuthorityAuditReportCommandInput,
-    DescribeCertificateAuthorityAuditReportCommandOutput,
-    ACMPCAClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ACMPCAClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ACMPrivateCA", "DescribeCertificateAuthorityAuditReport", {})
-  .n("ACMPCAClient", "DescribeCertificateAuthorityAuditReportCommand")
-  .sc(DescribeCertificateAuthorityAuditReport$)
-  .build() {
+export class DescribeCertificateAuthorityAuditReportCommand extends command<DescribeCertificateAuthorityAuditReportCommandInput, DescribeCertificateAuthorityAuditReportCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCertificateAuthorityAuditReport",
+  DescribeCertificateAuthorityAuditReport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

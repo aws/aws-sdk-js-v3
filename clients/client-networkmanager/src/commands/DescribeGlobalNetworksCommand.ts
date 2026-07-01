@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeGlobalNetworksRequest, DescribeGlobalNetworksResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { DescribeGlobalNetworks$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +92,12 @@ export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetwo
  *
  * @public
  */
-export class DescribeGlobalNetworksCommand extends $Command
-  .classBuilder<
-    DescribeGlobalNetworksCommandInput,
-    DescribeGlobalNetworksCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "DescribeGlobalNetworks", {})
-  .n("NetworkManagerClient", "DescribeGlobalNetworksCommand")
-  .sc(DescribeGlobalNetworks$)
-  .build() {
+export class DescribeGlobalNetworksCommand extends command<DescribeGlobalNetworksCommandInput, DescribeGlobalNetworksCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeGlobalNetworks",
+  DescribeGlobalNetworks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

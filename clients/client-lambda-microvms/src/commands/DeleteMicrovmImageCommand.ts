@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LambdaMicrovmsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LambdaMicrovmsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMicrovmImageInput, DeleteMicrovmImageOutput } from "../models/models_0";
 import { DeleteMicrovmImage$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteMicrovmImage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface DeleteMicrovmImageCommandOutput extends DeleteMicrovmImageOutpu
  *
  * @public
  */
-export class DeleteMicrovmImageCommand extends $Command
-  .classBuilder<
-    DeleteMicrovmImageCommandInput,
-    DeleteMicrovmImageCommandOutput,
-    LambdaMicrovmsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaMicrovmsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LambdaMicrovms", "DeleteMicrovmImage", {})
-  .n("LambdaMicrovmsClient", "DeleteMicrovmImageCommand")
-  .sc(DeleteMicrovmImage$)
-  .build() {
+export class DeleteMicrovmImageCommand extends command<DeleteMicrovmImageCommandInput, DeleteMicrovmImageCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMicrovmImage",
+  DeleteMicrovmImage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

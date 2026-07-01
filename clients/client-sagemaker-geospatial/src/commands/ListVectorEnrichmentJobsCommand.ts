@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListVectorEnrichmentJobInput, ListVectorEnrichmentJobOutput } from "../models/models_0";
-import type {
-  SageMakerGeospatialClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SageMakerGeospatialClient";
 import { ListVectorEnrichmentJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface ListVectorEnrichmentJobsCommandOutput extends ListVectorEnrichm
  *
  * @public
  */
-export class ListVectorEnrichmentJobsCommand extends $Command
-  .classBuilder<
-    ListVectorEnrichmentJobsCommandInput,
-    ListVectorEnrichmentJobsCommandOutput,
-    SageMakerGeospatialClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerGeospatialClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMakerGeospatial", "ListVectorEnrichmentJobs", {})
-  .n("SageMakerGeospatialClient", "ListVectorEnrichmentJobsCommand")
-  .sc(ListVectorEnrichmentJobs$)
-  .build() {
+export class ListVectorEnrichmentJobsCommand extends command<ListVectorEnrichmentJobsCommandInput, ListVectorEnrichmentJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListVectorEnrichmentJobs",
+  ListVectorEnrichmentJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

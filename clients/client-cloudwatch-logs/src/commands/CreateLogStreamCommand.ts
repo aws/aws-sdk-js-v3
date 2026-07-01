@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateLogStreamRequest } from "../models/models_0";
 import { CreateLogStream$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateLogStream$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class CreateLogStreamCommand extends $Command
-  .classBuilder<
-    CreateLogStreamCommandInput,
-    CreateLogStreamCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "CreateLogStream", {})
-  .n("CloudWatchLogsClient", "CreateLogStreamCommand")
-  .sc(CreateLogStream$)
-  .build() {
+export class CreateLogStreamCommand extends command<CreateLogStreamCommandInput, CreateLogStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateLogStream",
+  CreateLogStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

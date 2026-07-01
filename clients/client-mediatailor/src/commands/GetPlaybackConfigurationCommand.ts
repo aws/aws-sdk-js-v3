@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPlaybackConfigurationRequest, GetPlaybackConfigurationResponse } from "../models/models_0";
 import { GetPlaybackConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetPlaybackConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -144,22 +140,12 @@ export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfig
  *
  * @public
  */
-export class GetPlaybackConfigurationCommand extends $Command
-  .classBuilder<
-    GetPlaybackConfigurationCommandInput,
-    GetPlaybackConfigurationCommandOutput,
-    MediaTailorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaTailor", "GetPlaybackConfiguration", {})
-  .n("MediaTailorClient", "GetPlaybackConfigurationCommand")
-  .sc(GetPlaybackConfiguration$)
-  .build() {
+export class GetPlaybackConfigurationCommand extends command<GetPlaybackConfigurationCommandInput, GetPlaybackConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPlaybackConfiguration",
+  GetPlaybackConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

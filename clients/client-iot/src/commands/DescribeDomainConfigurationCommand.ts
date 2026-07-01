@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeDomainConfigurationRequest, DescribeDomainConfigurationResponse } from "../models/models_1";
 import { DescribeDomainConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeDomainConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface DescribeDomainConfigurationCommandOutput extends DescribeDomain
  *
  * @public
  */
-export class DescribeDomainConfigurationCommand extends $Command
-  .classBuilder<
-    DescribeDomainConfigurationCommandInput,
-    DescribeDomainConfigurationCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "DescribeDomainConfiguration", {})
-  .n("IoTClient", "DescribeDomainConfigurationCommand")
-  .sc(DescribeDomainConfiguration$)
-  .build() {
+export class DescribeDomainConfigurationCommand extends command<DescribeDomainConfigurationCommandInput, DescribeDomainConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDomainConfiguration",
+  DescribeDomainConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

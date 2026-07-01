@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RunFleetAdvisorLsaAnalysisResponse } from "../models/models_1";
 import { RunFleetAdvisorLsaAnalysis$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { RunFleetAdvisorLsaAnalysis$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +65,12 @@ export interface RunFleetAdvisorLsaAnalysisCommandOutput extends RunFleetAdvisor
  *
  * @public
  */
-export class RunFleetAdvisorLsaAnalysisCommand extends $Command
-  .classBuilder<
-    RunFleetAdvisorLsaAnalysisCommandInput,
-    RunFleetAdvisorLsaAnalysisCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "RunFleetAdvisorLsaAnalysis", {})
-  .n("DatabaseMigrationServiceClient", "RunFleetAdvisorLsaAnalysisCommand")
-  .sc(RunFleetAdvisorLsaAnalysis$)
-  .build() {
+export class RunFleetAdvisorLsaAnalysisCommand extends command<RunFleetAdvisorLsaAnalysisCommandInput, RunFleetAdvisorLsaAnalysisCommandOutput>(
+  _ep0,
+  _mw0,
+  "RunFleetAdvisorLsaAnalysis",
+  RunFleetAdvisorLsaAnalysis$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

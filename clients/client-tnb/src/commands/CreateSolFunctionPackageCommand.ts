@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSolFunctionPackageInput, CreateSolFunctionPackageOutput } from "../models/models_0";
 import { CreateSolFunctionPackage$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "../TnbClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface CreateSolFunctionPackageCommandOutput extends CreateSolFunction
  *
  * @public
  */
-export class CreateSolFunctionPackageCommand extends $Command
-  .classBuilder<
-    CreateSolFunctionPackageCommandInput,
-    CreateSolFunctionPackageCommandOutput,
-    TnbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TNB", "CreateSolFunctionPackage", {})
-  .n("TnbClient", "CreateSolFunctionPackageCommand")
-  .sc(CreateSolFunctionPackage$)
-  .build() {
+export class CreateSolFunctionPackageCommand extends command<CreateSolFunctionPackageCommandInput, CreateSolFunctionPackageCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSolFunctionPackage",
+  CreateSolFunctionPackage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

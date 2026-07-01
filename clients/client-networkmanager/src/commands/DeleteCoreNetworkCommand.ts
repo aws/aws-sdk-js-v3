@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCoreNetworkRequest, DeleteCoreNetworkResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { DeleteCoreNetwork$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -131,22 +123,12 @@ export interface DeleteCoreNetworkCommandOutput extends DeleteCoreNetworkRespons
  *
  * @public
  */
-export class DeleteCoreNetworkCommand extends $Command
-  .classBuilder<
-    DeleteCoreNetworkCommandInput,
-    DeleteCoreNetworkCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "DeleteCoreNetwork", {})
-  .n("NetworkManagerClient", "DeleteCoreNetworkCommand")
-  .sc(DeleteCoreNetwork$)
-  .build() {
+export class DeleteCoreNetworkCommand extends command<DeleteCoreNetworkCommandInput, DeleteCoreNetworkCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCoreNetwork",
+  DeleteCoreNetwork$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

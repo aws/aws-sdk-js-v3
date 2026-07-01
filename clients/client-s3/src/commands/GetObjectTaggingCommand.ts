@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep5, _mw0, command } from "../commandBuilder";
 import type { GetObjectTaggingOutput, GetObjectTaggingRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { GetObjectTagging$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -151,28 +146,12 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  *
  * @public
  */
-export class GetObjectTaggingCommand extends $Command
-  .classBuilder<
-    GetObjectTaggingCommandInput,
-    GetObjectTaggingCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "GetObjectTagging", {})
-  .n("S3Client", "GetObjectTaggingCommand")
-  .sc(GetObjectTagging$)
-  .build() {
+export class GetObjectTaggingCommand extends command<GetObjectTaggingCommandInput, GetObjectTaggingCommandOutput>(
+  _ep5,
+  _mw0,
+  "GetObjectTagging",
+  GetObjectTagging$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteProbeInput, DeleteProbeOutput } from "../models/models_0";
-import type {
-  NetworkMonitorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkMonitorClient";
 import { DeleteProbe$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface DeleteProbeCommandOutput extends DeleteProbeOutput, __MetadataB
  *
  * @public
  */
-export class DeleteProbeCommand extends $Command
-  .classBuilder<
-    DeleteProbeCommandInput,
-    DeleteProbeCommandOutput,
-    NetworkMonitorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkMonitorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkMonitor", "DeleteProbe", {})
-  .n("NetworkMonitorClient", "DeleteProbeCommand")
-  .sc(DeleteProbe$)
-  .build() {
+export class DeleteProbeCommand extends command<DeleteProbeCommandInput, DeleteProbeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteProbe",
+  DeleteProbe$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

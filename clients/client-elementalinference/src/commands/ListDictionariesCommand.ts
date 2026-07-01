@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElementalInferenceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElementalInferenceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDictionariesRequest, ListDictionariesResponse } from "../models/models_0";
 import { ListDictionaries$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListDictionaries$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface ListDictionariesCommandOutput extends ListDictionariesResponse,
  *
  * @public
  */
-export class ListDictionariesCommand extends $Command
-  .classBuilder<
-    ListDictionariesCommandInput,
-    ListDictionariesCommandOutput,
-    ElementalInferenceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElementalInferenceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElementalInference", "ListDictionaries", {})
-  .n("ElementalInferenceClient", "ListDictionariesCommand")
-  .sc(ListDictionaries$)
-  .build() {
+export class ListDictionariesCommand extends command<ListDictionariesCommandInput, ListDictionariesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDictionaries",
+  ListDictionaries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

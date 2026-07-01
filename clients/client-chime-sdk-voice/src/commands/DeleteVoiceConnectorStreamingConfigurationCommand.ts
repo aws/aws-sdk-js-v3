@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteVoiceConnectorStreamingConfigurationRequest } from "../models/models_0";
 import { DeleteVoiceConnectorStreamingConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteVoiceConnectorStreamingConfiguration$ } from "../schemas/schemas_
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DeleteVoiceConnectorStreamingConfigurationCommandOutput extends
  *
  * @public
  */
-export class DeleteVoiceConnectorStreamingConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteVoiceConnectorStreamingConfigurationCommandInput,
-    DeleteVoiceConnectorStreamingConfigurationCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "DeleteVoiceConnectorStreamingConfiguration", {})
-  .n("ChimeSDKVoiceClient", "DeleteVoiceConnectorStreamingConfigurationCommand")
-  .sc(DeleteVoiceConnectorStreamingConfiguration$)
-  .build() {
+export class DeleteVoiceConnectorStreamingConfigurationCommand extends command<DeleteVoiceConnectorStreamingConfigurationCommandInput, DeleteVoiceConnectorStreamingConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteVoiceConnectorStreamingConfiguration",
+  DeleteVoiceConnectorStreamingConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

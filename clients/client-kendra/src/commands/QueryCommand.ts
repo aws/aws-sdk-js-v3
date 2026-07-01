@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { QueryRequest, QueryResult } from "../models/models_0";
 import { Query$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { Query$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -494,22 +490,12 @@ export interface QueryCommandOutput extends QueryResult, __MetadataBearer {}
  *
  * @public
  */
-export class QueryCommand extends $Command
-  .classBuilder<
-    QueryCommandInput,
-    QueryCommandOutput,
-    KendraClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSKendraFrontendService", "Query", {})
-  .n("KendraClient", "QueryCommand")
-  .sc(Query$)
-  .build() {
+export class QueryCommand extends command<QueryCommandInput, QueryCommandOutput>(
+  _ep0,
+  _mw0,
+  "Query",
+  Query$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTemplateRequest, GetTemplateResponse } from "../models/models_0";
 import { GetTemplate$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  *
  * @public
  */
-export class GetTemplateCommand extends $Command
-  .classBuilder<
-    GetTemplateCommandInput,
-    GetTemplateCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "GetTemplate", {})
-  .n("SESClient", "GetTemplateCommand")
-  .sc(GetTemplate$)
-  .build() {
+export class GetTemplateCommand extends command<GetTemplateCommandInput, GetTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTemplate",
+  GetTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

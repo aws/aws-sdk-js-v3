@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceAgreementClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceAgreementClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchCreateBillingAdjustmentRequestInput,
   BatchCreateBillingAdjustmentRequestOutput,
@@ -19,7 +12,6 @@ import { BatchCreateBillingAdjustmentRequest$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -134,22 +126,12 @@ export interface BatchCreateBillingAdjustmentRequestCommandOutput extends BatchC
  *
  * @public
  */
-export class BatchCreateBillingAdjustmentRequestCommand extends $Command
-  .classBuilder<
-    BatchCreateBillingAdjustmentRequestCommandInput,
-    BatchCreateBillingAdjustmentRequestCommandOutput,
-    MarketplaceAgreementClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceAgreementClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMPCommerceService_v20200301", "BatchCreateBillingAdjustmentRequest", {})
-  .n("MarketplaceAgreementClient", "BatchCreateBillingAdjustmentRequestCommand")
-  .sc(BatchCreateBillingAdjustmentRequest$)
-  .build() {
+export class BatchCreateBillingAdjustmentRequestCommand extends command<BatchCreateBillingAdjustmentRequestCommandInput, BatchCreateBillingAdjustmentRequestCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchCreateBillingAdjustmentRequest",
+  BatchCreateBillingAdjustmentRequest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

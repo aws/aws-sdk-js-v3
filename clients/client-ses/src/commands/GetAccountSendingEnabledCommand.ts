@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAccountSendingEnabledResponse } from "../models/models_0";
 import { GetAccountSendingEnabled$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface GetAccountSendingEnabledCommandOutput extends GetAccountSending
  *
  * @public
  */
-export class GetAccountSendingEnabledCommand extends $Command
-  .classBuilder<
-    GetAccountSendingEnabledCommandInput,
-    GetAccountSendingEnabledCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "GetAccountSendingEnabled", {})
-  .n("SESClient", "GetAccountSendingEnabledCommand")
-  .sc(GetAccountSendingEnabled$)
-  .build() {
+export class GetAccountSendingEnabledCommand extends command<GetAccountSendingEnabledCommandInput, GetAccountSendingEnabledCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAccountSendingEnabled",
+  GetAccountSendingEnabled$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

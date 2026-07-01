@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListContentAssociationsRequest, ListContentAssociationsResponse } from "../models/models_0";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { ListContentAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface ListContentAssociationsCommandOutput extends ListContentAssocia
  *
  * @public
  */
-export class ListContentAssociationsCommand extends $Command
-  .classBuilder<
-    ListContentAssociationsCommandInput,
-    ListContentAssociationsCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "ListContentAssociations", {})
-  .n("QConnectClient", "ListContentAssociationsCommand")
-  .sc(ListContentAssociations$)
-  .build() {
+export class ListContentAssociationsCommand extends command<ListContentAssociationsCommandInput, ListContentAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListContentAssociations",
+  ListContentAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

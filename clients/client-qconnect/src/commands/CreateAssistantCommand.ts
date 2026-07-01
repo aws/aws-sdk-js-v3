@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAssistantRequest, CreateAssistantResponse } from "../models/models_0";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { CreateAssistant$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface CreateAssistantCommandOutput extends CreateAssistantResponse, _
  *
  * @public
  */
-export class CreateAssistantCommand extends $Command
-  .classBuilder<
-    CreateAssistantCommandInput,
-    CreateAssistantCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "CreateAssistant", {})
-  .n("QConnectClient", "CreateAssistantCommand")
-  .sc(CreateAssistant$)
-  .build() {
+export class CreateAssistantCommand extends command<CreateAssistantCommandInput, CreateAssistantCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAssistant",
+  CreateAssistant$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

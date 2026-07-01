@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListObservabilityConfigurationsRequest,
   ListObservabilityConfigurationsResponse,
@@ -15,7 +12,6 @@ import { ListObservabilityConfigurations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface ListObservabilityConfigurationsCommandOutput extends ListObserv
  *
  * @public
  */
-export class ListObservabilityConfigurationsCommand extends $Command
-  .classBuilder<
-    ListObservabilityConfigurationsCommandInput,
-    ListObservabilityConfigurationsCommandOutput,
-    AppRunnerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppRunner", "ListObservabilityConfigurations", {})
-  .n("AppRunnerClient", "ListObservabilityConfigurationsCommand")
-  .sc(ListObservabilityConfigurations$)
-  .build() {
+export class ListObservabilityConfigurationsCommand extends command<ListObservabilityConfigurationsCommandInput, ListObservabilityConfigurationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListObservabilityConfigurations",
+  ListObservabilityConfigurations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

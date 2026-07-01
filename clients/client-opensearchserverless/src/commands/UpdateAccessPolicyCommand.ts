@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAccessPolicyRequest, UpdateAccessPolicyResponse } from "../models/models_0";
-import type {
-  OpenSearchServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../OpenSearchServerlessClient";
 import { UpdateAccessPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyRespo
  *
  * @public
  */
-export class UpdateAccessPolicyCommand extends $Command
-  .classBuilder<
-    UpdateAccessPolicyCommandInput,
-    UpdateAccessPolicyCommandOutput,
-    OpenSearchServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OpenSearchServerless", "UpdateAccessPolicy", {})
-  .n("OpenSearchServerlessClient", "UpdateAccessPolicyCommand")
-  .sc(UpdateAccessPolicy$)
-  .build() {
+export class UpdateAccessPolicyCommand extends command<UpdateAccessPolicyCommandInput, UpdateAccessPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAccessPolicy",
+  UpdateAccessPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

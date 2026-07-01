@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyUIBuilderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyUIBuilderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExchangeCodeForTokenRequest, ExchangeCodeForTokenResponse } from "../models/models_0";
 import { ExchangeCodeForToken$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ExchangeCodeForToken$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +68,12 @@ export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenR
  *
  * @public
  */
-export class ExchangeCodeForTokenCommand extends $Command
-  .classBuilder<
-    ExchangeCodeForTokenCommandInput,
-    ExchangeCodeForTokenCommandOutput,
-    AmplifyUIBuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyUIBuilder", "ExchangeCodeForToken", {})
-  .n("AmplifyUIBuilderClient", "ExchangeCodeForTokenCommand")
-  .sc(ExchangeCodeForToken$)
-  .build() {
+export class ExchangeCodeForTokenCommand extends command<ExchangeCodeForTokenCommandInput, ExchangeCodeForTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExchangeCodeForToken",
+  ExchangeCodeForToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

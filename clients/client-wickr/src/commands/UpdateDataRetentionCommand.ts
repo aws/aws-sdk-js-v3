@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDataRetentionRequest, UpdateDataRetentionResponse } from "../models/models_0";
 import { UpdateDataRetention$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -129,22 +125,12 @@ export interface UpdateDataRetentionCommandOutput extends UpdateDataRetentionRes
  *
  * @public
  */
-export class UpdateDataRetentionCommand extends $Command
-  .classBuilder<
-    UpdateDataRetentionCommandInput,
-    UpdateDataRetentionCommandOutput,
-    WickrClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WickrAdminApi", "UpdateDataRetention", {})
-  .n("WickrClient", "UpdateDataRetentionCommand")
-  .sc(UpdateDataRetention$)
-  .build() {
+export class UpdateDataRetentionCommand extends command<UpdateDataRetentionCommandInput, UpdateDataRetentionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDataRetention",
+  UpdateDataRetention$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

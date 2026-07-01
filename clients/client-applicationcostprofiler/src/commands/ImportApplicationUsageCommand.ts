@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationCostProfilerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationCostProfilerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ImportApplicationUsageRequest, ImportApplicationUsageResult } from "../models/models_0";
 import { ImportApplicationUsage$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ImportApplicationUsage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface ImportApplicationUsageCommandOutput extends ImportApplicationUs
  *
  * @public
  */
-export class ImportApplicationUsageCommand extends $Command
-  .classBuilder<
-    ImportApplicationUsageCommandInput,
-    ImportApplicationUsageCommandOutput,
-    ApplicationCostProfilerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationCostProfilerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSApplicationCostProfiler", "ImportApplicationUsage", {})
-  .n("ApplicationCostProfilerClient", "ImportApplicationUsageCommand")
-  .sc(ImportApplicationUsage$)
-  .build() {
+export class ImportApplicationUsageCommand extends command<ImportApplicationUsageCommandInput, ImportApplicationUsageCommandOutput>(
+  _ep0,
+  _mw0,
+  "ImportApplicationUsage",
+  ImportApplicationUsage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

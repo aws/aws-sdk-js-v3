@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRemainingFreeTrialDaysRequest, GetRemainingFreeTrialDaysResponse } from "../models/models_1";
 import { GetRemainingFreeTrialDays$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetRemainingFreeTrialDays$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface GetRemainingFreeTrialDaysCommandOutput extends GetRemainingFree
  *
  * @public
  */
-export class GetRemainingFreeTrialDaysCommand extends $Command
-  .classBuilder<
-    GetRemainingFreeTrialDaysCommandInput,
-    GetRemainingFreeTrialDaysCommandOutput,
-    GuardDutyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GuardDutyAPIService", "GetRemainingFreeTrialDays", {})
-  .n("GuardDutyClient", "GetRemainingFreeTrialDaysCommand")
-  .sc(GetRemainingFreeTrialDays$)
-  .build() {
+export class GetRemainingFreeTrialDaysCommand extends command<GetRemainingFreeTrialDaysCommandInput, GetRemainingFreeTrialDaysCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRemainingFreeTrialDays",
+  GetRemainingFreeTrialDays$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

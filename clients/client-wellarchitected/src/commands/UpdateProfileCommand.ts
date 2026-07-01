@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateProfileInput, UpdateProfileOutput } from "../models/models_0";
 import { UpdateProfile$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WellArchitectedClientResolvedConfig,
-} from "../WellArchitectedClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +113,12 @@ export interface UpdateProfileCommandOutput extends UpdateProfileOutput, __Metad
  *
  * @public
  */
-export class UpdateProfileCommand extends $Command
-  .classBuilder<
-    UpdateProfileCommandInput,
-    UpdateProfileCommandOutput,
-    WellArchitectedClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WellArchitectedApiServiceLambda", "UpdateProfile", {})
-  .n("WellArchitectedClient", "UpdateProfileCommand")
-  .sc(UpdateProfile$)
-  .build() {
+export class UpdateProfileCommand extends command<UpdateProfileCommandInput, UpdateProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateProfile",
+  UpdateProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

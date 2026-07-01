@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TestMappingRequest, TestMappingResponse } from "../models/models_0";
 import { TestMapping$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { TestMapping$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface TestMappingCommandOutput extends TestMappingResponse, __Metadat
  *
  * @public
  */
-export class TestMappingCommand extends $Command
-  .classBuilder<
-    TestMappingCommandInput,
-    TestMappingCommandOutput,
-    B2biClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("B2BI", "TestMapping", {})
-  .n("B2biClient", "TestMappingCommand")
-  .sc(TestMapping$)
-  .build() {
+export class TestMappingCommand extends command<TestMappingCommandInput, TestMappingCommandOutput>(
+  _ep0,
+  _mw0,
+  "TestMapping",
+  TestMapping$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

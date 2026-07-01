@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutRumEventsRequest, PutRumEventsResponse } from "../models/models_0";
-import type { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 import { PutRumEvents$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface PutRumEventsCommandOutput extends PutRumEventsResponse, __Metad
  *
  * @public
  */
-export class PutRumEventsCommand extends $Command
-  .classBuilder<
-    PutRumEventsCommandInput,
-    PutRumEventsCommandOutput,
-    RUMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RUMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RUM", "PutRumEvents", {})
-  .n("RUMClient", "PutRumEventsCommand")
-  .sc(PutRumEvents$)
-  .build() {
+export class PutRumEventsCommand extends command<PutRumEventsCommandInput, PutRumEventsCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutRumEvents",
+  PutRumEvents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

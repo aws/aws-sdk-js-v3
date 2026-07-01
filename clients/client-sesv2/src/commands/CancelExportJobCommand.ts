@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelExportJobRequest, CancelExportJobResponse } from "../models/models_0";
 import { CancelExportJob$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface CancelExportJobCommandOutput extends CancelExportJobResponse, _
  *
  * @public
  */
-export class CancelExportJobCommand extends $Command
-  .classBuilder<
-    CancelExportJobCommandInput,
-    CancelExportJobCommandOutput,
-    SESv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService_v2", "CancelExportJob", {})
-  .n("SESv2Client", "CancelExportJobCommand")
-  .sc(CancelExportJob$)
-  .build() {
+export class CancelExportJobCommand extends command<CancelExportJobCommandInput, CancelExportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelExportJob",
+  CancelExportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

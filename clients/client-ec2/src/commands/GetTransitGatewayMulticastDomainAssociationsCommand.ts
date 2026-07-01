@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetTransitGatewayMulticastDomainAssociationsRequest,
   GetTransitGatewayMulticastDomainAssociationsResult,
@@ -15,7 +12,6 @@ import { GetTransitGatewayMulticastDomainAssociations$ } from "../schemas/schema
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface GetTransitGatewayMulticastDomainAssociationsCommandOutput exten
  *
  * @public
  */
-export class GetTransitGatewayMulticastDomainAssociationsCommand extends $Command
-  .classBuilder<
-    GetTransitGatewayMulticastDomainAssociationsCommandInput,
-    GetTransitGatewayMulticastDomainAssociationsCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "GetTransitGatewayMulticastDomainAssociations", {})
-  .n("EC2Client", "GetTransitGatewayMulticastDomainAssociationsCommand")
-  .sc(GetTransitGatewayMulticastDomainAssociations$)
-  .build() {
+export class GetTransitGatewayMulticastDomainAssociationsCommand extends command<GetTransitGatewayMulticastDomainAssociationsCommandInput, GetTransitGatewayMulticastDomainAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTransitGatewayMulticastDomainAssociations",
+  GetTransitGatewayMulticastDomainAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

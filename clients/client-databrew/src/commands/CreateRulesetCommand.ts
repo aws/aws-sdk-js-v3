@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRulesetRequest, CreateRulesetResponse } from "../models/models_0";
 import { CreateRuleset$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateRuleset$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface CreateRulesetCommandOutput extends CreateRulesetResponse, __Met
  *
  * @public
  */
-export class CreateRulesetCommand extends $Command
-  .classBuilder<
-    CreateRulesetCommandInput,
-    CreateRulesetCommandOutput,
-    DataBrewClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlueDataBrew", "CreateRuleset", {})
-  .n("DataBrewClient", "CreateRulesetCommand")
-  .sc(CreateRuleset$)
-  .build() {
+export class CreateRulesetCommand extends command<CreateRulesetCommandInput, CreateRulesetCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRuleset",
+  CreateRuleset$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

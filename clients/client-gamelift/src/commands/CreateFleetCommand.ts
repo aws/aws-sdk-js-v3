@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFleetInput, CreateFleetOutput } from "../models/models_0";
 import { CreateFleet$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateFleet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -313,22 +309,12 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  *
  * @public
  */
-export class CreateFleetCommand extends $Command
-  .classBuilder<
-    CreateFleetCommandInput,
-    CreateFleetCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "CreateFleet", {})
-  .n("GameLiftClient", "CreateFleetCommand")
-  .sc(CreateFleet$)
-  .build() {
+export class CreateFleetCommand extends command<CreateFleetCommandInput, CreateFleetCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateFleet",
+  CreateFleet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

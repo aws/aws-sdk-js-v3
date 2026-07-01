@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRuntimeConfigurationInput, DescribeRuntimeConfigurationOutput } from "../models/models_0";
 import { DescribeRuntimeConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeRuntimeConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface DescribeRuntimeConfigurationCommandOutput extends DescribeRunti
  *
  * @public
  */
-export class DescribeRuntimeConfigurationCommand extends $Command
-  .classBuilder<
-    DescribeRuntimeConfigurationCommandInput,
-    DescribeRuntimeConfigurationCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "DescribeRuntimeConfiguration", {})
-  .n("GameLiftClient", "DescribeRuntimeConfigurationCommand")
-  .sc(DescribeRuntimeConfiguration$)
-  .build() {
+export class DescribeRuntimeConfigurationCommand extends command<DescribeRuntimeConfigurationCommandInput, DescribeRuntimeConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRuntimeConfiguration",
+  DescribeRuntimeConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

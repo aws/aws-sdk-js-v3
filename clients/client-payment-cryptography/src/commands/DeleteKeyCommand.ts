@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteKeyInput, DeleteKeyOutput } from "../models/models_0";
-import type {
-  PaymentCryptographyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PaymentCryptographyClient";
 import { DeleteKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +122,12 @@ export interface DeleteKeyCommandOutput extends DeleteKeyOutput, __MetadataBeare
  *
  * @public
  */
-export class DeleteKeyCommand extends $Command
-  .classBuilder<
-    DeleteKeyCommandInput,
-    DeleteKeyCommandOutput,
-    PaymentCryptographyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PaymentCryptographyControlPlane", "DeleteKey", {})
-  .n("PaymentCryptographyClient", "DeleteKeyCommand")
-  .sc(DeleteKey$)
-  .build() {
+export class DeleteKeyCommand extends command<DeleteKeyCommandInput, DeleteKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteKey",
+  DeleteKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListJobRunAttemptsRequest, ListJobRunAttemptsResponse } from "../models/models_0";
 import { ListJobRunAttempts$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListJobRunAttempts$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface ListJobRunAttemptsCommandOutput extends ListJobRunAttemptsRespo
  *
  * @public
  */
-export class ListJobRunAttemptsCommand extends $Command
-  .classBuilder<
-    ListJobRunAttemptsCommandInput,
-    ListJobRunAttemptsCommandOutput,
-    EMRServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsToledoWebService", "ListJobRunAttempts", {})
-  .n("EMRServerlessClient", "ListJobRunAttemptsCommand")
-  .sc(ListJobRunAttempts$)
-  .build() {
+export class ListJobRunAttemptsCommand extends command<ListJobRunAttemptsCommandInput, ListJobRunAttemptsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListJobRunAttempts",
+  ListJobRunAttempts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

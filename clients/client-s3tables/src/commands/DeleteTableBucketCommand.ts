@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTableBucketRequest } from "../models/models_0";
-import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
 import { DeleteTableBucket$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteTableBucketCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteTableBucketCommand extends $Command
-  .classBuilder<
-    DeleteTableBucketCommandInput,
-    DeleteTableBucketCommandOutput,
-    S3TablesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: S3TablesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("S3TableBuckets", "DeleteTableBucket", {})
-  .n("S3TablesClient", "DeleteTableBucketCommand")
-  .sc(DeleteTableBucket$)
-  .build() {
+export class DeleteTableBucketCommand extends command<DeleteTableBucketCommandInput, DeleteTableBucketCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTableBucket",
+  DeleteTableBucket$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

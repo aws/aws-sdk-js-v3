@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticLoadBalancingV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticLoadBalancingV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeTrustStoreAssociationsInput, DescribeTrustStoreAssociationsOutput } from "../models/models_0";
 import { DescribeTrustStoreAssociations$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeTrustStoreAssociations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +65,12 @@ export interface DescribeTrustStoreAssociationsCommandOutput extends DescribeTru
  *
  * @public
  */
-export class DescribeTrustStoreAssociationsCommand extends $Command
-  .classBuilder<
-    DescribeTrustStoreAssociationsCommandInput,
-    DescribeTrustStoreAssociationsCommandOutput,
-    ElasticLoadBalancingV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticLoadBalancing_v10", "DescribeTrustStoreAssociations", {})
-  .n("ElasticLoadBalancingV2Client", "DescribeTrustStoreAssociationsCommand")
-  .sc(DescribeTrustStoreAssociations$)
-  .build() {
+export class DescribeTrustStoreAssociationsCommand extends command<DescribeTrustStoreAssociationsCommandInput, DescribeTrustStoreAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeTrustStoreAssociations",
+  DescribeTrustStoreAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

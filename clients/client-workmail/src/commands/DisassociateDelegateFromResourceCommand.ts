@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateDelegateFromResourceRequest,
   DisassociateDelegateFromResourceResponse,
 } from "../models/models_0";
 import { DisassociateDelegateFromResource$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DisassociateDelegateFromResourceCommandOutput extends Disassoci
  *
  * @public
  */
-export class DisassociateDelegateFromResourceCommand extends $Command
-  .classBuilder<
-    DisassociateDelegateFromResourceCommandInput,
-    DisassociateDelegateFromResourceCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "DisassociateDelegateFromResource", {})
-  .n("WorkMailClient", "DisassociateDelegateFromResourceCommand")
-  .sc(DisassociateDelegateFromResource$)
-  .build() {
+export class DisassociateDelegateFromResourceCommand extends command<DisassociateDelegateFromResourceCommandInput, DisassociateDelegateFromResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateDelegateFromResource",
+  DisassociateDelegateFromResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

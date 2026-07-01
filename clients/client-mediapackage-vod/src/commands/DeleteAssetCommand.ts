@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MediaPackageVodClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MediaPackageVodClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAssetRequest, DeleteAssetResponse } from "../models/models_0";
 import { DeleteAsset$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteAsset$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeleteAssetCommandOutput extends DeleteAssetResponse, __Metadat
  *
  * @public
  */
-export class DeleteAssetCommand extends $Command
-  .classBuilder<
-    DeleteAssetCommandInput,
-    DeleteAssetCommandOutput,
-    MediaPackageVodClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaPackageVodClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaPackageVod", "DeleteAsset", {})
-  .n("MediaPackageVodClient", "DeleteAssetCommand")
-  .sc(DeleteAsset$)
-  .build() {
+export class DeleteAssetCommand extends command<DeleteAssetCommandInput, DeleteAssetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAsset",
+  DeleteAsset$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopDevEnvironmentSessionRequest, StopDevEnvironmentSessionResponse } from "../models/models_0";
 import { StopDevEnvironmentSession$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopDevEnvironmentSession$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface StopDevEnvironmentSessionCommandOutput extends StopDevEnvironme
  *
  * @public
  */
-export class StopDevEnvironmentSessionCommand extends $Command
-  .classBuilder<
-    StopDevEnvironmentSessionCommandInput,
-    StopDevEnvironmentSessionCommandOutput,
-    CodeCatalystClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCatalyst", "StopDevEnvironmentSession", {})
-  .n("CodeCatalystClient", "StopDevEnvironmentSessionCommand")
-  .sc(StopDevEnvironmentSession$)
-  .build() {
+export class StopDevEnvironmentSessionCommand extends command<StopDevEnvironmentSessionCommandInput, StopDevEnvironmentSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopDevEnvironmentSession",
+  StopDevEnvironmentSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

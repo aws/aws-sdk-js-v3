@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAutoMergingPreviewRequest, GetAutoMergingPreviewResponse } from "../models/models_0";
 import { GetAutoMergingPreview$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetAutoMergingPreview$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +97,12 @@ export interface GetAutoMergingPreviewCommandOutput extends GetAutoMergingPrevie
  *
  * @public
  */
-export class GetAutoMergingPreviewCommand extends $Command
-  .classBuilder<
-    GetAutoMergingPreviewCommandInput,
-    GetAutoMergingPreviewCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "GetAutoMergingPreview", {})
-  .n("CustomerProfilesClient", "GetAutoMergingPreviewCommand")
-  .sc(GetAutoMergingPreview$)
-  .build() {
+export class GetAutoMergingPreviewCommand extends command<GetAutoMergingPreviewCommandInput, GetAutoMergingPreviewCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAutoMergingPreview",
+  GetAutoMergingPreview$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

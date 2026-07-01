@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartExecutionInput, StartExecutionOutput } from "../models/models_0";
 import { StartExecution$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -143,22 +139,12 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  *
  * @public
  */
-export class StartExecutionCommand extends $Command
-  .classBuilder<
-    StartExecutionCommandInput,
-    StartExecutionCommandOutput,
-    SFNClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStepFunctions", "StartExecution", {})
-  .n("SFNClient", "StartExecutionCommand")
-  .sc(StartExecution$)
-  .build() {
+export class StartExecutionCommand extends command<StartExecutionCommandInput, StartExecutionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartExecution",
+  StartExecution$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

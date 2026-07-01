@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListNetworkMigrationCodeGenerationSegmentsRequest,
   ListNetworkMigrationCodeGenerationSegmentsResponse,
@@ -15,7 +12,6 @@ import { ListNetworkMigrationCodeGenerationSegments$ } from "../schemas/schemas_
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -161,22 +157,12 @@ export interface ListNetworkMigrationCodeGenerationSegmentsCommandOutput extends
  *
  * @public
  */
-export class ListNetworkMigrationCodeGenerationSegmentsCommand extends $Command
-  .classBuilder<
-    ListNetworkMigrationCodeGenerationSegmentsCommandInput,
-    ListNetworkMigrationCodeGenerationSegmentsCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "ListNetworkMigrationCodeGenerationSegments", {})
-  .n("MgnClient", "ListNetworkMigrationCodeGenerationSegmentsCommand")
-  .sc(ListNetworkMigrationCodeGenerationSegments$)
-  .build() {
+export class ListNetworkMigrationCodeGenerationSegmentsCommand extends command<ListNetworkMigrationCodeGenerationSegmentsCommandInput, ListNetworkMigrationCodeGenerationSegmentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListNetworkMigrationCodeGenerationSegments",
+  ListNetworkMigrationCodeGenerationSegments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

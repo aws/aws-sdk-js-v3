@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeWorkspacesConnectionStatusRequest,
   DescribeWorkspacesConnectionStatusResult,
 } from "../models/models_0";
 import { DescribeWorkspacesConnectionStatus$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DescribeWorkspacesConnectionStatusCommandOutput extends Describ
  *
  * @public
  */
-export class DescribeWorkspacesConnectionStatusCommand extends $Command
-  .classBuilder<
-    DescribeWorkspacesConnectionStatusCommandInput,
-    DescribeWorkspacesConnectionStatusCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "DescribeWorkspacesConnectionStatus", {})
-  .n("WorkSpacesClient", "DescribeWorkspacesConnectionStatusCommand")
-  .sc(DescribeWorkspacesConnectionStatus$)
-  .build() {
+export class DescribeWorkspacesConnectionStatusCommand extends command<DescribeWorkspacesConnectionStatusCommandInput, DescribeWorkspacesConnectionStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeWorkspacesConnectionStatus",
+  DescribeWorkspacesConnectionStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

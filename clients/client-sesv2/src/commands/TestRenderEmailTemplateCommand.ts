@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TestRenderEmailTemplateRequest, TestRenderEmailTemplateResponse } from "../models/models_1";
 import { TestRenderEmailTemplate$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface TestRenderEmailTemplateCommandOutput extends TestRenderEmailTem
  *
  * @public
  */
-export class TestRenderEmailTemplateCommand extends $Command
-  .classBuilder<
-    TestRenderEmailTemplateCommandInput,
-    TestRenderEmailTemplateCommandOutput,
-    SESv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService_v2", "TestRenderEmailTemplate", {})
-  .n("SESv2Client", "TestRenderEmailTemplateCommand")
-  .sc(TestRenderEmailTemplate$)
-  .build() {
+export class TestRenderEmailTemplateCommand extends command<TestRenderEmailTemplateCommandInput, TestRenderEmailTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "TestRenderEmailTemplate",
+  TestRenderEmailTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

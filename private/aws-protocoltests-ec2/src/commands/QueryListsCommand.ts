@@ -13,7 +13,6 @@ import { de_QueryListsCommand, se_QueryListsCommand } from "../protocols/Aws_ec2
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateEntitlementRequest, UpdateEntitlementResult } from "../models/models_0";
 import { UpdateEntitlement$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateEntitlement$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface UpdateEntitlementCommandOutput extends UpdateEntitlementResult,
  *
  * @public
  */
-export class UpdateEntitlementCommand extends $Command
-  .classBuilder<
-    UpdateEntitlementCommandInput,
-    UpdateEntitlementCommandOutput,
-    AppStreamClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PhotonAdminProxyService", "UpdateEntitlement", {})
-  .n("AppStreamClient", "UpdateEntitlementCommand")
-  .sc(UpdateEntitlement$)
-  .build() {
+export class UpdateEntitlementCommand extends command<UpdateEntitlementCommandInput, UpdateEntitlementCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateEntitlement",
+  UpdateEntitlement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

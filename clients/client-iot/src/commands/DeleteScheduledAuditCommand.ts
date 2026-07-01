@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteScheduledAuditRequest, DeleteScheduledAuditResponse } from "../models/models_0";
 import { DeleteScheduledAudit$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteScheduledAudit$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface DeleteScheduledAuditCommandOutput extends DeleteScheduledAuditR
  *
  * @public
  */
-export class DeleteScheduledAuditCommand extends $Command
-  .classBuilder<
-    DeleteScheduledAuditCommandInput,
-    DeleteScheduledAuditCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "DeleteScheduledAudit", {})
-  .n("IoTClient", "DeleteScheduledAuditCommand")
-  .sc(DeleteScheduledAudit$)
-  .build() {
+export class DeleteScheduledAuditCommand extends command<DeleteScheduledAuditCommandInput, DeleteScheduledAuditCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteScheduledAudit",
+  DeleteScheduledAudit$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateWebACLMigrationStackRequest, CreateWebACLMigrationStackResponse } from "../models/models_0";
 import { CreateWebACLMigrationStack$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -170,22 +166,12 @@ export interface CreateWebACLMigrationStackCommandOutput extends CreateWebACLMig
  *
  * @public
  */
-export class CreateWebACLMigrationStackCommand extends $Command
-  .classBuilder<
-    CreateWebACLMigrationStackCommandInput,
-    CreateWebACLMigrationStackCommandOutput,
-    WAFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20150824", "CreateWebACLMigrationStack", {})
-  .n("WAFClient", "CreateWebACLMigrationStackCommand")
-  .sc(CreateWebACLMigrationStack$)
-  .build() {
+export class CreateWebACLMigrationStackCommand extends command<CreateWebACLMigrationStackCommandInput, CreateWebACLMigrationStackCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateWebACLMigrationStack",
+  CreateWebACLMigrationStack$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendChatIntegrationEventRequest, SendChatIntegrationEventResponse } from "../models/models_3";
 import { SendChatIntegrationEvent$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SendChatIntegrationEvent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface SendChatIntegrationEventCommandOutput extends SendChatIntegrati
  *
  * @public
  */
-export class SendChatIntegrationEventCommand extends $Command
-  .classBuilder<
-    SendChatIntegrationEventCommandInput,
-    SendChatIntegrationEventCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "SendChatIntegrationEvent", {})
-  .n("ConnectClient", "SendChatIntegrationEventCommand")
-  .sc(SendChatIntegrationEvent$)
-  .build() {
+export class SendChatIntegrationEventCommand extends command<SendChatIntegrationEventCommandInput, SendChatIntegrationEventCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendChatIntegrationEvent",
+  SendChatIntegrationEvent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

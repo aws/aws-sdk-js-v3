@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDocumentAnalysisRequest, GetDocumentAnalysisResponse } from "../models/models_0";
 import { GetDocumentAnalysis$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -217,22 +213,12 @@ export interface GetDocumentAnalysisCommandOutput extends GetDocumentAnalysisRes
  *
  * @public
  */
-export class GetDocumentAnalysisCommand extends $Command
-  .classBuilder<
-    GetDocumentAnalysisCommandInput,
-    GetDocumentAnalysisCommandOutput,
-    TextractClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Textract", "GetDocumentAnalysis", {})
-  .n("TextractClient", "GetDocumentAnalysisCommand")
-  .sc(GetDocumentAnalysis$)
-  .build() {
+export class GetDocumentAnalysisCommand extends command<GetDocumentAnalysisCommandInput, GetDocumentAnalysisCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDocumentAnalysis",
+  GetDocumentAnalysis$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

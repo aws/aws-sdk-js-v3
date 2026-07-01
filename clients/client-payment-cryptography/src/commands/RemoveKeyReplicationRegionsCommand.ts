@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveKeyReplicationRegionsInput, RemoveKeyReplicationRegionsOutput } from "../models/models_0";
-import type {
-  PaymentCryptographyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PaymentCryptographyClient";
 import { RemoveKeyReplicationRegions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +124,12 @@ export interface RemoveKeyReplicationRegionsCommandOutput extends RemoveKeyRepli
  *
  * @public
  */
-export class RemoveKeyReplicationRegionsCommand extends $Command
-  .classBuilder<
-    RemoveKeyReplicationRegionsCommandInput,
-    RemoveKeyReplicationRegionsCommandOutput,
-    PaymentCryptographyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PaymentCryptographyControlPlane", "RemoveKeyReplicationRegions", {})
-  .n("PaymentCryptographyClient", "RemoveKeyReplicationRegionsCommand")
-  .sc(RemoveKeyReplicationRegions$)
-  .build() {
+export class RemoveKeyReplicationRegionsCommand extends command<RemoveKeyReplicationRegionsCommandInput, RemoveKeyReplicationRegionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveKeyReplicationRegions",
+  RemoveKeyReplicationRegions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

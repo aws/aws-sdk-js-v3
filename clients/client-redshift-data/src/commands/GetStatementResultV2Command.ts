@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetStatementResultV2Request, GetStatementResultV2Response } from "../models/models_0";
-import type { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftDataClient";
 import { GetStatementResultV2$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface GetStatementResultV2CommandOutput extends GetStatementResultV2R
  *
  * @public
  */
-export class GetStatementResultV2Command extends $Command
-  .classBuilder<
-    GetStatementResultV2CommandInput,
-    GetStatementResultV2CommandOutput,
-    RedshiftDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftData", "GetStatementResultV2", {})
-  .n("RedshiftDataClient", "GetStatementResultV2Command")
-  .sc(GetStatementResultV2$)
-  .build() {
+export class GetStatementResultV2Command extends command<GetStatementResultV2CommandInput, GetStatementResultV2CommandOutput>(
+  _ep0,
+  _mw0,
+  "GetStatementResultV2",
+  GetStatementResultV2$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

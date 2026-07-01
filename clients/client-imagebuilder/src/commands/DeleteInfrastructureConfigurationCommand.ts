@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteInfrastructureConfigurationRequest,
   DeleteInfrastructureConfigurationResponse,
@@ -15,7 +12,6 @@ import { DeleteInfrastructureConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface DeleteInfrastructureConfigurationCommandOutput extends DeleteIn
  *
  * @public
  */
-export class DeleteInfrastructureConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteInfrastructureConfigurationCommandInput,
-    DeleteInfrastructureConfigurationCommandOutput,
-    ImagebuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("imagebuilder", "DeleteInfrastructureConfiguration", {})
-  .n("ImagebuilderClient", "DeleteInfrastructureConfigurationCommand")
-  .sc(DeleteInfrastructureConfiguration$)
-  .build() {
+export class DeleteInfrastructureConfigurationCommand extends command<DeleteInfrastructureConfigurationCommandInput, DeleteInfrastructureConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteInfrastructureConfiguration",
+  DeleteInfrastructureConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

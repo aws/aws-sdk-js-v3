@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartOutboundVoiceContactRequest, StartOutboundVoiceContactResponse } from "../models/models_3";
 import { StartOutboundVoiceContact$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartOutboundVoiceContact$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -142,22 +138,12 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  *
  * @public
  */
-export class StartOutboundVoiceContactCommand extends $Command
-  .classBuilder<
-    StartOutboundVoiceContactCommandInput,
-    StartOutboundVoiceContactCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "StartOutboundVoiceContact", {})
-  .n("ConnectClient", "StartOutboundVoiceContactCommand")
-  .sc(StartOutboundVoiceContact$)
-  .build() {
+export class StartOutboundVoiceContactCommand extends command<StartOutboundVoiceContactCommandInput, StartOutboundVoiceContactCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartOutboundVoiceContact",
+  StartOutboundVoiceContact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

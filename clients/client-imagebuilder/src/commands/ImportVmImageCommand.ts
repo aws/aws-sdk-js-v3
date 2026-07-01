@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ImportVmImageRequest, ImportVmImageResponse } from "../models/models_0";
 import { ImportVmImage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ImportVmImage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  *
  * @public
  */
-export class ImportVmImageCommand extends $Command
-  .classBuilder<
-    ImportVmImageCommandInput,
-    ImportVmImageCommandOutput,
-    ImagebuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("imagebuilder", "ImportVmImage", {})
-  .n("ImagebuilderClient", "ImportVmImageCommand")
-  .sc(ImportVmImage$)
-  .build() {
+export class ImportVmImageCommand extends command<ImportVmImageCommandInput, ImportVmImageCommandOutput>(
+  _ep0,
+  _mw0,
+  "ImportVmImage",
+  ImportVmImage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopBotRecommendationRequest, StopBotRecommendationResponse } from "../models/models_1";
 import { StopBotRecommendation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopBotRecommendation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface StopBotRecommendationCommandOutput extends StopBotRecommendatio
  *
  * @public
  */
-export class StopBotRecommendationCommand extends $Command
-  .classBuilder<
-    StopBotRecommendationCommandInput,
-    StopBotRecommendationCommandOutput,
-    LexModelsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LexModelBuildingServiceV2", "StopBotRecommendation", {})
-  .n("LexModelsV2Client", "StopBotRecommendationCommand")
-  .sc(StopBotRecommendation$)
-  .build() {
+export class StopBotRecommendationCommand extends command<StopBotRecommendationCommandInput, StopBotRecommendationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopBotRecommendation",
+  StopBotRecommendation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

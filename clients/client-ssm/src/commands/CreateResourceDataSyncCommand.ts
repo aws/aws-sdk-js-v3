@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateResourceDataSyncRequest, CreateResourceDataSyncResult } from "../models/models_0";
 import { CreateResourceDataSync$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  *
  * @public
  */
-export class CreateResourceDataSyncCommand extends $Command
-  .classBuilder<
-    CreateResourceDataSyncCommandInput,
-    CreateResourceDataSyncCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "CreateResourceDataSync", {})
-  .n("SSMClient", "CreateResourceDataSyncCommand")
-  .sc(CreateResourceDataSync$)
-  .build() {
+export class CreateResourceDataSyncCommand extends command<CreateResourceDataSyncCommandInput, CreateResourceDataSyncCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateResourceDataSync",
+  CreateResourceDataSync$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

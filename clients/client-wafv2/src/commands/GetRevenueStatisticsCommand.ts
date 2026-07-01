@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRevenueStatisticsRequest, GetRevenueStatisticsResponse } from "../models/models_0";
 import { GetRevenueStatistics$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +129,12 @@ export interface GetRevenueStatisticsCommandOutput extends GetRevenueStatisticsR
  *
  * @public
  */
-export class GetRevenueStatisticsCommand extends $Command
-  .classBuilder<
-    GetRevenueStatisticsCommandInput,
-    GetRevenueStatisticsCommandOutput,
-    WAFV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20190729", "GetRevenueStatistics", {})
-  .n("WAFV2Client", "GetRevenueStatisticsCommand")
-  .sc(GetRevenueStatistics$)
-  .build() {
+export class GetRevenueStatisticsCommand extends command<GetRevenueStatisticsCommandInput, GetRevenueStatisticsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRevenueStatistics",
+  GetRevenueStatistics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteModelPackageGroupInput } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DeleteModelPackageGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -60,22 +56,12 @@ export interface DeleteModelPackageGroupCommandOutput extends __MetadataBearer {
  *
  * @public
  */
-export class DeleteModelPackageGroupCommand extends $Command
-  .classBuilder<
-    DeleteModelPackageGroupCommandInput,
-    DeleteModelPackageGroupCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DeleteModelPackageGroup", {})
-  .n("SageMakerClient", "DeleteModelPackageGroupCommand")
-  .sc(DeleteModelPackageGroup$)
-  .build() {
+export class DeleteModelPackageGroupCommand extends command<DeleteModelPackageGroupCommandInput, DeleteModelPackageGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteModelPackageGroup",
+  DeleteModelPackageGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

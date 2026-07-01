@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetInterpolatedAssetPropertyValuesRequest,
   GetInterpolatedAssetPropertyValuesResponse,
@@ -15,7 +12,6 @@ import { GetInterpolatedAssetPropertyValues$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface GetInterpolatedAssetPropertyValuesCommandOutput extends GetInte
  *
  * @public
  */
-export class GetInterpolatedAssetPropertyValuesCommand extends $Command
-  .classBuilder<
-    GetInterpolatedAssetPropertyValuesCommandInput,
-    GetInterpolatedAssetPropertyValuesCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "GetInterpolatedAssetPropertyValues", {})
-  .n("IoTSiteWiseClient", "GetInterpolatedAssetPropertyValuesCommand")
-  .sc(GetInterpolatedAssetPropertyValues$)
-  .build() {
+export class GetInterpolatedAssetPropertyValuesCommand extends command<GetInterpolatedAssetPropertyValuesCommandInput, GetInterpolatedAssetPropertyValuesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetInterpolatedAssetPropertyValues",
+  GetInterpolatedAssetPropertyValues$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

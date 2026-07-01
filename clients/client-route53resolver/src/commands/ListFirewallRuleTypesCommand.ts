@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListFirewallRuleTypesRequest, ListFirewallRuleTypesResponse } from "../models/models_0";
-import type {
-  Route53ResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ResolverClient";
 import { ListFirewallRuleTypes$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface ListFirewallRuleTypesCommandOutput extends ListFirewallRuleType
  *
  * @public
  */
-export class ListFirewallRuleTypesCommand extends $Command
-  .classBuilder<
-    ListFirewallRuleTypesCommandInput,
-    ListFirewallRuleTypesCommandOutput,
-    Route53ResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Resolver", "ListFirewallRuleTypes", {})
-  .n("Route53ResolverClient", "ListFirewallRuleTypesCommand")
-  .sc(ListFirewallRuleTypes$)
-  .build() {
+export class ListFirewallRuleTypesCommand extends command<ListFirewallRuleTypesCommandInput, ListFirewallRuleTypesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFirewallRuleTypes",
+  ListFirewallRuleTypes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

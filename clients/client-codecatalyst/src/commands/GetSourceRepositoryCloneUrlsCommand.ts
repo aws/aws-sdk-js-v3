@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSourceRepositoryCloneUrlsRequest, GetSourceRepositoryCloneUrlsResponse } from "../models/models_0";
 import { GetSourceRepositoryCloneUrls$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetSourceRepositoryCloneUrls$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface GetSourceRepositoryCloneUrlsCommandOutput extends GetSourceRepo
  *
  * @public
  */
-export class GetSourceRepositoryCloneUrlsCommand extends $Command
-  .classBuilder<
-    GetSourceRepositoryCloneUrlsCommandInput,
-    GetSourceRepositoryCloneUrlsCommandOutput,
-    CodeCatalystClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCatalyst", "GetSourceRepositoryCloneUrls", {})
-  .n("CodeCatalystClient", "GetSourceRepositoryCloneUrlsCommand")
-  .sc(GetSourceRepositoryCloneUrls$)
-  .build() {
+export class GetSourceRepositoryCloneUrlsCommand extends command<GetSourceRepositoryCloneUrlsCommandInput, GetSourceRepositoryCloneUrlsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSourceRepositoryCloneUrls",
+  GetSourceRepositoryCloneUrls$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

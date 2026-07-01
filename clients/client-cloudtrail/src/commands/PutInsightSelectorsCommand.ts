@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutInsightSelectorsRequest, PutInsightSelectorsResponse } from "../models/models_0";
 import { PutInsightSelectors$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutInsightSelectors$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -211,22 +207,12 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  *
  * @public
  */
-export class PutInsightSelectorsCommand extends $Command
-  .classBuilder<
-    PutInsightSelectorsCommandInput,
-    PutInsightSelectorsCommandOutput,
-    CloudTrailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudTrail_20131101", "PutInsightSelectors", {})
-  .n("CloudTrailClient", "PutInsightSelectorsCommand")
-  .sc(PutInsightSelectors$)
-  .build() {
+export class PutInsightSelectorsCommand extends command<PutInsightSelectorsCommandInput, PutInsightSelectorsCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutInsightSelectors",
+  PutInsightSelectors$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

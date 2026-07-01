@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListWorkflowBuildVersionsRequest, ListWorkflowBuildVersionsResponse } from "../models/models_0";
 import { ListWorkflowBuildVersions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListWorkflowBuildVersions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface ListWorkflowBuildVersionsCommandOutput extends ListWorkflowBuil
  *
  * @public
  */
-export class ListWorkflowBuildVersionsCommand extends $Command
-  .classBuilder<
-    ListWorkflowBuildVersionsCommandInput,
-    ListWorkflowBuildVersionsCommandOutput,
-    ImagebuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("imagebuilder", "ListWorkflowBuildVersions", {})
-  .n("ImagebuilderClient", "ListWorkflowBuildVersionsCommand")
-  .sc(ListWorkflowBuildVersions$)
-  .build() {
+export class ListWorkflowBuildVersionsCommand extends command<ListWorkflowBuildVersionsCommandInput, ListWorkflowBuildVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListWorkflowBuildVersions",
+  ListWorkflowBuildVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

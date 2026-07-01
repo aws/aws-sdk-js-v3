@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSecondarySubnetRequest, DeleteSecondarySubnetResult } from "../models/models_2";
 import { DeleteSecondarySubnet$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteSecondarySubnet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +121,12 @@ export interface DeleteSecondarySubnetCommandOutput extends DeleteSecondarySubne
  *
  * @public
  */
-export class DeleteSecondarySubnetCommand extends $Command
-  .classBuilder<
-    DeleteSecondarySubnetCommandInput,
-    DeleteSecondarySubnetCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeleteSecondarySubnet", {})
-  .n("EC2Client", "DeleteSecondarySubnetCommand")
-  .sc(DeleteSecondarySubnet$)
-  .build() {
+export class DeleteSecondarySubnetCommand extends command<DeleteSecondarySubnetCommandInput, DeleteSecondarySubnetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSecondarySubnet",
+  DeleteSecondarySubnet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

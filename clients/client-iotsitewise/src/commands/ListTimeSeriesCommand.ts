@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTimeSeriesRequest, ListTimeSeriesResponse } from "../models/models_1";
 import { ListTimeSeries$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListTimeSeries$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface ListTimeSeriesCommandOutput extends ListTimeSeriesResponse, __M
  *
  * @public
  */
-export class ListTimeSeriesCommand extends $Command
-  .classBuilder<
-    ListTimeSeriesCommandInput,
-    ListTimeSeriesCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "ListTimeSeries", {})
-  .n("IoTSiteWiseClient", "ListTimeSeriesCommand")
-  .sc(ListTimeSeries$)
-  .build() {
+export class ListTimeSeriesCommand extends command<ListTimeSeriesCommandInput, ListTimeSeriesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTimeSeries",
+  ListTimeSeries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

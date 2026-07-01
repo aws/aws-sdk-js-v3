@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteLookupTableRequest } from "../models/models_0";
 import { DeleteLookupTable$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteLookupTable$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +67,12 @@ export interface DeleteLookupTableCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteLookupTableCommand extends $Command
-  .classBuilder<
-    DeleteLookupTableCommandInput,
-    DeleteLookupTableCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "DeleteLookupTable", {})
-  .n("CloudWatchLogsClient", "DeleteLookupTableCommand")
-  .sc(DeleteLookupTable$)
-  .build() {
+export class DeleteLookupTableCommand extends command<DeleteLookupTableCommandInput, DeleteLookupTableCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteLookupTable",
+  DeleteLookupTable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

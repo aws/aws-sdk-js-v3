@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RetrieveMemoryRecordsInput, RetrieveMemoryRecordsOutput } from "../models/models_1";
 import { RetrieveMemoryRecords$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { RetrieveMemoryRecords$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -135,22 +127,12 @@ export interface RetrieveMemoryRecordsCommandOutput extends RetrieveMemoryRecord
  *
  * @public
  */
-export class RetrieveMemoryRecordsCommand extends $Command
-  .classBuilder<
-    RetrieveMemoryRecordsCommandInput,
-    RetrieveMemoryRecordsCommandOutput,
-    BedrockAgentCoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCore", "RetrieveMemoryRecords", {})
-  .n("BedrockAgentCoreClient", "RetrieveMemoryRecordsCommand")
-  .sc(RetrieveMemoryRecords$)
-  .build() {
+export class RetrieveMemoryRecordsCommand extends command<RetrieveMemoryRecordsCommandInput, RetrieveMemoryRecordsCommandOutput>(
+  _ep0,
+  _mw0,
+  "RetrieveMemoryRecords",
+  RetrieveMemoryRecords$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

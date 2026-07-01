@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EnableDomainAutoRenewRequest, EnableDomainAutoRenewResponse } from "../models/models_0";
-import type {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53DomainsClient";
 import { EnableDomainAutoRenew$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface EnableDomainAutoRenewCommandOutput extends EnableDomainAutoRene
  *
  * @public
  */
-export class EnableDomainAutoRenewCommand extends $Command
-  .classBuilder<
-    EnableDomainAutoRenewCommandInput,
-    EnableDomainAutoRenewCommandOutput,
-    Route53DomainsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Domains_v20140515", "EnableDomainAutoRenew", {})
-  .n("Route53DomainsClient", "EnableDomainAutoRenewCommand")
-  .sc(EnableDomainAutoRenew$)
-  .build() {
+export class EnableDomainAutoRenewCommand extends command<EnableDomainAutoRenewCommandInput, EnableDomainAutoRenewCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableDomainAutoRenew",
+  EnableDomainAutoRenew$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

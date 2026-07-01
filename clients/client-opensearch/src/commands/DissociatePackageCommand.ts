@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DissociatePackageRequest, DissociatePackageResponse } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { DissociatePackage$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface DissociatePackageCommandOutput extends DissociatePackageRespons
  *
  * @public
  */
-export class DissociatePackageCommand extends $Command
-  .classBuilder<
-    DissociatePackageCommandInput,
-    DissociatePackageCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "DissociatePackage", {})
-  .n("OpenSearchClient", "DissociatePackageCommand")
-  .sc(DissociatePackage$)
-  .build() {
+export class DissociatePackageCommand extends command<DissociatePackageCommandInput, DissociatePackageCommandOutput>(
+  _ep0,
+  _mw0,
+  "DissociatePackage",
+  DissociatePackage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

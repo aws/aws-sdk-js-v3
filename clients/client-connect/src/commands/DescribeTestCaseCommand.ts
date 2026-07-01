@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeTestCaseRequest, DescribeTestCaseResponse } from "../models/models_1";
 import { DescribeTestCase$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeTestCase$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface DescribeTestCaseCommandOutput extends DescribeTestCaseResponse,
  *
  * @public
  */
-export class DescribeTestCaseCommand extends $Command
-  .classBuilder<
-    DescribeTestCaseCommandInput,
-    DescribeTestCaseCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DescribeTestCase", {})
-  .n("ConnectClient", "DescribeTestCaseCommand")
-  .sc(DescribeTestCase$)
-  .build() {
+export class DescribeTestCaseCommand extends command<DescribeTestCaseCommandInput, DescribeTestCaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeTestCase",
+  DescribeTestCase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

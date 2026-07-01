@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateVolumeRequest, UpdateVolumeResponse } from "../models/models_0";
 import { UpdateVolume$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateVolume$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -750,22 +746,12 @@ export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __Metad
  *
  * @public
  */
-export class UpdateVolumeCommand extends $Command
-  .classBuilder<
-    UpdateVolumeCommandInput,
-    UpdateVolumeCommandOutput,
-    FSxClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSimbaAPIService_v20180301", "UpdateVolume", {})
-  .n("FSxClient", "UpdateVolumeCommand")
-  .sc(UpdateVolume$)
-  .build() {
+export class UpdateVolumeCommand extends command<UpdateVolumeCommandInput, UpdateVolumeCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateVolume",
+  UpdateVolume$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchDisassociateResourceRequest, BatchDisassociateResourceResponse } from "../models/models_0";
 import { BatchDisassociateResource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchDisassociateResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface BatchDisassociateResourceCommandOutput extends BatchDisassociat
  *
  * @public
  */
-export class BatchDisassociateResourceCommand extends $Command
-  .classBuilder<
-    BatchDisassociateResourceCommandInput,
-    BatchDisassociateResourceCommandOutput,
-    FMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSFMS_20180101", "BatchDisassociateResource", {})
-  .n("FMSClient", "BatchDisassociateResourceCommand")
-  .sc(BatchDisassociateResource$)
-  .build() {
+export class BatchDisassociateResourceCommand extends command<BatchDisassociateResourceCommandInput, BatchDisassociateResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDisassociateResource",
+  BatchDisassociateResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EnableAWSOrganizationsAccessInput, EnableAWSOrganizationsAccessOutput } from "../models/models_0";
 import { EnableAWSOrganizationsAccess$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface EnableAWSOrganizationsAccessCommandOutput extends EnableAWSOrga
  *
  * @public
  */
-export class EnableAWSOrganizationsAccessCommand extends $Command
-  .classBuilder<
-    EnableAWSOrganizationsAccessCommandInput,
-    EnableAWSOrganizationsAccessCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "EnableAWSOrganizationsAccess", {})
-  .n("ServiceCatalogClient", "EnableAWSOrganizationsAccessCommand")
-  .sc(EnableAWSOrganizationsAccess$)
-  .build() {
+export class EnableAWSOrganizationsAccessCommand extends command<EnableAWSOrganizationsAccessCommandInput, EnableAWSOrganizationsAccessCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableAWSOrganizationsAccess",
+  EnableAWSOrganizationsAccess$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

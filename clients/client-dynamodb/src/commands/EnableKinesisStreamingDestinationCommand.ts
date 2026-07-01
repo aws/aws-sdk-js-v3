@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep2, _mw0, command } from "../commandBuilder";
 import type { KinesisStreamingDestinationInput, KinesisStreamingDestinationOutput } from "../models/models_0";
 import { EnableKinesisStreamingDestination$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { EnableKinesisStreamingDestination$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,25 +111,12 @@ export interface EnableKinesisStreamingDestinationCommandOutput extends KinesisS
  *
  * @public
  */
-export class EnableKinesisStreamingDestinationCommand extends $Command
-  .classBuilder<
-    EnableKinesisStreamingDestinationCommandInput,
-    EnableKinesisStreamingDestinationCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "contextParams", name: "TableName" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "EnableKinesisStreamingDestination", {})
-  .n("DynamoDBClient", "EnableKinesisStreamingDestinationCommand")
-  .sc(EnableKinesisStreamingDestination$)
-  .build() {
+export class EnableKinesisStreamingDestinationCommand extends command<EnableKinesisStreamingDestinationCommandInput, EnableKinesisStreamingDestinationCommandOutput>(
+  _ep2,
+  _mw0,
+  "EnableKinesisStreamingDestination",
+  EnableKinesisStreamingDestination$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

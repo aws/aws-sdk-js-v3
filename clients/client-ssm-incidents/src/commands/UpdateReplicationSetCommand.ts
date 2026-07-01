@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateReplicationSetInput, UpdateReplicationSetOutput } from "../models/models_0";
 import { UpdateReplicationSet$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface UpdateReplicationSetCommandOutput extends UpdateReplicationSetO
  *
  * @public
  */
-export class UpdateReplicationSetCommand extends $Command
-  .classBuilder<
-    UpdateReplicationSetCommandInput,
-    UpdateReplicationSetCommandOutput,
-    SSMIncidentsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMIncidentsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMIncidents", "UpdateReplicationSet", {})
-  .n("SSMIncidentsClient", "UpdateReplicationSetCommand")
-  .sc(UpdateReplicationSet$)
-  .build() {
+export class UpdateReplicationSetCommand extends command<UpdateReplicationSetCommandInput, UpdateReplicationSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateReplicationSet",
+  UpdateReplicationSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

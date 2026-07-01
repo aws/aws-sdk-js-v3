@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMessagingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMessagingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListChannelsModeratedByAppInstanceUserRequest,
   ListChannelsModeratedByAppInstanceUserResponse,
@@ -19,7 +12,6 @@ import { ListChannelsModeratedByAppInstanceUser$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface ListChannelsModeratedByAppInstanceUserCommandOutput extends Lis
  *
  * @public
  */
-export class ListChannelsModeratedByAppInstanceUserCommand extends $Command
-  .classBuilder<
-    ListChannelsModeratedByAppInstanceUserCommandInput,
-    ListChannelsModeratedByAppInstanceUserCommandOutput,
-    ChimeSDKMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeMessagingService", "ListChannelsModeratedByAppInstanceUser", {})
-  .n("ChimeSDKMessagingClient", "ListChannelsModeratedByAppInstanceUserCommand")
-  .sc(ListChannelsModeratedByAppInstanceUser$)
-  .build() {
+export class ListChannelsModeratedByAppInstanceUserCommand extends command<ListChannelsModeratedByAppInstanceUserCommandInput, ListChannelsModeratedByAppInstanceUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListChannelsModeratedByAppInstanceUser",
+  ListChannelsModeratedByAppInstanceUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

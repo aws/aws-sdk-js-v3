@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAppMonitorRequest, DeleteAppMonitorResponse } from "../models/models_0";
-import type { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 import { DeleteAppMonitor$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteAppMonitorCommandOutput extends DeleteAppMonitorResponse,
  *
  * @public
  */
-export class DeleteAppMonitorCommand extends $Command
-  .classBuilder<
-    DeleteAppMonitorCommandInput,
-    DeleteAppMonitorCommandOutput,
-    RUMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RUMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RUM", "DeleteAppMonitor", {})
-  .n("RUMClient", "DeleteAppMonitorCommand")
-  .sc(DeleteAppMonitor$)
-  .build() {
+export class DeleteAppMonitorCommand extends command<DeleteAppMonitorCommandInput, DeleteAppMonitorCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAppMonitor",
+  DeleteAppMonitor$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

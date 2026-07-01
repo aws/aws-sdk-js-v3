@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartSchemaCreationRequest, StartSchemaCreationResponse } from "../models/models_0";
 import { StartSchemaCreation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartSchemaCreation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface StartSchemaCreationCommandOutput extends StartSchemaCreationRes
  *
  * @public
  */
-export class StartSchemaCreationCommand extends $Command
-  .classBuilder<
-    StartSchemaCreationCommandInput,
-    StartSchemaCreationCommandOutput,
-    AppSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepdishControlPlaneService", "StartSchemaCreation", {})
-  .n("AppSyncClient", "StartSchemaCreationCommand")
-  .sc(StartSchemaCreation$)
-  .build() {
+export class StartSchemaCreationCommand extends command<StartSchemaCreationCommandInput, StartSchemaCreationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartSchemaCreation",
+  StartSchemaCreation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

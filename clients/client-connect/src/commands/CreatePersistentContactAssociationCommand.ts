@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreatePersistentContactAssociationRequest,
   CreatePersistentContactAssociationResponse,
@@ -15,7 +12,6 @@ import { CreatePersistentContactAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface CreatePersistentContactAssociationCommandOutput extends CreateP
  *
  * @public
  */
-export class CreatePersistentContactAssociationCommand extends $Command
-  .classBuilder<
-    CreatePersistentContactAssociationCommandInput,
-    CreatePersistentContactAssociationCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "CreatePersistentContactAssociation", {})
-  .n("ConnectClient", "CreatePersistentContactAssociationCommand")
-  .sc(CreatePersistentContactAssociation$)
-  .build() {
+export class CreatePersistentContactAssociationCommand extends command<CreatePersistentContactAssociationCommandInput, CreatePersistentContactAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePersistentContactAssociation",
+  CreatePersistentContactAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDataflowEndpointGroupRequest, GetDataflowEndpointGroupResponse } from "../models/models_0";
 import { GetDataflowEndpointGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDataflowEndpointGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -168,22 +164,12 @@ export interface GetDataflowEndpointGroupCommandOutput extends GetDataflowEndpoi
  *
  * @public
  */
-export class GetDataflowEndpointGroupCommand extends $Command
-  .classBuilder<
-    GetDataflowEndpointGroupCommandInput,
-    GetDataflowEndpointGroupCommandOutput,
-    GroundStationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GroundStation", "GetDataflowEndpointGroup", {})
-  .n("GroundStationClient", "GetDataflowEndpointGroupCommand")
-  .sc(GetDataflowEndpointGroup$)
-  .build() {
+export class GetDataflowEndpointGroupCommand extends command<GetDataflowEndpointGroupCommandInput, GetDataflowEndpointGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDataflowEndpointGroup",
+  GetDataflowEndpointGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

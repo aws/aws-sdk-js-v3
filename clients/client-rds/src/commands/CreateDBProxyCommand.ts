@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDBProxyRequest, CreateDBProxyResponse } from "../models/models_0";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { CreateDBProxy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface CreateDBProxyCommandOutput extends CreateDBProxyResponse, __Met
  *
  * @public
  */
-export class CreateDBProxyCommand extends $Command
-  .classBuilder<
-    CreateDBProxyCommandInput,
-    CreateDBProxyCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "CreateDBProxy", {})
-  .n("RDSClient", "CreateDBProxyCommand")
-  .sc(CreateDBProxy$)
-  .build() {
+export class CreateDBProxyCommand extends command<CreateDBProxyCommandInput, CreateDBProxyCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDBProxy",
+  CreateDBProxy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDataSetRequest, UpdateDataSetResponse } from "../models/models_5";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { UpdateDataSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -775,22 +771,12 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *
  * @public
  */
-export class UpdateDataSetCommand extends $Command
-  .classBuilder<
-    UpdateDataSetCommandInput,
-    UpdateDataSetCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "UpdateDataSet", {})
-  .n("QuickSightClient", "UpdateDataSetCommand")
-  .sc(UpdateDataSet$)
-  .build() {
+export class UpdateDataSetCommand extends command<UpdateDataSetCommandInput, UpdateDataSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDataSet",
+  UpdateDataSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

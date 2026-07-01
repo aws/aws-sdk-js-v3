@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateResourceSharePermissionRequest,
   DisassociateResourceSharePermissionResponse,
 } from "../models/models_0";
-import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import { DisassociateResourceSharePermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface DisassociateResourceSharePermissionCommandOutput extends Disass
  *
  * @public
  */
-export class DisassociateResourceSharePermissionCommand extends $Command
-  .classBuilder<
-    DisassociateResourceSharePermissionCommandInput,
-    DisassociateResourceSharePermissionCommandOutput,
-    RAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonResourceSharing", "DisassociateResourceSharePermission", {})
-  .n("RAMClient", "DisassociateResourceSharePermissionCommand")
-  .sc(DisassociateResourceSharePermission$)
-  .build() {
+export class DisassociateResourceSharePermissionCommand extends command<DisassociateResourceSharePermissionCommandInput, DisassociateResourceSharePermissionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateResourceSharePermission",
+  DisassociateResourceSharePermission$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetImageBlockPublicAccessStateRequest, GetImageBlockPublicAccessStateResult } from "../models/models_6";
 import { GetImageBlockPublicAccessState$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetImageBlockPublicAccessState$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface GetImageBlockPublicAccessStateCommandOutput extends GetImageBlo
  *
  * @public
  */
-export class GetImageBlockPublicAccessStateCommand extends $Command
-  .classBuilder<
-    GetImageBlockPublicAccessStateCommandInput,
-    GetImageBlockPublicAccessStateCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "GetImageBlockPublicAccessState", {})
-  .n("EC2Client", "GetImageBlockPublicAccessStateCommand")
-  .sc(GetImageBlockPublicAccessState$)
-  .build() {
+export class GetImageBlockPublicAccessStateCommand extends command<GetImageBlockPublicAccessStateCommandInput, GetImageBlockPublicAccessStateCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetImageBlockPublicAccessState",
+  GetImageBlockPublicAccessState$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

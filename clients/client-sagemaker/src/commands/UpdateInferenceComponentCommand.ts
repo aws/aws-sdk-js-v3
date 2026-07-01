@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateInferenceComponentInput, UpdateInferenceComponentOutput } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { UpdateInferenceComponent$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -168,22 +164,12 @@ export interface UpdateInferenceComponentCommandOutput extends UpdateInferenceCo
  *
  * @public
  */
-export class UpdateInferenceComponentCommand extends $Command
-  .classBuilder<
-    UpdateInferenceComponentCommandInput,
-    UpdateInferenceComponentCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "UpdateInferenceComponent", {})
-  .n("SageMakerClient", "UpdateInferenceComponentCommand")
-  .sc(UpdateInferenceComponent$)
-  .build() {
+export class UpdateInferenceComponentCommand extends command<UpdateInferenceComponentCommandInput, UpdateInferenceComponentCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateInferenceComponent",
+  UpdateInferenceComponent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

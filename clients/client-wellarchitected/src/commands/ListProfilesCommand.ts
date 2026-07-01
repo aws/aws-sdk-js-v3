@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListProfilesInput, ListProfilesOutput } from "../models/models_0";
 import { ListProfiles$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WellArchitectedClientResolvedConfig,
-} from "../WellArchitectedClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface ListProfilesCommandOutput extends ListProfilesOutput, __Metadat
  *
  * @public
  */
-export class ListProfilesCommand extends $Command
-  .classBuilder<
-    ListProfilesCommandInput,
-    ListProfilesCommandOutput,
-    WellArchitectedClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WellArchitectedApiServiceLambda", "ListProfiles", {})
-  .n("WellArchitectedClient", "ListProfilesCommand")
-  .sc(ListProfiles$)
-  .build() {
+export class ListProfilesCommand extends command<ListProfilesCommandInput, ListProfilesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListProfiles",
+  ListProfiles$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getLongPollPlugin } from "@aws-sdk/core/client";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { GetActivityTaskInput, GetActivityTaskOutput } from "../models/models_0";
 import { GetActivityTask$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,25 +91,12 @@ export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __M
  *
  * @public
  */
-export class GetActivityTaskCommand extends $Command
-  .classBuilder<
-    GetActivityTaskCommandInput,
-    GetActivityTaskCommandOutput,
-    SFNClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getLongPollPlugin(config),
-    ];
-  })
-  .s("AWSStepFunctions", "GetActivityTask", {})
-  .n("SFNClient", "GetActivityTaskCommand")
-  .sc(GetActivityTask$)
-  .build() {
+export class GetActivityTaskCommand extends command<GetActivityTaskCommandInput, GetActivityTaskCommandOutput>(
+  _ep0,
+  _mw1,
+  "GetActivityTask",
+  GetActivityTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

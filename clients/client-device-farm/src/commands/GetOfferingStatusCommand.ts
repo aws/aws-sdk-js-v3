@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetOfferingStatusRequest, GetOfferingStatusResult } from "../models/models_0";
 import { GetOfferingStatus$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetOfferingStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface GetOfferingStatusCommandOutput extends GetOfferingStatusResult,
  *
  * @public
  */
-export class GetOfferingStatusCommand extends $Command
-  .classBuilder<
-    GetOfferingStatusCommandInput,
-    GetOfferingStatusCommandOutput,
-    DeviceFarmClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DeviceFarm_20150623", "GetOfferingStatus", {})
-  .n("DeviceFarmClient", "GetOfferingStatusCommand")
-  .sc(GetOfferingStatus$)
-  .build() {
+export class GetOfferingStatusCommand extends command<GetOfferingStatusCommandInput, GetOfferingStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetOfferingStatus",
+  GetOfferingStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

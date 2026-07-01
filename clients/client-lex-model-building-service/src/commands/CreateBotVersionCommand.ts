@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LexModelBuildingServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LexModelBuildingServiceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateBotVersionRequest, CreateBotVersionResponse } from "../models/models_0";
 import { CreateBotVersion$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateBotVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -142,22 +134,12 @@ export interface CreateBotVersionCommandOutput extends CreateBotVersionResponse,
  *
  * @public
  */
-export class CreateBotVersionCommand extends $Command
-  .classBuilder<
-    CreateBotVersionCommandInput,
-    CreateBotVersionCommandOutput,
-    LexModelBuildingServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepSenseModelBuildingService", "CreateBotVersion", {})
-  .n("LexModelBuildingServiceClient", "CreateBotVersionCommand")
-  .sc(CreateBotVersion$)
-  .build() {
+export class CreateBotVersionCommand extends command<CreateBotVersionCommandInput, CreateBotVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateBotVersion",
+  CreateBotVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateTeamsChannelConfigurationRequest, UpdateTeamsChannelConfigurationResult } from "../models/models_0";
 import { UpdateMicrosoftTeamsChannelConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateMicrosoftTeamsChannelConfiguration$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface UpdateMicrosoftTeamsChannelConfigurationCommandOutput extends U
  *
  * @public
  */
-export class UpdateMicrosoftTeamsChannelConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateMicrosoftTeamsChannelConfigurationCommandInput,
-    UpdateMicrosoftTeamsChannelConfigurationCommandOutput,
-    ChatbotClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WheatleyOrchestration_20171011", "UpdateMicrosoftTeamsChannelConfiguration", {})
-  .n("ChatbotClient", "UpdateMicrosoftTeamsChannelConfigurationCommand")
-  .sc(UpdateMicrosoftTeamsChannelConfiguration$)
-  .build() {
+export class UpdateMicrosoftTeamsChannelConfigurationCommand extends command<UpdateMicrosoftTeamsChannelConfigurationCommandInput, UpdateMicrosoftTeamsChannelConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateMicrosoftTeamsChannelConfiguration",
+  UpdateMicrosoftTeamsChannelConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

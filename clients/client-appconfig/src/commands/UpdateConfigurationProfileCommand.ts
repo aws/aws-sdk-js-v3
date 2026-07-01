@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ConfigurationProfile, UpdateConfigurationProfileRequest } from "../models/models_0";
 import { UpdateConfigurationProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateConfigurationProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +111,12 @@ export interface UpdateConfigurationProfileCommandOutput extends ConfigurationPr
  *
  * @public
  */
-export class UpdateConfigurationProfileCommand extends $Command
-  .classBuilder<
-    UpdateConfigurationProfileCommandInput,
-    UpdateConfigurationProfileCommandOutput,
-    AppConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAppConfig", "UpdateConfigurationProfile", {})
-  .n("AppConfigClient", "UpdateConfigurationProfileCommand")
-  .sc(UpdateConfigurationProfile$)
-  .build() {
+export class UpdateConfigurationProfileCommand extends command<UpdateConfigurationProfileCommandInput, UpdateConfigurationProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateConfigurationProfile",
+  UpdateConfigurationProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

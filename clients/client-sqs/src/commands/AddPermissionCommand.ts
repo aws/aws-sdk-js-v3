@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddPermissionRequest } from "../models/models_0";
 import { AddPermission$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface AddPermissionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class AddPermissionCommand extends $Command
-  .classBuilder<
-    AddPermissionCommandInput,
-    AddPermissionCommandOutput,
-    SQSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSQS", "AddPermission", {})
-  .n("SQSClient", "AddPermissionCommand")
-  .sc(AddPermission$)
-  .build() {
+export class AddPermissionCommand extends command<AddPermissionCommandInput, AddPermissionCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddPermission",
+  AddPermission$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

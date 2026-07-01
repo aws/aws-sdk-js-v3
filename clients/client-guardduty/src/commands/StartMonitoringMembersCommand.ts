@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartMonitoringMembersRequest, StartMonitoringMembersResponse } from "../models/models_1";
 import { StartMonitoringMembers$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartMonitoringMembers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface StartMonitoringMembersCommandOutput extends StartMonitoringMemb
  *
  * @public
  */
-export class StartMonitoringMembersCommand extends $Command
-  .classBuilder<
-    StartMonitoringMembersCommandInput,
-    StartMonitoringMembersCommandOutput,
-    GuardDutyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GuardDutyAPIService", "StartMonitoringMembers", {})
-  .n("GuardDutyClient", "StartMonitoringMembersCommand")
-  .sc(StartMonitoringMembers$)
-  .build() {
+export class StartMonitoringMembersCommand extends command<StartMonitoringMembersCommandInput, StartMonitoringMembersCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartMonitoringMembers",
+  StartMonitoringMembers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

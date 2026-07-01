@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFindingStatisticsRequest, GetFindingStatisticsResponse } from "../models/models_0";
 import { GetFindingStatistics$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetFindingStatistics$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface GetFindingStatisticsCommandOutput extends GetFindingStatisticsR
  *
  * @public
  */
-export class GetFindingStatisticsCommand extends $Command
-  .classBuilder<
-    GetFindingStatisticsCommandInput,
-    GetFindingStatisticsCommandOutput,
-    Macie2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Macie2", "GetFindingStatistics", {})
-  .n("Macie2Client", "GetFindingStatisticsCommand")
-  .sc(GetFindingStatistics$)
-  .build() {
+export class GetFindingStatisticsCommand extends command<GetFindingStatisticsCommandInput, GetFindingStatisticsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFindingStatistics",
+  GetFindingStatistics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

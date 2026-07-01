@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutPermissionsBoundaryToPermissionSetRequest,
   PutPermissionsBoundaryToPermissionSetResponse,
 } from "../models/models_0";
 import { PutPermissionsBoundaryToPermissionSet$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface PutPermissionsBoundaryToPermissionSetCommandOutput extends PutP
  *
  * @public
  */
-export class PutPermissionsBoundaryToPermissionSetCommand extends $Command
-  .classBuilder<
-    PutPermissionsBoundaryToPermissionSetCommandInput,
-    PutPermissionsBoundaryToPermissionSetCommandOutput,
-    SSOAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBExternalService", "PutPermissionsBoundaryToPermissionSet", {})
-  .n("SSOAdminClient", "PutPermissionsBoundaryToPermissionSetCommand")
-  .sc(PutPermissionsBoundaryToPermissionSet$)
-  .build() {
+export class PutPermissionsBoundaryToPermissionSetCommand extends command<PutPermissionsBoundaryToPermissionSetCommandInput, PutPermissionsBoundaryToPermissionSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutPermissionsBoundaryToPermissionSet",
+  PutPermissionsBoundaryToPermissionSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

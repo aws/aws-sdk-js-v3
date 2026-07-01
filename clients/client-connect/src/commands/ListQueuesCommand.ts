@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListQueuesRequest, ListQueuesResponse } from "../models/models_2";
 import { ListQueues$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListQueues$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  *
  * @public
  */
-export class ListQueuesCommand extends $Command
-  .classBuilder<
-    ListQueuesCommandInput,
-    ListQueuesCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "ListQueues", {})
-  .n("ConnectClient", "ListQueuesCommand")
-  .sc(ListQueues$)
-  .build() {
+export class ListQueuesCommand extends command<ListQueuesCommandInput, ListQueuesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListQueues",
+  ListQueues$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

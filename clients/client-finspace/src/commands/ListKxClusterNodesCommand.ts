@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListKxClusterNodesRequest, ListKxClusterNodesResponse } from "../models/models_0";
 import { ListKxClusterNodes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListKxClusterNodes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ListKxClusterNodesCommandOutput extends ListKxClusterNodesRespo
  *
  * @public
  */
-export class ListKxClusterNodesCommand extends $Command
-  .classBuilder<
-    ListKxClusterNodesCommandInput,
-    ListKxClusterNodesCommandOutput,
-    FinspaceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHabaneroManagementService", "ListKxClusterNodes", {})
-  .n("FinspaceClient", "ListKxClusterNodesCommand")
-  .sc(ListKxClusterNodes$)
-  .build() {
+export class ListKxClusterNodesCommand extends command<ListKxClusterNodesCommandInput, ListKxClusterNodesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListKxClusterNodes",
+  ListKxClusterNodes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSessionRequest, CreateSessionResponse } from "../models/models_0";
 import { CreateSession$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  *
  * @public
  */
-export class CreateSessionCommand extends $Command
-  .classBuilder<
-    CreateSessionCommandInput,
-    CreateSessionCommandOutput,
-    WisdomClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "CreateSession", {})
-  .n("WisdomClient", "CreateSessionCommand")
-  .sc(CreateSession$)
-  .build() {
+export class CreateSessionCommand extends command<CreateSessionCommandInput, CreateSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSession",
+  CreateSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

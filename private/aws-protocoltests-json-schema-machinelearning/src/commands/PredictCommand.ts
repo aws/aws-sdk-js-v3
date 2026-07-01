@@ -1,15 +1,7 @@
 // smithy-typescript generated code
-import { getPredictEndpointPlugin } from "@aws-sdk/middleware-sdk-machinelearning";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MachineLearningClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MachineLearningClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PredictInput, PredictOutput } from "../models/models_0";
 import { Predict$ } from "../schemas/schemas_0";
 
@@ -17,7 +9,6 @@ import { Predict$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,25 +78,12 @@ export interface PredictCommandOutput extends PredictOutput, __MetadataBearer {}
  *
  *
  */
-export class PredictCommand extends $Command
-  .classBuilder<
-    PredictCommandInput,
-    PredictCommandOutput,
-    MachineLearningClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getPredictEndpointPlugin(config),
-    ];
-  })
-  .s("AmazonML_20141212", "Predict", {})
-  .n("MachineLearningClient", "PredictCommand")
-  .sc(Predict$)
-  .build() {
+export class PredictCommand extends command<PredictCommandInput, PredictCommandOutput>(
+  _ep0,
+  _mw0,
+  "Predict",
+  Predict$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteHostedZoneRequest, DeleteHostedZoneResponse } from "../models/models_0";
-import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 import { DeleteHostedZone$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,25 +120,12 @@ export interface DeleteHostedZoneCommandOutput extends DeleteHostedZoneResponse,
  *
  * @public
  */
-export class DeleteHostedZoneCommand extends $Command
-  .classBuilder<
-    DeleteHostedZoneCommandInput,
-    DeleteHostedZoneCommandOutput,
-    Route53ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getIdNormalizerPlugin(config),
-    ];
-  })
-  .s("AWSDnsV20130401", "DeleteHostedZone", {})
-  .n("Route53Client", "DeleteHostedZoneCommand")
-  .sc(DeleteHostedZone$)
-  .build() {
+export class DeleteHostedZoneCommand extends command<DeleteHostedZoneCommandInput, DeleteHostedZoneCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteHostedZone",
+  DeleteHostedZone$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

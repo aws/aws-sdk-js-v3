@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListListenersRequest, ListListenersResponse } from "../models/models_0";
 import { ListListeners$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface ListListenersCommandOutput extends ListListenersResponse, __Met
  *
  * @public
  */
-export class ListListenersCommand extends $Command
-  .classBuilder<
-    ListListenersCommandInput,
-    ListListenersCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "ListListeners", {})
-  .n("VPCLatticeClient", "ListListenersCommand")
-  .sc(ListListeners$)
-  .build() {
+export class ListListenersCommand extends command<ListListenersCommandInput, ListListenersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListListeners",
+  ListListeners$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

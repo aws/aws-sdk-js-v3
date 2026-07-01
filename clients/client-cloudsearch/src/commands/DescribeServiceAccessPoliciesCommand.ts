@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeServiceAccessPoliciesRequest, DescribeServiceAccessPoliciesResponse } from "../models/models_0";
 import { DescribeServiceAccessPolicies$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeServiceAccessPolicies$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface DescribeServiceAccessPoliciesCommandOutput extends DescribeServ
  *
  * @public
  */
-export class DescribeServiceAccessPoliciesCommand extends $Command
-  .classBuilder<
-    DescribeServiceAccessPoliciesCommandInput,
-    DescribeServiceAccessPoliciesCommandOutput,
-    CloudSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("A9SearchCloudConfigService2013", "DescribeServiceAccessPolicies", {})
-  .n("CloudSearchClient", "DescribeServiceAccessPoliciesCommand")
-  .sc(DescribeServiceAccessPolicies$)
-  .build() {
+export class DescribeServiceAccessPoliciesCommand extends command<DescribeServiceAccessPoliciesCommandInput, DescribeServiceAccessPoliciesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeServiceAccessPolicies",
+  DescribeServiceAccessPolicies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

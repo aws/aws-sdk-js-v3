@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateContactFlowNameRequest, UpdateContactFlowNameResponse } from "../models/models_3";
 import { UpdateContactFlowName$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateContactFlowName$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface UpdateContactFlowNameCommandOutput extends UpdateContactFlowNam
  *
  * @public
  */
-export class UpdateContactFlowNameCommand extends $Command
-  .classBuilder<
-    UpdateContactFlowNameCommandInput,
-    UpdateContactFlowNameCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "UpdateContactFlowName", {})
-  .n("ConnectClient", "UpdateContactFlowNameCommand")
-  .sc(UpdateContactFlowName$)
-  .build() {
+export class UpdateContactFlowNameCommand extends command<UpdateContactFlowNameCommandInput, UpdateContactFlowNameCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateContactFlowName",
+  UpdateContactFlowName$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StartNetworkMigrationMappingUpdateRequest,
   StartNetworkMigrationMappingUpdateResponse,
@@ -15,7 +12,6 @@ import { StartNetworkMigrationMappingUpdate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -162,22 +158,12 @@ export interface StartNetworkMigrationMappingUpdateCommandOutput extends StartNe
  *
  * @public
  */
-export class StartNetworkMigrationMappingUpdateCommand extends $Command
-  .classBuilder<
-    StartNetworkMigrationMappingUpdateCommandInput,
-    StartNetworkMigrationMappingUpdateCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "StartNetworkMigrationMappingUpdate", {})
-  .n("MgnClient", "StartNetworkMigrationMappingUpdateCommand")
-  .sc(StartNetworkMigrationMappingUpdate$)
-  .build() {
+export class StartNetworkMigrationMappingUpdateCommand extends command<StartNetworkMigrationMappingUpdateCommandInput, StartNetworkMigrationMappingUpdateCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartNetworkMigrationMappingUpdate",
+  StartNetworkMigrationMappingUpdate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

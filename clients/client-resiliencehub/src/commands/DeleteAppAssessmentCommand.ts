@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAppAssessmentRequest, DeleteAppAssessmentResponse } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { DeleteAppAssessment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface DeleteAppAssessmentCommandOutput extends DeleteAppAssessmentRes
  *
  * @public
  */
-export class DeleteAppAssessmentCommand extends $Command
-  .classBuilder<
-    DeleteAppAssessmentCommandInput,
-    DeleteAppAssessmentCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "DeleteAppAssessment", {})
-  .n("ResiliencehubClient", "DeleteAppAssessmentCommand")
-  .sc(DeleteAppAssessment$)
-  .build() {
+export class DeleteAppAssessmentCommand extends command<DeleteAppAssessmentCommandInput, DeleteAppAssessmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAppAssessment",
+  DeleteAppAssessment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

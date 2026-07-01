@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep5, _mw0, command } from "../commandBuilder";
 import type { DeleteObjectTaggingOutput, DeleteObjectTaggingRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { DeleteObjectTagging$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,28 +116,12 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  *
  * @public
  */
-export class DeleteObjectTaggingCommand extends $Command
-  .classBuilder<
-    DeleteObjectTaggingCommandInput,
-    DeleteObjectTaggingCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "DeleteObjectTagging", {})
-  .n("S3Client", "DeleteObjectTaggingCommand")
-  .sc(DeleteObjectTagging$)
-  .build() {
+export class DeleteObjectTaggingCommand extends command<DeleteObjectTaggingCommandInput, DeleteObjectTaggingCommandOutput>(
+  _ep5,
+  _mw0,
+  "DeleteObjectTagging",
+  DeleteObjectTagging$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

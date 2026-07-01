@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import { Uint8ArrayBlobAdapter } from "@smithy/core/serde";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCodeBindingSourceRequest, GetCodeBindingSourceResponse } from "../models/models_0";
 import { GetCodeBindingSource$ } from "../schemas/schemas_0";
-import type { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceC
  *
  * @public
  */
-export class GetCodeBindingSourceCommand extends $Command
-  .classBuilder<
-    GetCodeBindingSourceCommandInput,
-    GetCodeBindingSourceCommandOutput,
-    SchemasClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SchemasClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("schemas", "GetCodeBindingSource", {})
-  .n("SchemasClient", "GetCodeBindingSourceCommand")
-  .sc(GetCodeBindingSource$)
-  .build() {
+export class GetCodeBindingSourceCommand extends command<GetCodeBindingSourceCommandInput, GetCodeBindingSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCodeBindingSource",
+  GetCodeBindingSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

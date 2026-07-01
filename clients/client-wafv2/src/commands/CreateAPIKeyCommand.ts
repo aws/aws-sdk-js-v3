@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAPIKeyRequest, CreateAPIKeyResponse } from "../models/models_0";
 import { CreateAPIKey$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface CreateAPIKeyCommandOutput extends CreateAPIKeyResponse, __Metad
  *
  * @public
  */
-export class CreateAPIKeyCommand extends $Command
-  .classBuilder<
-    CreateAPIKeyCommandInput,
-    CreateAPIKeyCommandOutput,
-    WAFV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20190729", "CreateAPIKey", {})
-  .n("WAFV2Client", "CreateAPIKeyCommand")
-  .sc(CreateAPIKey$)
-  .build() {
+export class CreateAPIKeyCommand extends command<CreateAPIKeyCommandInput, CreateAPIKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAPIKey",
+  CreateAPIKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

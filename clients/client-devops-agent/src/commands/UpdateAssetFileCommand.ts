@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAssetFileRequest, UpdateAssetFileResponse } from "../models/models_0";
 import { UpdateAssetFile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateAssetFile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface UpdateAssetFileCommandOutput extends UpdateAssetFileResponse, _
  *
  * @public
  */
-export class UpdateAssetFileCommand extends $Command
-  .classBuilder<
-    UpdateAssetFileCommandInput,
-    UpdateAssetFileCommandOutput,
-    DevOpsAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DevOpsAgent", "UpdateAssetFile", {})
-  .n("DevOpsAgentClient", "UpdateAssetFileCommand")
-  .sc(UpdateAssetFile$)
-  .build() {
+export class UpdateAssetFileCommand extends command<UpdateAssetFileCommandInput, UpdateAssetFileCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAssetFile",
+  UpdateAssetFile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

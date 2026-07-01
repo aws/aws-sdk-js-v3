@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListResolverRulesRequest, ListResolverRulesResponse } from "../models/models_0";
-import type {
-  Route53ResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ResolverClient";
 import { ListResolverRules$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +107,12 @@ export interface ListResolverRulesCommandOutput extends ListResolverRulesRespons
  *
  * @public
  */
-export class ListResolverRulesCommand extends $Command
-  .classBuilder<
-    ListResolverRulesCommandInput,
-    ListResolverRulesCommandOutput,
-    Route53ResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Resolver", "ListResolverRules", {})
-  .n("Route53ResolverClient", "ListResolverRulesCommand")
-  .sc(ListResolverRules$)
-  .build() {
+export class ListResolverRulesCommand extends command<ListResolverRulesCommandInput, ListResolverRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListResolverRules",
+  ListResolverRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

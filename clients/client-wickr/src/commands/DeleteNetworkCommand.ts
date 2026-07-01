@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteNetworkRequest, DeleteNetworkResponse } from "../models/models_0";
 import { DeleteNetwork$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface DeleteNetworkCommandOutput extends DeleteNetworkResponse, __Met
  *
  * @public
  */
-export class DeleteNetworkCommand extends $Command
-  .classBuilder<
-    DeleteNetworkCommandInput,
-    DeleteNetworkCommandOutput,
-    WickrClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WickrAdminApi", "DeleteNetwork", {})
-  .n("WickrClient", "DeleteNetworkCommand")
-  .sc(DeleteNetwork$)
-  .build() {
+export class DeleteNetworkCommand extends command<DeleteNetworkCommandInput, DeleteNetworkCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteNetwork",
+  DeleteNetwork$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

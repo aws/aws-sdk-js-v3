@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTaxRegistrationRequest, GetTaxRegistrationResponse } from "../models/models_0";
 import { GetTaxRegistration$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -197,22 +193,12 @@ export interface GetTaxRegistrationCommandOutput extends GetTaxRegistrationRespo
  *
  * @public
  */
-export class GetTaxRegistrationCommand extends $Command
-  .classBuilder<
-    GetTaxRegistrationCommandInput,
-    GetTaxRegistrationCommandOutput,
-    TaxSettingsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TaxSettingsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TaxSettings", "GetTaxRegistration", {})
-  .n("TaxSettingsClient", "GetTaxRegistrationCommand")
-  .sc(GetTaxRegistration$)
-  .build() {
+export class GetTaxRegistrationCommand extends command<GetTaxRegistrationCommandInput, GetTaxRegistrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTaxRegistration",
+  GetTaxRegistration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

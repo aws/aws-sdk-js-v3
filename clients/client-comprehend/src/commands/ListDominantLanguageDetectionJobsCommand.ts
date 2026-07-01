@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListDominantLanguageDetectionJobsRequest,
   ListDominantLanguageDetectionJobsResponse,
@@ -15,7 +12,6 @@ import { ListDominantLanguageDetectionJobs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +114,12 @@ export interface ListDominantLanguageDetectionJobsCommandOutput extends ListDomi
  *
  * @public
  */
-export class ListDominantLanguageDetectionJobsCommand extends $Command
-  .classBuilder<
-    ListDominantLanguageDetectionJobsCommandInput,
-    ListDominantLanguageDetectionJobsCommandOutput,
-    ComprehendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Comprehend_20171127", "ListDominantLanguageDetectionJobs", {})
-  .n("ComprehendClient", "ListDominantLanguageDetectionJobsCommand")
-  .sc(ListDominantLanguageDetectionJobs$)
-  .build() {
+export class ListDominantLanguageDetectionJobsCommand extends command<ListDominantLanguageDetectionJobsCommandInput, ListDominantLanguageDetectionJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDominantLanguageDetectionJobs",
+  ListDominantLanguageDetectionJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

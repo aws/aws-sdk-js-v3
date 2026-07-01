@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAgentSpaceInput, DeleteAgentSpaceOutput } from "../models/models_0";
 import { DeleteAgentSpace$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAgentSpace$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DeleteAgentSpaceCommandOutput extends DeleteAgentSpaceOutput, _
  *
  * @public
  */
-export class DeleteAgentSpaceCommand extends $Command
-  .classBuilder<
-    DeleteAgentSpaceCommandInput,
-    DeleteAgentSpaceCommandOutput,
-    DevOpsAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DevOpsAgent", "DeleteAgentSpace", {})
-  .n("DevOpsAgentClient", "DeleteAgentSpaceCommand")
-  .sc(DeleteAgentSpace$)
-  .build() {
+export class DeleteAgentSpaceCommand extends command<DeleteAgentSpaceCommandInput, DeleteAgentSpaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAgentSpace",
+  DeleteAgentSpace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

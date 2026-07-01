@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAdmChannelRequest, DeleteAdmChannelResponse } from "../models/models_0";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { DeleteAdmChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface DeleteAdmChannelCommandOutput extends DeleteAdmChannelResponse,
  *
  * @public
  */
-export class DeleteAdmChannelCommand extends $Command
-  .classBuilder<
-    DeleteAdmChannelCommandInput,
-    DeleteAdmChannelCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "DeleteAdmChannel", {})
-  .n("PinpointClient", "DeleteAdmChannelCommand")
-  .sc(DeleteAdmChannel$)
-  .build() {
+export class DeleteAdmChannelCommand extends command<DeleteAdmChannelCommandInput, DeleteAdmChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAdmChannel",
+  DeleteAdmChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

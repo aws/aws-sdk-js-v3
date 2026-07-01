@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAppRequest, UpdateAppResult } from "../models/models_0";
 import { UpdateApp$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateApp$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -189,22 +185,12 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  *
  * @public
  */
-export class UpdateAppCommand extends $Command
-  .classBuilder<
-    UpdateAppCommandInput,
-    UpdateAppCommandOutput,
-    AmplifyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Amplify", "UpdateApp", {})
-  .n("AmplifyClient", "UpdateAppCommand")
-  .sc(UpdateApp$)
-  .build() {
+export class UpdateAppCommand extends command<UpdateAppCommandInput, UpdateAppCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateApp",
+  UpdateApp$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

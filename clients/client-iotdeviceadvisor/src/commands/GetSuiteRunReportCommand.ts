@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IotDeviceAdvisorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IotDeviceAdvisorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSuiteRunReportRequest, GetSuiteRunReportResponse } from "../models/models_0";
 import { GetSuiteRunReport$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetSuiteRunReport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +66,12 @@ export interface GetSuiteRunReportCommandOutput extends GetSuiteRunReportRespons
  *
  * @public
  */
-export class GetSuiteRunReportCommand extends $Command
-  .classBuilder<
-    GetSuiteRunReportCommandInput,
-    GetSuiteRunReportCommandOutput,
-    IotDeviceAdvisorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IotDeviceAdvisorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotSenateService", "GetSuiteRunReport", {})
-  .n("IotDeviceAdvisorClient", "GetSuiteRunReportCommand")
-  .sc(GetSuiteRunReport$)
-  .build() {
+export class GetSuiteRunReportCommand extends command<GetSuiteRunReportCommandInput, GetSuiteRunReportCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSuiteRunReport",
+  GetSuiteRunReport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

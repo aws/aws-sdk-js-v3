@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRawMessageContentRequest, GetRawMessageContentResponse } from "../models/models_0";
 import { GetRawMessageContent$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkMailMessageFlowClientResolvedConfig,
-} from "../WorkMailMessageFlowClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +65,12 @@ export interface GetRawMessageContentCommandOutput extends Omit<GetRawMessageCon
  *
  * @public
  */
-export class GetRawMessageContentCommand extends $Command
-  .classBuilder<
-    GetRawMessageContentCommandInput,
-    GetRawMessageContentCommandOutput,
-    WorkMailMessageFlowClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailMessageFlowClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GiraffeMessageInTransitService", "GetRawMessageContent", {})
-  .n("WorkMailMessageFlowClient", "GetRawMessageContentCommand")
-  .sc(GetRawMessageContent$)
-  .build() {
+export class GetRawMessageContentCommand extends command<GetRawMessageContentCommandInput, GetRawMessageContentCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRawMessageContent",
+  GetRawMessageContent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

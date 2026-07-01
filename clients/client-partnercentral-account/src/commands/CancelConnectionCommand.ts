@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelConnectionRequest, CancelConnectionResponse } from "../models/models_0";
-import type {
-  PartnerCentralAccountClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralAccountClient";
 import { CancelConnection$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +104,12 @@ export interface CancelConnectionCommandOutput extends CancelConnectionResponse,
  *
  * @public
  */
-export class CancelConnectionCommand extends $Command
-  .classBuilder<
-    CancelConnectionCommandInput,
-    CancelConnectionCommandOutput,
-    PartnerCentralAccountClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralAccountClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralAccount", "CancelConnection", {})
-  .n("PartnerCentralAccountClient", "CancelConnectionCommand")
-  .sc(CancelConnection$)
-  .build() {
+export class CancelConnectionCommand extends command<CancelConnectionCommandInput, CancelConnectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelConnection",
+  CancelConnection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

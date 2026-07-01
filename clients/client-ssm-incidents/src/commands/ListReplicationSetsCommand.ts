@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListReplicationSetsInput, ListReplicationSetsOutput } from "../models/models_0";
 import { ListReplicationSets$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig } from "../SSMIncidentsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface ListReplicationSetsCommandOutput extends ListReplicationSetsOut
  *
  * @public
  */
-export class ListReplicationSetsCommand extends $Command
-  .classBuilder<
-    ListReplicationSetsCommandInput,
-    ListReplicationSetsCommandOutput,
-    SSMIncidentsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMIncidentsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMIncidents", "ListReplicationSets", {})
-  .n("SSMIncidentsClient", "ListReplicationSetsCommand")
-  .sc(ListReplicationSets$)
-  .build() {
+export class ListReplicationSetsCommand extends command<ListReplicationSetsCommandInput, ListReplicationSetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListReplicationSets",
+  ListReplicationSets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

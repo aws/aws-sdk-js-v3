@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ResetJobBookmarkRequest, ResetJobBookmarkResponse } from "../models/models_2";
 import { ResetJobBookmark$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ResetJobBookmark$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface ResetJobBookmarkCommandOutput extends ResetJobBookmarkResponse,
  *
  * @public
  */
-export class ResetJobBookmarkCommand extends $Command
-  .classBuilder<
-    ResetJobBookmarkCommandInput,
-    ResetJobBookmarkCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "ResetJobBookmark", {})
-  .n("GlueClient", "ResetJobBookmarkCommand")
-  .sc(ResetJobBookmark$)
-  .build() {
+export class ResetJobBookmarkCommand extends command<ResetJobBookmarkCommandInput, ResetJobBookmarkCommandOutput>(
+  _ep0,
+  _mw0,
+  "ResetJobBookmark",
+  ResetJobBookmark$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

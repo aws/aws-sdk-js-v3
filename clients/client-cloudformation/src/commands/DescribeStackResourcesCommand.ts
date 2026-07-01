@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeStackResourcesInput, DescribeStackResourcesOutput } from "../models/models_0";
 import { DescribeStackResources$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeStackResources$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface DescribeStackResourcesCommandOutput extends DescribeStackResour
  *
  * @public
  */
-export class DescribeStackResourcesCommand extends $Command
-  .classBuilder<
-    DescribeStackResourcesCommandInput,
-    DescribeStackResourcesCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "DescribeStackResources", {})
-  .n("CloudFormationClient", "DescribeStackResourcesCommand")
-  .sc(DescribeStackResources$)
-  .build() {
+export class DescribeStackResourcesCommand extends command<DescribeStackResourcesCommandInput, DescribeStackResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeStackResources",
+  DescribeStackResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

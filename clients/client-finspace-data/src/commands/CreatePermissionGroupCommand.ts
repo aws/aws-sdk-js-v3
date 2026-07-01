@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePermissionGroupRequest, CreatePermissionGroupResponse } from "../models/models_0";
 import { CreatePermissionGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreatePermissionGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface CreatePermissionGroupCommandOutput extends CreatePermissionGrou
  *
  * @public
  */
-export class CreatePermissionGroupCommand extends $Command
-  .classBuilder<
-    CreatePermissionGroupCommandInput,
-    CreatePermissionGroupCommandOutput,
-    FinspaceDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHabaneroPublicAPI", "CreatePermissionGroup", {})
-  .n("FinspaceDataClient", "CreatePermissionGroupCommand")
-  .sc(CreatePermissionGroup$)
-  .build() {
+export class CreatePermissionGroupCommand extends command<CreatePermissionGroupCommandInput, CreatePermissionGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePermissionGroup",
+  CreatePermissionGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

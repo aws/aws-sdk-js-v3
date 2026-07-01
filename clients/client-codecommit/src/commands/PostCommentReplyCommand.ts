@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PostCommentReplyInput, PostCommentReplyOutput } from "../models/models_0";
 import { PostCommentReply$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PostCommentReply$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface PostCommentReplyCommandOutput extends PostCommentReplyOutput, _
  *
  * @public
  */
-export class PostCommentReplyCommand extends $Command
-  .classBuilder<
-    PostCommentReplyCommandInput,
-    PostCommentReplyCommandOutput,
-    CodeCommitClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCommit_20150413", "PostCommentReply", {})
-  .n("CodeCommitClient", "PostCommentReplyCommand")
-  .sc(PostCommentReply$)
-  .build() {
+export class PostCommentReplyCommand extends command<PostCommentReplyCommandInput, PostCommentReplyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PostCommentReply",
+  PostCommentReply$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

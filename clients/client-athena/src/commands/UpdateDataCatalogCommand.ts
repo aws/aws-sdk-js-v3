@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDataCatalogInput, UpdateDataCatalogOutput } from "../models/models_0";
 import { UpdateDataCatalog$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateDataCatalog$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface UpdateDataCatalogCommandOutput extends UpdateDataCatalogOutput,
  *
  * @public
  */
-export class UpdateDataCatalogCommand extends $Command
-  .classBuilder<
-    UpdateDataCatalogCommandInput,
-    UpdateDataCatalogCommandOutput,
-    AthenaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAthena", "UpdateDataCatalog", {})
-  .n("AthenaClient", "UpdateDataCatalogCommand")
-  .sc(UpdateDataCatalog$)
-  .build() {
+export class UpdateDataCatalogCommand extends command<UpdateDataCatalogCommandInput, UpdateDataCatalogCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDataCatalog",
+  UpdateDataCatalog$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

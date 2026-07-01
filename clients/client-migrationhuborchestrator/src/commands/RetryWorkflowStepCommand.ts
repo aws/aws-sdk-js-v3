@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MigrationHubOrchestratorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MigrationHubOrchestratorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RetryWorkflowStepRequest, RetryWorkflowStepResponse } from "../models/models_0";
 import { RetryWorkflowStep$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { RetryWorkflowStep$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface RetryWorkflowStepCommandOutput extends RetryWorkflowStepRespons
  *
  * @public
  */
-export class RetryWorkflowStepCommand extends $Command
-  .classBuilder<
-    RetryWorkflowStepCommandInput,
-    RetryWorkflowStepCommandOutput,
-    MigrationHubOrchestratorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubOrchestratorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHubOrchestrator", "RetryWorkflowStep", {})
-  .n("MigrationHubOrchestratorClient", "RetryWorkflowStepCommand")
-  .sc(RetryWorkflowStep$)
-  .build() {
+export class RetryWorkflowStepCommand extends command<RetryWorkflowStepCommandInput, RetryWorkflowStepCommandOutput>(
+  _ep0,
+  _mw0,
+  "RetryWorkflowStep",
+  RetryWorkflowStep$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

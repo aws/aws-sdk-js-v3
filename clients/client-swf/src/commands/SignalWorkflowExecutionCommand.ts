@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SignalWorkflowExecutionInput } from "../models/models_0";
 import { SignalWorkflowExecution$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface SignalWorkflowExecutionCommandOutput extends __MetadataBearer {
  *
  * @public
  */
-export class SignalWorkflowExecutionCommand extends $Command
-  .classBuilder<
-    SignalWorkflowExecutionCommandInput,
-    SignalWorkflowExecutionCommandOutput,
-    SWFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleWorkflowService", "SignalWorkflowExecution", {})
-  .n("SWFClient", "SignalWorkflowExecutionCommand")
-  .sc(SignalWorkflowExecution$)
-  .build() {
+export class SignalWorkflowExecutionCommand extends command<SignalWorkflowExecutionCommandInput, SignalWorkflowExecutionCommandOutput>(
+  _ep0,
+  _mw0,
+  "SignalWorkflowExecution",
+  SignalWorkflowExecution$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

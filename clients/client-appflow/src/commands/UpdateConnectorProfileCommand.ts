@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateConnectorProfileRequest, UpdateConnectorProfileResponse } from "../models/models_0";
 import { UpdateConnectorProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateConnectorProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -314,22 +310,12 @@ export interface UpdateConnectorProfileCommandOutput extends UpdateConnectorProf
  *
  * @public
  */
-export class UpdateConnectorProfileCommand extends $Command
-  .classBuilder<
-    UpdateConnectorProfileCommandInput,
-    UpdateConnectorProfileCommandOutput,
-    AppflowClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SandstoneConfigurationServiceLambda", "UpdateConnectorProfile", {})
-  .n("AppflowClient", "UpdateConnectorProfileCommand")
-  .sc(UpdateConnectorProfile$)
-  .build() {
+export class UpdateConnectorProfileCommand extends command<UpdateConnectorProfileCommandInput, UpdateConnectorProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateConnectorProfile",
+  UpdateConnectorProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

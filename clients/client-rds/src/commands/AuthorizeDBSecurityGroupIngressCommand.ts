@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AuthorizeDBSecurityGroupIngressMessage, AuthorizeDBSecurityGroupIngressResult } from "../models/models_0";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { AuthorizeDBSecurityGroupIngress$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface AuthorizeDBSecurityGroupIngressCommandOutput extends AuthorizeD
  *
  * @public
  */
-export class AuthorizeDBSecurityGroupIngressCommand extends $Command
-  .classBuilder<
-    AuthorizeDBSecurityGroupIngressCommandInput,
-    AuthorizeDBSecurityGroupIngressCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "AuthorizeDBSecurityGroupIngress", {})
-  .n("RDSClient", "AuthorizeDBSecurityGroupIngressCommand")
-  .sc(AuthorizeDBSecurityGroupIngress$)
-  .build() {
+export class AuthorizeDBSecurityGroupIngressCommand extends command<AuthorizeDBSecurityGroupIngressCommandInput, AuthorizeDBSecurityGroupIngressCommandOutput>(
+  _ep0,
+  _mw0,
+  "AuthorizeDBSecurityGroupIngress",
+  AuthorizeDBSecurityGroupIngress$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

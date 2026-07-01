@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeSpacePermissionsRequest, DescribeSpacePermissionsResponse } from "../models/models_4";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DescribeSpacePermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface DescribeSpacePermissionsCommandOutput extends DescribeSpacePerm
  *
  * @public
  */
-export class DescribeSpacePermissionsCommand extends $Command
-  .classBuilder<
-    DescribeSpacePermissionsCommandInput,
-    DescribeSpacePermissionsCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "DescribeSpacePermissions", {})
-  .n("QuickSightClient", "DescribeSpacePermissionsCommand")
-  .sc(DescribeSpacePermissions$)
-  .build() {
+export class DescribeSpacePermissionsCommand extends command<DescribeSpacePermissionsCommandInput, DescribeSpacePermissionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSpacePermissions",
+  DescribeSpacePermissions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetModelCopyJobRequest, GetModelCopyJobResponse } from "../models/models_1";
 import { GetModelCopyJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetModelCopyJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface GetModelCopyJobCommandOutput extends GetModelCopyJobResponse, _
  *
  * @public
  */
-export class GetModelCopyJobCommand extends $Command
-  .classBuilder<
-    GetModelCopyJobCommandInput,
-    GetModelCopyJobCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "GetModelCopyJob", {})
-  .n("BedrockClient", "GetModelCopyJobCommand")
-  .sc(GetModelCopyJob$)
-  .build() {
+export class GetModelCopyJobCommand extends command<GetModelCopyJobCommandInput, GetModelCopyJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetModelCopyJob",
+  GetModelCopyJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

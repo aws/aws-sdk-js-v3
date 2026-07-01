@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { WithdrawByoipCidrRequest } from "../models/models_7";
 import type { WithdrawByoipCidrResult } from "../models/models_8";
 import { WithdrawByoipCidr$ } from "../schemas/schemas_0";
@@ -13,7 +10,6 @@ import { WithdrawByoipCidr$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult,
  *
  * @public
  */
-export class WithdrawByoipCidrCommand extends $Command
-  .classBuilder<
-    WithdrawByoipCidrCommandInput,
-    WithdrawByoipCidrCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "WithdrawByoipCidr", {})
-  .n("EC2Client", "WithdrawByoipCidrCommand")
-  .sc(WithdrawByoipCidr$)
-  .build() {
+export class WithdrawByoipCidrCommand extends command<WithdrawByoipCidrCommandInput, WithdrawByoipCidrCommandOutput>(
+  _ep0,
+  _mw0,
+  "WithdrawByoipCidr",
+  WithdrawByoipCidr$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

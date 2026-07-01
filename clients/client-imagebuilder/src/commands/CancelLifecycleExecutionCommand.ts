@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelLifecycleExecutionRequest, CancelLifecycleExecutionResponse } from "../models/models_0";
 import { CancelLifecycleExecution$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CancelLifecycleExecution$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface CancelLifecycleExecutionCommandOutput extends CancelLifecycleEx
  *
  * @public
  */
-export class CancelLifecycleExecutionCommand extends $Command
-  .classBuilder<
-    CancelLifecycleExecutionCommandInput,
-    CancelLifecycleExecutionCommandOutput,
-    ImagebuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("imagebuilder", "CancelLifecycleExecution", {})
-  .n("ImagebuilderClient", "CancelLifecycleExecutionCommand")
-  .sc(CancelLifecycleExecution$)
-  .build() {
+export class CancelLifecycleExecutionCommand extends command<CancelLifecycleExecutionCommandInput, CancelLifecycleExecutionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelLifecycleExecution",
+  CancelLifecycleExecution$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

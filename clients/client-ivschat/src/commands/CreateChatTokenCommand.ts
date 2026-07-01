@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateChatTokenRequest, CreateChatTokenResponse } from "../models/models_0";
 import { CreateChatToken$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateChatToken$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface CreateChatTokenCommandOutput extends CreateChatTokenResponse, _
  *
  * @public
  */
-export class CreateChatTokenCommand extends $Command
-  .classBuilder<
-    CreateChatTokenCommandInput,
-    CreateChatTokenCommandOutput,
-    IvschatClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IvschatClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoServiceChat", "CreateChatToken", {})
-  .n("IvschatClient", "CreateChatTokenCommand")
-  .sc(CreateChatToken$)
-  .build() {
+export class CreateChatTokenCommand extends command<CreateChatTokenCommandInput, CreateChatTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateChatToken",
+  CreateChatToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

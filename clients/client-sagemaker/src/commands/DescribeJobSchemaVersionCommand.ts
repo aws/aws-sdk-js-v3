@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeJobSchemaVersionRequest, DescribeJobSchemaVersionResponse } from "../models/models_3";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeJobSchemaVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -65,22 +61,12 @@ export interface DescribeJobSchemaVersionCommandOutput extends DescribeJobSchema
  *
  * @public
  */
-export class DescribeJobSchemaVersionCommand extends $Command
-  .classBuilder<
-    DescribeJobSchemaVersionCommandInput,
-    DescribeJobSchemaVersionCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DescribeJobSchemaVersion", {})
-  .n("SageMakerClient", "DescribeJobSchemaVersionCommand")
-  .sc(DescribeJobSchemaVersion$)
-  .build() {
+export class DescribeJobSchemaVersionCommand extends command<DescribeJobSchemaVersionCommandInput, DescribeJobSchemaVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeJobSchemaVersion",
+  DescribeJobSchemaVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

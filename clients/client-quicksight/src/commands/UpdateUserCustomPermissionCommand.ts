@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateUserCustomPermissionRequest, UpdateUserCustomPermissionResponse } from "../models/models_5";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { UpdateUserCustomPermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface UpdateUserCustomPermissionCommandOutput extends UpdateUserCusto
  *
  * @public
  */
-export class UpdateUserCustomPermissionCommand extends $Command
-  .classBuilder<
-    UpdateUserCustomPermissionCommandInput,
-    UpdateUserCustomPermissionCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "UpdateUserCustomPermission", {})
-  .n("QuickSightClient", "UpdateUserCustomPermissionCommand")
-  .sc(UpdateUserCustomPermission$)
-  .build() {
+export class UpdateUserCustomPermissionCommand extends command<UpdateUserCustomPermissionCommandInput, UpdateUserCustomPermissionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateUserCustomPermission",
+  UpdateUserCustomPermission$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

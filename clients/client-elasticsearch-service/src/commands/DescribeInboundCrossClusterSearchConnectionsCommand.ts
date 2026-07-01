@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticsearchServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticsearchServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeInboundCrossClusterSearchConnectionsRequest,
   DescribeInboundCrossClusterSearchConnectionsResponse,
@@ -19,7 +12,6 @@ import { DescribeInboundCrossClusterSearchConnections$ } from "../schemas/schema
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +92,12 @@ export interface DescribeInboundCrossClusterSearchConnectionsCommandOutput exten
  *
  * @public
  */
-export class DescribeInboundCrossClusterSearchConnectionsCommand extends $Command
-  .classBuilder<
-    DescribeInboundCrossClusterSearchConnectionsCommandInput,
-    DescribeInboundCrossClusterSearchConnectionsCommandOutput,
-    ElasticsearchServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticsearchService2015", "DescribeInboundCrossClusterSearchConnections", {})
-  .n("ElasticsearchServiceClient", "DescribeInboundCrossClusterSearchConnectionsCommand")
-  .sc(DescribeInboundCrossClusterSearchConnections$)
-  .build() {
+export class DescribeInboundCrossClusterSearchConnectionsCommand extends command<DescribeInboundCrossClusterSearchConnectionsCommandInput, DescribeInboundCrossClusterSearchConnectionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeInboundCrossClusterSearchConnections",
+  DescribeInboundCrossClusterSearchConnections$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

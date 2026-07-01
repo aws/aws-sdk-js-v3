@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTestRecommendationsRequest, ListTestRecommendationsResponse } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { ListTestRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface ListTestRecommendationsCommandOutput extends ListTestRecommenda
  *
  * @public
  */
-export class ListTestRecommendationsCommand extends $Command
-  .classBuilder<
-    ListTestRecommendationsCommandInput,
-    ListTestRecommendationsCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "ListTestRecommendations", {})
-  .n("ResiliencehubClient", "ListTestRecommendationsCommand")
-  .sc(ListTestRecommendations$)
-  .build() {
+export class ListTestRecommendationsCommand extends command<ListTestRecommendationsCommandInput, ListTestRecommendationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTestRecommendations",
+  ListTestRecommendations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

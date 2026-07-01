@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CommitTransactionRequest, CommitTransactionResponse } from "../models/models_0";
 import { CommitTransaction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CommitTransaction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface CommitTransactionCommandOutput extends CommitTransactionRespons
  *
  * @public
  */
-export class CommitTransactionCommand extends $Command
-  .classBuilder<
-    CommitTransactionCommandInput,
-    CommitTransactionCommandOutput,
-    LakeFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLakeFormation", "CommitTransaction", {})
-  .n("LakeFormationClient", "CommitTransactionCommand")
-  .sc(CommitTransaction$)
-  .build() {
+export class CommitTransactionCommand extends command<CommitTransactionCommandInput, CommitTransactionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CommitTransaction",
+  CommitTransaction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

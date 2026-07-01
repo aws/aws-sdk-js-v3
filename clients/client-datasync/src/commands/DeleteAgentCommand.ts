@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAgentRequest, DeleteAgentResponse } from "../models/models_0";
 import { DeleteAgent$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAgent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface DeleteAgentCommandOutput extends DeleteAgentResponse, __Metadat
  *
  * @public
  */
-export class DeleteAgentCommand extends $Command
-  .classBuilder<
-    DeleteAgentCommandInput,
-    DeleteAgentCommandOutput,
-    DataSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FmrsService", "DeleteAgent", {})
-  .n("DataSyncClient", "DeleteAgentCommand")
-  .sc(DeleteAgent$)
-  .build() {
+export class DeleteAgentCommand extends command<DeleteAgentCommandInput, DeleteAgentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAgent",
+  DeleteAgent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

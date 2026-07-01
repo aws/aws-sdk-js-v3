@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTemplateShareInput } from "../models/models_0";
 import { DeleteTemplateShare$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WellArchitectedClientResolvedConfig,
-} from "../WellArchitectedClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface DeleteTemplateShareCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteTemplateShareCommand extends $Command
-  .classBuilder<
-    DeleteTemplateShareCommandInput,
-    DeleteTemplateShareCommandOutput,
-    WellArchitectedClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WellArchitectedApiServiceLambda", "DeleteTemplateShare", {})
-  .n("WellArchitectedClient", "DeleteTemplateShareCommand")
-  .sc(DeleteTemplateShare$)
-  .build() {
+export class DeleteTemplateShareCommand extends command<DeleteTemplateShareCommandInput, DeleteTemplateShareCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTemplateShare",
+  DeleteTemplateShare$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

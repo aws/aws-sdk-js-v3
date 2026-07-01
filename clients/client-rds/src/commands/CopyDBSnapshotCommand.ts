@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getCrossRegionPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-rds";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { CopyDBSnapshotMessage, CopyDBSnapshotResult } from "../models/models_0";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { CopyDBSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -196,25 +191,12 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  *
  * @public
  */
-export class CopyDBSnapshotCommand extends $Command
-  .classBuilder<
-    CopyDBSnapshotCommandInput,
-    CopyDBSnapshotCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getCrossRegionPresignedUrlPlugin(config),
-    ];
-  })
-  .s("AmazonRDSv19", "CopyDBSnapshot", {})
-  .n("RDSClient", "CopyDBSnapshotCommand")
-  .sc(CopyDBSnapshot$)
-  .build() {
+export class CopyDBSnapshotCommand extends command<CopyDBSnapshotCommandInput, CopyDBSnapshotCommandOutput>(
+  _ep0,
+  _mw1,
+  "CopyDBSnapshot",
+  CopyDBSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

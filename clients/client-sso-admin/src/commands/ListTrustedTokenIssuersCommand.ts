@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTrustedTokenIssuersRequest, ListTrustedTokenIssuersResponse } from "../models/models_0";
 import { ListTrustedTokenIssuers$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface ListTrustedTokenIssuersCommandOutput extends ListTrustedTokenIs
  *
  * @public
  */
-export class ListTrustedTokenIssuersCommand extends $Command
-  .classBuilder<
-    ListTrustedTokenIssuersCommandInput,
-    ListTrustedTokenIssuersCommandOutput,
-    SSOAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBExternalService", "ListTrustedTokenIssuers", {})
-  .n("SSOAdminClient", "ListTrustedTokenIssuersCommand")
-  .sc(ListTrustedTokenIssuers$)
-  .build() {
+export class ListTrustedTokenIssuersCommand extends command<ListTrustedTokenIssuersCommandInput, ListTrustedTokenIssuersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTrustedTokenIssuers",
+  ListTrustedTokenIssuers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

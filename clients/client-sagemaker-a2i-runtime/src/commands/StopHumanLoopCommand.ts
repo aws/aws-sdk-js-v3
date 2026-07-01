@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopHumanLoopRequest, StopHumanLoopResponse } from "../models/models_0";
-import type {
-  SageMakerA2IRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SageMakerA2IRuntimeClient";
 import { StopHumanLoop$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +70,12 @@ export interface StopHumanLoopCommandOutput extends StopHumanLoopResponse, __Met
  *
  * @public
  */
-export class StopHumanLoopCommand extends $Command
-  .classBuilder<
-    StopHumanLoopCommandInput,
-    StopHumanLoopCommandOutput,
-    SageMakerA2IRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerA2IRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSageMakerA2IRuntime", "StopHumanLoop", {})
-  .n("SageMakerA2IRuntimeClient", "StopHumanLoopCommand")
-  .sc(StopHumanLoop$)
-  .build() {
+export class StopHumanLoopCommand extends command<StopHumanLoopCommandInput, StopHumanLoopCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopHumanLoop",
+  StopHumanLoop$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

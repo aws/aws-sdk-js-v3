@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListFaqsRequest, ListFaqsResponse } from "../models/models_0";
 import { ListFaqs$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListFaqs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface ListFaqsCommandOutput extends ListFaqsResponse, __MetadataBeare
  *
  * @public
  */
-export class ListFaqsCommand extends $Command
-  .classBuilder<
-    ListFaqsCommandInput,
-    ListFaqsCommandOutput,
-    KendraClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSKendraFrontendService", "ListFaqs", {})
-  .n("KendraClient", "ListFaqsCommand")
-  .sc(ListFaqs$)
-  .build() {
+export class ListFaqsCommand extends command<ListFaqsCommandInput, ListFaqsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFaqs",
+  ListFaqs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

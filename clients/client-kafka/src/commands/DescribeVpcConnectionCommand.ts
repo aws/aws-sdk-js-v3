@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeVpcConnectionRequest, DescribeVpcConnectionResponse } from "../models/models_0";
 import { DescribeVpcConnection$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeVpcConnection$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface DescribeVpcConnectionCommandOutput extends DescribeVpcConnectio
  *
  * @public
  */
-export class DescribeVpcConnectionCommand extends $Command
-  .classBuilder<
-    DescribeVpcConnectionCommandInput,
-    DescribeVpcConnectionCommandOutput,
-    KafkaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kafka", "DescribeVpcConnection", {})
-  .n("KafkaClient", "DescribeVpcConnectionCommand")
-  .sc(DescribeVpcConnection$)
-  .build() {
+export class DescribeVpcConnectionCommand extends command<DescribeVpcConnectionCommandInput, DescribeVpcConnectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeVpcConnection",
+  DescribeVpcConnection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

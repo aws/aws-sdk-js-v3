@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTagsForStreamInput, ListTagsForStreamOutput } from "../models/models_0";
 import { ListTagsForStream$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListTagsForStream$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,27 +87,12 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  *
  * @public
  */
-export class ListTagsForStreamCommand extends $Command
-  .classBuilder<
-    ListTagsForStreamCommandInput,
-    ListTagsForStreamCommandOutput,
-    KinesisClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    OperationType: { type: "staticContextParams", value: `control` },
-    StreamId: { type: "contextParams", name: "StreamId" },
-    StreamARN: { type: "contextParams", name: "StreamARN" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kinesis_20131202", "ListTagsForStream", {})
-  .n("KinesisClient", "ListTagsForStreamCommand")
-  .sc(ListTagsForStream$)
-  .build() {
+export class ListTagsForStreamCommand extends command<ListTagsForStreamCommandInput, ListTagsForStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTagsForStream",
+  ListTagsForStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

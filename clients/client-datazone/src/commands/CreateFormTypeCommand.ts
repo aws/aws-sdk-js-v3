@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFormTypeInput, CreateFormTypeOutput } from "../models/models_0";
 import { CreateFormType$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateFormType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface CreateFormTypeCommandOutput extends CreateFormTypeOutput, __Met
  *
  * @public
  */
-export class CreateFormTypeCommand extends $Command
-  .classBuilder<
-    CreateFormTypeCommandInput,
-    CreateFormTypeCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "CreateFormType", {})
-  .n("DataZoneClient", "CreateFormTypeCommand")
-  .sc(CreateFormType$)
-  .build() {
+export class CreateFormTypeCommand extends command<CreateFormTypeCommandInput, CreateFormTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateFormType",
+  CreateFormType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

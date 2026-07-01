@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchDisassociateServiceActionFromProvisioningArtifactInput,
   BatchDisassociateServiceActionFromProvisioningArtifactOutput,
 } from "../models/models_0";
 import { BatchDisassociateServiceActionFromProvisioningArtifact$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactCommandOu
  *
  * @public
  */
-export class BatchDisassociateServiceActionFromProvisioningArtifactCommand extends $Command
-  .classBuilder<
-    BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
-    BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "BatchDisassociateServiceActionFromProvisioningArtifact", {})
-  .n("ServiceCatalogClient", "BatchDisassociateServiceActionFromProvisioningArtifactCommand")
-  .sc(BatchDisassociateServiceActionFromProvisioningArtifact$)
-  .build() {
+export class BatchDisassociateServiceActionFromProvisioningArtifactCommand extends command<BatchDisassociateServiceActionFromProvisioningArtifactCommandInput, BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDisassociateServiceActionFromProvisioningArtifact",
+  BatchDisassociateServiceActionFromProvisioningArtifact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

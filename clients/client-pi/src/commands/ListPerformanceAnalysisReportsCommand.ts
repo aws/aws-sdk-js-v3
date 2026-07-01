@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPerformanceAnalysisReportsRequest, ListPerformanceAnalysisReportsResponse } from "../models/models_0";
-import type { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
 import { ListPerformanceAnalysisReports$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface ListPerformanceAnalysisReportsCommandOutput extends ListPerform
  *
  * @public
  */
-export class ListPerformanceAnalysisReportsCommand extends $Command
-  .classBuilder<
-    ListPerformanceAnalysisReportsCommandInput,
-    ListPerformanceAnalysisReportsCommandOutput,
-    PIClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PIClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PerformanceInsightsv20180227", "ListPerformanceAnalysisReports", {})
-  .n("PIClient", "ListPerformanceAnalysisReportsCommand")
-  .sc(ListPerformanceAnalysisReports$)
-  .build() {
+export class ListPerformanceAnalysisReportsCommand extends command<ListPerformanceAnalysisReportsCommandInput, ListPerformanceAnalysisReportsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPerformanceAnalysisReports",
+  ListPerformanceAnalysisReports$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

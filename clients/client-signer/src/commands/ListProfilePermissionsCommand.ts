@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListProfilePermissionsRequest, ListProfilePermissionsResponse } from "../models/models_0";
 import { ListProfilePermissions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface ListProfilePermissionsCommandOutput extends ListProfilePermissi
  *
  * @public
  */
-export class ListProfilePermissionsCommand extends $Command
-  .classBuilder<
-    ListProfilePermissionsCommandInput,
-    ListProfilePermissionsCommandOutput,
-    SignerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SignerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WallabyService", "ListProfilePermissions", {})
-  .n("SignerClient", "ListProfilePermissionsCommand")
-  .sc(ListProfilePermissions$)
-  .build() {
+export class ListProfilePermissionsCommand extends command<ListProfilePermissionsCommandInput, ListProfilePermissionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListProfilePermissions",
+  ListProfilePermissions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { IndexFacesRequest, IndexFacesResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { IndexFaces$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -521,22 +517,12 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  *
  * @public
  */
-export class IndexFacesCommand extends $Command
-  .classBuilder<
-    IndexFacesCommandInput,
-    IndexFacesCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "IndexFaces", {})
-  .n("RekognitionClient", "IndexFacesCommand")
-  .sc(IndexFaces$)
-  .build() {
+export class IndexFacesCommand extends command<IndexFacesCommandInput, IndexFacesCommandOutput>(
+  _ep0,
+  _mw0,
+  "IndexFaces",
+  IndexFaces$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelEnvironmentDeploymentInput, CancelEnvironmentDeploymentOutput } from "../models/models_0";
-import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 import { CancelEnvironmentDeployment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface CancelEnvironmentDeploymentCommandOutput extends CancelEnvironm
  *
  * @public
  */
-export class CancelEnvironmentDeploymentCommand extends $Command
-  .classBuilder<
-    CancelEnvironmentDeploymentCommandInput,
-    CancelEnvironmentDeploymentCommandOutput,
-    ProtonClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsProton20200720", "CancelEnvironmentDeployment", {})
-  .n("ProtonClient", "CancelEnvironmentDeploymentCommand")
-  .sc(CancelEnvironmentDeployment$)
-  .build() {
+export class CancelEnvironmentDeploymentCommand extends command<CancelEnvironmentDeploymentCommandInput, CancelEnvironmentDeploymentCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelEnvironmentDeployment",
+  CancelEnvironmentDeployment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

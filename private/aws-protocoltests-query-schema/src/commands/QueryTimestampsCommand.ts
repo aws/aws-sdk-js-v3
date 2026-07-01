@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { QueryTimestampsInput } from "../models/models_0";
-import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 import { QueryTimestamps$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface QueryTimestampsCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class QueryTimestampsCommand extends $Command
-  .classBuilder<
-    QueryTimestampsCommandInput,
-    QueryTimestampsCommandOutput,
-    QueryProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QueryProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsQuery", "QueryTimestamps", {})
-  .n("QueryProtocolClient", "QueryTimestampsCommand")
-  .sc(QueryTimestamps$)
-  .build() {
+export class QueryTimestampsCommand extends command<QueryTimestampsCommandInput, QueryTimestampsCommandOutput>(
+  _ep0,
+  _mw0,
+  "QueryTimestamps",
+  QueryTimestamps$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

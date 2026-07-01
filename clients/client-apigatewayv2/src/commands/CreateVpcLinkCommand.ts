@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateVpcLinkRequest, CreateVpcLinkResponse } from "../models/models_0";
 import { CreateVpcLink$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateVpcLink$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface CreateVpcLinkCommandOutput extends CreateVpcLinkResponse, __Met
  *
  * @public
  */
-export class CreateVpcLinkCommand extends $Command
-  .classBuilder<
-    CreateVpcLinkCommandInput,
-    CreateVpcLinkCommandOutput,
-    ApiGatewayV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApiGatewayV2", "CreateVpcLink", {})
-  .n("ApiGatewayV2Client", "CreateVpcLinkCommand")
-  .sc(CreateVpcLink$)
-  .build() {
+export class CreateVpcLinkCommand extends command<CreateVpcLinkCommandInput, CreateVpcLinkCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateVpcLink",
+  CreateVpcLink$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

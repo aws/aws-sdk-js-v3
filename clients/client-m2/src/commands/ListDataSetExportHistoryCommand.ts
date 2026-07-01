@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDataSetExportHistoryRequest, ListDataSetExportHistoryResponse } from "../models/models_0";
 import { ListDataSetExportHistory$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDataSetExportHistory$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface ListDataSetExportHistoryCommandOutput extends ListDataSetExport
  *
  * @public
  */
-export class ListDataSetExportHistoryCommand extends $Command
-  .classBuilder<
-    ListDataSetExportHistoryCommandInput,
-    ListDataSetExportHistoryCommandOutput,
-    M2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: M2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsSupernovaControlPlaneService", "ListDataSetExportHistory", {})
-  .n("M2Client", "ListDataSetExportHistoryCommand")
-  .sc(ListDataSetExportHistory$)
-  .build() {
+export class ListDataSetExportHistoryCommand extends command<ListDataSetExportHistoryCommandInput, ListDataSetExportHistoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDataSetExportHistory",
+  ListDataSetExportHistory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

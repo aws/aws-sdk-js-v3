@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   RegisterMarketplaceModelEndpointRequest,
   RegisterMarketplaceModelEndpointResponse,
@@ -15,7 +12,6 @@ import { RegisterMarketplaceModelEndpoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface RegisterMarketplaceModelEndpointCommandOutput extends RegisterM
  *
  * @public
  */
-export class RegisterMarketplaceModelEndpointCommand extends $Command
-  .classBuilder<
-    RegisterMarketplaceModelEndpointCommandInput,
-    RegisterMarketplaceModelEndpointCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "RegisterMarketplaceModelEndpoint", {})
-  .n("BedrockClient", "RegisterMarketplaceModelEndpointCommand")
-  .sc(RegisterMarketplaceModelEndpoint$)
-  .build() {
+export class RegisterMarketplaceModelEndpointCommand extends command<RegisterMarketplaceModelEndpointCommandInput, RegisterMarketplaceModelEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterMarketplaceModelEndpoint",
+  RegisterMarketplaceModelEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateProxySessionRequest, UpdateProxySessionResponse } from "../models/models_0";
 import { UpdateProxySession$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateProxySession$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface UpdateProxySessionCommandOutput extends UpdateProxySessionRespo
  *
  * @public
  */
-export class UpdateProxySessionCommand extends $Command
-  .classBuilder<
-    UpdateProxySessionCommandInput,
-    UpdateProxySessionCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "UpdateProxySession", {})
-  .n("ChimeSDKVoiceClient", "UpdateProxySessionCommand")
-  .sc(UpdateProxySession$)
-  .build() {
+export class UpdateProxySessionCommand extends command<UpdateProxySessionCommandInput, UpdateProxySessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateProxySession",
+  UpdateProxySession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

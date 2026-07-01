@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRulesPackagesRequest, ListRulesPackagesResponse } from "../models/models_0";
 import { ListRulesPackages$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListRulesPackages$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface ListRulesPackagesCommandOutput extends ListRulesPackagesRespons
  *
  * @public
  */
-export class ListRulesPackagesCommand extends $Command
-  .classBuilder<
-    ListRulesPackagesCommandInput,
-    ListRulesPackagesCommandOutput,
-    InspectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("InspectorService", "ListRulesPackages", {})
-  .n("InspectorClient", "ListRulesPackagesCommand")
-  .sc(ListRulesPackages$)
-  .build() {
+export class ListRulesPackagesCommand extends command<ListRulesPackagesCommandInput, ListRulesPackagesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRulesPackages",
+  ListRulesPackages$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

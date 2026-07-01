@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopJobRequest, StopJobResult } from "../models/models_0";
 import { StopJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  *
  * @public
  */
-export class StopJobCommand extends $Command
-  .classBuilder<
-    StopJobCommandInput,
-    StopJobCommandOutput,
-    AmplifyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Amplify", "StopJob", {})
-  .n("AmplifyClient", "StopJobCommand")
-  .sc(StopJob$)
-  .build() {
+export class StopJobCommand extends command<StopJobCommandInput, StopJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopJob",
+  StopJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

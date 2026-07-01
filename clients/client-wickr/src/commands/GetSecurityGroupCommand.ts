@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSecurityGroupRequest, GetSecurityGroupResponse } from "../models/models_0";
 import { GetSecurityGroup$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -197,22 +193,12 @@ export interface GetSecurityGroupCommandOutput extends GetSecurityGroupResponse,
  *
  * @public
  */
-export class GetSecurityGroupCommand extends $Command
-  .classBuilder<
-    GetSecurityGroupCommandInput,
-    GetSecurityGroupCommandOutput,
-    WickrClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WickrAdminApi", "GetSecurityGroup", {})
-  .n("WickrClient", "GetSecurityGroupCommand")
-  .sc(GetSecurityGroup$)
-  .build() {
+export class GetSecurityGroupCommand extends command<GetSecurityGroupCommandInput, GetSecurityGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSecurityGroup",
+  GetSecurityGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

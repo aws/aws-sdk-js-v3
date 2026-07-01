@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDataProtectionSettingsRequest, GetDataProtectionSettingsResponse } from "../models/models_0";
 import { GetDataProtectionSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface GetDataProtectionSettingsCommandOutput extends GetDataProtectio
  *
  * @public
  */
-export class GetDataProtectionSettingsCommand extends $Command
-  .classBuilder<
-    GetDataProtectionSettingsCommandInput,
-    GetDataProtectionSettingsCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "GetDataProtectionSettings", {})
-  .n("WorkSpacesWebClient", "GetDataProtectionSettingsCommand")
-  .sc(GetDataProtectionSettings$)
-  .build() {
+export class GetDataProtectionSettingsCommand extends command<GetDataProtectionSettingsCommandInput, GetDataProtectionSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDataProtectionSettings",
+  GetDataProtectionSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

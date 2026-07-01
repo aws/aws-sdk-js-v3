@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   RegisterPatchBaselineForPatchGroupRequest,
   RegisterPatchBaselineForPatchGroupResult,
 } from "../models/models_1";
 import { RegisterPatchBaselineForPatchGroup$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface RegisterPatchBaselineForPatchGroupCommandOutput extends Registe
  *
  * @public
  */
-export class RegisterPatchBaselineForPatchGroupCommand extends $Command
-  .classBuilder<
-    RegisterPatchBaselineForPatchGroupCommandInput,
-    RegisterPatchBaselineForPatchGroupCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "RegisterPatchBaselineForPatchGroup", {})
-  .n("SSMClient", "RegisterPatchBaselineForPatchGroupCommand")
-  .sc(RegisterPatchBaselineForPatchGroup$)
-  .build() {
+export class RegisterPatchBaselineForPatchGroupCommand extends command<RegisterPatchBaselineForPatchGroupCommandInput, RegisterPatchBaselineForPatchGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterPatchBaselineForPatchGroup",
+  RegisterPatchBaselineForPatchGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

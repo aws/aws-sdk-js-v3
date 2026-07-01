@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateStateMachineInput, UpdateStateMachineOutput } from "../models/models_0";
 import { UpdateStateMachine$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -172,22 +168,12 @@ export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutpu
  *
  * @public
  */
-export class UpdateStateMachineCommand extends $Command
-  .classBuilder<
-    UpdateStateMachineCommandInput,
-    UpdateStateMachineCommandOutput,
-    SFNClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStepFunctions", "UpdateStateMachine", {})
-  .n("SFNClient", "UpdateStateMachineCommand")
-  .sc(UpdateStateMachine$)
-  .build() {
+export class UpdateStateMachineCommand extends command<UpdateStateMachineCommandInput, UpdateStateMachineCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateStateMachine",
+  UpdateStateMachine$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

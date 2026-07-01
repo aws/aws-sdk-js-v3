@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetNetworkMigrationMapperSegmentConstructRequest,
   GetNetworkMigrationMapperSegmentConstructResponse,
@@ -15,7 +12,6 @@ import { GetNetworkMigrationMapperSegmentConstruct$ } from "../schemas/schemas_0
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface GetNetworkMigrationMapperSegmentConstructCommandOutput extends 
  *
  * @public
  */
-export class GetNetworkMigrationMapperSegmentConstructCommand extends $Command
-  .classBuilder<
-    GetNetworkMigrationMapperSegmentConstructCommandInput,
-    GetNetworkMigrationMapperSegmentConstructCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "GetNetworkMigrationMapperSegmentConstruct", {})
-  .n("MgnClient", "GetNetworkMigrationMapperSegmentConstructCommand")
-  .sc(GetNetworkMigrationMapperSegmentConstruct$)
-  .build() {
+export class GetNetworkMigrationMapperSegmentConstructCommand extends command<GetNetworkMigrationMapperSegmentConstructCommandInput, GetNetworkMigrationMapperSegmentConstructCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetNetworkMigrationMapperSegmentConstruct",
+  GetNetworkMigrationMapperSegmentConstruct$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

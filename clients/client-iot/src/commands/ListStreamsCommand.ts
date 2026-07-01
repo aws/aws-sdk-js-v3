@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListStreamsRequest, ListStreamsResponse } from "../models/models_1";
 import { ListStreams$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListStreams$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface ListStreamsCommandOutput extends ListStreamsResponse, __Metadat
  *
  * @public
  */
-export class ListStreamsCommand extends $Command
-  .classBuilder<
-    ListStreamsCommandInput,
-    ListStreamsCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "ListStreams", {})
-  .n("IoTClient", "ListStreamsCommand")
-  .sc(ListStreams$)
-  .build() {
+export class ListStreamsCommand extends command<ListStreamsCommandInput, ListStreamsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListStreams",
+  ListStreams$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

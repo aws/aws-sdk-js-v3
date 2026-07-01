@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAIBenchmarkJobsRequest, ListAIBenchmarkJobsResponse } from "../models/models_3";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListAIBenchmarkJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface ListAIBenchmarkJobsCommandOutput extends ListAIBenchmarkJobsRes
  *
  * @public
  */
-export class ListAIBenchmarkJobsCommand extends $Command
-  .classBuilder<
-    ListAIBenchmarkJobsCommandInput,
-    ListAIBenchmarkJobsCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "ListAIBenchmarkJobs", {})
-  .n("SageMakerClient", "ListAIBenchmarkJobsCommand")
-  .sc(ListAIBenchmarkJobs$)
-  .build() {
+export class ListAIBenchmarkJobsCommand extends command<ListAIBenchmarkJobsCommandInput, ListAIBenchmarkJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAIBenchmarkJobs",
+  ListAIBenchmarkJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EnableSnapshotBlockPublicAccessRequest, EnableSnapshotBlockPublicAccessResult } from "../models/models_5";
 import { EnableSnapshotBlockPublicAccess$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { EnableSnapshotBlockPublicAccess$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface EnableSnapshotBlockPublicAccessCommandOutput extends EnableSnap
  *
  * @public
  */
-export class EnableSnapshotBlockPublicAccessCommand extends $Command
-  .classBuilder<
-    EnableSnapshotBlockPublicAccessCommandInput,
-    EnableSnapshotBlockPublicAccessCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "EnableSnapshotBlockPublicAccess", {})
-  .n("EC2Client", "EnableSnapshotBlockPublicAccessCommand")
-  .sc(EnableSnapshotBlockPublicAccess$)
-  .build() {
+export class EnableSnapshotBlockPublicAccessCommand extends command<EnableSnapshotBlockPublicAccessCommandInput, EnableSnapshotBlockPublicAccessCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableSnapshotBlockPublicAccess",
+  EnableSnapshotBlockPublicAccess$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep2, _mw0, command } from "../commandBuilder";
 import type { ListContributorInsightsInput, ListContributorInsightsOutput } from "../models/models_0";
 import { ListContributorInsights$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListContributorInsights$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,25 +73,12 @@ export interface ListContributorInsightsCommandOutput extends ListContributorIns
  *
  * @public
  */
-export class ListContributorInsightsCommand extends $Command
-  .classBuilder<
-    ListContributorInsightsCommandInput,
-    ListContributorInsightsCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "contextParams", name: "TableName" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "ListContributorInsights", {})
-  .n("DynamoDBClient", "ListContributorInsightsCommand")
-  .sc(ListContributorInsights$)
-  .build() {
+export class ListContributorInsightsCommand extends command<ListContributorInsightsCommandInput, ListContributorInsightsCommandOutput>(
+  _ep2,
+  _mw0,
+  "ListContributorInsights",
+  ListContributorInsights$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

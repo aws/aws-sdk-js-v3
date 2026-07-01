@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SwitchoverBlueGreenDeploymentRequest, SwitchoverBlueGreenDeploymentResponse } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { SwitchoverBlueGreenDeployment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -230,22 +226,12 @@ export interface SwitchoverBlueGreenDeploymentCommandOutput extends SwitchoverBl
  *
  * @public
  */
-export class SwitchoverBlueGreenDeploymentCommand extends $Command
-  .classBuilder<
-    SwitchoverBlueGreenDeploymentCommandInput,
-    SwitchoverBlueGreenDeploymentCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "SwitchoverBlueGreenDeployment", {})
-  .n("RDSClient", "SwitchoverBlueGreenDeploymentCommand")
-  .sc(SwitchoverBlueGreenDeployment$)
-  .build() {
+export class SwitchoverBlueGreenDeploymentCommand extends command<SwitchoverBlueGreenDeploymentCommandInput, SwitchoverBlueGreenDeploymentCommandOutput>(
+  _ep0,
+  _mw0,
+  "SwitchoverBlueGreenDeployment",
+  SwitchoverBlueGreenDeployment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

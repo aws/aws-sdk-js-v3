@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetProjectInput, GetProjectOutput } from "../models/models_1";
 import { GetProject$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetProject$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +128,12 @@ export interface GetProjectCommandOutput extends GetProjectOutput, __MetadataBea
  *
  * @public
  */
-export class GetProjectCommand extends $Command
-  .classBuilder<
-    GetProjectCommandInput,
-    GetProjectCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "GetProject", {})
-  .n("DataZoneClient", "GetProjectCommand")
-  .sc(GetProject$)
-  .build() {
+export class GetProjectCommand extends command<GetProjectCommandInput, GetProjectCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetProject",
+  GetProject$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

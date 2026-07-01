@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ResumeContactRecordingRequest, ResumeContactRecordingResponse } from "../models/models_2";
 import { ResumeContactRecording$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ResumeContactRecording$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface ResumeContactRecordingCommandOutput extends ResumeContactRecord
  *
  * @public
  */
-export class ResumeContactRecordingCommand extends $Command
-  .classBuilder<
-    ResumeContactRecordingCommandInput,
-    ResumeContactRecordingCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "ResumeContactRecording", {})
-  .n("ConnectClient", "ResumeContactRecordingCommand")
-  .sc(ResumeContactRecording$)
-  .build() {
+export class ResumeContactRecordingCommand extends command<ResumeContactRecordingCommandInput, ResumeContactRecordingCommandOutput>(
+  _ep0,
+  _mw0,
+  "ResumeContactRecording",
+  ResumeContactRecording$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

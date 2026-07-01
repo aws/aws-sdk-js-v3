@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteContactRequest, DeleteContactResult } from "../models/models_0";
 import { DeleteContact$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface DeleteContactCommandOutput extends DeleteContactResult, __Metad
  *
  * @public
  */
-export class DeleteContactCommand extends $Command
-  .classBuilder<
-    DeleteContactCommandInput,
-    DeleteContactCommandOutput,
-    SSMContactsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMContacts", "DeleteContact", {})
-  .n("SSMContactsClient", "DeleteContactCommand")
-  .sc(DeleteContact$)
-  .build() {
+export class DeleteContactCommand extends command<DeleteContactCommandInput, DeleteContactCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteContact",
+  DeleteContact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

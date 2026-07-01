@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetQueryResultsWorkloadInsightsTopContributorsDataInput,
   GetQueryResultsWorkloadInsightsTopContributorsDataOutput,
 } from "../models/models_0";
-import type {
-  NetworkFlowMonitorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFlowMonitorClient";
 import { GetQueryResultsWorkloadInsightsTopContributorsData$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface GetQueryResultsWorkloadInsightsTopContributorsDataCommandOutput
  *
  * @public
  */
-export class GetQueryResultsWorkloadInsightsTopContributorsDataCommand extends $Command
-  .classBuilder<
-    GetQueryResultsWorkloadInsightsTopContributorsDataCommandInput,
-    GetQueryResultsWorkloadInsightsTopContributorsDataCommandOutput,
-    NetworkFlowMonitorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFlowMonitorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFlowMonitor", "GetQueryResultsWorkloadInsightsTopContributorsData", {})
-  .n("NetworkFlowMonitorClient", "GetQueryResultsWorkloadInsightsTopContributorsDataCommand")
-  .sc(GetQueryResultsWorkloadInsightsTopContributorsData$)
-  .build() {
+export class GetQueryResultsWorkloadInsightsTopContributorsDataCommand extends command<GetQueryResultsWorkloadInsightsTopContributorsDataCommandInput, GetQueryResultsWorkloadInsightsTopContributorsDataCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetQueryResultsWorkloadInsightsTopContributorsData",
+  GetQueryResultsWorkloadInsightsTopContributorsData$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

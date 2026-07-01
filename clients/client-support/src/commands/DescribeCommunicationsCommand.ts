@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeCommunicationsRequest, DescribeCommunicationsResponse } from "../models/models_0";
 import { DescribeCommunications$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface DescribeCommunicationsCommandOutput extends DescribeCommunicati
  *
  * @public
  */
-export class DescribeCommunicationsCommand extends $Command
-  .classBuilder<
-    DescribeCommunicationsCommandInput,
-    DescribeCommunicationsCommandOutput,
-    SupportClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupportClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSupport_20130415", "DescribeCommunications", {})
-  .n("SupportClient", "DescribeCommunicationsCommand")
-  .sc(DescribeCommunications$)
-  .build() {
+export class DescribeCommunicationsCommand extends command<DescribeCommunicationsCommandInput, DescribeCommunicationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCommunications",
+  DescribeCommunications$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

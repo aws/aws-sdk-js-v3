@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteServicePrincipalNameRequest } from "../models/models_0";
-import type {
-  PcaConnectorAdClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PcaConnectorAdClient";
 import { DeleteServicePrincipalName$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface DeleteServicePrincipalNameCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class DeleteServicePrincipalNameCommand extends $Command
-  .classBuilder<
-    DeleteServicePrincipalNameCommandInput,
-    DeleteServicePrincipalNameCommandOutput,
-    PcaConnectorAdClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PcaConnectorAdClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PcaConnectorAd", "DeleteServicePrincipalName", {})
-  .n("PcaConnectorAdClient", "DeleteServicePrincipalNameCommand")
-  .sc(DeleteServicePrincipalName$)
-  .build() {
+export class DeleteServicePrincipalNameCommand extends command<DeleteServicePrincipalNameCommandInput, DeleteServicePrincipalNameCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteServicePrincipalName",
+  DeleteServicePrincipalName$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

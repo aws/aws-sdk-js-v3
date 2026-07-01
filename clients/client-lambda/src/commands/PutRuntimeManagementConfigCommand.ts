@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutRuntimeManagementConfigRequest, PutRuntimeManagementConfigResponse } from "../models/models_0";
 import { PutRuntimeManagementConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutRuntimeManagementConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface PutRuntimeManagementConfigCommandOutput extends PutRuntimeManag
  *
  * @public
  */
-export class PutRuntimeManagementConfigCommand extends $Command
-  .classBuilder<
-    PutRuntimeManagementConfigCommandInput,
-    PutRuntimeManagementConfigCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "PutRuntimeManagementConfig", {})
-  .n("LambdaClient", "PutRuntimeManagementConfigCommand")
-  .sc(PutRuntimeManagementConfig$)
-  .build() {
+export class PutRuntimeManagementConfigCommand extends command<PutRuntimeManagementConfigCommandInput, PutRuntimeManagementConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutRuntimeManagementConfig",
+  PutRuntimeManagementConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopFleetActionsInput, StopFleetActionsOutput } from "../models/models_0";
 import { StopFleetActions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopFleetActions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, _
  *
  * @public
  */
-export class StopFleetActionsCommand extends $Command
-  .classBuilder<
-    StopFleetActionsCommandInput,
-    StopFleetActionsCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "StopFleetActions", {})
-  .n("GameLiftClient", "StopFleetActionsCommand")
-  .sc(StopFleetActions$)
-  .build() {
+export class StopFleetActionsCommand extends command<StopFleetActionsCommandInput, StopFleetActionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopFleetActions",
+  StopFleetActions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

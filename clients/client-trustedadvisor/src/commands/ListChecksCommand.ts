@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListChecksRequest, ListChecksResponse } from "../models/models_0";
 import { ListChecks$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TrustedAdvisorClientResolvedConfig,
-} from "../TrustedAdvisorClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -225,22 +217,12 @@ export interface ListChecksCommandOutput extends ListChecksResponse, __MetadataB
  *
  * @public
  */
-export class ListChecksCommand extends $Command
-  .classBuilder<
-    ListChecksCommandInput,
-    ListChecksCommandOutput,
-    TrustedAdvisorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TrustedAdvisorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrustedAdvisor", "ListChecks", {})
-  .n("TrustedAdvisorClient", "ListChecksCommand")
-  .sc(ListChecks$)
-  .build() {
+export class ListChecksCommand extends command<ListChecksCommandInput, ListChecksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListChecks",
+  ListChecks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

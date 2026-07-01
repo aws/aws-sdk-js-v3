@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateJobQueueRequest, UpdateJobQueueResponse } from "../models/models_0";
 import { UpdateJobQueue$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateJobQueue$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __M
  *
  * @public
  */
-export class UpdateJobQueueCommand extends $Command
-  .classBuilder<
-    UpdateJobQueueCommandInput,
-    UpdateJobQueueCommandOutput,
-    BatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBatchV20160810", "UpdateJobQueue", {})
-  .n("BatchClient", "UpdateJobQueueCommand")
-  .sc(UpdateJobQueue$)
-  .build() {
+export class UpdateJobQueueCommand extends command<UpdateJobQueueCommandInput, UpdateJobQueueCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateJobQueue",
+  UpdateJobQueue$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

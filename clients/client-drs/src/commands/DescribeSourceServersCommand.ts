@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeSourceServersRequest, DescribeSourceServersResponse } from "../models/models_0";
 import { DescribeSourceServers$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeSourceServers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -189,22 +185,12 @@ export interface DescribeSourceServersCommandOutput extends DescribeSourceServer
  *
  * @public
  */
-export class DescribeSourceServersCommand extends $Command
-  .classBuilder<
-    DescribeSourceServersCommandInput,
-    DescribeSourceServersCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "DescribeSourceServers", {})
-  .n("DrsClient", "DescribeSourceServersCommand")
-  .sc(DescribeSourceServers$)
-  .build() {
+export class DescribeSourceServersCommand extends command<DescribeSourceServersCommandInput, DescribeSourceServersCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSourceServers",
+  DescribeSourceServers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

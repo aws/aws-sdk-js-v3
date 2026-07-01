@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentRuntimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RetrieveAndGenerateResponse } from "../models/models_0";
 import type { RetrieveAndGenerateRequest } from "../models/models_1";
 import { RetrieveAndGenerate$ } from "../schemas/schemas_0";
@@ -17,7 +10,6 @@ import { RetrieveAndGenerate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -401,22 +393,12 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  *
  * @public
  */
-export class RetrieveAndGenerateCommand extends $Command
-  .classBuilder<
-    RetrieveAndGenerateCommandInput,
-    RetrieveAndGenerateCommandOutput,
-    BedrockAgentRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentRunTimeService", "RetrieveAndGenerate", {})
-  .n("BedrockAgentRuntimeClient", "RetrieveAndGenerateCommand")
-  .sc(RetrieveAndGenerate$)
-  .build() {
+export class RetrieveAndGenerateCommand extends command<RetrieveAndGenerateCommandInput, RetrieveAndGenerateCommandOutput>(
+  _ep0,
+  _mw0,
+  "RetrieveAndGenerate",
+  RetrieveAndGenerate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

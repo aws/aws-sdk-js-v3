@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyReplicationSubnetGroupMessage, ModifyReplicationSubnetGroupResponse } from "../models/models_0";
 import { ModifyReplicationSubnetGroup$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ModifyReplicationSubnetGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +113,12 @@ export interface ModifyReplicationSubnetGroupCommandOutput extends ModifyReplica
  *
  * @public
  */
-export class ModifyReplicationSubnetGroupCommand extends $Command
-  .classBuilder<
-    ModifyReplicationSubnetGroupCommandInput,
-    ModifyReplicationSubnetGroupCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "ModifyReplicationSubnetGroup", {})
-  .n("DatabaseMigrationServiceClient", "ModifyReplicationSubnetGroupCommand")
-  .sc(ModifyReplicationSubnetGroup$)
-  .build() {
+export class ModifyReplicationSubnetGroupCommand extends command<ModifyReplicationSubnetGroupCommandInput, ModifyReplicationSubnetGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyReplicationSubnetGroup",
+  ModifyReplicationSubnetGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

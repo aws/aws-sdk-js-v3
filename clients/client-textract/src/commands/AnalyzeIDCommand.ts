@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AnalyzeIDRequest, AnalyzeIDResponse } from "../models/models_0";
 import { AnalyzeID$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -187,22 +183,12 @@ export interface AnalyzeIDCommandOutput extends AnalyzeIDResponse, __MetadataBea
  *
  * @public
  */
-export class AnalyzeIDCommand extends $Command
-  .classBuilder<
-    AnalyzeIDCommandInput,
-    AnalyzeIDCommandOutput,
-    TextractClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Textract", "AnalyzeID", {})
-  .n("TextractClient", "AnalyzeIDCommand")
-  .sc(AnalyzeID$)
-  .build() {
+export class AnalyzeIDCommand extends command<AnalyzeIDCommandInput, AnalyzeIDCommandOutput>(
+  _ep0,
+  _mw0,
+  "AnalyzeID",
+  AnalyzeID$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

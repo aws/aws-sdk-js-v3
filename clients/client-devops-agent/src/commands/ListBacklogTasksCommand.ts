@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListBacklogTasksRequest, ListBacklogTasksResponse } from "../models/models_0";
 import { ListBacklogTasks$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListBacklogTasks$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -131,22 +127,12 @@ export interface ListBacklogTasksCommandOutput extends ListBacklogTasksResponse,
  *
  * @public
  */
-export class ListBacklogTasksCommand extends $Command
-  .classBuilder<
-    ListBacklogTasksCommandInput,
-    ListBacklogTasksCommandOutput,
-    DevOpsAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DevOpsAgent", "ListBacklogTasks", {})
-  .n("DevOpsAgentClient", "ListBacklogTasksCommand")
-  .sc(ListBacklogTasks$)
-  .build() {
+export class ListBacklogTasksCommand extends command<ListBacklogTasksCommandInput, ListBacklogTasksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBacklogTasks",
+  ListBacklogTasks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

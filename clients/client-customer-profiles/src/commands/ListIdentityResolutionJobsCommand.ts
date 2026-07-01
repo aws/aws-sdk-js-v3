@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListIdentityResolutionJobsRequest, ListIdentityResolutionJobsResponse } from "../models/models_0";
 import { ListIdentityResolutionJobs$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListIdentityResolutionJobs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface ListIdentityResolutionJobsCommandOutput extends ListIdentityRes
  *
  * @public
  */
-export class ListIdentityResolutionJobsCommand extends $Command
-  .classBuilder<
-    ListIdentityResolutionJobsCommandInput,
-    ListIdentityResolutionJobsCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "ListIdentityResolutionJobs", {})
-  .n("CustomerProfilesClient", "ListIdentityResolutionJobsCommand")
-  .sc(ListIdentityResolutionJobs$)
-  .build() {
+export class ListIdentityResolutionJobsCommand extends command<ListIdentityResolutionJobsCommandInput, ListIdentityResolutionJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListIdentityResolutionJobs",
+  ListIdentityResolutionJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

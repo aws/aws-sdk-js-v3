@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DocumentationVersion, UpdateDocumentationVersionRequest } from "../models/models_0";
 import { UpdateDocumentationVersion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateDocumentationVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface UpdateDocumentationVersionCommandOutput extends DocumentationVe
  *
  * @public
  */
-export class UpdateDocumentationVersionCommand extends $Command
-  .classBuilder<
-    UpdateDocumentationVersionCommandInput,
-    UpdateDocumentationVersionCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "UpdateDocumentationVersion", {})
-  .n("APIGatewayClient", "UpdateDocumentationVersionCommand")
-  .sc(UpdateDocumentationVersion$)
-  .build() {
+export class UpdateDocumentationVersionCommand extends command<UpdateDocumentationVersionCommandInput, UpdateDocumentationVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDocumentationVersion",
+  UpdateDocumentationVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

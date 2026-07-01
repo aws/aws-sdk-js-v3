@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateContentRequest, UpdateContentResponse } from "../models/models_0";
 import { UpdateContent$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface UpdateContentCommandOutput extends UpdateContentResponse, __Met
  *
  * @public
  */
-export class UpdateContentCommand extends $Command
-  .classBuilder<
-    UpdateContentCommandInput,
-    UpdateContentCommandOutput,
-    WisdomClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "UpdateContent", {})
-  .n("WisdomClient", "UpdateContentCommand")
-  .sc(UpdateContent$)
-  .build() {
+export class UpdateContentCommand extends command<UpdateContentCommandInput, UpdateContentCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateContent",
+  UpdateContent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

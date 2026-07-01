@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEventRuleRequest, DeleteEventRuleResponse } from "../models/models_0";
-import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
 import { DeleteEventRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteEventRuleCommandOutput extends DeleteEventRuleResponse, _
  *
  * @public
  */
-export class DeleteEventRuleCommand extends $Command
-  .classBuilder<
-    DeleteEventRuleCommandInput,
-    DeleteEventRuleCommandOutput,
-    NotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Notifications", "DeleteEventRule", {})
-  .n("NotificationsClient", "DeleteEventRuleCommand")
-  .sc(DeleteEventRule$)
-  .build() {
+export class DeleteEventRuleCommand extends command<DeleteEventRuleCommandInput, DeleteEventRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEventRule",
+  DeleteEventRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

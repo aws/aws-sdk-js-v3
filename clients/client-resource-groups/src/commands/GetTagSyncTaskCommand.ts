@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTagSyncTaskInput, GetTagSyncTaskOutput } from "../models/models_0";
-import type {
-  ResourceGroupsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceGroupsClient";
 import { GetTagSyncTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +100,12 @@ export interface GetTagSyncTaskCommandOutput extends GetTagSyncTaskOutput, __Met
  *
  * @public
  */
-export class GetTagSyncTaskCommand extends $Command
-  .classBuilder<
-    GetTagSyncTaskCommandInput,
-    GetTagSyncTaskCommandOutput,
-    ResourceGroupsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceGroupsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Ardi", "GetTagSyncTask", {})
-  .n("ResourceGroupsClient", "GetTagSyncTaskCommand")
-  .sc(GetTagSyncTask$)
-  .build() {
+export class GetTagSyncTaskCommand extends command<GetTagSyncTaskCommandInput, GetTagSyncTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTagSyncTask",
+  GetTagSyncTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

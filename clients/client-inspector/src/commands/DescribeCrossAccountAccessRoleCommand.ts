@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeCrossAccountAccessRoleResponse } from "../models/models_0";
 import { DescribeCrossAccountAccessRole$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeCrossAccountAccessRole$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface DescribeCrossAccountAccessRoleCommandOutput extends DescribeCro
  *
  * @public
  */
-export class DescribeCrossAccountAccessRoleCommand extends $Command
-  .classBuilder<
-    DescribeCrossAccountAccessRoleCommandInput,
-    DescribeCrossAccountAccessRoleCommandOutput,
-    InspectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("InspectorService", "DescribeCrossAccountAccessRole", {})
-  .n("InspectorClient", "DescribeCrossAccountAccessRoleCommand")
-  .sc(DescribeCrossAccountAccessRole$)
-  .build() {
+export class DescribeCrossAccountAccessRoleCommand extends command<DescribeCrossAccountAccessRoleCommandInput, DescribeCrossAccountAccessRoleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCrossAccountAccessRole",
+  DescribeCrossAccountAccessRole$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

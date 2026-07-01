@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateKxEnvironmentRequest, CreateKxEnvironmentResponse } from "../models/models_0";
 import { CreateKxEnvironment$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateKxEnvironment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface CreateKxEnvironmentCommandOutput extends CreateKxEnvironmentRes
  *
  * @public
  */
-export class CreateKxEnvironmentCommand extends $Command
-  .classBuilder<
-    CreateKxEnvironmentCommandInput,
-    CreateKxEnvironmentCommandOutput,
-    FinspaceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHabaneroManagementService", "CreateKxEnvironment", {})
-  .n("FinspaceClient", "CreateKxEnvironmentCommand")
-  .sc(CreateKxEnvironment$)
-  .build() {
+export class CreateKxEnvironmentCommand extends command<CreateKxEnvironmentCommandInput, CreateKxEnvironmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateKxEnvironment",
+  CreateKxEnvironment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

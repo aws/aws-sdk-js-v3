@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BillingconductorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BillingconductorClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePricingRuleInput, CreatePricingRuleOutput } from "../models/models_0";
 import { CreatePricingRule$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreatePricingRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +90,12 @@ export interface CreatePricingRuleCommandOutput extends CreatePricingRuleOutput,
  *
  * @public
  */
-export class CreatePricingRuleCommand extends $Command
-  .classBuilder<
-    CreatePricingRuleCommandInput,
-    CreatePricingRuleCommandOutput,
-    BillingconductorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBillingConductor", "CreatePricingRule", {})
-  .n("BillingconductorClient", "CreatePricingRuleCommand")
-  .sc(CreatePricingRule$)
-  .build() {
+export class CreatePricingRuleCommand extends command<CreatePricingRuleCommandInput, CreatePricingRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePricingRule",
+  CreatePricingRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

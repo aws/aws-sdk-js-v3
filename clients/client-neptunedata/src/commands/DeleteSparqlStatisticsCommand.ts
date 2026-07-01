@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSparqlStatisticsOutput } from "../models/models_0";
-import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
 import { DeleteSparqlStatistics$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface DeleteSparqlStatisticsCommandOutput extends DeleteSparqlStatist
  *
  * @public
  */
-export class DeleteSparqlStatisticsCommand extends $Command
-  .classBuilder<
-    DeleteSparqlStatisticsCommandInput,
-    DeleteSparqlStatisticsCommandOutput,
-    NeptunedataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneDataplane", "DeleteSparqlStatistics", {})
-  .n("NeptunedataClient", "DeleteSparqlStatisticsCommand")
-  .sc(DeleteSparqlStatistics$)
-  .build() {
+export class DeleteSparqlStatisticsCommand extends command<DeleteSparqlStatisticsCommandInput, DeleteSparqlStatisticsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSparqlStatistics",
+  DeleteSparqlStatistics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

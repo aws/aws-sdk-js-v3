@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  GlobalAcceleratorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../GlobalAcceleratorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeprovisionByoipCidrRequest, DeprovisionByoipCidrResponse } from "../models/models_0";
 import { DeprovisionByoipCidr$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeprovisionByoipCidr$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +86,12 @@ export interface DeprovisionByoipCidrCommandOutput extends DeprovisionByoipCidrR
  *
  * @public
  */
-export class DeprovisionByoipCidrCommand extends $Command
-  .classBuilder<
-    DeprovisionByoipCidrCommandInput,
-    DeprovisionByoipCidrCommandOutput,
-    GlobalAcceleratorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GlobalAccelerator_V20180706", "DeprovisionByoipCidr", {})
-  .n("GlobalAcceleratorClient", "DeprovisionByoipCidrCommand")
-  .sc(DeprovisionByoipCidr$)
-  .build() {
+export class DeprovisionByoipCidrCommand extends command<DeprovisionByoipCidrCommandInput, DeprovisionByoipCidrCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeprovisionByoipCidr",
+  DeprovisionByoipCidr$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

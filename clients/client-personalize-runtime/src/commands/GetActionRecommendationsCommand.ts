@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetActionRecommendationsRequest, GetActionRecommendationsResponse } from "../models/models_0";
-import type {
-  PersonalizeRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PersonalizeRuntimeClient";
 import { GetActionRecommendations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface GetActionRecommendationsCommandOutput extends GetActionRecommen
  *
  * @public
  */
-export class GetActionRecommendationsCommand extends $Command
-  .classBuilder<
-    GetActionRecommendationsCommandInput,
-    GetActionRecommendationsCommandOutput,
-    PersonalizeRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PersonalizeRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPersonalizeRuntime", "GetActionRecommendations", {})
-  .n("PersonalizeRuntimeClient", "GetActionRecommendationsCommand")
-  .sc(GetActionRecommendations$)
-  .build() {
+export class GetActionRecommendationsCommand extends command<GetActionRecommendationsCommandInput, GetActionRecommendationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetActionRecommendations",
+  GetActionRecommendations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

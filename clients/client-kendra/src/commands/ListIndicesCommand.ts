@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListIndicesRequest, ListIndicesResponse } from "../models/models_0";
 import { ListIndices$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListIndices$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface ListIndicesCommandOutput extends ListIndicesResponse, __Metadat
  *
  * @public
  */
-export class ListIndicesCommand extends $Command
-  .classBuilder<
-    ListIndicesCommandInput,
-    ListIndicesCommandOutput,
-    KendraClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSKendraFrontendService", "ListIndices", {})
-  .n("KendraClient", "ListIndicesCommand")
-  .sc(ListIndices$)
-  .build() {
+export class ListIndicesCommand extends command<ListIndicesCommandInput, ListIndicesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListIndices",
+  ListIndices$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

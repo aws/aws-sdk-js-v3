@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateTrafficPolicyRequest, CreateTrafficPolicyResponse } from "../models/models_0";
 import { CreateTrafficPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateTrafficPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -173,22 +169,12 @@ export interface CreateTrafficPolicyCommandOutput extends CreateTrafficPolicyRes
  *
  * @public
  */
-export class CreateTrafficPolicyCommand extends $Command
-  .classBuilder<
-    CreateTrafficPolicyCommandInput,
-    CreateTrafficPolicyCommandOutput,
-    MailManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MailManagerSvc", "CreateTrafficPolicy", {})
-  .n("MailManagerClient", "CreateTrafficPolicyCommand")
-  .sc(CreateTrafficPolicy$)
-  .build() {
+export class CreateTrafficPolicyCommand extends command<CreateTrafficPolicyCommandInput, CreateTrafficPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTrafficPolicy",
+  CreateTrafficPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

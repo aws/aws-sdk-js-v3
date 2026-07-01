@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteClusterRequest, DeleteClusterResponse } from "../models/models_0";
-import type {
-  Route53RecoveryControlConfigClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryControlConfigClient";
 import { DeleteCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  *
  * @public
  */
-export class DeleteClusterCommand extends $Command
-  .classBuilder<
-    DeleteClusterCommandInput,
-    DeleteClusterCommandOutput,
-    Route53RecoveryControlConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53RecoveryControlConfig", "DeleteCluster", {})
-  .n("Route53RecoveryControlConfigClient", "DeleteClusterCommand")
-  .sc(DeleteCluster$)
-  .build() {
+export class DeleteClusterCommand extends command<DeleteClusterCommandInput, DeleteClusterCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCluster",
+  DeleteCluster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

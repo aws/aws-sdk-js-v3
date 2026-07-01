@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListProfilesRequest, ListProfilesResponse } from "../models/models_0";
 import { ListProfiles$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListProfiles$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  *
  * @public
  */
-export class ListProfilesCommand extends $Command
-  .classBuilder<
-    ListProfilesCommandInput,
-    ListProfilesCommandOutput,
-    B2biClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("B2BI", "ListProfiles", {})
-  .n("B2biClient", "ListProfilesCommand")
-  .sc(ListProfiles$)
-  .build() {
+export class ListProfilesCommand extends command<ListProfilesCommandInput, ListProfilesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListProfiles",
+  ListProfiles$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

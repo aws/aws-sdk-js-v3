@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListNamedShadowsForThingRequest, ListNamedShadowsForThingResponse } from "../models/models_0";
 import { ListNamedShadowsForThing$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListNamedShadowsForThing$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface ListNamedShadowsForThingCommandOutput extends ListNamedShadowsF
  *
  * @public
  */
-export class ListNamedShadowsForThingCommand extends $Command
-  .classBuilder<
-    ListNamedShadowsForThingCommandInput,
-    ListNamedShadowsForThingCommandOutput,
-    IoTDataPlaneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTDataPlaneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotMoonrakerService", "ListNamedShadowsForThing", {})
-  .n("IoTDataPlaneClient", "ListNamedShadowsForThingCommand")
-  .sc(ListNamedShadowsForThing$)
-  .build() {
+export class ListNamedShadowsForThingCommand extends command<ListNamedShadowsForThingCommandInput, ListNamedShadowsForThingCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListNamedShadowsForThing",
+  ListNamedShadowsForThing$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

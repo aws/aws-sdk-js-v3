@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListKeyPoliciesRequest, ListKeyPoliciesResponse } from "../models/models_0";
 import { ListKeyPolicies$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListKeyPolicies$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -143,22 +139,12 @@ export interface ListKeyPoliciesCommandOutput extends ListKeyPoliciesResponse, _
  *
  * @public
  */
-export class ListKeyPoliciesCommand extends $Command
-  .classBuilder<
-    ListKeyPoliciesCommandInput,
-    ListKeyPoliciesCommandOutput,
-    KMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrentService", "ListKeyPolicies", {})
-  .n("KMSClient", "ListKeyPoliciesCommand")
-  .sc(ListKeyPolicies$)
-  .build() {
+export class ListKeyPoliciesCommand extends command<ListKeyPoliciesCommandInput, ListKeyPoliciesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListKeyPolicies",
+  ListKeyPolicies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

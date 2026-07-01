@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteByteMatchSetRequest, DeleteByteMatchSetResponse } from "../models/models_0";
 import { DeleteByteMatchSet$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +136,12 @@ export interface DeleteByteMatchSetCommandOutput extends DeleteByteMatchSetRespo
  *
  * @public
  */
-export class DeleteByteMatchSetCommand extends $Command
-  .classBuilder<
-    DeleteByteMatchSetCommandInput,
-    DeleteByteMatchSetCommandOutput,
-    WAFRegionalClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_Regional_20161128", "DeleteByteMatchSet", {})
-  .n("WAFRegionalClient", "DeleteByteMatchSetCommand")
-  .sc(DeleteByteMatchSet$)
-  .build() {
+export class DeleteByteMatchSetCommand extends command<DeleteByteMatchSetCommandInput, DeleteByteMatchSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteByteMatchSet",
+  DeleteByteMatchSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

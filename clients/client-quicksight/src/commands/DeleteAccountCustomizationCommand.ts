@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAccountCustomizationRequest, DeleteAccountCustomizationResponse } from "../models/models_3";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DeleteAccountCustomization$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface DeleteAccountCustomizationCommandOutput extends DeleteAccountCu
  *
  * @public
  */
-export class DeleteAccountCustomizationCommand extends $Command
-  .classBuilder<
-    DeleteAccountCustomizationCommandInput,
-    DeleteAccountCustomizationCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "DeleteAccountCustomization", {})
-  .n("QuickSightClient", "DeleteAccountCustomizationCommand")
-  .sc(DeleteAccountCustomization$)
-  .build() {
+export class DeleteAccountCustomizationCommand extends command<DeleteAccountCustomizationCommandInput, DeleteAccountCustomizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAccountCustomization",
+  DeleteAccountCustomization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

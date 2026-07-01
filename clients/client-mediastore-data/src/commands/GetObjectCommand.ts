@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MediaStoreDataClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MediaStoreDataClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetObjectRequest, GetObjectResponse } from "../models/models_0";
 import { GetObject$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetObject$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface GetObjectCommandOutput extends Omit<GetObjectResponse, "Body">,
  *
  * @public
  */
-export class GetObjectCommand extends $Command
-  .classBuilder<
-    GetObjectCommandInput,
-    GetObjectCommandOutput,
-    MediaStoreDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaStoreDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaStoreObject_20170901", "GetObject", {})
-  .n("MediaStoreDataClient", "GetObjectCommand")
-  .sc(GetObject$)
-  .build() {
+export class GetObjectCommand extends command<GetObjectCommandInput, GetObjectCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetObject",
+  GetObject$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

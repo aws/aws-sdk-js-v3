@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeTemplateDefinitionRequest, DescribeTemplateDefinitionResponse } from "../models/models_4";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DescribeTemplateDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -7742,22 +7738,12 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  *
  * @public
  */
-export class DescribeTemplateDefinitionCommand extends $Command
-  .classBuilder<
-    DescribeTemplateDefinitionCommandInput,
-    DescribeTemplateDefinitionCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "DescribeTemplateDefinition", {})
-  .n("QuickSightClient", "DescribeTemplateDefinitionCommand")
-  .sc(DescribeTemplateDefinition$)
-  .build() {
+export class DescribeTemplateDefinitionCommand extends command<DescribeTemplateDefinitionCommandInput, DescribeTemplateDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeTemplateDefinition",
+  DescribeTemplateDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeEnvironmentStatusRequest, DescribeEnvironmentStatusResult } from "../models/models_0";
 import { DescribeEnvironmentStatus$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeEnvironmentStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface DescribeEnvironmentStatusCommandOutput extends DescribeEnvironm
  *
  * @public
  */
-export class DescribeEnvironmentStatusCommand extends $Command
-  .classBuilder<
-    DescribeEnvironmentStatusCommandInput,
-    DescribeEnvironmentStatusCommandOutput,
-    Cloud9ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Cloud9ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCloud9WorkspaceManagementService", "DescribeEnvironmentStatus", {})
-  .n("Cloud9Client", "DescribeEnvironmentStatusCommand")
-  .sc(DescribeEnvironmentStatus$)
-  .build() {
+export class DescribeEnvironmentStatusCommand extends command<DescribeEnvironmentStatusCommandInput, DescribeEnvironmentStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEnvironmentStatus",
+  DescribeEnvironmentStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

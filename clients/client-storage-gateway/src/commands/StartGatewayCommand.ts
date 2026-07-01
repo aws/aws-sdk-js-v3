@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartGatewayInput, StartGatewayOutput } from "../models/models_0";
 import { StartGateway$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface StartGatewayCommandOutput extends StartGatewayOutput, __Metadat
  *
  * @public
  */
-export class StartGatewayCommand extends $Command
-  .classBuilder<
-    StartGatewayCommandInput,
-    StartGatewayCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "StartGateway", {})
-  .n("StorageGatewayClient", "StartGatewayCommand")
-  .sc(StartGateway$)
-  .build() {
+export class StartGatewayCommand extends command<StartGatewayCommandInput, StartGatewayCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartGateway",
+  StartGateway$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

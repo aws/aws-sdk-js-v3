@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateOutpostInput, UpdateOutpostOutput } from "../models/models_0";
-import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import { UpdateOutpost$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface UpdateOutpostCommandOutput extends UpdateOutpostOutput, __Metad
  *
  * @public
  */
-export class UpdateOutpostCommand extends $Command
-  .classBuilder<
-    UpdateOutpostCommandInput,
-    UpdateOutpostCommandOutput,
-    OutpostsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OutpostsOlafService", "UpdateOutpost", {})
-  .n("OutpostsClient", "UpdateOutpostCommand")
-  .sc(UpdateOutpost$)
-  .build() {
+export class UpdateOutpostCommand extends command<UpdateOutpostCommandInput, UpdateOutpostCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateOutpost",
+  UpdateOutpost$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

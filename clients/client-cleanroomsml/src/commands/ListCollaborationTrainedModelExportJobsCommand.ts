@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListCollaborationTrainedModelExportJobsRequest,
   ListCollaborationTrainedModelExportJobsResponse,
@@ -15,7 +12,6 @@ import { ListCollaborationTrainedModelExportJobs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface ListCollaborationTrainedModelExportJobsCommandOutput extends Li
  *
  * @public
  */
-export class ListCollaborationTrainedModelExportJobsCommand extends $Command
-  .classBuilder<
-    ListCollaborationTrainedModelExportJobsCommandInput,
-    ListCollaborationTrainedModelExportJobsCommandOutput,
-    CleanRoomsMLClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStarkControlService", "ListCollaborationTrainedModelExportJobs", {})
-  .n("CleanRoomsMLClient", "ListCollaborationTrainedModelExportJobsCommand")
-  .sc(ListCollaborationTrainedModelExportJobs$)
-  .build() {
+export class ListCollaborationTrainedModelExportJobsCommand extends command<ListCollaborationTrainedModelExportJobsCommandInput, ListCollaborationTrainedModelExportJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCollaborationTrainedModelExportJobs",
+  ListCollaborationTrainedModelExportJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

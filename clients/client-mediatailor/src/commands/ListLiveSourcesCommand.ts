@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLiveSourcesRequest, ListLiveSourcesResponse } from "../models/models_0";
 import { ListLiveSources$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListLiveSources$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface ListLiveSourcesCommandOutput extends ListLiveSourcesResponse, _
  *
  * @public
  */
-export class ListLiveSourcesCommand extends $Command
-  .classBuilder<
-    ListLiveSourcesCommandInput,
-    ListLiveSourcesCommandOutput,
-    MediaTailorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaTailor", "ListLiveSources", {})
-  .n("MediaTailorClient", "ListLiveSourcesCommand")
-  .sc(ListLiveSources$)
-  .build() {
+export class ListLiveSourcesCommand extends command<ListLiveSourcesCommandInput, ListLiveSourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLiveSources",
+  ListLiveSources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

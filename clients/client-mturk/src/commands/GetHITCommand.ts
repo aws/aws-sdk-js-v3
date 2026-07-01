@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetHITRequest, GetHITResponse } from "../models/models_0";
-import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { GetHIT$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface GetHITCommandOutput extends GetHITResponse, __MetadataBearer {}
  *
  * @public
  */
-export class GetHITCommand extends $Command
-  .classBuilder<
-    GetHITCommandInput,
-    GetHITCommandOutput,
-    MTurkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MTurkRequesterServiceV20170117", "GetHIT", {})
-  .n("MTurkClient", "GetHITCommand")
-  .sc(GetHIT$)
-  .build() {
+export class GetHITCommand extends command<GetHITCommandInput, GetHITCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetHIT",
+  GetHIT$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

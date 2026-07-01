@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSnowballUsageRequest, GetSnowballUsageResult } from "../models/models_0";
 import { GetSnowballUsage$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, _
  *
  * @public
  */
-export class GetSnowballUsageCommand extends $Command
-  .classBuilder<
-    GetSnowballUsageCommandInput,
-    GetSnowballUsageCommandOutput,
-    SnowballClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIESnowballJobManagementService", "GetSnowballUsage", {})
-  .n("SnowballClient", "GetSnowballUsageCommand")
-  .sc(GetSnowballUsage$)
-  .build() {
+export class GetSnowballUsageCommand extends command<GetSnowballUsageCommandInput, GetSnowballUsageCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSnowballUsage",
+  GetSnowballUsage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

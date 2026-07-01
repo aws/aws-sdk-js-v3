@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateProxyRuleGroupPrioritiesRequest, UpdateProxyRuleGroupPrioritiesResponse } from "../models/models_0";
-import type {
-  NetworkFirewallClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFirewallClient";
 import { UpdateProxyRuleGroupPriorities$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +95,12 @@ export interface UpdateProxyRuleGroupPrioritiesCommandOutput extends UpdateProxy
  *
  * @public
  */
-export class UpdateProxyRuleGroupPrioritiesCommand extends $Command
-  .classBuilder<
-    UpdateProxyRuleGroupPrioritiesCommandInput,
-    UpdateProxyRuleGroupPrioritiesCommandOutput,
-    NetworkFirewallClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFirewall_20201112", "UpdateProxyRuleGroupPriorities", {})
-  .n("NetworkFirewallClient", "UpdateProxyRuleGroupPrioritiesCommand")
-  .sc(UpdateProxyRuleGroupPriorities$)
-  .build() {
+export class UpdateProxyRuleGroupPrioritiesCommand extends command<UpdateProxyRuleGroupPrioritiesCommandInput, UpdateProxyRuleGroupPrioritiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateProxyRuleGroupPriorities",
+  UpdateProxyRuleGroupPriorities$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

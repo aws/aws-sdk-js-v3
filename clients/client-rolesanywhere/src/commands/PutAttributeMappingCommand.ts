@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutAttributeMappingRequest, PutAttributeMappingResponse } from "../models/models_0";
-import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { PutAttributeMapping$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -149,22 +145,12 @@ export interface PutAttributeMappingCommandOutput extends PutAttributeMappingRes
  *
  * @public
  */
-export class PutAttributeMappingCommand extends $Command
-  .classBuilder<
-    PutAttributeMappingCommandInput,
-    PutAttributeMappingCommandOutput,
-    RolesAnywhereClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RolesAnywhereClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RolesAnywhere", "PutAttributeMapping", {})
-  .n("RolesAnywhereClient", "PutAttributeMappingCommand")
-  .sc(PutAttributeMapping$)
-  .build() {
+export class PutAttributeMappingCommand extends command<PutAttributeMappingCommandInput, PutAttributeMappingCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAttributeMapping",
+  PutAttributeMapping$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ConfirmForgotPasswordRequest, ConfirmForgotPasswordResponse } from "../models/models_0";
 import { ConfirmForgotPassword$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ConfirmForgotPassword$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -146,22 +138,12 @@ export interface ConfirmForgotPasswordCommandOutput extends ConfirmForgotPasswor
  *
  * @public
  */
-export class ConfirmForgotPasswordCommand extends $Command
-  .classBuilder<
-    ConfirmForgotPasswordCommandInput,
-    ConfirmForgotPasswordCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "ConfirmForgotPassword", {})
-  .n("CognitoIdentityProviderClient", "ConfirmForgotPasswordCommand")
-  .sc(ConfirmForgotPassword$)
-  .build() {
+export class ConfirmForgotPasswordCommand extends command<ConfirmForgotPasswordCommandInput, ConfirmForgotPasswordCommandOutput>(
+  _ep0,
+  _mw0,
+  "ConfirmForgotPassword",
+  ConfirmForgotPassword$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

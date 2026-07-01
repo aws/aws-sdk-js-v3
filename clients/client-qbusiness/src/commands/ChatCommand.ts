@@ -1,20 +1,15 @@
 // smithy-typescript generated code
-import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { ChatOutput } from "../models/models_0";
 import type { ChatInput } from "../models/models_1";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { Chat$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -314,33 +309,12 @@ export interface ChatCommandOutput extends ChatOutput, __MetadataBearer {}
  *
  * @public
  */
-export class ChatCommand extends $Command
-  .classBuilder<
-    ChatCommandInput,
-    ChatCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEventStreamPlugin(config),
-    ];
-  })
-  .s("ExpertQ", "Chat", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      input: true,
-      output: true,
-    },
-  })
-  .n("QBusinessClient", "ChatCommand")
-  .sc(Chat$)
-  .build() {
+export class ChatCommand extends command<ChatCommandInput, ChatCommandOutput>(
+  _ep0,
+  _mw1,
+  "Chat",
+  Chat$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

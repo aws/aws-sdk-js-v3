@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticsearchServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticsearchServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeElasticsearchInstanceTypeLimitsRequest,
   DescribeElasticsearchInstanceTypeLimitsResponse,
@@ -19,7 +12,6 @@ import { DescribeElasticsearchInstanceTypeLimits$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +116,12 @@ export interface DescribeElasticsearchInstanceTypeLimitsCommandOutput extends De
  *
  * @public
  */
-export class DescribeElasticsearchInstanceTypeLimitsCommand extends $Command
-  .classBuilder<
-    DescribeElasticsearchInstanceTypeLimitsCommandInput,
-    DescribeElasticsearchInstanceTypeLimitsCommandOutput,
-    ElasticsearchServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticsearchService2015", "DescribeElasticsearchInstanceTypeLimits", {})
-  .n("ElasticsearchServiceClient", "DescribeElasticsearchInstanceTypeLimitsCommand")
-  .sc(DescribeElasticsearchInstanceTypeLimits$)
-  .build() {
+export class DescribeElasticsearchInstanceTypeLimitsCommand extends command<DescribeElasticsearchInstanceTypeLimitsCommandInput, DescribeElasticsearchInstanceTypeLimitsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeElasticsearchInstanceTypeLimits",
+  DescribeElasticsearchInstanceTypeLimits$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetStaticIpRequest, GetStaticIpResult } from "../models/models_1";
 import { GetStaticIp$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetStaticIp$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface GetStaticIpCommandOutput extends GetStaticIpResult, __MetadataB
  *
  * @public
  */
-export class GetStaticIpCommand extends $Command
-  .classBuilder<
-    GetStaticIpCommandInput,
-    GetStaticIpCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "GetStaticIp", {})
-  .n("LightsailClient", "GetStaticIpCommand")
-  .sc(GetStaticIp$)
-  .build() {
+export class GetStaticIpCommand extends command<GetStaticIpCommandInput, GetStaticIpCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetStaticIp",
+  GetStaticIp$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

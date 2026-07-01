@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AccessAnalyzerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AccessAnalyzerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CheckNoNewAccessRequest, CheckNoNewAccessResponse } from "../models/models_0";
 import { CheckNoNewAccess$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CheckNoNewAccess$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface CheckNoNewAccessCommandOutput extends CheckNoNewAccessResponse,
  *
  * @public
  */
-export class CheckNoNewAccessCommand extends $Command
-  .classBuilder<
-    CheckNoNewAccessCommandInput,
-    CheckNoNewAccessCommandOutput,
-    AccessAnalyzerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AccessAnalyzer", "CheckNoNewAccess", {})
-  .n("AccessAnalyzerClient", "CheckNoNewAccessCommand")
-  .sc(CheckNoNewAccess$)
-  .build() {
+export class CheckNoNewAccessCommand extends command<CheckNoNewAccessCommandInput, CheckNoNewAccessCommandOutput>(
+  _ep0,
+  _mw0,
+  "CheckNoNewAccess",
+  CheckNoNewAccess$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

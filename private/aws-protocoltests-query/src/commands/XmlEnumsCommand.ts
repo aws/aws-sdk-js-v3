@@ -13,7 +13,6 @@ import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutpu
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

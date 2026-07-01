@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DetachVolumeInput, DetachVolumeOutput } from "../models/models_0";
 import { DetachVolume$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +68,12 @@ export interface DetachVolumeCommandOutput extends DetachVolumeOutput, __Metadat
  *
  * @public
  */
-export class DetachVolumeCommand extends $Command
-  .classBuilder<
-    DetachVolumeCommandInput,
-    DetachVolumeCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "DetachVolume", {})
-  .n("StorageGatewayClient", "DetachVolumeCommand")
-  .sc(DetachVolume$)
-  .build() {
+export class DetachVolumeCommand extends command<DetachVolumeCommandInput, DetachVolumeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DetachVolume",
+  DetachVolume$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

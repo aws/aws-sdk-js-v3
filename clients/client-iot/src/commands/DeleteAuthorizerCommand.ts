@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAuthorizerRequest, DeleteAuthorizerResponse } from "../models/models_0";
 import { DeleteAuthorizer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAuthorizer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface DeleteAuthorizerCommandOutput extends DeleteAuthorizerResponse,
  *
  * @public
  */
-export class DeleteAuthorizerCommand extends $Command
-  .classBuilder<
-    DeleteAuthorizerCommandInput,
-    DeleteAuthorizerCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "DeleteAuthorizer", {})
-  .n("IoTClient", "DeleteAuthorizerCommand")
-  .sc(DeleteAuthorizer$)
-  .build() {
+export class DeleteAuthorizerCommand extends command<DeleteAuthorizerCommandInput, DeleteAuthorizerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAuthorizer",
+  DeleteAuthorizer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

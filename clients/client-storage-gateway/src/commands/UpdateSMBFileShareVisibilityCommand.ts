@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateSMBFileShareVisibilityInput, UpdateSMBFileShareVisibilityOutput } from "../models/models_0";
 import { UpdateSMBFileShareVisibility$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +65,12 @@ export interface UpdateSMBFileShareVisibilityCommandOutput extends UpdateSMBFile
  *
  * @public
  */
-export class UpdateSMBFileShareVisibilityCommand extends $Command
-  .classBuilder<
-    UpdateSMBFileShareVisibilityCommandInput,
-    UpdateSMBFileShareVisibilityCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "UpdateSMBFileShareVisibility", {})
-  .n("StorageGatewayClient", "UpdateSMBFileShareVisibilityCommand")
-  .sc(UpdateSMBFileShareVisibility$)
-  .build() {
+export class UpdateSMBFileShareVisibilityCommand extends command<UpdateSMBFileShareVisibilityCommandInput, UpdateSMBFileShareVisibilityCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSMBFileShareVisibility",
+  UpdateSMBFileShareVisibility$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

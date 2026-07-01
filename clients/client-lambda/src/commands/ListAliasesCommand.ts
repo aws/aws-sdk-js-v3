@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAliasesRequest, ListAliasesResponse } from "../models/models_0";
 import { ListAliases$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAliases$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface ListAliasesCommandOutput extends ListAliasesResponse, __Metadat
  *
  * @public
  */
-export class ListAliasesCommand extends $Command
-  .classBuilder<
-    ListAliasesCommandInput,
-    ListAliasesCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "ListAliases", {})
-  .n("LambdaClient", "ListAliasesCommand")
-  .sc(ListAliases$)
-  .build() {
+export class ListAliasesCommand extends command<ListAliasesCommandInput, ListAliasesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAliases",
+  ListAliases$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

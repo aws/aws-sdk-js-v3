@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeCAEnrollmentPolicyRequest, DescribeCAEnrollmentPolicyResult } from "../models/models_0";
 import { DescribeCAEnrollmentPolicy$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeCAEnrollmentPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface DescribeCAEnrollmentPolicyCommandOutput extends DescribeCAEnrol
  *
  * @public
  */
-export class DescribeCAEnrollmentPolicyCommand extends $Command
-  .classBuilder<
-    DescribeCAEnrollmentPolicyCommandInput,
-    DescribeCAEnrollmentPolicyCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "DescribeCAEnrollmentPolicy", {})
-  .n("DirectoryServiceClient", "DescribeCAEnrollmentPolicyCommand")
-  .sc(DescribeCAEnrollmentPolicy$)
-  .build() {
+export class DescribeCAEnrollmentPolicyCommand extends command<DescribeCAEnrollmentPolicyCommandInput, DescribeCAEnrollmentPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCAEnrollmentPolicy",
+  DescribeCAEnrollmentPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

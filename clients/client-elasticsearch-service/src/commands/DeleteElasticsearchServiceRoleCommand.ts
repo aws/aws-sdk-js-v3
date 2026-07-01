@@ -1,21 +1,13 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticsearchServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticsearchServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import { DeleteElasticsearchServiceRole$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +59,12 @@ export interface DeleteElasticsearchServiceRoleCommandOutput extends __MetadataB
  *
  * @public
  */
-export class DeleteElasticsearchServiceRoleCommand extends $Command
-  .classBuilder<
-    DeleteElasticsearchServiceRoleCommandInput,
-    DeleteElasticsearchServiceRoleCommandOutput,
-    ElasticsearchServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticsearchService2015", "DeleteElasticsearchServiceRole", {})
-  .n("ElasticsearchServiceClient", "DeleteElasticsearchServiceRoleCommand")
-  .sc(DeleteElasticsearchServiceRole$)
-  .build() {
+export class DeleteElasticsearchServiceRoleCommand extends command<DeleteElasticsearchServiceRoleCommandInput, DeleteElasticsearchServiceRoleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteElasticsearchServiceRole",
+  DeleteElasticsearchServiceRole$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

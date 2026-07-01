@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutNotificationSettingsRequest, PutNotificationSettingsResponse } from "../models/models_0";
-import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { PutNotificationSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -150,22 +146,12 @@ export interface PutNotificationSettingsCommandOutput extends PutNotificationSet
  *
  * @public
  */
-export class PutNotificationSettingsCommand extends $Command
-  .classBuilder<
-    PutNotificationSettingsCommandInput,
-    PutNotificationSettingsCommandOutput,
-    RolesAnywhereClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RolesAnywhereClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RolesAnywhere", "PutNotificationSettings", {})
-  .n("RolesAnywhereClient", "PutNotificationSettingsCommand")
-  .sc(PutNotificationSettings$)
-  .build() {
+export class PutNotificationSettingsCommand extends command<PutNotificationSettingsCommandInput, PutNotificationSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutNotificationSettings",
+  PutNotificationSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

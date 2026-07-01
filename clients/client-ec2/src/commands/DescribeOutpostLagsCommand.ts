@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeOutpostLagsRequest, DescribeOutpostLagsResult } from "../models/models_4";
 import { DescribeOutpostLags$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeOutpostLags$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface DescribeOutpostLagsCommandOutput extends DescribeOutpostLagsRes
  *
  * @public
  */
-export class DescribeOutpostLagsCommand extends $Command
-  .classBuilder<
-    DescribeOutpostLagsCommandInput,
-    DescribeOutpostLagsCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeOutpostLags", {})
-  .n("EC2Client", "DescribeOutpostLagsCommand")
-  .sc(DescribeOutpostLags$)
-  .build() {
+export class DescribeOutpostLagsCommand extends command<DescribeOutpostLagsCommandInput, DescribeOutpostLagsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeOutpostLags",
+  DescribeOutpostLags$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

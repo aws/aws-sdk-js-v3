@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EvaluateMappingTemplateRequest, EvaluateMappingTemplateResponse } from "../models/models_0";
 import { EvaluateMappingTemplate$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { EvaluateMappingTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTem
  *
  * @public
  */
-export class EvaluateMappingTemplateCommand extends $Command
-  .classBuilder<
-    EvaluateMappingTemplateCommandInput,
-    EvaluateMappingTemplateCommandOutput,
-    AppSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepdishControlPlaneService", "EvaluateMappingTemplate", {})
-  .n("AppSyncClient", "EvaluateMappingTemplateCommand")
-  .sc(EvaluateMappingTemplate$)
-  .build() {
+export class EvaluateMappingTemplateCommand extends command<EvaluateMappingTemplateCommandInput, EvaluateMappingTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "EvaluateMappingTemplate",
+  EvaluateMappingTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPackagesForDomainRequest, ListPackagesForDomainResponse } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { ListPackagesForDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomai
  *
  * @public
  */
-export class ListPackagesForDomainCommand extends $Command
-  .classBuilder<
-    ListPackagesForDomainCommandInput,
-    ListPackagesForDomainCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "ListPackagesForDomain", {})
-  .n("OpenSearchClient", "ListPackagesForDomainCommand")
-  .sc(ListPackagesForDomain$)
-  .build() {
+export class ListPackagesForDomainCommand extends command<ListPackagesForDomainCommandInput, ListPackagesForDomainCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPackagesForDomain",
+  ListPackagesForDomain$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

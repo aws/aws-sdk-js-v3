@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteLanguageModelRequest } from "../models/models_0";
 import { DeleteLanguageModel$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteLanguageModelCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteLanguageModelCommand extends $Command
-  .classBuilder<
-    DeleteLanguageModelCommandInput,
-    DeleteLanguageModelCommandOutput,
-    TranscribeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Transcribe", "DeleteLanguageModel", {})
-  .n("TranscribeClient", "DeleteLanguageModelCommand")
-  .sc(DeleteLanguageModel$)
-  .build() {
+export class DeleteLanguageModelCommand extends command<DeleteLanguageModelCommandInput, DeleteLanguageModelCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteLanguageModel",
+  DeleteLanguageModel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTeamsChannelConfigurationRequest, DeleteTeamsChannelConfigurationResult } from "../models/models_0";
 import { DeleteMicrosoftTeamsChannelConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteMicrosoftTeamsChannelConfiguration$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteMicrosoftTeamsChannelConfigurationCommandOutput extends D
  *
  * @public
  */
-export class DeleteMicrosoftTeamsChannelConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteMicrosoftTeamsChannelConfigurationCommandInput,
-    DeleteMicrosoftTeamsChannelConfigurationCommandOutput,
-    ChatbotClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WheatleyOrchestration_20171011", "DeleteMicrosoftTeamsChannelConfiguration", {})
-  .n("ChatbotClient", "DeleteMicrosoftTeamsChannelConfigurationCommand")
-  .sc(DeleteMicrosoftTeamsChannelConfiguration$)
-  .build() {
+export class DeleteMicrosoftTeamsChannelConfigurationCommand extends command<DeleteMicrosoftTeamsChannelConfigurationCommandInput, DeleteMicrosoftTeamsChannelConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMicrosoftTeamsChannelConfiguration",
+  DeleteMicrosoftTeamsChannelConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

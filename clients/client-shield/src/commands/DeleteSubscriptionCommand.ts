@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSubscriptionRequest, DeleteSubscriptionResponse } from "../models/models_0";
 import { DeleteSubscription$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +62,12 @@ export interface DeleteSubscriptionCommandOutput extends DeleteSubscriptionRespo
  *
  * @public
  */
-export class DeleteSubscriptionCommand extends $Command
-  .classBuilder<
-    DeleteSubscriptionCommandInput,
-    DeleteSubscriptionCommandOutput,
-    ShieldClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShield_20160616", "DeleteSubscription", {})
-  .n("ShieldClient", "DeleteSubscriptionCommand")
-  .sc(DeleteSubscription$)
-  .build() {
+export class DeleteSubscriptionCommand extends command<DeleteSubscriptionCommandInput, DeleteSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSubscription",
+  DeleteSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

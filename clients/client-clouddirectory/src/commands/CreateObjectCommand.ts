@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudDirectoryClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateObjectRequest, CreateObjectResponse } from "../models/models_0";
 import { CreateObject$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateObject$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -149,22 +141,12 @@ export interface CreateObjectCommandOutput extends CreateObjectResponse, __Metad
  *
  * @public
  */
-export class CreateObjectCommand extends $Command
-  .classBuilder<
-    CreateObjectCommandInput,
-    CreateObjectCommandOutput,
-    CloudDirectoryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonCloudDirectory_20170111", "CreateObject", {})
-  .n("CloudDirectoryClient", "CreateObjectCommand")
-  .sc(CreateObject$)
-  .build() {
+export class CreateObjectCommand extends command<CreateObjectCommandInput, CreateObjectCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateObject",
+  CreateObject$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

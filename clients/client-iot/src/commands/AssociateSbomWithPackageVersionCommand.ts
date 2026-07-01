@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AssociateSbomWithPackageVersionRequest,
   AssociateSbomWithPackageVersionResponse,
@@ -15,7 +12,6 @@ import { AssociateSbomWithPackageVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface AssociateSbomWithPackageVersionCommandOutput extends AssociateS
  *
  * @public
  */
-export class AssociateSbomWithPackageVersionCommand extends $Command
-  .classBuilder<
-    AssociateSbomWithPackageVersionCommandInput,
-    AssociateSbomWithPackageVersionCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "AssociateSbomWithPackageVersion", {})
-  .n("IoTClient", "AssociateSbomWithPackageVersionCommand")
-  .sc(AssociateSbomWithPackageVersion$)
-  .build() {
+export class AssociateSbomWithPackageVersionCommand extends command<AssociateSbomWithPackageVersionCommandInput, AssociateSbomWithPackageVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateSbomWithPackageVersion",
+  AssociateSbomWithPackageVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DBClusterParameterGroupDetails, DescribeDBClusterParametersMessage } from "../models/models_0";
-import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import { DescribeDBClusterParameters$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface DescribeDBClusterParametersCommandOutput extends DBClusterParam
  *
  * @public
  */
-export class DescribeDBClusterParametersCommand extends $Command
-  .classBuilder<
-    DescribeDBClusterParametersCommandInput,
-    DescribeDBClusterParametersCommandOutput,
-    NeptuneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DescribeDBClusterParameters", {})
-  .n("NeptuneClient", "DescribeDBClusterParametersCommand")
-  .sc(DescribeDBClusterParameters$)
-  .build() {
+export class DescribeDBClusterParametersCommand extends command<DescribeDBClusterParametersCommandInput, DescribeDBClusterParametersCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDBClusterParameters",
+  DescribeDBClusterParameters$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

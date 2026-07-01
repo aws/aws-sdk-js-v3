@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LookoutEquipmentClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LookoutEquipmentClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ImportDatasetRequest, ImportDatasetResponse } from "../models/models_0";
 import { ImportDataset$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ImportDataset$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +93,12 @@ export interface ImportDatasetCommandOutput extends ImportDatasetResponse, __Met
  *
  * @public
  */
-export class ImportDatasetCommand extends $Command
-  .classBuilder<
-    ImportDatasetCommandInput,
-    ImportDatasetCommandOutput,
-    LookoutEquipmentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLookoutEquipmentFrontendService", "ImportDataset", {})
-  .n("LookoutEquipmentClient", "ImportDatasetCommand")
-  .sc(ImportDataset$)
-  .build() {
+export class ImportDatasetCommand extends command<ImportDatasetCommandInput, ImportDatasetCommandOutput>(
+  _ep0,
+  _mw0,
+  "ImportDataset",
+  ImportDataset$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

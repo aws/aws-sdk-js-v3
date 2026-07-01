@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AccessAnalyzerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AccessAnalyzerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFindingRequest, GetFindingResponse } from "../models/models_0";
 import { GetFinding$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetFinding$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +101,12 @@ export interface GetFindingCommandOutput extends GetFindingResponse, __MetadataB
  *
  * @public
  */
-export class GetFindingCommand extends $Command
-  .classBuilder<
-    GetFindingCommandInput,
-    GetFindingCommandOutput,
-    AccessAnalyzerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AccessAnalyzer", "GetFinding", {})
-  .n("AccessAnalyzerClient", "GetFindingCommand")
-  .sc(GetFinding$)
-  .build() {
+export class GetFindingCommand extends command<GetFindingCommandInput, GetFindingCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFinding",
+  GetFinding$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

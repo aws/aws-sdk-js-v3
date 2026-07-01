@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListOauth2CredentialProvidersRequest, ListOauth2CredentialProvidersResponse } from "../models/models_1";
 import { ListOauth2CredentialProviders$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListOauth2CredentialProviders$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface ListOauth2CredentialProvidersCommandOutput extends ListOauth2Cr
  *
  * @public
  */
-export class ListOauth2CredentialProvidersCommand extends $Command
-  .classBuilder<
-    ListOauth2CredentialProvidersCommandInput,
-    ListOauth2CredentialProvidersCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "ListOauth2CredentialProviders", {})
-  .n("BedrockAgentCoreControlClient", "ListOauth2CredentialProvidersCommand")
-  .sc(ListOauth2CredentialProviders$)
-  .build() {
+export class ListOauth2CredentialProvidersCommand extends command<ListOauth2CredentialProvidersCommandInput, ListOauth2CredentialProvidersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListOauth2CredentialProviders",
+  ListOauth2CredentialProviders$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

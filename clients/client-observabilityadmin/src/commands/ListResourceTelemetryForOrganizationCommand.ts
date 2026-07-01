@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListResourceTelemetryForOrganizationInput,
   ListResourceTelemetryForOrganizationOutput,
 } from "../models/models_0";
-import type {
-  ObservabilityAdminClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ObservabilityAdminClient";
 import { ListResourceTelemetryForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +99,12 @@ export interface ListResourceTelemetryForOrganizationCommandOutput extends ListR
  *
  * @public
  */
-export class ListResourceTelemetryForOrganizationCommand extends $Command
-  .classBuilder<
-    ListResourceTelemetryForOrganizationCommandInput,
-    ListResourceTelemetryForOrganizationCommandOutput,
-    ObservabilityAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ObservabilityAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ObservabilityAdmin", "ListResourceTelemetryForOrganization", {})
-  .n("ObservabilityAdminClient", "ListResourceTelemetryForOrganizationCommand")
-  .sc(ListResourceTelemetryForOrganization$)
-  .build() {
+export class ListResourceTelemetryForOrganizationCommand extends command<ListResourceTelemetryForOrganizationCommandInput, ListResourceTelemetryForOrganizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListResourceTelemetryForOrganization",
+  ListResourceTelemetryForOrganization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

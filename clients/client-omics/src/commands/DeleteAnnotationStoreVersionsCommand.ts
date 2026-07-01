@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAnnotationStoreVersionsRequest, DeleteAnnotationStoreVersionsResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { DeleteAnnotationStoreVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface DeleteAnnotationStoreVersionsCommandOutput extends DeleteAnnota
  *
  * @public
  */
-export class DeleteAnnotationStoreVersionsCommand extends $Command
-  .classBuilder<
-    DeleteAnnotationStoreVersionsCommandInput,
-    DeleteAnnotationStoreVersionsCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "DeleteAnnotationStoreVersions", {})
-  .n("OmicsClient", "DeleteAnnotationStoreVersionsCommand")
-  .sc(DeleteAnnotationStoreVersions$)
-  .build() {
+export class DeleteAnnotationStoreVersionsCommand extends command<DeleteAnnotationStoreVersionsCommandInput, DeleteAnnotationStoreVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAnnotationStoreVersions",
+  DeleteAnnotationStoreVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElementalInferenceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElementalInferenceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFeedRequest, CreateFeedResponse } from "../models/models_0";
 import { CreateFeed$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateFeed$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -141,22 +133,12 @@ export interface CreateFeedCommandOutput extends CreateFeedResponse, __MetadataB
  *
  * @public
  */
-export class CreateFeedCommand extends $Command
-  .classBuilder<
-    CreateFeedCommandInput,
-    CreateFeedCommandOutput,
-    ElementalInferenceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElementalInferenceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElementalInference", "CreateFeed", {})
-  .n("ElementalInferenceClient", "CreateFeedCommand")
-  .sc(CreateFeed$)
-  .build() {
+export class CreateFeedCommand extends command<CreateFeedCommandInput, CreateFeedCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateFeed",
+  CreateFeed$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

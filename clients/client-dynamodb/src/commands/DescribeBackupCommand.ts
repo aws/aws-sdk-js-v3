@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep4, _mw0, command } from "../commandBuilder";
 import type { DescribeBackupInput, DescribeBackupOutput } from "../models/models_0";
 import { DescribeBackup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeBackup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -160,25 +156,12 @@ export interface DescribeBackupCommandOutput extends DescribeBackupOutput, __Met
  *
  * @public
  */
-export class DescribeBackupCommand extends $Command
-  .classBuilder<
-    DescribeBackupCommandInput,
-    DescribeBackupCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "contextParams", name: "BackupArn" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "DescribeBackup", {})
-  .n("DynamoDBClient", "DescribeBackupCommand")
-  .sc(DescribeBackup$)
-  .build() {
+export class DescribeBackupCommand extends command<DescribeBackupCommandInput, DescribeBackupCommandOutput>(
+  _ep4,
+  _mw0,
+  "DescribeBackup",
+  DescribeBackup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

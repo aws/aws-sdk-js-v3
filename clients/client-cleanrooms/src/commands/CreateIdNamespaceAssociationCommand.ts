@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateIdNamespaceAssociationInput, CreateIdNamespaceAssociationOutput } from "../models/models_0";
 import { CreateIdNamespaceAssociation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateIdNamespaceAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface CreateIdNamespaceAssociationCommandOutput extends CreateIdNames
  *
  * @public
  */
-export class CreateIdNamespaceAssociationCommand extends $Command
-  .classBuilder<
-    CreateIdNamespaceAssociationCommandInput,
-    CreateIdNamespaceAssociationCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "CreateIdNamespaceAssociation", {})
-  .n("CleanRoomsClient", "CreateIdNamespaceAssociationCommand")
-  .sc(CreateIdNamespaceAssociation$)
-  .build() {
+export class CreateIdNamespaceAssociationCommand extends command<CreateIdNamespaceAssociationCommandInput, CreateIdNamespaceAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateIdNamespaceAssociation",
+  CreateIdNamespaceAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

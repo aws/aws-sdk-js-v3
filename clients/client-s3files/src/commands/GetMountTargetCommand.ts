@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMountTargetRequest, GetMountTargetResponse } from "../models/models_0";
-import type { S3FilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3FilesClient";
 import { GetMountTarget$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface GetMountTargetCommandOutput extends GetMountTargetResponse, __M
  *
  * @public
  */
-export class GetMountTargetCommand extends $Command
-  .classBuilder<
-    GetMountTargetCommandInput,
-    GetMountTargetCommandOutput,
-    S3FilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: S3FilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("S3Files", "GetMountTarget", {})
-  .n("S3FilesClient", "GetMountTargetCommand")
-  .sc(GetMountTarget$)
-  .build() {
+export class GetMountTargetCommand extends command<GetMountTargetCommandInput, GetMountTargetCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMountTarget",
+  GetMountTarget$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

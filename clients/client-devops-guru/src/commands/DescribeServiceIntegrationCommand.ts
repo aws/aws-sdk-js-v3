@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeServiceIntegrationRequest, DescribeServiceIntegrationResponse } from "../models/models_0";
 import { DescribeServiceIntegration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeServiceIntegration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface DescribeServiceIntegrationCommandOutput extends DescribeService
  *
  * @public
  */
-export class DescribeServiceIntegrationCommand extends $Command
-  .classBuilder<
-    DescribeServiceIntegrationCommandInput,
-    DescribeServiceIntegrationCommandOutput,
-    DevOpsGuruClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CapstoneControlPlaneService", "DescribeServiceIntegration", {})
-  .n("DevOpsGuruClient", "DescribeServiceIntegrationCommand")
-  .sc(DescribeServiceIntegration$)
-  .build() {
+export class DescribeServiceIntegrationCommand extends command<DescribeServiceIntegrationCommandInput, DescribeServiceIntegrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeServiceIntegration",
+  DescribeServiceIntegration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

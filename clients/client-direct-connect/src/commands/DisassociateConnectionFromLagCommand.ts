@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { Connection, DisassociateConnectionFromLagRequest } from "../models/models_0";
 import { DisassociateConnectionFromLag$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateConnectionFromLag$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +111,12 @@ export interface DisassociateConnectionFromLagCommandOutput extends Connection, 
  *
  * @public
  */
-export class DisassociateConnectionFromLagCommand extends $Command
-  .classBuilder<
-    DisassociateConnectionFromLagCommandInput,
-    DisassociateConnectionFromLagCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "DisassociateConnectionFromLag", {})
-  .n("DirectConnectClient", "DisassociateConnectionFromLagCommand")
-  .sc(DisassociateConnectionFromLag$)
-  .build() {
+export class DisassociateConnectionFromLagCommand extends command<DisassociateConnectionFromLagCommandInput, DisassociateConnectionFromLagCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateConnectionFromLag",
+  DisassociateConnectionFromLag$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

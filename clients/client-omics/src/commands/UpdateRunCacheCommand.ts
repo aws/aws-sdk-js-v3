@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRunCacheRequest } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { UpdateRunCache$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface UpdateRunCacheCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdateRunCacheCommand extends $Command
-  .classBuilder<
-    UpdateRunCacheCommandInput,
-    UpdateRunCacheCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "UpdateRunCache", {})
-  .n("OmicsClient", "UpdateRunCacheCommand")
-  .sc(UpdateRunCache$)
-  .build() {
+export class UpdateRunCacheCommand extends command<UpdateRunCacheCommandInput, UpdateRunCacheCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRunCache",
+  UpdateRunCache$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

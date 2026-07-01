@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateLoggingConfigurationRequest, CreateLoggingConfigurationResponse } from "../models/models_0";
 import { CreateLoggingConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateLoggingConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  *
  * @public
  */
-export class CreateLoggingConfigurationCommand extends $Command
-  .classBuilder<
-    CreateLoggingConfigurationCommandInput,
-    CreateLoggingConfigurationCommandOutput,
-    AmpClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPrometheusService", "CreateLoggingConfiguration", {})
-  .n("AmpClient", "CreateLoggingConfigurationCommand")
-  .sc(CreateLoggingConfiguration$)
-  .build() {
+export class CreateLoggingConfigurationCommand extends command<CreateLoggingConfigurationCommandInput, CreateLoggingConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateLoggingConfiguration",
+  CreateLoggingConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

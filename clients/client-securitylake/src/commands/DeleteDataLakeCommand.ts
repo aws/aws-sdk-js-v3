@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDataLakeRequest, DeleteDataLakeResponse } from "../models/models_0";
 import { DeleteDataLake$ } from "../schemas/schemas_0";
-import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface DeleteDataLakeCommandOutput extends DeleteDataLakeResponse, __M
  *
  * @public
  */
-export class DeleteDataLakeCommand extends $Command
-  .classBuilder<
-    DeleteDataLakeCommandInput,
-    DeleteDataLakeCommandOutput,
-    SecurityLakeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityLake", "DeleteDataLake", {})
-  .n("SecurityLakeClient", "DeleteDataLakeCommand")
-  .sc(DeleteDataLake$)
-  .build() {
+export class DeleteDataLakeCommand extends command<DeleteDataLakeCommandInput, DeleteDataLakeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDataLake",
+  DeleteDataLake$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

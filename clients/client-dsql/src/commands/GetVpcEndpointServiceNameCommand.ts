@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DSQLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DSQLClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetVpcEndpointServiceNameInput, GetVpcEndpointServiceNameOutput } from "../models/models_0";
 import { GetVpcEndpointServiceName$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetVpcEndpointServiceName$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface GetVpcEndpointServiceNameCommandOutput extends GetVpcEndpointSe
  *
  * @public
  */
-export class GetVpcEndpointServiceNameCommand extends $Command
-  .classBuilder<
-    GetVpcEndpointServiceNameCommandInput,
-    GetVpcEndpointServiceNameCommandOutput,
-    DSQLClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DSQLClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DSQL", "GetVpcEndpointServiceName", {})
-  .n("DSQLClient", "GetVpcEndpointServiceNameCommand")
-  .sc(GetVpcEndpointServiceName$)
-  .build() {
+export class GetVpcEndpointServiceNameCommand extends command<GetVpcEndpointServiceNameCommandInput, GetVpcEndpointServiceNameCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetVpcEndpointServiceName",
+  GetVpcEndpointServiceName$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

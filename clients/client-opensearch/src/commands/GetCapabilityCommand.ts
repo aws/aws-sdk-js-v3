@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCapabilityRequest, GetCapabilityResponse } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { GetCapability$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface GetCapabilityCommandOutput extends GetCapabilityResponse, __Met
  *
  * @public
  */
-export class GetCapabilityCommand extends $Command
-  .classBuilder<
-    GetCapabilityCommandInput,
-    GetCapabilityCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "GetCapability", {})
-  .n("OpenSearchClient", "GetCapabilityCommand")
-  .sc(GetCapability$)
-  .build() {
+export class GetCapabilityCommand extends command<GetCapabilityCommandInput, GetCapabilityCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCapability",
+  GetCapability$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

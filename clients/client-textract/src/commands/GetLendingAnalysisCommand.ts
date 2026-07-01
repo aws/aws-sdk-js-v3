@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetLendingAnalysisRequest, GetLendingAnalysisResponse } from "../models/models_0";
 import { GetLendingAnalysis$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -362,22 +358,12 @@ export interface GetLendingAnalysisCommandOutput extends GetLendingAnalysisRespo
  *
  * @public
  */
-export class GetLendingAnalysisCommand extends $Command
-  .classBuilder<
-    GetLendingAnalysisCommandInput,
-    GetLendingAnalysisCommandOutput,
-    TextractClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Textract", "GetLendingAnalysis", {})
-  .n("TextractClient", "GetLendingAnalysisCommand")
-  .sc(GetLendingAnalysis$)
-  .build() {
+export class GetLendingAnalysisCommand extends command<GetLendingAnalysisCommandInput, GetLendingAnalysisCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetLendingAnalysis",
+  GetLendingAnalysis$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

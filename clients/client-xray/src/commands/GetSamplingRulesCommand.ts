@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSamplingRulesRequest, GetSamplingRulesResult } from "../models/models_0";
 import { GetSamplingRules$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface GetSamplingRulesCommandOutput extends GetSamplingRulesResult, _
  *
  * @public
  */
-export class GetSamplingRulesCommand extends $Command
-  .classBuilder<
-    GetSamplingRulesCommandInput,
-    GetSamplingRulesCommandOutput,
-    XRayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSXRay", "GetSamplingRules", {})
-  .n("XRayClient", "GetSamplingRulesCommand")
-  .sc(GetSamplingRules$)
-  .build() {
+export class GetSamplingRulesCommand extends command<GetSamplingRulesCommandInput, GetSamplingRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSamplingRules",
+  GetSamplingRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

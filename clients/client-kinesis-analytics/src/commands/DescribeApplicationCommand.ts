@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  KinesisAnalyticsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../KinesisAnalyticsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeApplicationRequest, DescribeApplicationResponse } from "../models/models_0";
 import { DescribeApplication$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeApplication$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -199,22 +191,12 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  *
  * @public
  */
-export class DescribeApplicationCommand extends $Command
-  .classBuilder<
-    DescribeApplicationCommandInput,
-    DescribeApplicationCommandOutput,
-    KinesisAnalyticsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KinesisAnalytics_20150814", "DescribeApplication", {})
-  .n("KinesisAnalyticsClient", "DescribeApplicationCommand")
-  .sc(DescribeApplication$)
-  .build() {
+export class DescribeApplicationCommand extends command<DescribeApplicationCommandInput, DescribeApplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeApplication",
+  DescribeApplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

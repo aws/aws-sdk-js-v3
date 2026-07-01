@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEffectivePermissionsForPathRequest, GetEffectivePermissionsForPathResponse } from "../models/models_0";
 import { GetEffectivePermissionsForPath$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetEffectivePermissionsForPath$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -160,22 +156,12 @@ export interface GetEffectivePermissionsForPathCommandOutput extends GetEffectiv
  *
  * @public
  */
-export class GetEffectivePermissionsForPathCommand extends $Command
-  .classBuilder<
-    GetEffectivePermissionsForPathCommandInput,
-    GetEffectivePermissionsForPathCommandOutput,
-    LakeFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLakeFormation", "GetEffectivePermissionsForPath", {})
-  .n("LakeFormationClient", "GetEffectivePermissionsForPathCommand")
-  .sc(GetEffectivePermissionsForPath$)
-  .build() {
+export class GetEffectivePermissionsForPathCommand extends command<GetEffectivePermissionsForPathCommandInput, GetEffectivePermissionsForPathCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEffectivePermissionsForPath",
+  GetEffectivePermissionsForPath$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

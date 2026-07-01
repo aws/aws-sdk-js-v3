@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceCatalogClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/models_0";
 import { GetResourcePolicy$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetResourcePolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  *
  * @public
  */
-export class GetResourcePolicyCommand extends $Command
-  .classBuilder<
-    GetResourcePolicyCommandInput,
-    GetResourcePolicyCommandOutput,
-    MarketplaceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMPSeymour", "GetResourcePolicy", {})
-  .n("MarketplaceCatalogClient", "GetResourcePolicyCommand")
-  .sc(GetResourcePolicy$)
-  .build() {
+export class GetResourcePolicyCommand extends command<GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetResourcePolicy",
+  GetResourcePolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

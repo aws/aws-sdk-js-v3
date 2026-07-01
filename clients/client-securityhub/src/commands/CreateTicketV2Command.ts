@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateTicketV2Request, CreateTicketV2Response } from "../models/models_2";
 import { CreateTicketV2$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface CreateTicketV2CommandOutput extends CreateTicketV2Response, __M
  *
  * @public
  */
-export class CreateTicketV2Command extends $Command
-  .classBuilder<
-    CreateTicketV2CommandInput,
-    CreateTicketV2CommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "CreateTicketV2", {})
-  .n("SecurityHubClient", "CreateTicketV2Command")
-  .sc(CreateTicketV2$)
-  .build() {
+export class CreateTicketV2Command extends command<CreateTicketV2CommandInput, CreateTicketV2CommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTicketV2",
+  CreateTicketV2$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

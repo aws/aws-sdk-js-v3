@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListOrganizationRecommendationsRequest,
   ListOrganizationRecommendationsResponse,
 } from "../models/models_0";
 import { ListOrganizationRecommendations$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TrustedAdvisorClientResolvedConfig,
-} from "../TrustedAdvisorClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -254,22 +246,12 @@ export interface ListOrganizationRecommendationsCommandOutput extends ListOrgani
  *
  * @public
  */
-export class ListOrganizationRecommendationsCommand extends $Command
-  .classBuilder<
-    ListOrganizationRecommendationsCommandInput,
-    ListOrganizationRecommendationsCommandOutput,
-    TrustedAdvisorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TrustedAdvisorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrustedAdvisor", "ListOrganizationRecommendations", {})
-  .n("TrustedAdvisorClient", "ListOrganizationRecommendationsCommand")
-  .sc(ListOrganizationRecommendations$)
-  .build() {
+export class ListOrganizationRecommendationsCommand extends command<ListOrganizationRecommendationsCommandInput, ListOrganizationRecommendationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListOrganizationRecommendations",
+  ListOrganizationRecommendations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

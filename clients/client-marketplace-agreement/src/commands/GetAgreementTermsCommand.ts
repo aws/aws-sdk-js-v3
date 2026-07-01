@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceAgreementClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceAgreementClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAgreementTermsInput, GetAgreementTermsOutput } from "../models/models_0";
 import { GetAgreementTerms$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetAgreementTerms$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -217,22 +209,12 @@ export interface GetAgreementTermsCommandOutput extends GetAgreementTermsOutput,
  *
  * @public
  */
-export class GetAgreementTermsCommand extends $Command
-  .classBuilder<
-    GetAgreementTermsCommandInput,
-    GetAgreementTermsCommandOutput,
-    MarketplaceAgreementClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceAgreementClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMPCommerceService_v20200301", "GetAgreementTerms", {})
-  .n("MarketplaceAgreementClient", "GetAgreementTermsCommand")
-  .sc(GetAgreementTerms$)
-  .build() {
+export class GetAgreementTermsCommand extends command<GetAgreementTermsCommandInput, GetAgreementTermsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAgreementTerms",
+  GetAgreementTerms$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

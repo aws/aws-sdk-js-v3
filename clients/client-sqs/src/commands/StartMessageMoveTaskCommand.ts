@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartMessageMoveTaskRequest, StartMessageMoveTaskResult } from "../models/models_0";
 import { StartMessageMoveTask$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface StartMessageMoveTaskCommandOutput extends StartMessageMoveTaskR
  *
  * @public
  */
-export class StartMessageMoveTaskCommand extends $Command
-  .classBuilder<
-    StartMessageMoveTaskCommandInput,
-    StartMessageMoveTaskCommandOutput,
-    SQSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSQS", "StartMessageMoveTask", {})
-  .n("SQSClient", "StartMessageMoveTaskCommand")
-  .sc(StartMessageMoveTask$)
-  .build() {
+export class StartMessageMoveTaskCommand extends command<StartMessageMoveTaskCommandInput, StartMessageMoveTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartMessageMoveTask",
+  StartMessageMoveTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

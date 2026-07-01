@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListVpcConnectorsRequest, ListVpcConnectorsResponse } from "../models/models_0";
 import { ListVpcConnectors$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListVpcConnectors$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface ListVpcConnectorsCommandOutput extends ListVpcConnectorsRespons
  *
  * @public
  */
-export class ListVpcConnectorsCommand extends $Command
-  .classBuilder<
-    ListVpcConnectorsCommandInput,
-    ListVpcConnectorsCommandOutput,
-    AppRunnerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppRunner", "ListVpcConnectors", {})
-  .n("AppRunnerClient", "ListVpcConnectorsCommand")
-  .sc(ListVpcConnectors$)
-  .build() {
+export class ListVpcConnectorsCommand extends command<ListVpcConnectorsCommandInput, ListVpcConnectorsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListVpcConnectors",
+  ListVpcConnectors$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

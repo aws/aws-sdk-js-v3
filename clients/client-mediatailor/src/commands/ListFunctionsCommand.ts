@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListFunctionsRequest, ListFunctionsResponse } from "../models/models_0";
 import { ListFunctions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListFunctions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  *
  * @public
  */
-export class ListFunctionsCommand extends $Command
-  .classBuilder<
-    ListFunctionsCommandInput,
-    ListFunctionsCommandOutput,
-    MediaTailorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaTailor", "ListFunctions", {})
-  .n("MediaTailorClient", "ListFunctionsCommand")
-  .sc(ListFunctions$)
-  .build() {
+export class ListFunctionsCommand extends command<ListFunctionsCommandInput, ListFunctionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFunctions",
+  ListFunctions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

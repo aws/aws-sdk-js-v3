@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribePortfolioSharesInput, DescribePortfolioSharesOutput } from "../models/models_0";
 import { DescribePortfolioShares$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface DescribePortfolioSharesCommandOutput extends DescribePortfolioS
  *
  * @public
  */
-export class DescribePortfolioSharesCommand extends $Command
-  .classBuilder<
-    DescribePortfolioSharesCommandInput,
-    DescribePortfolioSharesCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "DescribePortfolioShares", {})
-  .n("ServiceCatalogClient", "DescribePortfolioSharesCommand")
-  .sc(DescribePortfolioShares$)
-  .build() {
+export class DescribePortfolioSharesCommand extends command<DescribePortfolioSharesCommandInput, DescribePortfolioSharesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribePortfolioShares",
+  DescribePortfolioShares$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

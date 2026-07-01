@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDiscoveredResourcesRequest, ListDiscoveredResourcesResult } from "../models/models_0";
 import { ListDiscoveredResources$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDiscoveredResources$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface ListDiscoveredResourcesCommandOutput extends ListDiscoveredReso
  *
  * @public
  */
-export class ListDiscoveredResourcesCommand extends $Command
-  .classBuilder<
-    ListDiscoveredResourcesCommandInput,
-    ListDiscoveredResourcesCommandOutput,
-    MigrationHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHub", "ListDiscoveredResources", {})
-  .n("MigrationHubClient", "ListDiscoveredResourcesCommand")
-  .sc(ListDiscoveredResources$)
-  .build() {
+export class ListDiscoveredResourcesCommand extends command<ListDiscoveredResourcesCommandInput, ListDiscoveredResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDiscoveredResources",
+  ListDiscoveredResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

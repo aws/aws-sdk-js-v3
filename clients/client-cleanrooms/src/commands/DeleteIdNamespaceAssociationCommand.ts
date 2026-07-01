@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteIdNamespaceAssociationInput, DeleteIdNamespaceAssociationOutput } from "../models/models_0";
 import { DeleteIdNamespaceAssociation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteIdNamespaceAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteIdNamespaceAssociationCommandOutput extends DeleteIdNames
  *
  * @public
  */
-export class DeleteIdNamespaceAssociationCommand extends $Command
-  .classBuilder<
-    DeleteIdNamespaceAssociationCommandInput,
-    DeleteIdNamespaceAssociationCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "DeleteIdNamespaceAssociation", {})
-  .n("CleanRoomsClient", "DeleteIdNamespaceAssociationCommand")
-  .sc(DeleteIdNamespaceAssociation$)
-  .build() {
+export class DeleteIdNamespaceAssociationCommand extends command<DeleteIdNamespaceAssociationCommandInput, DeleteIdNamespaceAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteIdNamespaceAssociation",
+  DeleteIdNamespaceAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

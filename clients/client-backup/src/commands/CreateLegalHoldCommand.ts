@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateLegalHoldInput, CreateLegalHoldOutput } from "../models/models_0";
 import { CreateLegalHold$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateLegalHold$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __M
  *
  * @public
  */
-export class CreateLegalHoldCommand extends $Command
-  .classBuilder<
-    CreateLegalHoldCommandInput,
-    CreateLegalHoldCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "CreateLegalHold", {})
-  .n("BackupClient", "CreateLegalHoldCommand")
-  .sc(CreateLegalHold$)
-  .build() {
+export class CreateLegalHoldCommand extends command<CreateLegalHoldCommandInput, CreateLegalHoldCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateLegalHold",
+  CreateLegalHold$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

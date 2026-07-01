@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchAssociateUserStackRequest, BatchAssociateUserStackResult } from "../models/models_0";
 import { BatchAssociateUserStack$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchAssociateUserStack$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface BatchAssociateUserStackCommandOutput extends BatchAssociateUser
  *
  * @public
  */
-export class BatchAssociateUserStackCommand extends $Command
-  .classBuilder<
-    BatchAssociateUserStackCommandInput,
-    BatchAssociateUserStackCommandOutput,
-    AppStreamClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PhotonAdminProxyService", "BatchAssociateUserStack", {})
-  .n("AppStreamClient", "BatchAssociateUserStackCommand")
-  .sc(BatchAssociateUserStack$)
-  .build() {
+export class BatchAssociateUserStackCommand extends command<BatchAssociateUserStackCommandInput, BatchAssociateUserStackCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchAssociateUserStack",
+  BatchAssociateUserStack$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

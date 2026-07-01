@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAutonomousVirtualMachinesInput, ListAutonomousVirtualMachinesOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { ListAutonomousVirtualMachines$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface ListAutonomousVirtualMachinesCommandOutput extends ListAutonomo
  *
  * @public
  */
-export class ListAutonomousVirtualMachinesCommand extends $Command
-  .classBuilder<
-    ListAutonomousVirtualMachinesCommandInput,
-    ListAutonomousVirtualMachinesCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "ListAutonomousVirtualMachines", {})
-  .n("OdbClient", "ListAutonomousVirtualMachinesCommand")
-  .sc(ListAutonomousVirtualMachines$)
-  .build() {
+export class ListAutonomousVirtualMachinesCommand extends command<ListAutonomousVirtualMachinesCommandInput, ListAutonomousVirtualMachinesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAutonomousVirtualMachines",
+  ListAutonomousVirtualMachines$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchCreatePartitionRequest, BatchCreatePartitionResponse } from "../models/models_0";
 import { BatchCreatePartition$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchCreatePartition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -160,22 +156,12 @@ export interface BatchCreatePartitionCommandOutput extends BatchCreatePartitionR
  *
  * @public
  */
-export class BatchCreatePartitionCommand extends $Command
-  .classBuilder<
-    BatchCreatePartitionCommandInput,
-    BatchCreatePartitionCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "BatchCreatePartition", {})
-  .n("GlueClient", "BatchCreatePartitionCommand")
-  .sc(BatchCreatePartition$)
-  .build() {
+export class BatchCreatePartitionCommand extends command<BatchCreatePartitionCommandInput, BatchCreatePartitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchCreatePartition",
+  BatchCreatePartition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

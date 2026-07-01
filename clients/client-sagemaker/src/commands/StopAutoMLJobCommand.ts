@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopAutoMLJobRequest } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { StopAutoMLJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -60,22 +56,12 @@ export interface StopAutoMLJobCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class StopAutoMLJobCommand extends $Command
-  .classBuilder<
-    StopAutoMLJobCommandInput,
-    StopAutoMLJobCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "StopAutoMLJob", {})
-  .n("SageMakerClient", "StopAutoMLJobCommand")
-  .sc(StopAutoMLJob$)
-  .build() {
+export class StopAutoMLJobCommand extends command<StopAutoMLJobCommandInput, StopAutoMLJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopAutoMLJob",
+  StopAutoMLJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeOriginEndpointRequest, DescribeOriginEndpointResponse } from "../models/models_0";
 import { DescribeOriginEndpoint$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeOriginEndpoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -242,22 +238,12 @@ export interface DescribeOriginEndpointCommandOutput extends DescribeOriginEndpo
  *
  * @public
  */
-export class DescribeOriginEndpointCommand extends $Command
-  .classBuilder<
-    DescribeOriginEndpointCommandInput,
-    DescribeOriginEndpointCommandOutput,
-    MediaPackageClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaPackageClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaPackage", "DescribeOriginEndpoint", {})
-  .n("MediaPackageClient", "DescribeOriginEndpointCommand")
-  .sc(DescribeOriginEndpoint$)
-  .build() {
+export class DescribeOriginEndpointCommand extends command<DescribeOriginEndpointCommandInput, DescribeOriginEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeOriginEndpoint",
+  DescribeOriginEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

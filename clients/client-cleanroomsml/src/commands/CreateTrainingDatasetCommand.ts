@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateTrainingDatasetRequest, CreateTrainingDatasetResponse } from "../models/models_0";
 import { CreateTrainingDataset$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateTrainingDataset$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface CreateTrainingDatasetCommandOutput extends CreateTrainingDatase
  *
  * @public
  */
-export class CreateTrainingDatasetCommand extends $Command
-  .classBuilder<
-    CreateTrainingDatasetCommandInput,
-    CreateTrainingDatasetCommandOutput,
-    CleanRoomsMLClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStarkControlService", "CreateTrainingDataset", {})
-  .n("CleanRoomsMLClient", "CreateTrainingDatasetCommand")
-  .sc(CreateTrainingDataset$)
-  .build() {
+export class CreateTrainingDatasetCommand extends command<CreateTrainingDatasetCommandInput, CreateTrainingDatasetCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTrainingDataset",
+  CreateTrainingDataset$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateVpcCidrBlockRequest, DisassociateVpcCidrBlockResult } from "../models/models_5";
 import { DisassociateVpcCidrBlock$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateVpcCidrBlock$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DisassociateVpcCidrBlockCommandOutput extends DisassociateVpcCi
  *
  * @public
  */
-export class DisassociateVpcCidrBlockCommand extends $Command
-  .classBuilder<
-    DisassociateVpcCidrBlockCommandInput,
-    DisassociateVpcCidrBlockCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DisassociateVpcCidrBlock", {})
-  .n("EC2Client", "DisassociateVpcCidrBlockCommand")
-  .sc(DisassociateVpcCidrBlock$)
-  .build() {
+export class DisassociateVpcCidrBlockCommand extends command<DisassociateVpcCidrBlockCommandInput, DisassociateVpcCidrBlockCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateVpcCidrBlock",
+  DisassociateVpcCidrBlock$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SetCognitoEventsRequest } from "../models/models_0";
 import { SetCognitoEvents$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SetCognitoEvents$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface SetCognitoEventsCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class SetCognitoEventsCommand extends $Command
-  .classBuilder<
-    SetCognitoEventsCommandInput,
-    SetCognitoEventsCommandOutput,
-    CognitoSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoSyncService", "SetCognitoEvents", {})
-  .n("CognitoSyncClient", "SetCognitoEventsCommand")
-  .sc(SetCognitoEvents$)
-  .build() {
+export class SetCognitoEventsCommand extends command<SetCognitoEventsCommandInput, SetCognitoEventsCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetCognitoEvents",
+  SetCognitoEvents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

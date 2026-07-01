@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetServiceQuotaRequest, GetServiceQuotaResponse } from "../models/models_0";
 import { GetServiceQuota$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface GetServiceQuotaCommandOutput extends GetServiceQuotaResponse, _
  *
  * @public
  */
-export class GetServiceQuotaCommand extends $Command
-  .classBuilder<
-    GetServiceQuotaCommandInput,
-    GetServiceQuotaCommandOutput,
-    ServiceQuotasClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ServiceQuotasV20190624", "GetServiceQuota", {})
-  .n("ServiceQuotasClient", "GetServiceQuotaCommand")
-  .sc(GetServiceQuota$)
-  .build() {
+export class GetServiceQuotaCommand extends command<GetServiceQuotaCommandInput, GetServiceQuotaCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetServiceQuota",
+  GetServiceQuota$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

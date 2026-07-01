@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAccessPointRequest, GetAccessPointResponse } from "../models/models_0";
-import type { S3FilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3FilesClient";
 import { GetAccessPoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface GetAccessPointCommandOutput extends GetAccessPointResponse, __M
  *
  * @public
  */
-export class GetAccessPointCommand extends $Command
-  .classBuilder<
-    GetAccessPointCommandInput,
-    GetAccessPointCommandOutput,
-    S3FilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: S3FilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("S3Files", "GetAccessPoint", {})
-  .n("S3FilesClient", "GetAccessPointCommand")
-  .sc(GetAccessPoint$)
-  .build() {
+export class GetAccessPointCommand extends command<GetAccessPointCommandInput, GetAccessPointCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAccessPoint",
+  GetAccessPoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

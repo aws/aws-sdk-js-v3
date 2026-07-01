@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ApplicationVersionDescriptionsMessage, DescribeApplicationVersionsMessage } from "../models/models_0";
 import { DescribeApplicationVersions$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeApplicationVersions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +122,12 @@ export interface DescribeApplicationVersionsCommandOutput extends ApplicationVer
  *
  * @public
  */
-export class DescribeApplicationVersionsCommand extends $Command
-  .classBuilder<
-    DescribeApplicationVersionsCommandInput,
-    DescribeApplicationVersionsCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "DescribeApplicationVersions", {})
-  .n("ElasticBeanstalkClient", "DescribeApplicationVersionsCommand")
-  .sc(DescribeApplicationVersions$)
-  .build() {
+export class DescribeApplicationVersionsCommand extends command<DescribeApplicationVersionsCommandInput, DescribeApplicationVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeApplicationVersions",
+  DescribeApplicationVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

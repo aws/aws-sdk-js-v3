@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAccountPreferencesRequest, UpdateAccountPreferencesResult } from "../models/models_0";
 import { UpdateAccountPreferences$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateAccountPreferences$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface UpdateAccountPreferencesCommandOutput extends UpdateAccountPref
  *
  * @public
  */
-export class UpdateAccountPreferencesCommand extends $Command
-  .classBuilder<
-    UpdateAccountPreferencesCommandInput,
-    UpdateAccountPreferencesCommandOutput,
-    ChatbotClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WheatleyOrchestration_20171011", "UpdateAccountPreferences", {})
-  .n("ChatbotClient", "UpdateAccountPreferencesCommand")
-  .sc(UpdateAccountPreferences$)
-  .build() {
+export class UpdateAccountPreferencesCommand extends command<UpdateAccountPreferencesCommandInput, UpdateAccountPreferencesCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAccountPreferences",
+  UpdateAccountPreferences$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

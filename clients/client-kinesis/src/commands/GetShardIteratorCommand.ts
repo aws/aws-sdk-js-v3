@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
+import { _ep4, _mw0, command } from "../commandBuilder";
 import type { GetShardIteratorInput, GetShardIteratorOutput } from "../models/models_0";
 import { GetShardIterator$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetShardIterator$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,27 +122,12 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  *
  * @public
  */
-export class GetShardIteratorCommand extends $Command
-  .classBuilder<
-    GetShardIteratorCommandInput,
-    GetShardIteratorCommandOutput,
-    KinesisClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    OperationType: { type: "staticContextParams", value: `data` },
-    StreamId: { type: "contextParams", name: "StreamId" },
-    StreamARN: { type: "contextParams", name: "StreamARN" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kinesis_20131202", "GetShardIterator", {})
-  .n("KinesisClient", "GetShardIteratorCommand")
-  .sc(GetShardIterator$)
-  .build() {
+export class GetShardIteratorCommand extends command<GetShardIteratorCommandInput, GetShardIteratorCommandOutput>(
+  _ep4,
+  _mw0,
+  "GetShardIterator",
+  GetShardIterator$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

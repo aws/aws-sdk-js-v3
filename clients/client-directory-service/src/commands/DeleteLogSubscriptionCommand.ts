@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteLogSubscriptionRequest, DeleteLogSubscriptionResult } from "../models/models_0";
 import { DeleteLogSubscription$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteLogSubscription$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +65,12 @@ export interface DeleteLogSubscriptionCommandOutput extends DeleteLogSubscriptio
  *
  * @public
  */
-export class DeleteLogSubscriptionCommand extends $Command
-  .classBuilder<
-    DeleteLogSubscriptionCommandInput,
-    DeleteLogSubscriptionCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "DeleteLogSubscription", {})
-  .n("DirectoryServiceClient", "DeleteLogSubscriptionCommand")
-  .sc(DeleteLogSubscription$)
-  .build() {
+export class DeleteLogSubscriptionCommand extends command<DeleteLogSubscriptionCommandInput, DeleteLogSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteLogSubscription",
+  DeleteLogSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

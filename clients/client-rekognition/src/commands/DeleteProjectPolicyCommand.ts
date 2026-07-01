@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteProjectPolicyRequest, DeleteProjectPolicyResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { DeleteProjectPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface DeleteProjectPolicyCommandOutput extends DeleteProjectPolicyRes
  *
  * @public
  */
-export class DeleteProjectPolicyCommand extends $Command
-  .classBuilder<
-    DeleteProjectPolicyCommandInput,
-    DeleteProjectPolicyCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "DeleteProjectPolicy", {})
-  .n("RekognitionClient", "DeleteProjectPolicyCommand")
-  .sc(DeleteProjectPolicy$)
-  .build() {
+export class DeleteProjectPolicyCommand extends command<DeleteProjectPolicyCommandInput, DeleteProjectPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteProjectPolicy",
+  DeleteProjectPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

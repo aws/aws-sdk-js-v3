@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartEmailContactResponse } from "../models/models_3";
 import type { StartEmailContactRequest } from "../models/models_4";
 import { StartEmailContact$ } from "../schemas/schemas_0";
@@ -13,7 +10,6 @@ import { StartEmailContact$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -158,22 +154,12 @@ export interface StartEmailContactCommandOutput extends StartEmailContactRespons
  *
  * @public
  */
-export class StartEmailContactCommand extends $Command
-  .classBuilder<
-    StartEmailContactCommandInput,
-    StartEmailContactCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "StartEmailContact", {})
-  .n("ConnectClient", "StartEmailContactCommand")
-  .sc(StartEmailContact$)
-  .build() {
+export class StartEmailContactCommand extends command<StartEmailContactCommandInput, StartEmailContactCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartEmailContact",
+  StartEmailContact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

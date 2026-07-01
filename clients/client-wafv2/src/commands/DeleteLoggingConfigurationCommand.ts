@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteLoggingConfigurationRequest, DeleteLoggingConfigurationResponse } from "../models/models_0";
 import { DeleteLoggingConfiguration$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface DeleteLoggingConfigurationCommandOutput extends DeleteLoggingCo
  *
  * @public
  */
-export class DeleteLoggingConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteLoggingConfigurationCommandInput,
-    DeleteLoggingConfigurationCommandOutput,
-    WAFV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20190729", "DeleteLoggingConfiguration", {})
-  .n("WAFV2Client", "DeleteLoggingConfigurationCommand")
-  .sc(DeleteLoggingConfiguration$)
-  .build() {
+export class DeleteLoggingConfigurationCommand extends command<DeleteLoggingConfigurationCommandInput, DeleteLoggingConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteLoggingConfiguration",
+  DeleteLoggingConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

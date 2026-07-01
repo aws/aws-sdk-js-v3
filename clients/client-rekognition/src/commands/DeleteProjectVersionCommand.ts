@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteProjectVersionRequest, DeleteProjectVersionResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { DeleteProjectVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface DeleteProjectVersionCommandOutput extends DeleteProjectVersionR
  *
  * @public
  */
-export class DeleteProjectVersionCommand extends $Command
-  .classBuilder<
-    DeleteProjectVersionCommandInput,
-    DeleteProjectVersionCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "DeleteProjectVersion", {})
-  .n("RekognitionClient", "DeleteProjectVersionCommand")
-  .sc(DeleteProjectVersion$)
-  .build() {
+export class DeleteProjectVersionCommand extends command<DeleteProjectVersionCommandInput, DeleteProjectVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteProjectVersion",
+  DeleteProjectVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

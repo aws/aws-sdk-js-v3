@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InterconnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InterconnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAttachPointsRequest, ListAttachPointsResponse } from "../models/models_0";
 import { ListAttachPoints$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAttachPoints$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface ListAttachPointsCommandOutput extends ListAttachPointsResponse,
  *
  * @public
  */
-export class ListAttachPointsCommand extends $Command
-  .classBuilder<
-    ListAttachPointsCommandInput,
-    ListAttachPointsCommandOutput,
-    InterconnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InterconnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Interconnect", "ListAttachPoints", {})
-  .n("InterconnectClient", "ListAttachPointsCommand")
-  .sc(ListAttachPoints$)
-  .build() {
+export class ListAttachPointsCommand extends command<ListAttachPointsCommandInput, ListAttachPointsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAttachPoints",
+  ListAttachPoints$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

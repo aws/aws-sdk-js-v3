@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeDatasetGroupRequest, DescribeDatasetGroupResponse } from "../models/models_0";
-import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { DescribeDatasetGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DescribeDatasetGroupCommandOutput extends DescribeDatasetGroupR
  *
  * @public
  */
-export class DescribeDatasetGroupCommand extends $Command
-  .classBuilder<
-    DescribeDatasetGroupCommandInput,
-    DescribeDatasetGroupCommandOutput,
-    PersonalizeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPersonalize", "DescribeDatasetGroup", {})
-  .n("PersonalizeClient", "DescribeDatasetGroupCommand")
-  .sc(DescribeDatasetGroup$)
-  .build() {
+export class DescribeDatasetGroupCommand extends command<DescribeDatasetGroupCommandInput, DescribeDatasetGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDatasetGroup",
+  DescribeDatasetGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,23 +1,17 @@
 // smithy-typescript generated code
-import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3/s3-control";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
-import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetMultiRegionAccessPointPolicyStatusRequest,
   GetMultiRegionAccessPointPolicyStatusResult,
 } from "../models/models_0";
-import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { GetMultiRegionAccessPointPolicyStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,30 +82,12 @@ export interface GetMultiRegionAccessPointPolicyStatusCommandOutput extends GetM
  *
  * @public
  */
-export class GetMultiRegionAccessPointPolicyStatusCommand extends $Command
-  .classBuilder<
-    GetMultiRegionAccessPointPolicyStatusCommandInput,
-    GetMultiRegionAccessPointPolicyStatusCommandOutput,
-    S3ControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    RequiresAccountId: { type: "staticContextParams", value: true },
-    AccountId: { type: "contextParams", name: "AccountId" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getProcessArnablesPlugin(config),
-      getApplyMd5BodyChecksumPlugin(config),
-    ];
-  })
-  .s("AWSS3ControlServiceV20180820", "GetMultiRegionAccessPointPolicyStatus", {})
-  .n("S3ControlClient", "GetMultiRegionAccessPointPolicyStatusCommand")
-  .sc(GetMultiRegionAccessPointPolicyStatus$)
-  .build() {
+export class GetMultiRegionAccessPointPolicyStatusCommand extends command<GetMultiRegionAccessPointPolicyStatusCommandInput, GetMultiRegionAccessPointPolicyStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMultiRegionAccessPointPolicyStatus",
+  GetMultiRegionAccessPointPolicyStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

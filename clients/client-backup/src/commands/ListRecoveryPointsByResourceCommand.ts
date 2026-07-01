@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRecoveryPointsByResourceInput, ListRecoveryPointsByResourceOutput } from "../models/models_0";
 import { ListRecoveryPointsByResource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListRecoveryPointsByResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface ListRecoveryPointsByResourceCommandOutput extends ListRecoveryP
  *
  * @public
  */
-export class ListRecoveryPointsByResourceCommand extends $Command
-  .classBuilder<
-    ListRecoveryPointsByResourceCommandInput,
-    ListRecoveryPointsByResourceCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "ListRecoveryPointsByResource", {})
-  .n("BackupClient", "ListRecoveryPointsByResourceCommand")
-  .sc(ListRecoveryPointsByResource$)
-  .build() {
+export class ListRecoveryPointsByResourceCommand extends command<ListRecoveryPointsByResourceCommandInput, ListRecoveryPointsByResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRecoveryPointsByResource",
+  ListRecoveryPointsByResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutAndGetInlineDocumentsInputOutput } from "../models/models_0";
 import { PutAndGetInlineDocuments$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutAndGetInlineDocuments$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -59,22 +55,12 @@ export interface PutAndGetInlineDocumentsCommandOutput extends PutAndGetInlineDo
  *
  * @public
  */
-export class PutAndGetInlineDocumentsCommand extends $Command
-  .classBuilder<
-    PutAndGetInlineDocumentsCommandInput,
-    PutAndGetInlineDocumentsCommandOutput,
-    JsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("JsonProtocol", "PutAndGetInlineDocuments", {})
-  .n("JsonProtocolClient", "PutAndGetInlineDocumentsCommand")
-  .sc(PutAndGetInlineDocuments$)
-  .build() {
+export class PutAndGetInlineDocumentsCommand extends command<PutAndGetInlineDocumentsCommandInput, PutAndGetInlineDocumentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAndGetInlineDocuments",
+  PutAndGetInlineDocuments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

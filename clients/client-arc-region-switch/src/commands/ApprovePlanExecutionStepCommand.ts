@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ARCRegionSwitchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ARCRegionSwitchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ApprovePlanExecutionStepRequest, ApprovePlanExecutionStepResponse } from "../models/models_0";
 import { ApprovePlanExecutionStep$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ApprovePlanExecutionStep$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +63,12 @@ export interface ApprovePlanExecutionStepCommandOutput extends ApprovePlanExecut
  *
  * @public
  */
-export class ApprovePlanExecutionStepCommand extends $Command
-  .classBuilder<
-    ApprovePlanExecutionStepCommandInput,
-    ApprovePlanExecutionStepCommandOutput,
-    ARCRegionSwitchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ARCRegionSwitchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ArcRegionSwitch", "ApprovePlanExecutionStep", {})
-  .n("ARCRegionSwitchClient", "ApprovePlanExecutionStepCommand")
-  .sc(ApprovePlanExecutionStep$)
-  .build() {
+export class ApprovePlanExecutionStepCommand extends command<ApprovePlanExecutionStepCommandInput, ApprovePlanExecutionStepCommandOutput>(
+  _ep0,
+  _mw0,
+  "ApprovePlanExecutionStep",
+  ApprovePlanExecutionStep$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteInstanceRequest, DeleteInstanceResponse } from "../models/models_0";
 import { DeleteInstance$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteInstanceCommandOutput extends DeleteInstanceResponse, __M
  *
  * @public
  */
-export class DeleteInstanceCommand extends $Command
-  .classBuilder<
-    DeleteInstanceCommandInput,
-    DeleteInstanceCommandOutput,
-    SSOAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBExternalService", "DeleteInstance", {})
-  .n("SSOAdminClient", "DeleteInstanceCommand")
-  .sc(DeleteInstance$)
-  .build() {
+export class DeleteInstanceCommand extends command<DeleteInstanceCommandInput, DeleteInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteInstance",
+  DeleteInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

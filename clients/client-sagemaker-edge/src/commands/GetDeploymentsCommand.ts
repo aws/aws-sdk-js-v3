@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDeploymentsRequest, GetDeploymentsResult } from "../models/models_0";
-import type { SagemakerEdgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SagemakerEdgeClient";
 import { GetDeployments$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface GetDeploymentsCommandOutput extends GetDeploymentsResult, __Met
  *
  * @public
  */
-export class GetDeploymentsCommand extends $Command
-  .classBuilder<
-    GetDeploymentsCommandInput,
-    GetDeploymentsCommandOutput,
-    SagemakerEdgeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SagemakerEdgeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSageMakerEdge", "GetDeployments", {})
-  .n("SagemakerEdgeClient", "GetDeploymentsCommand")
-  .sc(GetDeployments$)
-  .build() {
+export class GetDeploymentsCommand extends command<GetDeploymentsCommandInput, GetDeploymentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDeployments",
+  GetDeployments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

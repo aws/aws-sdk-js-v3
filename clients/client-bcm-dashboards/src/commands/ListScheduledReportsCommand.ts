@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BCMDashboardsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BCMDashboardsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListScheduledReportsRequest, ListScheduledReportsResponse } from "../models/models_0";
 import { ListScheduledReports$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListScheduledReports$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface ListScheduledReportsCommandOutput extends ListScheduledReportsR
  *
  * @public
  */
-export class ListScheduledReportsCommand extends $Command
-  .classBuilder<
-    ListScheduledReportsCommandInput,
-    ListScheduledReportsCommandOutput,
-    BCMDashboardsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BCMDashboardsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBCMDashboardsService", "ListScheduledReports", {})
-  .n("BCMDashboardsClient", "ListScheduledReportsCommand")
-  .sc(ListScheduledReports$)
-  .build() {
+export class ListScheduledReportsCommand extends command<ListScheduledReportsCommandInput, ListScheduledReportsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListScheduledReports",
+  ListScheduledReports$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

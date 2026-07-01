@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeTransformJobRequest, DescribeTransformJobResponse } from "../models/models_3";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeTransformJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +116,12 @@ export interface DescribeTransformJobCommandOutput extends DescribeTransformJobR
  *
  * @public
  */
-export class DescribeTransformJobCommand extends $Command
-  .classBuilder<
-    DescribeTransformJobCommandInput,
-    DescribeTransformJobCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DescribeTransformJob", {})
-  .n("SageMakerClient", "DescribeTransformJobCommand")
-  .sc(DescribeTransformJob$)
-  .build() {
+export class DescribeTransformJobCommand extends command<DescribeTransformJobCommandInput, DescribeTransformJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeTransformJob",
+  DescribeTransformJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

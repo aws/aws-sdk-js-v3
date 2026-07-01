@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AcceptDirectConnectGatewayAssociationProposalRequest,
   AcceptDirectConnectGatewayAssociationProposalResult,
@@ -15,7 +12,6 @@ import { AcceptDirectConnectGatewayAssociationProposal$ } from "../schemas/schem
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface AcceptDirectConnectGatewayAssociationProposalCommandOutput exte
  *
  * @public
  */
-export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Command
-  .classBuilder<
-    AcceptDirectConnectGatewayAssociationProposalCommandInput,
-    AcceptDirectConnectGatewayAssociationProposalCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "AcceptDirectConnectGatewayAssociationProposal", {})
-  .n("DirectConnectClient", "AcceptDirectConnectGatewayAssociationProposalCommand")
-  .sc(AcceptDirectConnectGatewayAssociationProposal$)
-  .build() {
+export class AcceptDirectConnectGatewayAssociationProposalCommand extends command<AcceptDirectConnectGatewayAssociationProposalCommandInput, AcceptDirectConnectGatewayAssociationProposalCommandOutput>(
+  _ep0,
+  _mw0,
+  "AcceptDirectConnectGatewayAssociationProposal",
+  AcceptDirectConnectGatewayAssociationProposal$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

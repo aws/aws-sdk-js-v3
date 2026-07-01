@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateEnvironmentRoleInput, AssociateEnvironmentRoleOutput } from "../models/models_0";
 import { AssociateEnvironmentRole$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateEnvironmentRole$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface AssociateEnvironmentRoleCommandOutput extends AssociateEnvironm
  *
  * @public
  */
-export class AssociateEnvironmentRoleCommand extends $Command
-  .classBuilder<
-    AssociateEnvironmentRoleCommandInput,
-    AssociateEnvironmentRoleCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "AssociateEnvironmentRole", {})
-  .n("DataZoneClient", "AssociateEnvironmentRoleCommand")
-  .sc(AssociateEnvironmentRole$)
-  .build() {
+export class AssociateEnvironmentRoleCommand extends command<AssociateEnvironmentRoleCommandInput, AssociateEnvironmentRoleCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateEnvironmentRole",
+  AssociateEnvironmentRole$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

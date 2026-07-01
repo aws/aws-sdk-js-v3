@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCustomDomainAssociationsRequest, ListCustomDomainAssociationsResponse } from "../models/models_0";
-import type {
-  RedshiftServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RedshiftServerlessClient";
 import { ListCustomDomainAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface ListCustomDomainAssociationsCommandOutput extends ListCustomDom
  *
  * @public
  */
-export class ListCustomDomainAssociationsCommand extends $Command
-  .classBuilder<
-    ListCustomDomainAssociationsCommandInput,
-    ListCustomDomainAssociationsCommandOutput,
-    RedshiftServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServerless", "ListCustomDomainAssociations", {})
-  .n("RedshiftServerlessClient", "ListCustomDomainAssociationsCommand")
-  .sc(ListCustomDomainAssociations$)
-  .build() {
+export class ListCustomDomainAssociationsCommand extends command<ListCustomDomainAssociationsCommandInput, ListCustomDomainAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCustomDomainAssociations",
+  ListCustomDomainAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

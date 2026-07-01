@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ValidateE911AddressRequest, ValidateE911AddressResponse } from "../models/models_0";
 import { ValidateE911Address$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ValidateE911Address$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface ValidateE911AddressCommandOutput extends ValidateE911AddressRes
  *
  * @public
  */
-export class ValidateE911AddressCommand extends $Command
-  .classBuilder<
-    ValidateE911AddressCommandInput,
-    ValidateE911AddressCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "ValidateE911Address", {})
-  .n("ChimeSDKVoiceClient", "ValidateE911AddressCommand")
-  .sc(ValidateE911Address$)
-  .build() {
+export class ValidateE911AddressCommand extends command<ValidateE911AddressCommandInput, ValidateE911AddressCommandOutput>(
+  _ep0,
+  _mw0,
+  "ValidateE911Address",
+  ValidateE911Address$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

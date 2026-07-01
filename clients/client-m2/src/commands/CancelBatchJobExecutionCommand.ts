@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelBatchJobExecutionRequest, CancelBatchJobExecutionResponse } from "../models/models_0";
 import { CancelBatchJobExecution$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CancelBatchJobExecution$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface CancelBatchJobExecutionCommandOutput extends CancelBatchJobExec
  *
  * @public
  */
-export class CancelBatchJobExecutionCommand extends $Command
-  .classBuilder<
-    CancelBatchJobExecutionCommandInput,
-    CancelBatchJobExecutionCommandOutput,
-    M2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: M2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsSupernovaControlPlaneService", "CancelBatchJobExecution", {})
-  .n("M2Client", "CancelBatchJobExecutionCommand")
-  .sc(CancelBatchJobExecution$)
-  .build() {
+export class CancelBatchJobExecutionCommand extends command<CancelBatchJobExecutionCommandInput, CancelBatchJobExecutionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelBatchJobExecution",
+  CancelBatchJobExecution$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

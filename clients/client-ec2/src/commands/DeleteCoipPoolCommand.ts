@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCoipPoolRequest, DeleteCoipPoolResult } from "../models/models_2";
 import { DeleteCoipPool$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteCoipPool$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteCoipPoolCommandOutput extends DeleteCoipPoolResult, __Met
  *
  * @public
  */
-export class DeleteCoipPoolCommand extends $Command
-  .classBuilder<
-    DeleteCoipPoolCommandInput,
-    DeleteCoipPoolCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeleteCoipPool", {})
-  .n("EC2Client", "DeleteCoipPoolCommand")
-  .sc(DeleteCoipPool$)
-  .build() {
+export class DeleteCoipPoolCommand extends command<DeleteCoipPoolCommandInput, DeleteCoipPoolCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCoipPool",
+  DeleteCoipPool$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

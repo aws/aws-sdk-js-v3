@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSecurityProfileRequest, DeleteSecurityProfileResponse } from "../models/models_0";
 import { DeleteSecurityProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteSecurityProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteSecurityProfileCommandOutput extends DeleteSecurityProfil
  *
  * @public
  */
-export class DeleteSecurityProfileCommand extends $Command
-  .classBuilder<
-    DeleteSecurityProfileCommandInput,
-    DeleteSecurityProfileCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "DeleteSecurityProfile", {})
-  .n("IoTClient", "DeleteSecurityProfileCommand")
-  .sc(DeleteSecurityProfile$)
-  .build() {
+export class DeleteSecurityProfileCommand extends command<DeleteSecurityProfileCommandInput, DeleteSecurityProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSecurityProfile",
+  DeleteSecurityProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

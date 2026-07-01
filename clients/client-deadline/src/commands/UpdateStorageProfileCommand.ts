@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateStorageProfileRequest, UpdateStorageProfileResponse } from "../models/models_1";
 import { UpdateStorageProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateStorageProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface UpdateStorageProfileCommandOutput extends UpdateStorageProfileR
  *
  * @public
  */
-export class UpdateStorageProfileCommand extends $Command
-  .classBuilder<
-    UpdateStorageProfileCommandInput,
-    UpdateStorageProfileCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "UpdateStorageProfile", {})
-  .n("DeadlineClient", "UpdateStorageProfileCommand")
-  .sc(UpdateStorageProfile$)
-  .build() {
+export class UpdateStorageProfileCommand extends command<UpdateStorageProfileCommandInput, UpdateStorageProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateStorageProfile",
+  UpdateStorageProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

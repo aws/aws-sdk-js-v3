@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateGatewayInformationInput, UpdateGatewayInformationOutput } from "../models/models_0";
 import { UpdateGatewayInformation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateGatewayInformation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface UpdateGatewayInformationCommandOutput extends UpdateGatewayInfo
  *
  * @public
  */
-export class UpdateGatewayInformationCommand extends $Command
-  .classBuilder<
-    UpdateGatewayInformationCommandInput,
-    UpdateGatewayInformationCommandOutput,
-    BackupGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackupOnPremises_v20210101", "UpdateGatewayInformation", {})
-  .n("BackupGatewayClient", "UpdateGatewayInformationCommand")
-  .sc(UpdateGatewayInformation$)
-  .build() {
+export class UpdateGatewayInformationCommand extends command<UpdateGatewayInformationCommandInput, UpdateGatewayInformationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateGatewayInformation",
+  UpdateGatewayInformation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

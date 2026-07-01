@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRegistriesRequest, ListRegistriesResponse } from "../models/models_2";
 import { ListRegistries$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListRegistries$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface ListRegistriesCommandOutput extends ListRegistriesResponse, __M
  *
  * @public
  */
-export class ListRegistriesCommand extends $Command
-  .classBuilder<
-    ListRegistriesCommandInput,
-    ListRegistriesCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "ListRegistries", {})
-  .n("BedrockAgentCoreControlClient", "ListRegistriesCommand")
-  .sc(ListRegistries$)
-  .build() {
+export class ListRegistriesCommand extends command<ListRegistriesCommandInput, ListRegistriesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRegistries",
+  ListRegistries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

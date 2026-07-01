@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AssociateAssessmentReportEvidenceFolderRequest,
   AssociateAssessmentReportEvidenceFolderResponse,
@@ -15,7 +12,6 @@ import { AssociateAssessmentReportEvidenceFolder$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface AssociateAssessmentReportEvidenceFolderCommandOutput extends As
  *
  * @public
  */
-export class AssociateAssessmentReportEvidenceFolderCommand extends $Command
-  .classBuilder<
-    AssociateAssessmentReportEvidenceFolderCommandInput,
-    AssociateAssessmentReportEvidenceFolderCommandOutput,
-    AuditManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BedrockAssessmentManagerLambda", "AssociateAssessmentReportEvidenceFolder", {})
-  .n("AuditManagerClient", "AssociateAssessmentReportEvidenceFolderCommand")
-  .sc(AssociateAssessmentReportEvidenceFolder$)
-  .build() {
+export class AssociateAssessmentReportEvidenceFolderCommand extends command<AssociateAssessmentReportEvidenceFolderCommandInput, AssociateAssessmentReportEvidenceFolderCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateAssessmentReportEvidenceFolder",
+  AssociateAssessmentReportEvidenceFolder$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

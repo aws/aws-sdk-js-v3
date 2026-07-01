@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartContactEvaluationRequest, StartContactEvaluationResponse } from "../models/models_3";
 import { StartContactEvaluation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartContactEvaluation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface StartContactEvaluationCommandOutput extends StartContactEvaluat
  *
  * @public
  */
-export class StartContactEvaluationCommand extends $Command
-  .classBuilder<
-    StartContactEvaluationCommandInput,
-    StartContactEvaluationCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "StartContactEvaluation", {})
-  .n("ConnectClient", "StartContactEvaluationCommand")
-  .sc(StartContactEvaluation$)
-  .build() {
+export class StartContactEvaluationCommand extends command<StartContactEvaluationCommandInput, StartContactEvaluationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartContactEvaluation",
+  StartContactEvaluation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

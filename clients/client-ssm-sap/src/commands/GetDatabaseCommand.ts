@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDatabaseInput, GetDatabaseOutput } from "../models/models_0";
 import { GetDatabase$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  *
  * @public
  */
-export class GetDatabaseCommand extends $Command
-  .classBuilder<
-    GetDatabaseCommandInput,
-    GetDatabaseCommandOutput,
-    SsmSapClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SsmSapClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SsmSap", "GetDatabase", {})
-  .n("SsmSapClient", "GetDatabaseCommand")
-  .sc(GetDatabase$)
-  .build() {
+export class GetDatabaseCommand extends command<GetDatabaseCommandInput, GetDatabaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDatabase",
+  GetDatabase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

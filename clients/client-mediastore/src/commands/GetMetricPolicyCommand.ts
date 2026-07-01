@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMetricPolicyInput, GetMetricPolicyOutput } from "../models/models_0";
 import { GetMetricPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetMetricPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface GetMetricPolicyCommandOutput extends GetMetricPolicyOutput, __M
  *
  * @public
  */
-export class GetMetricPolicyCommand extends $Command
-  .classBuilder<
-    GetMetricPolicyCommandInput,
-    GetMetricPolicyCommandOutput,
-    MediaStoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaStoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaStore_20170901", "GetMetricPolicy", {})
-  .n("MediaStoreClient", "GetMetricPolicyCommand")
-  .sc(GetMetricPolicy$)
-  .build() {
+export class GetMetricPolicyCommand extends command<GetMetricPolicyCommandInput, GetMetricPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMetricPolicy",
+  GetMetricPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

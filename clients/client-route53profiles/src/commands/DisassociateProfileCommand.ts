@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateProfileRequest, DisassociateProfileResponse } from "../models/models_0";
-import type {
-  Route53ProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ProfilesClient";
 import { DisassociateProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface DisassociateProfileCommandOutput extends DisassociateProfileRes
  *
  * @public
  */
-export class DisassociateProfileCommand extends $Command
-  .classBuilder<
-    DisassociateProfileCommandInput,
-    DisassociateProfileCommandOutput,
-    Route53ProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Profiles", "DisassociateProfile", {})
-  .n("Route53ProfilesClient", "DisassociateProfileCommand")
-  .sc(DisassociateProfile$)
-  .build() {
+export class DisassociateProfileCommand extends command<DisassociateProfileCommandInput, DisassociateProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateProfile",
+  DisassociateProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

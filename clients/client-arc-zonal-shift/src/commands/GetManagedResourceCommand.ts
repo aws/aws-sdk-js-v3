@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetManagedResourceRequest, GetManagedResourceResponse } from "../models/models_0";
 import { GetManagedResource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetManagedResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface GetManagedResourceCommandOutput extends GetManagedResourceRespo
  *
  * @public
  */
-export class GetManagedResourceCommand extends $Command
-  .classBuilder<
-    GetManagedResourceCommandInput,
-    GetManagedResourceCommandOutput,
-    ARCZonalShiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PercDataPlane", "GetManagedResource", {})
-  .n("ARCZonalShiftClient", "GetManagedResourceCommand")
-  .sc(GetManagedResource$)
-  .build() {
+export class GetManagedResourceCommand extends command<GetManagedResourceCommandInput, GetManagedResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetManagedResource",
+  GetManagedResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

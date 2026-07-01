@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutRegistryCatalogDataRequest, PutRegistryCatalogDataResponse } from "../models/models_0";
 import { PutRegistryCatalogData$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutRegistryCatalogData$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface PutRegistryCatalogDataCommandOutput extends PutRegistryCatalogD
  *
  * @public
  */
-export class PutRegistryCatalogDataCommand extends $Command
-  .classBuilder<
-    PutRegistryCatalogDataCommandInput,
-    PutRegistryCatalogDataCommandOutput,
-    ECRPUBLICClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRPUBLICClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SpencerFrontendService", "PutRegistryCatalogData", {})
-  .n("ECRPUBLICClient", "PutRegistryCatalogDataCommand")
-  .sc(PutRegistryCatalogData$)
-  .build() {
+export class PutRegistryCatalogDataCommand extends command<PutRegistryCatalogDataCommandInput, PutRegistryCatalogDataCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutRegistryCatalogData",
+  PutRegistryCatalogData$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

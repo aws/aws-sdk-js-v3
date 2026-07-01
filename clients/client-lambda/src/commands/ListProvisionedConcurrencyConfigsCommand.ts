@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListProvisionedConcurrencyConfigsRequest,
   ListProvisionedConcurrencyConfigsResponse,
@@ -15,7 +12,6 @@ import { ListProvisionedConcurrencyConfigs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +115,12 @@ export interface ListProvisionedConcurrencyConfigsCommandOutput extends ListProv
  *
  * @public
  */
-export class ListProvisionedConcurrencyConfigsCommand extends $Command
-  .classBuilder<
-    ListProvisionedConcurrencyConfigsCommandInput,
-    ListProvisionedConcurrencyConfigsCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "ListProvisionedConcurrencyConfigs", {})
-  .n("LambdaClient", "ListProvisionedConcurrencyConfigsCommand")
-  .sc(ListProvisionedConcurrencyConfigs$)
-  .build() {
+export class ListProvisionedConcurrencyConfigsCommand extends command<ListProvisionedConcurrencyConfigsCommandInput, ListProvisionedConcurrencyConfigsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListProvisionedConcurrencyConfigs",
+  ListProvisionedConcurrencyConfigs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

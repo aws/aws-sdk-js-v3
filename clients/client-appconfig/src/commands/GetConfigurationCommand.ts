@@ -1,11 +1,8 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import { Uint8ArrayBlobAdapter } from "@smithy/core/serde";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { Configuration, GetConfigurationRequest } from "../models/models_0";
 import { GetConfiguration$ } from "../schemas/schemas_0";
 
@@ -13,7 +10,6 @@ import { GetConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface GetConfigurationCommandOutput extends GetConfigurationCommandOu
  *
  * @public
  */
-export class GetConfigurationCommand extends $Command
-  .classBuilder<
-    GetConfigurationCommandInput,
-    GetConfigurationCommandOutput,
-    AppConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAppConfig", "GetConfiguration", {})
-  .n("AppConfigClient", "GetConfigurationCommand")
-  .sc(GetConfiguration$)
-  .build() {
+export class GetConfigurationCommand extends command<GetConfigurationCommandInput, GetConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetConfiguration",
+  GetConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

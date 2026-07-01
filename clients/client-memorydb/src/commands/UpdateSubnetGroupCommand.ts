@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateSubnetGroupRequest, UpdateSubnetGroupResponse } from "../models/models_0";
 import { UpdateSubnetGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateSubnetGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface UpdateSubnetGroupCommandOutput extends UpdateSubnetGroupRespons
  *
  * @public
  */
-export class UpdateSubnetGroupCommand extends $Command
-  .classBuilder<
-    UpdateSubnetGroupCommandInput,
-    UpdateSubnetGroupCommandOutput,
-    MemoryDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMemoryDB", "UpdateSubnetGroup", {})
-  .n("MemoryDBClient", "UpdateSubnetGroupCommand")
-  .sc(UpdateSubnetGroup$)
-  .build() {
+export class UpdateSubnetGroupCommand extends command<UpdateSubnetGroupCommandInput, UpdateSubnetGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSubnetGroup",
+  UpdateSubnetGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

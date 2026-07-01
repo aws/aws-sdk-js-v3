@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateMapRunInput, UpdateMapRunOutput } from "../models/models_0";
 import { UpdateMapRun$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface UpdateMapRunCommandOutput extends UpdateMapRunOutput, __Metadat
  *
  * @public
  */
-export class UpdateMapRunCommand extends $Command
-  .classBuilder<
-    UpdateMapRunCommandInput,
-    UpdateMapRunCommandOutput,
-    SFNClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStepFunctions", "UpdateMapRun", {})
-  .n("SFNClient", "UpdateMapRunCommand")
-  .sc(UpdateMapRun$)
-  .build() {
+export class UpdateMapRunCommand extends command<UpdateMapRunCommandInput, UpdateMapRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateMapRun",
+  UpdateMapRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

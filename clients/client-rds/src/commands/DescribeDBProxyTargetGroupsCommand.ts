@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeDBProxyTargetGroupsRequest, DescribeDBProxyTargetGroupsResponse } from "../models/models_0";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DescribeDBProxyTargetGroups$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface DescribeDBProxyTargetGroupsCommandOutput extends DescribeDBProx
  *
  * @public
  */
-export class DescribeDBProxyTargetGroupsCommand extends $Command
-  .classBuilder<
-    DescribeDBProxyTargetGroupsCommandInput,
-    DescribeDBProxyTargetGroupsCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DescribeDBProxyTargetGroups", {})
-  .n("RDSClient", "DescribeDBProxyTargetGroupsCommand")
-  .sc(DescribeDBProxyTargetGroups$)
-  .build() {
+export class DescribeDBProxyTargetGroupsCommand extends command<DescribeDBProxyTargetGroupsCommandInput, DescribeDBProxyTargetGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDBProxyTargetGroups",
+  DescribeDBProxyTargetGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

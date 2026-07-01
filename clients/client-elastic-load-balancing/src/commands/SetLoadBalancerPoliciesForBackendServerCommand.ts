@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticLoadBalancingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticLoadBalancingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   SetLoadBalancerPoliciesForBackendServerInput,
   SetLoadBalancerPoliciesForBackendServerOutput,
@@ -19,7 +12,6 @@ import { SetLoadBalancerPoliciesForBackendServer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface SetLoadBalancerPoliciesForBackendServerCommandOutput extends Se
  *
  * @public
  */
-export class SetLoadBalancerPoliciesForBackendServerCommand extends $Command
-  .classBuilder<
-    SetLoadBalancerPoliciesForBackendServerCommandInput,
-    SetLoadBalancerPoliciesForBackendServerCommandOutput,
-    ElasticLoadBalancingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticLoadBalancing_v7", "SetLoadBalancerPoliciesForBackendServer", {})
-  .n("ElasticLoadBalancingClient", "SetLoadBalancerPoliciesForBackendServerCommand")
-  .sc(SetLoadBalancerPoliciesForBackendServer$)
-  .build() {
+export class SetLoadBalancerPoliciesForBackendServerCommand extends command<SetLoadBalancerPoliciesForBackendServerCommandInput, SetLoadBalancerPoliciesForBackendServerCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetLoadBalancerPoliciesForBackendServer",
+  SetLoadBalancerPoliciesForBackendServer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

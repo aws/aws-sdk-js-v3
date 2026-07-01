@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRecommendationSummariesRequest, GetRecommendationSummariesResponse } from "../models/models_0";
 import { GetRecommendationSummaries$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetRecommendationSummaries$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -183,22 +175,12 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  *
  * @public
  */
-export class GetRecommendationSummariesCommand extends $Command
-  .classBuilder<
-    GetRecommendationSummariesCommandInput,
-    GetRecommendationSummariesCommandOutput,
-    ComputeOptimizerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerService", "GetRecommendationSummaries", {})
-  .n("ComputeOptimizerClient", "GetRecommendationSummariesCommand")
-  .sc(GetRecommendationSummaries$)
-  .build() {
+export class GetRecommendationSummariesCommand extends command<GetRecommendationSummariesCommandInput, GetRecommendationSummariesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRecommendationSummaries",
+  GetRecommendationSummaries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

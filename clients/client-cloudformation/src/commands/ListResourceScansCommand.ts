@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListResourceScansInput, ListResourceScansOutput } from "../models/models_0";
 import { ListResourceScans$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListResourceScans$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +69,12 @@ export interface ListResourceScansCommandOutput extends ListResourceScansOutput,
  *
  * @public
  */
-export class ListResourceScansCommand extends $Command
-  .classBuilder<
-    ListResourceScansCommandInput,
-    ListResourceScansCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "ListResourceScans", {})
-  .n("CloudFormationClient", "ListResourceScansCommand")
-  .sc(ListResourceScans$)
-  .build() {
+export class ListResourceScansCommand extends command<ListResourceScansCommandInput, ListResourceScansCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListResourceScans",
+  ListResourceScans$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticsearchServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticsearchServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPackageVersionHistoryRequest, GetPackageVersionHistoryResponse } from "../models/models_0";
 import { GetPackageVersionHistory$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetPackageVersionHistory$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface GetPackageVersionHistoryCommandOutput extends GetPackageVersion
  *
  * @public
  */
-export class GetPackageVersionHistoryCommand extends $Command
-  .classBuilder<
-    GetPackageVersionHistoryCommandInput,
-    GetPackageVersionHistoryCommandOutput,
-    ElasticsearchServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticsearchService2015", "GetPackageVersionHistory", {})
-  .n("ElasticsearchServiceClient", "GetPackageVersionHistoryCommand")
-  .sc(GetPackageVersionHistory$)
-  .build() {
+export class GetPackageVersionHistoryCommand extends command<GetPackageVersionHistoryCommandInput, GetPackageVersionHistoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPackageVersionHistory",
+  GetPackageVersionHistory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

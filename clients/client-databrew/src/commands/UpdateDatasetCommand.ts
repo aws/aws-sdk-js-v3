@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDatasetRequest, UpdateDatasetResponse } from "../models/models_0";
 import { UpdateDataset$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateDataset$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -148,22 +144,12 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  *
  * @public
  */
-export class UpdateDatasetCommand extends $Command
-  .classBuilder<
-    UpdateDatasetCommandInput,
-    UpdateDatasetCommandOutput,
-    DataBrewClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlueDataBrew", "UpdateDataset", {})
-  .n("DataBrewClient", "UpdateDatasetCommand")
-  .sc(UpdateDataset$)
-  .build() {
+export class UpdateDatasetCommand extends command<UpdateDatasetCommandInput, UpdateDatasetCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDataset",
+  UpdateDataset$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteWhatIfForecastRequest } from "../models/models_0";
 import { DeleteWhatIfForecast$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteWhatIfForecast$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface DeleteWhatIfForecastCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteWhatIfForecastCommand extends $Command
-  .classBuilder<
-    DeleteWhatIfForecastCommandInput,
-    DeleteWhatIfForecastCommandOutput,
-    ForecastClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonForecast", "DeleteWhatIfForecast", {})
-  .n("ForecastClient", "DeleteWhatIfForecastCommand")
-  .sc(DeleteWhatIfForecast$)
-  .build() {
+export class DeleteWhatIfForecastCommand extends command<DeleteWhatIfForecastCommandInput, DeleteWhatIfForecastCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteWhatIfForecast",
+  DeleteWhatIfForecast$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCertificateAuthoritiesRequest, ListCertificateAuthoritiesResponse } from "../models/models_0";
 import { ListCertificateAuthorities$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListCertificateAuthorities$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -183,22 +179,12 @@ export interface ListCertificateAuthoritiesCommandOutput extends ListCertificate
  *
  * @public
  */
-export class ListCertificateAuthoritiesCommand extends $Command
-  .classBuilder<
-    ListCertificateAuthoritiesCommandInput,
-    ListCertificateAuthoritiesCommandOutput,
-    ACMPCAClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ACMPCAClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ACMPrivateCA", "ListCertificateAuthorities", {})
-  .n("ACMPCAClient", "ListCertificateAuthoritiesCommand")
-  .sc(ListCertificateAuthorities$)
-  .build() {
+export class ListCertificateAuthoritiesCommand extends command<ListCertificateAuthoritiesCommandInput, ListCertificateAuthoritiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCertificateAuthorities",
+  ListCertificateAuthorities$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

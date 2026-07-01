@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComprehendMedicalClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComprehendMedicalClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeSNOMEDCTInferenceJobRequest, DescribeSNOMEDCTInferenceJobResponse } from "../models/models_0";
 import { DescribeSNOMEDCTInferenceJob$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeSNOMEDCTInferenceJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface DescribeSNOMEDCTInferenceJobCommandOutput extends DescribeSNOME
  *
  * @public
  */
-export class DescribeSNOMEDCTInferenceJobCommand extends $Command
-  .classBuilder<
-    DescribeSNOMEDCTInferenceJobCommandInput,
-    DescribeSNOMEDCTInferenceJobCommandOutput,
-    ComprehendMedicalClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComprehendMedical_20181030", "DescribeSNOMEDCTInferenceJob", {})
-  .n("ComprehendMedicalClient", "DescribeSNOMEDCTInferenceJobCommand")
-  .sc(DescribeSNOMEDCTInferenceJob$)
-  .build() {
+export class DescribeSNOMEDCTInferenceJobCommand extends command<DescribeSNOMEDCTInferenceJobCommandInput, DescribeSNOMEDCTInferenceJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSNOMEDCTInferenceJob",
+  DescribeSNOMEDCTInferenceJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

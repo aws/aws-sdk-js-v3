@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PurchaseCapacityBlockRequest, PurchaseCapacityBlockResult } from "../models/models_7";
 import { PurchaseCapacityBlock$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PurchaseCapacityBlock$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -155,22 +151,12 @@ export interface PurchaseCapacityBlockCommandOutput extends PurchaseCapacityBloc
  *
  * @public
  */
-export class PurchaseCapacityBlockCommand extends $Command
-  .classBuilder<
-    PurchaseCapacityBlockCommandInput,
-    PurchaseCapacityBlockCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "PurchaseCapacityBlock", {})
-  .n("EC2Client", "PurchaseCapacityBlockCommand")
-  .sc(PurchaseCapacityBlock$)
-  .build() {
+export class PurchaseCapacityBlockCommand extends command<PurchaseCapacityBlockCommandInput, PurchaseCapacityBlockCommandOutput>(
+  _ep0,
+  _mw0,
+  "PurchaseCapacityBlock",
+  PurchaseCapacityBlock$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

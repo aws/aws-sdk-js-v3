@@ -1,17 +1,13 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import { QueryIncompatibleOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -54,22 +50,12 @@ export interface QueryIncompatibleOperationCommandOutput extends __MetadataBeare
  *
  *
  */
-export class QueryIncompatibleOperationCommand extends $Command
-  .classBuilder<
-    QueryIncompatibleOperationCommandInput,
-    QueryIncompatibleOperationCommandOutput,
-    JSONRPC10ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: JSONRPC10ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("JsonRpc10", "QueryIncompatibleOperation", {})
-  .n("JSONRPC10Client", "QueryIncompatibleOperationCommand")
-  .sc(QueryIncompatibleOperation$)
-  .build() {
+export class QueryIncompatibleOperationCommand extends command<QueryIncompatibleOperationCommandInput, QueryIncompatibleOperationCommandOutput>(
+  _ep0,
+  _mw0,
+  "QueryIncompatibleOperation",
+  QueryIncompatibleOperation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

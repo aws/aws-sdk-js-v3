@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateApprovalTeamRequest, CreateApprovalTeamResponse } from "../models/models_0";
-import type { MPAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MPAClient";
 import { CreateApprovalTeam$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface CreateApprovalTeamCommandOutput extends CreateApprovalTeamRespo
  *
  * @public
  */
-export class CreateApprovalTeamCommand extends $Command
-  .classBuilder<
-    CreateApprovalTeamCommandInput,
-    CreateApprovalTeamCommandOutput,
-    MPAClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MPAClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSFluffyCoreService", "CreateApprovalTeam", {})
-  .n("MPAClient", "CreateApprovalTeamCommand")
-  .sc(CreateApprovalTeam$)
-  .build() {
+export class CreateApprovalTeamCommand extends command<CreateApprovalTeamCommandInput, CreateApprovalTeamCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateApprovalTeam",
+  CreateApprovalTeam$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteProgramManagementAccountRequest, DeleteProgramManagementAccountResponse } from "../models/models_0";
-import type {
-  PartnerCentralChannelClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralChannelClient";
 import { DeleteProgramManagementAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface DeleteProgramManagementAccountCommandOutput extends DeleteProgr
  *
  * @public
  */
-export class DeleteProgramManagementAccountCommand extends $Command
-  .classBuilder<
-    DeleteProgramManagementAccountCommandInput,
-    DeleteProgramManagementAccountCommandOutput,
-    PartnerCentralChannelClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralChannelClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralChannel", "DeleteProgramManagementAccount", {})
-  .n("PartnerCentralChannelClient", "DeleteProgramManagementAccountCommand")
-  .sc(DeleteProgramManagementAccount$)
-  .build() {
+export class DeleteProgramManagementAccountCommand extends command<DeleteProgramManagementAccountCommandInput, DeleteProgramManagementAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteProgramManagementAccount",
+  DeleteProgramManagementAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

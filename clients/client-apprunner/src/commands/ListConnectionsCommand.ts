@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListConnectionsRequest, ListConnectionsResponse } from "../models/models_0";
 import { ListConnections$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListConnections$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface ListConnectionsCommandOutput extends ListConnectionsResponse, _
  *
  * @public
  */
-export class ListConnectionsCommand extends $Command
-  .classBuilder<
-    ListConnectionsCommandInput,
-    ListConnectionsCommandOutput,
-    AppRunnerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppRunner", "ListConnections", {})
-  .n("AppRunnerClient", "ListConnectionsCommand")
-  .sc(ListConnections$)
-  .build() {
+export class ListConnectionsCommand extends command<ListConnectionsCommandInput, ListConnectionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListConnections",
+  ListConnections$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UnarchiveFindingsRequest, UnarchiveFindingsResponse } from "../models/models_1";
 import { UnarchiveFindings$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UnarchiveFindings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +62,12 @@ export interface UnarchiveFindingsCommandOutput extends UnarchiveFindingsRespons
  *
  * @public
  */
-export class UnarchiveFindingsCommand extends $Command
-  .classBuilder<
-    UnarchiveFindingsCommandInput,
-    UnarchiveFindingsCommandOutput,
-    GuardDutyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GuardDutyAPIService", "UnarchiveFindings", {})
-  .n("GuardDutyClient", "UnarchiveFindingsCommand")
-  .sc(UnarchiveFindings$)
-  .build() {
+export class UnarchiveFindingsCommand extends command<UnarchiveFindingsCommandInput, UnarchiveFindingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UnarchiveFindings",
+  UnarchiveFindings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

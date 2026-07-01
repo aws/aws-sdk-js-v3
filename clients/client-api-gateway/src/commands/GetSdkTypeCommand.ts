@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSdkTypeRequest, SdkType } from "../models/models_0";
 import { GetSdkType$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetSdkType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface GetSdkTypeCommandOutput extends SdkType, __MetadataBearer {}
  *
  * @public
  */
-export class GetSdkTypeCommand extends $Command
-  .classBuilder<
-    GetSdkTypeCommandInput,
-    GetSdkTypeCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "GetSdkType", {})
-  .n("APIGatewayClient", "GetSdkTypeCommand")
-  .sc(GetSdkType$)
-  .build() {
+export class GetSdkTypeCommand extends command<GetSdkTypeCommandInput, GetSdkTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSdkType",
+  GetSdkType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

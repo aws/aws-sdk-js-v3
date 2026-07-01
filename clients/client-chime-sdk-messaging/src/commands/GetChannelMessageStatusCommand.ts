@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMessagingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMessagingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetChannelMessageStatusRequest, GetChannelMessageStatusResponse } from "../models/models_0";
 import { GetChannelMessageStatus$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetChannelMessageStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +114,12 @@ export interface GetChannelMessageStatusCommandOutput extends GetChannelMessageS
  *
  * @public
  */
-export class GetChannelMessageStatusCommand extends $Command
-  .classBuilder<
-    GetChannelMessageStatusCommandInput,
-    GetChannelMessageStatusCommandOutput,
-    ChimeSDKMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeMessagingService", "GetChannelMessageStatus", {})
-  .n("ChimeSDKMessagingClient", "GetChannelMessageStatusCommand")
-  .sc(GetChannelMessageStatus$)
-  .build() {
+export class GetChannelMessageStatusCommand extends command<GetChannelMessageStatusCommandInput, GetChannelMessageStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetChannelMessageStatus",
+  GetChannelMessageStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

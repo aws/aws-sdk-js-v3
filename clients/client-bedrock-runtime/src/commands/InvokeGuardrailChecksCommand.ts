@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockRuntimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { InvokeGuardrailChecksRequest, InvokeGuardrailChecksResponse } from "../models/models_0";
 import { InvokeGuardrailChecks$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { InvokeGuardrailChecks$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -151,22 +143,12 @@ export interface InvokeGuardrailChecksCommandOutput extends InvokeGuardrailCheck
  *
  * @public
  */
-export class InvokeGuardrailChecksCommand extends $Command
-  .classBuilder<
-    InvokeGuardrailChecksCommandInput,
-    InvokeGuardrailChecksCommandOutput,
-    BedrockRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockFrontendService", "InvokeGuardrailChecks", {})
-  .n("BedrockRuntimeClient", "InvokeGuardrailChecksCommand")
-  .sc(InvokeGuardrailChecks$)
-  .build() {
+export class InvokeGuardrailChecksCommand extends command<InvokeGuardrailChecksCommandInput, InvokeGuardrailChecksCommandOutput>(
+  _ep0,
+  _mw0,
+  "InvokeGuardrailChecks",
+  InvokeGuardrailChecks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

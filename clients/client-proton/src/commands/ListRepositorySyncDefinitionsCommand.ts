@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRepositorySyncDefinitionsInput, ListRepositorySyncDefinitionsOutput } from "../models/models_0";
-import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 import { ListRepositorySyncDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface ListRepositorySyncDefinitionsCommandOutput extends ListReposito
  *
  * @public
  */
-export class ListRepositorySyncDefinitionsCommand extends $Command
-  .classBuilder<
-    ListRepositorySyncDefinitionsCommandInput,
-    ListRepositorySyncDefinitionsCommandOutput,
-    ProtonClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsProton20200720", "ListRepositorySyncDefinitions", {})
-  .n("ProtonClient", "ListRepositorySyncDefinitionsCommand")
-  .sc(ListRepositorySyncDefinitions$)
-  .build() {
+export class ListRepositorySyncDefinitionsCommand extends command<ListRepositorySyncDefinitionsCommandInput, ListRepositorySyncDefinitionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRepositorySyncDefinitions",
+  ListRepositorySyncDefinitions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

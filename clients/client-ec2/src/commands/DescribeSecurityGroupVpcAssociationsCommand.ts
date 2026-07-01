@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeSecurityGroupVpcAssociationsRequest,
   DescribeSecurityGroupVpcAssociationsResult,
@@ -15,7 +12,6 @@ import { DescribeSecurityGroupVpcAssociations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface DescribeSecurityGroupVpcAssociationsCommandOutput extends Descr
  *
  * @public
  */
-export class DescribeSecurityGroupVpcAssociationsCommand extends $Command
-  .classBuilder<
-    DescribeSecurityGroupVpcAssociationsCommandInput,
-    DescribeSecurityGroupVpcAssociationsCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeSecurityGroupVpcAssociations", {})
-  .n("EC2Client", "DescribeSecurityGroupVpcAssociationsCommand")
-  .sc(DescribeSecurityGroupVpcAssociations$)
-  .build() {
+export class DescribeSecurityGroupVpcAssociationsCommand extends command<DescribeSecurityGroupVpcAssociationsCommandInput, DescribeSecurityGroupVpcAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSecurityGroupVpcAssociations",
+  DescribeSecurityGroupVpcAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

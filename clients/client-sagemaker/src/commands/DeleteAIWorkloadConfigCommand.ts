@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAIWorkloadConfigRequest, DeleteAIWorkloadConfigResponse } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DeleteAIWorkloadConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -65,22 +61,12 @@ export interface DeleteAIWorkloadConfigCommandOutput extends DeleteAIWorkloadCon
  *
  * @public
  */
-export class DeleteAIWorkloadConfigCommand extends $Command
-  .classBuilder<
-    DeleteAIWorkloadConfigCommandInput,
-    DeleteAIWorkloadConfigCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DeleteAIWorkloadConfig", {})
-  .n("SageMakerClient", "DeleteAIWorkloadConfigCommand")
-  .sc(DeleteAIWorkloadConfig$)
-  .build() {
+export class DeleteAIWorkloadConfigCommand extends command<DeleteAIWorkloadConfigCommandInput, DeleteAIWorkloadConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAIWorkloadConfig",
+  DeleteAIWorkloadConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

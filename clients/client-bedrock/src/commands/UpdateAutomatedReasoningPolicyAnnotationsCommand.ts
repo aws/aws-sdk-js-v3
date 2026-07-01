@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateAutomatedReasoningPolicyAnnotationsRequest,
   UpdateAutomatedReasoningPolicyAnnotationsResponse,
@@ -15,7 +12,6 @@ import { UpdateAutomatedReasoningPolicyAnnotations$ } from "../schemas/schemas_0
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -165,22 +161,12 @@ export interface UpdateAutomatedReasoningPolicyAnnotationsCommandOutput extends 
  *
  * @public
  */
-export class UpdateAutomatedReasoningPolicyAnnotationsCommand extends $Command
-  .classBuilder<
-    UpdateAutomatedReasoningPolicyAnnotationsCommandInput,
-    UpdateAutomatedReasoningPolicyAnnotationsCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "UpdateAutomatedReasoningPolicyAnnotations", {})
-  .n("BedrockClient", "UpdateAutomatedReasoningPolicyAnnotationsCommand")
-  .sc(UpdateAutomatedReasoningPolicyAnnotations$)
-  .build() {
+export class UpdateAutomatedReasoningPolicyAnnotationsCommand extends command<UpdateAutomatedReasoningPolicyAnnotationsCommandInput, UpdateAutomatedReasoningPolicyAnnotationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAutomatedReasoningPolicyAnnotations",
+  UpdateAutomatedReasoningPolicyAnnotations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

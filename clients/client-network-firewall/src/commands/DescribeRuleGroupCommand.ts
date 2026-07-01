@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRuleGroupRequest, DescribeRuleGroupResponse } from "../models/models_0";
-import type {
-  NetworkFirewallClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFirewallClient";
 import { DescribeRuleGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -257,22 +249,12 @@ export interface DescribeRuleGroupCommandOutput extends DescribeRuleGroupRespons
  *
  * @public
  */
-export class DescribeRuleGroupCommand extends $Command
-  .classBuilder<
-    DescribeRuleGroupCommandInput,
-    DescribeRuleGroupCommandOutput,
-    NetworkFirewallClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFirewall_20201112", "DescribeRuleGroup", {})
-  .n("NetworkFirewallClient", "DescribeRuleGroupCommand")
-  .sc(DescribeRuleGroup$)
-  .build() {
+export class DescribeRuleGroupCommand extends command<DescribeRuleGroupCommandInput, DescribeRuleGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRuleGroup",
+  DescribeRuleGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

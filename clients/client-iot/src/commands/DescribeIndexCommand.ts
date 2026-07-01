@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeIndexRequest, DescribeIndexResponse } from "../models/models_1";
 import { DescribeIndex$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeIndex$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
  *
  * @public
  */
-export class DescribeIndexCommand extends $Command
-  .classBuilder<
-    DescribeIndexCommandInput,
-    DescribeIndexCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "DescribeIndex", {})
-  .n("IoTClient", "DescribeIndexCommand")
-  .sc(DescribeIndex$)
-  .build() {
+export class DescribeIndexCommand extends command<DescribeIndexCommandInput, DescribeIndexCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeIndex",
+  DescribeIndex$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

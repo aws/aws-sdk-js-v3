@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetFindingsPublicationConfigurationRequest,
   GetFindingsPublicationConfigurationResponse,
@@ -15,7 +12,6 @@ import { GetFindingsPublicationConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface GetFindingsPublicationConfigurationCommandOutput extends GetFin
  *
  * @public
  */
-export class GetFindingsPublicationConfigurationCommand extends $Command
-  .classBuilder<
-    GetFindingsPublicationConfigurationCommandInput,
-    GetFindingsPublicationConfigurationCommandOutput,
-    Macie2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Macie2", "GetFindingsPublicationConfiguration", {})
-  .n("Macie2Client", "GetFindingsPublicationConfigurationCommand")
-  .sc(GetFindingsPublicationConfiguration$)
-  .build() {
+export class GetFindingsPublicationConfigurationCommand extends command<GetFindingsPublicationConfigurationCommandInput, GetFindingsPublicationConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFindingsPublicationConfiguration",
+  GetFindingsPublicationConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

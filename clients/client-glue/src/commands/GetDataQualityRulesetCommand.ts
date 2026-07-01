@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDataQualityRulesetRequest, GetDataQualityRulesetResponse } from "../models/models_1";
 import { GetDataQualityRuleset$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDataQualityRuleset$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface GetDataQualityRulesetCommandOutput extends GetDataQualityRulese
  *
  * @public
  */
-export class GetDataQualityRulesetCommand extends $Command
-  .classBuilder<
-    GetDataQualityRulesetCommandInput,
-    GetDataQualityRulesetCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "GetDataQualityRuleset", {})
-  .n("GlueClient", "GetDataQualityRulesetCommand")
-  .sc(GetDataQualityRuleset$)
-  .build() {
+export class GetDataQualityRulesetCommand extends command<GetDataQualityRulesetCommandInput, GetDataQualityRulesetCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDataQualityRuleset",
+  GetDataQualityRuleset$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

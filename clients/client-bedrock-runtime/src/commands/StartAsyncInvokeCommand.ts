@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockRuntimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartAsyncInvokeRequest, StartAsyncInvokeResponse } from "../models/models_0";
 import { StartAsyncInvoke$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartAsyncInvoke$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface StartAsyncInvokeCommandOutput extends StartAsyncInvokeResponse,
  *
  * @public
  */
-export class StartAsyncInvokeCommand extends $Command
-  .classBuilder<
-    StartAsyncInvokeCommandInput,
-    StartAsyncInvokeCommandOutput,
-    BedrockRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockFrontendService", "StartAsyncInvoke", {})
-  .n("BedrockRuntimeClient", "StartAsyncInvokeCommand")
-  .sc(StartAsyncInvoke$)
-  .build() {
+export class StartAsyncInvokeCommand extends command<StartAsyncInvokeCommandInput, StartAsyncInvokeCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartAsyncInvoke",
+  StartAsyncInvoke$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

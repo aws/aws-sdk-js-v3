@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeDirectConnectGatewayAssociationProposalsRequest,
   DescribeDirectConnectGatewayAssociationProposalsResult,
@@ -15,7 +12,6 @@ import { DescribeDirectConnectGatewayAssociationProposals$ } from "../schemas/sc
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface DescribeDirectConnectGatewayAssociationProposalsCommandOutput e
  *
  * @public
  */
-export class DescribeDirectConnectGatewayAssociationProposalsCommand extends $Command
-  .classBuilder<
-    DescribeDirectConnectGatewayAssociationProposalsCommandInput,
-    DescribeDirectConnectGatewayAssociationProposalsCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "DescribeDirectConnectGatewayAssociationProposals", {})
-  .n("DirectConnectClient", "DescribeDirectConnectGatewayAssociationProposalsCommand")
-  .sc(DescribeDirectConnectGatewayAssociationProposals$)
-  .build() {
+export class DescribeDirectConnectGatewayAssociationProposalsCommand extends command<DescribeDirectConnectGatewayAssociationProposalsCommandInput, DescribeDirectConnectGatewayAssociationProposalsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDirectConnectGatewayAssociationProposals",
+  DescribeDirectConnectGatewayAssociationProposals$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

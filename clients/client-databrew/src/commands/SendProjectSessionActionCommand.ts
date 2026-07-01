@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendProjectSessionActionRequest, SendProjectSessionActionResponse } from "../models/models_0";
 import { SendProjectSessionAction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SendProjectSessionAction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface SendProjectSessionActionCommandOutput extends SendProjectSessio
  *
  * @public
  */
-export class SendProjectSessionActionCommand extends $Command
-  .classBuilder<
-    SendProjectSessionActionCommandInput,
-    SendProjectSessionActionCommandOutput,
-    DataBrewClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlueDataBrew", "SendProjectSessionAction", {})
-  .n("DataBrewClient", "SendProjectSessionActionCommand")
-  .sc(SendProjectSessionAction$)
-  .build() {
+export class SendProjectSessionActionCommand extends command<SendProjectSessionActionCommandInput, SendProjectSessionActionCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendProjectSessionAction",
+  SendProjectSessionAction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

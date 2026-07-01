@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRecoveryInstanceRequest } from "../models/models_0";
 import { DeleteRecoveryInstance$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteRecoveryInstance$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteRecoveryInstanceCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteRecoveryInstanceCommand extends $Command
-  .classBuilder<
-    DeleteRecoveryInstanceCommandInput,
-    DeleteRecoveryInstanceCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "DeleteRecoveryInstance", {})
-  .n("DrsClient", "DeleteRecoveryInstanceCommand")
-  .sc(DeleteRecoveryInstance$)
-  .build() {
+export class DeleteRecoveryInstanceCommand extends command<DeleteRecoveryInstanceCommandInput, DeleteRecoveryInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRecoveryInstance",
+  DeleteRecoveryInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

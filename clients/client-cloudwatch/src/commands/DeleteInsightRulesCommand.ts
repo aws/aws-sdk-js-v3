@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteInsightRulesInput, DeleteInsightRulesOutput } from "../models/models_0";
 import { DeleteInsightRules$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteInsightRules$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutpu
  *
  * @public
  */
-export class DeleteInsightRulesCommand extends $Command
-  .classBuilder<
-    DeleteInsightRulesCommandInput,
-    DeleteInsightRulesCommandOutput,
-    CloudWatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GraniteServiceVersion20100801", "DeleteInsightRules", {})
-  .n("CloudWatchClient", "DeleteInsightRulesCommand")
-  .sc(DeleteInsightRules$)
-  .build() {
+export class DeleteInsightRulesCommand extends command<DeleteInsightRulesCommandInput, DeleteInsightRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteInsightRules",
+  DeleteInsightRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

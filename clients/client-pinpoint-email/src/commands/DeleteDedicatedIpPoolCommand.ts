@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDedicatedIpPoolRequest, DeleteDedicatedIpPoolResponse } from "../models/models_0";
-import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import { DeleteDedicatedIpPool$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteDedicatedIpPoolCommandOutput extends DeleteDedicatedIpPoo
  *
  * @public
  */
-export class DeleteDedicatedIpPoolCommand extends $Command
-  .classBuilder<
-    DeleteDedicatedIpPoolCommandInput,
-    DeleteDedicatedIpPoolCommandOutput,
-    PinpointEmailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPinpointEmailService", "DeleteDedicatedIpPool", {})
-  .n("PinpointEmailClient", "DeleteDedicatedIpPoolCommand")
-  .sc(DeleteDedicatedIpPool$)
-  .build() {
+export class DeleteDedicatedIpPoolCommand extends command<DeleteDedicatedIpPoolCommandInput, DeleteDedicatedIpPoolCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDedicatedIpPool",
+  DeleteDedicatedIpPool$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEncryptionConfigurationRequest, GetEncryptionConfigurationResponse } from "../models/models_0";
 import { GetEncryptionConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetEncryptionConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface GetEncryptionConfigurationCommandOutput extends GetEncryptionCo
  *
  * @public
  */
-export class GetEncryptionConfigurationCommand extends $Command
-  .classBuilder<
-    GetEncryptionConfigurationCommandInput,
-    GetEncryptionConfigurationCommandOutput,
-    IoTFleetWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IoTAutobahnControlPlane", "GetEncryptionConfiguration", {})
-  .n("IoTFleetWiseClient", "GetEncryptionConfigurationCommand")
-  .sc(GetEncryptionConfiguration$)
-  .build() {
+export class GetEncryptionConfigurationCommand extends command<GetEncryptionConfigurationCommandInput, GetEncryptionConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEncryptionConfiguration",
+  GetEncryptionConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

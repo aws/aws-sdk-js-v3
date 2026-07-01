@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeConnectionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeConnectionsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateSyncBlockerInput, UpdateSyncBlockerOutput } from "../models/models_0";
 import { UpdateSyncBlocker$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateSyncBlocker$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +95,12 @@ export interface UpdateSyncBlockerCommandOutput extends UpdateSyncBlockerOutput,
  *
  * @public
  */
-export class UpdateSyncBlockerCommand extends $Command
-  .classBuilder<
-    UpdateSyncBlockerCommandInput,
-    UpdateSyncBlockerCommandOutput,
-    CodeConnectionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeConnectionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeConnections_20231201", "UpdateSyncBlocker", {})
-  .n("CodeConnectionsClient", "UpdateSyncBlockerCommand")
-  .sc(UpdateSyncBlocker$)
-  .build() {
+export class UpdateSyncBlockerCommand extends command<UpdateSyncBlockerCommandInput, UpdateSyncBlockerCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSyncBlocker",
+  UpdateSyncBlocker$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

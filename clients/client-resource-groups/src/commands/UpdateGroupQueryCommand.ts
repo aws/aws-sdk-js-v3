@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateGroupQueryInput, UpdateGroupQueryOutput } from "../models/models_0";
-import type {
-  ResourceGroupsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceGroupsClient";
 import { UpdateGroupQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +97,12 @@ export interface UpdateGroupQueryCommandOutput extends UpdateGroupQueryOutput, _
  *
  * @public
  */
-export class UpdateGroupQueryCommand extends $Command
-  .classBuilder<
-    UpdateGroupQueryCommandInput,
-    UpdateGroupQueryCommandOutput,
-    ResourceGroupsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceGroupsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Ardi", "UpdateGroupQuery", {})
-  .n("ResourceGroupsClient", "UpdateGroupQueryCommand")
-  .sc(UpdateGroupQuery$)
-  .build() {
+export class UpdateGroupQueryCommand extends command<UpdateGroupQueryCommandInput, UpdateGroupQueryCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateGroupQuery",
+  UpdateGroupQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetJobRequest } from "../models/models_2";
 import type { GetJobResponse } from "../models/models_3";
 import { GetJob$ } from "../schemas/schemas_0";
@@ -13,7 +10,6 @@ import { GetJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -1324,22 +1320,12 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  *
  * @public
  */
-export class GetJobCommand extends $Command
-  .classBuilder<
-    GetJobCommandInput,
-    GetJobCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "GetJob", {})
-  .n("GlueClient", "GetJobCommand")
-  .sc(GetJob$)
-  .build() {
+export class GetJobCommand extends command<GetJobCommandInput, GetJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetJob",
+  GetJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

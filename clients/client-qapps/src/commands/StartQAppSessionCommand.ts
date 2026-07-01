@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartQAppSessionInput, StartQAppSessionOutput } from "../models/models_0";
-import type { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
 import { StartQAppSession$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface StartQAppSessionCommandOutput extends StartQAppSessionOutput, _
  *
  * @public
  */
-export class StartQAppSessionCommand extends $Command
-  .classBuilder<
-    StartQAppSessionCommandInput,
-    StartQAppSessionCommandOutput,
-    QAppsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QAppsService", "StartQAppSession", {})
-  .n("QAppsClient", "StartQAppSessionCommand")
-  .sc(StartQAppSession$)
-  .build() {
+export class StartQAppSessionCommand extends command<StartQAppSessionCommandInput, StartQAppSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartQAppSession",
+  StartQAppSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

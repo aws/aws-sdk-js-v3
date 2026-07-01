@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateAwsAccountFromPartnerAccountRequest,
   DisassociateAwsAccountFromPartnerAccountResponse,
@@ -15,7 +12,6 @@ import { DisassociateAwsAccountFromPartnerAccount$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DisassociateAwsAccountFromPartnerAccountCommandOutput extends D
  *
  * @public
  */
-export class DisassociateAwsAccountFromPartnerAccountCommand extends $Command
-  .classBuilder<
-    DisassociateAwsAccountFromPartnerAccountCommandInput,
-    DisassociateAwsAccountFromPartnerAccountCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "DisassociateAwsAccountFromPartnerAccount", {})
-  .n("IoTWirelessClient", "DisassociateAwsAccountFromPartnerAccountCommand")
-  .sc(DisassociateAwsAccountFromPartnerAccount$)
-  .build() {
+export class DisassociateAwsAccountFromPartnerAccountCommand extends command<DisassociateAwsAccountFromPartnerAccountCommandInput, DisassociateAwsAccountFromPartnerAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateAwsAccountFromPartnerAccount",
+  DisassociateAwsAccountFromPartnerAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

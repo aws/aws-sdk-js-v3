@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateIntegrationAssociationRequest, CreateIntegrationAssociationResponse } from "../models/models_0";
 import { CreateIntegrationAssociation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateIntegrationAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface CreateIntegrationAssociationCommandOutput extends CreateIntegra
  *
  * @public
  */
-export class CreateIntegrationAssociationCommand extends $Command
-  .classBuilder<
-    CreateIntegrationAssociationCommandInput,
-    CreateIntegrationAssociationCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "CreateIntegrationAssociation", {})
-  .n("ConnectClient", "CreateIntegrationAssociationCommand")
-  .sc(CreateIntegrationAssociation$)
-  .build() {
+export class CreateIntegrationAssociationCommand extends command<CreateIntegrationAssociationCommandInput, CreateIntegrationAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateIntegrationAssociation",
+  CreateIntegrationAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

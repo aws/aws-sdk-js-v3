@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationInsightsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationInsightsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeComponentConfigurationRecommendationRequest,
   DescribeComponentConfigurationRecommendationResponse,
@@ -19,7 +12,6 @@ import { DescribeComponentConfigurationRecommendation$ } from "../schemas/schema
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DescribeComponentConfigurationRecommendationCommandOutput exten
  *
  * @public
  */
-export class DescribeComponentConfigurationRecommendationCommand extends $Command
-  .classBuilder<
-    DescribeComponentConfigurationRecommendationCommandInput,
-    DescribeComponentConfigurationRecommendationCommandOutput,
-    ApplicationInsightsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EC2WindowsBarleyService", "DescribeComponentConfigurationRecommendation", {})
-  .n("ApplicationInsightsClient", "DescribeComponentConfigurationRecommendationCommand")
-  .sc(DescribeComponentConfigurationRecommendation$)
-  .build() {
+export class DescribeComponentConfigurationRecommendationCommand extends command<DescribeComponentConfigurationRecommendationCommandInput, DescribeComponentConfigurationRecommendationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeComponentConfigurationRecommendation",
+  DescribeComponentConfigurationRecommendation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

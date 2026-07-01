@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListDelegatedServicesForAccountRequest,
   ListDelegatedServicesForAccountResponse,
 } from "../models/models_0";
-import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { ListDelegatedServicesForAccount$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -500,22 +496,12 @@ export interface ListDelegatedServicesForAccountCommandOutput extends ListDelega
  *
  * @public
  */
-export class ListDelegatedServicesForAccountCommand extends $Command
-  .classBuilder<
-    ListDelegatedServicesForAccountCommandInput,
-    ListDelegatedServicesForAccountCommandOutput,
-    OrganizationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrganizationsV20161128", "ListDelegatedServicesForAccount", {})
-  .n("OrganizationsClient", "ListDelegatedServicesForAccountCommand")
-  .sc(ListDelegatedServicesForAccount$)
-  .build() {
+export class ListDelegatedServicesForAccountCommand extends command<ListDelegatedServicesForAccountCommandInput, ListDelegatedServicesForAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDelegatedServicesForAccount",
+  ListDelegatedServicesForAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

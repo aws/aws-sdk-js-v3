@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateEdgeDeploymentStageRequest } from "../models/models_1";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreateEdgeDeploymentStage$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface CreateEdgeDeploymentStageCommandOutput extends __MetadataBearer
  *
  * @public
  */
-export class CreateEdgeDeploymentStageCommand extends $Command
-  .classBuilder<
-    CreateEdgeDeploymentStageCommandInput,
-    CreateEdgeDeploymentStageCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "CreateEdgeDeploymentStage", {})
-  .n("SageMakerClient", "CreateEdgeDeploymentStageCommand")
-  .sc(CreateEdgeDeploymentStage$)
-  .build() {
+export class CreateEdgeDeploymentStageCommand extends command<CreateEdgeDeploymentStageCommandInput, CreateEdgeDeploymentStageCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateEdgeDeploymentStage",
+  CreateEdgeDeploymentStage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartAccessLoggingInput, StartAccessLoggingOutput } from "../models/models_0";
 import { StartAccessLogging$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartAccessLogging$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface StartAccessLoggingCommandOutput extends StartAccessLoggingOutpu
  *
  * @public
  */
-export class StartAccessLoggingCommand extends $Command
-  .classBuilder<
-    StartAccessLoggingCommandInput,
-    StartAccessLoggingCommandOutput,
-    MediaStoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaStoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaStore_20170901", "StartAccessLogging", {})
-  .n("MediaStoreClient", "StartAccessLoggingCommand")
-  .sc(StartAccessLogging$)
-  .build() {
+export class StartAccessLoggingCommand extends command<StartAccessLoggingCommandInput, StartAccessLoggingCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartAccessLogging",
+  StartAccessLogging$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

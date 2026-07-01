@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerAutomationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerAutomationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RollbackAutomationEventRequest, RollbackAutomationEventResponse } from "../models/models_0";
 import { RollbackAutomationEvent$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { RollbackAutomationEvent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface RollbackAutomationEventCommandOutput extends RollbackAutomation
  *
  * @public
  */
-export class RollbackAutomationEventCommand extends $Command
-  .classBuilder<
-    RollbackAutomationEventCommandInput,
-    RollbackAutomationEventCommandOutput,
-    ComputeOptimizerAutomationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerAutomationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerAutomationService", "RollbackAutomationEvent", {})
-  .n("ComputeOptimizerAutomationClient", "RollbackAutomationEventCommand")
-  .sc(RollbackAutomationEvent$)
-  .build() {
+export class RollbackAutomationEventCommand extends command<RollbackAutomationEventCommandInput, RollbackAutomationEventCommandOutput>(
+  _ep0,
+  _mw0,
+  "RollbackAutomationEvent",
+  RollbackAutomationEvent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

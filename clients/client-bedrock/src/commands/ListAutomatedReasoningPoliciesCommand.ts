@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAutomatedReasoningPoliciesRequest, ListAutomatedReasoningPoliciesResponse } from "../models/models_0";
 import { ListAutomatedReasoningPolicies$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAutomatedReasoningPolicies$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface ListAutomatedReasoningPoliciesCommandOutput extends ListAutomat
  *
  * @public
  */
-export class ListAutomatedReasoningPoliciesCommand extends $Command
-  .classBuilder<
-    ListAutomatedReasoningPoliciesCommandInput,
-    ListAutomatedReasoningPoliciesCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "ListAutomatedReasoningPolicies", {})
-  .n("BedrockClient", "ListAutomatedReasoningPoliciesCommand")
-  .sc(ListAutomatedReasoningPolicies$)
-  .build() {
+export class ListAutomatedReasoningPoliciesCommand extends command<ListAutomatedReasoningPoliciesCommandInput, ListAutomatedReasoningPoliciesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAutomatedReasoningPolicies",
+  ListAutomatedReasoningPolicies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

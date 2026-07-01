@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteBotReplicaRequest, DeleteBotReplicaResponse } from "../models/models_0";
 import { DeleteBotReplica$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteBotReplica$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface DeleteBotReplicaCommandOutput extends DeleteBotReplicaResponse,
  *
  * @public
  */
-export class DeleteBotReplicaCommand extends $Command
-  .classBuilder<
-    DeleteBotReplicaCommandInput,
-    DeleteBotReplicaCommandOutput,
-    LexModelsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LexModelBuildingServiceV2", "DeleteBotReplica", {})
-  .n("LexModelsV2Client", "DeleteBotReplicaCommand")
-  .sc(DeleteBotReplica$)
-  .build() {
+export class DeleteBotReplicaCommand extends command<DeleteBotReplicaCommandInput, DeleteBotReplicaCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteBotReplica",
+  DeleteBotReplica$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

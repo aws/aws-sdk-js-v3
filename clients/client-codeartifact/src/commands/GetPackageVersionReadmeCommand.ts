@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPackageVersionReadmeRequest, GetPackageVersionReadmeResult } from "../models/models_0";
 import { GetPackageVersionReadme$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetPackageVersionReadme$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionR
  *
  * @public
  */
-export class GetPackageVersionReadmeCommand extends $Command
-  .classBuilder<
-    GetPackageVersionReadmeCommandInput,
-    GetPackageVersionReadmeCommandOutput,
-    CodeartifactClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeArtifactControlPlaneService", "GetPackageVersionReadme", {})
-  .n("CodeartifactClient", "GetPackageVersionReadmeCommand")
-  .sc(GetPackageVersionReadme$)
-  .build() {
+export class GetPackageVersionReadmeCommand extends command<GetPackageVersionReadmeCommandInput, GetPackageVersionReadmeCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPackageVersionReadme",
+  GetPackageVersionReadme$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

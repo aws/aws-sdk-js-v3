@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSigningCertificateRequest, GetSigningCertificateResponse } from "../models/models_0";
 import { GetSigningCertificate$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetSigningCertificate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface GetSigningCertificateCommandOutput extends GetSigningCertificat
  *
  * @public
  */
-export class GetSigningCertificateCommand extends $Command
-  .classBuilder<
-    GetSigningCertificateCommandInput,
-    GetSigningCertificateCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "GetSigningCertificate", {})
-  .n("CognitoIdentityProviderClient", "GetSigningCertificateCommand")
-  .sc(GetSigningCertificate$)
-  .build() {
+export class GetSigningCertificateCommand extends command<GetSigningCertificateCommandInput, GetSigningCertificateCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSigningCertificate",
+  GetSigningCertificate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

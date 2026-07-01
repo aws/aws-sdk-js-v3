@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListBatchEvaluationsRequest, ListBatchEvaluationsResponse } from "../models/models_0";
 import { ListBatchEvaluations$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListBatchEvaluations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +113,12 @@ export interface ListBatchEvaluationsCommandOutput extends ListBatchEvaluationsR
  *
  * @public
  */
-export class ListBatchEvaluationsCommand extends $Command
-  .classBuilder<
-    ListBatchEvaluationsCommandInput,
-    ListBatchEvaluationsCommandOutput,
-    BedrockAgentCoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCore", "ListBatchEvaluations", {})
-  .n("BedrockAgentCoreClient", "ListBatchEvaluationsCommand")
-  .sc(ListBatchEvaluations$)
-  .build() {
+export class ListBatchEvaluationsCommand extends command<ListBatchEvaluationsCommandInput, ListBatchEvaluationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBatchEvaluations",
+  ListBatchEvaluations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

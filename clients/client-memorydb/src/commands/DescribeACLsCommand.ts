@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeACLsRequest, DescribeACLsResponse } from "../models/models_0";
 import { DescribeACLs$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeACLs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface DescribeACLsCommandOutput extends DescribeACLsResponse, __Metad
  *
  * @public
  */
-export class DescribeACLsCommand extends $Command
-  .classBuilder<
-    DescribeACLsCommandInput,
-    DescribeACLsCommandOutput,
-    MemoryDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMemoryDB", "DescribeACLs", {})
-  .n("MemoryDBClient", "DescribeACLsCommand")
-  .sc(DescribeACLs$)
-  .build() {
+export class DescribeACLsCommand extends command<DescribeACLsCommandInput, DescribeACLsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeACLs",
+  DescribeACLs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

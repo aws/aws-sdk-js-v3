@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeModelQualityJobDefinitionRequest,
   DescribeModelQualityJobDefinitionResponse,
 } from "../models/models_3";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeModelQualityJobDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -164,22 +160,12 @@ export interface DescribeModelQualityJobDefinitionCommandOutput extends Describe
  *
  * @public
  */
-export class DescribeModelQualityJobDefinitionCommand extends $Command
-  .classBuilder<
-    DescribeModelQualityJobDefinitionCommandInput,
-    DescribeModelQualityJobDefinitionCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DescribeModelQualityJobDefinition", {})
-  .n("SageMakerClient", "DescribeModelQualityJobDefinitionCommand")
-  .sc(DescribeModelQualityJobDefinition$)
-  .build() {
+export class DescribeModelQualityJobDefinitionCommand extends command<DescribeModelQualityJobDefinitionCommandInput, DescribeModelQualityJobDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeModelQualityJobDefinition",
+  DescribeModelQualityJobDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

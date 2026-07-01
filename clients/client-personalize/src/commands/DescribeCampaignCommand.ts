@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeCampaignRequest, DescribeCampaignResponse } from "../models/models_0";
-import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { DescribeCampaign$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface DescribeCampaignCommandOutput extends DescribeCampaignResponse,
  *
  * @public
  */
-export class DescribeCampaignCommand extends $Command
-  .classBuilder<
-    DescribeCampaignCommandInput,
-    DescribeCampaignCommandOutput,
-    PersonalizeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPersonalize", "DescribeCampaign", {})
-  .n("PersonalizeClient", "DescribeCampaignCommand")
-  .sc(DescribeCampaign$)
-  .build() {
+export class DescribeCampaignCommand extends command<DescribeCampaignCommandInput, DescribeCampaignCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCampaign",
+  DescribeCampaign$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

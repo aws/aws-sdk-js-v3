@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeGuruReviewerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeGuruReviewerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateRepositoryRequest, DisassociateRepositoryResponse } from "../models/models_0";
 import { DisassociateRepository$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DisassociateRepository$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +100,12 @@ export interface DisassociateRepositoryCommandOutput extends DisassociateReposit
  *
  * @public
  */
-export class DisassociateRepositoryCommand extends $Command
-  .classBuilder<
-    DisassociateRepositoryCommandInput,
-    DisassociateRepositoryCommandOutput,
-    CodeGuruReviewerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeGuruReviewerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGuruFrontendService", "DisassociateRepository", {})
-  .n("CodeGuruReviewerClient", "DisassociateRepositoryCommand")
-  .sc(DisassociateRepository$)
-  .build() {
+export class DisassociateRepositoryCommand extends command<DisassociateRepositoryCommandInput, DisassociateRepositoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateRepository",
+  DisassociateRepository$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

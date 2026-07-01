@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateClientVpnTargetNetworkRequest,
   DisassociateClientVpnTargetNetworkResult,
@@ -15,7 +12,6 @@ import { DisassociateClientVpnTargetNetwork$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DisassociateClientVpnTargetNetworkCommandOutput extends Disasso
  *
  * @public
  */
-export class DisassociateClientVpnTargetNetworkCommand extends $Command
-  .classBuilder<
-    DisassociateClientVpnTargetNetworkCommandInput,
-    DisassociateClientVpnTargetNetworkCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DisassociateClientVpnTargetNetwork", {})
-  .n("EC2Client", "DisassociateClientVpnTargetNetworkCommand")
-  .sc(DisassociateClientVpnTargetNetwork$)
-  .build() {
+export class DisassociateClientVpnTargetNetworkCommand extends command<DisassociateClientVpnTargetNetworkCommandInput, DisassociateClientVpnTargetNetworkCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateClientVpnTargetNetwork",
+  DisassociateClientVpnTargetNetwork$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEventRuleRequest, GetEventRuleResponse } from "../models/models_0";
-import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
 import { GetEventRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface GetEventRuleCommandOutput extends GetEventRuleResponse, __Metad
  *
  * @public
  */
-export class GetEventRuleCommand extends $Command
-  .classBuilder<
-    GetEventRuleCommandInput,
-    GetEventRuleCommandOutput,
-    NotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Notifications", "GetEventRule", {})
-  .n("NotificationsClient", "GetEventRuleCommand")
-  .sc(GetEventRule$)
-  .build() {
+export class GetEventRuleCommand extends command<GetEventRuleCommandInput, GetEventRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEventRule",
+  GetEventRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

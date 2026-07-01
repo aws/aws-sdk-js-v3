@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateClusterParameterGroupMessage, CreateClusterParameterGroupResult } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { CreateClusterParameterGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface CreateClusterParameterGroupCommandOutput extends CreateClusterP
  *
  * @public
  */
-export class CreateClusterParameterGroupCommand extends $Command
-  .classBuilder<
-    CreateClusterParameterGroupCommandInput,
-    CreateClusterParameterGroupCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "CreateClusterParameterGroup", {})
-  .n("RedshiftClient", "CreateClusterParameterGroupCommand")
-  .sc(CreateClusterParameterGroup$)
-  .build() {
+export class CreateClusterParameterGroupCommand extends command<CreateClusterParameterGroupCommandInput, CreateClusterParameterGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateClusterParameterGroup",
+  CreateClusterParameterGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

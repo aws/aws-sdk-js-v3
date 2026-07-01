@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveTagsFromOnPremisesInstancesInput } from "../models/models_0";
 import { RemoveTagsFromOnPremisesInstances$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RemoveTagsFromOnPremisesInstances$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface RemoveTagsFromOnPremisesInstancesCommandOutput extends __Metada
  *
  * @public
  */
-export class RemoveTagsFromOnPremisesInstancesCommand extends $Command
-  .classBuilder<
-    RemoveTagsFromOnPremisesInstancesCommandInput,
-    RemoveTagsFromOnPremisesInstancesCommandOutput,
-    CodeDeployClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeDeploy_20141006", "RemoveTagsFromOnPremisesInstances", {})
-  .n("CodeDeployClient", "RemoveTagsFromOnPremisesInstancesCommand")
-  .sc(RemoveTagsFromOnPremisesInstances$)
-  .build() {
+export class RemoveTagsFromOnPremisesInstancesCommand extends command<RemoveTagsFromOnPremisesInstancesCommandInput, RemoveTagsFromOnPremisesInstancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveTagsFromOnPremisesInstances",
+  RemoveTagsFromOnPremisesInstances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

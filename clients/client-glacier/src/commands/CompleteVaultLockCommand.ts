@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CompleteVaultLockInput } from "../models/models_0";
 import { CompleteVaultLock$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CompleteVaultLock$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface CompleteVaultLockCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class CompleteVaultLockCommand extends $Command
-  .classBuilder<
-    CompleteVaultLockCommandInput,
-    CompleteVaultLockCommandOutput,
-    GlacierClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Glacier", "CompleteVaultLock", {})
-  .n("GlacierClient", "CompleteVaultLockCommand")
-  .sc(CompleteVaultLock$)
-  .build() {
+export class CompleteVaultLockCommand extends command<CompleteVaultLockCommandInput, CompleteVaultLockCommandOutput>(
+  _ep0,
+  _mw0,
+  "CompleteVaultLock",
+  CompleteVaultLock$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

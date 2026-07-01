@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTaskInstancesRequest, ListTaskInstancesResponse } from "../models/models_0";
-import type {
-  MWAAServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MWAAServerlessClient";
 import { ListTaskInstances$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +84,12 @@ export interface ListTaskInstancesCommandOutput extends ListTaskInstancesRespons
  *
  * @public
  */
-export class ListTaskInstancesCommand extends $Command
-  .classBuilder<
-    ListTaskInstancesCommandInput,
-    ListTaskInstancesCommandOutput,
-    MWAAServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MWAAServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMWAAServerless", "ListTaskInstances", {})
-  .n("MWAAServerlessClient", "ListTaskInstancesCommand")
-  .sc(ListTaskInstances$)
-  .build() {
+export class ListTaskInstancesCommand extends command<ListTaskInstancesCommandInput, ListTaskInstancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTaskInstances",
+  ListTaskInstances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

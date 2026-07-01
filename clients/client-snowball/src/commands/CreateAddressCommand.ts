@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAddressRequest, CreateAddressResult } from "../models/models_0";
 import { CreateAddress$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface CreateAddressCommandOutput extends CreateAddressResult, __Metad
  *
  * @public
  */
-export class CreateAddressCommand extends $Command
-  .classBuilder<
-    CreateAddressCommandInput,
-    CreateAddressCommandOutput,
-    SnowballClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIESnowballJobManagementService", "CreateAddress", {})
-  .n("SnowballClient", "CreateAddressCommand")
-  .sc(CreateAddress$)
-  .build() {
+export class CreateAddressCommand extends command<CreateAddressCommandInput, CreateAddressCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAddress",
+  CreateAddress$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

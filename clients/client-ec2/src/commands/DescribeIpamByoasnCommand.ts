@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeIpamByoasnRequest, DescribeIpamByoasnResult } from "../models/models_4";
 import { DescribeIpamByoasn$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeIpamByoasn$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DescribeIpamByoasnCommandOutput extends DescribeIpamByoasnResul
  *
  * @public
  */
-export class DescribeIpamByoasnCommand extends $Command
-  .classBuilder<
-    DescribeIpamByoasnCommandInput,
-    DescribeIpamByoasnCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeIpamByoasn", {})
-  .n("EC2Client", "DescribeIpamByoasnCommand")
-  .sc(DescribeIpamByoasn$)
-  .build() {
+export class DescribeIpamByoasnCommand extends command<DescribeIpamByoasnCommandInput, DescribeIpamByoasnCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeIpamByoasn",
+  DescribeIpamByoasn$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

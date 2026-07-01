@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateKeyInput, CreateKeyOutput } from "../models/models_0";
-import type {
-  PaymentCryptographyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PaymentCryptographyClient";
 import { CreateKey$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -160,22 +152,12 @@ export interface CreateKeyCommandOutput extends CreateKeyOutput, __MetadataBeare
  *
  * @public
  */
-export class CreateKeyCommand extends $Command
-  .classBuilder<
-    CreateKeyCommandInput,
-    CreateKeyCommandOutput,
-    PaymentCryptographyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PaymentCryptographyControlPlane", "CreateKey", {})
-  .n("PaymentCryptographyClient", "CreateKeyCommand")
-  .sc(CreateKey$)
-  .build() {
+export class CreateKeyCommand extends command<CreateKeyCommandInput, CreateKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateKey",
+  CreateKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

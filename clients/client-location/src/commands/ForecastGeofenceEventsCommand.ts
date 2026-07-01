@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ForecastGeofenceEventsRequest, ForecastGeofenceEventsResponse } from "../models/models_0";
 import { ForecastGeofenceEvents$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ForecastGeofenceEvents$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface ForecastGeofenceEventsCommandOutput extends ForecastGeofenceEve
  *
  * @public
  */
-export class ForecastGeofenceEventsCommand extends $Command
-  .classBuilder<
-    ForecastGeofenceEventsCommandInput,
-    ForecastGeofenceEventsCommandOutput,
-    LocationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LocationService", "ForecastGeofenceEvents", {})
-  .n("LocationClient", "ForecastGeofenceEventsCommand")
-  .sc(ForecastGeofenceEvents$)
-  .build() {
+export class ForecastGeofenceEventsCommand extends command<ForecastGeofenceEventsCommandInput, ForecastGeofenceEventsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ForecastGeofenceEvents",
+  ForecastGeofenceEvents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

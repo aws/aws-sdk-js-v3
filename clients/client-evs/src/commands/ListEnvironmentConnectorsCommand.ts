@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { EvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListEnvironmentConnectorsRequest, ListEnvironmentConnectorsResponse } from "../models/models_0";
 import { ListEnvironmentConnectors$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListEnvironmentConnectors$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ListEnvironmentConnectorsCommandOutput extends ListEnvironmentC
  *
  * @public
  */
-export class ListEnvironmentConnectorsCommand extends $Command
-  .classBuilder<
-    ListEnvironmentConnectorsCommandInput,
-    ListEnvironmentConnectorsCommandOutput,
-    EvsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EvsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticVMwareService", "ListEnvironmentConnectors", {})
-  .n("EvsClient", "ListEnvironmentConnectorsCommand")
-  .sc(ListEnvironmentConnectors$)
-  .build() {
+export class ListEnvironmentConnectorsCommand extends command<ListEnvironmentConnectorsCommandInput, ListEnvironmentConnectorsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEnvironmentConnectors",
+  ListEnvironmentConnectors$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

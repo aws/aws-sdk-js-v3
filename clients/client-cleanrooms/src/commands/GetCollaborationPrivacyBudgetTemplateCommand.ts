@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetCollaborationPrivacyBudgetTemplateInput,
   GetCollaborationPrivacyBudgetTemplateOutput,
@@ -15,7 +12,6 @@ import { GetCollaborationPrivacyBudgetTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface GetCollaborationPrivacyBudgetTemplateCommandOutput extends GetC
  *
  * @public
  */
-export class GetCollaborationPrivacyBudgetTemplateCommand extends $Command
-  .classBuilder<
-    GetCollaborationPrivacyBudgetTemplateCommandInput,
-    GetCollaborationPrivacyBudgetTemplateCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "GetCollaborationPrivacyBudgetTemplate", {})
-  .n("CleanRoomsClient", "GetCollaborationPrivacyBudgetTemplateCommand")
-  .sc(GetCollaborationPrivacyBudgetTemplate$)
-  .build() {
+export class GetCollaborationPrivacyBudgetTemplateCommand extends command<GetCollaborationPrivacyBudgetTemplateCommandInput, GetCollaborationPrivacyBudgetTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCollaborationPrivacyBudgetTemplate",
+  GetCollaborationPrivacyBudgetTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateGatewayRequest, UpdateGatewayResponse } from "../models/models_0";
 import { UpdateGateway$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateGateway$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -372,22 +364,12 @@ export interface UpdateGatewayCommandOutput extends UpdateGatewayResponse, __Met
  *
  * @public
  */
-export class UpdateGatewayCommand extends $Command
-  .classBuilder<
-    UpdateGatewayCommandInput,
-    UpdateGatewayCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "UpdateGateway", {})
-  .n("BedrockAgentCoreControlClient", "UpdateGatewayCommand")
-  .sc(UpdateGateway$)
-  .build() {
+export class UpdateGatewayCommand extends command<UpdateGatewayCommandInput, UpdateGatewayCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateGateway",
+  UpdateGateway$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

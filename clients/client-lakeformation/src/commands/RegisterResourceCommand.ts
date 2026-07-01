@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterResourceRequest, RegisterResourceResponse } from "../models/models_0";
 import { RegisterResource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RegisterResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface RegisterResourceCommandOutput extends RegisterResourceResponse,
  *
  * @public
  */
-export class RegisterResourceCommand extends $Command
-  .classBuilder<
-    RegisterResourceCommandInput,
-    RegisterResourceCommandOutput,
-    LakeFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLakeFormation", "RegisterResource", {})
-  .n("LakeFormationClient", "RegisterResourceCommand")
-  .sc(RegisterResource$)
-  .build() {
+export class RegisterResourceCommand extends command<RegisterResourceCommandInput, RegisterResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterResource",
+  RegisterResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

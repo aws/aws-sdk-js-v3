@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTelemetryRulesInput, ListTelemetryRulesOutput } from "../models/models_0";
-import type {
-  ObservabilityAdminClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ObservabilityAdminClient";
 import { ListTelemetryRules$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface ListTelemetryRulesCommandOutput extends ListTelemetryRulesOutpu
  *
  * @public
  */
-export class ListTelemetryRulesCommand extends $Command
-  .classBuilder<
-    ListTelemetryRulesCommandInput,
-    ListTelemetryRulesCommandOutput,
-    ObservabilityAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ObservabilityAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ObservabilityAdmin", "ListTelemetryRules", {})
-  .n("ObservabilityAdminClient", "ListTelemetryRulesCommand")
-  .sc(ListTelemetryRules$)
-  .build() {
+export class ListTelemetryRulesCommand extends command<ListTelemetryRulesCommandInput, ListTelemetryRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTelemetryRules",
+  ListTelemetryRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

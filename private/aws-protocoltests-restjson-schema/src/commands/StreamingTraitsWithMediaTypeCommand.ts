@@ -1,26 +1,18 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type {
   MetadataBearer as __MetadataBearer,
   StreamingBlobPayloadInputTypes,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StreamingTraitsWithMediaTypeInputOutput } from "../models/models_0";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
 import { StreamingTraitsWithMediaType$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface StreamingTraitsWithMediaTypeCommandOutput extends Omit<Streamin
  *
  * @public
  */
-export class StreamingTraitsWithMediaTypeCommand extends $Command
-  .classBuilder<
-    StreamingTraitsWithMediaTypeCommandInput,
-    StreamingTraitsWithMediaTypeCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestJson", "StreamingTraitsWithMediaType", {})
-  .n("RestJsonProtocolClient", "StreamingTraitsWithMediaTypeCommand")
-  .sc(StreamingTraitsWithMediaType$)
-  .build() {
+export class StreamingTraitsWithMediaTypeCommand extends command<StreamingTraitsWithMediaTypeCommandInput, StreamingTraitsWithMediaTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "StreamingTraitsWithMediaType",
+  StreamingTraitsWithMediaType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

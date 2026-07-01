@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { EvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListEnvironmentVlansRequest, ListEnvironmentVlansResponse } from "../models/models_0";
 import { ListEnvironmentVlans$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListEnvironmentVlans$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ListEnvironmentVlansCommandOutput extends ListEnvironmentVlansR
  *
  * @public
  */
-export class ListEnvironmentVlansCommand extends $Command
-  .classBuilder<
-    ListEnvironmentVlansCommandInput,
-    ListEnvironmentVlansCommandOutput,
-    EvsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EvsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticVMwareService", "ListEnvironmentVlans", {})
-  .n("EvsClient", "ListEnvironmentVlansCommand")
-  .sc(ListEnvironmentVlans$)
-  .build() {
+export class ListEnvironmentVlansCommand extends command<ListEnvironmentVlansCommandInput, ListEnvironmentVlansCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEnvironmentVlans",
+  ListEnvironmentVlans$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

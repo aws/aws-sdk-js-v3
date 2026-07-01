@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListInvestigationsRequest, ListInvestigationsResponse } from "../models/models_0";
 import { ListInvestigations$ } from "../schemas/schemas_0";
-import type { SecurityIRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityIRClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -146,22 +142,12 @@ export interface ListInvestigationsCommandOutput extends ListInvestigationsRespo
  *
  * @public
  */
-export class ListInvestigationsCommand extends $Command
-  .classBuilder<
-    ListInvestigationsCommandInput,
-    ListInvestigationsCommandOutput,
-    SecurityIRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityIRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityIncidentResponse", "ListInvestigations", {})
-  .n("SecurityIRClient", "ListInvestigationsCommand")
-  .sc(ListInvestigations$)
-  .build() {
+export class ListInvestigationsCommand extends command<ListInvestigationsCommandInput, ListInvestigationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListInvestigations",
+  ListInvestigations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

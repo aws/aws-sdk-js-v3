@@ -1,15 +1,8 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import { Uint8ArrayBlobAdapter } from "@smithy/core/serde";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockRuntimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { InvokeModelRequest, InvokeModelResponse } from "../models/models_0";
 import { InvokeModel$ } from "../schemas/schemas_0";
 
@@ -17,7 +10,6 @@ import { InvokeModel$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  */
@@ -120,22 +112,12 @@ export interface InvokeModelCommandOutput extends InvokeModelCommandOutputType, 
  *
  * @public
  */
-export class InvokeModelCommand extends $Command
-  .classBuilder<
-    InvokeModelCommandInput,
-    InvokeModelCommandOutput,
-    BedrockRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockFrontendService", "InvokeModel", {})
-  .n("BedrockRuntimeClient", "InvokeModelCommand")
-  .sc(InvokeModel$)
-  .build() {
+export class InvokeModelCommand extends command<InvokeModelCommandInput, InvokeModelCommandOutput>(
+  _ep0,
+  _mw0,
+  "InvokeModel",
+  InvokeModel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

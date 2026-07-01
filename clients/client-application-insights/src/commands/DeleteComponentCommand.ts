@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationInsightsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationInsightsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteComponentRequest, DeleteComponentResponse } from "../models/models_0";
 import { DeleteComponent$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteComponent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +65,12 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  *
  * @public
  */
-export class DeleteComponentCommand extends $Command
-  .classBuilder<
-    DeleteComponentCommandInput,
-    DeleteComponentCommandOutput,
-    ApplicationInsightsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EC2WindowsBarleyService", "DeleteComponent", {})
-  .n("ApplicationInsightsClient", "DeleteComponentCommand")
-  .sc(DeleteComponent$)
-  .build() {
+export class DeleteComponentCommand extends command<DeleteComponentCommandInput, DeleteComponentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteComponent",
+  DeleteComponent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

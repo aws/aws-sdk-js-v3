@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateGlossaryTermRequest, CreateGlossaryTermResponse } from "../models/models_1";
 import { CreateGlossaryTerm$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateGlossaryTerm$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface CreateGlossaryTermCommandOutput extends CreateGlossaryTermRespo
  *
  * @public
  */
-export class CreateGlossaryTermCommand extends $Command
-  .classBuilder<
-    CreateGlossaryTermCommandInput,
-    CreateGlossaryTermCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "CreateGlossaryTerm", {})
-  .n("GlueClient", "CreateGlossaryTermCommand")
-  .sc(CreateGlossaryTerm$)
-  .build() {
+export class CreateGlossaryTermCommand extends command<CreateGlossaryTermCommandInput, CreateGlossaryTermCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateGlossaryTerm",
+  CreateGlossaryTerm$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

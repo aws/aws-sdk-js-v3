@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAnomaliesForInsightRequest, ListAnomaliesForInsightResponse } from "../models/models_0";
 import { ListAnomaliesForInsight$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAnomaliesForInsight$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -347,22 +343,12 @@ export interface ListAnomaliesForInsightCommandOutput extends ListAnomaliesForIn
  *
  * @public
  */
-export class ListAnomaliesForInsightCommand extends $Command
-  .classBuilder<
-    ListAnomaliesForInsightCommandInput,
-    ListAnomaliesForInsightCommandOutput,
-    DevOpsGuruClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CapstoneControlPlaneService", "ListAnomaliesForInsight", {})
-  .n("DevOpsGuruClient", "ListAnomaliesForInsightCommand")
-  .sc(ListAnomaliesForInsight$)
-  .build() {
+export class ListAnomaliesForInsightCommand extends command<ListAnomaliesForInsightCommandInput, ListAnomaliesForInsightCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAnomaliesForInsight",
+  ListAnomaliesForInsight$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

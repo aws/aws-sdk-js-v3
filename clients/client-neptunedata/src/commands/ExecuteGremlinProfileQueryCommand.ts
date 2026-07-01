@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import { Uint8ArrayBlobAdapter } from "@smithy/core/serde";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExecuteGremlinProfileQueryInput, ExecuteGremlinProfileQueryOutput } from "../models/models_0";
-import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
 import { ExecuteGremlinProfileQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -131,22 +127,12 @@ export interface ExecuteGremlinProfileQueryCommandOutput extends ExecuteGremlinP
  *
  * @public
  */
-export class ExecuteGremlinProfileQueryCommand extends $Command
-  .classBuilder<
-    ExecuteGremlinProfileQueryCommandInput,
-    ExecuteGremlinProfileQueryCommandOutput,
-    NeptunedataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneDataplane", "ExecuteGremlinProfileQuery", {})
-  .n("NeptunedataClient", "ExecuteGremlinProfileQueryCommand")
-  .sc(ExecuteGremlinProfileQuery$)
-  .build() {
+export class ExecuteGremlinProfileQueryCommand extends command<ExecuteGremlinProfileQueryCommandInput, ExecuteGremlinProfileQueryCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExecuteGremlinProfileQuery",
+  ExecuteGremlinProfileQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

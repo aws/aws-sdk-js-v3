@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFieldRequest, DeleteFieldResponse } from "../models/models_0";
 import { DeleteField$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteField$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DeleteFieldCommandOutput extends DeleteFieldResponse, __Metadat
  *
  * @public
  */
-export class DeleteFieldCommand extends $Command
-  .classBuilder<
-    DeleteFieldCommandInput,
-    DeleteFieldCommandOutput,
-    ConnectCasesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCases", "DeleteField", {})
-  .n("ConnectCasesClient", "DeleteFieldCommand")
-  .sc(DeleteField$)
-  .build() {
+export class DeleteFieldCommand extends command<DeleteFieldCommandInput, DeleteFieldCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteField",
+  DeleteField$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

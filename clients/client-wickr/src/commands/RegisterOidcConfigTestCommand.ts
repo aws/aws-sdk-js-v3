@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterOidcConfigTestRequest, RegisterOidcConfigTestResponse } from "../models/models_0";
 import { RegisterOidcConfigTest$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -153,22 +149,12 @@ export interface RegisterOidcConfigTestCommandOutput extends RegisterOidcConfigT
  *
  * @public
  */
-export class RegisterOidcConfigTestCommand extends $Command
-  .classBuilder<
-    RegisterOidcConfigTestCommandInput,
-    RegisterOidcConfigTestCommandOutput,
-    WickrClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WickrAdminApi", "RegisterOidcConfigTest", {})
-  .n("WickrClient", "RegisterOidcConfigTestCommand")
-  .sc(RegisterOidcConfigTest$)
-  .build() {
+export class RegisterOidcConfigTestCommand extends command<RegisterOidcConfigTestCommandInput, RegisterOidcConfigTestCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterOidcConfigTest",
+  RegisterOidcConfigTest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

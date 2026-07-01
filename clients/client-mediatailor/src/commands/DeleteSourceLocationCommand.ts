@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSourceLocationRequest, DeleteSourceLocationResponse } from "../models/models_0";
 import { DeleteSourceLocation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteSourceLocation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -57,22 +53,12 @@ export interface DeleteSourceLocationCommandOutput extends DeleteSourceLocationR
  *
  * @public
  */
-export class DeleteSourceLocationCommand extends $Command
-  .classBuilder<
-    DeleteSourceLocationCommandInput,
-    DeleteSourceLocationCommandOutput,
-    MediaTailorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaTailor", "DeleteSourceLocation", {})
-  .n("MediaTailorClient", "DeleteSourceLocationCommand")
-  .sc(DeleteSourceLocation$)
-  .build() {
+export class DeleteSourceLocationCommand extends command<DeleteSourceLocationCommandInput, DeleteSourceLocationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSourceLocation",
+  DeleteSourceLocation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  KinesisVideoArchivedMediaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../KinesisVideoArchivedMediaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDASHStreamingSessionURLInput, GetDASHStreamingSessionURLOutput } from "../models/models_0";
 import { GetDASHStreamingSessionURL$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetDASHStreamingSessionURL$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -260,22 +252,12 @@ export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamin
  *
  * @public
  */
-export class GetDASHStreamingSessionURLCommand extends $Command
-  .classBuilder<
-    GetDASHStreamingSessionURLCommandInput,
-    GetDASHStreamingSessionURLCommandOutput,
-    KinesisVideoArchivedMediaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisVideoArchivedMediaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSAcuityReader", "GetDASHStreamingSessionURL", {})
-  .n("KinesisVideoArchivedMediaClient", "GetDASHStreamingSessionURLCommand")
-  .sc(GetDASHStreamingSessionURL$)
-  .build() {
+export class GetDASHStreamingSessionURLCommand extends command<GetDASHStreamingSessionURLCommandInput, GetDASHStreamingSessionURLCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDASHStreamingSessionURL",
+  GetDASHStreamingSessionURL$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

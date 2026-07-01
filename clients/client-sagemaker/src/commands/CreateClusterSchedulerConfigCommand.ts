@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateClusterSchedulerConfigRequest, CreateClusterSchedulerConfigResponse } from "../models/models_1";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreateClusterSchedulerConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface CreateClusterSchedulerConfigCommandOutput extends CreateCluster
  *
  * @public
  */
-export class CreateClusterSchedulerConfigCommand extends $Command
-  .classBuilder<
-    CreateClusterSchedulerConfigCommandInput,
-    CreateClusterSchedulerConfigCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "CreateClusterSchedulerConfig", {})
-  .n("SageMakerClient", "CreateClusterSchedulerConfigCommand")
-  .sc(CreateClusterSchedulerConfig$)
-  .build() {
+export class CreateClusterSchedulerConfigCommand extends command<CreateClusterSchedulerConfigCommandInput, CreateClusterSchedulerConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateClusterSchedulerConfig",
+  CreateClusterSchedulerConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

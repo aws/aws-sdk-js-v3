@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep11, _mw0, command } from "../commandBuilder";
 import type { TransactGetItemsInput, TransactGetItemsOutput } from "../models/models_0";
 import { TransactGetItems$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { TransactGetItems$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -481,26 +477,12 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  *
  * @public
  */
-export class TransactGetItemsCommand extends $Command
-  .classBuilder<
-    TransactGetItemsCommandInput,
-    TransactGetItemsCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArnList: { type: "operationContextParams", get: (input?: any) => input?.TransactItems?.map((obj: any) => obj?.Get?.TableName) },
-
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "TransactGetItems", {})
-  .n("DynamoDBClient", "TransactGetItemsCommand")
-  .sc(TransactGetItems$)
-  .build() {
+export class TransactGetItemsCommand extends command<TransactGetItemsCommandInput, TransactGetItemsCommandOutput>(
+  _ep11,
+  _mw0,
+  "TransactGetItems",
+  TransactGetItems$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

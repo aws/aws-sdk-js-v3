@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetComplianceSummaryInput, GetComplianceSummaryOutput } from "../models/models_0";
-import type {
-  ResourceGroupsTaggingAPIClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceGroupsTaggingAPIClient";
 import { GetComplianceSummary$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -155,22 +147,12 @@ export interface GetComplianceSummaryCommandOutput extends GetComplianceSummaryO
  *
  * @public
  */
-export class GetComplianceSummaryCommand extends $Command
-  .classBuilder<
-    GetComplianceSummaryCommandInput,
-    GetComplianceSummaryCommandOutput,
-    ResourceGroupsTaggingAPIClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceGroupsTaggingAPIClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ResourceGroupsTaggingAPI_20170126", "GetComplianceSummary", {})
-  .n("ResourceGroupsTaggingAPIClient", "GetComplianceSummaryCommand")
-  .sc(GetComplianceSummary$)
-  .build() {
+export class GetComplianceSummaryCommand extends command<GetComplianceSummaryCommandInput, GetComplianceSummaryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetComplianceSummary",
+  GetComplianceSummary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

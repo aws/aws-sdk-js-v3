@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutContactInformationRequest } from "../models/models_0";
 import { PutContactInformation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutContactInformation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface PutContactInformationCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutContactInformationCommand extends $Command
-  .classBuilder<
-    PutContactInformationCommandInput,
-    PutContactInformationCommandOutput,
-    AccountClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AccountClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Account", "PutContactInformation", {})
-  .n("AccountClient", "PutContactInformationCommand")
-  .sc(PutContactInformation$)
-  .build() {
+export class PutContactInformationCommand extends command<PutContactInformationCommandInput, PutContactInformationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutContactInformation",
+  PutContactInformation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

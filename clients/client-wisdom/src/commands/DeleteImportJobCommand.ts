@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteImportJobRequest, DeleteImportJobResponse } from "../models/models_0";
 import { DeleteImportJob$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteImportJobCommandOutput extends DeleteImportJobResponse, _
  *
  * @public
  */
-export class DeleteImportJobCommand extends $Command
-  .classBuilder<
-    DeleteImportJobCommandInput,
-    DeleteImportJobCommandOutput,
-    WisdomClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "DeleteImportJob", {})
-  .n("WisdomClient", "DeleteImportJobCommand")
-  .sc(DeleteImportJob$)
-  .build() {
+export class DeleteImportJobCommand extends command<DeleteImportJobCommandInput, DeleteImportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteImportJob",
+  DeleteImportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteSnapshotCopyConfigurationRequest,
   DeleteSnapshotCopyConfigurationResponse,
 } from "../models/models_0";
-import type {
-  RedshiftServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RedshiftServerlessClient";
 import { DeleteSnapshotCopyConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface DeleteSnapshotCopyConfigurationCommandOutput extends DeleteSnap
  *
  * @public
  */
-export class DeleteSnapshotCopyConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteSnapshotCopyConfigurationCommandInput,
-    DeleteSnapshotCopyConfigurationCommandOutput,
-    RedshiftServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServerless", "DeleteSnapshotCopyConfiguration", {})
-  .n("RedshiftServerlessClient", "DeleteSnapshotCopyConfigurationCommand")
-  .sc(DeleteSnapshotCopyConfiguration$)
-  .build() {
+export class DeleteSnapshotCopyConfigurationCommand extends command<DeleteSnapshotCopyConfigurationCommandInput, DeleteSnapshotCopyConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSnapshotCopyConfiguration",
+  DeleteSnapshotCopyConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

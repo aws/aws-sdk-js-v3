@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRecommenderConfigurationRequest, CreateRecommenderConfigurationResponse } from "../models/models_0";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { CreateRecommenderConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface CreateRecommenderConfigurationCommandOutput extends CreateRecom
  *
  * @public
  */
-export class CreateRecommenderConfigurationCommand extends $Command
-  .classBuilder<
-    CreateRecommenderConfigurationCommandInput,
-    CreateRecommenderConfigurationCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "CreateRecommenderConfiguration", {})
-  .n("PinpointClient", "CreateRecommenderConfigurationCommand")
-  .sc(CreateRecommenderConfiguration$)
-  .build() {
+export class CreateRecommenderConfigurationCommand extends command<CreateRecommenderConfigurationCommandInput, CreateRecommenderConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRecommenderConfiguration",
+  CreateRecommenderConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

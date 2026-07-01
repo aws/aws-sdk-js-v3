@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateKmsKeyRequest } from "../models/models_0";
 import { AssociateKmsKey$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AssociateKmsKey$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +111,12 @@ export interface AssociateKmsKeyCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class AssociateKmsKeyCommand extends $Command
-  .classBuilder<
-    AssociateKmsKeyCommandInput,
-    AssociateKmsKeyCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "AssociateKmsKey", {})
-  .n("CloudWatchLogsClient", "AssociateKmsKeyCommand")
-  .sc(AssociateKmsKey$)
-  .build() {
+export class AssociateKmsKeyCommand extends command<AssociateKmsKeyCommandInput, AssociateKmsKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateKmsKey",
+  AssociateKmsKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

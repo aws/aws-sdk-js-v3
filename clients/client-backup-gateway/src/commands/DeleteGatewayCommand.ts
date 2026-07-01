@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteGatewayInput, DeleteGatewayOutput } from "../models/models_0";
 import { DeleteGateway$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteGateway$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayOutput, __Metad
  *
  * @public
  */
-export class DeleteGatewayCommand extends $Command
-  .classBuilder<
-    DeleteGatewayCommandInput,
-    DeleteGatewayCommandOutput,
-    BackupGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackupOnPremises_v20210101", "DeleteGateway", {})
-  .n("BackupGatewayClient", "DeleteGatewayCommand")
-  .sc(DeleteGateway$)
-  .build() {
+export class DeleteGatewayCommand extends command<DeleteGatewayCommandInput, DeleteGatewayCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteGateway",
+  DeleteGateway$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

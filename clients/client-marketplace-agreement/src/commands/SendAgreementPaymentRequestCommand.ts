@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceAgreementClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceAgreementClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendAgreementPaymentRequestInput, SendAgreementPaymentRequestOutput } from "../models/models_0";
 import { SendAgreementPaymentRequest$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { SendAgreementPaymentRequest$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface SendAgreementPaymentRequestCommandOutput extends SendAgreementP
  *
  * @public
  */
-export class SendAgreementPaymentRequestCommand extends $Command
-  .classBuilder<
-    SendAgreementPaymentRequestCommandInput,
-    SendAgreementPaymentRequestCommandOutput,
-    MarketplaceAgreementClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceAgreementClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMPCommerceService_v20200301", "SendAgreementPaymentRequest", {})
-  .n("MarketplaceAgreementClient", "SendAgreementPaymentRequestCommand")
-  .sc(SendAgreementPaymentRequest$)
-  .build() {
+export class SendAgreementPaymentRequestCommand extends command<SendAgreementPaymentRequestCommandInput, SendAgreementPaymentRequestCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendAgreementPaymentRequest",
+  SendAgreementPaymentRequest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

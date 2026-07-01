@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePermissionRequest } from "../models/models_0";
 import { CreatePermission$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreatePermission$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface CreatePermissionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class CreatePermissionCommand extends $Command
-  .classBuilder<
-    CreatePermissionCommandInput,
-    CreatePermissionCommandOutput,
-    ACMPCAClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ACMPCAClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ACMPrivateCA", "CreatePermission", {})
-  .n("ACMPCAClient", "CreatePermissionCommand")
-  .sc(CreatePermission$)
-  .build() {
+export class CreatePermissionCommand extends command<CreatePermissionCommandInput, CreatePermissionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePermission",
+  CreatePermission$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

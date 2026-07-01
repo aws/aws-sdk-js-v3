@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDirectoryLimitsRequest, GetDirectoryLimitsResult } from "../models/models_0";
 import { GetDirectoryLimits$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetDirectoryLimits$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +95,12 @@ export interface GetDirectoryLimitsCommandOutput extends GetDirectoryLimitsResul
  *
  * @public
  */
-export class GetDirectoryLimitsCommand extends $Command
-  .classBuilder<
-    GetDirectoryLimitsCommandInput,
-    GetDirectoryLimitsCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "GetDirectoryLimits", {})
-  .n("DirectoryServiceClient", "GetDirectoryLimitsCommand")
-  .sc(GetDirectoryLimits$)
-  .build() {
+export class GetDirectoryLimitsCommand extends command<GetDirectoryLimitsCommandInput, GetDirectoryLimitsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDirectoryLimits",
+  GetDirectoryLimits$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

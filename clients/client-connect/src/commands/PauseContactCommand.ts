@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PauseContactRequest, PauseContactResponse } from "../models/models_2";
 import { PauseContact$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PauseContact$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface PauseContactCommandOutput extends PauseContactResponse, __Metad
  *
  * @public
  */
-export class PauseContactCommand extends $Command
-  .classBuilder<
-    PauseContactCommandInput,
-    PauseContactCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "PauseContact", {})
-  .n("ConnectClient", "PauseContactCommand")
-  .sc(PauseContact$)
-  .build() {
+export class PauseContactCommand extends command<PauseContactCommandInput, PauseContactCommandOutput>(
+  _ep0,
+  _mw0,
+  "PauseContact",
+  PauseContact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

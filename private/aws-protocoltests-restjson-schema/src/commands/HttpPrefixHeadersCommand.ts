@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { HttpPrefixHeadersInput, HttpPrefixHeadersOutput } from "../models/models_0";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
 import { HttpPrefixHeaders$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +61,12 @@ export interface HttpPrefixHeadersCommandOutput extends HttpPrefixHeadersOutput,
  *
  * @public
  */
-export class HttpPrefixHeadersCommand extends $Command
-  .classBuilder<
-    HttpPrefixHeadersCommandInput,
-    HttpPrefixHeadersCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestJson", "HttpPrefixHeaders", {})
-  .n("RestJsonProtocolClient", "HttpPrefixHeadersCommand")
-  .sc(HttpPrefixHeaders$)
-  .build() {
+export class HttpPrefixHeadersCommand extends command<HttpPrefixHeadersCommandInput, HttpPrefixHeadersCommandOutput>(
+  _ep0,
+  _mw0,
+  "HttpPrefixHeaders",
+  HttpPrefixHeaders$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFormTypeRequest, GetFormTypeResponse } from "../models/models_2";
 import { GetFormType$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetFormType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface GetFormTypeCommandOutput extends GetFormTypeResponse, __Metadat
  *
  * @public
  */
-export class GetFormTypeCommand extends $Command
-  .classBuilder<
-    GetFormTypeCommandInput,
-    GetFormTypeCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "GetFormType", {})
-  .n("GlueClient", "GetFormTypeCommand")
-  .sc(GetFormType$)
-  .build() {
+export class GetFormTypeCommand extends command<GetFormTypeCommandInput, GetFormTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFormType",
+  GetFormType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

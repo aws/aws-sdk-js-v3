@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutConformancePackRequest, PutConformancePackResponse } from "../models/models_0";
 import { PutConformancePack$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutConformancePack$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -174,22 +170,12 @@ export interface PutConformancePackCommandOutput extends PutConformancePackRespo
  *
  * @public
  */
-export class PutConformancePackCommand extends $Command
-  .classBuilder<
-    PutConformancePackCommandInput,
-    PutConformancePackCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "PutConformancePack", {})
-  .n("ConfigServiceClient", "PutConformancePackCommand")
-  .sc(PutConformancePack$)
-  .build() {
+export class PutConformancePackCommand extends command<PutConformancePackCommandInput, PutConformancePackCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutConformancePack",
+  PutConformancePack$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

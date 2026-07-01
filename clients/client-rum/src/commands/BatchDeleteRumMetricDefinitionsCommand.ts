@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchDeleteRumMetricDefinitionsRequest,
   BatchDeleteRumMetricDefinitionsResponse,
 } from "../models/models_0";
-import type { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 import { BatchDeleteRumMetricDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface BatchDeleteRumMetricDefinitionsCommandOutput extends BatchDelet
  *
  * @public
  */
-export class BatchDeleteRumMetricDefinitionsCommand extends $Command
-  .classBuilder<
-    BatchDeleteRumMetricDefinitionsCommandInput,
-    BatchDeleteRumMetricDefinitionsCommandOutput,
-    RUMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RUMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RUM", "BatchDeleteRumMetricDefinitions", {})
-  .n("RUMClient", "BatchDeleteRumMetricDefinitionsCommand")
-  .sc(BatchDeleteRumMetricDefinitions$)
-  .build() {
+export class BatchDeleteRumMetricDefinitionsCommand extends command<BatchDeleteRumMetricDefinitionsCommandInput, BatchDeleteRumMetricDefinitionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDeleteRumMetricDefinitions",
+  BatchDeleteRumMetricDefinitions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteActivityInput, DeleteActivityOutput } from "../models/models_0";
 import { DeleteActivity$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -60,22 +56,12 @@ export interface DeleteActivityCommandOutput extends DeleteActivityOutput, __Met
  *
  * @public
  */
-export class DeleteActivityCommand extends $Command
-  .classBuilder<
-    DeleteActivityCommandInput,
-    DeleteActivityCommandOutput,
-    SFNClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStepFunctions", "DeleteActivity", {})
-  .n("SFNClient", "DeleteActivityCommand")
-  .sc(DeleteActivity$)
-  .build() {
+export class DeleteActivityCommand extends command<DeleteActivityCommandInput, DeleteActivityCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteActivity",
+  DeleteActivity$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

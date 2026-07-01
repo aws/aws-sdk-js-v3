@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribePullThroughCacheRulesRequest, DescribePullThroughCacheRulesResponse } from "../models/models_0";
 import { DescribePullThroughCacheRules$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribePullThroughCacheRules$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface DescribePullThroughCacheRulesCommandOutput extends DescribePull
  *
  * @public
  */
-export class DescribePullThroughCacheRulesCommand extends $Command
-  .classBuilder<
-    DescribePullThroughCacheRulesCommandInput,
-    DescribePullThroughCacheRulesCommandOutput,
-    ECRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerRegistry_V20150921", "DescribePullThroughCacheRules", {})
-  .n("ECRClient", "DescribePullThroughCacheRulesCommand")
-  .sc(DescribePullThroughCacheRules$)
-  .build() {
+export class DescribePullThroughCacheRulesCommand extends command<DescribePullThroughCacheRulesCommandInput, DescribePullThroughCacheRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribePullThroughCacheRules",
+  DescribePullThroughCacheRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceAgreementClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceAgreementClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendAgreementCancellationRequestInput, SendAgreementCancellationRequestOutput } from "../models/models_0";
 import { SendAgreementCancellationRequest$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { SendAgreementCancellationRequest$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +106,12 @@ export interface SendAgreementCancellationRequestCommandOutput extends SendAgree
  *
  * @public
  */
-export class SendAgreementCancellationRequestCommand extends $Command
-  .classBuilder<
-    SendAgreementCancellationRequestCommandInput,
-    SendAgreementCancellationRequestCommandOutput,
-    MarketplaceAgreementClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceAgreementClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMPCommerceService_v20200301", "SendAgreementCancellationRequest", {})
-  .n("MarketplaceAgreementClient", "SendAgreementCancellationRequestCommand")
-  .sc(SendAgreementCancellationRequest$)
-  .build() {
+export class SendAgreementCancellationRequestCommand extends command<SendAgreementCancellationRequestCommandInput, SendAgreementCancellationRequestCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendAgreementCancellationRequest",
+  SendAgreementCancellationRequest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

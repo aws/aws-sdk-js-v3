@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InterconnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InterconnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AcceptConnectionProposalRequest, AcceptConnectionProposalResponse } from "../models/models_0";
 import { AcceptConnectionProposal$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AcceptConnectionProposal$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -149,22 +145,12 @@ export interface AcceptConnectionProposalCommandOutput extends AcceptConnectionP
  *
  * @public
  */
-export class AcceptConnectionProposalCommand extends $Command
-  .classBuilder<
-    AcceptConnectionProposalCommandInput,
-    AcceptConnectionProposalCommandOutput,
-    InterconnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InterconnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Interconnect", "AcceptConnectionProposal", {})
-  .n("InterconnectClient", "AcceptConnectionProposalCommand")
-  .sc(AcceptConnectionProposal$)
-  .build() {
+export class AcceptConnectionProposalCommand extends command<AcceptConnectionProposalCommandInput, AcceptConnectionProposalCommandOutput>(
+  _ep0,
+  _mw0,
+  "AcceptConnectionProposal",
+  AcceptConnectionProposal$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

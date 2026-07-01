@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PurchaseReservedInstanceOfferingRequest,
   PurchaseReservedInstanceOfferingResponse,
 } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { PurchaseReservedInstanceOffering$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface PurchaseReservedInstanceOfferingCommandOutput extends PurchaseR
  *
  * @public
  */
-export class PurchaseReservedInstanceOfferingCommand extends $Command
-  .classBuilder<
-    PurchaseReservedInstanceOfferingCommandInput,
-    PurchaseReservedInstanceOfferingCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "PurchaseReservedInstanceOffering", {})
-  .n("OpenSearchClient", "PurchaseReservedInstanceOfferingCommand")
-  .sc(PurchaseReservedInstanceOffering$)
-  .build() {
+export class PurchaseReservedInstanceOfferingCommand extends command<PurchaseReservedInstanceOfferingCommandInput, PurchaseReservedInstanceOfferingCommandOutput>(
+  _ep0,
+  _mw0,
+  "PurchaseReservedInstanceOffering",
+  PurchaseReservedInstanceOffering$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

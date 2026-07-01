@@ -1,23 +1,14 @@
 // smithy-typescript generated code
-import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateScheduledQueryRequest } from "../models/models_0";
 import { UpdateScheduledQuery$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TimestreamQueryClientResolvedConfig,
-} from "../TimestreamQueryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,29 +72,12 @@ export interface UpdateScheduledQueryCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdateScheduledQueryCommand extends $Command
-  .classBuilder<
-    UpdateScheduledQueryCommandInput,
-    UpdateScheduledQueryCommandOutput,
-    TimestreamQueryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TimestreamQueryClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEndpointDiscoveryPlugin(config, {
-        clientStack: cs,
-        isDiscoveredEndpointRequired: true,
-        options: o,
-      }),
-    ];
-  })
-  .s("Timestream_20181101", "UpdateScheduledQuery", {})
-  .n("TimestreamQueryClient", "UpdateScheduledQueryCommand")
-  .sc(UpdateScheduledQuery$)
-  .build() {
+export class UpdateScheduledQueryCommand extends command<UpdateScheduledQueryCommandInput, UpdateScheduledQueryCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateScheduledQuery",
+  UpdateScheduledQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

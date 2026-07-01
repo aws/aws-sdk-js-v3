@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteReadinessCheckRequest } from "../models/models_0";
-import type {
-  Route53RecoveryReadinessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryReadinessClient";
 import { DeleteReadinessCheck$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +68,12 @@ export interface DeleteReadinessCheckCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteReadinessCheckCommand extends $Command
-  .classBuilder<
-    DeleteReadinessCheckCommandInput,
-    DeleteReadinessCheckCommandOutput,
-    Route53RecoveryReadinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryReadinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53RecoveryReadiness", "DeleteReadinessCheck", {})
-  .n("Route53RecoveryReadinessClient", "DeleteReadinessCheckCommand")
-  .sc(DeleteReadinessCheck$)
-  .build() {
+export class DeleteReadinessCheckCommand extends command<DeleteReadinessCheckCommandInput, DeleteReadinessCheckCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteReadinessCheck",
+  DeleteReadinessCheck$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutAdminAccountRequest } from "../models/models_0";
 import { PutAdminAccount$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutAdminAccount$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface PutAdminAccountCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutAdminAccountCommand extends $Command
-  .classBuilder<
-    PutAdminAccountCommandInput,
-    PutAdminAccountCommandOutput,
-    FMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSFMS_20180101", "PutAdminAccount", {})
-  .n("FMSClient", "PutAdminAccountCommand")
-  .sc(PutAdminAccount$)
-  .build() {
+export class PutAdminAccountCommand extends command<PutAdminAccountCommandInput, PutAdminAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAdminAccount",
+  PutAdminAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

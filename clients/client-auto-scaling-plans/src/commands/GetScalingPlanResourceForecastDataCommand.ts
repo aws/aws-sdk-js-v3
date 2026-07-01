@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AutoScalingPlansClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AutoScalingPlansClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetScalingPlanResourceForecastDataRequest,
   GetScalingPlanResourceForecastDataResponse,
@@ -19,7 +12,6 @@ import { GetScalingPlanResourceForecastData$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface GetScalingPlanResourceForecastDataCommandOutput extends GetScal
  *
  * @public
  */
-export class GetScalingPlanResourceForecastDataCommand extends $Command
-  .classBuilder<
-    GetScalingPlanResourceForecastDataCommandInput,
-    GetScalingPlanResourceForecastDataCommandOutput,
-    AutoScalingPlansClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingPlansClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AnyScaleScalingPlannerFrontendService", "GetScalingPlanResourceForecastData", {})
-  .n("AutoScalingPlansClient", "GetScalingPlanResourceForecastDataCommand")
-  .sc(GetScalingPlanResourceForecastData$)
-  .build() {
+export class GetScalingPlanResourceForecastDataCommand extends command<GetScalingPlanResourceForecastDataCommandInput, GetScalingPlanResourceForecastDataCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetScalingPlanResourceForecastData",
+  GetScalingPlanResourceForecastData$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

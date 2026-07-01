@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMediaPipelinesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMediaPipelinesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopSpeakerSearchTaskRequest } from "../models/models_0";
 import { StopSpeakerSearchTask$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StopSpeakerSearchTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface StopSpeakerSearchTaskCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class StopSpeakerSearchTaskCommand extends $Command
-  .classBuilder<
-    StopSpeakerSearchTaskCommandInput,
-    StopSpeakerSearchTaskCommandOutput,
-    ChimeSDKMediaPipelinesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKMediaPipelinesService", "StopSpeakerSearchTask", {})
-  .n("ChimeSDKMediaPipelinesClient", "StopSpeakerSearchTaskCommand")
-  .sc(StopSpeakerSearchTask$)
-  .build() {
+export class StopSpeakerSearchTaskCommand extends command<StopSpeakerSearchTaskCommandInput, StopSpeakerSearchTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopSpeakerSearchTask",
+  StopSpeakerSearchTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRoleRequest, UpdateRoleResponse } from "../models/models_1";
 import { UpdateRole$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateRole$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface UpdateRoleCommandOutput extends UpdateRoleResponse, __MetadataB
  *
  * @public
  */
-export class UpdateRoleCommand extends $Command
-  .classBuilder<
-    UpdateRoleCommandInput,
-    UpdateRoleCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "UpdateRole", {})
-  .n("IAMClient", "UpdateRoleCommand")
-  .sc(UpdateRole$)
-  .build() {
+export class UpdateRoleCommand extends command<UpdateRoleCommandInput, UpdateRoleCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRole",
+  UpdateRole$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

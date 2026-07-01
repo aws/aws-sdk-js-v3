@@ -13,7 +13,6 @@ import { de_XmlEmptyListsCommand, se_XmlEmptyListsCommand } from "../protocols/A
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

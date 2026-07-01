@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateLaunchTemplateVersionRequest, CreateLaunchTemplateVersionResult } from "../models/models_1";
 import { CreateLaunchTemplateVersion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateLaunchTemplateVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -714,22 +710,12 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  *
  * @public
  */
-export class CreateLaunchTemplateVersionCommand extends $Command
-  .classBuilder<
-    CreateLaunchTemplateVersionCommandInput,
-    CreateLaunchTemplateVersionCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "CreateLaunchTemplateVersion", {})
-  .n("EC2Client", "CreateLaunchTemplateVersionCommand")
-  .sc(CreateLaunchTemplateVersion$)
-  .build() {
+export class CreateLaunchTemplateVersionCommand extends command<CreateLaunchTemplateVersionCommandInput, CreateLaunchTemplateVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateLaunchTemplateVersion",
+  CreateLaunchTemplateVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

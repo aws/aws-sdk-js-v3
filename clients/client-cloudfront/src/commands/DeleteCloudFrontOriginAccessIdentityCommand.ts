@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCloudFrontOriginAccessIdentityRequest } from "../models/models_0";
 import { DeleteCloudFrontOriginAccessIdentity$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteCloudFrontOriginAccessIdentity$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteCloudFrontOriginAccessIdentityCommandOutput extends __Met
  *
  * @public
  */
-export class DeleteCloudFrontOriginAccessIdentityCommand extends $Command
-  .classBuilder<
-    DeleteCloudFrontOriginAccessIdentityCommandInput,
-    DeleteCloudFrontOriginAccessIdentityCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "DeleteCloudFrontOriginAccessIdentity", {})
-  .n("CloudFrontClient", "DeleteCloudFrontOriginAccessIdentityCommand")
-  .sc(DeleteCloudFrontOriginAccessIdentity$)
-  .build() {
+export class DeleteCloudFrontOriginAccessIdentityCommand extends command<DeleteCloudFrontOriginAccessIdentityCommandInput, DeleteCloudFrontOriginAccessIdentityCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCloudFrontOriginAccessIdentity",
+  DeleteCloudFrontOriginAccessIdentity$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

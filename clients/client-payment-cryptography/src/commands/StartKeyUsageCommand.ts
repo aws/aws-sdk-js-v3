@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartKeyUsageInput, StartKeyUsageOutput } from "../models/models_0";
-import type {
-  PaymentCryptographyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PaymentCryptographyClient";
 import { StartKeyUsage$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +124,12 @@ export interface StartKeyUsageCommandOutput extends StartKeyUsageOutput, __Metad
  *
  * @public
  */
-export class StartKeyUsageCommand extends $Command
-  .classBuilder<
-    StartKeyUsageCommandInput,
-    StartKeyUsageCommandOutput,
-    PaymentCryptographyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PaymentCryptographyControlPlane", "StartKeyUsage", {})
-  .n("PaymentCryptographyClient", "StartKeyUsageCommand")
-  .sc(StartKeyUsage$)
-  .build() {
+export class StartKeyUsageCommand extends command<StartKeyUsageCommandInput, StartKeyUsageCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartKeyUsage",
+  StartKeyUsage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

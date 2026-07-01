@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceCatalogClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchDescribeEntitiesRequest, BatchDescribeEntitiesResponse } from "../models/models_0";
 import { BatchDescribeEntities$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { BatchDescribeEntities$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +90,12 @@ export interface BatchDescribeEntitiesCommandOutput extends BatchDescribeEntitie
  *
  * @public
  */
-export class BatchDescribeEntitiesCommand extends $Command
-  .classBuilder<
-    BatchDescribeEntitiesCommandInput,
-    BatchDescribeEntitiesCommandOutput,
-    MarketplaceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMPSeymour", "BatchDescribeEntities", {})
-  .n("MarketplaceCatalogClient", "BatchDescribeEntitiesCommand")
-  .sc(BatchDescribeEntities$)
-  .build() {
+export class BatchDescribeEntitiesCommand extends command<BatchDescribeEntitiesCommandInput, BatchDescribeEntitiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDescribeEntities",
+  BatchDescribeEntities$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

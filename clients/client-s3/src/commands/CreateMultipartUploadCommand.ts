@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getSsecPlugin, getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { CreateMultipartUploadOutput, CreateMultipartUploadRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { CreateMultipartUpload$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -372,30 +367,12 @@ export interface CreateMultipartUploadCommandOutput extends CreateMultipartUploa
  *
  * @public
  */
-export class CreateMultipartUploadCommand extends $Command
-  .classBuilder<
-    CreateMultipartUploadCommandInput,
-    CreateMultipartUploadCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    Bucket: { type: "contextParams", name: "Bucket" },
-    Key: { type: "contextParams", name: "Key" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-      getSsecPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "CreateMultipartUpload", {})
-  .n("S3Client", "CreateMultipartUploadCommand")
-  .sc(CreateMultipartUpload$)
-  .build() {
+export class CreateMultipartUploadCommand extends command<CreateMultipartUploadCommandInput, CreateMultipartUploadCommandOutput>(
+  _ep0,
+  _mw1,
+  "CreateMultipartUpload",
+  CreateMultipartUpload$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ActivityTaskStatus, RecordActivityTaskHeartbeatInput } from "../models/models_0";
 import { RecordActivityTaskHeartbeat$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface RecordActivityTaskHeartbeatCommandOutput extends ActivityTaskSt
  *
  * @public
  */
-export class RecordActivityTaskHeartbeatCommand extends $Command
-  .classBuilder<
-    RecordActivityTaskHeartbeatCommandInput,
-    RecordActivityTaskHeartbeatCommandOutput,
-    SWFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleWorkflowService", "RecordActivityTaskHeartbeat", {})
-  .n("SWFClient", "RecordActivityTaskHeartbeatCommand")
-  .sc(RecordActivityTaskHeartbeat$)
-  .build() {
+export class RecordActivityTaskHeartbeatCommand extends command<RecordActivityTaskHeartbeatCommandInput, RecordActivityTaskHeartbeatCommandOutput>(
+  _ep0,
+  _mw0,
+  "RecordActivityTaskHeartbeat",
+  RecordActivityTaskHeartbeat$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

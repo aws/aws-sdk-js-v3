@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MigrationHubStrategyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MigrationHubStrategyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutPortfolioPreferencesRequest, PutPortfolioPreferencesResponse } from "../models/models_0";
 import { PutPortfolioPreferences$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { PutPortfolioPreferences$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +117,12 @@ export interface PutPortfolioPreferencesCommandOutput extends PutPortfolioPrefer
  *
  * @public
  */
-export class PutPortfolioPreferencesCommand extends $Command
-  .classBuilder<
-    PutPortfolioPreferencesCommandInput,
-    PutPortfolioPreferencesCommandOutput,
-    MigrationHubStrategyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubStrategyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHubStrategyRecommendation", "PutPortfolioPreferences", {})
-  .n("MigrationHubStrategyClient", "PutPortfolioPreferencesCommand")
-  .sc(PutPortfolioPreferences$)
-  .build() {
+export class PutPortfolioPreferencesCommand extends command<PutPortfolioPreferencesCommandInput, PutPortfolioPreferencesCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutPortfolioPreferences",
+  PutPortfolioPreferences$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComprehendMedicalClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComprehendMedicalClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeICD10CMInferenceJobRequest, DescribeICD10CMInferenceJobResponse } from "../models/models_0";
 import { DescribeICD10CMInferenceJob$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeICD10CMInferenceJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +93,12 @@ export interface DescribeICD10CMInferenceJobCommandOutput extends DescribeICD10C
  *
  * @public
  */
-export class DescribeICD10CMInferenceJobCommand extends $Command
-  .classBuilder<
-    DescribeICD10CMInferenceJobCommandInput,
-    DescribeICD10CMInferenceJobCommandOutput,
-    ComprehendMedicalClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComprehendMedical_20181030", "DescribeICD10CMInferenceJob", {})
-  .n("ComprehendMedicalClient", "DescribeICD10CMInferenceJobCommand")
-  .sc(DescribeICD10CMInferenceJob$)
-  .build() {
+export class DescribeICD10CMInferenceJobCommand extends command<DescribeICD10CMInferenceJobCommandInput, DescribeICD10CMInferenceJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeICD10CMInferenceJob",
+  DescribeICD10CMInferenceJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePredefinedAttributeRequest } from "../models/models_0";
 import { CreatePredefinedAttribute$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreatePredefinedAttribute$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface CreatePredefinedAttributeCommandOutput extends __MetadataBearer
  *
  * @public
  */
-export class CreatePredefinedAttributeCommand extends $Command
-  .classBuilder<
-    CreatePredefinedAttributeCommandInput,
-    CreatePredefinedAttributeCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "CreatePredefinedAttribute", {})
-  .n("ConnectClient", "CreatePredefinedAttributeCommand")
-  .sc(CreatePredefinedAttribute$)
-  .build() {
+export class CreatePredefinedAttributeCommand extends command<CreatePredefinedAttributeCommandInput, CreatePredefinedAttributeCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePredefinedAttribute",
+  CreatePredefinedAttribute$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

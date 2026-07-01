@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteBrowserSettingsRequest, DeleteBrowserSettingsResponse } from "../models/models_0";
 import { DeleteBrowserSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteBrowserSettingsCommandOutput extends DeleteBrowserSetting
  *
  * @public
  */
-export class DeleteBrowserSettingsCommand extends $Command
-  .classBuilder<
-    DeleteBrowserSettingsCommandInput,
-    DeleteBrowserSettingsCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "DeleteBrowserSettings", {})
-  .n("WorkSpacesWebClient", "DeleteBrowserSettingsCommand")
-  .sc(DeleteBrowserSettings$)
-  .build() {
+export class DeleteBrowserSettingsCommand extends command<DeleteBrowserSettingsCommandInput, DeleteBrowserSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteBrowserSettings",
+  DeleteBrowserSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

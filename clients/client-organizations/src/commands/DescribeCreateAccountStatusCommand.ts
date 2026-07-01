@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeCreateAccountStatusRequest, DescribeCreateAccountStatusResponse } from "../models/models_0";
-import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { DescribeCreateAccountStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -265,22 +261,12 @@ export interface DescribeCreateAccountStatusCommandOutput extends DescribeCreate
  *
  * @public
  */
-export class DescribeCreateAccountStatusCommand extends $Command
-  .classBuilder<
-    DescribeCreateAccountStatusCommandInput,
-    DescribeCreateAccountStatusCommandOutput,
-    OrganizationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrganizationsV20161128", "DescribeCreateAccountStatus", {})
-  .n("OrganizationsClient", "DescribeCreateAccountStatusCommand")
-  .sc(DescribeCreateAccountStatus$)
-  .build() {
+export class DescribeCreateAccountStatusCommand extends command<DescribeCreateAccountStatusCommandInput, DescribeCreateAccountStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCreateAccountStatus",
+  DescribeCreateAccountStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

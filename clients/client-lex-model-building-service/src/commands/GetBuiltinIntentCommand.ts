@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LexModelBuildingServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LexModelBuildingServiceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetBuiltinIntentRequest, GetBuiltinIntentResponse } from "../models/models_0";
 import { GetBuiltinIntent$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetBuiltinIntent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface GetBuiltinIntentCommandOutput extends GetBuiltinIntentResponse,
  *
  * @public
  */
-export class GetBuiltinIntentCommand extends $Command
-  .classBuilder<
-    GetBuiltinIntentCommandInput,
-    GetBuiltinIntentCommandOutput,
-    LexModelBuildingServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepSenseModelBuildingService", "GetBuiltinIntent", {})
-  .n("LexModelBuildingServiceClient", "GetBuiltinIntentCommand")
-  .sc(GetBuiltinIntent$)
-  .build() {
+export class GetBuiltinIntentCommand extends command<GetBuiltinIntentCommandInput, GetBuiltinIntentCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetBuiltinIntent",
+  GetBuiltinIntent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

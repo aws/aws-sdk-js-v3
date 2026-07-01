@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteGeneratedTemplateInput } from "../models/models_0";
 import { DeleteGeneratedTemplate$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteGeneratedTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface DeleteGeneratedTemplateCommandOutput extends __MetadataBearer {
  *
  * @public
  */
-export class DeleteGeneratedTemplateCommand extends $Command
-  .classBuilder<
-    DeleteGeneratedTemplateCommandInput,
-    DeleteGeneratedTemplateCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "DeleteGeneratedTemplate", {})
-  .n("CloudFormationClient", "DeleteGeneratedTemplateCommand")
-  .sc(DeleteGeneratedTemplate$)
-  .build() {
+export class DeleteGeneratedTemplateCommand extends command<DeleteGeneratedTemplateCommandInput, DeleteGeneratedTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteGeneratedTemplate",
+  DeleteGeneratedTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

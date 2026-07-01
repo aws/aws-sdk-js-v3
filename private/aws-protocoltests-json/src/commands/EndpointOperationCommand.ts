@@ -12,7 +12,6 @@ import { de_EndpointOperationCommand, se_EndpointOperationCommand } from "../pro
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

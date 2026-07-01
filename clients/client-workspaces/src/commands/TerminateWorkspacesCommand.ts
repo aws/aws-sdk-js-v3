@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TerminateWorkspacesRequest, TerminateWorkspacesResult } from "../models/models_0";
 import { TerminateWorkspaces$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesRes
  *
  * @public
  */
-export class TerminateWorkspacesCommand extends $Command
-  .classBuilder<
-    TerminateWorkspacesCommandInput,
-    TerminateWorkspacesCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "TerminateWorkspaces", {})
-  .n("WorkSpacesClient", "TerminateWorkspacesCommand")
-  .sc(TerminateWorkspaces$)
-  .build() {
+export class TerminateWorkspacesCommand extends command<TerminateWorkspacesCommandInput, TerminateWorkspacesCommandOutput>(
+  _ep0,
+  _mw0,
+  "TerminateWorkspaces",
+  TerminateWorkspaces$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

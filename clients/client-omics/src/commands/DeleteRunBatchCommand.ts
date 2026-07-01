@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRunBatchRequest, DeleteRunBatchResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { DeleteRunBatch$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface DeleteRunBatchCommandOutput extends DeleteRunBatchResponse, __M
  *
  * @public
  */
-export class DeleteRunBatchCommand extends $Command
-  .classBuilder<
-    DeleteRunBatchCommandInput,
-    DeleteRunBatchCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "DeleteRunBatch", {})
-  .n("OmicsClient", "DeleteRunBatchCommand")
-  .sc(DeleteRunBatch$)
-  .build() {
+export class DeleteRunBatchCommand extends command<DeleteRunBatchCommandInput, DeleteRunBatchCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRunBatch",
+  DeleteRunBatch$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListQueueTagsRequest, ListQueueTagsResult } from "../models/models_0";
 import { ListQueueTags$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface ListQueueTagsCommandOutput extends ListQueueTagsResult, __Metad
  *
  * @public
  */
-export class ListQueueTagsCommand extends $Command
-  .classBuilder<
-    ListQueueTagsCommandInput,
-    ListQueueTagsCommandOutput,
-    SQSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSQS", "ListQueueTags", {})
-  .n("SQSClient", "ListQueueTagsCommand")
-  .sc(ListQueueTags$)
-  .build() {
+export class ListQueueTagsCommand extends command<ListQueueTagsCommandInput, ListQueueTagsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListQueueTags",
+  ListQueueTags$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

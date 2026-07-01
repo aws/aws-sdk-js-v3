@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPermissionAssociationsRequest, ListPermissionAssociationsResponse } from "../models/models_0";
-import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import { ListPermissionAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface ListPermissionAssociationsCommandOutput extends ListPermissionA
  *
  * @public
  */
-export class ListPermissionAssociationsCommand extends $Command
-  .classBuilder<
-    ListPermissionAssociationsCommandInput,
-    ListPermissionAssociationsCommandOutput,
-    RAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonResourceSharing", "ListPermissionAssociations", {})
-  .n("RAMClient", "ListPermissionAssociationsCommand")
-  .sc(ListPermissionAssociations$)
-  .build() {
+export class ListPermissionAssociationsCommand extends command<ListPermissionAssociationsCommandInput, ListPermissionAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPermissionAssociations",
+  ListPermissionAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

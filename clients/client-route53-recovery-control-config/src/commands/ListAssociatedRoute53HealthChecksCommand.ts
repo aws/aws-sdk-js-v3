@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListAssociatedRoute53HealthChecksRequest,
   ListAssociatedRoute53HealthChecksResponse,
 } from "../models/models_0";
-import type {
-  Route53RecoveryControlConfigClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryControlConfigClient";
 import { ListAssociatedRoute53HealthChecks$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface ListAssociatedRoute53HealthChecksCommandOutput extends ListAsso
  *
  * @public
  */
-export class ListAssociatedRoute53HealthChecksCommand extends $Command
-  .classBuilder<
-    ListAssociatedRoute53HealthChecksCommandInput,
-    ListAssociatedRoute53HealthChecksCommandOutput,
-    Route53RecoveryControlConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53RecoveryControlConfig", "ListAssociatedRoute53HealthChecks", {})
-  .n("Route53RecoveryControlConfigClient", "ListAssociatedRoute53HealthChecksCommand")
-  .sc(ListAssociatedRoute53HealthChecks$)
-  .build() {
+export class ListAssociatedRoute53HealthChecksCommand extends command<ListAssociatedRoute53HealthChecksCommandInput, ListAssociatedRoute53HealthChecksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAssociatedRoute53HealthChecks",
+  ListAssociatedRoute53HealthChecks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

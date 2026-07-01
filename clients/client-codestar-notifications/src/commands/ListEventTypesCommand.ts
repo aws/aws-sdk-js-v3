@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodestarNotificationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodestarNotificationsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListEventTypesRequest, ListEventTypesResult } from "../models/models_0";
 import { ListEventTypes$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListEventTypes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface ListEventTypesCommandOutput extends ListEventTypesResult, __Met
  *
  * @public
  */
-export class ListEventTypesCommand extends $Command
-  .classBuilder<
-    ListEventTypesCommandInput,
-    ListEventTypesCommandOutput,
-    CodestarNotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodestarNotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeStarNotifications_20191015", "ListEventTypes", {})
-  .n("CodestarNotificationsClient", "ListEventTypesCommand")
-  .sc(ListEventTypes$)
-  .build() {
+export class ListEventTypesCommand extends command<ListEventTypesCommandInput, ListEventTypesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEventTypes",
+  ListEventTypes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

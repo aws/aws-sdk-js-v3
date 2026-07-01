@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { PutEventsRequest, PutEventsResponse } from "../models/models_0";
 import { PutEvents$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutEvents$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,25 +90,12 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  *
  * @public
  */
-export class PutEventsCommand extends $Command
-  .classBuilder<
-    PutEventsCommandInput,
-    PutEventsCommandOutput,
-    EventBridgeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    EndpointId: { type: "contextParams", name: "EndpointId" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSEvents", "PutEvents", {})
-  .n("EventBridgeClient", "PutEventsCommand")
-  .sc(PutEvents$)
-  .build() {
+export class PutEventsCommand extends command<PutEventsCommandInput, PutEventsCommandOutput>(
+  _ep1,
+  _mw0,
+  "PutEvents",
+  PutEvents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

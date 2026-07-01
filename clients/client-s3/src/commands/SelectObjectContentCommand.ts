@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getSsecPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep5, _mw12, command } from "../commandBuilder";
 import type { SelectObjectContentOutput, SelectObjectContentRequest } from "../models/models_1";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { SelectObjectContent$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -237,35 +232,12 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  *
  * @public
  */
-export class SelectObjectContentCommand extends $Command
-  .classBuilder<
-    SelectObjectContentCommandInput,
-    SelectObjectContentCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getSsecPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "SelectObjectContent", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      output: true,
-    },
-  })
-  .n("S3Client", "SelectObjectContentCommand")
-  .sc(SelectObjectContent$)
-  .build() {
+export class SelectObjectContentCommand extends command<SelectObjectContentCommandInput, SelectObjectContentCommandOutput>(
+  _ep5,
+  _mw12,
+  "SelectObjectContent",
+  SelectObjectContent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

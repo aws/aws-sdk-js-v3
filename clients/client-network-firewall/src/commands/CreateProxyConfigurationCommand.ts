@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateProxyConfigurationRequest, CreateProxyConfigurationResponse } from "../models/models_0";
-import type {
-  NetworkFirewallClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFirewallClient";
 import { CreateProxyConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +132,12 @@ export interface CreateProxyConfigurationCommandOutput extends CreateProxyConfig
  *
  * @public
  */
-export class CreateProxyConfigurationCommand extends $Command
-  .classBuilder<
-    CreateProxyConfigurationCommandInput,
-    CreateProxyConfigurationCommandOutput,
-    NetworkFirewallClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFirewall_20201112", "CreateProxyConfiguration", {})
-  .n("NetworkFirewallClient", "CreateProxyConfigurationCommand")
-  .sc(CreateProxyConfiguration$)
-  .build() {
+export class CreateProxyConfigurationCommand extends command<CreateProxyConfigurationCommandInput, CreateProxyConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateProxyConfiguration",
+  CreateProxyConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

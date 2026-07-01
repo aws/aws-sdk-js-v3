@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RetrieveRequest, RetrieveResult } from "../models/models_0";
 import { Retrieve$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { Retrieve$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -270,22 +266,12 @@ export interface RetrieveCommandOutput extends RetrieveResult, __MetadataBearer 
  *
  * @public
  */
-export class RetrieveCommand extends $Command
-  .classBuilder<
-    RetrieveCommandInput,
-    RetrieveCommandOutput,
-    KendraClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSKendraFrontendService", "Retrieve", {})
-  .n("KendraClient", "RetrieveCommand")
-  .sc(Retrieve$)
-  .build() {
+export class RetrieveCommand extends command<RetrieveCommandInput, RetrieveCommandOutput>(
+  _ep0,
+  _mw0,
+  "Retrieve",
+  Retrieve$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

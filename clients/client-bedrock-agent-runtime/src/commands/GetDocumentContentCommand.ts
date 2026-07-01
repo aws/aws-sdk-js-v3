@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentRuntimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDocumentContentRequest, GetDocumentContentResponse } from "../models/models_0";
 import { GetDocumentContent$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetDocumentContent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface GetDocumentContentCommandOutput extends GetDocumentContentRespo
  *
  * @public
  */
-export class GetDocumentContentCommand extends $Command
-  .classBuilder<
-    GetDocumentContentCommandInput,
-    GetDocumentContentCommandOutput,
-    BedrockAgentRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentRunTimeService", "GetDocumentContent", {})
-  .n("BedrockAgentRuntimeClient", "GetDocumentContentCommand")
-  .sc(GetDocumentContent$)
-  .build() {
+export class GetDocumentContentCommand extends command<GetDocumentContentCommandInput, GetDocumentContentCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDocumentContent",
+  GetDocumentContent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

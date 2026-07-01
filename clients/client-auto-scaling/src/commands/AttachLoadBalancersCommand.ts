@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AttachLoadBalancersResultType, AttachLoadBalancersType } from "../models/models_0";
 import { AttachLoadBalancers$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AttachLoadBalancers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface AttachLoadBalancersCommandOutput extends AttachLoadBalancersRes
  *
  * @public
  */
-export class AttachLoadBalancersCommand extends $Command
-  .classBuilder<
-    AttachLoadBalancersCommandInput,
-    AttachLoadBalancersCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "AttachLoadBalancers", {})
-  .n("AutoScalingClient", "AttachLoadBalancersCommand")
-  .sc(AttachLoadBalancers$)
-  .build() {
+export class AttachLoadBalancersCommand extends command<AttachLoadBalancersCommandInput, AttachLoadBalancersCommandOutput>(
+  _ep0,
+  _mw0,
+  "AttachLoadBalancers",
+  AttachLoadBalancers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

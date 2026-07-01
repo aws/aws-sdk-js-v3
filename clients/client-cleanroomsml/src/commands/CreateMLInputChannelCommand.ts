@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateMLInputChannelRequest, CreateMLInputChannelResponse } from "../models/models_0";
 import { CreateMLInputChannel$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateMLInputChannel$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface CreateMLInputChannelCommandOutput extends CreateMLInputChannelR
  *
  * @public
  */
-export class CreateMLInputChannelCommand extends $Command
-  .classBuilder<
-    CreateMLInputChannelCommandInput,
-    CreateMLInputChannelCommandOutput,
-    CleanRoomsMLClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStarkControlService", "CreateMLInputChannel", {})
-  .n("CleanRoomsMLClient", "CreateMLInputChannelCommand")
-  .sc(CreateMLInputChannel$)
-  .build() {
+export class CreateMLInputChannelCommand extends command<CreateMLInputChannelCommandInput, CreateMLInputChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateMLInputChannel",
+  CreateMLInputChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchRelevantContentResponse } from "../models/models_0";
 import type { SearchRelevantContentRequest } from "../models/models_1";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { SearchRelevantContent$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -191,22 +187,12 @@ export interface SearchRelevantContentCommandOutput extends SearchRelevantConten
  *
  * @public
  */
-export class SearchRelevantContentCommand extends $Command
-  .classBuilder<
-    SearchRelevantContentCommandInput,
-    SearchRelevantContentCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "SearchRelevantContent", {})
-  .n("QBusinessClient", "SearchRelevantContentCommand")
-  .sc(SearchRelevantContent$)
-  .build() {
+export class SearchRelevantContentCommand extends command<SearchRelevantContentCommandInput, SearchRelevantContentCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchRelevantContent",
+  SearchRelevantContent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

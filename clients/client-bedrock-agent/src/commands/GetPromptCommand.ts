@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPromptRequest, GetPromptResponse } from "../models/models_1";
 import { GetPrompt$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetPrompt$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -174,22 +170,12 @@ export interface GetPromptCommandOutput extends GetPromptResponse, __MetadataBea
  *
  * @public
  */
-export class GetPromptCommand extends $Command
-  .classBuilder<
-    GetPromptCommandInput,
-    GetPromptCommandOutput,
-    BedrockAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentBuildTimeLambda", "GetPrompt", {})
-  .n("BedrockAgentClient", "GetPromptCommand")
-  .sc(GetPrompt$)
-  .build() {
+export class GetPromptCommand extends command<GetPromptCommandInput, GetPromptCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPrompt",
+  GetPrompt$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

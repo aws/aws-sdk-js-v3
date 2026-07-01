@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateKxDatabaseRequest, CreateKxDatabaseResponse } from "../models/models_0";
 import { CreateKxDatabase$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateKxDatabase$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface CreateKxDatabaseCommandOutput extends CreateKxDatabaseResponse,
  *
  * @public
  */
-export class CreateKxDatabaseCommand extends $Command
-  .classBuilder<
-    CreateKxDatabaseCommandInput,
-    CreateKxDatabaseCommandOutput,
-    FinspaceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHabaneroManagementService", "CreateKxDatabase", {})
-  .n("FinspaceClient", "CreateKxDatabaseCommand")
-  .sc(CreateKxDatabase$)
-  .build() {
+export class CreateKxDatabaseCommand extends command<CreateKxDatabaseCommandInput, CreateKxDatabaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateKxDatabase",
+  CreateKxDatabase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

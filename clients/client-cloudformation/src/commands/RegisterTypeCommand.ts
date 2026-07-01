@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterTypeInput, RegisterTypeOutput } from "../models/models_0";
 import { RegisterType$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { RegisterType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface RegisterTypeCommandOutput extends RegisterTypeOutput, __Metadat
  *
  * @public
  */
-export class RegisterTypeCommand extends $Command
-  .classBuilder<
-    RegisterTypeCommandInput,
-    RegisterTypeCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "RegisterType", {})
-  .n("CloudFormationClient", "RegisterTypeCommand")
-  .sc(RegisterType$)
-  .build() {
+export class RegisterTypeCommand extends command<RegisterTypeCommandInput, RegisterTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterType",
+  RegisterType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

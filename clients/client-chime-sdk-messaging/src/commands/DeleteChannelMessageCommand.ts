@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMessagingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMessagingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteChannelMessageRequest } from "../models/models_0";
 import { DeleteChannelMessage$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteChannelMessage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface DeleteChannelMessageCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteChannelMessageCommand extends $Command
-  .classBuilder<
-    DeleteChannelMessageCommandInput,
-    DeleteChannelMessageCommandOutput,
-    ChimeSDKMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeMessagingService", "DeleteChannelMessage", {})
-  .n("ChimeSDKMessagingClient", "DeleteChannelMessageCommand")
-  .sc(DeleteChannelMessage$)
-  .build() {
+export class DeleteChannelMessageCommand extends command<DeleteChannelMessageCommandInput, DeleteChannelMessageCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteChannelMessage",
+  DeleteChannelMessage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

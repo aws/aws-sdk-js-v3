@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRequesterGatewayRequest, DeleteRequesterGatewayResponse } from "../models/models_0";
-import type { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
 import { DeleteRequesterGateway$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface DeleteRequesterGatewayCommandOutput extends DeleteRequesterGate
  *
  * @public
  */
-export class DeleteRequesterGatewayCommand extends $Command
-  .classBuilder<
-    DeleteRequesterGatewayCommandInput,
-    DeleteRequesterGatewayCommandOutput,
-    RTBFabricClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RTBFabricClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RTBFabric", "DeleteRequesterGateway", {})
-  .n("RTBFabricClient", "DeleteRequesterGatewayCommand")
-  .sc(DeleteRequesterGateway$)
-  .build() {
+export class DeleteRequesterGatewayCommand extends command<DeleteRequesterGatewayCommandInput, DeleteRequesterGatewayCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRequesterGateway",
+  DeleteRequesterGateway$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

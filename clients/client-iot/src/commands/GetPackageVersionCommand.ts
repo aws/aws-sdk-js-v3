@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPackageVersionRequest, GetPackageVersionResponse } from "../models/models_1";
 import { GetPackageVersion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetPackageVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface GetPackageVersionCommandOutput extends GetPackageVersionRespons
  *
  * @public
  */
-export class GetPackageVersionCommand extends $Command
-  .classBuilder<
-    GetPackageVersionCommandInput,
-    GetPackageVersionCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "GetPackageVersion", {})
-  .n("IoTClient", "GetPackageVersionCommand")
-  .sc(GetPackageVersion$)
-  .build() {
+export class GetPackageVersionCommand extends command<GetPackageVersionCommandInput, GetPackageVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPackageVersion",
+  GetPackageVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

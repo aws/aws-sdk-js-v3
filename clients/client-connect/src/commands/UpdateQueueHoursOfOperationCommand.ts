@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateQueueHoursOfOperationRequest } from "../models/models_3";
 import { UpdateQueueHoursOfOperation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateQueueHoursOfOperation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface UpdateQueueHoursOfOperationCommandOutput extends __MetadataBear
  *
  * @public
  */
-export class UpdateQueueHoursOfOperationCommand extends $Command
-  .classBuilder<
-    UpdateQueueHoursOfOperationCommandInput,
-    UpdateQueueHoursOfOperationCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "UpdateQueueHoursOfOperation", {})
-  .n("ConnectClient", "UpdateQueueHoursOfOperationCommand")
-  .sc(UpdateQueueHoursOfOperation$)
-  .build() {
+export class UpdateQueueHoursOfOperationCommand extends command<UpdateQueueHoursOfOperationCommandInput, UpdateQueueHoursOfOperationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateQueueHoursOfOperation",
+  UpdateQueueHoursOfOperation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetHarnessRequest, GetHarnessResponse } from "../models/models_1";
 import { GetHarness$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetHarness$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -363,22 +355,12 @@ export interface GetHarnessCommandOutput extends GetHarnessResponse, __MetadataB
  *
  * @public
  */
-export class GetHarnessCommand extends $Command
-  .classBuilder<
-    GetHarnessCommandInput,
-    GetHarnessCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "GetHarness", {})
-  .n("BedrockAgentCoreControlClient", "GetHarnessCommand")
-  .sc(GetHarness$)
-  .build() {
+export class GetHarnessCommand extends command<GetHarnessCommandInput, GetHarnessCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetHarness",
+  GetHarness$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

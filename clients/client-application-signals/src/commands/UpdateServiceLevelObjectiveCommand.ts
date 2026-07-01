@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationSignalsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationSignalsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateServiceLevelObjectiveInput, UpdateServiceLevelObjectiveOutput } from "../models/models_0";
 import { UpdateServiceLevelObjective$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateServiceLevelObjective$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -463,22 +455,12 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  *
  * @public
  */
-export class UpdateServiceLevelObjectiveCommand extends $Command
-  .classBuilder<
-    UpdateServiceLevelObjectiveCommandInput,
-    UpdateServiceLevelObjectiveCommandOutput,
-    ApplicationSignalsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationSignalsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationSignals", "UpdateServiceLevelObjective", {})
-  .n("ApplicationSignalsClient", "UpdateServiceLevelObjectiveCommand")
-  .sc(UpdateServiceLevelObjective$)
-  .build() {
+export class UpdateServiceLevelObjectiveCommand extends command<UpdateServiceLevelObjectiveCommandInput, UpdateServiceLevelObjectiveCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateServiceLevelObjective",
+  UpdateServiceLevelObjective$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

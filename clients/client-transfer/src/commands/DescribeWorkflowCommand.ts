@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeWorkflowRequest, DescribeWorkflowResponse } from "../models/models_0";
 import { DescribeWorkflow$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -193,22 +189,12 @@ export interface DescribeWorkflowCommandOutput extends DescribeWorkflowResponse,
  *
  * @public
  */
-export class DescribeWorkflowCommand extends $Command
-  .classBuilder<
-    DescribeWorkflowCommandInput,
-    DescribeWorkflowCommandOutput,
-    TransferClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TransferService", "DescribeWorkflow", {})
-  .n("TransferClient", "DescribeWorkflowCommand")
-  .sc(DescribeWorkflow$)
-  .build() {
+export class DescribeWorkflowCommand extends command<DescribeWorkflowCommandInput, DescribeWorkflowCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeWorkflow",
+  DescribeWorkflow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

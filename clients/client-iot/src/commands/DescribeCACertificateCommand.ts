@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeCACertificateRequest, DescribeCACertificateResponse } from "../models/models_1";
 import { DescribeCACertificate$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeCACertificate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface DescribeCACertificateCommandOutput extends DescribeCACertificat
  *
  * @public
  */
-export class DescribeCACertificateCommand extends $Command
-  .classBuilder<
-    DescribeCACertificateCommandInput,
-    DescribeCACertificateCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "DescribeCACertificate", {})
-  .n("IoTClient", "DescribeCACertificateCommand")
-  .sc(DescribeCACertificate$)
-  .build() {
+export class DescribeCACertificateCommand extends command<DescribeCACertificateCommandInput, DescribeCACertificateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCACertificate",
+  DescribeCACertificate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

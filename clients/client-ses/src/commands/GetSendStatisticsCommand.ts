@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSendStatisticsResponse } from "../models/models_0";
 import { GetSendStatistics$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface GetSendStatisticsCommandOutput extends GetSendStatisticsRespons
  *
  * @public
  */
-export class GetSendStatisticsCommand extends $Command
-  .classBuilder<
-    GetSendStatisticsCommandInput,
-    GetSendStatisticsCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "GetSendStatistics", {})
-  .n("SESClient", "GetSendStatisticsCommand")
-  .sc(GetSendStatistics$)
-  .build() {
+export class GetSendStatisticsCommand extends command<GetSendStatisticsCommandInput, GetSendStatisticsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSendStatistics",
+  GetSendStatistics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDbClusterInput, DeleteDbClusterOutput } from "../models/models_0";
 import { DeleteDbCluster$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TimestreamInfluxDBClientResolvedConfig,
-} from "../TimestreamInfluxDBClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface DeleteDbClusterCommandOutput extends DeleteDbClusterOutput, __M
  *
  * @public
  */
-export class DeleteDbClusterCommand extends $Command
-  .classBuilder<
-    DeleteDbClusterCommandInput,
-    DeleteDbClusterCommandOutput,
-    TimestreamInfluxDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TimestreamInfluxDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonTimestreamInfluxDB", "DeleteDbCluster", {})
-  .n("TimestreamInfluxDBClient", "DeleteDbClusterCommand")
-  .sc(DeleteDbCluster$)
-  .build() {
+export class DeleteDbClusterCommand extends command<DeleteDbClusterCommandInput, DeleteDbClusterCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDbCluster",
+  DeleteDbCluster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

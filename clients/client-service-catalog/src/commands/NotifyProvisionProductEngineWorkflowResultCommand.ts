@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   NotifyProvisionProductEngineWorkflowResultInput,
   NotifyProvisionProductEngineWorkflowResultOutput,
 } from "../models/models_0";
 import { NotifyProvisionProductEngineWorkflowResult$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface NotifyProvisionProductEngineWorkflowResultCommandOutput extends
  *
  * @public
  */
-export class NotifyProvisionProductEngineWorkflowResultCommand extends $Command
-  .classBuilder<
-    NotifyProvisionProductEngineWorkflowResultCommandInput,
-    NotifyProvisionProductEngineWorkflowResultCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "NotifyProvisionProductEngineWorkflowResult", {})
-  .n("ServiceCatalogClient", "NotifyProvisionProductEngineWorkflowResultCommand")
-  .sc(NotifyProvisionProductEngineWorkflowResult$)
-  .build() {
+export class NotifyProvisionProductEngineWorkflowResultCommand extends command<NotifyProvisionProductEngineWorkflowResultCommandInput, NotifyProvisionProductEngineWorkflowResultCommandOutput>(
+  _ep0,
+  _mw0,
+  "NotifyProvisionProductEngineWorkflowResult",
+  NotifyProvisionProductEngineWorkflowResult$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

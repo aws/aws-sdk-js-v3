@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeScraperRequest, DescribeScraperResponse } from "../models/models_0";
 import { DescribeScraper$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeScraper$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -166,22 +162,12 @@ export interface DescribeScraperCommandOutput extends DescribeScraperResponse, _
  *
  * @public
  */
-export class DescribeScraperCommand extends $Command
-  .classBuilder<
-    DescribeScraperCommandInput,
-    DescribeScraperCommandOutput,
-    AmpClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPrometheusService", "DescribeScraper", {})
-  .n("AmpClient", "DescribeScraperCommand")
-  .sc(DescribeScraper$)
-  .build() {
+export class DescribeScraperCommand extends command<DescribeScraperCommandInput, DescribeScraperCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeScraper",
+  DescribeScraper$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

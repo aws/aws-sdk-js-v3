@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ApiKeyIds, ImportApiKeysRequest } from "../models/models_0";
 import { ImportApiKeys$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ImportApiKeys$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  */
@@ -91,22 +87,12 @@ export interface ImportApiKeysCommandOutput extends ApiKeyIds, __MetadataBearer 
  *
  * @public
  */
-export class ImportApiKeysCommand extends $Command
-  .classBuilder<
-    ImportApiKeysCommandInput,
-    ImportApiKeysCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "ImportApiKeys", {})
-  .n("APIGatewayClient", "ImportApiKeysCommand")
-  .sc(ImportApiKeys$)
-  .build() {
+export class ImportApiKeysCommand extends command<ImportApiKeysCommandInput, ImportApiKeysCommandOutput>(
+  _ep0,
+  _mw0,
+  "ImportApiKeys",
+  ImportApiKeys$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

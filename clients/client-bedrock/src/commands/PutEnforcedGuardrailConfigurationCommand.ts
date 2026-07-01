@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutEnforcedGuardrailConfigurationRequest,
   PutEnforcedGuardrailConfigurationResponse,
@@ -15,7 +12,6 @@ import { PutEnforcedGuardrailConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface PutEnforcedGuardrailConfigurationCommandOutput extends PutEnfor
  *
  * @public
  */
-export class PutEnforcedGuardrailConfigurationCommand extends $Command
-  .classBuilder<
-    PutEnforcedGuardrailConfigurationCommandInput,
-    PutEnforcedGuardrailConfigurationCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "PutEnforcedGuardrailConfiguration", {})
-  .n("BedrockClient", "PutEnforcedGuardrailConfigurationCommand")
-  .sc(PutEnforcedGuardrailConfiguration$)
-  .build() {
+export class PutEnforcedGuardrailConfigurationCommand extends command<PutEnforcedGuardrailConfigurationCommandInput, PutEnforcedGuardrailConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutEnforcedGuardrailConfiguration",
+  PutEnforcedGuardrailConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { NullAndEmptyHeadersIO } from "../models/models_0";
-import type {
-  RestXmlProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestXmlProtocolClient";
 import { NullAndEmptyHeadersClient$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +63,12 @@ export interface NullAndEmptyHeadersClientCommandOutput extends NullAndEmptyHead
  *
  * @public
  */
-export class NullAndEmptyHeadersClientCommand extends $Command
-  .classBuilder<
-    NullAndEmptyHeadersClientCommandInput,
-    NullAndEmptyHeadersClientCommandOutput,
-    RestXmlProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestXml", "NullAndEmptyHeadersClient", {})
-  .n("RestXmlProtocolClient", "NullAndEmptyHeadersClientCommand")
-  .sc(NullAndEmptyHeadersClient$)
-  .build() {
+export class NullAndEmptyHeadersClientCommand extends command<NullAndEmptyHeadersClientCommandInput, NullAndEmptyHeadersClientCommandOutput>(
+  _ep0,
+  _mw0,
+  "NullAndEmptyHeadersClient",
+  NullAndEmptyHeadersClient$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

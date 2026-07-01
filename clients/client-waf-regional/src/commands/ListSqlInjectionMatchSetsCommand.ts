@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSqlInjectionMatchSetsRequest, ListSqlInjectionMatchSetsResponse } from "../models/models_0";
 import { ListSqlInjectionMatchSets$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface ListSqlInjectionMatchSetsCommandOutput extends ListSqlInjection
  *
  * @public
  */
-export class ListSqlInjectionMatchSetsCommand extends $Command
-  .classBuilder<
-    ListSqlInjectionMatchSetsCommandInput,
-    ListSqlInjectionMatchSetsCommandOutput,
-    WAFRegionalClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_Regional_20161128", "ListSqlInjectionMatchSets", {})
-  .n("WAFRegionalClient", "ListSqlInjectionMatchSetsCommand")
-  .sc(ListSqlInjectionMatchSets$)
-  .build() {
+export class ListSqlInjectionMatchSetsCommand extends command<ListSqlInjectionMatchSetsCommandInput, ListSqlInjectionMatchSetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSqlInjectionMatchSets",
+  ListSqlInjectionMatchSets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchAddClusterNodesRequest, BatchAddClusterNodesResponse } from "../models/models_0";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { BatchAddClusterNodes$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface BatchAddClusterNodesCommandOutput extends BatchAddClusterNodesR
  *
  * @public
  */
-export class BatchAddClusterNodesCommand extends $Command
-  .classBuilder<
-    BatchAddClusterNodesCommandInput,
-    BatchAddClusterNodesCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "BatchAddClusterNodes", {})
-  .n("SageMakerClient", "BatchAddClusterNodesCommand")
-  .sc(BatchAddClusterNodes$)
-  .build() {
+export class BatchAddClusterNodesCommand extends command<BatchAddClusterNodesCommandInput, BatchAddClusterNodesCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchAddClusterNodes",
+  BatchAddClusterNodes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

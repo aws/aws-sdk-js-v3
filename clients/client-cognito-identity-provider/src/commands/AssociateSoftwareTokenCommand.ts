@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateSoftwareTokenRequest, AssociateSoftwareTokenResponse } from "../models/models_0";
 import { AssociateSoftwareToken$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AssociateSoftwareToken$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +97,12 @@ export interface AssociateSoftwareTokenCommandOutput extends AssociateSoftwareTo
  *
  * @public
  */
-export class AssociateSoftwareTokenCommand extends $Command
-  .classBuilder<
-    AssociateSoftwareTokenCommandInput,
-    AssociateSoftwareTokenCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "AssociateSoftwareToken", {})
-  .n("CognitoIdentityProviderClient", "AssociateSoftwareTokenCommand")
-  .sc(AssociateSoftwareToken$)
-  .build() {
+export class AssociateSoftwareTokenCommand extends command<AssociateSoftwareTokenCommandInput, AssociateSoftwareTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateSoftwareToken",
+  AssociateSoftwareToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

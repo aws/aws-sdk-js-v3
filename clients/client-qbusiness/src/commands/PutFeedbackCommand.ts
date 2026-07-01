@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutFeedbackRequest } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { PutFeedback$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface PutFeedbackCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutFeedbackCommand extends $Command
-  .classBuilder<
-    PutFeedbackCommandInput,
-    PutFeedbackCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "PutFeedback", {})
-  .n("QBusinessClient", "PutFeedbackCommand")
-  .sc(PutFeedback$)
-  .build() {
+export class PutFeedbackCommand extends command<PutFeedbackCommandInput, PutFeedbackCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutFeedback",
+  PutFeedback$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

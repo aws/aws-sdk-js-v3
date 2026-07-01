@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetLineageNodeInput, GetLineageNodeOutput } from "../models/models_1";
 import { GetLineageNode$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetLineageNode$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface GetLineageNodeCommandOutput extends GetLineageNodeOutput, __Met
  *
  * @public
  */
-export class GetLineageNodeCommand extends $Command
-  .classBuilder<
-    GetLineageNodeCommandInput,
-    GetLineageNodeCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "GetLineageNode", {})
-  .n("DataZoneClient", "GetLineageNodeCommand")
-  .sc(GetLineageNode$)
-  .build() {
+export class GetLineageNodeCommand extends command<GetLineageNodeCommandInput, GetLineageNodeCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetLineageNode",
+  GetLineageNode$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

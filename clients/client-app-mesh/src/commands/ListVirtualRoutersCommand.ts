@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListVirtualRoutersInput, ListVirtualRoutersOutput } from "../models/models_0";
 import { ListVirtualRouters$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListVirtualRouters$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface ListVirtualRoutersCommandOutput extends ListVirtualRoutersOutpu
  *
  * @public
  */
-export class ListVirtualRoutersCommand extends $Command
-  .classBuilder<
-    ListVirtualRoutersCommandInput,
-    ListVirtualRoutersCommandOutput,
-    AppMeshClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppMeshClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppMesh", "ListVirtualRouters", {})
-  .n("AppMeshClient", "ListVirtualRoutersCommand")
-  .sc(ListVirtualRouters$)
-  .build() {
+export class ListVirtualRoutersCommand extends command<ListVirtualRoutersCommandInput, ListVirtualRoutersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListVirtualRouters",
+  ListVirtualRouters$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

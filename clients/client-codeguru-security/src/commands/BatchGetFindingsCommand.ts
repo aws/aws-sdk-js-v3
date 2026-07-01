@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeGuruSecurityClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeGuruSecurityClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetFindingsRequest, BatchGetFindingsResponse } from "../models/models_0";
 import { BatchGetFindings$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { BatchGetFindings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -144,22 +136,12 @@ export interface BatchGetFindingsCommandOutput extends BatchGetFindingsResponse,
  *
  * @public
  */
-export class BatchGetFindingsCommand extends $Command
-  .classBuilder<
-    BatchGetFindingsCommandInput,
-    BatchGetFindingsCommandOutput,
-    CodeGuruSecurityClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeGuruSecurityClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsCodeGuruSecurity", "BatchGetFindings", {})
-  .n("CodeGuruSecurityClient", "BatchGetFindingsCommand")
-  .sc(BatchGetFindings$)
-  .build() {
+export class BatchGetFindingsCommand extends command<BatchGetFindingsCommandInput, BatchGetFindingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetFindings",
+  BatchGetFindings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

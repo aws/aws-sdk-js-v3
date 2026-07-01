@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MigrationHubStrategyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MigrationHubStrategyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateApplicationComponentConfigRequest,
   UpdateApplicationComponentConfigResponse,
@@ -19,7 +12,6 @@ import { UpdateApplicationComponentConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +86,12 @@ export interface UpdateApplicationComponentConfigCommandOutput extends UpdateApp
  *
  * @public
  */
-export class UpdateApplicationComponentConfigCommand extends $Command
-  .classBuilder<
-    UpdateApplicationComponentConfigCommandInput,
-    UpdateApplicationComponentConfigCommandOutput,
-    MigrationHubStrategyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubStrategyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHubStrategyRecommendation", "UpdateApplicationComponentConfig", {})
-  .n("MigrationHubStrategyClient", "UpdateApplicationComponentConfigCommand")
-  .sc(UpdateApplicationComponentConfig$)
-  .build() {
+export class UpdateApplicationComponentConfigCommand extends command<UpdateApplicationComponentConfigCommandInput, UpdateApplicationComponentConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateApplicationComponentConfig",
+  UpdateApplicationComponentConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

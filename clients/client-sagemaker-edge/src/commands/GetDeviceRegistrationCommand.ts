@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDeviceRegistrationRequest, GetDeviceRegistrationResult } from "../models/models_0";
-import type { SagemakerEdgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SagemakerEdgeClient";
 import { GetDeviceRegistration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -65,22 +61,12 @@ export interface GetDeviceRegistrationCommandOutput extends GetDeviceRegistratio
  *
  * @public
  */
-export class GetDeviceRegistrationCommand extends $Command
-  .classBuilder<
-    GetDeviceRegistrationCommandInput,
-    GetDeviceRegistrationCommandOutput,
-    SagemakerEdgeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SagemakerEdgeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSageMakerEdge", "GetDeviceRegistration", {})
-  .n("SagemakerEdgeClient", "GetDeviceRegistrationCommand")
-  .sc(GetDeviceRegistration$)
-  .build() {
+export class GetDeviceRegistrationCommand extends command<GetDeviceRegistrationCommandInput, GetDeviceRegistrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDeviceRegistration",
+  GetDeviceRegistration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

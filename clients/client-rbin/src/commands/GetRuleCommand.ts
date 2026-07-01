@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRuleRequest, GetRuleResponse } from "../models/models_0";
-import type { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RbinClient";
 import { GetRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  *
  * @public
  */
-export class GetRuleCommand extends $Command
-  .classBuilder<
-    GetRuleCommandInput,
-    GetRuleCommandOutput,
-    RbinClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RbinClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRecycleBin", "GetRule", {})
-  .n("RbinClient", "GetRuleCommand")
-  .sc(GetRule$)
-  .build() {
+export class GetRuleCommand extends command<GetRuleCommandInput, GetRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRule",
+  GetRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

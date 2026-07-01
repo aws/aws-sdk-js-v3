@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePrimaryRegionRequest } from "../models/models_0";
 import { UpdatePrimaryRegion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdatePrimaryRegion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -183,22 +179,12 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdatePrimaryRegionCommand extends $Command
-  .classBuilder<
-    UpdatePrimaryRegionCommandInput,
-    UpdatePrimaryRegionCommandOutput,
-    KMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrentService", "UpdatePrimaryRegion", {})
-  .n("KMSClient", "UpdatePrimaryRegionCommand")
-  .sc(UpdatePrimaryRegion$)
-  .build() {
+export class UpdatePrimaryRegionCommand extends command<UpdatePrimaryRegionCommandInput, UpdatePrimaryRegionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePrimaryRegion",
+  UpdatePrimaryRegion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExecuteChangeSetInput, ExecuteChangeSetOutput } from "../models/models_0";
 import { ExecuteChangeSet$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ExecuteChangeSet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
  *
  * @public
  */
-export class ExecuteChangeSetCommand extends $Command
-  .classBuilder<
-    ExecuteChangeSetCommandInput,
-    ExecuteChangeSetCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "ExecuteChangeSet", {})
-  .n("CloudFormationClient", "ExecuteChangeSetCommand")
-  .sc(ExecuteChangeSet$)
-  .build() {
+export class ExecuteChangeSetCommand extends command<ExecuteChangeSetCommandInput, ExecuteChangeSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExecuteChangeSet",
+  ExecuteChangeSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

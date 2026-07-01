@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ChatSyncOutput } from "../models/models_0";
 import type { ChatSyncInput } from "../models/models_1";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { ChatSync$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -289,22 +285,12 @@ export interface ChatSyncCommandOutput extends ChatSyncOutput, __MetadataBearer 
  *
  * @public
  */
-export class ChatSyncCommand extends $Command
-  .classBuilder<
-    ChatSyncCommandInput,
-    ChatSyncCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "ChatSync", {})
-  .n("QBusinessClient", "ChatSyncCommand")
-  .sc(ChatSync$)
-  .build() {
+export class ChatSyncCommand extends command<ChatSyncCommandInput, ChatSyncCommandOutput>(
+  _ep0,
+  _mw0,
+  "ChatSync",
+  ChatSync$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

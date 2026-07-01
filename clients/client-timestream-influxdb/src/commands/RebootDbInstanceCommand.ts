@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RebootDbInstanceInput, RebootDbInstanceOutput } from "../models/models_0";
 import { RebootDbInstance$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TimestreamInfluxDBClientResolvedConfig,
-} from "../TimestreamInfluxDBClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +111,12 @@ export interface RebootDbInstanceCommandOutput extends RebootDbInstanceOutput, _
  *
  * @public
  */
-export class RebootDbInstanceCommand extends $Command
-  .classBuilder<
-    RebootDbInstanceCommandInput,
-    RebootDbInstanceCommandOutput,
-    TimestreamInfluxDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TimestreamInfluxDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonTimestreamInfluxDB", "RebootDbInstance", {})
-  .n("TimestreamInfluxDBClient", "RebootDbInstanceCommand")
-  .sc(RebootDbInstance$)
-  .build() {
+export class RebootDbInstanceCommand extends command<RebootDbInstanceCommandInput, RebootDbInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "RebootDbInstance",
+  RebootDbInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

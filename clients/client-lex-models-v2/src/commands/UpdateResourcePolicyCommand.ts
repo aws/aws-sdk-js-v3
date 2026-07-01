@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateResourcePolicyRequest, UpdateResourcePolicyResponse } from "../models/models_1";
 import { UpdateResourcePolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateResourcePolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface UpdateResourcePolicyCommandOutput extends UpdateResourcePolicyR
  *
  * @public
  */
-export class UpdateResourcePolicyCommand extends $Command
-  .classBuilder<
-    UpdateResourcePolicyCommandInput,
-    UpdateResourcePolicyCommandOutput,
-    LexModelsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LexModelBuildingServiceV2", "UpdateResourcePolicy", {})
-  .n("LexModelsV2Client", "UpdateResourcePolicyCommand")
-  .sc(UpdateResourcePolicy$)
-  .build() {
+export class UpdateResourcePolicyCommand extends command<UpdateResourcePolicyCommandInput, UpdateResourcePolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateResourcePolicy",
+  UpdateResourcePolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePublicDnsNamespaceRequest, UpdatePublicDnsNamespaceResponse } from "../models/models_0";
 import { UpdatePublicDnsNamespace$ } from "../schemas/schemas_0";
-import type {
-  ServiceDiscoveryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceDiscoveryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +118,12 @@ export interface UpdatePublicDnsNamespaceCommandOutput extends UpdatePublicDnsNa
  *
  * @public
  */
-export class UpdatePublicDnsNamespaceCommand extends $Command
-  .classBuilder<
-    UpdatePublicDnsNamespaceCommandInput,
-    UpdatePublicDnsNamespaceCommandOutput,
-    ServiceDiscoveryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53AutoNaming_v20170314", "UpdatePublicDnsNamespace", {})
-  .n("ServiceDiscoveryClient", "UpdatePublicDnsNamespaceCommand")
-  .sc(UpdatePublicDnsNamespace$)
-  .build() {
+export class UpdatePublicDnsNamespaceCommand extends command<UpdatePublicDnsNamespaceCommandInput, UpdatePublicDnsNamespaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePublicDnsNamespace",
+  UpdatePublicDnsNamespace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

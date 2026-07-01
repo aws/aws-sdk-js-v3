@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemovePermissionRequest } from "../models/models_0";
 import { RemovePermission$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RemovePermission$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class RemovePermissionCommand extends $Command
-  .classBuilder<
-    RemovePermissionCommandInput,
-    RemovePermissionCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "RemovePermission", {})
-  .n("LambdaClient", "RemovePermissionCommand")
-  .sc(RemovePermission$)
-  .build() {
+export class RemovePermissionCommand extends command<RemovePermissionCommandInput, RemovePermissionCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemovePermission",
+  RemovePermission$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

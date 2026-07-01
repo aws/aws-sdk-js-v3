@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateResolverRuleRequest, AssociateResolverRuleResponse } from "../models/models_0";
-import type {
-  Route53ResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ResolverClient";
 import { AssociateResolverRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface AssociateResolverRuleCommandOutput extends AssociateResolverRul
  *
  * @public
  */
-export class AssociateResolverRuleCommand extends $Command
-  .classBuilder<
-    AssociateResolverRuleCommandInput,
-    AssociateResolverRuleCommandOutput,
-    Route53ResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Resolver", "AssociateResolverRule", {})
-  .n("Route53ResolverClient", "AssociateResolverRuleCommand")
-  .sc(AssociateResolverRule$)
-  .build() {
+export class AssociateResolverRuleCommand extends command<AssociateResolverRuleCommandInput, AssociateResolverRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateResolverRule",
+  AssociateResolverRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

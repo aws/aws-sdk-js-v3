@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateClusterVersionRequest, UpdateClusterVersionResponse } from "../models/models_0";
 import { UpdateClusterVersion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateClusterVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -138,22 +134,12 @@ export interface UpdateClusterVersionCommandOutput extends UpdateClusterVersionR
  *
  * @public
  */
-export class UpdateClusterVersionCommand extends $Command
-  .classBuilder<
-    UpdateClusterVersionCommandInput,
-    UpdateClusterVersionCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "UpdateClusterVersion", {})
-  .n("EKSClient", "UpdateClusterVersionCommand")
-  .sc(UpdateClusterVersion$)
-  .build() {
+export class UpdateClusterVersionCommand extends command<UpdateClusterVersionCommandInput, UpdateClusterVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateClusterVersion",
+  UpdateClusterVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

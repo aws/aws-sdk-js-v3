@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAppInputSourceRequest, DeleteAppInputSourceResponse } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { DeleteAppInputSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface DeleteAppInputSourceCommandOutput extends DeleteAppInputSourceR
  *
  * @public
  */
-export class DeleteAppInputSourceCommand extends $Command
-  .classBuilder<
-    DeleteAppInputSourceCommandInput,
-    DeleteAppInputSourceCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "DeleteAppInputSource", {})
-  .n("ResiliencehubClient", "DeleteAppInputSourceCommand")
-  .sc(DeleteAppInputSource$)
-  .build() {
+export class DeleteAppInputSourceCommand extends command<DeleteAppInputSourceCommandInput, DeleteAppInputSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAppInputSource",
+  DeleteAppInputSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

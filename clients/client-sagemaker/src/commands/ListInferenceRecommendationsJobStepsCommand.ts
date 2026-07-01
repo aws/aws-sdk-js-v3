@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListInferenceRecommendationsJobStepsRequest,
   ListInferenceRecommendationsJobStepsResponse,
 } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListInferenceRecommendationsJobSteps$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface ListInferenceRecommendationsJobStepsCommandOutput extends ListI
  *
  * @public
  */
-export class ListInferenceRecommendationsJobStepsCommand extends $Command
-  .classBuilder<
-    ListInferenceRecommendationsJobStepsCommandInput,
-    ListInferenceRecommendationsJobStepsCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "ListInferenceRecommendationsJobSteps", {})
-  .n("SageMakerClient", "ListInferenceRecommendationsJobStepsCommand")
-  .sc(ListInferenceRecommendationsJobSteps$)
-  .build() {
+export class ListInferenceRecommendationsJobStepsCommand extends command<ListInferenceRecommendationsJobStepsCommandInput, ListInferenceRecommendationsJobStepsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListInferenceRecommendationsJobSteps",
+  ListInferenceRecommendationsJobSteps$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

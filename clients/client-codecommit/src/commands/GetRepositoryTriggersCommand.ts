@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRepositoryTriggersInput, GetRepositoryTriggersOutput } from "../models/models_0";
 import { GetRepositoryTriggers$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetRepositoryTriggers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface GetRepositoryTriggersCommandOutput extends GetRepositoryTrigger
  *
  * @public
  */
-export class GetRepositoryTriggersCommand extends $Command
-  .classBuilder<
-    GetRepositoryTriggersCommandInput,
-    GetRepositoryTriggersCommandOutput,
-    CodeCommitClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCommit_20150413", "GetRepositoryTriggers", {})
-  .n("CodeCommitClient", "GetRepositoryTriggersCommand")
-  .sc(GetRepositoryTriggers$)
-  .build() {
+export class GetRepositoryTriggersCommand extends command<GetRepositoryTriggersCommandInput, GetRepositoryTriggersCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRepositoryTriggers",
+  GetRepositoryTriggers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

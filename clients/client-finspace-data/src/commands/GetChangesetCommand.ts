@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetChangesetRequest, GetChangesetResponse } from "../models/models_0";
 import { GetChangeset$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetChangeset$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface GetChangesetCommandOutput extends GetChangesetResponse, __Metad
  *
  * @public
  */
-export class GetChangesetCommand extends $Command
-  .classBuilder<
-    GetChangesetCommandInput,
-    GetChangesetCommandOutput,
-    FinspaceDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHabaneroPublicAPI", "GetChangeset", {})
-  .n("FinspaceDataClient", "GetChangesetCommand")
-  .sc(GetChangeset$)
-  .build() {
+export class GetChangesetCommand extends command<GetChangesetCommandInput, GetChangesetCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetChangeset",
+  GetChangeset$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

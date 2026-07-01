@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListExperimentsRequest, ListExperimentsResponse } from "../models/models_0";
 import { ListExperiments$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListExperiments$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  *
  * @public
  */
-export class ListExperimentsCommand extends $Command
-  .classBuilder<
-    ListExperimentsCommandInput,
-    ListExperimentsCommandOutput,
-    FisClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FisClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FaultInjectionSimulator", "ListExperiments", {})
-  .n("FisClient", "ListExperimentsCommand")
-  .sc(ListExperiments$)
-  .build() {
+export class ListExperimentsCommand extends command<ListExperimentsCommandInput, ListExperimentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListExperiments",
+  ListExperiments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

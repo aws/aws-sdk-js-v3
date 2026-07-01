@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLoaderJobsInput, ListLoaderJobsOutput } from "../models/models_0";
-import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
 import { ListLoaderJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface ListLoaderJobsCommandOutput extends ListLoaderJobsOutput, __Met
  *
  * @public
  */
-export class ListLoaderJobsCommand extends $Command
-  .classBuilder<
-    ListLoaderJobsCommandInput,
-    ListLoaderJobsCommandOutput,
-    NeptunedataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneDataplane", "ListLoaderJobs", {})
-  .n("NeptunedataClient", "ListLoaderJobsCommand")
-  .sc(ListLoaderJobs$)
-  .build() {
+export class ListLoaderJobsCommand extends command<ListLoaderJobsCommandInput, ListLoaderJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLoaderJobs",
+  ListLoaderJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListThreatModelJobsInput, ListThreatModelJobsOutput } from "../models/models_0";
 import { ListThreatModelJobs$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface ListThreatModelJobsCommandOutput extends ListThreatModelJobsOut
  *
  * @public
  */
-export class ListThreatModelJobsCommand extends $Command
-  .classBuilder<
-    ListThreatModelJobsCommandInput,
-    ListThreatModelJobsCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "ListThreatModelJobs", {})
-  .n("SecurityAgentClient", "ListThreatModelJobsCommand")
-  .sc(ListThreatModelJobs$)
-  .build() {
+export class ListThreatModelJobsCommand extends command<ListThreatModelJobsCommandInput, ListThreatModelJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListThreatModelJobs",
+  ListThreatModelJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

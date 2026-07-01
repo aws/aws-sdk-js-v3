@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSAMLProviderRequest, GetSAMLProviderResponse } from "../models/models_0";
 import { GetSAMLProvider$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetSAMLProvider$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, _
  *
  * @public
  */
-export class GetSAMLProviderCommand extends $Command
-  .classBuilder<
-    GetSAMLProviderCommandInput,
-    GetSAMLProviderCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "GetSAMLProvider", {})
-  .n("IAMClient", "GetSAMLProviderCommand")
-  .sc(GetSAMLProvider$)
-  .build() {
+export class GetSAMLProviderCommand extends command<GetSAMLProviderCommandInput, GetSAMLProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSAMLProvider",
+  GetSAMLProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

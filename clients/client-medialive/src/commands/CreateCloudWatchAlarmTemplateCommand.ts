@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCloudWatchAlarmTemplateRequest, CreateCloudWatchAlarmTemplateResponse } from "../models/models_1";
 import { CreateCloudWatchAlarmTemplate$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateCloudWatchAlarmTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface CreateCloudWatchAlarmTemplateCommandOutput extends CreateCloudW
  *
  * @public
  */
-export class CreateCloudWatchAlarmTemplateCommand extends $Command
-  .classBuilder<
-    CreateCloudWatchAlarmTemplateCommandInput,
-    CreateCloudWatchAlarmTemplateCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "CreateCloudWatchAlarmTemplate", {})
-  .n("MediaLiveClient", "CreateCloudWatchAlarmTemplateCommand")
-  .sc(CreateCloudWatchAlarmTemplate$)
-  .build() {
+export class CreateCloudWatchAlarmTemplateCommand extends command<CreateCloudWatchAlarmTemplateCommandInput, CreateCloudWatchAlarmTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCloudWatchAlarmTemplate",
+  CreateCloudWatchAlarmTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

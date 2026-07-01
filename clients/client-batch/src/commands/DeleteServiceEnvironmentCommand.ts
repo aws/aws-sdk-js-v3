@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteServiceEnvironmentRequest, DeleteServiceEnvironmentResponse } from "../models/models_0";
 import { DeleteServiceEnvironment$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteServiceEnvironment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -65,22 +61,12 @@ export interface DeleteServiceEnvironmentCommandOutput extends DeleteServiceEnvi
  *
  * @public
  */
-export class DeleteServiceEnvironmentCommand extends $Command
-  .classBuilder<
-    DeleteServiceEnvironmentCommandInput,
-    DeleteServiceEnvironmentCommandOutput,
-    BatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBatchV20160810", "DeleteServiceEnvironment", {})
-  .n("BatchClient", "DeleteServiceEnvironmentCommand")
-  .sc(DeleteServiceEnvironment$)
-  .build() {
+export class DeleteServiceEnvironmentCommand extends command<DeleteServiceEnvironmentCommandInput, DeleteServiceEnvironmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteServiceEnvironment",
+  DeleteServiceEnvironment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateCaseStatusRequest, UpdateCaseStatusResponse } from "../models/models_0";
 import { UpdateCaseStatus$ } from "../schemas/schemas_0";
-import type { SecurityIRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityIRClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface UpdateCaseStatusCommandOutput extends UpdateCaseStatusResponse,
  *
  * @public
  */
-export class UpdateCaseStatusCommand extends $Command
-  .classBuilder<
-    UpdateCaseStatusCommandInput,
-    UpdateCaseStatusCommandOutput,
-    SecurityIRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityIRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityIncidentResponse", "UpdateCaseStatus", {})
-  .n("SecurityIRClient", "UpdateCaseStatusCommand")
-  .sc(UpdateCaseStatus$)
-  .build() {
+export class UpdateCaseStatusCommand extends command<UpdateCaseStatusCommandInput, UpdateCaseStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateCaseStatus",
+  UpdateCaseStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

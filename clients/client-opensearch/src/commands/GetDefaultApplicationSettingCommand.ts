@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDefaultApplicationSettingRequest, GetDefaultApplicationSettingResponse } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { GetDefaultApplicationSetting$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface GetDefaultApplicationSettingCommandOutput extends GetDefaultApp
  *
  * @public
  */
-export class GetDefaultApplicationSettingCommand extends $Command
-  .classBuilder<
-    GetDefaultApplicationSettingCommandInput,
-    GetDefaultApplicationSettingCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "GetDefaultApplicationSetting", {})
-  .n("OpenSearchClient", "GetDefaultApplicationSettingCommand")
-  .sc(GetDefaultApplicationSetting$)
-  .build() {
+export class GetDefaultApplicationSettingCommand extends command<GetDefaultApplicationSettingCommandInput, GetDefaultApplicationSettingCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDefaultApplicationSetting",
+  GetDefaultApplicationSetting$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

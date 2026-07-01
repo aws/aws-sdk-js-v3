@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartCodeSecurityScanRequest, StartCodeSecurityScanResponse } from "../models/models_1";
 import { StartCodeSecurityScan$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartCodeSecurityScan$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface StartCodeSecurityScanCommandOutput extends StartCodeSecuritySca
  *
  * @public
  */
-export class StartCodeSecurityScanCommand extends $Command
-  .classBuilder<
-    StartCodeSecurityScanCommandInput,
-    StartCodeSecurityScanCommandOutput,
-    Inspector2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Inspector2", "StartCodeSecurityScan", {})
-  .n("Inspector2Client", "StartCodeSecurityScanCommand")
-  .sc(StartCodeSecurityScan$)
-  .build() {
+export class StartCodeSecurityScanCommand extends command<StartCodeSecurityScanCommandInput, StartCodeSecurityScanCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartCodeSecurityScan",
+  StartCodeSecurityScan$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

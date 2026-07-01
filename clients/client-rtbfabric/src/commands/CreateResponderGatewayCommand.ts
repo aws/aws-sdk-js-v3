@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateResponderGatewayRequest, CreateResponderGatewayResponse } from "../models/models_0";
-import type { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
 import { CreateResponderGateway$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -162,22 +158,12 @@ export interface CreateResponderGatewayCommandOutput extends CreateResponderGate
  *
  * @public
  */
-export class CreateResponderGatewayCommand extends $Command
-  .classBuilder<
-    CreateResponderGatewayCommandInput,
-    CreateResponderGatewayCommandOutput,
-    RTBFabricClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RTBFabricClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RTBFabric", "CreateResponderGateway", {})
-  .n("RTBFabricClient", "CreateResponderGatewayCommand")
-  .sc(CreateResponderGateway$)
-  .build() {
+export class CreateResponderGatewayCommand extends command<CreateResponderGatewayCommandInput, CreateResponderGatewayCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateResponderGateway",
+  CreateResponderGateway$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

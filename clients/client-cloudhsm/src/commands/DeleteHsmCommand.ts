@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteHsmRequest, DeleteHsmResponse } from "../models/models_0";
 import { DeleteHsm$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteHsm$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface DeleteHsmCommandOutput extends DeleteHsmResponse, __MetadataBea
  *
  * @public
  */
-export class DeleteHsmCommand extends $Command
-  .classBuilder<
-    DeleteHsmCommandInput,
-    DeleteHsmCommandOutput,
-    CloudHSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudHSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudHsmFrontendService", "DeleteHsm", {})
-  .n("CloudHSMClient", "DeleteHsmCommand")
-  .sc(DeleteHsm$)
-  .build() {
+export class DeleteHsmCommand extends command<DeleteHsmCommandInput, DeleteHsmCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteHsm",
+  DeleteHsm$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

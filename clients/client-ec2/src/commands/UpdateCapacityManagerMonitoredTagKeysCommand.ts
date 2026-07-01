@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateCapacityManagerMonitoredTagKeysRequest,
   UpdateCapacityManagerMonitoredTagKeysResult,
@@ -15,7 +12,6 @@ import { UpdateCapacityManagerMonitoredTagKeys$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface UpdateCapacityManagerMonitoredTagKeysCommandOutput extends Upda
  *
  * @public
  */
-export class UpdateCapacityManagerMonitoredTagKeysCommand extends $Command
-  .classBuilder<
-    UpdateCapacityManagerMonitoredTagKeysCommandInput,
-    UpdateCapacityManagerMonitoredTagKeysCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "UpdateCapacityManagerMonitoredTagKeys", {})
-  .n("EC2Client", "UpdateCapacityManagerMonitoredTagKeysCommand")
-  .sc(UpdateCapacityManagerMonitoredTagKeys$)
-  .build() {
+export class UpdateCapacityManagerMonitoredTagKeysCommand extends command<UpdateCapacityManagerMonitoredTagKeysCommandInput, UpdateCapacityManagerMonitoredTagKeysCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateCapacityManagerMonitoredTagKeys",
+  UpdateCapacityManagerMonitoredTagKeys$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

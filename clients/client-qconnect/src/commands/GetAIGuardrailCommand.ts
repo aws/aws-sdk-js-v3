@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAIGuardrailRequest, GetAIGuardrailResponse } from "../models/models_0";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { GetAIGuardrail$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -148,22 +144,12 @@ export interface GetAIGuardrailCommandOutput extends GetAIGuardrailResponse, __M
  *
  * @public
  */
-export class GetAIGuardrailCommand extends $Command
-  .classBuilder<
-    GetAIGuardrailCommandInput,
-    GetAIGuardrailCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "GetAIGuardrail", {})
-  .n("QConnectClient", "GetAIGuardrailCommand")
-  .sc(GetAIGuardrail$)
-  .build() {
+export class GetAIGuardrailCommand extends command<GetAIGuardrailCommandInput, GetAIGuardrailCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAIGuardrail",
+  GetAIGuardrail$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

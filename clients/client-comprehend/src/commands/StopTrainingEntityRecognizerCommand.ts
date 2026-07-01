@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopTrainingEntityRecognizerRequest, StopTrainingEntityRecognizerResponse } from "../models/models_0";
 import { StopTrainingEntityRecognizer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopTrainingEntityRecognizer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface StopTrainingEntityRecognizerCommandOutput extends StopTrainingE
  *
  * @public
  */
-export class StopTrainingEntityRecognizerCommand extends $Command
-  .classBuilder<
-    StopTrainingEntityRecognizerCommandInput,
-    StopTrainingEntityRecognizerCommandOutput,
-    ComprehendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Comprehend_20171127", "StopTrainingEntityRecognizer", {})
-  .n("ComprehendClient", "StopTrainingEntityRecognizerCommand")
-  .sc(StopTrainingEntityRecognizer$)
-  .build() {
+export class StopTrainingEntityRecognizerCommand extends command<StopTrainingEntityRecognizerCommandInput, StopTrainingEntityRecognizerCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopTrainingEntityRecognizer",
+  StopTrainingEntityRecognizer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

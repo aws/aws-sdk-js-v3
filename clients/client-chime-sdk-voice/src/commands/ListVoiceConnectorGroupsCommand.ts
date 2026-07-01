@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListVoiceConnectorGroupsRequest, ListVoiceConnectorGroupsResponse } from "../models/models_0";
 import { ListVoiceConnectorGroups$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListVoiceConnectorGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface ListVoiceConnectorGroupsCommandOutput extends ListVoiceConnecto
  *
  * @public
  */
-export class ListVoiceConnectorGroupsCommand extends $Command
-  .classBuilder<
-    ListVoiceConnectorGroupsCommandInput,
-    ListVoiceConnectorGroupsCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "ListVoiceConnectorGroups", {})
-  .n("ChimeSDKVoiceClient", "ListVoiceConnectorGroupsCommand")
-  .sc(ListVoiceConnectorGroups$)
-  .build() {
+export class ListVoiceConnectorGroupsCommand extends command<ListVoiceConnectorGroupsCommandInput, ListVoiceConnectorGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListVoiceConnectorGroups",
+  ListVoiceConnectorGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetOperatorAppInput, GetOperatorAppOutput } from "../models/models_0";
 import { GetOperatorApp$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetOperatorApp$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface GetOperatorAppCommandOutput extends GetOperatorAppOutput, __Met
  *
  * @public
  */
-export class GetOperatorAppCommand extends $Command
-  .classBuilder<
-    GetOperatorAppCommandInput,
-    GetOperatorAppCommandOutput,
-    DevOpsAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DevOpsAgent", "GetOperatorApp", {})
-  .n("DevOpsAgentClient", "GetOperatorAppCommand")
-  .sc(GetOperatorApp$)
-  .build() {
+export class GetOperatorAppCommand extends command<GetOperatorAppCommandInput, GetOperatorAppCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetOperatorApp",
+  GetOperatorApp$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

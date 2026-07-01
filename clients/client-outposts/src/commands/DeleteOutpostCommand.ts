@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteOutpostInput, DeleteOutpostOutput } from "../models/models_0";
-import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import { DeleteOutpost$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteOutpostCommandOutput extends DeleteOutpostOutput, __Metad
  *
  * @public
  */
-export class DeleteOutpostCommand extends $Command
-  .classBuilder<
-    DeleteOutpostCommandInput,
-    DeleteOutpostCommandOutput,
-    OutpostsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OutpostsOlafService", "DeleteOutpost", {})
-  .n("OutpostsClient", "DeleteOutpostCommand")
-  .sc(DeleteOutpost$)
-  .build() {
+export class DeleteOutpostCommand extends command<DeleteOutpostCommandInput, DeleteOutpostCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteOutpost",
+  DeleteOutpost$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

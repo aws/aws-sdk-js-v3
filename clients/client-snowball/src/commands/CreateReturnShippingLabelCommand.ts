@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateReturnShippingLabelRequest, CreateReturnShippingLabelResult } from "../models/models_0";
 import { CreateReturnShippingLabel$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface CreateReturnShippingLabelCommandOutput extends CreateReturnShip
  *
  * @public
  */
-export class CreateReturnShippingLabelCommand extends $Command
-  .classBuilder<
-    CreateReturnShippingLabelCommandInput,
-    CreateReturnShippingLabelCommandOutput,
-    SnowballClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIESnowballJobManagementService", "CreateReturnShippingLabel", {})
-  .n("SnowballClient", "CreateReturnShippingLabelCommand")
-  .sc(CreateReturnShippingLabel$)
-  .build() {
+export class CreateReturnShippingLabelCommand extends command<CreateReturnShippingLabelCommandInput, CreateReturnShippingLabelCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateReturnShippingLabel",
+  CreateReturnShippingLabel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

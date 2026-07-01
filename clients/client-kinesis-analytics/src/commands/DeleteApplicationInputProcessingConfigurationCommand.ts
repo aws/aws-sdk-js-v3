@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  KinesisAnalyticsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../KinesisAnalyticsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteApplicationInputProcessingConfigurationRequest,
   DeleteApplicationInputProcessingConfigurationResponse,
@@ -19,7 +12,6 @@ import { DeleteApplicationInputProcessingConfiguration$ } from "../schemas/schem
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface DeleteApplicationInputProcessingConfigurationCommandOutput exte
  *
  * @public
  */
-export class DeleteApplicationInputProcessingConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteApplicationInputProcessingConfigurationCommandInput,
-    DeleteApplicationInputProcessingConfigurationCommandOutput,
-    KinesisAnalyticsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KinesisAnalytics_20150814", "DeleteApplicationInputProcessingConfiguration", {})
-  .n("KinesisAnalyticsClient", "DeleteApplicationInputProcessingConfigurationCommand")
-  .sc(DeleteApplicationInputProcessingConfiguration$)
-  .build() {
+export class DeleteApplicationInputProcessingConfigurationCommand extends command<DeleteApplicationInputProcessingConfigurationCommandInput, DeleteApplicationInputProcessingConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteApplicationInputProcessingConfiguration",
+  DeleteApplicationInputProcessingConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationDiscoveryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationDiscoveryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchDeleteAgentsRequest, BatchDeleteAgentsResponse } from "../models/models_0";
 import { BatchDeleteAgents$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { BatchDeleteAgents$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface BatchDeleteAgentsCommandOutput extends BatchDeleteAgentsRespons
  *
  * @public
  */
-export class BatchDeleteAgentsCommand extends $Command
-  .classBuilder<
-    BatchDeleteAgentsCommandInput,
-    BatchDeleteAgentsCommandOutput,
-    ApplicationDiscoveryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationDiscoveryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPoseidonService_V2015_11_01", "BatchDeleteAgents", {})
-  .n("ApplicationDiscoveryServiceClient", "BatchDeleteAgentsCommand")
-  .sc(BatchDeleteAgents$)
-  .build() {
+export class BatchDeleteAgentsCommand extends command<BatchDeleteAgentsCommandInput, BatchDeleteAgentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDeleteAgents",
+  BatchDeleteAgents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

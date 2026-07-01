@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAliasRequest } from "../models/models_0";
 import { DeleteAlias$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAlias$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -152,22 +148,12 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteAliasCommand extends $Command
-  .classBuilder<
-    DeleteAliasCommandInput,
-    DeleteAliasCommandOutput,
-    KMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrentService", "DeleteAlias", {})
-  .n("KMSClient", "DeleteAliasCommand")
-  .sc(DeleteAlias$)
-  .build() {
+export class DeleteAliasCommand extends command<DeleteAliasCommandInput, DeleteAliasCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAlias",
+  DeleteAlias$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

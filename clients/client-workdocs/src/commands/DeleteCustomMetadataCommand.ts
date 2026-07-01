@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCustomMetadataRequest, DeleteCustomMetadataResponse } from "../models/models_0";
 import { DeleteCustomMetadata$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DeleteCustomMetadataCommandOutput extends DeleteCustomMetadataR
  *
  * @public
  */
-export class DeleteCustomMetadataCommand extends $Command
-  .classBuilder<
-    DeleteCustomMetadataCommandInput,
-    DeleteCustomMetadataCommandOutput,
-    WorkDocsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGorillaBoyService", "DeleteCustomMetadata", {})
-  .n("WorkDocsClient", "DeleteCustomMetadataCommand")
-  .sc(DeleteCustomMetadata$)
-  .build() {
+export class DeleteCustomMetadataCommand extends command<DeleteCustomMetadataCommandInput, DeleteCustomMetadataCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCustomMetadata",
+  DeleteCustomMetadata$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

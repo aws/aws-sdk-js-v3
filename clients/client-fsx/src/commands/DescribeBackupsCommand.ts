@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeBackupsRequest, DescribeBackupsResponse } from "../models/models_0";
 import { DescribeBackups$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeBackups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -750,22 +746,12 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  *
  * @public
  */
-export class DescribeBackupsCommand extends $Command
-  .classBuilder<
-    DescribeBackupsCommandInput,
-    DescribeBackupsCommandOutput,
-    FSxClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSimbaAPIService_v20180301", "DescribeBackups", {})
-  .n("FSxClient", "DescribeBackupsCommand")
-  .sc(DescribeBackups$)
-  .build() {
+export class DescribeBackupsCommand extends command<DescribeBackupsCommandInput, DescribeBackupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeBackups",
+  DescribeBackups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTThingsGraphClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTThingsGraphClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchThingsRequest, SearchThingsResponse } from "../models/models_0";
 import { SearchThings$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { SearchThings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface SearchThingsCommandOutput extends SearchThingsResponse, __Metad
  *
  * @public
  */
-export class SearchThingsCommand extends $Command
-  .classBuilder<
-    SearchThingsCommandInput,
-    SearchThingsCommandOutput,
-    IoTThingsGraphClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotThingsGraphFrontEndService", "SearchThings", {})
-  .n("IoTThingsGraphClient", "SearchThingsCommand")
-  .sc(SearchThings$)
-  .build() {
+export class SearchThingsCommand extends command<SearchThingsCommandInput, SearchThingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchThings",
+  SearchThings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

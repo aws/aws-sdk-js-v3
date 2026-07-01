@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDataLakeDatasetRequest, GetDataLakeDatasetResponse } from "../models/models_0";
 import { GetDataLakeDataset$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -371,22 +367,12 @@ export interface GetDataLakeDatasetCommandOutput extends GetDataLakeDatasetRespo
  *
  * @public
  */
-export class GetDataLakeDatasetCommand extends $Command
-  .classBuilder<
-    GetDataLakeDatasetCommandInput,
-    GetDataLakeDatasetCommandOutput,
-    SupplyChainClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupplyChainClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GalaxyPublicAPIGateway", "GetDataLakeDataset", {})
-  .n("SupplyChainClient", "GetDataLakeDatasetCommand")
-  .sc(GetDataLakeDataset$)
-  .build() {
+export class GetDataLakeDatasetCommand extends command<GetDataLakeDatasetCommandInput, GetDataLakeDatasetCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDataLakeDataset",
+  GetDataLakeDataset$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

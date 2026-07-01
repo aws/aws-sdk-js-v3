@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTThingsGraphClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTThingsGraphClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSystemInstanceRequest, GetSystemInstanceResponse } from "../models/models_0";
 import { GetSystemInstance$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetSystemInstance$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface GetSystemInstanceCommandOutput extends GetSystemInstanceRespons
  *
  * @public
  */
-export class GetSystemInstanceCommand extends $Command
-  .classBuilder<
-    GetSystemInstanceCommandInput,
-    GetSystemInstanceCommandOutput,
-    IoTThingsGraphClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotThingsGraphFrontEndService", "GetSystemInstance", {})
-  .n("IoTThingsGraphClient", "GetSystemInstanceCommand")
-  .sc(GetSystemInstance$)
-  .build() {
+export class GetSystemInstanceCommand extends command<GetSystemInstanceCommandInput, GetSystemInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSystemInstance",
+  GetSystemInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

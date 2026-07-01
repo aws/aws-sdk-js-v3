@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDataSourceInput, UpdateDataSourceOutput } from "../models/models_1";
 import { UpdateDataSource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateDataSource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -274,22 +270,12 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceOutput, _
  *
  * @public
  */
-export class UpdateDataSourceCommand extends $Command
-  .classBuilder<
-    UpdateDataSourceCommandInput,
-    UpdateDataSourceCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "UpdateDataSource", {})
-  .n("DataZoneClient", "UpdateDataSourceCommand")
-  .sc(UpdateDataSource$)
-  .build() {
+export class UpdateDataSourceCommand extends command<UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDataSource",
+  UpdateDataSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

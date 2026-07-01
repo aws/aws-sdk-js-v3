@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  EntityResolutionClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../EntityResolutionClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMatchingWorkflowInput, DeleteMatchingWorkflowOutput } from "../models/models_0";
 import { DeleteMatchingWorkflow$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteMatchingWorkflow$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +70,12 @@ export interface DeleteMatchingWorkflowCommandOutput extends DeleteMatchingWorkf
  *
  * @public
  */
-export class DeleteMatchingWorkflowCommand extends $Command
-  .classBuilder<
-    DeleteMatchingWorkflowCommandInput,
-    DeleteMatchingWorkflowCommandOutput,
-    EntityResolutionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EntityResolutionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSVeniceService", "DeleteMatchingWorkflow", {})
-  .n("EntityResolutionClient", "DeleteMatchingWorkflowCommand")
-  .sc(DeleteMatchingWorkflow$)
-  .build() {
+export class DeleteMatchingWorkflowCommand extends command<DeleteMatchingWorkflowCommandInput, DeleteMatchingWorkflowCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMatchingWorkflow",
+  DeleteMatchingWorkflow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

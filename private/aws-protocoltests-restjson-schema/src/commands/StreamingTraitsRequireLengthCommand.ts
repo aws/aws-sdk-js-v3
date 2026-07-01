@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StreamingTraitsRequireLengthInput } from "../models/models_0";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
 import { StreamingTraitsRequireLength$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +61,12 @@ export interface StreamingTraitsRequireLengthCommandOutput extends __MetadataBea
  *
  * @public
  */
-export class StreamingTraitsRequireLengthCommand extends $Command
-  .classBuilder<
-    StreamingTraitsRequireLengthCommandInput,
-    StreamingTraitsRequireLengthCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestJson", "StreamingTraitsRequireLength", {})
-  .n("RestJsonProtocolClient", "StreamingTraitsRequireLengthCommand")
-  .sc(StreamingTraitsRequireLength$)
-  .build() {
+export class StreamingTraitsRequireLengthCommand extends command<StreamingTraitsRequireLengthCommandInput, StreamingTraitsRequireLengthCommandOutput>(
+  _ep0,
+  _mw0,
+  "StreamingTraitsRequireLength",
+  StreamingTraitsRequireLength$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

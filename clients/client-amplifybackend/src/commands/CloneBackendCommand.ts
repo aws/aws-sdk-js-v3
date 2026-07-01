@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyBackendClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyBackendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CloneBackendRequest, CloneBackendResponse } from "../models/models_0";
 import { CloneBackend$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CloneBackend$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface CloneBackendCommandOutput extends CloneBackendResponse, __Metad
  *
  * @public
  */
-export class CloneBackendCommand extends $Command
-  .classBuilder<
-    CloneBackendCommandInput,
-    CloneBackendCommandOutput,
-    AmplifyBackendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyBackendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyBackend", "CloneBackend", {})
-  .n("AmplifyBackendClient", "CloneBackendCommand")
-  .sc(CloneBackend$)
-  .build() {
+export class CloneBackendCommand extends command<CloneBackendCommandInput, CloneBackendCommandOutput>(
+  _ep0,
+  _mw0,
+  "CloneBackend",
+  CloneBackend$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

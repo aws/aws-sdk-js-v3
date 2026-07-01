@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRouterNetworkInterfaceRequest, DeleteRouterNetworkInterfaceResponse } from "../models/models_0";
 import { DeleteRouterNetworkInterface$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteRouterNetworkInterface$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface DeleteRouterNetworkInterfaceCommandOutput extends DeleteRouterN
  *
  * @public
  */
-export class DeleteRouterNetworkInterfaceCommand extends $Command
-  .classBuilder<
-    DeleteRouterNetworkInterfaceCommandInput,
-    DeleteRouterNetworkInterfaceCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "DeleteRouterNetworkInterface", {})
-  .n("MediaConnectClient", "DeleteRouterNetworkInterfaceCommand")
-  .sc(DeleteRouterNetworkInterface$)
-  .build() {
+export class DeleteRouterNetworkInterfaceCommand extends command<DeleteRouterNetworkInterfaceCommandInput, DeleteRouterNetworkInterfaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRouterNetworkInterface",
+  DeleteRouterNetworkInterface$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

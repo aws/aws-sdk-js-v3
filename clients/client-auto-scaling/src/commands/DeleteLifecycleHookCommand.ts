@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteLifecycleHookAnswer, DeleteLifecycleHookType } from "../models/models_0";
 import { DeleteLifecycleHook$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteLifecycleHook$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
  *
  * @public
  */
-export class DeleteLifecycleHookCommand extends $Command
-  .classBuilder<
-    DeleteLifecycleHookCommandInput,
-    DeleteLifecycleHookCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "DeleteLifecycleHook", {})
-  .n("AutoScalingClient", "DeleteLifecycleHookCommand")
-  .sc(DeleteLifecycleHook$)
-  .build() {
+export class DeleteLifecycleHookCommand extends command<DeleteLifecycleHookCommandInput, DeleteLifecycleHookCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteLifecycleHook",
+  DeleteLifecycleHook$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

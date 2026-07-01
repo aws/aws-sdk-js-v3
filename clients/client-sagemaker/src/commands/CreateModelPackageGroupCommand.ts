@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateModelPackageGroupInput, CreateModelPackageGroupOutput } from "../models/models_1";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreateModelPackageGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface CreateModelPackageGroupCommandOutput extends CreateModelPackage
  *
  * @public
  */
-export class CreateModelPackageGroupCommand extends $Command
-  .classBuilder<
-    CreateModelPackageGroupCommandInput,
-    CreateModelPackageGroupCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "CreateModelPackageGroup", {})
-  .n("SageMakerClient", "CreateModelPackageGroupCommand")
-  .sc(CreateModelPackageGroup$)
-  .build() {
+export class CreateModelPackageGroupCommand extends command<CreateModelPackageGroupCommandInput, CreateModelPackageGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateModelPackageGroup",
+  CreateModelPackageGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

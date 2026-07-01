@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutRecommendationPreferencesRequest, PutRecommendationPreferencesResponse } from "../models/models_0";
 import { PutRecommendationPreferences$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { PutRecommendationPreferences$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +113,12 @@ export interface PutRecommendationPreferencesCommandOutput extends PutRecommenda
  *
  * @public
  */
-export class PutRecommendationPreferencesCommand extends $Command
-  .classBuilder<
-    PutRecommendationPreferencesCommandInput,
-    PutRecommendationPreferencesCommandOutput,
-    ComputeOptimizerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerService", "PutRecommendationPreferences", {})
-  .n("ComputeOptimizerClient", "PutRecommendationPreferencesCommand")
-  .sc(PutRecommendationPreferences$)
-  .build() {
+export class PutRecommendationPreferencesCommand extends command<PutRecommendationPreferencesCommandInput, PutRecommendationPreferencesCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutRecommendationPreferences",
+  PutRecommendationPreferences$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

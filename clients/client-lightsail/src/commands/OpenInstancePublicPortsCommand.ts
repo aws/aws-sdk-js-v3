@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { OpenInstancePublicPortsRequest, OpenInstancePublicPortsResult } from "../models/models_1";
 import { OpenInstancePublicPorts$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { OpenInstancePublicPorts$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -127,22 +123,12 @@ export interface OpenInstancePublicPortsCommandOutput extends OpenInstancePublic
  *
  * @public
  */
-export class OpenInstancePublicPortsCommand extends $Command
-  .classBuilder<
-    OpenInstancePublicPortsCommandInput,
-    OpenInstancePublicPortsCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "OpenInstancePublicPorts", {})
-  .n("LightsailClient", "OpenInstancePublicPortsCommand")
-  .sc(OpenInstancePublicPorts$)
-  .build() {
+export class OpenInstancePublicPortsCommand extends command<OpenInstancePublicPortsCommandInput, OpenInstancePublicPortsCommandOutput>(
+  _ep0,
+  _mw0,
+  "OpenInstancePublicPorts",
+  OpenInstancePublicPorts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

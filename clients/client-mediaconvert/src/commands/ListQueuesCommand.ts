@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListQueuesRequest, ListQueuesResponse } from "../models/models_0";
 import { ListQueues$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListQueues$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface ListQueuesCommandOutput extends ListQueuesResponse, __MetadataB
  *
  * @public
  */
-export class ListQueuesCommand extends $Command
-  .classBuilder<
-    ListQueuesCommandInput,
-    ListQueuesCommandOutput,
-    MediaConvertClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConvert", "ListQueues", {})
-  .n("MediaConvertClient", "ListQueuesCommand")
-  .sc(ListQueues$)
-  .build() {
+export class ListQueuesCommand extends command<ListQueuesCommandInput, ListQueuesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListQueues",
+  ListQueues$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

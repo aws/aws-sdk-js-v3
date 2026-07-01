@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetVariableRequest, BatchGetVariableResult } from "../models/models_0";
 import { BatchGetVariable$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetVariable$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface BatchGetVariableCommandOutput extends BatchGetVariableResult, _
  *
  * @public
  */
-export class BatchGetVariableCommand extends $Command
-  .classBuilder<
-    BatchGetVariableCommandInput,
-    BatchGetVariableCommandOutput,
-    FraudDetectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHawksNestServiceFacade", "BatchGetVariable", {})
-  .n("FraudDetectorClient", "BatchGetVariableCommand")
-  .sc(BatchGetVariable$)
-  .build() {
+export class BatchGetVariableCommand extends command<BatchGetVariableCommandInput, BatchGetVariableCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetVariable",
+  BatchGetVariable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

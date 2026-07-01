@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InvoicingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InvoicingClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListInvoiceSummariesRequest, ListInvoiceSummariesResponse } from "../models/models_0";
 import { ListInvoiceSummaries$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListInvoiceSummaries$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -940,22 +936,12 @@ export interface ListInvoiceSummariesCommandOutput extends ListInvoiceSummariesR
  *
  * @public
  */
-export class ListInvoiceSummariesCommand extends $Command
-  .classBuilder<
-    ListInvoiceSummariesCommandInput,
-    ListInvoiceSummariesCommandOutput,
-    InvoicingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InvoicingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Invoicing", "ListInvoiceSummaries", {})
-  .n("InvoicingClient", "ListInvoiceSummariesCommand")
-  .sc(ListInvoiceSummaries$)
-  .build() {
+export class ListInvoiceSummariesCommand extends command<ListInvoiceSummariesCommandInput, ListInvoiceSummariesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListInvoiceSummaries",
+  ListInvoiceSummaries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

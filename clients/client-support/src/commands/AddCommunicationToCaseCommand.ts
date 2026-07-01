@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddCommunicationToCaseRequest, AddCommunicationToCaseResponse } from "../models/models_0";
 import { AddCommunicationToCase$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface AddCommunicationToCaseCommandOutput extends AddCommunicationToC
  *
  * @public
  */
-export class AddCommunicationToCaseCommand extends $Command
-  .classBuilder<
-    AddCommunicationToCaseCommandInput,
-    AddCommunicationToCaseCommandOutput,
-    SupportClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupportClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSupport_20130415", "AddCommunicationToCase", {})
-  .n("SupportClient", "AddCommunicationToCaseCommand")
-  .sc(AddCommunicationToCase$)
-  .build() {
+export class AddCommunicationToCaseCommand extends command<AddCommunicationToCaseCommandInput, AddCommunicationToCaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddCommunicationToCase",
+  AddCommunicationToCase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

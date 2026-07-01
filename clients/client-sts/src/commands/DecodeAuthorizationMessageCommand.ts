@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DecodeAuthorizationMessageRequest, DecodeAuthorizationMessageResponse } from "../models/models_0";
 import { DecodeAuthorizationMessage$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "../STSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthoriza
  *
  * @public
  */
-export class DecodeAuthorizationMessageCommand extends $Command
-  .classBuilder<
-    DecodeAuthorizationMessageCommandInput,
-    DecodeAuthorizationMessageCommandOutput,
-    STSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: STSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSecurityTokenServiceV20110615", "DecodeAuthorizationMessage", {})
-  .n("STSClient", "DecodeAuthorizationMessageCommand")
-  .sc(DecodeAuthorizationMessage$)
-  .build() {
+export class DecodeAuthorizationMessageCommand extends command<DecodeAuthorizationMessageCommandInput, DecodeAuthorizationMessageCommandOutput>(
+  _ep0,
+  _mw0,
+  "DecodeAuthorizationMessage",
+  DecodeAuthorizationMessage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

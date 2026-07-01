@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { MonitorInstancesRequest, MonitorInstancesResult } from "../models/models_7";
 import { MonitorInstances$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { MonitorInstances$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface MonitorInstancesCommandOutput extends MonitorInstancesResult, _
  *
  * @public
  */
-export class MonitorInstancesCommand extends $Command
-  .classBuilder<
-    MonitorInstancesCommandInput,
-    MonitorInstancesCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "MonitorInstances", {})
-  .n("EC2Client", "MonitorInstancesCommand")
-  .sc(MonitorInstances$)
-  .build() {
+export class MonitorInstancesCommand extends command<MonitorInstancesCommandInput, MonitorInstancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "MonitorInstances",
+  MonitorInstances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

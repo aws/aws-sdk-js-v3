@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateMacSecKeyRequest, DisassociateMacSecKeyResponse } from "../models/models_0";
 import { DisassociateMacSecKey$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateMacSecKey$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DisassociateMacSecKeyCommandOutput extends DisassociateMacSecKe
  *
  * @public
  */
-export class DisassociateMacSecKeyCommand extends $Command
-  .classBuilder<
-    DisassociateMacSecKeyCommandInput,
-    DisassociateMacSecKeyCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "DisassociateMacSecKey", {})
-  .n("DirectConnectClient", "DisassociateMacSecKeyCommand")
-  .sc(DisassociateMacSecKey$)
-  .build() {
+export class DisassociateMacSecKeyCommand extends command<DisassociateMacSecKeyCommandInput, DisassociateMacSecKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateMacSecKey",
+  DisassociateMacSecKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

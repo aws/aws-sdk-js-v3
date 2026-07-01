@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AssociateQualificationWithWorkerRequest,
   AssociateQualificationWithWorkerResponse,
 } from "../models/models_0";
-import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { AssociateQualificationWithWorker$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface AssociateQualificationWithWorkerCommandOutput extends Associate
  *
  * @public
  */
-export class AssociateQualificationWithWorkerCommand extends $Command
-  .classBuilder<
-    AssociateQualificationWithWorkerCommandInput,
-    AssociateQualificationWithWorkerCommandOutput,
-    MTurkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MTurkRequesterServiceV20170117", "AssociateQualificationWithWorker", {})
-  .n("MTurkClient", "AssociateQualificationWithWorkerCommand")
-  .sc(AssociateQualificationWithWorker$)
-  .build() {
+export class AssociateQualificationWithWorkerCommand extends command<AssociateQualificationWithWorkerCommandInput, AssociateQualificationWithWorkerCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateQualificationWithWorker",
+  AssociateQualificationWithWorker$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

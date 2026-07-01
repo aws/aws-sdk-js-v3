@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEmailIdentityPoliciesRequest, GetEmailIdentityPoliciesResponse } from "../models/models_0";
 import { GetEmailIdentityPolicies$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface GetEmailIdentityPoliciesCommandOutput extends GetEmailIdentityP
  *
  * @public
  */
-export class GetEmailIdentityPoliciesCommand extends $Command
-  .classBuilder<
-    GetEmailIdentityPoliciesCommandInput,
-    GetEmailIdentityPoliciesCommandOutput,
-    SESv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService_v2", "GetEmailIdentityPolicies", {})
-  .n("SESv2Client", "GetEmailIdentityPoliciesCommand")
-  .sc(GetEmailIdentityPolicies$)
-  .build() {
+export class GetEmailIdentityPoliciesCommand extends command<GetEmailIdentityPoliciesCommandInput, GetEmailIdentityPoliciesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEmailIdentityPolicies",
+  GetEmailIdentityPolicies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

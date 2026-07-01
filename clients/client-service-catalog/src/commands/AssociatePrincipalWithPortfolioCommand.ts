@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociatePrincipalWithPortfolioInput, AssociatePrincipalWithPortfolioOutput } from "../models/models_0";
 import { AssociatePrincipalWithPortfolio$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface AssociatePrincipalWithPortfolioCommandOutput extends AssociateP
  *
  * @public
  */
-export class AssociatePrincipalWithPortfolioCommand extends $Command
-  .classBuilder<
-    AssociatePrincipalWithPortfolioCommandInput,
-    AssociatePrincipalWithPortfolioCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "AssociatePrincipalWithPortfolio", {})
-  .n("ServiceCatalogClient", "AssociatePrincipalWithPortfolioCommand")
-  .sc(AssociatePrincipalWithPortfolio$)
-  .build() {
+export class AssociatePrincipalWithPortfolioCommand extends command<AssociatePrincipalWithPortfolioCommandInput, AssociatePrincipalWithPortfolioCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociatePrincipalWithPortfolio",
+  AssociatePrincipalWithPortfolio$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

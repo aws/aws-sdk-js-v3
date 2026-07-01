@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteVolumeRequest, DeleteVolumeResponse } from "../models/models_0";
 import { DeleteVolume$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkspacesInstancesClientResolvedConfig,
-} from "../WorkspacesInstancesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeleteVolumeCommandOutput extends DeleteVolumeResponse, __Metad
  *
  * @public
  */
-export class DeleteVolumeCommand extends $Command
-  .classBuilder<
-    DeleteVolumeCommandInput,
-    DeleteVolumeCommandOutput,
-    WorkspacesInstancesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkspacesInstancesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EUCMIFrontendAPIService", "DeleteVolume", {})
-  .n("WorkspacesInstancesClient", "DeleteVolumeCommand")
-  .sc(DeleteVolume$)
-  .build() {
+export class DeleteVolumeCommand extends command<DeleteVolumeCommandInput, DeleteVolumeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteVolume",
+  DeleteVolume$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

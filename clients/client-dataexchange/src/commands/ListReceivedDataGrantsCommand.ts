@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListReceivedDataGrantsRequest, ListReceivedDataGrantsResponse } from "../models/models_0";
 import { ListReceivedDataGrants$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListReceivedDataGrants$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface ListReceivedDataGrantsCommandOutput extends ListReceivedDataGra
  *
  * @public
  */
-export class ListReceivedDataGrantsCommand extends $Command
-  .classBuilder<
-    ListReceivedDataGrantsCommandInput,
-    ListReceivedDataGrantsCommandOutput,
-    DataExchangeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataExchange", "ListReceivedDataGrants", {})
-  .n("DataExchangeClient", "ListReceivedDataGrantsCommand")
-  .sc(ListReceivedDataGrants$)
-  .build() {
+export class ListReceivedDataGrantsCommand extends command<ListReceivedDataGrantsCommandInput, ListReceivedDataGrantsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListReceivedDataGrants",
+  ListReceivedDataGrants$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

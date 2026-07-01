@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MigrationHubStrategyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MigrationHubStrategyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetImportFileTaskRequest, GetImportFileTaskResponse } from "../models/models_0";
 import { GetImportFileTask$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetImportFileTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface GetImportFileTaskCommandOutput extends GetImportFileTaskRespons
  *
  * @public
  */
-export class GetImportFileTaskCommand extends $Command
-  .classBuilder<
-    GetImportFileTaskCommandInput,
-    GetImportFileTaskCommandOutput,
-    MigrationHubStrategyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubStrategyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHubStrategyRecommendation", "GetImportFileTask", {})
-  .n("MigrationHubStrategyClient", "GetImportFileTaskCommand")
-  .sc(GetImportFileTask$)
-  .build() {
+export class GetImportFileTaskCommand extends command<GetImportFileTaskCommandInput, GetImportFileTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetImportFileTask",
+  GetImportFileTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

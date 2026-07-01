@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BCMPricingCalculatorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BCMPricingCalculatorClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchCreateWorkloadEstimateUsageRequest,
   BatchCreateWorkloadEstimateUsageResponse,
@@ -19,7 +12,6 @@ import { BatchCreateWorkloadEstimateUsage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -255,22 +247,12 @@ export interface BatchCreateWorkloadEstimateUsageCommandOutput extends BatchCrea
  *
  * @public
  */
-export class BatchCreateWorkloadEstimateUsageCommand extends $Command
-  .classBuilder<
-    BatchCreateWorkloadEstimateUsageCommandInput,
-    BatchCreateWorkloadEstimateUsageCommandOutput,
-    BCMPricingCalculatorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BCMPricingCalculatorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBCMPricingCalculator", "BatchCreateWorkloadEstimateUsage", {})
-  .n("BCMPricingCalculatorClient", "BatchCreateWorkloadEstimateUsageCommand")
-  .sc(BatchCreateWorkloadEstimateUsage$)
-  .build() {
+export class BatchCreateWorkloadEstimateUsageCommand extends command<BatchCreateWorkloadEstimateUsageCommandInput, BatchCreateWorkloadEstimateUsageCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchCreateWorkloadEstimateUsage",
+  BatchCreateWorkloadEstimateUsage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MachineLearningClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MachineLearningClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEvaluationInput, DeleteEvaluationOutput } from "../models/models_0";
 import { DeleteEvaluation$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteEvaluation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +69,12 @@ export interface DeleteEvaluationCommandOutput extends DeleteEvaluationOutput, _
  *
  * @public
  */
-export class DeleteEvaluationCommand extends $Command
-  .classBuilder<
-    DeleteEvaluationCommandInput,
-    DeleteEvaluationCommandOutput,
-    MachineLearningClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonML_20141212", "DeleteEvaluation", {})
-  .n("MachineLearningClient", "DeleteEvaluationCommand")
-  .sc(DeleteEvaluation$)
-  .build() {
+export class DeleteEvaluationCommand extends command<DeleteEvaluationCommandInput, DeleteEvaluationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEvaluation",
+  DeleteEvaluation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

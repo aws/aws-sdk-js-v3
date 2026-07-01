@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAssignmentRequest, GetAssignmentResponse } from "../models/models_0";
-import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { GetAssignment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +115,12 @@ export interface GetAssignmentCommandOutput extends GetAssignmentResponse, __Met
  *
  * @public
  */
-export class GetAssignmentCommand extends $Command
-  .classBuilder<
-    GetAssignmentCommandInput,
-    GetAssignmentCommandOutput,
-    MTurkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MTurkRequesterServiceV20170117", "GetAssignment", {})
-  .n("MTurkClient", "GetAssignmentCommand")
-  .sc(GetAssignment$)
-  .build() {
+export class GetAssignmentCommand extends command<GetAssignmentCommandInput, GetAssignmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAssignment",
+  GetAssignment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

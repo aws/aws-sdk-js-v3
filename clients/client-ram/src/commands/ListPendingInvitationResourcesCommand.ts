@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPendingInvitationResourcesRequest, ListPendingInvitationResourcesResponse } from "../models/models_0";
-import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import { ListPendingInvitationResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface ListPendingInvitationResourcesCommandOutput extends ListPending
  *
  * @public
  */
-export class ListPendingInvitationResourcesCommand extends $Command
-  .classBuilder<
-    ListPendingInvitationResourcesCommandInput,
-    ListPendingInvitationResourcesCommandOutput,
-    RAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonResourceSharing", "ListPendingInvitationResources", {})
-  .n("RAMClient", "ListPendingInvitationResourcesCommand")
-  .sc(ListPendingInvitationResources$)
-  .build() {
+export class ListPendingInvitationResourcesCommand extends command<ListPendingInvitationResourcesCommandInput, ListPendingInvitationResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPendingInvitationResources",
+  ListPendingInvitationResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

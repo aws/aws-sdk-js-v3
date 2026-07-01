@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ResetGraphInput, ResetGraphOutput } from "../models/models_0";
-import type { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
 import { ResetGraph$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,25 +87,12 @@ export interface ResetGraphCommandOutput extends ResetGraphOutput, __MetadataBea
  *
  * @public
  */
-export class ResetGraphCommand extends $Command
-  .classBuilder<
-    ResetGraphCommandInput,
-    ResetGraphCommandOutput,
-    NeptuneGraphClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ApiType: { type: "staticContextParams", value: `ControlPlane` },
-  })
-  .m(function (this: any, Command: any, cs: any, config: NeptuneGraphClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneGraph", "ResetGraph", {})
-  .n("NeptuneGraphClient", "ResetGraphCommand")
-  .sc(ResetGraph$)
-  .build() {
+export class ResetGraphCommand extends command<ResetGraphCommandInput, ResetGraphCommandOutput>(
+  _ep0,
+  _mw0,
+  "ResetGraph",
+  ResetGraph$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

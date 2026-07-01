@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListBuiltInIntentsRequest, ListBuiltInIntentsResponse } from "../models/models_1";
 import { ListBuiltInIntents$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListBuiltInIntents$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface ListBuiltInIntentsCommandOutput extends ListBuiltInIntentsRespo
  *
  * @public
  */
-export class ListBuiltInIntentsCommand extends $Command
-  .classBuilder<
-    ListBuiltInIntentsCommandInput,
-    ListBuiltInIntentsCommandOutput,
-    LexModelsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LexModelBuildingServiceV2", "ListBuiltInIntents", {})
-  .n("LexModelsV2Client", "ListBuiltInIntentsCommand")
-  .sc(ListBuiltInIntents$)
-  .build() {
+export class ListBuiltInIntentsCommand extends command<ListBuiltInIntentsCommandInput, ListBuiltInIntentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBuiltInIntents",
+  ListBuiltInIntents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

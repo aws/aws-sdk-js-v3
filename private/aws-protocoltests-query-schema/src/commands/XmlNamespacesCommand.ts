@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { XmlNamespacesOutput } from "../models/models_0";
-import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 import { XmlNamespaces$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -62,22 +58,12 @@ export interface XmlNamespacesCommandOutput extends XmlNamespacesOutput, __Metad
  *
  *
  */
-export class XmlNamespacesCommand extends $Command
-  .classBuilder<
-    XmlNamespacesCommandInput,
-    XmlNamespacesCommandOutput,
-    QueryProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QueryProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsQuery", "XmlNamespaces", {})
-  .n("QueryProtocolClient", "XmlNamespacesCommand")
-  .sc(XmlNamespaces$)
-  .build() {
+export class XmlNamespacesCommand extends command<XmlNamespacesCommandInput, XmlNamespacesCommandOutput>(
+  _ep0,
+  _mw0,
+  "XmlNamespaces",
+  XmlNamespaces$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDomainStatisticsReportRequest, GetDomainStatisticsReportResponse } from "../models/models_0";
-import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import { GetDomainStatisticsReport$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface GetDomainStatisticsReportCommandOutput extends GetDomainStatist
  *
  * @public
  */
-export class GetDomainStatisticsReportCommand extends $Command
-  .classBuilder<
-    GetDomainStatisticsReportCommandInput,
-    GetDomainStatisticsReportCommandOutput,
-    PinpointEmailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPinpointEmailService", "GetDomainStatisticsReport", {})
-  .n("PinpointEmailClient", "GetDomainStatisticsReportCommand")
-  .sc(GetDomainStatisticsReport$)
-  .build() {
+export class GetDomainStatisticsReportCommand extends command<GetDomainStatisticsReportCommandInput, GetDomainStatisticsReportCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDomainStatisticsReport",
+  GetDomainStatisticsReport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

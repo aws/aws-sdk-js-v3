@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerAutomationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerAutomationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAutomationRuleRequest, GetAutomationRuleResponse } from "../models/models_0";
 import { GetAutomationRule$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetAutomationRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -184,22 +176,12 @@ export interface GetAutomationRuleCommandOutput extends GetAutomationRuleRespons
  *
  * @public
  */
-export class GetAutomationRuleCommand extends $Command
-  .classBuilder<
-    GetAutomationRuleCommandInput,
-    GetAutomationRuleCommandOutput,
-    ComputeOptimizerAutomationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerAutomationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerAutomationService", "GetAutomationRule", {})
-  .n("ComputeOptimizerAutomationClient", "GetAutomationRuleCommand")
-  .sc(GetAutomationRule$)
-  .build() {
+export class GetAutomationRuleCommand extends command<GetAutomationRuleCommandInput, GetAutomationRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAutomationRule",
+  GetAutomationRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

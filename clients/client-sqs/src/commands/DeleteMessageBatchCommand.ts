@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMessageBatchRequest, DeleteMessageBatchResult } from "../models/models_0";
 import { DeleteMessageBatch$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface DeleteMessageBatchCommandOutput extends DeleteMessageBatchResul
  *
  * @public
  */
-export class DeleteMessageBatchCommand extends $Command
-  .classBuilder<
-    DeleteMessageBatchCommandInput,
-    DeleteMessageBatchCommandOutput,
-    SQSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSQS", "DeleteMessageBatch", {})
-  .n("SQSClient", "DeleteMessageBatchCommand")
-  .sc(DeleteMessageBatch$)
-  .build() {
+export class DeleteMessageBatchCommand extends command<DeleteMessageBatchCommandInput, DeleteMessageBatchCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMessageBatch",
+  DeleteMessageBatch$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

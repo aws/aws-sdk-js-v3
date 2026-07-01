@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetWorkflowRequest, GetWorkflowResponse } from "../models/models_0";
 import { GetWorkflow$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetWorkflow$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  *
  * @public
  */
-export class GetWorkflowCommand extends $Command
-  .classBuilder<
-    GetWorkflowCommandInput,
-    GetWorkflowCommandOutput,
-    ImagebuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("imagebuilder", "GetWorkflow", {})
-  .n("ImagebuilderClient", "GetWorkflowCommand")
-  .sc(GetWorkflow$)
-  .build() {
+export class GetWorkflowCommand extends command<GetWorkflowCommandInput, GetWorkflowCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetWorkflow",
+  GetWorkflow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetModelsRequest, GetModelsResponse } from "../models/models_0";
 import { GetModels$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetModels$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface GetModelsCommandOutput extends GetModelsResponse, __MetadataBea
  *
  * @public
  */
-export class GetModelsCommand extends $Command
-  .classBuilder<
-    GetModelsCommandInput,
-    GetModelsCommandOutput,
-    ApiGatewayV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApiGatewayV2", "GetModels", {})
-  .n("ApiGatewayV2Client", "GetModelsCommand")
-  .sc(GetModels$)
-  .build() {
+export class GetModelsCommand extends command<GetModelsCommandInput, GetModelsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetModels",
+  GetModels$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

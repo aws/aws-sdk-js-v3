@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetRestoreTestingInferredMetadataInput,
   GetRestoreTestingInferredMetadataOutput,
@@ -15,7 +12,6 @@ import { GetRestoreTestingInferredMetadata$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface GetRestoreTestingInferredMetadataCommandOutput extends GetResto
  *
  * @public
  */
-export class GetRestoreTestingInferredMetadataCommand extends $Command
-  .classBuilder<
-    GetRestoreTestingInferredMetadataCommandInput,
-    GetRestoreTestingInferredMetadataCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "GetRestoreTestingInferredMetadata", {})
-  .n("BackupClient", "GetRestoreTestingInferredMetadataCommand")
-  .sc(GetRestoreTestingInferredMetadata$)
-  .build() {
+export class GetRestoreTestingInferredMetadataCommand extends command<GetRestoreTestingInferredMetadataCommandInput, GetRestoreTestingInferredMetadataCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRestoreTestingInferredMetadata",
+  GetRestoreTestingInferredMetadata$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MediaPackageV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MediaPackageV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateChannelGroupRequest, UpdateChannelGroupResponse } from "../models/models_0";
 import { UpdateChannelGroup$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateChannelGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +110,12 @@ export interface UpdateChannelGroupCommandOutput extends UpdateChannelGroupRespo
  *
  * @public
  */
-export class UpdateChannelGroupCommand extends $Command
-  .classBuilder<
-    UpdateChannelGroupCommandInput,
-    UpdateChannelGroupCommandOutput,
-    MediaPackageV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("mediapackagev2", "UpdateChannelGroup", {})
-  .n("MediaPackageV2Client", "UpdateChannelGroupCommand")
-  .sc(UpdateChannelGroup$)
-  .build() {
+export class UpdateChannelGroupCommand extends command<UpdateChannelGroupCommandInput, UpdateChannelGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateChannelGroup",
+  UpdateChannelGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

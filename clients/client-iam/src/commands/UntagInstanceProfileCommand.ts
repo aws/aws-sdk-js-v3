@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UntagInstanceProfileRequest } from "../models/models_0";
 import { UntagInstanceProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UntagInstanceProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface UntagInstanceProfileCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UntagInstanceProfileCommand extends $Command
-  .classBuilder<
-    UntagInstanceProfileCommandInput,
-    UntagInstanceProfileCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "UntagInstanceProfile", {})
-  .n("IAMClient", "UntagInstanceProfileCommand")
-  .sc(UntagInstanceProfile$)
-  .build() {
+export class UntagInstanceProfileCommand extends command<UntagInstanceProfileCommandInput, UntagInstanceProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "UntagInstanceProfile",
+  UntagInstanceProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

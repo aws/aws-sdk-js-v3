@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EndpointWithHostLabelOperationInput } from "../models/models_0";
 import { EndpointWithHostLabelOperation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { EndpointWithHostLabelOperation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -57,22 +53,12 @@ export interface EndpointWithHostLabelOperationCommandOutput extends __MetadataB
  *
  *
  */
-export class EndpointWithHostLabelOperationCommand extends $Command
-  .classBuilder<
-    EndpointWithHostLabelOperationCommandInput,
-    EndpointWithHostLabelOperationCommandOutput,
-    JSONRPC10ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: JSONRPC10ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("JsonRpc10", "EndpointWithHostLabelOperation", {})
-  .n("JSONRPC10Client", "EndpointWithHostLabelOperationCommand")
-  .sc(EndpointWithHostLabelOperation$)
-  .build() {
+export class EndpointWithHostLabelOperationCommand extends command<EndpointWithHostLabelOperationCommandInput, EndpointWithHostLabelOperationCommandOutput>(
+  _ep0,
+  _mw0,
+  "EndpointWithHostLabelOperation",
+  EndpointWithHostLabelOperation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

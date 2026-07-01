@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSharedEndpointsRequest, ListSharedEndpointsResult } from "../models/models_0";
-import type { S3OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3OutpostsClient";
 import { ListSharedEndpoints$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface ListSharedEndpointsCommandOutput extends ListSharedEndpointsRes
  *
  * @public
  */
-export class ListSharedEndpointsCommand extends $Command
-  .classBuilder<
-    ListSharedEndpointsCommandInput,
-    ListSharedEndpointsCommandOutput,
-    S3OutpostsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: S3OutpostsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("S3Outposts", "ListSharedEndpoints", {})
-  .n("S3OutpostsClient", "ListSharedEndpointsCommand")
-  .sc(ListSharedEndpoints$)
-  .build() {
+export class ListSharedEndpointsCommand extends command<ListSharedEndpointsCommandInput, ListSharedEndpointsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSharedEndpoints",
+  ListSharedEndpoints$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

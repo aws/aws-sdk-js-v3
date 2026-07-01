@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDeviceDefinitionRequest, CreateDeviceDefinitionResponse } from "../models/models_0";
 import { CreateDeviceDefinition$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateDeviceDefinition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface CreateDeviceDefinitionCommandOutput extends CreateDeviceDefinit
  *
  * @public
  */
-export class CreateDeviceDefinitionCommand extends $Command
-  .classBuilder<
-    CreateDeviceDefinitionCommandInput,
-    CreateDeviceDefinitionCommandOutput,
-    GreengrassClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Greengrass", "CreateDeviceDefinition", {})
-  .n("GreengrassClient", "CreateDeviceDefinitionCommand")
-  .sc(CreateDeviceDefinition$)
-  .build() {
+export class CreateDeviceDefinitionCommand extends command<CreateDeviceDefinitionCommandInput, CreateDeviceDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDeviceDefinition",
+  CreateDeviceDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

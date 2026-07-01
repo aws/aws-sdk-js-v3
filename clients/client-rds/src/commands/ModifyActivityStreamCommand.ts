@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyActivityStreamRequest, ModifyActivityStreamResponse } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { ModifyActivityStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface ModifyActivityStreamCommandOutput extends ModifyActivityStreamR
  *
  * @public
  */
-export class ModifyActivityStreamCommand extends $Command
-  .classBuilder<
-    ModifyActivityStreamCommandInput,
-    ModifyActivityStreamCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "ModifyActivityStream", {})
-  .n("RDSClient", "ModifyActivityStreamCommand")
-  .sc(ModifyActivityStream$)
-  .build() {
+export class ModifyActivityStreamCommand extends command<ModifyActivityStreamCommandInput, ModifyActivityStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyActivityStream",
+  ModifyActivityStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

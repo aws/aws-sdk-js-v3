@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRegistryRequest } from "../models/models_0";
 import { DeleteRegistry$ } from "../schemas/schemas_0";
-import type { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteRegistryCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteRegistryCommand extends $Command
-  .classBuilder<
-    DeleteRegistryCommandInput,
-    DeleteRegistryCommandOutput,
-    SchemasClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SchemasClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("schemas", "DeleteRegistry", {})
-  .n("SchemasClient", "DeleteRegistryCommand")
-  .sc(DeleteRegistry$)
-  .build() {
+export class DeleteRegistryCommand extends command<DeleteRegistryCommandInput, DeleteRegistryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRegistry",
+  DeleteRegistry$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

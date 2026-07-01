@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ReplaceTransitGatewayRouteRequest, ReplaceTransitGatewayRouteResult } from "../models/models_7";
 import { ReplaceTransitGatewayRoute$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ReplaceTransitGatewayRoute$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface ReplaceTransitGatewayRouteCommandOutput extends ReplaceTransitG
  *
  * @public
  */
-export class ReplaceTransitGatewayRouteCommand extends $Command
-  .classBuilder<
-    ReplaceTransitGatewayRouteCommandInput,
-    ReplaceTransitGatewayRouteCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "ReplaceTransitGatewayRoute", {})
-  .n("EC2Client", "ReplaceTransitGatewayRouteCommand")
-  .sc(ReplaceTransitGatewayRoute$)
-  .build() {
+export class ReplaceTransitGatewayRouteCommand extends command<ReplaceTransitGatewayRouteCommandInput, ReplaceTransitGatewayRouteCommandOutput>(
+  _ep0,
+  _mw0,
+  "ReplaceTransitGatewayRoute",
+  ReplaceTransitGatewayRoute$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

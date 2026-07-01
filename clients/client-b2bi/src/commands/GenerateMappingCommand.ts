@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { B2biClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../B2biClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GenerateMappingRequest, GenerateMappingResponse } from "../models/models_0";
 import { GenerateMapping$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GenerateMapping$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface GenerateMappingCommandOutput extends GenerateMappingResponse, _
  *
  * @public
  */
-export class GenerateMappingCommand extends $Command
-  .classBuilder<
-    GenerateMappingCommandInput,
-    GenerateMappingCommandOutput,
-    B2biClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("B2BI", "GenerateMapping", {})
-  .n("B2biClient", "GenerateMappingCommand")
-  .sc(GenerateMapping$)
-  .build() {
+export class GenerateMappingCommand extends command<GenerateMappingCommandInput, GenerateMappingCommandOutput>(
+  _ep0,
+  _mw0,
+  "GenerateMapping",
+  GenerateMapping$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

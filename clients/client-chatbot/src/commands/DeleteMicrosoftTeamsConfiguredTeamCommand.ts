@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTeamsConfiguredTeamRequest, DeleteTeamsConfiguredTeamResult } from "../models/models_0";
 import { DeleteMicrosoftTeamsConfiguredTeam$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteMicrosoftTeamsConfiguredTeam$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -64,22 +60,12 @@ export interface DeleteMicrosoftTeamsConfiguredTeamCommandOutput extends DeleteT
  *
  * @public
  */
-export class DeleteMicrosoftTeamsConfiguredTeamCommand extends $Command
-  .classBuilder<
-    DeleteMicrosoftTeamsConfiguredTeamCommandInput,
-    DeleteMicrosoftTeamsConfiguredTeamCommandOutput,
-    ChatbotClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WheatleyOrchestration_20171011", "DeleteMicrosoftTeamsConfiguredTeam", {})
-  .n("ChatbotClient", "DeleteMicrosoftTeamsConfiguredTeamCommand")
-  .sc(DeleteMicrosoftTeamsConfiguredTeam$)
-  .build() {
+export class DeleteMicrosoftTeamsConfiguredTeamCommand extends command<DeleteMicrosoftTeamsConfiguredTeamCommandInput, DeleteMicrosoftTeamsConfiguredTeamCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMicrosoftTeamsConfiguredTeam",
+  DeleteMicrosoftTeamsConfiguredTeam$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

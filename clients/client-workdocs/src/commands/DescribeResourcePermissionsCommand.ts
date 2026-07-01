@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeResourcePermissionsRequest, DescribeResourcePermissionsResponse } from "../models/models_0";
 import { DescribeResourcePermissions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface DescribeResourcePermissionsCommandOutput extends DescribeResour
  *
  * @public
  */
-export class DescribeResourcePermissionsCommand extends $Command
-  .classBuilder<
-    DescribeResourcePermissionsCommandInput,
-    DescribeResourcePermissionsCommandOutput,
-    WorkDocsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGorillaBoyService", "DescribeResourcePermissions", {})
-  .n("WorkDocsClient", "DescribeResourcePermissionsCommand")
-  .sc(DescribeResourcePermissions$)
-  .build() {
+export class DescribeResourcePermissionsCommand extends command<DescribeResourcePermissionsCommandInput, DescribeResourcePermissionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeResourcePermissions",
+  DescribeResourcePermissions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

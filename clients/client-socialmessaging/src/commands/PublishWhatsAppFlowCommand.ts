@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PublishWhatsAppFlowInput, PublishWhatsAppFlowOutput } from "../models/models_0";
 import { PublishWhatsAppFlow$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SocialMessagingClientResolvedConfig,
-} from "../SocialMessagingClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface PublishWhatsAppFlowCommandOutput extends PublishWhatsAppFlowOut
  *
  * @public
  */
-export class PublishWhatsAppFlowCommand extends $Command
-  .classBuilder<
-    PublishWhatsAppFlowCommandInput,
-    PublishWhatsAppFlowCommandOutput,
-    SocialMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SocialMessaging", "PublishWhatsAppFlow", {})
-  .n("SocialMessagingClient", "PublishWhatsAppFlowCommand")
-  .sc(PublishWhatsAppFlow$)
-  .build() {
+export class PublishWhatsAppFlowCommand extends command<PublishWhatsAppFlowCommandInput, PublishWhatsAppFlowCommandOutput>(
+  _ep0,
+  _mw0,
+  "PublishWhatsAppFlow",
+  PublishWhatsAppFlow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

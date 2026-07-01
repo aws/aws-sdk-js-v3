@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  ManagedBlockchainClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ManagedBlockchainClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMemberInput, DeleteMemberOutput } from "../models/models_0";
 import { DeleteMember$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteMember$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  *
  * @public
  */
-export class DeleteMemberCommand extends $Command
-  .classBuilder<
-    DeleteMemberCommandInput,
-    DeleteMemberCommandOutput,
-    ManagedBlockchainClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TaigaWebService", "DeleteMember", {})
-  .n("ManagedBlockchainClient", "DeleteMemberCommand")
-  .sc(DeleteMember$)
-  .build() {
+export class DeleteMemberCommand extends command<DeleteMemberCommandInput, DeleteMemberCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMember",
+  DeleteMember$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

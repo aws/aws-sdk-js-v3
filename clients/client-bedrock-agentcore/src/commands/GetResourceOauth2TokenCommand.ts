@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetResourceOauth2TokenRequest, GetResourceOauth2TokenResponse } from "../models/models_0";
 import { GetResourceOauth2Token$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetResourceOauth2Token$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface GetResourceOauth2TokenCommandOutput extends GetResourceOauth2To
  *
  * @public
  */
-export class GetResourceOauth2TokenCommand extends $Command
-  .classBuilder<
-    GetResourceOauth2TokenCommandInput,
-    GetResourceOauth2TokenCommandOutput,
-    BedrockAgentCoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCore", "GetResourceOauth2Token", {})
-  .n("BedrockAgentCoreClient", "GetResourceOauth2TokenCommand")
-  .sc(GetResourceOauth2Token$)
-  .build() {
+export class GetResourceOauth2TokenCommand extends command<GetResourceOauth2TokenCommandInput, GetResourceOauth2TokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetResourceOauth2Token",
+  GetResourceOauth2Token$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

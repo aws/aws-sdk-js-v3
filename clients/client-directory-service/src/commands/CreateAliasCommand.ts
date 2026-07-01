@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAliasRequest, CreateAliasResult } from "../models/models_0";
 import { CreateAlias$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateAlias$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface CreateAliasCommandOutput extends CreateAliasResult, __MetadataB
  *
  * @public
  */
-export class CreateAliasCommand extends $Command
-  .classBuilder<
-    CreateAliasCommandInput,
-    CreateAliasCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "CreateAlias", {})
-  .n("DirectoryServiceClient", "CreateAliasCommand")
-  .sc(CreateAlias$)
-  .build() {
+export class CreateAliasCommand extends command<CreateAliasCommandInput, CreateAliasCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAlias",
+  CreateAlias$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

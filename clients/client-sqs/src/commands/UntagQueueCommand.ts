@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UntagQueueRequest } from "../models/models_0";
 import { UntagQueue$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface UntagQueueCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UntagQueueCommand extends $Command
-  .classBuilder<
-    UntagQueueCommandInput,
-    UntagQueueCommandOutput,
-    SQSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSQS", "UntagQueue", {})
-  .n("SQSClient", "UntagQueueCommand")
-  .sc(UntagQueue$)
-  .build() {
+export class UntagQueueCommand extends command<UntagQueueCommandInput, UntagQueueCommandOutput>(
+  _ep0,
+  _mw0,
+  "UntagQueue",
+  UntagQueue$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeUpdateDirectoryRequest, DescribeUpdateDirectoryResult } from "../models/models_0";
 import { DescribeUpdateDirectory$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeUpdateDirectory$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface DescribeUpdateDirectoryCommandOutput extends DescribeUpdateDire
  *
  * @public
  */
-export class DescribeUpdateDirectoryCommand extends $Command
-  .classBuilder<
-    DescribeUpdateDirectoryCommandInput,
-    DescribeUpdateDirectoryCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "DescribeUpdateDirectory", {})
-  .n("DirectoryServiceClient", "DescribeUpdateDirectoryCommand")
-  .sc(DescribeUpdateDirectory$)
-  .build() {
+export class DescribeUpdateDirectoryCommand extends command<DescribeUpdateDirectoryCommandInput, DescribeUpdateDirectoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeUpdateDirectory",
+  DescribeUpdateDirectory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

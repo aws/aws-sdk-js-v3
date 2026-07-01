@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCoreNetworksRequest, ListCoreNetworksResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { ListCoreNetworks$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +84,12 @@ export interface ListCoreNetworksCommandOutput extends ListCoreNetworksResponse,
  *
  * @public
  */
-export class ListCoreNetworksCommand extends $Command
-  .classBuilder<
-    ListCoreNetworksCommandInput,
-    ListCoreNetworksCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "ListCoreNetworks", {})
-  .n("NetworkManagerClient", "ListCoreNetworksCommand")
-  .sc(ListCoreNetworks$)
-  .build() {
+export class ListCoreNetworksCommand extends command<ListCoreNetworksCommandInput, ListCoreNetworksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCoreNetworks",
+  ListCoreNetworks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AcceptNetworkFirewallTransitGatewayAttachmentRequest,
   AcceptNetworkFirewallTransitGatewayAttachmentResponse,
 } from "../models/models_0";
-import type {
-  NetworkFirewallClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFirewallClient";
 import { AcceptNetworkFirewallTransitGatewayAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +90,12 @@ export interface AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput exte
  *
  * @public
  */
-export class AcceptNetworkFirewallTransitGatewayAttachmentCommand extends $Command
-  .classBuilder<
-    AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
-    AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput,
-    NetworkFirewallClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFirewall_20201112", "AcceptNetworkFirewallTransitGatewayAttachment", {})
-  .n("NetworkFirewallClient", "AcceptNetworkFirewallTransitGatewayAttachmentCommand")
-  .sc(AcceptNetworkFirewallTransitGatewayAttachment$)
-  .build() {
+export class AcceptNetworkFirewallTransitGatewayAttachmentCommand extends command<AcceptNetworkFirewallTransitGatewayAttachmentCommandInput, AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "AcceptNetworkFirewallTransitGatewayAttachment",
+  AcceptNetworkFirewallTransitGatewayAttachment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

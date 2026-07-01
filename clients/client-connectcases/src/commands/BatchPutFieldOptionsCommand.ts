@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchPutFieldOptionsRequest, BatchPutFieldOptionsResponse } from "../models/models_0";
 import { BatchPutFieldOptions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchPutFieldOptions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface BatchPutFieldOptionsCommandOutput extends BatchPutFieldOptionsR
  *
  * @public
  */
-export class BatchPutFieldOptionsCommand extends $Command
-  .classBuilder<
-    BatchPutFieldOptionsCommandInput,
-    BatchPutFieldOptionsCommandOutput,
-    ConnectCasesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCases", "BatchPutFieldOptions", {})
-  .n("ConnectCasesClient", "BatchPutFieldOptionsCommand")
-  .sc(BatchPutFieldOptions$)
-  .build() {
+export class BatchPutFieldOptionsCommand extends command<BatchPutFieldOptionsCommandInput, BatchPutFieldOptionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchPutFieldOptions",
+  BatchPutFieldOptions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

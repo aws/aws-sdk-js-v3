@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateTraceSegmentDestinationRequest, UpdateTraceSegmentDestinationResult } from "../models/models_0";
 import { UpdateTraceSegmentDestination$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface UpdateTraceSegmentDestinationCommandOutput extends UpdateTraceS
  *
  * @public
  */
-export class UpdateTraceSegmentDestinationCommand extends $Command
-  .classBuilder<
-    UpdateTraceSegmentDestinationCommandInput,
-    UpdateTraceSegmentDestinationCommandOutput,
-    XRayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSXRay", "UpdateTraceSegmentDestination", {})
-  .n("XRayClient", "UpdateTraceSegmentDestinationCommand")
-  .sc(UpdateTraceSegmentDestination$)
-  .build() {
+export class UpdateTraceSegmentDestinationCommand extends command<UpdateTraceSegmentDestinationCommandInput, UpdateTraceSegmentDestinationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateTraceSegmentDestination",
+  UpdateTraceSegmentDestination$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

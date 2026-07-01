@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ARCRegionSwitchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ARCRegionSwitchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPlanEvaluationStatusRequest, GetPlanEvaluationStatusResponse } from "../models/models_0";
 import { GetPlanEvaluationStatus$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetPlanEvaluationStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface GetPlanEvaluationStatusCommandOutput extends GetPlanEvaluationS
  *
  * @public
  */
-export class GetPlanEvaluationStatusCommand extends $Command
-  .classBuilder<
-    GetPlanEvaluationStatusCommandInput,
-    GetPlanEvaluationStatusCommandOutput,
-    ARCRegionSwitchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ARCRegionSwitchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ArcRegionSwitch", "GetPlanEvaluationStatus", {})
-  .n("ARCRegionSwitchClient", "GetPlanEvaluationStatusCommand")
-  .sc(GetPlanEvaluationStatus$)
-  .build() {
+export class GetPlanEvaluationStatusCommand extends command<GetPlanEvaluationStatusCommandInput, GetPlanEvaluationStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPlanEvaluationStatus",
+  GetPlanEvaluationStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

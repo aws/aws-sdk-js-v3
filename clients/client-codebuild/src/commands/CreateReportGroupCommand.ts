@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateReportGroupInput, CreateReportGroupOutput } from "../models/models_0";
 import { CreateReportGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateReportGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface CreateReportGroupCommandOutput extends CreateReportGroupOutput,
  *
  * @public
  */
-export class CreateReportGroupCommand extends $Command
-  .classBuilder<
-    CreateReportGroupCommandInput,
-    CreateReportGroupCommandOutput,
-    CodeBuildClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeBuild_20161006", "CreateReportGroup", {})
-  .n("CodeBuildClient", "CreateReportGroupCommand")
-  .sc(CreateReportGroup$)
-  .build() {
+export class CreateReportGroupCommand extends command<CreateReportGroupCommandInput, CreateReportGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateReportGroup",
+  CreateReportGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

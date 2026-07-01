@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UploadMultipartPartInput, UploadMultipartPartOutput } from "../models/models_0";
 import { UploadMultipartPart$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UploadMultipartPart$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -157,22 +153,12 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  *
  * @public
  */
-export class UploadMultipartPartCommand extends $Command
-  .classBuilder<
-    UploadMultipartPartCommandInput,
-    UploadMultipartPartCommandOutput,
-    GlacierClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Glacier", "UploadMultipartPart", {})
-  .n("GlacierClient", "UploadMultipartPartCommand")
-  .sc(UploadMultipartPart$)
-  .build() {
+export class UploadMultipartPartCommand extends command<UploadMultipartPartCommandInput, UploadMultipartPartCommandOutput>(
+  _ep0,
+  _mw0,
+  "UploadMultipartPart",
+  UploadMultipartPart$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

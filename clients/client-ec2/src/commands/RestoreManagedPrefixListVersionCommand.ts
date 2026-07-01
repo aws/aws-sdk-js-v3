@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RestoreManagedPrefixListVersionRequest, RestoreManagedPrefixListVersionResult } from "../models/models_7";
 import { RestoreManagedPrefixListVersion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RestoreManagedPrefixListVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface RestoreManagedPrefixListVersionCommandOutput extends RestoreMan
  *
  * @public
  */
-export class RestoreManagedPrefixListVersionCommand extends $Command
-  .classBuilder<
-    RestoreManagedPrefixListVersionCommandInput,
-    RestoreManagedPrefixListVersionCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "RestoreManagedPrefixListVersion", {})
-  .n("EC2Client", "RestoreManagedPrefixListVersionCommand")
-  .sc(RestoreManagedPrefixListVersion$)
-  .build() {
+export class RestoreManagedPrefixListVersionCommand extends command<RestoreManagedPrefixListVersionCommandInput, RestoreManagedPrefixListVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "RestoreManagedPrefixListVersion",
+  RestoreManagedPrefixListVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

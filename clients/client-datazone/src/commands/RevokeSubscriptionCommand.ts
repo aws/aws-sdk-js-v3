@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RevokeSubscriptionInput, RevokeSubscriptionOutput } from "../models/models_2";
 import { RevokeSubscription$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RevokeSubscription$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -173,22 +169,12 @@ export interface RevokeSubscriptionCommandOutput extends RevokeSubscriptionOutpu
  *
  * @public
  */
-export class RevokeSubscriptionCommand extends $Command
-  .classBuilder<
-    RevokeSubscriptionCommandInput,
-    RevokeSubscriptionCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "RevokeSubscription", {})
-  .n("DataZoneClient", "RevokeSubscriptionCommand")
-  .sc(RevokeSubscription$)
-  .build() {
+export class RevokeSubscriptionCommand extends command<RevokeSubscriptionCommandInput, RevokeSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "RevokeSubscription",
+  RevokeSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

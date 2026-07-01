@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDatasetExportJobRequest, CreateDatasetExportJobResponse } from "../models/models_0";
-import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { CreateDatasetExportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface CreateDatasetExportJobCommandOutput extends CreateDatasetExport
  *
  * @public
  */
-export class CreateDatasetExportJobCommand extends $Command
-  .classBuilder<
-    CreateDatasetExportJobCommandInput,
-    CreateDatasetExportJobCommandOutput,
-    PersonalizeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPersonalize", "CreateDatasetExportJob", {})
-  .n("PersonalizeClient", "CreateDatasetExportJobCommand")
-  .sc(CreateDatasetExportJob$)
-  .build() {
+export class CreateDatasetExportJobCommand extends command<CreateDatasetExportJobCommandInput, CreateDatasetExportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDatasetExportJob",
+  CreateDatasetExportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

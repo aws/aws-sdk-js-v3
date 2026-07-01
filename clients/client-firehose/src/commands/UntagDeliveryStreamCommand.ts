@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UntagDeliveryStreamInput, UntagDeliveryStreamOutput } from "../models/models_0";
 import { UntagDeliveryStream$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UntagDeliveryStream$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOut
  *
  * @public
  */
-export class UntagDeliveryStreamCommand extends $Command
-  .classBuilder<
-    UntagDeliveryStreamCommandInput,
-    UntagDeliveryStreamCommandOutput,
-    FirehoseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FirehoseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Firehose_20150804", "UntagDeliveryStream", {})
-  .n("FirehoseClient", "UntagDeliveryStreamCommand")
-  .sc(UntagDeliveryStream$)
-  .build() {
+export class UntagDeliveryStreamCommand extends command<UntagDeliveryStreamCommandInput, UntagDeliveryStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "UntagDeliveryStream",
+  UntagDeliveryStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

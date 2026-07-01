@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetComponentInput, GetComponentOutput } from "../models/models_0";
 import { GetComponent$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -127,22 +123,12 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  *
  * @public
  */
-export class GetComponentCommand extends $Command
-  .classBuilder<
-    GetComponentCommandInput,
-    GetComponentCommandOutput,
-    SsmSapClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SsmSapClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SsmSap", "GetComponent", {})
-  .n("SsmSapClient", "GetComponentCommand")
-  .sc(GetComponent$)
-  .build() {
+export class GetComponentCommand extends command<GetComponentCommandInput, GetComponentCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetComponent",
+  GetComponent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

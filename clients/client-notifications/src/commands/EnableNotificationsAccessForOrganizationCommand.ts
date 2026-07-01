@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   EnableNotificationsAccessForOrganizationRequest,
   EnableNotificationsAccessForOrganizationResponse,
 } from "../models/models_0";
-import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
 import { EnableNotificationsAccessForOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface EnableNotificationsAccessForOrganizationCommandOutput extends E
  *
  * @public
  */
-export class EnableNotificationsAccessForOrganizationCommand extends $Command
-  .classBuilder<
-    EnableNotificationsAccessForOrganizationCommandInput,
-    EnableNotificationsAccessForOrganizationCommandOutput,
-    NotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Notifications", "EnableNotificationsAccessForOrganization", {})
-  .n("NotificationsClient", "EnableNotificationsAccessForOrganizationCommand")
-  .sc(EnableNotificationsAccessForOrganization$)
-  .build() {
+export class EnableNotificationsAccessForOrganizationCommand extends command<EnableNotificationsAccessForOrganizationCommandInput, EnableNotificationsAccessForOrganizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableNotificationsAccessForOrganization",
+  EnableNotificationsAccessForOrganization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDistributionsRequest, GetDistributionsResult } from "../models/models_0";
 import { GetDistributions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDistributions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -160,22 +156,12 @@ export interface GetDistributionsCommandOutput extends GetDistributionsResult, _
  *
  * @public
  */
-export class GetDistributionsCommand extends $Command
-  .classBuilder<
-    GetDistributionsCommandInput,
-    GetDistributionsCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "GetDistributions", {})
-  .n("LightsailClient", "GetDistributionsCommand")
-  .sc(GetDistributions$)
-  .build() {
+export class GetDistributionsCommand extends command<GetDistributionsCommandInput, GetDistributionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDistributions",
+  GetDistributions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

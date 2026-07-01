@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TerminateProvisionedProductInput, TerminateProvisionedProductOutput } from "../models/models_0";
 import { TerminateProvisionedProduct$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +90,12 @@ export interface TerminateProvisionedProductCommandOutput extends TerminateProvi
  *
  * @public
  */
-export class TerminateProvisionedProductCommand extends $Command
-  .classBuilder<
-    TerminateProvisionedProductCommandInput,
-    TerminateProvisionedProductCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "TerminateProvisionedProduct", {})
-  .n("ServiceCatalogClient", "TerminateProvisionedProductCommand")
-  .sc(TerminateProvisionedProduct$)
-  .build() {
+export class TerminateProvisionedProductCommand extends command<TerminateProvisionedProductCommandInput, TerminateProvisionedProductCommandOutput>(
+  _ep0,
+  _mw0,
+  "TerminateProvisionedProduct",
+  TerminateProvisionedProduct$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

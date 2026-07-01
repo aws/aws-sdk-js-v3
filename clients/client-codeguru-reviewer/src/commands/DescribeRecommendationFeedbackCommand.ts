@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeGuruReviewerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeGuruReviewerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRecommendationFeedbackRequest, DescribeRecommendationFeedbackResponse } from "../models/models_0";
 import { DescribeRecommendationFeedback$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeRecommendationFeedback$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface DescribeRecommendationFeedbackCommandOutput extends DescribeRec
  *
  * @public
  */
-export class DescribeRecommendationFeedbackCommand extends $Command
-  .classBuilder<
-    DescribeRecommendationFeedbackCommandInput,
-    DescribeRecommendationFeedbackCommandOutput,
-    CodeGuruReviewerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeGuruReviewerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGuruFrontendService", "DescribeRecommendationFeedback", {})
-  .n("CodeGuruReviewerClient", "DescribeRecommendationFeedbackCommand")
-  .sc(DescribeRecommendationFeedback$)
-  .build() {
+export class DescribeRecommendationFeedbackCommand extends command<DescribeRecommendationFeedbackCommandInput, DescribeRecommendationFeedbackCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRecommendationFeedback",
+  DescribeRecommendationFeedback$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

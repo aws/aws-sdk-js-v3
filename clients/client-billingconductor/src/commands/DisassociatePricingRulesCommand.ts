@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BillingconductorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BillingconductorClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociatePricingRulesInput, DisassociatePricingRulesOutput } from "../models/models_0";
 import { DisassociatePricingRules$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DisassociatePricingRules$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface DisassociatePricingRulesCommandOutput extends DisassociatePrici
  *
  * @public
  */
-export class DisassociatePricingRulesCommand extends $Command
-  .classBuilder<
-    DisassociatePricingRulesCommandInput,
-    DisassociatePricingRulesCommandOutput,
-    BillingconductorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBillingConductor", "DisassociatePricingRules", {})
-  .n("BillingconductorClient", "DisassociatePricingRulesCommand")
-  .sc(DisassociatePricingRules$)
-  .build() {
+export class DisassociatePricingRulesCommand extends command<DisassociatePricingRulesCommandInput, DisassociatePricingRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociatePricingRules",
+  DisassociatePricingRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

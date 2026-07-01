@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelTagSyncTaskInput } from "../models/models_0";
-import type {
-  ResourceGroupsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceGroupsClient";
 import { CancelTagSyncTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface CancelTagSyncTaskCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class CancelTagSyncTaskCommand extends $Command
-  .classBuilder<
-    CancelTagSyncTaskCommandInput,
-    CancelTagSyncTaskCommandOutput,
-    ResourceGroupsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceGroupsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Ardi", "CancelTagSyncTask", {})
-  .n("ResourceGroupsClient", "CancelTagSyncTaskCommand")
-  .sc(CancelTagSyncTask$)
-  .build() {
+export class CancelTagSyncTaskCommand extends command<CancelTagSyncTaskCommandInput, CancelTagSyncTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelTagSyncTask",
+  CancelTagSyncTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

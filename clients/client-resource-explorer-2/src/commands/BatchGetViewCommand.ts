@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetViewInput, BatchGetViewOutput } from "../models/models_0";
-import type {
-  ResourceExplorer2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceExplorer2Client";
 import { BatchGetView$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface BatchGetViewCommandOutput extends BatchGetViewOutput, __Metadat
  *
  * @public
  */
-export class BatchGetViewCommand extends $Command
-  .classBuilder<
-    BatchGetViewCommandInput,
-    BatchGetViewCommandOutput,
-    ResourceExplorer2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ResourceExplorer", "BatchGetView", {})
-  .n("ResourceExplorer2Client", "BatchGetViewCommand")
-  .sc(BatchGetView$)
-  .build() {
+export class BatchGetViewCommand extends command<BatchGetViewCommandInput, BatchGetViewCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetView",
+  BatchGetView$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

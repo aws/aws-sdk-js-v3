@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSubnetGroupRequest, DeleteSubnetGroupResponse } from "../models/models_0";
 import { DeleteSubnetGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteSubnetGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteSubnetGroupCommandOutput extends DeleteSubnetGroupRespons
  *
  * @public
  */
-export class DeleteSubnetGroupCommand extends $Command
-  .classBuilder<
-    DeleteSubnetGroupCommandInput,
-    DeleteSubnetGroupCommandOutput,
-    DAXClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DAXClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDAXV3", "DeleteSubnetGroup", {})
-  .n("DAXClient", "DeleteSubnetGroupCommand")
-  .sc(DeleteSubnetGroup$)
-  .build() {
+export class DeleteSubnetGroupCommand extends command<DeleteSubnetGroupCommandInput, DeleteSubnetGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSubnetGroup",
+  DeleteSubnetGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

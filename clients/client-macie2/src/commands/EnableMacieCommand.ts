@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EnableMacieRequest, EnableMacieResponse } from "../models/models_0";
 import { EnableMacie$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { EnableMacie$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface EnableMacieCommandOutput extends EnableMacieResponse, __Metadat
  *
  * @public
  */
-export class EnableMacieCommand extends $Command
-  .classBuilder<
-    EnableMacieCommandInput,
-    EnableMacieCommandOutput,
-    Macie2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Macie2", "EnableMacie", {})
-  .n("Macie2Client", "EnableMacieCommand")
-  .sc(EnableMacie$)
-  .build() {
+export class EnableMacieCommand extends command<EnableMacieCommandInput, EnableMacieCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableMacie",
+  EnableMacie$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

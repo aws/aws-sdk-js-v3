@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SetTagsForResourceRequest } from "../models/models_0";
 import { SetTagsForResource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SetTagsForResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class SetTagsForResourceCommand extends $Command
-  .classBuilder<
-    SetTagsForResourceCommandInput,
-    SetTagsForResourceCommandOutput,
-    InspectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("InspectorService", "SetTagsForResource", {})
-  .n("InspectorClient", "SetTagsForResourceCommand")
-  .sc(SetTagsForResource$)
-  .build() {
+export class SetTagsForResourceCommand extends command<SetTagsForResourceCommandInput, SetTagsForResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetTagsForResource",
+  SetTagsForResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

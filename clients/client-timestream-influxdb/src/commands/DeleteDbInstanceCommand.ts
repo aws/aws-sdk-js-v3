@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDbInstanceInput, DeleteDbInstanceOutput } from "../models/models_0";
 import { DeleteDbInstance$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TimestreamInfluxDBClientResolvedConfig,
-} from "../TimestreamInfluxDBClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +111,12 @@ export interface DeleteDbInstanceCommandOutput extends DeleteDbInstanceOutput, _
  *
  * @public
  */
-export class DeleteDbInstanceCommand extends $Command
-  .classBuilder<
-    DeleteDbInstanceCommandInput,
-    DeleteDbInstanceCommandOutput,
-    TimestreamInfluxDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TimestreamInfluxDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonTimestreamInfluxDB", "DeleteDbInstance", {})
-  .n("TimestreamInfluxDBClient", "DeleteDbInstanceCommand")
-  .sc(DeleteDbInstance$)
-  .build() {
+export class DeleteDbInstanceCommand extends command<DeleteDbInstanceCommandInput, DeleteDbInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDbInstance",
+  DeleteDbInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

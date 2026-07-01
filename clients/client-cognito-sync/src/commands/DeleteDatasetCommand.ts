@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDatasetRequest, DeleteDatasetResponse } from "../models/models_0";
 import { DeleteDataset$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteDataset$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  *
  * @public
  */
-export class DeleteDatasetCommand extends $Command
-  .classBuilder<
-    DeleteDatasetCommandInput,
-    DeleteDatasetCommandOutput,
-    CognitoSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoSyncService", "DeleteDataset", {})
-  .n("CognitoSyncClient", "DeleteDatasetCommand")
-  .sc(DeleteDataset$)
-  .build() {
+export class DeleteDatasetCommand extends command<DeleteDatasetCommandInput, DeleteDatasetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDataset",
+  DeleteDataset$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

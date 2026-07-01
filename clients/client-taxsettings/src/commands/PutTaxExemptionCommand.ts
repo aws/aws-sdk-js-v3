@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutTaxExemptionRequest, PutTaxExemptionResponse } from "../models/models_0";
 import { PutTaxExemption$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface PutTaxExemptionCommandOutput extends PutTaxExemptionResponse, _
  *
  * @public
  */
-export class PutTaxExemptionCommand extends $Command
-  .classBuilder<
-    PutTaxExemptionCommandInput,
-    PutTaxExemptionCommandOutput,
-    TaxSettingsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TaxSettingsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TaxSettings", "PutTaxExemption", {})
-  .n("TaxSettingsClient", "PutTaxExemptionCommand")
-  .sc(PutTaxExemption$)
-  .build() {
+export class PutTaxExemptionCommand extends command<PutTaxExemptionCommandInput, PutTaxExemptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutTaxExemption",
+  PutTaxExemption$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

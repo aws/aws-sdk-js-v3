@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { BatchGetItemInput, BatchGetItemOutput } from "../models/models_0";
 import { BatchGetItem$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetItem$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -351,26 +347,12 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  *
  * @public
  */
-export class BatchGetItemCommand extends $Command
-  .classBuilder<
-    BatchGetItemCommandInput,
-    BatchGetItemCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArnList: { type: "operationContextParams", get: (input?: any) => Object.keys(input?.RequestItems ?? {}) },
-
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "BatchGetItem", {})
-  .n("DynamoDBClient", "BatchGetItemCommand")
-  .sc(BatchGetItem$)
-  .build() {
+export class BatchGetItemCommand extends command<BatchGetItemCommandInput, BatchGetItemCommandOutput>(
+  _ep1,
+  _mw0,
+  "BatchGetItem",
+  BatchGetItem$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

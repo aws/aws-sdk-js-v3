@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ConnectCampaignsV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ConnectCampaignsV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListConnectInstanceIntegrationsRequest,
   ListConnectInstanceIntegrationsResponse,
@@ -19,7 +12,6 @@ import { ListConnectInstanceIntegrations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface ListConnectInstanceIntegrationsCommandOutput extends ListConnec
  *
  * @public
  */
-export class ListConnectInstanceIntegrationsCommand extends $Command
-  .classBuilder<
-    ListConnectInstanceIntegrationsCommandInput,
-    ListConnectInstanceIntegrationsCommandOutput,
-    ConnectCampaignsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCampaignServiceV2", "ListConnectInstanceIntegrations", {})
-  .n("ConnectCampaignsV2Client", "ListConnectInstanceIntegrationsCommand")
-  .sc(ListConnectInstanceIntegrations$)
-  .build() {
+export class ListConnectInstanceIntegrationsCommand extends command<ListConnectInstanceIntegrationsCommandInput, ListConnectInstanceIntegrationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListConnectInstanceIntegrations",
+  ListConnectInstanceIntegrations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

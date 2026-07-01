@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutDetectorRequest, PutDetectorResult } from "../models/models_0";
 import { PutDetector$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutDetector$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface PutDetectorCommandOutput extends PutDetectorResult, __MetadataB
  *
  * @public
  */
-export class PutDetectorCommand extends $Command
-  .classBuilder<
-    PutDetectorCommandInput,
-    PutDetectorCommandOutput,
-    FraudDetectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHawksNestServiceFacade", "PutDetector", {})
-  .n("FraudDetectorClient", "PutDetectorCommand")
-  .sc(PutDetector$)
-  .build() {
+export class PutDetectorCommand extends command<PutDetectorCommandInput, PutDetectorCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutDetector",
+  PutDetector$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

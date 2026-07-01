@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  KinesisAnalyticsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../KinesisAnalyticsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartApplicationRequest, StartApplicationResponse } from "../models/models_0";
 import { StartApplication$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartApplication$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  *
  * @public
  */
-export class StartApplicationCommand extends $Command
-  .classBuilder<
-    StartApplicationCommandInput,
-    StartApplicationCommandOutput,
-    KinesisAnalyticsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KinesisAnalytics_20150814", "StartApplication", {})
-  .n("KinesisAnalyticsClient", "StartApplicationCommand")
-  .sc(StartApplication$)
-  .build() {
+export class StartApplicationCommand extends command<StartApplicationCommandInput, StartApplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartApplication",
+  StartApplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

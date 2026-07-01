@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  KinesisVideoArchivedMediaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../KinesisVideoArchivedMediaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetImagesInput, GetImagesOutput } from "../models/models_0";
 import { GetImages$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetImages$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +104,12 @@ export interface GetImagesCommandOutput extends GetImagesOutput, __MetadataBeare
  *
  * @public
  */
-export class GetImagesCommand extends $Command
-  .classBuilder<
-    GetImagesCommandInput,
-    GetImagesCommandOutput,
-    KinesisVideoArchivedMediaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisVideoArchivedMediaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSAcuityReader", "GetImages", {})
-  .n("KinesisVideoArchivedMediaClient", "GetImagesCommand")
-  .sc(GetImages$)
-  .build() {
+export class GetImagesCommand extends command<GetImagesCommandInput, GetImagesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetImages",
+  GetImages$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

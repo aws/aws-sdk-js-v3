@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateBotReplicaRequest, CreateBotReplicaResponse } from "../models/models_0";
 import { CreateBotReplica$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateBotReplica$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface CreateBotReplicaCommandOutput extends CreateBotReplicaResponse,
  *
  * @public
  */
-export class CreateBotReplicaCommand extends $Command
-  .classBuilder<
-    CreateBotReplicaCommandInput,
-    CreateBotReplicaCommandOutput,
-    LexModelsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LexModelBuildingServiceV2", "CreateBotReplica", {})
-  .n("LexModelsV2Client", "CreateBotReplicaCommand")
-  .sc(CreateBotReplica$)
-  .build() {
+export class CreateBotReplicaCommand extends command<CreateBotReplicaCommandInput, CreateBotReplicaCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateBotReplica",
+  CreateBotReplica$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

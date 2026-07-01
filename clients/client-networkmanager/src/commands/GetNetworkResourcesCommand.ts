@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetNetworkResourcesRequest, GetNetworkResourcesResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { GetNetworkResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +101,12 @@ export interface GetNetworkResourcesCommandOutput extends GetNetworkResourcesRes
  *
  * @public
  */
-export class GetNetworkResourcesCommand extends $Command
-  .classBuilder<
-    GetNetworkResourcesCommandInput,
-    GetNetworkResourcesCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "GetNetworkResources", {})
-  .n("NetworkManagerClient", "GetNetworkResourcesCommand")
-  .sc(GetNetworkResources$)
-  .build() {
+export class GetNetworkResourcesCommand extends command<GetNetworkResourcesCommandInput, GetNetworkResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetNetworkResources",
+  GetNetworkResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

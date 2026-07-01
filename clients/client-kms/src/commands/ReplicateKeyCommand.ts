@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ReplicateKeyRequest, ReplicateKeyResponse } from "../models/models_0";
 import { ReplicateKey$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ReplicateKey$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -310,22 +306,12 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  *
  * @public
  */
-export class ReplicateKeyCommand extends $Command
-  .classBuilder<
-    ReplicateKeyCommandInput,
-    ReplicateKeyCommandOutput,
-    KMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrentService", "ReplicateKey", {})
-  .n("KMSClient", "ReplicateKeyCommand")
-  .sc(ReplicateKey$)
-  .build() {
+export class ReplicateKeyCommand extends command<ReplicateKeyCommandInput, ReplicateKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "ReplicateKey",
+  ReplicateKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

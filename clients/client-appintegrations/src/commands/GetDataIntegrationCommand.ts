@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AppIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AppIntegrationsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDataIntegrationRequest, GetDataIntegrationResponse } from "../models/models_0";
 import { GetDataIntegration$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetDataIntegration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +105,12 @@ export interface GetDataIntegrationCommandOutput extends GetDataIntegrationRespo
  *
  * @public
  */
-export class GetDataIntegrationCommand extends $Command
-  .classBuilder<
-    GetDataIntegrationCommandInput,
-    GetDataIntegrationCommandOutput,
-    AppIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAppIntegrationService", "GetDataIntegration", {})
-  .n("AppIntegrationsClient", "GetDataIntegrationCommand")
-  .sc(GetDataIntegration$)
-  .build() {
+export class GetDataIntegrationCommand extends command<GetDataIntegrationCommandInput, GetDataIntegrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDataIntegration",
+  GetDataIntegration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { InviteMembersRequest, InviteMembersResponse } from "../models/models_1";
 import { InviteMembers$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { InviteMembers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  *
  * @public
  */
-export class InviteMembersCommand extends $Command
-  .classBuilder<
-    InviteMembersCommandInput,
-    InviteMembersCommandOutput,
-    GuardDutyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GuardDutyAPIService", "InviteMembers", {})
-  .n("GuardDutyClient", "InviteMembersCommand")
-  .sc(InviteMembers$)
-  .build() {
+export class InviteMembersCommand extends command<InviteMembersCommandInput, InviteMembersCommandOutput>(
+  _ep0,
+  _mw0,
+  "InviteMembers",
+  InviteMembers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

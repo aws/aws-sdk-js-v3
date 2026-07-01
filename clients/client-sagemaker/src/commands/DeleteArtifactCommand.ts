@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteArtifactRequest, DeleteArtifactResponse } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DeleteArtifact$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __M
  *
  * @public
  */
-export class DeleteArtifactCommand extends $Command
-  .classBuilder<
-    DeleteArtifactCommandInput,
-    DeleteArtifactCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DeleteArtifact", {})
-  .n("SageMakerClient", "DeleteArtifactCommand")
-  .sc(DeleteArtifact$)
-  .build() {
+export class DeleteArtifactCommand extends command<DeleteArtifactCommandInput, DeleteArtifactCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteArtifact",
+  DeleteArtifact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

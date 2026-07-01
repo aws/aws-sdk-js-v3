@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAccessEntryRequest, DescribeAccessEntryResponse } from "../models/models_0";
 import { DescribeAccessEntry$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeAccessEntry$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface DescribeAccessEntryCommandOutput extends DescribeAccessEntryRes
  *
  * @public
  */
-export class DescribeAccessEntryCommand extends $Command
-  .classBuilder<
-    DescribeAccessEntryCommandInput,
-    DescribeAccessEntryCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "DescribeAccessEntry", {})
-  .n("EKSClient", "DescribeAccessEntryCommand")
-  .sc(DescribeAccessEntry$)
-  .build() {
+export class DescribeAccessEntryCommand extends command<DescribeAccessEntryCommandInput, DescribeAccessEntryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAccessEntry",
+  DescribeAccessEntry$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

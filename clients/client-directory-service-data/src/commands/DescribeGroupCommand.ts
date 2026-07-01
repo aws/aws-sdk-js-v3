@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceDataClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceDataClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeGroupRequest, DescribeGroupResult } from "../models/models_0";
 import { DescribeGroup$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -147,22 +139,12 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResult, __Metad
  *
  * @public
  */
-export class DescribeGroupCommand extends $Command
-  .classBuilder<
-    DescribeGroupCommandInput,
-    DescribeGroupCommandOutput,
-    DirectoryServiceDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryServiceData", "DescribeGroup", {})
-  .n("DirectoryServiceDataClient", "DescribeGroupCommand")
-  .sc(DescribeGroup$)
-  .build() {
+export class DescribeGroupCommand extends command<DescribeGroupCommandInput, DescribeGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeGroup",
+  DescribeGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { RevokeAcmeAccountRequest } from "../models/models_0";
 import { RevokeAcmeAccount$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RevokeAcmeAccount$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,25 +72,12 @@ export interface RevokeAcmeAccountCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class RevokeAcmeAccountCommand extends $Command
-  .classBuilder<
-    RevokeAcmeAccountCommandInput,
-    RevokeAcmeAccountCommandOutput,
-    ACMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ServiceType: { type: "staticContextParams", value: `ACM-ACME` },
-  })
-  .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CertificateManager", "RevokeAcmeAccount", {})
-  .n("ACMClient", "RevokeAcmeAccountCommand")
-  .sc(RevokeAcmeAccount$)
-  .build() {
+export class RevokeAcmeAccountCommand extends command<RevokeAcmeAccountCommandInput, RevokeAcmeAccountCommandOutput>(
+  _ep1,
+  _mw0,
+  "RevokeAcmeAccount",
+  RevokeAcmeAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

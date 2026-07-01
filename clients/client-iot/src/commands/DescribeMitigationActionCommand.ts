@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeMitigationActionRequest, DescribeMitigationActionResponse } from "../models/models_1";
 import { DescribeMitigationAction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeMitigationAction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface DescribeMitigationActionCommandOutput extends DescribeMitigatio
  *
  * @public
  */
-export class DescribeMitigationActionCommand extends $Command
-  .classBuilder<
-    DescribeMitigationActionCommandInput,
-    DescribeMitigationActionCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "DescribeMitigationAction", {})
-  .n("IoTClient", "DescribeMitigationActionCommand")
-  .sc(DescribeMitigationAction$)
-  .build() {
+export class DescribeMitigationActionCommand extends command<DescribeMitigationActionCommandInput, DescribeMitigationActionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeMitigationAction",
+  DescribeMitigationAction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

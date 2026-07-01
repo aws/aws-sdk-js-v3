@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLayersRequest, ListLayersResponse } from "../models/models_0";
 import { ListLayers$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListLayers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +116,12 @@ export interface ListLayersCommandOutput extends ListLayersResponse, __MetadataB
  *
  * @public
  */
-export class ListLayersCommand extends $Command
-  .classBuilder<
-    ListLayersCommandInput,
-    ListLayersCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "ListLayers", {})
-  .n("LambdaClient", "ListLayersCommand")
-  .sc(ListLayers$)
-  .build() {
+export class ListLayersCommand extends command<ListLayersCommandInput, ListLayersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLayers",
+  ListLayers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

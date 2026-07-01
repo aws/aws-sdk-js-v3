@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StartProspectingFromEngagementTaskRequest,
   StartProspectingFromEngagementTaskResponse,
 } from "../models/models_0";
-import type {
-  PartnerCentralSellingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralSellingClient";
 import { StartProspectingFromEngagementTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +90,12 @@ export interface StartProspectingFromEngagementTaskCommandOutput extends StartPr
  *
  * @public
  */
-export class StartProspectingFromEngagementTaskCommand extends $Command
-  .classBuilder<
-    StartProspectingFromEngagementTaskCommandInput,
-    StartProspectingFromEngagementTaskCommandOutput,
-    PartnerCentralSellingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPartnerCentralSelling", "StartProspectingFromEngagementTask", {})
-  .n("PartnerCentralSellingClient", "StartProspectingFromEngagementTaskCommand")
-  .sc(StartProspectingFromEngagementTask$)
-  .build() {
+export class StartProspectingFromEngagementTaskCommand extends command<StartProspectingFromEngagementTaskCommandInput, StartProspectingFromEngagementTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartProspectingFromEngagementTask",
+  StartProspectingFromEngagementTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

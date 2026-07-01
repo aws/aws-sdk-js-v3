@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRouteRequestParameterRequest } from "../models/models_0";
 import { DeleteRouteRequestParameter$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteRouteRequestParameter$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -65,22 +61,12 @@ export interface DeleteRouteRequestParameterCommandOutput extends __MetadataBear
  *
  * @public
  */
-export class DeleteRouteRequestParameterCommand extends $Command
-  .classBuilder<
-    DeleteRouteRequestParameterCommandInput,
-    DeleteRouteRequestParameterCommandOutput,
-    ApiGatewayV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApiGatewayV2", "DeleteRouteRequestParameter", {})
-  .n("ApiGatewayV2Client", "DeleteRouteRequestParameterCommand")
-  .sc(DeleteRouteRequestParameter$)
-  .build() {
+export class DeleteRouteRequestParameterCommand extends command<DeleteRouteRequestParameterCommandInput, DeleteRouteRequestParameterCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRouteRequestParameter",
+  DeleteRouteRequestParameter$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

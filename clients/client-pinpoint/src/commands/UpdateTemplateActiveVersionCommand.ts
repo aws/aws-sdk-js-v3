@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateTemplateActiveVersionRequest, UpdateTemplateActiveVersionResponse } from "../models/models_1";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { UpdateTemplateActiveVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface UpdateTemplateActiveVersionCommandOutput extends UpdateTemplate
  *
  * @public
  */
-export class UpdateTemplateActiveVersionCommand extends $Command
-  .classBuilder<
-    UpdateTemplateActiveVersionCommandInput,
-    UpdateTemplateActiveVersionCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "UpdateTemplateActiveVersion", {})
-  .n("PinpointClient", "UpdateTemplateActiveVersionCommand")
-  .sc(UpdateTemplateActiveVersion$)
-  .build() {
+export class UpdateTemplateActiveVersionCommand extends command<UpdateTemplateActiveVersionCommandInput, UpdateTemplateActiveVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateTemplateActiveVersion",
+  UpdateTemplateActiveVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

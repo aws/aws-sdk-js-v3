@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopAutonomousDatabaseInput, StopAutonomousDatabaseOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { StopAutonomousDatabase$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface StopAutonomousDatabaseCommandOutput extends StopAutonomousDatab
  *
  * @public
  */
-export class StopAutonomousDatabaseCommand extends $Command
-  .classBuilder<
-    StopAutonomousDatabaseCommandInput,
-    StopAutonomousDatabaseCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "StopAutonomousDatabase", {})
-  .n("OdbClient", "StopAutonomousDatabaseCommand")
-  .sc(StopAutonomousDatabase$)
-  .build() {
+export class StopAutonomousDatabaseCommand extends command<StopAutonomousDatabaseCommandInput, StopAutonomousDatabaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopAutonomousDatabase",
+  StopAutonomousDatabase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

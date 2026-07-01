@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeEphemerisRequest, DescribeEphemerisResponse } from "../models/models_0";
 import { DescribeEphemeris$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeEphemeris$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface DescribeEphemerisCommandOutput extends DescribeEphemerisRespons
  *
  * @public
  */
-export class DescribeEphemerisCommand extends $Command
-  .classBuilder<
-    DescribeEphemerisCommandInput,
-    DescribeEphemerisCommandOutput,
-    GroundStationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GroundStation", "DescribeEphemeris", {})
-  .n("GroundStationClient", "DescribeEphemerisCommand")
-  .sc(DescribeEphemeris$)
-  .build() {
+export class DescribeEphemerisCommand extends command<DescribeEphemerisCommandInput, DescribeEphemerisCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEphemeris",
+  DescribeEphemeris$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

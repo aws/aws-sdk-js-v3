@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRepositoryInput, CreateRepositoryOutput } from "../models/models_0";
 import { CreateRepository$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateRepository$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +129,12 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  *
  * @public
  */
-export class CreateRepositoryCommand extends $Command
-  .classBuilder<
-    CreateRepositoryCommandInput,
-    CreateRepositoryCommandOutput,
-    CodeCommitClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCommit_20150413", "CreateRepository", {})
-  .n("CodeCommitClient", "CreateRepositoryCommand")
-  .sc(CreateRepository$)
-  .build() {
+export class CreateRepositoryCommand extends command<CreateRepositoryCommandInput, CreateRepositoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRepository",
+  CreateRepository$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

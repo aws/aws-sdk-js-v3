@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSegmentDetectionRequest, GetSegmentDetectionResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { GetSegmentDetection$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -163,22 +159,12 @@ export interface GetSegmentDetectionCommandOutput extends GetSegmentDetectionRes
  *
  * @public
  */
-export class GetSegmentDetectionCommand extends $Command
-  .classBuilder<
-    GetSegmentDetectionCommandInput,
-    GetSegmentDetectionCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "GetSegmentDetection", {})
-  .n("RekognitionClient", "GetSegmentDetectionCommand")
-  .sc(GetSegmentDetection$)
-  .build() {
+export class GetSegmentDetectionCommand extends command<GetSegmentDetectionCommandInput, GetSegmentDetectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSegmentDetection",
+  GetSegmentDetection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

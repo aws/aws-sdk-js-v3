@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetConnectPeerRequest, GetConnectPeerResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { GetConnectPeer$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +108,12 @@ export interface GetConnectPeerCommandOutput extends GetConnectPeerResponse, __M
  *
  * @public
  */
-export class GetConnectPeerCommand extends $Command
-  .classBuilder<
-    GetConnectPeerCommandInput,
-    GetConnectPeerCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "GetConnectPeer", {})
-  .n("NetworkManagerClient", "GetConnectPeerCommand")
-  .sc(GetConnectPeer$)
-  .build() {
+export class GetConnectPeerCommand extends command<GetConnectPeerCommandInput, GetConnectPeerCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetConnectPeer",
+  GetConnectPeer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

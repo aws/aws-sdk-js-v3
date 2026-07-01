@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateBrokerRequest, UpdateBrokerResponse } from "../models/models_0";
-import type { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import { UpdateBroker$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -166,22 +162,12 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  *
  * @public
  */
-export class UpdateBrokerCommand extends $Command
-  .classBuilder<
-    UpdateBrokerCommandInput,
-    UpdateBrokerCommandOutput,
-    MqClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MqClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("mq", "UpdateBroker", {})
-  .n("MqClient", "UpdateBrokerCommand")
-  .sc(UpdateBroker$)
-  .build() {
+export class UpdateBrokerCommand extends command<UpdateBrokerCommandInput, UpdateBrokerCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateBroker",
+  UpdateBroker$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

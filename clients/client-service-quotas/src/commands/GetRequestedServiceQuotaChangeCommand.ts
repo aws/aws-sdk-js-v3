@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRequestedServiceQuotaChangeRequest, GetRequestedServiceQuotaChangeResponse } from "../models/models_0";
 import { GetRequestedServiceQuotaChange$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface GetRequestedServiceQuotaChangeCommandOutput extends GetRequeste
  *
  * @public
  */
-export class GetRequestedServiceQuotaChangeCommand extends $Command
-  .classBuilder<
-    GetRequestedServiceQuotaChangeCommandInput,
-    GetRequestedServiceQuotaChangeCommandOutput,
-    ServiceQuotasClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ServiceQuotasV20190624", "GetRequestedServiceQuotaChange", {})
-  .n("ServiceQuotasClient", "GetRequestedServiceQuotaChangeCommand")
-  .sc(GetRequestedServiceQuotaChange$)
-  .build() {
+export class GetRequestedServiceQuotaChangeCommand extends command<GetRequestedServiceQuotaChangeCommandInput, GetRequestedServiceQuotaChangeCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRequestedServiceQuotaChange",
+  GetRequestedServiceQuotaChange$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

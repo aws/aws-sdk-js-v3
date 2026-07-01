@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetConfigurationSetRequest, GetConfigurationSetResponse } from "../models/models_0";
-import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import { GetConfigurationSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface GetConfigurationSetCommandOutput extends GetConfigurationSetRes
  *
  * @public
  */
-export class GetConfigurationSetCommand extends $Command
-  .classBuilder<
-    GetConfigurationSetCommandInput,
-    GetConfigurationSetCommandOutput,
-    PinpointEmailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPinpointEmailService", "GetConfigurationSet", {})
-  .n("PinpointEmailClient", "GetConfigurationSetCommand")
-  .sc(GetConfigurationSet$)
-  .build() {
+export class GetConfigurationSetCommand extends command<GetConfigurationSetCommandInput, GetConfigurationSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetConfigurationSet",
+  GetConfigurationSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

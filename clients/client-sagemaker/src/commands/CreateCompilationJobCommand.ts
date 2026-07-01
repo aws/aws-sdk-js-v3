@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCompilationJobRequest, CreateCompilationJobResponse } from "../models/models_1";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreateCompilationJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  *
  * @public
  */
-export class CreateCompilationJobCommand extends $Command
-  .classBuilder<
-    CreateCompilationJobCommandInput,
-    CreateCompilationJobCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "CreateCompilationJob", {})
-  .n("SageMakerClient", "CreateCompilationJobCommand")
-  .sc(CreateCompilationJob$)
-  .build() {
+export class CreateCompilationJobCommand extends command<CreateCompilationJobCommandInput, CreateCompilationJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCompilationJob",
+  CreateCompilationJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

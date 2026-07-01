@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDomainDetailRequest, GetDomainDetailResponse } from "../models/models_0";
-import type {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53DomainsClient";
 import { GetDomainDetail$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -196,22 +188,12 @@ export interface GetDomainDetailCommandOutput extends GetDomainDetailResponse, _
  *
  * @public
  */
-export class GetDomainDetailCommand extends $Command
-  .classBuilder<
-    GetDomainDetailCommandInput,
-    GetDomainDetailCommandOutput,
-    Route53DomainsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Domains_v20140515", "GetDomainDetail", {})
-  .n("Route53DomainsClient", "GetDomainDetailCommand")
-  .sc(GetDomainDetail$)
-  .build() {
+export class GetDomainDetailCommand extends command<GetDomainDetailCommandInput, GetDomainDetailCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDomainDetail",
+  GetDomainDetail$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

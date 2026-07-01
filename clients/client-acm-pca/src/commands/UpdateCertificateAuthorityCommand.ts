@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateCertificateAuthorityRequest } from "../models/models_0";
 import { UpdateCertificateAuthority$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateCertificateAuthority$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class UpdateCertificateAuthorityCommand extends $Command
-  .classBuilder<
-    UpdateCertificateAuthorityCommandInput,
-    UpdateCertificateAuthorityCommandOutput,
-    ACMPCAClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ACMPCAClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ACMPrivateCA", "UpdateCertificateAuthority", {})
-  .n("ACMPCAClient", "UpdateCertificateAuthorityCommand")
-  .sc(UpdateCertificateAuthority$)
-  .build() {
+export class UpdateCertificateAuthorityCommand extends command<UpdateCertificateAuthorityCommandInput, UpdateCertificateAuthorityCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateCertificateAuthority",
+  UpdateCertificateAuthority$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

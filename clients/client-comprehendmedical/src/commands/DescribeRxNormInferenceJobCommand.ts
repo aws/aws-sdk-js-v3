@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComprehendMedicalClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComprehendMedicalClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRxNormInferenceJobRequest, DescribeRxNormInferenceJobResponse } from "../models/models_0";
 import { DescribeRxNormInferenceJob$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeRxNormInferenceJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +93,12 @@ export interface DescribeRxNormInferenceJobCommandOutput extends DescribeRxNormI
  *
  * @public
  */
-export class DescribeRxNormInferenceJobCommand extends $Command
-  .classBuilder<
-    DescribeRxNormInferenceJobCommandInput,
-    DescribeRxNormInferenceJobCommandOutput,
-    ComprehendMedicalClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComprehendMedical_20181030", "DescribeRxNormInferenceJob", {})
-  .n("ComprehendMedicalClient", "DescribeRxNormInferenceJobCommand")
-  .sc(DescribeRxNormInferenceJob$)
-  .build() {
+export class DescribeRxNormInferenceJobCommand extends command<DescribeRxNormInferenceJobCommandInput, DescribeRxNormInferenceJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRxNormInferenceJob",
+  DescribeRxNormInferenceJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

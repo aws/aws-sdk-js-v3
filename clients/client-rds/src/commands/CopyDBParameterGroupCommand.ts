@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CopyDBParameterGroupMessage, CopyDBParameterGroupResult } from "../models/models_0";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { CopyDBParameterGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface CopyDBParameterGroupCommandOutput extends CopyDBParameterGroupR
  *
  * @public
  */
-export class CopyDBParameterGroupCommand extends $Command
-  .classBuilder<
-    CopyDBParameterGroupCommandInput,
-    CopyDBParameterGroupCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "CopyDBParameterGroup", {})
-  .n("RDSClient", "CopyDBParameterGroupCommand")
-  .sc(CopyDBParameterGroup$)
-  .build() {
+export class CopyDBParameterGroupCommand extends command<CopyDBParameterGroupCommandInput, CopyDBParameterGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CopyDBParameterGroup",
+  CopyDBParameterGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

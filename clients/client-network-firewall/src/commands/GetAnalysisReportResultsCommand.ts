@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAnalysisReportResultsRequest, GetAnalysisReportResultsResponse } from "../models/models_0";
-import type {
-  NetworkFirewallClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFirewallClient";
 import { GetAnalysisReportResults$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +105,12 @@ export interface GetAnalysisReportResultsCommandOutput extends GetAnalysisReport
  *
  * @public
  */
-export class GetAnalysisReportResultsCommand extends $Command
-  .classBuilder<
-    GetAnalysisReportResultsCommandInput,
-    GetAnalysisReportResultsCommandOutput,
-    NetworkFirewallClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFirewall_20201112", "GetAnalysisReportResults", {})
-  .n("NetworkFirewallClient", "GetAnalysisReportResultsCommand")
-  .sc(GetAnalysisReportResults$)
-  .build() {
+export class GetAnalysisReportResultsCommand extends command<GetAnalysisReportResultsCommandInput, GetAnalysisReportResultsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAnalysisReportResults",
+  GetAnalysisReportResults$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

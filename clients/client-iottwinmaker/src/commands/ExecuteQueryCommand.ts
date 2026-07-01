@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExecuteQueryRequest, ExecuteQueryResponse } from "../models/models_0";
 import { ExecuteQuery$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ExecuteQuery$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
  *
  * @public
  */
-export class ExecuteQueryCommand extends $Command
-  .classBuilder<
-    ExecuteQueryCommandInput,
-    ExecuteQueryCommandOutput,
-    IoTTwinMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTTwinMaker", "ExecuteQuery", {})
-  .n("IoTTwinMakerClient", "ExecuteQueryCommand")
-  .sc(ExecuteQuery$)
-  .build() {
+export class ExecuteQueryCommand extends command<ExecuteQueryCommandInput, ExecuteQueryCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExecuteQuery",
+  ExecuteQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

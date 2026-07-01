@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteGeoMatchSetRequest, DeleteGeoMatchSetResponse } from "../models/models_0";
 import { DeleteGeoMatchSet$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface DeleteGeoMatchSetCommandOutput extends DeleteGeoMatchSetRespons
  *
  * @public
  */
-export class DeleteGeoMatchSetCommand extends $Command
-  .classBuilder<
-    DeleteGeoMatchSetCommandInput,
-    DeleteGeoMatchSetCommandOutput,
-    WAFRegionalClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_Regional_20161128", "DeleteGeoMatchSet", {})
-  .n("WAFRegionalClient", "DeleteGeoMatchSetCommand")
-  .sc(DeleteGeoMatchSet$)
-  .build() {
+export class DeleteGeoMatchSetCommand extends command<DeleteGeoMatchSetCommandInput, DeleteGeoMatchSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteGeoMatchSet",
+  DeleteGeoMatchSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

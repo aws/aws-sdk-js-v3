@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListJobExecutionsForJobRequest, ListJobExecutionsForJobResponse } from "../models/models_1";
 import { ListJobExecutionsForJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListJobExecutionsForJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface ListJobExecutionsForJobCommandOutput extends ListJobExecutionsF
  *
  * @public
  */
-export class ListJobExecutionsForJobCommand extends $Command
-  .classBuilder<
-    ListJobExecutionsForJobCommandInput,
-    ListJobExecutionsForJobCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "ListJobExecutionsForJob", {})
-  .n("IoTClient", "ListJobExecutionsForJobCommand")
-  .sc(ListJobExecutionsForJob$)
-  .build() {
+export class ListJobExecutionsForJobCommand extends command<ListJobExecutionsForJobCommandInput, ListJobExecutionsForJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListJobExecutionsForJob",
+  ListJobExecutionsForJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

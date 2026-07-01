@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IVSRealTimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IVSRealTimeClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetStorageConfigurationRequest, GetStorageConfigurationResponse } from "../models/models_0";
 import { GetStorageConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetStorageConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface GetStorageConfigurationCommandOutput extends GetStorageConfigur
  *
  * @public
  */
-export class GetStorageConfigurationCommand extends $Command
-  .classBuilder<
-    GetStorageConfigurationCommandInput,
-    GetStorageConfigurationCommandOutput,
-    IVSRealTimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoServiceRealTime", "GetStorageConfiguration", {})
-  .n("IVSRealTimeClient", "GetStorageConfigurationCommand")
-  .sc(GetStorageConfiguration$)
-  .build() {
+export class GetStorageConfigurationCommand extends command<GetStorageConfigurationCommandInput, GetStorageConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetStorageConfiguration",
+  GetStorageConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

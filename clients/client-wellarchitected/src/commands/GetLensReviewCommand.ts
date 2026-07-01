@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetLensReviewInput, GetLensReviewOutput } from "../models/models_0";
 import { GetLensReview$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WellArchitectedClientResolvedConfig,
-} from "../WellArchitectedClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +118,12 @@ export interface GetLensReviewCommandOutput extends GetLensReviewOutput, __Metad
  *
  * @public
  */
-export class GetLensReviewCommand extends $Command
-  .classBuilder<
-    GetLensReviewCommandInput,
-    GetLensReviewCommandOutput,
-    WellArchitectedClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WellArchitectedApiServiceLambda", "GetLensReview", {})
-  .n("WellArchitectedClient", "GetLensReviewCommand")
-  .sc(GetLensReview$)
-  .build() {
+export class GetLensReviewCommand extends command<GetLensReviewCommandInput, GetLensReviewCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetLensReview",
+  GetLensReview$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

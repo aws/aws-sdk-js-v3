@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFleetRequest, DeleteFleetResponse } from "../models/models_0";
 import { DeleteFleet$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteFleet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  *
  * @public
  */
-export class DeleteFleetCommand extends $Command
-  .classBuilder<
-    DeleteFleetCommandInput,
-    DeleteFleetCommandOutput,
-    IoTFleetWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IoTAutobahnControlPlane", "DeleteFleet", {})
-  .n("IoTFleetWiseClient", "DeleteFleetCommand")
-  .sc(DeleteFleet$)
-  .build() {
+export class DeleteFleetCommand extends command<DeleteFleetCommandInput, DeleteFleetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFleet",
+  DeleteFleet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

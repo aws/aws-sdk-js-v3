@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteOrganizationConfigRuleRequest } from "../models/models_0";
 import { DeleteOrganizationConfigRule$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteOrganizationConfigRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface DeleteOrganizationConfigRuleCommandOutput extends __MetadataBea
  *
  * @public
  */
-export class DeleteOrganizationConfigRuleCommand extends $Command
-  .classBuilder<
-    DeleteOrganizationConfigRuleCommandInput,
-    DeleteOrganizationConfigRuleCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DeleteOrganizationConfigRule", {})
-  .n("ConfigServiceClient", "DeleteOrganizationConfigRuleCommand")
-  .sc(DeleteOrganizationConfigRule$)
-  .build() {
+export class DeleteOrganizationConfigRuleCommand extends command<DeleteOrganizationConfigRuleCommandInput, DeleteOrganizationConfigRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteOrganizationConfigRule",
+  DeleteOrganizationConfigRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

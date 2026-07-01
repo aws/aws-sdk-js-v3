@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeConstraintInput, DescribeConstraintOutput } from "../models/models_0";
 import { DescribeConstraint$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +68,12 @@ export interface DescribeConstraintCommandOutput extends DescribeConstraintOutpu
  *
  * @public
  */
-export class DescribeConstraintCommand extends $Command
-  .classBuilder<
-    DescribeConstraintCommandInput,
-    DescribeConstraintCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "DescribeConstraint", {})
-  .n("ServiceCatalogClient", "DescribeConstraintCommand")
-  .sc(DescribeConstraint$)
-  .build() {
+export class DescribeConstraintCommand extends command<DescribeConstraintCommandInput, DescribeConstraintCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeConstraint",
+  DescribeConstraint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

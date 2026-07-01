@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CrlDetailResponse, UpdateCrlRequest } from "../models/models_0";
-import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { UpdateCrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface UpdateCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  *
  * @public
  */
-export class UpdateCrlCommand extends $Command
-  .classBuilder<
-    UpdateCrlCommandInput,
-    UpdateCrlCommandOutput,
-    RolesAnywhereClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RolesAnywhereClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RolesAnywhere", "UpdateCrl", {})
-  .n("RolesAnywhereClient", "UpdateCrlCommand")
-  .sc(UpdateCrl$)
-  .build() {
+export class UpdateCrlCommand extends command<UpdateCrlCommandInput, UpdateCrlCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateCrl",
+  UpdateCrl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

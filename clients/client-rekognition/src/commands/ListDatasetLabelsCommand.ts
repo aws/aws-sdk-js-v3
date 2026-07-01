@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDatasetLabelsRequest, ListDatasetLabelsResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { ListDatasetLabels$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -145,22 +141,12 @@ export interface ListDatasetLabelsCommandOutput extends ListDatasetLabelsRespons
  *
  * @public
  */
-export class ListDatasetLabelsCommand extends $Command
-  .classBuilder<
-    ListDatasetLabelsCommandInput,
-    ListDatasetLabelsCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "ListDatasetLabels", {})
-  .n("RekognitionClient", "ListDatasetLabelsCommand")
-  .sc(ListDatasetLabels$)
-  .build() {
+export class ListDatasetLabelsCommand extends command<ListDatasetLabelsCommandInput, ListDatasetLabelsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDatasetLabels",
+  ListDatasetLabels$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

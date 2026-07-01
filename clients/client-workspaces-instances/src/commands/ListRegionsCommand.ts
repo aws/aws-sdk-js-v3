@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRegionsRequest, ListRegionsResponse } from "../models/models_0";
 import { ListRegions$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkspacesInstancesClientResolvedConfig,
-} from "../WorkspacesInstancesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface ListRegionsCommandOutput extends ListRegionsResponse, __Metadat
  *
  * @public
  */
-export class ListRegionsCommand extends $Command
-  .classBuilder<
-    ListRegionsCommandInput,
-    ListRegionsCommandOutput,
-    WorkspacesInstancesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkspacesInstancesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EUCMIFrontendAPIService", "ListRegions", {})
-  .n("WorkspacesInstancesClient", "ListRegionsCommand")
-  .sc(ListRegions$)
-  .build() {
+export class ListRegionsCommand extends command<ListRegionsCommandInput, ListRegionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRegions",
+  ListRegions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

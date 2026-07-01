@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetInstanceAccessInput, GetInstanceAccessOutput } from "../models/models_0";
 import { GetInstanceAccess$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetInstanceAccess$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput,
  *
  * @public
  */
-export class GetInstanceAccessCommand extends $Command
-  .classBuilder<
-    GetInstanceAccessCommandInput,
-    GetInstanceAccessCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "GetInstanceAccess", {})
-  .n("GameLiftClient", "GetInstanceAccessCommand")
-  .sc(GetInstanceAccess$)
-  .build() {
+export class GetInstanceAccessCommand extends command<GetInstanceAccessCommandInput, GetInstanceAccessCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetInstanceAccess",
+  GetInstanceAccess$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

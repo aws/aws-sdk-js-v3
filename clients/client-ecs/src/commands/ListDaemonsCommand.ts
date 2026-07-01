@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDaemonsRequest, ListDaemonsResponse } from "../models/models_0";
 import { ListDaemons$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDaemons$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +114,12 @@ export interface ListDaemonsCommandOutput extends ListDaemonsResponse, __Metadat
  *
  * @public
  */
-export class ListDaemonsCommand extends $Command
-  .classBuilder<
-    ListDaemonsCommandInput,
-    ListDaemonsCommandOutput,
-    ECSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerServiceV20141113", "ListDaemons", {})
-  .n("ECSClient", "ListDaemonsCommand")
-  .sc(ListDaemons$)
-  .build() {
+export class ListDaemonsCommand extends command<ListDaemonsCommandInput, ListDaemonsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDaemons",
+  ListDaemons$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

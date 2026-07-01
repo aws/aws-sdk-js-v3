@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchPutTaxRegistrationRequest, BatchPutTaxRegistrationResponse } from "../models/models_0";
 import { BatchPutTaxRegistration$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig } from "../TaxSettingsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -208,22 +204,12 @@ export interface BatchPutTaxRegistrationCommandOutput extends BatchPutTaxRegistr
  *
  * @public
  */
-export class BatchPutTaxRegistrationCommand extends $Command
-  .classBuilder<
-    BatchPutTaxRegistrationCommandInput,
-    BatchPutTaxRegistrationCommandOutput,
-    TaxSettingsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TaxSettingsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TaxSettings", "BatchPutTaxRegistration", {})
-  .n("TaxSettingsClient", "BatchPutTaxRegistrationCommand")
-  .sc(BatchPutTaxRegistration$)
-  .build() {
+export class BatchPutTaxRegistrationCommand extends command<BatchPutTaxRegistrationCommandInput, BatchPutTaxRegistrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchPutTaxRegistration",
+  BatchPutTaxRegistration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateKeyGroupRequest, UpdateKeyGroupResult } from "../models/models_1";
 import { UpdateKeyGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateKeyGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __Met
  *
  * @public
  */
-export class UpdateKeyGroupCommand extends $Command
-  .classBuilder<
-    UpdateKeyGroupCommandInput,
-    UpdateKeyGroupCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "UpdateKeyGroup", {})
-  .n("CloudFrontClient", "UpdateKeyGroupCommand")
-  .sc(UpdateKeyGroup$)
-  .build() {
+export class UpdateKeyGroupCommand extends command<UpdateKeyGroupCommandInput, UpdateKeyGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateKeyGroup",
+  UpdateKeyGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteScraperRequest, DeleteScraperResponse } from "../models/models_0";
 import { DeleteScraper$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteScraper$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface DeleteScraperCommandOutput extends DeleteScraperResponse, __Met
  *
  * @public
  */
-export class DeleteScraperCommand extends $Command
-  .classBuilder<
-    DeleteScraperCommandInput,
-    DeleteScraperCommandOutput,
-    AmpClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPrometheusService", "DeleteScraper", {})
-  .n("AmpClient", "DeleteScraperCommand")
-  .sc(DeleteScraper$)
-  .build() {
+export class DeleteScraperCommand extends command<DeleteScraperCommandInput, DeleteScraperCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteScraper",
+  DeleteScraper$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

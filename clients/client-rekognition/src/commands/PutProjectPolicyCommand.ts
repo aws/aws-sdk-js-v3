@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutProjectPolicyRequest, PutProjectPolicyResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { PutProjectPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -139,22 +135,12 @@ export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse,
  *
  * @public
  */
-export class PutProjectPolicyCommand extends $Command
-  .classBuilder<
-    PutProjectPolicyCommandInput,
-    PutProjectPolicyCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "PutProjectPolicy", {})
-  .n("RekognitionClient", "PutProjectPolicyCommand")
-  .sc(PutProjectPolicy$)
-  .build() {
+export class PutProjectPolicyCommand extends command<PutProjectPolicyCommandInput, PutProjectPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutProjectPolicy",
+  PutProjectPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterSchemaVersionInput, RegisterSchemaVersionResponse } from "../models/models_2";
 import { RegisterSchemaVersion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RegisterSchemaVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface RegisterSchemaVersionCommandOutput extends RegisterSchemaVersio
  *
  * @public
  */
-export class RegisterSchemaVersionCommand extends $Command
-  .classBuilder<
-    RegisterSchemaVersionCommandInput,
-    RegisterSchemaVersionCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "RegisterSchemaVersion", {})
-  .n("GlueClient", "RegisterSchemaVersionCommand")
-  .sc(RegisterSchemaVersion$)
-  .build() {
+export class RegisterSchemaVersionCommand extends command<RegisterSchemaVersionCommandInput, RegisterSchemaVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterSchemaVersion",
+  RegisterSchemaVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

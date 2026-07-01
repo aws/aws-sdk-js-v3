@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutEmailIdentityDkimAttributesRequest, PutEmailIdentityDkimAttributesResponse } from "../models/models_0";
 import { PutEmailIdentityDkimAttributes$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface PutEmailIdentityDkimAttributesCommandOutput extends PutEmailIde
  *
  * @public
  */
-export class PutEmailIdentityDkimAttributesCommand extends $Command
-  .classBuilder<
-    PutEmailIdentityDkimAttributesCommandInput,
-    PutEmailIdentityDkimAttributesCommandOutput,
-    SESv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService_v2", "PutEmailIdentityDkimAttributes", {})
-  .n("SESv2Client", "PutEmailIdentityDkimAttributesCommand")
-  .sc(PutEmailIdentityDkimAttributes$)
-  .build() {
+export class PutEmailIdentityDkimAttributesCommand extends command<PutEmailIdentityDkimAttributesCommandInput, PutEmailIdentityDkimAttributesCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutEmailIdentityDkimAttributes",
+  PutEmailIdentityDkimAttributes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

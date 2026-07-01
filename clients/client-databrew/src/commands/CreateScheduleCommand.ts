@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateScheduleRequest, CreateScheduleResponse } from "../models/models_0";
 import { CreateSchedule$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateSchedule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface CreateScheduleCommandOutput extends CreateScheduleResponse, __M
  *
  * @public
  */
-export class CreateScheduleCommand extends $Command
-  .classBuilder<
-    CreateScheduleCommandInput,
-    CreateScheduleCommandOutput,
-    DataBrewClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlueDataBrew", "CreateSchedule", {})
-  .n("DataBrewClient", "CreateScheduleCommand")
-  .sc(CreateSchedule$)
-  .build() {
+export class CreateScheduleCommand extends command<CreateScheduleCommandInput, CreateScheduleCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSchedule",
+  CreateSchedule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

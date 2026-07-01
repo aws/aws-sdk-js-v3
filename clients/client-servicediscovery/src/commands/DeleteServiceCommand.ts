@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteServiceRequest, DeleteServiceResponse } from "../models/models_0";
 import { DeleteService$ } from "../schemas/schemas_0";
-import type {
-  ServiceDiscoveryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceDiscoveryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +92,12 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  *
  * @public
  */
-export class DeleteServiceCommand extends $Command
-  .classBuilder<
-    DeleteServiceCommandInput,
-    DeleteServiceCommandOutput,
-    ServiceDiscoveryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53AutoNaming_v20170314", "DeleteService", {})
-  .n("ServiceDiscoveryClient", "DeleteServiceCommand")
-  .sc(DeleteService$)
-  .build() {
+export class DeleteServiceCommand extends command<DeleteServiceCommandInput, DeleteServiceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteService",
+  DeleteService$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

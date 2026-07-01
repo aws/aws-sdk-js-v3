@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ProfileDetailResponse, UpdateProfileRequest } from "../models/models_0";
-import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { UpdateProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface UpdateProfileCommandOutput extends ProfileDetailResponse, __Met
  *
  * @public
  */
-export class UpdateProfileCommand extends $Command
-  .classBuilder<
-    UpdateProfileCommandInput,
-    UpdateProfileCommandOutput,
-    RolesAnywhereClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RolesAnywhereClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RolesAnywhere", "UpdateProfile", {})
-  .n("RolesAnywhereClient", "UpdateProfileCommand")
-  .sc(UpdateProfile$)
-  .build() {
+export class UpdateProfileCommand extends command<UpdateProfileCommandInput, UpdateProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateProfile",
+  UpdateProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

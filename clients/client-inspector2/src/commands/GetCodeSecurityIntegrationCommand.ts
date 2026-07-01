@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCodeSecurityIntegrationRequest, GetCodeSecurityIntegrationResponse } from "../models/models_0";
 import { GetCodeSecurityIntegration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetCodeSecurityIntegration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface GetCodeSecurityIntegrationCommandOutput extends GetCodeSecurity
  *
  * @public
  */
-export class GetCodeSecurityIntegrationCommand extends $Command
-  .classBuilder<
-    GetCodeSecurityIntegrationCommandInput,
-    GetCodeSecurityIntegrationCommandOutput,
-    Inspector2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Inspector2", "GetCodeSecurityIntegration", {})
-  .n("Inspector2Client", "GetCodeSecurityIntegrationCommand")
-  .sc(GetCodeSecurityIntegration$)
-  .build() {
+export class GetCodeSecurityIntegrationCommand extends command<GetCodeSecurityIntegrationCommandInput, GetCodeSecurityIntegrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCodeSecurityIntegration",
+  GetCodeSecurityIntegration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

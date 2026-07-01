@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDbParameterGroupsInput, ListDbParameterGroupsOutput } from "../models/models_0";
 import { ListDbParameterGroups$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TimestreamInfluxDBClientResolvedConfig,
-} from "../TimestreamInfluxDBClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface ListDbParameterGroupsCommandOutput extends ListDbParameterGroup
  *
  * @public
  */
-export class ListDbParameterGroupsCommand extends $Command
-  .classBuilder<
-    ListDbParameterGroupsCommandInput,
-    ListDbParameterGroupsCommandOutput,
-    TimestreamInfluxDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TimestreamInfluxDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonTimestreamInfluxDB", "ListDbParameterGroups", {})
-  .n("TimestreamInfluxDBClient", "ListDbParameterGroupsCommand")
-  .sc(ListDbParameterGroups$)
-  .build() {
+export class ListDbParameterGroupsCommand extends command<ListDbParameterGroupsCommandInput, ListDbParameterGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDbParameterGroups",
+  ListDbParameterGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

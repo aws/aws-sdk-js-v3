@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDistributionTenantRequest, GetDistributionTenantResult } from "../models/models_0";
 import { GetDistributionTenant$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDistributionTenant$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface GetDistributionTenantCommandOutput extends GetDistributionTenan
  *
  * @public
  */
-export class GetDistributionTenantCommand extends $Command
-  .classBuilder<
-    GetDistributionTenantCommandInput,
-    GetDistributionTenantCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "GetDistributionTenant", {})
-  .n("CloudFrontClient", "GetDistributionTenantCommand")
-  .sc(GetDistributionTenant$)
-  .build() {
+export class GetDistributionTenantCommand extends command<GetDistributionTenantCommandInput, GetDistributionTenantCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDistributionTenant",
+  GetDistributionTenant$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

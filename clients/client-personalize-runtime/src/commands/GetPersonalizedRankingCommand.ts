@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPersonalizedRankingRequest, GetPersonalizedRankingResponse } from "../models/models_0";
-import type {
-  PersonalizeRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PersonalizeRuntimeClient";
 import { GetPersonalizedRanking$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +95,12 @@ export interface GetPersonalizedRankingCommandOutput extends GetPersonalizedRank
  *
  * @public
  */
-export class GetPersonalizedRankingCommand extends $Command
-  .classBuilder<
-    GetPersonalizedRankingCommandInput,
-    GetPersonalizedRankingCommandOutput,
-    PersonalizeRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PersonalizeRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPersonalizeRuntime", "GetPersonalizedRanking", {})
-  .n("PersonalizeRuntimeClient", "GetPersonalizedRankingCommand")
-  .sc(GetPersonalizedRanking$)
-  .build() {
+export class GetPersonalizedRankingCommand extends command<GetPersonalizedRankingCommandInput, GetPersonalizedRankingCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPersonalizedRanking",
+  GetPersonalizedRanking$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetDeploymentInstancesInput, BatchGetDeploymentInstancesOutput } from "../models/models_0";
 import { BatchGetDeploymentInstances$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetDeploymentInstances$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +111,12 @@ export interface BatchGetDeploymentInstancesCommandOutput extends BatchGetDeploy
  *
  * @public
  */
-export class BatchGetDeploymentInstancesCommand extends $Command
-  .classBuilder<
-    BatchGetDeploymentInstancesCommandInput,
-    BatchGetDeploymentInstancesCommandOutput,
-    CodeDeployClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeDeploy_20141006", "BatchGetDeploymentInstances", {})
-  .n("CodeDeployClient", "BatchGetDeploymentInstancesCommand")
-  .sc(BatchGetDeploymentInstances$)
-  .build() {
+export class BatchGetDeploymentInstancesCommand extends command<BatchGetDeploymentInstancesCommandInput, BatchGetDeploymentInstancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetDeploymentInstances",
+  BatchGetDeploymentInstances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

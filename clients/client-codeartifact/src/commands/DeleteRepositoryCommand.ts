@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRepositoryRequest, DeleteRepositoryResult } from "../models/models_0";
 import { DeleteRepository$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteRepository$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResult, _
  *
  * @public
  */
-export class DeleteRepositoryCommand extends $Command
-  .classBuilder<
-    DeleteRepositoryCommandInput,
-    DeleteRepositoryCommandOutput,
-    CodeartifactClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeArtifactControlPlaneService", "DeleteRepository", {})
-  .n("CodeartifactClient", "DeleteRepositoryCommand")
-  .sc(DeleteRepository$)
-  .build() {
+export class DeleteRepositoryCommand extends command<DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRepository",
+  DeleteRepository$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

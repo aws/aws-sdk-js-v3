@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ResetImageAttributeRequest } from "../models/models_7";
 import { ResetImageAttribute$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ResetImageAttribute$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface ResetImageAttributeCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class ResetImageAttributeCommand extends $Command
-  .classBuilder<
-    ResetImageAttributeCommandInput,
-    ResetImageAttributeCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "ResetImageAttribute", {})
-  .n("EC2Client", "ResetImageAttributeCommand")
-  .sc(ResetImageAttribute$)
-  .build() {
+export class ResetImageAttributeCommand extends command<ResetImageAttributeCommandInput, ResetImageAttributeCommandOutput>(
+  _ep0,
+  _mw0,
+  "ResetImageAttribute",
+  ResetImageAttribute$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

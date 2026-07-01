@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetIterableFormsRequest, BatchGetIterableFormsResponse } from "../models/models_0";
 import { BatchGetIterableForms$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetIterableForms$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface BatchGetIterableFormsCommandOutput extends BatchGetIterableForm
  *
  * @public
  */
-export class BatchGetIterableFormsCommand extends $Command
-  .classBuilder<
-    BatchGetIterableFormsCommandInput,
-    BatchGetIterableFormsCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "BatchGetIterableForms", {})
-  .n("GlueClient", "BatchGetIterableFormsCommand")
-  .sc(BatchGetIterableForms$)
-  .build() {
+export class BatchGetIterableFormsCommand extends command<BatchGetIterableFormsCommandInput, BatchGetIterableFormsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetIterableForms",
+  BatchGetIterableForms$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterDelegatedAdministratorRequest } from "../models/models_0";
-import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { RegisterDelegatedAdministrator$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -499,22 +495,12 @@ export interface RegisterDelegatedAdministratorCommandOutput extends __MetadataB
  *
  * @public
  */
-export class RegisterDelegatedAdministratorCommand extends $Command
-  .classBuilder<
-    RegisterDelegatedAdministratorCommandInput,
-    RegisterDelegatedAdministratorCommandOutput,
-    OrganizationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrganizationsV20161128", "RegisterDelegatedAdministrator", {})
-  .n("OrganizationsClient", "RegisterDelegatedAdministratorCommand")
-  .sc(RegisterDelegatedAdministrator$)
-  .build() {
+export class RegisterDelegatedAdministratorCommand extends command<RegisterDelegatedAdministratorCommandInput, RegisterDelegatedAdministratorCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterDelegatedAdministrator",
+  RegisterDelegatedAdministrator$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

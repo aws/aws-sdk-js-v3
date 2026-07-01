@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateProjectVersionRequest, CreateProjectVersionResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { CreateProjectVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -184,22 +180,12 @@ export interface CreateProjectVersionCommandOutput extends CreateProjectVersionR
  *
  * @public
  */
-export class CreateProjectVersionCommand extends $Command
-  .classBuilder<
-    CreateProjectVersionCommandInput,
-    CreateProjectVersionCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "CreateProjectVersion", {})
-  .n("RekognitionClient", "CreateProjectVersionCommand")
-  .sc(CreateProjectVersion$)
-  .build() {
+export class CreateProjectVersionCommand extends command<CreateProjectVersionCommandInput, CreateProjectVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateProjectVersion",
+  CreateProjectVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

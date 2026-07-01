@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetInsightResultsRequest, GetInsightResultsResponse } from "../models/models_2";
 import { GetInsightResults$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface GetInsightResultsCommandOutput extends GetInsightResultsRespons
  *
  * @public
  */
-export class GetInsightResultsCommand extends $Command
-  .classBuilder<
-    GetInsightResultsCommandInput,
-    GetInsightResultsCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "GetInsightResults", {})
-  .n("SecurityHubClient", "GetInsightResultsCommand")
-  .sc(GetInsightResults$)
-  .build() {
+export class GetInsightResultsCommand extends command<GetInsightResultsCommandInput, GetInsightResultsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetInsightResults",
+  GetInsightResults$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListJobsInput, ListJobsOutput } from "../models/models_0";
 import { ListJobs$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListJobs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -241,22 +237,12 @@ export interface ListJobsCommandOutput extends ListJobsOutput, __MetadataBearer 
  *
  * @public
  */
-export class ListJobsCommand extends $Command
-  .classBuilder<
-    ListJobsCommandInput,
-    ListJobsCommandOutput,
-    GlacierClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Glacier", "ListJobs", {})
-  .n("GlacierClient", "ListJobsCommand")
-  .sc(ListJobs$)
-  .build() {
+export class ListJobsCommand extends command<ListJobsCommandInput, ListJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListJobs",
+  ListJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyUIBuilderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyUIBuilderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMetadataRequest, GetMetadataResponse } from "../models/models_0";
 import { GetMetadata$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetMetadata$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +64,12 @@ export interface GetMetadataCommandOutput extends GetMetadataResponse, __Metadat
  *
  * @public
  */
-export class GetMetadataCommand extends $Command
-  .classBuilder<
-    GetMetadataCommandInput,
-    GetMetadataCommandOutput,
-    AmplifyUIBuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyUIBuilder", "GetMetadata", {})
-  .n("AmplifyUIBuilderClient", "GetMetadataCommand")
-  .sc(GetMetadata$)
-  .build() {
+export class GetMetadataCommand extends command<GetMetadataCommandInput, GetMetadataCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMetadata",
+  GetMetadata$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

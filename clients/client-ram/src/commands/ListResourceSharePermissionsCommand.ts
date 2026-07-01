@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListResourceSharePermissionsRequest, ListResourceSharePermissionsResponse } from "../models/models_0";
-import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import { ListResourceSharePermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface ListResourceSharePermissionsCommandOutput extends ListResourceS
  *
  * @public
  */
-export class ListResourceSharePermissionsCommand extends $Command
-  .classBuilder<
-    ListResourceSharePermissionsCommandInput,
-    ListResourceSharePermissionsCommandOutput,
-    RAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonResourceSharing", "ListResourceSharePermissions", {})
-  .n("RAMClient", "ListResourceSharePermissionsCommand")
-  .sc(ListResourceSharePermissions$)
-  .build() {
+export class ListResourceSharePermissionsCommand extends command<ListResourceSharePermissionsCommandInput, ListResourceSharePermissionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListResourceSharePermissions",
+  ListResourceSharePermissions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SyncResourceRequest, SyncResourceResponse } from "../models/models_0";
 import { SyncResource$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogAppRegistryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogAppRegistryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface SyncResourceCommandOutput extends SyncResourceResponse, __Metad
  *
  * @public
  */
-export class SyncResourceCommand extends $Command
-  .classBuilder<
-    SyncResourceCommandInput,
-    SyncResourceCommandOutput,
-    ServiceCatalogAppRegistryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogAppRegistryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242AppRegistry", "SyncResource", {})
-  .n("ServiceCatalogAppRegistryClient", "SyncResourceCommand")
-  .sc(SyncResource$)
-  .build() {
+export class SyncResourceCommand extends command<SyncResourceCommandInput, SyncResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "SyncResource",
+  SyncResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

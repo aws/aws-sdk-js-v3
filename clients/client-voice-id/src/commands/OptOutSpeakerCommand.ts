@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { OptOutSpeakerRequest, OptOutSpeakerResponse } from "../models/models_0";
 import { OptOutSpeaker$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface OptOutSpeakerCommandOutput extends OptOutSpeakerResponse, __Met
  *
  * @public
  */
-export class OptOutSpeakerCommand extends $Command
-  .classBuilder<
-    OptOutSpeakerCommandInput,
-    OptOutSpeakerCommandOutput,
-    VoiceIDClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("VoiceID", "OptOutSpeaker", {})
-  .n("VoiceIDClient", "OptOutSpeakerCommand")
-  .sc(OptOutSpeaker$)
-  .build() {
+export class OptOutSpeakerCommand extends command<OptOutSpeakerCommandInput, OptOutSpeakerCommandOutput>(
+  _ep0,
+  _mw0,
+  "OptOutSpeaker",
+  OptOutSpeaker$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutRestApiRequest, RestApi } from "../models/models_0";
 import { PutRestApi$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutRestApi$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  */
@@ -122,22 +118,12 @@ export interface PutRestApiCommandOutput extends RestApi, __MetadataBearer {}
  *
  * @public
  */
-export class PutRestApiCommand extends $Command
-  .classBuilder<
-    PutRestApiCommandInput,
-    PutRestApiCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "PutRestApi", {})
-  .n("APIGatewayClient", "PutRestApiCommand")
-  .sc(PutRestApi$)
-  .build() {
+export class PutRestApiCommand extends command<PutRestApiCommandInput, PutRestApiCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutRestApi",
+  PutRestApi$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateSmsChannelRequest, UpdateSmsChannelResponse } from "../models/models_1";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { UpdateSmsChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface UpdateSmsChannelCommandOutput extends UpdateSmsChannelResponse,
  *
  * @public
  */
-export class UpdateSmsChannelCommand extends $Command
-  .classBuilder<
-    UpdateSmsChannelCommandInput,
-    UpdateSmsChannelCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "UpdateSmsChannel", {})
-  .n("PinpointClient", "UpdateSmsChannelCommand")
-  .sc(UpdateSmsChannel$)
-  .build() {
+export class UpdateSmsChannelCommand extends command<UpdateSmsChannelCommandInput, UpdateSmsChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSmsChannel",
+  UpdateSmsChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

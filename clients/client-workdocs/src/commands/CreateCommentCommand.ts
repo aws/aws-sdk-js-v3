@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCommentRequest, CreateCommentResponse } from "../models/models_0";
 import { CreateComment$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +121,12 @@ export interface CreateCommentCommandOutput extends CreateCommentResponse, __Met
  *
  * @public
  */
-export class CreateCommentCommand extends $Command
-  .classBuilder<
-    CreateCommentCommandInput,
-    CreateCommentCommandOutput,
-    WorkDocsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGorillaBoyService", "CreateComment", {})
-  .n("WorkDocsClient", "CreateCommentCommand")
-  .sc(CreateComment$)
-  .build() {
+export class CreateCommentCommand extends command<CreateCommentCommandInput, CreateCommentCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateComment",
+  CreateComment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

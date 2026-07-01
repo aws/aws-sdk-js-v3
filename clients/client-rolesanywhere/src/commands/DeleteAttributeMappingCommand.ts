@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAttributeMappingRequest, DeleteAttributeMappingResponse } from "../models/models_0";
-import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { DeleteAttributeMapping$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -145,22 +141,12 @@ export interface DeleteAttributeMappingCommandOutput extends DeleteAttributeMapp
  *
  * @public
  */
-export class DeleteAttributeMappingCommand extends $Command
-  .classBuilder<
-    DeleteAttributeMappingCommandInput,
-    DeleteAttributeMappingCommandOutput,
-    RolesAnywhereClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RolesAnywhereClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RolesAnywhere", "DeleteAttributeMapping", {})
-  .n("RolesAnywhereClient", "DeleteAttributeMappingCommand")
-  .sc(DeleteAttributeMapping$)
-  .build() {
+export class DeleteAttributeMappingCommand extends command<DeleteAttributeMappingCommandInput, DeleteAttributeMappingCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAttributeMapping",
+  DeleteAttributeMapping$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

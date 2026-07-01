@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { OperationWithRequiredMembersOutput } from "../models/models_0";
 import { OperationWithRequiredMembers$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { OperationWithRequiredMembers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface OperationWithRequiredMembersCommandOutput extends OperationWith
  *
  *
  */
-export class OperationWithRequiredMembersCommand extends $Command
-  .classBuilder<
-    OperationWithRequiredMembersCommandInput,
-    OperationWithRequiredMembersCommandOutput,
-    JSONRPC10ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: JSONRPC10ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("JsonRpc10", "OperationWithRequiredMembers", {})
-  .n("JSONRPC10Client", "OperationWithRequiredMembersCommand")
-  .sc(OperationWithRequiredMembers$)
-  .build() {
+export class OperationWithRequiredMembersCommand extends command<OperationWithRequiredMembersCommandInput, OperationWithRequiredMembersCommandOutput>(
+  _ep0,
+  _mw0,
+  "OperationWithRequiredMembers",
+  OperationWithRequiredMembers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

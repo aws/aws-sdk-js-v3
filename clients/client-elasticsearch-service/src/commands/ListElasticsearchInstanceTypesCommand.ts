@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticsearchServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticsearchServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListElasticsearchInstanceTypesRequest, ListElasticsearchInstanceTypesResponse } from "../models/models_0";
 import { ListElasticsearchInstanceTypes$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListElasticsearchInstanceTypes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface ListElasticsearchInstanceTypesCommandOutput extends ListElastic
  *
  * @public
  */
-export class ListElasticsearchInstanceTypesCommand extends $Command
-  .classBuilder<
-    ListElasticsearchInstanceTypesCommandInput,
-    ListElasticsearchInstanceTypesCommandOutput,
-    ElasticsearchServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticsearchService2015", "ListElasticsearchInstanceTypes", {})
-  .n("ElasticsearchServiceClient", "ListElasticsearchInstanceTypesCommand")
-  .sc(ListElasticsearchInstanceTypes$)
-  .build() {
+export class ListElasticsearchInstanceTypesCommand extends command<ListElasticsearchInstanceTypesCommandInput, ListElasticsearchInstanceTypesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListElasticsearchInstanceTypes",
+  ListElasticsearchInstanceTypes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

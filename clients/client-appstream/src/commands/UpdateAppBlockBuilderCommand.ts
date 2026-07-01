@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAppBlockBuilderRequest, UpdateAppBlockBuilderResult } from "../models/models_0";
 import { UpdateAppBlockBuilder$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateAppBlockBuilder$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -154,22 +150,12 @@ export interface UpdateAppBlockBuilderCommandOutput extends UpdateAppBlockBuilde
  *
  * @public
  */
-export class UpdateAppBlockBuilderCommand extends $Command
-  .classBuilder<
-    UpdateAppBlockBuilderCommandInput,
-    UpdateAppBlockBuilderCommandOutput,
-    AppStreamClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PhotonAdminProxyService", "UpdateAppBlockBuilder", {})
-  .n("AppStreamClient", "UpdateAppBlockBuilderCommand")
-  .sc(UpdateAppBlockBuilder$)
-  .build() {
+export class UpdateAppBlockBuilderCommand extends command<UpdateAppBlockBuilderCommandInput, UpdateAppBlockBuilderCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAppBlockBuilder",
+  UpdateAppBlockBuilder$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

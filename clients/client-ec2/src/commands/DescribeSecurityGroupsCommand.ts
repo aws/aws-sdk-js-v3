@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeSecurityGroupsRequest, DescribeSecurityGroupsResult } from "../models/models_4";
 import { DescribeSecurityGroups$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeSecurityGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -198,22 +194,12 @@ export interface DescribeSecurityGroupsCommandOutput extends DescribeSecurityGro
  *
  * @public
  */
-export class DescribeSecurityGroupsCommand extends $Command
-  .classBuilder<
-    DescribeSecurityGroupsCommandInput,
-    DescribeSecurityGroupsCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeSecurityGroups", {})
-  .n("EC2Client", "DescribeSecurityGroupsCommand")
-  .sc(DescribeSecurityGroups$)
-  .build() {
+export class DescribeSecurityGroupsCommand extends command<DescribeSecurityGroupsCommandInput, DescribeSecurityGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSecurityGroups",
+  DescribeSecurityGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

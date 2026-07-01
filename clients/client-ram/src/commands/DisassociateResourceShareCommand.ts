@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateResourceShareRequest, DisassociateResourceShareResponse } from "../models/models_0";
-import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import { DisassociateResourceShare$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +121,12 @@ export interface DisassociateResourceShareCommandOutput extends DisassociateReso
  *
  * @public
  */
-export class DisassociateResourceShareCommand extends $Command
-  .classBuilder<
-    DisassociateResourceShareCommandInput,
-    DisassociateResourceShareCommandOutput,
-    RAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonResourceSharing", "DisassociateResourceShare", {})
-  .n("RAMClient", "DisassociateResourceShareCommand")
-  .sc(DisassociateResourceShare$)
-  .build() {
+export class DisassociateResourceShareCommand extends command<DisassociateResourceShareCommandInput, DisassociateResourceShareCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateResourceShare",
+  DisassociateResourceShare$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

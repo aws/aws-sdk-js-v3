@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRouteResponseRequest, UpdateRouteResponseResponse } from "../models/models_0";
 import { UpdateRouteResponse$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateRouteResponse$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface UpdateRouteResponseCommandOutput extends UpdateRouteResponseRes
  *
  * @public
  */
-export class UpdateRouteResponseCommand extends $Command
-  .classBuilder<
-    UpdateRouteResponseCommandInput,
-    UpdateRouteResponseCommandOutput,
-    ApiGatewayV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApiGatewayV2", "UpdateRouteResponse", {})
-  .n("ApiGatewayV2Client", "UpdateRouteResponseCommand")
-  .sc(UpdateRouteResponse$)
-  .build() {
+export class UpdateRouteResponseCommand extends command<UpdateRouteResponseCommandInput, UpdateRouteResponseCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRouteResponse",
+  UpdateRouteResponse$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

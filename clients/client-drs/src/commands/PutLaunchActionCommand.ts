@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutLaunchActionRequest, PutLaunchActionResponse } from "../models/models_0";
 import { PutLaunchAction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutLaunchAction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface PutLaunchActionCommandOutput extends PutLaunchActionResponse, _
  *
  * @public
  */
-export class PutLaunchActionCommand extends $Command
-  .classBuilder<
-    PutLaunchActionCommandInput,
-    PutLaunchActionCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "PutLaunchAction", {})
-  .n("DrsClient", "PutLaunchActionCommand")
-  .sc(PutLaunchAction$)
-  .build() {
+export class PutLaunchActionCommand extends command<PutLaunchActionCommandInput, PutLaunchActionCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutLaunchAction",
+  PutLaunchAction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeKeyValueStoreRequest, DescribeKeyValueStoreResult } from "../models/models_0";
 import { DescribeKeyValueStore$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeKeyValueStore$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface DescribeKeyValueStoreCommandOutput extends DescribeKeyValueStor
  *
  * @public
  */
-export class DescribeKeyValueStoreCommand extends $Command
-  .classBuilder<
-    DescribeKeyValueStoreCommandInput,
-    DescribeKeyValueStoreCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "DescribeKeyValueStore", {})
-  .n("CloudFrontClient", "DescribeKeyValueStoreCommand")
-  .sc(DescribeKeyValueStore$)
-  .build() {
+export class DescribeKeyValueStoreCommand extends command<DescribeKeyValueStoreCommandInput, DescribeKeyValueStoreCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeKeyValueStore",
+  DescribeKeyValueStore$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

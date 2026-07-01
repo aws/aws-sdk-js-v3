@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDataSetImportTaskRequest, GetDataSetImportTaskResponse } from "../models/models_0";
 import { GetDataSetImportTask$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDataSetImportTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface GetDataSetImportTaskCommandOutput extends GetDataSetImportTaskR
  *
  * @public
  */
-export class GetDataSetImportTaskCommand extends $Command
-  .classBuilder<
-    GetDataSetImportTaskCommandInput,
-    GetDataSetImportTaskCommandOutput,
-    M2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: M2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsSupernovaControlPlaneService", "GetDataSetImportTask", {})
-  .n("M2Client", "GetDataSetImportTaskCommand")
-  .sc(GetDataSetImportTask$)
-  .build() {
+export class GetDataSetImportTaskCommand extends command<GetDataSetImportTaskCommandInput, GetDataSetImportTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDataSetImportTask",
+  GetDataSetImportTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateSourceResourceRequest, DisassociateSourceResourceResult } from "../models/models_0";
 import { DisassociateSourceResource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateSourceResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface DisassociateSourceResourceCommandOutput extends DisassociateSou
  *
  * @public
  */
-export class DisassociateSourceResourceCommand extends $Command
-  .classBuilder<
-    DisassociateSourceResourceCommandInput,
-    DisassociateSourceResourceCommandOutput,
-    MigrationHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHub", "DisassociateSourceResource", {})
-  .n("MigrationHubClient", "DisassociateSourceResourceCommand")
-  .sc(DisassociateSourceResource$)
-  .build() {
+export class DisassociateSourceResourceCommand extends command<DisassociateSourceResourceCommandInput, DisassociateSourceResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateSourceResource",
+  DisassociateSourceResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

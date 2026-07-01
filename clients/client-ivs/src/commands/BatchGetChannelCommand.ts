@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetChannelRequest, BatchGetChannelResponse } from "../models/models_0";
 import { BatchGetChannel$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetChannel$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  *
  * @public
  */
-export class BatchGetChannelCommand extends $Command
-  .classBuilder<
-    BatchGetChannelCommandInput,
-    BatchGetChannelCommandOutput,
-    IvsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoService", "BatchGetChannel", {})
-  .n("IvsClient", "BatchGetChannelCommand")
-  .sc(BatchGetChannel$)
-  .build() {
+export class BatchGetChannelCommand extends command<BatchGetChannelCommandInput, BatchGetChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetChannel",
+  BatchGetChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

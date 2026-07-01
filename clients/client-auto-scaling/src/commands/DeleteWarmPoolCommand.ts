@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteWarmPoolAnswer, DeleteWarmPoolType } from "../models/models_0";
 import { DeleteWarmPool$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteWarmPool$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DeleteWarmPoolCommandOutput extends DeleteWarmPoolAnswer, __Met
  *
  * @public
  */
-export class DeleteWarmPoolCommand extends $Command
-  .classBuilder<
-    DeleteWarmPoolCommandInput,
-    DeleteWarmPoolCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "DeleteWarmPool", {})
-  .n("AutoScalingClient", "DeleteWarmPoolCommand")
-  .sc(DeleteWarmPool$)
-  .build() {
+export class DeleteWarmPoolCommand extends command<DeleteWarmPoolCommandInput, DeleteWarmPoolCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteWarmPool",
+  DeleteWarmPool$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

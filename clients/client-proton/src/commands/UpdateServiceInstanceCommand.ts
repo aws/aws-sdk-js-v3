@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateServiceInstanceInput, UpdateServiceInstanceOutput } from "../models/models_0";
-import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 import { UpdateServiceInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface UpdateServiceInstanceCommandOutput extends UpdateServiceInstanc
  *
  * @public
  */
-export class UpdateServiceInstanceCommand extends $Command
-  .classBuilder<
-    UpdateServiceInstanceCommandInput,
-    UpdateServiceInstanceCommandOutput,
-    ProtonClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsProton20200720", "UpdateServiceInstance", {})
-  .n("ProtonClient", "UpdateServiceInstanceCommand")
-  .sc(UpdateServiceInstance$)
-  .build() {
+export class UpdateServiceInstanceCommand extends command<UpdateServiceInstanceCommandInput, UpdateServiceInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateServiceInstance",
+  UpdateServiceInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

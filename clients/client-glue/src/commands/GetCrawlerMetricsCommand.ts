@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCrawlerMetricsRequest, GetCrawlerMetricsResponse } from "../models/models_1";
 import { GetCrawlerMetrics$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetCrawlerMetrics$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface GetCrawlerMetricsCommandOutput extends GetCrawlerMetricsRespons
  *
  * @public
  */
-export class GetCrawlerMetricsCommand extends $Command
-  .classBuilder<
-    GetCrawlerMetricsCommandInput,
-    GetCrawlerMetricsCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "GetCrawlerMetrics", {})
-  .n("GlueClient", "GetCrawlerMetricsCommand")
-  .sc(GetCrawlerMetrics$)
-  .build() {
+export class GetCrawlerMetricsCommand extends command<GetCrawlerMetricsCommandInput, GetCrawlerMetricsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCrawlerMetrics",
+  GetCrawlerMetrics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

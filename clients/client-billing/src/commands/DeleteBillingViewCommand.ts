@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BillingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteBillingViewRequest, DeleteBillingViewResponse } from "../models/models_0";
 import { DeleteBillingView$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteBillingView$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface DeleteBillingViewCommandOutput extends DeleteBillingViewRespons
  *
  * @public
  */
-export class DeleteBillingViewCommand extends $Command
-  .classBuilder<
-    DeleteBillingViewCommandInput,
-    DeleteBillingViewCommandOutput,
-    BillingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BillingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBilling", "DeleteBillingView", {})
-  .n("BillingClient", "DeleteBillingViewCommand")
-  .sc(DeleteBillingView$)
-  .build() {
+export class DeleteBillingViewCommand extends command<DeleteBillingViewCommandInput, DeleteBillingViewCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteBillingView",
+  DeleteBillingView$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerAutomationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerAutomationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAutomationEventSummariesRequest, ListAutomationEventSummariesResponse } from "../models/models_0";
 import { ListAutomationEventSummaries$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListAutomationEventSummaries$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +111,12 @@ export interface ListAutomationEventSummariesCommandOutput extends ListAutomatio
  *
  * @public
  */
-export class ListAutomationEventSummariesCommand extends $Command
-  .classBuilder<
-    ListAutomationEventSummariesCommandInput,
-    ListAutomationEventSummariesCommandOutput,
-    ComputeOptimizerAutomationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerAutomationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerAutomationService", "ListAutomationEventSummaries", {})
-  .n("ComputeOptimizerAutomationClient", "ListAutomationEventSummariesCommand")
-  .sc(ListAutomationEventSummaries$)
-  .build() {
+export class ListAutomationEventSummariesCommand extends command<ListAutomationEventSummariesCommandInput, ListAutomationEventSummariesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAutomationEventSummaries",
+  ListAutomationEventSummaries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

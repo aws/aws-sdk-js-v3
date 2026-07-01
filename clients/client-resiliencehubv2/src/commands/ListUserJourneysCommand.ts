@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListUserJourneysRequest, ListUserJourneysResponse } from "../models/models_0";
-import type {
-  Resiliencehubv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Resiliencehubv2Client";
 import { ListUserJourneys$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface ListUserJourneysCommandOutput extends ListUserJourneysResponse,
  *
  * @public
  */
-export class ListUserJourneysCommand extends $Command
-  .classBuilder<
-    ListUserJourneysCommandInput,
-    ListUserJourneysCommandOutput,
-    Resiliencehubv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Resiliencehubv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NGRHServiceCore", "ListUserJourneys", {})
-  .n("Resiliencehubv2Client", "ListUserJourneysCommand")
-  .sc(ListUserJourneys$)
-  .build() {
+export class ListUserJourneysCommand extends command<ListUserJourneysCommandInput, ListUserJourneysCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListUserJourneys",
+  ListUserJourneys$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

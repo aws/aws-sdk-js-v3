@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendDataToWirelessDeviceRequest } from "../models/models_0";
 import type { SendDataToWirelessDeviceResponse } from "../models/models_1";
 import { SendDataToWirelessDevice$ } from "../schemas/schemas_0";
@@ -13,7 +10,6 @@ import { SendDataToWirelessDevice$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface SendDataToWirelessDeviceCommandOutput extends SendDataToWireles
  *
  * @public
  */
-export class SendDataToWirelessDeviceCommand extends $Command
-  .classBuilder<
-    SendDataToWirelessDeviceCommandInput,
-    SendDataToWirelessDeviceCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "SendDataToWirelessDevice", {})
-  .n("IoTWirelessClient", "SendDataToWirelessDeviceCommand")
-  .sc(SendDataToWirelessDevice$)
-  .build() {
+export class SendDataToWirelessDeviceCommand extends command<SendDataToWirelessDeviceCommandInput, SendDataToWirelessDeviceCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendDataToWirelessDevice",
+  SendDataToWirelessDevice$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

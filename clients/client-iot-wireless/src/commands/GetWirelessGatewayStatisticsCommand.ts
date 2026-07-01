@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetWirelessGatewayStatisticsRequest, GetWirelessGatewayStatisticsResponse } from "../models/models_0";
 import { GetWirelessGatewayStatistics$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetWirelessGatewayStatistics$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface GetWirelessGatewayStatisticsCommandOutput extends GetWirelessGa
  *
  * @public
  */
-export class GetWirelessGatewayStatisticsCommand extends $Command
-  .classBuilder<
-    GetWirelessGatewayStatisticsCommandInput,
-    GetWirelessGatewayStatisticsCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "GetWirelessGatewayStatistics", {})
-  .n("IoTWirelessClient", "GetWirelessGatewayStatisticsCommand")
-  .sc(GetWirelessGatewayStatistics$)
-  .build() {
+export class GetWirelessGatewayStatisticsCommand extends command<GetWirelessGatewayStatisticsCommandInput, GetWirelessGatewayStatisticsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetWirelessGatewayStatistics",
+  GetWirelessGatewayStatistics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartArchiveExportRequest, StartArchiveExportResponse } from "../models/models_0";
 import { StartArchiveExport$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartArchiveExport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface StartArchiveExportCommandOutput extends StartArchiveExportRespo
  *
  * @public
  */
-export class StartArchiveExportCommand extends $Command
-  .classBuilder<
-    StartArchiveExportCommandInput,
-    StartArchiveExportCommandOutput,
-    MailManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MailManagerSvc", "StartArchiveExport", {})
-  .n("MailManagerClient", "StartArchiveExportCommand")
-  .sc(StartArchiveExport$)
-  .build() {
+export class StartArchiveExportCommand extends command<StartArchiveExportCommandInput, StartArchiveExportCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartArchiveExport",
+  StartArchiveExport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

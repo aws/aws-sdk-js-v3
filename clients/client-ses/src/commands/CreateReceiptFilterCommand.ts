@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateReceiptFilterRequest, CreateReceiptFilterResponse } from "../models/models_0";
 import { CreateReceiptFilter$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface CreateReceiptFilterCommandOutput extends CreateReceiptFilterRes
  *
  * @public
  */
-export class CreateReceiptFilterCommand extends $Command
-  .classBuilder<
-    CreateReceiptFilterCommandInput,
-    CreateReceiptFilterCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "CreateReceiptFilter", {})
-  .n("SESClient", "CreateReceiptFilterCommand")
-  .sc(CreateReceiptFilter$)
-  .build() {
+export class CreateReceiptFilterCommand extends command<CreateReceiptFilterCommandInput, CreateReceiptFilterCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateReceiptFilter",
+  CreateReceiptFilter$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

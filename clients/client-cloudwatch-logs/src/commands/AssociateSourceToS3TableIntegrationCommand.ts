@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AssociateSourceToS3TableIntegrationRequest,
   AssociateSourceToS3TableIntegrationResponse,
@@ -19,7 +12,6 @@ import { AssociateSourceToS3TableIntegration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface AssociateSourceToS3TableIntegrationCommandOutput extends Associ
  *
  * @public
  */
-export class AssociateSourceToS3TableIntegrationCommand extends $Command
-  .classBuilder<
-    AssociateSourceToS3TableIntegrationCommandInput,
-    AssociateSourceToS3TableIntegrationCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "AssociateSourceToS3TableIntegration", {})
-  .n("CloudWatchLogsClient", "AssociateSourceToS3TableIntegrationCommand")
-  .sc(AssociateSourceToS3TableIntegration$)
-  .build() {
+export class AssociateSourceToS3TableIntegrationCommand extends command<AssociateSourceToS3TableIntegrationCommandInput, AssociateSourceToS3TableIntegrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateSourceToS3TableIntegration",
+  AssociateSourceToS3TableIntegration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

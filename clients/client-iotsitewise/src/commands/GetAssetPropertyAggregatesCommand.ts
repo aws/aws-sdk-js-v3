@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAssetPropertyAggregatesRequest, GetAssetPropertyAggregatesResponse } from "../models/models_0";
 import { GetAssetPropertyAggregates$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetAssetPropertyAggregates$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface GetAssetPropertyAggregatesCommandOutput extends GetAssetPropert
  *
  * @public
  */
-export class GetAssetPropertyAggregatesCommand extends $Command
-  .classBuilder<
-    GetAssetPropertyAggregatesCommandInput,
-    GetAssetPropertyAggregatesCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "GetAssetPropertyAggregates", {})
-  .n("IoTSiteWiseClient", "GetAssetPropertyAggregatesCommand")
-  .sc(GetAssetPropertyAggregates$)
-  .build() {
+export class GetAssetPropertyAggregatesCommand extends command<GetAssetPropertyAggregatesCommandInput, GetAssetPropertyAggregatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAssetPropertyAggregates",
+  GetAssetPropertyAggregates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

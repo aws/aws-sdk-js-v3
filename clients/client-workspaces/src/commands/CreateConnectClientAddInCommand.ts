@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateConnectClientAddInRequest, CreateConnectClientAddInResult } from "../models/models_0";
 import { CreateConnectClientAddIn$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface CreateConnectClientAddInCommandOutput extends CreateConnectClie
  *
  * @public
  */
-export class CreateConnectClientAddInCommand extends $Command
-  .classBuilder<
-    CreateConnectClientAddInCommandInput,
-    CreateConnectClientAddInCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "CreateConnectClientAddIn", {})
-  .n("WorkSpacesClient", "CreateConnectClientAddInCommand")
-  .sc(CreateConnectClientAddIn$)
-  .build() {
+export class CreateConnectClientAddInCommand extends command<CreateConnectClientAddInCommandInput, CreateConnectClientAddInCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateConnectClientAddIn",
+  CreateConnectClientAddIn$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

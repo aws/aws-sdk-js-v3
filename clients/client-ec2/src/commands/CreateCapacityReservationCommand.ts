@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCapacityReservationRequest, CreateCapacityReservationResult } from "../models/models_0";
 import { CreateCapacityReservation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateCapacityReservation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -171,22 +167,12 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  *
  * @public
  */
-export class CreateCapacityReservationCommand extends $Command
-  .classBuilder<
-    CreateCapacityReservationCommandInput,
-    CreateCapacityReservationCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "CreateCapacityReservation", {})
-  .n("EC2Client", "CreateCapacityReservationCommand")
-  .sc(CreateCapacityReservation$)
-  .build() {
+export class CreateCapacityReservationCommand extends command<CreateCapacityReservationCommandInput, CreateCapacityReservationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCapacityReservation",
+  CreateCapacityReservation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

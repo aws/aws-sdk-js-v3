@@ -1,20 +1,14 @@
 // smithy-typescript generated code
-import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3/s3-control";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
-import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDataAccessRequest, GetDataAccessResult } from "../models/models_0";
-import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { GetDataAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,30 +81,12 @@ export interface GetDataAccessCommandOutput extends GetDataAccessResult, __Metad
  *
  * @public
  */
-export class GetDataAccessCommand extends $Command
-  .classBuilder<
-    GetDataAccessCommandInput,
-    GetDataAccessCommandOutput,
-    S3ControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    RequiresAccountId: { type: "staticContextParams", value: true },
-    AccountId: { type: "contextParams", name: "AccountId" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getProcessArnablesPlugin(config),
-      getApplyMd5BodyChecksumPlugin(config),
-    ];
-  })
-  .s("AWSS3ControlServiceV20180820", "GetDataAccess", {})
-  .n("S3ControlClient", "GetDataAccessCommand")
-  .sc(GetDataAccess$)
-  .build() {
+export class GetDataAccessCommand extends command<GetDataAccessCommandInput, GetDataAccessCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDataAccess",
+  GetDataAccess$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

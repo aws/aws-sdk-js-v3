@@ -1,28 +1,17 @@
 // smithy-typescript generated code
-import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
-import { getTranscribeStreamingPlugin } from "@aws-sdk/middleware-sdk-transcribe-streaming";
-import { getWebSocketPlugin } from "@aws-sdk/middleware-websocket";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type {
   StartMedicalStreamTranscriptionRequest,
   StartMedicalStreamTranscriptionResponse,
 } from "../models/models_0";
 import { StartMedicalStreamTranscription$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TranscribeStreamingClientResolvedConfig,
-} from "../TranscribeStreamingClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -206,37 +195,12 @@ export interface StartMedicalStreamTranscriptionCommandOutput extends StartMedic
  *
  * @public
  */
-export class StartMedicalStreamTranscriptionCommand extends $Command
-  .classBuilder<
-    StartMedicalStreamTranscriptionCommandInput,
-    StartMedicalStreamTranscriptionCommandOutput,
-    TranscribeStreamingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TranscribeStreamingClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEventStreamPlugin(config),
-      getWebSocketPlugin(config, {
-        headerPrefix: 'x-amzn-transcribe-',
-      }),
-      getTranscribeStreamingPlugin(config),
-    ];
-  })
-  .s("Transcribe", "StartMedicalStreamTranscription", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      input: true,
-      output: true,
-    },
-  })
-  .n("TranscribeStreamingClient", "StartMedicalStreamTranscriptionCommand")
-  .sc(StartMedicalStreamTranscription$)
-  .build() {
+export class StartMedicalStreamTranscriptionCommand extends command<StartMedicalStreamTranscriptionCommandInput, StartMedicalStreamTranscriptionCommandOutput>(
+  _ep0,
+  _mw1,
+  "StartMedicalStreamTranscription",
+  StartMedicalStreamTranscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAssociationsRequest, ListAssociationsResult } from "../models/models_1";
 import { ListAssociations$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  *
  * @public
  */
-export class ListAssociationsCommand extends $Command
-  .classBuilder<
-    ListAssociationsCommandInput,
-    ListAssociationsCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "ListAssociations", {})
-  .n("SSMClient", "ListAssociationsCommand")
-  .sc(ListAssociations$)
-  .build() {
+export class ListAssociationsCommand extends command<ListAssociationsCommandInput, ListAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAssociations",
+  ListAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

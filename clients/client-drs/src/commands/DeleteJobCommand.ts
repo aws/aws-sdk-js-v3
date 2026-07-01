@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteJobRequest, DeleteJobResponse } from "../models/models_0";
 import { DeleteJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteJobCommandOutput extends DeleteJobResponse, __MetadataBea
  *
  * @public
  */
-export class DeleteJobCommand extends $Command
-  .classBuilder<
-    DeleteJobCommandInput,
-    DeleteJobCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "DeleteJob", {})
-  .n("DrsClient", "DeleteJobCommand")
-  .sc(DeleteJob$)
-  .build() {
+export class DeleteJobCommand extends command<DeleteJobCommandInput, DeleteJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteJob",
+  DeleteJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -13,7 +13,6 @@ import { de_SimpleInputParamsCommand, se_SimpleInputParamsCommand } from "../pro
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

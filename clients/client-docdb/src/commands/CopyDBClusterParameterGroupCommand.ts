@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CopyDBClusterParameterGroupMessage, CopyDBClusterParameterGroupResult } from "../models/models_0";
 import { CopyDBClusterParameterGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CopyDBClusterParameterGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  *
  * @public
  */
-export class CopyDBClusterParameterGroupCommand extends $Command
-  .classBuilder<
-    CopyDBClusterParameterGroupCommandInput,
-    CopyDBClusterParameterGroupCommandOutput,
-    DocDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "CopyDBClusterParameterGroup", {})
-  .n("DocDBClient", "CopyDBClusterParameterGroupCommand")
-  .sc(CopyDBClusterParameterGroup$)
-  .build() {
+export class CopyDBClusterParameterGroupCommand extends command<CopyDBClusterParameterGroupCommandInput, CopyDBClusterParameterGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CopyDBClusterParameterGroup",
+  CopyDBClusterParameterGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

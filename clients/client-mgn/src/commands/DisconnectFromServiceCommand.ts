@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisconnectFromServiceRequest, SourceServer } from "../models/models_0";
 import { DisconnectFromService$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisconnectFromService$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -195,22 +191,12 @@ export interface DisconnectFromServiceCommandOutput extends SourceServer, __Meta
  *
  * @public
  */
-export class DisconnectFromServiceCommand extends $Command
-  .classBuilder<
-    DisconnectFromServiceCommandInput,
-    DisconnectFromServiceCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "DisconnectFromService", {})
-  .n("MgnClient", "DisconnectFromServiceCommand")
-  .sc(DisconnectFromService$)
-  .build() {
+export class DisconnectFromServiceCommand extends command<DisconnectFromServiceCommandInput, DisconnectFromServiceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisconnectFromService",
+  DisconnectFromService$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

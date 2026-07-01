@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSupportCaseRequest, CreateSupportCaseResponse } from "../models/models_0";
 import { CreateSupportCase$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface CreateSupportCaseCommandOutput extends CreateSupportCaseRespons
  *
  * @public
  */
-export class CreateSupportCaseCommand extends $Command
-  .classBuilder<
-    CreateSupportCaseCommandInput,
-    CreateSupportCaseCommandOutput,
-    ServiceQuotasClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ServiceQuotasV20190624", "CreateSupportCase", {})
-  .n("ServiceQuotasClient", "CreateSupportCaseCommand")
-  .sc(CreateSupportCase$)
-  .build() {
+export class CreateSupportCaseCommand extends command<CreateSupportCaseCommandInput, CreateSupportCaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSupportCase",
+  CreateSupportCase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

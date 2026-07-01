@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchDisassociateClientDeviceFromCoreDeviceRequest,
   BatchDisassociateClientDeviceFromCoreDeviceResponse,
@@ -15,7 +12,6 @@ import { BatchDisassociateClientDeviceFromCoreDevice$ } from "../schemas/schemas
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface BatchDisassociateClientDeviceFromCoreDeviceCommandOutput extend
  *
  * @public
  */
-export class BatchDisassociateClientDeviceFromCoreDeviceCommand extends $Command
-  .classBuilder<
-    BatchDisassociateClientDeviceFromCoreDeviceCommandInput,
-    BatchDisassociateClientDeviceFromCoreDeviceCommandOutput,
-    GreengrassV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GreengrassV2", "BatchDisassociateClientDeviceFromCoreDevice", {})
-  .n("GreengrassV2Client", "BatchDisassociateClientDeviceFromCoreDeviceCommand")
-  .sc(BatchDisassociateClientDeviceFromCoreDevice$)
-  .build() {
+export class BatchDisassociateClientDeviceFromCoreDeviceCommand extends command<BatchDisassociateClientDeviceFromCoreDeviceCommandInput, BatchDisassociateClientDeviceFromCoreDeviceCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDisassociateClientDeviceFromCoreDevice",
+  BatchDisassociateClientDeviceFromCoreDevice$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

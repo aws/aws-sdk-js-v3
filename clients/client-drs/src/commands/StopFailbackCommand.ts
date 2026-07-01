@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopFailbackRequest } from "../models/models_0";
 import { StopFailback$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopFailback$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface StopFailbackCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class StopFailbackCommand extends $Command
-  .classBuilder<
-    StopFailbackCommandInput,
-    StopFailbackCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "StopFailback", {})
-  .n("DrsClient", "StopFailbackCommand")
-  .sc(StopFailback$)
-  .build() {
+export class StopFailbackCommand extends command<StopFailbackCommandInput, StopFailbackCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopFailback",
+  StopFailback$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

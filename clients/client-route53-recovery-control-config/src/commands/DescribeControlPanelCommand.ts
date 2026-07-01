@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeControlPanelRequest, DescribeControlPanelResponse } from "../models/models_0";
-import type {
-  Route53RecoveryControlConfigClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryControlConfigClient";
 import { DescribeControlPanel$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface DescribeControlPanelCommandOutput extends DescribeControlPanelR
  *
  * @public
  */
-export class DescribeControlPanelCommand extends $Command
-  .classBuilder<
-    DescribeControlPanelCommandInput,
-    DescribeControlPanelCommandOutput,
-    Route53RecoveryControlConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53RecoveryControlConfig", "DescribeControlPanel", {})
-  .n("Route53RecoveryControlConfigClient", "DescribeControlPanelCommand")
-  .sc(DescribeControlPanel$)
-  .build() {
+export class DescribeControlPanelCommand extends command<DescribeControlPanelCommandInput, DescribeControlPanelCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeControlPanel",
+  DescribeControlPanel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

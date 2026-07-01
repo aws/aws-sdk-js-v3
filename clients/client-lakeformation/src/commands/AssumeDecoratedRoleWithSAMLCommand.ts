@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssumeDecoratedRoleWithSAMLRequest, AssumeDecoratedRoleWithSAMLResponse } from "../models/models_0";
 import { AssumeDecoratedRoleWithSAML$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssumeDecoratedRoleWithSAML$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface AssumeDecoratedRoleWithSAMLCommandOutput extends AssumeDecorate
  *
  * @public
  */
-export class AssumeDecoratedRoleWithSAMLCommand extends $Command
-  .classBuilder<
-    AssumeDecoratedRoleWithSAMLCommandInput,
-    AssumeDecoratedRoleWithSAMLCommandOutput,
-    LakeFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLakeFormation", "AssumeDecoratedRoleWithSAML", {})
-  .n("LakeFormationClient", "AssumeDecoratedRoleWithSAMLCommand")
-  .sc(AssumeDecoratedRoleWithSAML$)
-  .build() {
+export class AssumeDecoratedRoleWithSAMLCommand extends command<AssumeDecoratedRoleWithSAMLCommandInput, AssumeDecoratedRoleWithSAMLCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssumeDecoratedRoleWithSAML",
+  AssumeDecoratedRoleWithSAML$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

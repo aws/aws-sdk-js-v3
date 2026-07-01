@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeregisterServiceInput, DeregisterServiceOutput } from "../models/models_0";
 import { DeregisterService$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeregisterService$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DeregisterServiceCommandOutput extends DeregisterServiceOutput,
  *
  * @public
  */
-export class DeregisterServiceCommand extends $Command
-  .classBuilder<
-    DeregisterServiceCommandInput,
-    DeregisterServiceCommandOutput,
-    DevOpsAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DevOpsAgent", "DeregisterService", {})
-  .n("DevOpsAgentClient", "DeregisterServiceCommand")
-  .sc(DeregisterService$)
-  .build() {
+export class DeregisterServiceCommand extends command<DeregisterServiceCommandInput, DeregisterServiceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeregisterService",
+  DeregisterService$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

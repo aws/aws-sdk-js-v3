@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetLinkedWhatsAppBusinessAccountPhoneNumberInput,
   GetLinkedWhatsAppBusinessAccountPhoneNumberOutput,
 } from "../models/models_0";
 import { GetLinkedWhatsAppBusinessAccountPhoneNumber$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SocialMessagingClientResolvedConfig,
-} from "../SocialMessagingClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +90,12 @@ export interface GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput extend
  *
  * @public
  */
-export class GetLinkedWhatsAppBusinessAccountPhoneNumberCommand extends $Command
-  .classBuilder<
-    GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput,
-    GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput,
-    SocialMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SocialMessaging", "GetLinkedWhatsAppBusinessAccountPhoneNumber", {})
-  .n("SocialMessagingClient", "GetLinkedWhatsAppBusinessAccountPhoneNumberCommand")
-  .sc(GetLinkedWhatsAppBusinessAccountPhoneNumber$)
-  .build() {
+export class GetLinkedWhatsAppBusinessAccountPhoneNumberCommand extends command<GetLinkedWhatsAppBusinessAccountPhoneNumberCommandInput, GetLinkedWhatsAppBusinessAccountPhoneNumberCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetLinkedWhatsAppBusinessAccountPhoneNumber",
+  GetLinkedWhatsAppBusinessAccountPhoneNumber$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

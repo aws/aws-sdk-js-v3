@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRunCacheRequest } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { DeleteRunCache$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface DeleteRunCacheCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteRunCacheCommand extends $Command
-  .classBuilder<
-    DeleteRunCacheCommandInput,
-    DeleteRunCacheCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "DeleteRunCache", {})
-  .n("OmicsClient", "DeleteRunCacheCommand")
-  .sc(DeleteRunCache$)
-  .build() {
+export class DeleteRunCacheCommand extends command<DeleteRunCacheCommandInput, DeleteRunCacheCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRunCache",
+  DeleteRunCache$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

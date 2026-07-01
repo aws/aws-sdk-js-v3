@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationSignalsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationSignalsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListServiceDependenciesInput, ListServiceDependenciesOutput } from "../models/models_0";
 import { ListServiceDependencies$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListServiceDependencies$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +92,12 @@ export interface ListServiceDependenciesCommandOutput extends ListServiceDepende
  *
  * @public
  */
-export class ListServiceDependenciesCommand extends $Command
-  .classBuilder<
-    ListServiceDependenciesCommandInput,
-    ListServiceDependenciesCommandOutput,
-    ApplicationSignalsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationSignalsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationSignals", "ListServiceDependencies", {})
-  .n("ApplicationSignalsClient", "ListServiceDependenciesCommand")
-  .sc(ListServiceDependencies$)
-  .build() {
+export class ListServiceDependenciesCommand extends command<ListServiceDependenciesCommandInput, ListServiceDependenciesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListServiceDependencies",
+  ListServiceDependencies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

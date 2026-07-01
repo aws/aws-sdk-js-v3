@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPartitionsRequest, GetPartitionsResponse } from "../models/models_2";
 import { GetPartitions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetPartitions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -177,22 +173,12 @@ export interface GetPartitionsCommandOutput extends GetPartitionsResponse, __Met
  *
  * @public
  */
-export class GetPartitionsCommand extends $Command
-  .classBuilder<
-    GetPartitionsCommandInput,
-    GetPartitionsCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "GetPartitions", {})
-  .n("GlueClient", "GetPartitionsCommand")
-  .sc(GetPartitions$)
-  .build() {
+export class GetPartitionsCommand extends command<GetPartitionsCommandInput, GetPartitionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPartitions",
+  GetPartitions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAgreementRequest } from "../models/models_0";
 import { DeleteAgreement$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface DeleteAgreementCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteAgreementCommand extends $Command
-  .classBuilder<
-    DeleteAgreementCommandInput,
-    DeleteAgreementCommandOutput,
-    TransferClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TransferService", "DeleteAgreement", {})
-  .n("TransferClient", "DeleteAgreementCommand")
-  .sc(DeleteAgreement$)
-  .build() {
+export class DeleteAgreementCommand extends command<DeleteAgreementCommandInput, DeleteAgreementCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAgreement",
+  DeleteAgreement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

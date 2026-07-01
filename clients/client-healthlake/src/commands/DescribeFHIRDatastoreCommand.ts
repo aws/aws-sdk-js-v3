@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { HealthLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthLakeClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeFHIRDatastoreRequest, DescribeFHIRDatastoreResponse } from "../models/models_0";
 import { DescribeFHIRDatastore$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeFHIRDatastore$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
  *
  * @public
  */
-export class DescribeFHIRDatastoreCommand extends $Command
-  .classBuilder<
-    DescribeFHIRDatastoreCommandInput,
-    DescribeFHIRDatastoreCommandOutput,
-    HealthLakeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: HealthLakeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("HealthLake", "DescribeFHIRDatastore", {})
-  .n("HealthLakeClient", "DescribeFHIRDatastoreCommand")
-  .sc(DescribeFHIRDatastore$)
-  .build() {
+export class DescribeFHIRDatastoreCommand extends command<DescribeFHIRDatastoreCommandInput, DescribeFHIRDatastoreCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeFHIRDatastore",
+  DescribeFHIRDatastore$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPhoneNumberSettingsResponse } from "../models/models_0";
 import { GetPhoneNumberSettings$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetPhoneNumberSettings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface GetPhoneNumberSettingsCommandOutput extends GetPhoneNumberSetti
  *
  * @public
  */
-export class GetPhoneNumberSettingsCommand extends $Command
-  .classBuilder<
-    GetPhoneNumberSettingsCommandInput,
-    GetPhoneNumberSettingsCommandOutput,
-    ChimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("UCBuzzConsoleService", "GetPhoneNumberSettings", {})
-  .n("ChimeClient", "GetPhoneNumberSettingsCommand")
-  .sc(GetPhoneNumberSettings$)
-  .build() {
+export class GetPhoneNumberSettingsCommand extends command<GetPhoneNumberSettingsCommandInput, GetPhoneNumberSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPhoneNumberSettings",
+  GetPhoneNumberSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

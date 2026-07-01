@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getLongPollPlugin } from "@aws-sdk/core/client";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { ActivityTask, PollForActivityTaskInput } from "../models/models_0";
 import { PollForActivityTask$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "../SWFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,25 +114,12 @@ export interface PollForActivityTaskCommandOutput extends ActivityTask, __Metada
  *
  * @public
  */
-export class PollForActivityTaskCommand extends $Command
-  .classBuilder<
-    PollForActivityTaskCommandInput,
-    PollForActivityTaskCommandOutput,
-    SWFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getLongPollPlugin(config),
-    ];
-  })
-  .s("SimpleWorkflowService", "PollForActivityTask", {})
-  .n("SWFClient", "PollForActivityTaskCommand")
-  .sc(PollForActivityTask$)
-  .build() {
+export class PollForActivityTaskCommand extends command<PollForActivityTaskCommandInput, PollForActivityTaskCommandOutput>(
+  _ep0,
+  _mw1,
+  "PollForActivityTask",
+  PollForActivityTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

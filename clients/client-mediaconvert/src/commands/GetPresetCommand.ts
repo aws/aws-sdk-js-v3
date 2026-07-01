@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPresetRequest, GetPresetResponse } from "../models/models_0";
 import { GetPreset$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetPreset$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -971,22 +967,12 @@ export interface GetPresetCommandOutput extends GetPresetResponse, __MetadataBea
  *
  * @public
  */
-export class GetPresetCommand extends $Command
-  .classBuilder<
-    GetPresetCommandInput,
-    GetPresetCommandOutput,
-    MediaConvertClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConvert", "GetPreset", {})
-  .n("MediaConvertClient", "GetPresetCommand")
-  .sc(GetPreset$)
-  .build() {
+export class GetPresetCommand extends command<GetPresetCommandInput, GetPresetCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPreset",
+  GetPreset$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

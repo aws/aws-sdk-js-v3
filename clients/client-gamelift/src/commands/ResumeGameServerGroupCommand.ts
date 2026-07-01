@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ResumeGameServerGroupInput, ResumeGameServerGroupOutput } from "../models/models_0";
 import { ResumeGameServerGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ResumeGameServerGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface ResumeGameServerGroupCommandOutput extends ResumeGameServerGrou
  *
  * @public
  */
-export class ResumeGameServerGroupCommand extends $Command
-  .classBuilder<
-    ResumeGameServerGroupCommandInput,
-    ResumeGameServerGroupCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "ResumeGameServerGroup", {})
-  .n("GameLiftClient", "ResumeGameServerGroupCommand")
-  .sc(ResumeGameServerGroup$)
-  .build() {
+export class ResumeGameServerGroupCommand extends command<ResumeGameServerGroupCommandInput, ResumeGameServerGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "ResumeGameServerGroup",
+  ResumeGameServerGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

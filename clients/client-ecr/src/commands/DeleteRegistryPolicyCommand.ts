@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRegistryPolicyRequest, DeleteRegistryPolicyResponse } from "../models/models_0";
 import { DeleteRegistryPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteRegistryPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface DeleteRegistryPolicyCommandOutput extends DeleteRegistryPolicyR
  *
  * @public
  */
-export class DeleteRegistryPolicyCommand extends $Command
-  .classBuilder<
-    DeleteRegistryPolicyCommandInput,
-    DeleteRegistryPolicyCommandOutput,
-    ECRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerRegistry_V20150921", "DeleteRegistryPolicy", {})
-  .n("ECRClient", "DeleteRegistryPolicyCommand")
-  .sc(DeleteRegistryPolicy$)
-  .build() {
+export class DeleteRegistryPolicyCommand extends command<DeleteRegistryPolicyCommandInput, DeleteRegistryPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRegistryPolicy",
+  DeleteRegistryPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

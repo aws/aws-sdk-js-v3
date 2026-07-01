@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEventActionRequest } from "../models/models_0";
 import { DeleteEventAction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteEventAction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteEventActionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteEventActionCommand extends $Command
-  .classBuilder<
-    DeleteEventActionCommandInput,
-    DeleteEventActionCommandOutput,
-    DataExchangeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataExchange", "DeleteEventAction", {})
-  .n("DataExchangeClient", "DeleteEventActionCommand")
-  .sc(DeleteEventAction$)
-  .build() {
+export class DeleteEventActionCommand extends command<DeleteEventActionCommandInput, DeleteEventActionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEventAction",
+  DeleteEventAction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

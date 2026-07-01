@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartFailbackLaunchRequest, StartFailbackLaunchResponse } from "../models/models_0";
 import { StartFailbackLaunch$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartFailbackLaunch$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -136,22 +132,12 @@ export interface StartFailbackLaunchCommandOutput extends StartFailbackLaunchRes
  *
  * @public
  */
-export class StartFailbackLaunchCommand extends $Command
-  .classBuilder<
-    StartFailbackLaunchCommandInput,
-    StartFailbackLaunchCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "StartFailbackLaunch", {})
-  .n("DrsClient", "StartFailbackLaunchCommand")
-  .sc(StartFailbackLaunch$)
-  .build() {
+export class StartFailbackLaunchCommand extends command<StartFailbackLaunchCommandInput, StartFailbackLaunchCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartFailbackLaunch",
+  StartFailbackLaunch$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

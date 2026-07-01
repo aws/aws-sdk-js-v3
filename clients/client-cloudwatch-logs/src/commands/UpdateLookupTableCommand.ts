@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateLookupTableRequest, UpdateLookupTableResponse } from "../models/models_1";
 import { UpdateLookupTable$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateLookupTable$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface UpdateLookupTableCommandOutput extends UpdateLookupTableRespons
  *
  * @public
  */
-export class UpdateLookupTableCommand extends $Command
-  .classBuilder<
-    UpdateLookupTableCommandInput,
-    UpdateLookupTableCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "UpdateLookupTable", {})
-  .n("CloudWatchLogsClient", "UpdateLookupTableCommand")
-  .sc(UpdateLookupTable$)
-  .build() {
+export class UpdateLookupTableCommand extends command<UpdateLookupTableCommandInput, UpdateLookupTableCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateLookupTable",
+  UpdateLookupTable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

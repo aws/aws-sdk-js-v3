@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateGroupCertificateConfigurationRequest,
   UpdateGroupCertificateConfigurationResponse,
@@ -15,7 +12,6 @@ import { UpdateGroupCertificateConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface UpdateGroupCertificateConfigurationCommandOutput extends Update
  *
  * @public
  */
-export class UpdateGroupCertificateConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateGroupCertificateConfigurationCommandInput,
-    UpdateGroupCertificateConfigurationCommandOutput,
-    GreengrassClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Greengrass", "UpdateGroupCertificateConfiguration", {})
-  .n("GreengrassClient", "UpdateGroupCertificateConfigurationCommand")
-  .sc(UpdateGroupCertificateConfiguration$)
-  .build() {
+export class UpdateGroupCertificateConfigurationCommand extends command<UpdateGroupCertificateConfigurationCommandInput, UpdateGroupCertificateConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateGroupCertificateConfiguration",
+  UpdateGroupCertificateConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InvoicingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InvoicingClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListInvoiceUnitsRequest, ListInvoiceUnitsResponse } from "../models/models_0";
 import { ListInvoiceUnits$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListInvoiceUnits$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -239,22 +235,12 @@ export interface ListInvoiceUnitsCommandOutput extends ListInvoiceUnitsResponse,
  *
  * @public
  */
-export class ListInvoiceUnitsCommand extends $Command
-  .classBuilder<
-    ListInvoiceUnitsCommandInput,
-    ListInvoiceUnitsCommandOutput,
-    InvoicingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InvoicingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Invoicing", "ListInvoiceUnits", {})
-  .n("InvoicingClient", "ListInvoiceUnitsCommand")
-  .sc(ListInvoiceUnits$)
-  .build() {
+export class ListInvoiceUnitsCommand extends command<ListInvoiceUnitsCommandInput, ListInvoiceUnitsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListInvoiceUnits",
+  ListInvoiceUnits$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

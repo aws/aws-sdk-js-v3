@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { ListResourcePermissionStatementsInput, ListResourcePermissionStatementsOutput } from "../models/models_0";
 import { ListResourcePermissionStatements$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SigninClientResolvedConfig } from "../SigninClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,25 +114,12 @@ export interface ListResourcePermissionStatementsCommandOutput extends ListResou
  *
  * @public
  */
-export class ListResourcePermissionStatementsCommand extends $Command
-  .classBuilder<
-    ListResourcePermissionStatementsCommandInput,
-    ListResourcePermissionStatementsCommandOutput,
-    SigninClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    IsControlPlane: { type: "staticContextParams", value: true },
-  })
-  .m(function (this: any, Command: any, cs: any, config: SigninClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Signin", "ListResourcePermissionStatements", {})
-  .n("SigninClient", "ListResourcePermissionStatementsCommand")
-  .sc(ListResourcePermissionStatements$)
-  .build() {
+export class ListResourcePermissionStatementsCommand extends command<ListResourcePermissionStatementsCommandInput, ListResourcePermissionStatementsCommandOutput>(
+  _ep1,
+  _mw0,
+  "ListResourcePermissionStatements",
+  ListResourcePermissionStatements$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

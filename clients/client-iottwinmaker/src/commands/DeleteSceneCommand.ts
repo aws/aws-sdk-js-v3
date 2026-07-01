@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSceneRequest, DeleteSceneResponse } from "../models/models_0";
 import { DeleteScene$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteScene$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteSceneCommandOutput extends DeleteSceneResponse, __Metadat
  *
  * @public
  */
-export class DeleteSceneCommand extends $Command
-  .classBuilder<
-    DeleteSceneCommandInput,
-    DeleteSceneCommandOutput,
-    IoTTwinMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTTwinMaker", "DeleteScene", {})
-  .n("IoTTwinMakerClient", "DeleteSceneCommand")
-  .sc(DeleteScene$)
-  .build() {
+export class DeleteSceneCommand extends command<DeleteSceneCommandInput, DeleteSceneCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteScene",
+  DeleteScene$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

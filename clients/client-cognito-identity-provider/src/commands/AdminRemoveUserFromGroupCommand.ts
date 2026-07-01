@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AdminRemoveUserFromGroupRequest } from "../models/models_0";
 import { AdminRemoveUserFromGroup$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AdminRemoveUserFromGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +101,12 @@ export interface AdminRemoveUserFromGroupCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class AdminRemoveUserFromGroupCommand extends $Command
-  .classBuilder<
-    AdminRemoveUserFromGroupCommandInput,
-    AdminRemoveUserFromGroupCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "AdminRemoveUserFromGroup", {})
-  .n("CognitoIdentityProviderClient", "AdminRemoveUserFromGroupCommand")
-  .sc(AdminRemoveUserFromGroup$)
-  .build() {
+export class AdminRemoveUserFromGroupCommand extends command<AdminRemoveUserFromGroupCommandInput, AdminRemoveUserFromGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "AdminRemoveUserFromGroup",
+  AdminRemoveUserFromGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartRemediationExecutionRequest, StartRemediationExecutionResponse } from "../models/models_0";
 import { StartRemediationExecution$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartRemediationExecution$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface StartRemediationExecutionCommandOutput extends StartRemediation
  *
  * @public
  */
-export class StartRemediationExecutionCommand extends $Command
-  .classBuilder<
-    StartRemediationExecutionCommandInput,
-    StartRemediationExecutionCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "StartRemediationExecution", {})
-  .n("ConfigServiceClient", "StartRemediationExecutionCommand")
-  .sc(StartRemediationExecution$)
-  .build() {
+export class StartRemediationExecutionCommand extends command<StartRemediationExecutionCommandInput, StartRemediationExecutionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartRemediationExecution",
+  StartRemediationExecution$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

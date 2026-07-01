@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateUserProficienciesRequest } from "../models/models_1";
 import { DisassociateUserProficiencies$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateUserProficiencies$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DisassociateUserProficienciesCommandOutput extends __MetadataBe
  *
  * @public
  */
-export class DisassociateUserProficienciesCommand extends $Command
-  .classBuilder<
-    DisassociateUserProficienciesCommandInput,
-    DisassociateUserProficienciesCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DisassociateUserProficiencies", {})
-  .n("ConnectClient", "DisassociateUserProficienciesCommand")
-  .sc(DisassociateUserProficiencies$)
-  .build() {
+export class DisassociateUserProficienciesCommand extends command<DisassociateUserProficienciesCommandInput, DisassociateUserProficienciesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateUserProficiencies",
+  DisassociateUserProficiencies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -13,7 +13,6 @@ import { de_QueryTimestampsCommand, se_QueryTimestampsCommand } from "../protoco
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

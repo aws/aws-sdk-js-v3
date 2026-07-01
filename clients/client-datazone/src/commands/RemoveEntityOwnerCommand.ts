@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveEntityOwnerInput, RemoveEntityOwnerOutput } from "../models/models_2";
 import { RemoveEntityOwner$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RemoveEntityOwner$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface RemoveEntityOwnerCommandOutput extends RemoveEntityOwnerOutput,
  *
  * @public
  */
-export class RemoveEntityOwnerCommand extends $Command
-  .classBuilder<
-    RemoveEntityOwnerCommandInput,
-    RemoveEntityOwnerCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "RemoveEntityOwner", {})
-  .n("DataZoneClient", "RemoveEntityOwnerCommand")
-  .sc(RemoveEntityOwner$)
-  .build() {
+export class RemoveEntityOwnerCommand extends command<RemoveEntityOwnerCommandInput, RemoveEntityOwnerCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveEntityOwner",
+  RemoveEntityOwner$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteVpcBlockPublicAccessExclusionRequest,
   DeleteVpcBlockPublicAccessExclusionResult,
@@ -15,7 +12,6 @@ import { DeleteVpcBlockPublicAccessExclusion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DeleteVpcBlockPublicAccessExclusionCommandOutput extends Delete
  *
  * @public
  */
-export class DeleteVpcBlockPublicAccessExclusionCommand extends $Command
-  .classBuilder<
-    DeleteVpcBlockPublicAccessExclusionCommandInput,
-    DeleteVpcBlockPublicAccessExclusionCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeleteVpcBlockPublicAccessExclusion", {})
-  .n("EC2Client", "DeleteVpcBlockPublicAccessExclusionCommand")
-  .sc(DeleteVpcBlockPublicAccessExclusion$)
-  .build() {
+export class DeleteVpcBlockPublicAccessExclusionCommand extends command<DeleteVpcBlockPublicAccessExclusionCommandInput, DeleteVpcBlockPublicAccessExclusionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteVpcBlockPublicAccessExclusion",
+  DeleteVpcBlockPublicAccessExclusion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

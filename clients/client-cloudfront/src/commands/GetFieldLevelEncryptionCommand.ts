@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFieldLevelEncryptionRequest, GetFieldLevelEncryptionResult } from "../models/models_0";
 import { GetFieldLevelEncryption$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetFieldLevelEncryption$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface GetFieldLevelEncryptionCommandOutput extends GetFieldLevelEncry
  *
  * @public
  */
-export class GetFieldLevelEncryptionCommand extends $Command
-  .classBuilder<
-    GetFieldLevelEncryptionCommandInput,
-    GetFieldLevelEncryptionCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "GetFieldLevelEncryption", {})
-  .n("CloudFrontClient", "GetFieldLevelEncryptionCommand")
-  .sc(GetFieldLevelEncryption$)
-  .build() {
+export class GetFieldLevelEncryptionCommand extends command<GetFieldLevelEncryptionCommandInput, GetFieldLevelEncryptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFieldLevelEncryption",
+  GetFieldLevelEncryption$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

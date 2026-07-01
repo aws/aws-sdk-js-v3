@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutAccountDataRetentionRequest, PutAccountDataRetentionResponse } from "../models/models_0";
 import { PutAccountDataRetention$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutAccountDataRetention$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface PutAccountDataRetentionCommandOutput extends PutAccountDataRete
  *
  * @public
  */
-export class PutAccountDataRetentionCommand extends $Command
-  .classBuilder<
-    PutAccountDataRetentionCommandInput,
-    PutAccountDataRetentionCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "PutAccountDataRetention", {})
-  .n("BedrockClient", "PutAccountDataRetentionCommand")
-  .sc(PutAccountDataRetention$)
-  .build() {
+export class PutAccountDataRetentionCommand extends command<PutAccountDataRetentionCommandInput, PutAccountDataRetentionCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAccountDataRetention",
+  PutAccountDataRetention$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

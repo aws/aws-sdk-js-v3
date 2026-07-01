@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TranslateDocumentRequest, TranslateDocumentResponse } from "../models/models_0";
 import { TranslateDocument$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface TranslateDocumentCommandOutput extends TranslateDocumentRespons
  *
  * @public
  */
-export class TranslateDocumentCommand extends $Command
-  .classBuilder<
-    TranslateDocumentCommandInput,
-    TranslateDocumentCommandOutput,
-    TranslateClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TranslateClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShineFrontendService_20170701", "TranslateDocument", {})
-  .n("TranslateClient", "TranslateDocumentCommand")
-  .sc(TranslateDocument$)
-  .build() {
+export class TranslateDocumentCommand extends command<TranslateDocumentCommandInput, TranslateDocumentCommandOutput>(
+  _ep0,
+  _mw0,
+  "TranslateDocument",
+  TranslateDocument$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

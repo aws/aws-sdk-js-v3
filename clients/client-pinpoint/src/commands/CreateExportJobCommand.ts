@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateExportJobRequest, CreateExportJobResponse } from "../models/models_0";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { CreateExportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface CreateExportJobCommandOutput extends CreateExportJobResponse, _
  *
  * @public
  */
-export class CreateExportJobCommand extends $Command
-  .classBuilder<
-    CreateExportJobCommandInput,
-    CreateExportJobCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "CreateExportJob", {})
-  .n("PinpointClient", "CreateExportJobCommand")
-  .sc(CreateExportJob$)
-  .build() {
+export class CreateExportJobCommand extends command<CreateExportJobCommandInput, CreateExportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateExportJob",
+  CreateExportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

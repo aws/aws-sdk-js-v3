@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateCertificateRequest, AssociateCertificateResponse } from "../models/models_0";
 import { AssociateCertificate$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateCertificate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface AssociateCertificateCommandOutput extends AssociateCertificateR
  *
  * @public
  */
-export class AssociateCertificateCommand extends $Command
-  .classBuilder<
-    AssociateCertificateCommandInput,
-    AssociateCertificateCommandOutput,
-    MediaConvertClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConvert", "AssociateCertificate", {})
-  .n("MediaConvertClient", "AssociateCertificateCommand")
-  .sc(AssociateCertificate$)
-  .build() {
+export class AssociateCertificateCommand extends command<AssociateCertificateCommandInput, AssociateCertificateCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateCertificate",
+  AssociateCertificate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

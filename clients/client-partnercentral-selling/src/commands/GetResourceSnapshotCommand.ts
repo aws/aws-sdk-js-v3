@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetResourceSnapshotRequest, GetResourceSnapshotResponse } from "../models/models_0";
-import type {
-  PartnerCentralSellingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralSellingClient";
 import { GetResourceSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -326,22 +318,12 @@ export interface GetResourceSnapshotCommandOutput extends GetResourceSnapshotRes
  *
  * @public
  */
-export class GetResourceSnapshotCommand extends $Command
-  .classBuilder<
-    GetResourceSnapshotCommandInput,
-    GetResourceSnapshotCommandOutput,
-    PartnerCentralSellingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPartnerCentralSelling", "GetResourceSnapshot", {})
-  .n("PartnerCentralSellingClient", "GetResourceSnapshotCommand")
-  .sc(GetResourceSnapshot$)
-  .build() {
+export class GetResourceSnapshotCommand extends command<GetResourceSnapshotCommandInput, GetResourceSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetResourceSnapshot",
+  GetResourceSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

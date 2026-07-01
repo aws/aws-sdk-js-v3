@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRecommenderRequest, UpdateRecommenderResponse } from "../models/models_0";
-import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { UpdateRecommender$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface UpdateRecommenderCommandOutput extends UpdateRecommenderRespons
  *
  * @public
  */
-export class UpdateRecommenderCommand extends $Command
-  .classBuilder<
-    UpdateRecommenderCommandInput,
-    UpdateRecommenderCommandOutput,
-    PersonalizeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPersonalize", "UpdateRecommender", {})
-  .n("PersonalizeClient", "UpdateRecommenderCommand")
-  .sc(UpdateRecommender$)
-  .build() {
+export class UpdateRecommenderCommand extends command<UpdateRecommenderCommandInput, UpdateRecommenderCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRecommender",
+  UpdateRecommender$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

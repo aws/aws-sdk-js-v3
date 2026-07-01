@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ImportVolumeRequest, ImportVolumeResult } from "../models/models_6";
 import { ImportVolume$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ImportVolume$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -129,22 +125,12 @@ export interface ImportVolumeCommandOutput extends ImportVolumeResult, __Metadat
  *
  * @public
  */
-export class ImportVolumeCommand extends $Command
-  .classBuilder<
-    ImportVolumeCommandInput,
-    ImportVolumeCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "ImportVolume", {})
-  .n("EC2Client", "ImportVolumeCommand")
-  .sc(ImportVolume$)
-  .build() {
+export class ImportVolumeCommand extends command<ImportVolumeCommandInput, ImportVolumeCommandOutput>(
+  _ep0,
+  _mw0,
+  "ImportVolume",
+  ImportVolume$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

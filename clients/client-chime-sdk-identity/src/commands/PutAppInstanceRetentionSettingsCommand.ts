@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKIdentityClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKIdentityClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutAppInstanceRetentionSettingsRequest,
   PutAppInstanceRetentionSettingsResponse,
@@ -19,7 +12,6 @@ import { PutAppInstanceRetentionSettings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface PutAppInstanceRetentionSettingsCommandOutput extends PutAppInst
  *
  * @public
  */
-export class PutAppInstanceRetentionSettingsCommand extends $Command
-  .classBuilder<
-    PutAppInstanceRetentionSettingsCommandInput,
-    PutAppInstanceRetentionSettingsCommandOutput,
-    ChimeSDKIdentityClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKIdentityClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeIdentityService", "PutAppInstanceRetentionSettings", {})
-  .n("ChimeSDKIdentityClient", "PutAppInstanceRetentionSettingsCommand")
-  .sc(PutAppInstanceRetentionSettings$)
-  .build() {
+export class PutAppInstanceRetentionSettingsCommand extends command<PutAppInstanceRetentionSettingsCommandInput, PutAppInstanceRetentionSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAppInstanceRetentionSettings",
+  PutAppInstanceRetentionSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

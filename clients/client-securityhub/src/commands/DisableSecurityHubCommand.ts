@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisableSecurityHubRequest, DisableSecurityHubResponse } from "../models/models_2";
 import { DisableSecurityHub$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface DisableSecurityHubCommandOutput extends DisableSecurityHubRespo
  *
  * @public
  */
-export class DisableSecurityHubCommand extends $Command
-  .classBuilder<
-    DisableSecurityHubCommandInput,
-    DisableSecurityHubCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "DisableSecurityHub", {})
-  .n("SecurityHubClient", "DisableSecurityHubCommand")
-  .sc(DisableSecurityHub$)
-  .build() {
+export class DisableSecurityHubCommand extends command<DisableSecurityHubCommandInput, DisableSecurityHubCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableSecurityHub",
+  DisableSecurityHub$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteLinkRequest, DeleteLinkResponse } from "../models/models_0";
-import type { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
 import { DeleteLink$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface DeleteLinkCommandOutput extends DeleteLinkResponse, __MetadataB
  *
  * @public
  */
-export class DeleteLinkCommand extends $Command
-  .classBuilder<
-    DeleteLinkCommandInput,
-    DeleteLinkCommandOutput,
-    RTBFabricClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RTBFabricClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RTBFabric", "DeleteLink", {})
-  .n("RTBFabricClient", "DeleteLinkCommand")
-  .sc(DeleteLink$)
-  .build() {
+export class DeleteLinkCommand extends command<DeleteLinkCommandInput, DeleteLinkCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteLink",
+  DeleteLink$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

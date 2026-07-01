@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeregisterNotificationHubRequest, DeregisterNotificationHubResponse } from "../models/models_0";
-import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
 import { DeregisterNotificationHub$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface DeregisterNotificationHubCommandOutput extends DeregisterNotifi
  *
  * @public
  */
-export class DeregisterNotificationHubCommand extends $Command
-  .classBuilder<
-    DeregisterNotificationHubCommandInput,
-    DeregisterNotificationHubCommandOutput,
-    NotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Notifications", "DeregisterNotificationHub", {})
-  .n("NotificationsClient", "DeregisterNotificationHubCommand")
-  .sc(DeregisterNotificationHub$)
-  .build() {
+export class DeregisterNotificationHubCommand extends command<DeregisterNotificationHubCommandInput, DeregisterNotificationHubCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeregisterNotificationHub",
+  DeregisterNotificationHub$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

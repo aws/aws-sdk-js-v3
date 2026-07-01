@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListKafkaVersionsRequest, ListKafkaVersionsResponse } from "../models/models_0";
 import { ListKafkaVersions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListKafkaVersions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface ListKafkaVersionsCommandOutput extends ListKafkaVersionsRespons
  *
  * @public
  */
-export class ListKafkaVersionsCommand extends $Command
-  .classBuilder<
-    ListKafkaVersionsCommandInput,
-    ListKafkaVersionsCommandOutput,
-    KafkaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kafka", "ListKafkaVersions", {})
-  .n("KafkaClient", "ListKafkaVersionsCommand")
-  .sc(ListKafkaVersions$)
-  .build() {
+export class ListKafkaVersionsCommand extends command<ListKafkaVersionsCommandInput, ListKafkaVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListKafkaVersions",
+  ListKafkaVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

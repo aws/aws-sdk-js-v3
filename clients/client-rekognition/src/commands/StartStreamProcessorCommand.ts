@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartStreamProcessorRequest, StartStreamProcessorResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { StartStreamProcessor$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface StartStreamProcessorCommandOutput extends StartStreamProcessorR
  *
  * @public
  */
-export class StartStreamProcessorCommand extends $Command
-  .classBuilder<
-    StartStreamProcessorCommandInput,
-    StartStreamProcessorCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "StartStreamProcessor", {})
-  .n("RekognitionClient", "StartStreamProcessorCommand")
-  .sc(StartStreamProcessor$)
-  .build() {
+export class StartStreamProcessorCommand extends command<StartStreamProcessorCommandInput, StartStreamProcessorCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartStreamProcessor",
+  StartStreamProcessor$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

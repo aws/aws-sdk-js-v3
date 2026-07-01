@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListWorkersWithQualificationTypeRequest,
   ListWorkersWithQualificationTypeResponse,
 } from "../models/models_0";
-import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { ListWorkersWithQualificationType$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface ListWorkersWithQualificationTypeCommandOutput extends ListWorke
  *
  * @public
  */
-export class ListWorkersWithQualificationTypeCommand extends $Command
-  .classBuilder<
-    ListWorkersWithQualificationTypeCommandInput,
-    ListWorkersWithQualificationTypeCommandOutput,
-    MTurkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MTurkRequesterServiceV20170117", "ListWorkersWithQualificationType", {})
-  .n("MTurkClient", "ListWorkersWithQualificationTypeCommand")
-  .sc(ListWorkersWithQualificationType$)
-  .build() {
+export class ListWorkersWithQualificationTypeCommand extends command<ListWorkersWithQualificationTypeCommandInput, ListWorkersWithQualificationTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListWorkersWithQualificationType",
+  ListWorkersWithQualificationType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

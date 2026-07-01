@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAWSDefaultServiceQuotaRequest, GetAWSDefaultServiceQuotaResponse } from "../models/models_0";
 import { GetAWSDefaultServiceQuota$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface GetAWSDefaultServiceQuotaCommandOutput extends GetAWSDefaultSer
  *
  * @public
  */
-export class GetAWSDefaultServiceQuotaCommand extends $Command
-  .classBuilder<
-    GetAWSDefaultServiceQuotaCommandInput,
-    GetAWSDefaultServiceQuotaCommandOutput,
-    ServiceQuotasClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ServiceQuotasV20190624", "GetAWSDefaultServiceQuota", {})
-  .n("ServiceQuotasClient", "GetAWSDefaultServiceQuotaCommand")
-  .sc(GetAWSDefaultServiceQuota$)
-  .build() {
+export class GetAWSDefaultServiceQuotaCommand extends command<GetAWSDefaultServiceQuotaCommandInput, GetAWSDefaultServiceQuotaCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAWSDefaultServiceQuota",
+  GetAWSDefaultServiceQuota$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

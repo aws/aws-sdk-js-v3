@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListThemesRequest, ListThemesResponse } from "../models/models_4";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { ListThemes$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface ListThemesCommandOutput extends ListThemesResponse, __MetadataB
  *
  * @public
  */
-export class ListThemesCommand extends $Command
-  .classBuilder<
-    ListThemesCommandInput,
-    ListThemesCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "ListThemes", {})
-  .n("QuickSightClient", "ListThemesCommand")
-  .sc(ListThemes$)
-  .build() {
+export class ListThemesCommand extends command<ListThemesCommandInput, ListThemesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListThemes",
+  ListThemes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRecoveryPointIndexSettingsInput, UpdateRecoveryPointIndexSettingsOutput } from "../models/models_0";
 import { UpdateRecoveryPointIndexSettings$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateRecoveryPointIndexSettings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface UpdateRecoveryPointIndexSettingsCommandOutput extends UpdateRec
  *
  * @public
  */
-export class UpdateRecoveryPointIndexSettingsCommand extends $Command
-  .classBuilder<
-    UpdateRecoveryPointIndexSettingsCommandInput,
-    UpdateRecoveryPointIndexSettingsCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "UpdateRecoveryPointIndexSettings", {})
-  .n("BackupClient", "UpdateRecoveryPointIndexSettingsCommand")
-  .sc(UpdateRecoveryPointIndexSettings$)
-  .build() {
+export class UpdateRecoveryPointIndexSettingsCommand extends command<UpdateRecoveryPointIndexSettingsCommandInput, UpdateRecoveryPointIndexSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRecoveryPointIndexSettings",
+  UpdateRecoveryPointIndexSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

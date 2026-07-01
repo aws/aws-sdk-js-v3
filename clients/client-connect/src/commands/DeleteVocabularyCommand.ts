@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteVocabularyRequest, DeleteVocabularyResponse } from "../models/models_1";
 import { DeleteVocabulary$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteVocabulary$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface DeleteVocabularyCommandOutput extends DeleteVocabularyResponse,
  *
  * @public
  */
-export class DeleteVocabularyCommand extends $Command
-  .classBuilder<
-    DeleteVocabularyCommandInput,
-    DeleteVocabularyCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DeleteVocabulary", {})
-  .n("ConnectClient", "DeleteVocabularyCommand")
-  .sc(DeleteVocabulary$)
-  .build() {
+export class DeleteVocabularyCommand extends command<DeleteVocabularyCommandInput, DeleteVocabularyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteVocabulary",
+  DeleteVocabulary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCatalogRequest, DeleteCatalogResponse } from "../models/models_1";
 import { DeleteCatalog$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteCatalog$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DeleteCatalogCommandOutput extends DeleteCatalogResponse, __Met
  *
  * @public
  */
-export class DeleteCatalogCommand extends $Command
-  .classBuilder<
-    DeleteCatalogCommandInput,
-    DeleteCatalogCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "DeleteCatalog", {})
-  .n("GlueClient", "DeleteCatalogCommand")
-  .sc(DeleteCatalog$)
-  .build() {
+export class DeleteCatalogCommand extends command<DeleteCatalogCommandInput, DeleteCatalogCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCatalog",
+  DeleteCatalog$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

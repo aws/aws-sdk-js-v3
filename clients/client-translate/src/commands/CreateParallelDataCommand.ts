@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateParallelDataRequest, CreateParallelDataResponse } from "../models/models_0";
 import { CreateParallelData$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface CreateParallelDataCommandOutput extends CreateParallelDataRespo
  *
  * @public
  */
-export class CreateParallelDataCommand extends $Command
-  .classBuilder<
-    CreateParallelDataCommandInput,
-    CreateParallelDataCommandOutput,
-    TranslateClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TranslateClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShineFrontendService_20170701", "CreateParallelData", {})
-  .n("TranslateClient", "CreateParallelDataCommand")
-  .sc(CreateParallelData$)
-  .build() {
+export class CreateParallelDataCommand extends command<CreateParallelDataCommandInput, CreateParallelDataCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateParallelData",
+  CreateParallelData$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

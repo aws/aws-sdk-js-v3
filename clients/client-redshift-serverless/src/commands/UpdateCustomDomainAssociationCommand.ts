@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateCustomDomainAssociationRequest, UpdateCustomDomainAssociationResponse } from "../models/models_0";
-import type {
-  RedshiftServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RedshiftServerlessClient";
 import { UpdateCustomDomainAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface UpdateCustomDomainAssociationCommandOutput extends UpdateCustom
  *
  * @public
  */
-export class UpdateCustomDomainAssociationCommand extends $Command
-  .classBuilder<
-    UpdateCustomDomainAssociationCommandInput,
-    UpdateCustomDomainAssociationCommandOutput,
-    RedshiftServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServerless", "UpdateCustomDomainAssociation", {})
-  .n("RedshiftServerlessClient", "UpdateCustomDomainAssociationCommand")
-  .sc(UpdateCustomDomainAssociation$)
-  .build() {
+export class UpdateCustomDomainAssociationCommand extends command<UpdateCustomDomainAssociationCommandInput, UpdateCustomDomainAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateCustomDomainAssociation",
+  UpdateCustomDomainAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

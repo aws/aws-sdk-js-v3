@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw2, command } from "../commandBuilder";
 import type { ListHostedZonesByVPCRequest, ListHostedZonesByVPCResponse } from "../models/models_0";
-import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 import { ListHostedZonesByVPC$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface ListHostedZonesByVPCCommandOutput extends ListHostedZonesByVPCR
  *
  * @public
  */
-export class ListHostedZonesByVPCCommand extends $Command
-  .classBuilder<
-    ListHostedZonesByVPCCommandInput,
-    ListHostedZonesByVPCCommandOutput,
-    Route53ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDnsV20130401", "ListHostedZonesByVPC", {})
-  .n("Route53Client", "ListHostedZonesByVPCCommand")
-  .sc(ListHostedZonesByVPC$)
-  .build() {
+export class ListHostedZonesByVPCCommand extends command<ListHostedZonesByVPCCommandInput, ListHostedZonesByVPCCommandOutput>(
+  _ep0,
+  _mw2,
+  "ListHostedZonesByVPC",
+  ListHostedZonesByVPC$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPropertygraphStatisticsOutput } from "../models/models_0";
-import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
 import { GetPropertygraphStatistics$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface GetPropertygraphStatisticsCommandOutput extends GetPropertygrap
  *
  * @public
  */
-export class GetPropertygraphStatisticsCommand extends $Command
-  .classBuilder<
-    GetPropertygraphStatisticsCommandInput,
-    GetPropertygraphStatisticsCommandOutput,
-    NeptunedataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneDataplane", "GetPropertygraphStatistics", {})
-  .n("NeptunedataClient", "GetPropertygraphStatisticsCommand")
-  .sc(GetPropertygraphStatistics$)
-  .build() {
+export class GetPropertygraphStatisticsCommand extends command<GetPropertygraphStatisticsCommandInput, GetPropertygraphStatisticsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPropertygraphStatistics",
+  GetPropertygraphStatistics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

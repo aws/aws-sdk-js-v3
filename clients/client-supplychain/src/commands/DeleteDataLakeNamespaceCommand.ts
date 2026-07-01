@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDataLakeNamespaceRequest, DeleteDataLakeNamespaceResponse } from "../models/models_0";
 import { DeleteDataLakeNamespace$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface DeleteDataLakeNamespaceCommandOutput extends DeleteDataLakeName
  *
  * @public
  */
-export class DeleteDataLakeNamespaceCommand extends $Command
-  .classBuilder<
-    DeleteDataLakeNamespaceCommandInput,
-    DeleteDataLakeNamespaceCommandOutput,
-    SupplyChainClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupplyChainClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GalaxyPublicAPIGateway", "DeleteDataLakeNamespace", {})
-  .n("SupplyChainClient", "DeleteDataLakeNamespaceCommand")
-  .sc(DeleteDataLakeNamespace$)
-  .build() {
+export class DeleteDataLakeNamespaceCommand extends command<DeleteDataLakeNamespaceCommandInput, DeleteDataLakeNamespaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDataLakeNamespace",
+  DeleteDataLakeNamespace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

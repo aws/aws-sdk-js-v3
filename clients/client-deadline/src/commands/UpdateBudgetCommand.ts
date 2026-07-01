@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateBudgetRequest, UpdateBudgetResponse } from "../models/models_0";
 import { UpdateBudget$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateBudget$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface UpdateBudgetCommandOutput extends UpdateBudgetResponse, __Metad
  *
  * @public
  */
-export class UpdateBudgetCommand extends $Command
-  .classBuilder<
-    UpdateBudgetCommandInput,
-    UpdateBudgetCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "UpdateBudget", {})
-  .n("DeadlineClient", "UpdateBudgetCommand")
-  .sc(UpdateBudget$)
-  .build() {
+export class UpdateBudgetCommand extends command<UpdateBudgetCommandInput, UpdateBudgetCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateBudget",
+  UpdateBudget$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

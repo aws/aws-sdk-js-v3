@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeEgressOnlyInternetGatewaysRequest,
   DescribeEgressOnlyInternetGatewaysResult,
@@ -15,7 +12,6 @@ import { DescribeEgressOnlyInternetGateways$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface DescribeEgressOnlyInternetGatewaysCommandOutput extends Describ
  *
  * @public
  */
-export class DescribeEgressOnlyInternetGatewaysCommand extends $Command
-  .classBuilder<
-    DescribeEgressOnlyInternetGatewaysCommandInput,
-    DescribeEgressOnlyInternetGatewaysCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeEgressOnlyInternetGateways", {})
-  .n("EC2Client", "DescribeEgressOnlyInternetGatewaysCommand")
-  .sc(DescribeEgressOnlyInternetGateways$)
-  .build() {
+export class DescribeEgressOnlyInternetGatewaysCommand extends command<DescribeEgressOnlyInternetGatewaysCommandInput, DescribeEgressOnlyInternetGatewaysCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEgressOnlyInternetGateways",
+  DescribeEgressOnlyInternetGateways$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

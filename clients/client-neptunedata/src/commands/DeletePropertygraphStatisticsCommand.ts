@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePropertygraphStatisticsOutput } from "../models/models_0";
-import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
 import { DeletePropertygraphStatistics$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface DeletePropertygraphStatisticsCommandOutput extends DeleteProper
  *
  * @public
  */
-export class DeletePropertygraphStatisticsCommand extends $Command
-  .classBuilder<
-    DeletePropertygraphStatisticsCommandInput,
-    DeletePropertygraphStatisticsCommandOutput,
-    NeptunedataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneDataplane", "DeletePropertygraphStatistics", {})
-  .n("NeptunedataClient", "DeletePropertygraphStatisticsCommand")
-  .sc(DeletePropertygraphStatistics$)
-  .build() {
+export class DeletePropertygraphStatisticsCommand extends command<DeletePropertygraphStatisticsCommandInput, DeletePropertygraphStatisticsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePropertygraphStatistics",
+  DeletePropertygraphStatistics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

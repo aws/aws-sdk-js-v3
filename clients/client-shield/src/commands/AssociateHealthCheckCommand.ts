@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateHealthCheckRequest, AssociateHealthCheckResponse } from "../models/models_0";
 import { AssociateHealthCheck$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface AssociateHealthCheckCommandOutput extends AssociateHealthCheckR
  *
  * @public
  */
-export class AssociateHealthCheckCommand extends $Command
-  .classBuilder<
-    AssociateHealthCheckCommandInput,
-    AssociateHealthCheckCommandOutput,
-    ShieldClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShield_20160616", "AssociateHealthCheck", {})
-  .n("ShieldClient", "AssociateHealthCheckCommand")
-  .sc(AssociateHealthCheck$)
-  .build() {
+export class AssociateHealthCheckCommand extends command<AssociateHealthCheckCommandInput, AssociateHealthCheckCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateHealthCheck",
+  AssociateHealthCheck$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateIntermediateTableInput, UpdateIntermediateTableOutput } from "../models/models_0";
 import { UpdateIntermediateTable$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateIntermediateTable$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -204,22 +200,12 @@ export interface UpdateIntermediateTableCommandOutput extends UpdateIntermediate
  *
  * @public
  */
-export class UpdateIntermediateTableCommand extends $Command
-  .classBuilder<
-    UpdateIntermediateTableCommandInput,
-    UpdateIntermediateTableCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "UpdateIntermediateTable", {})
-  .n("CleanRoomsClient", "UpdateIntermediateTableCommand")
-  .sc(UpdateIntermediateTable$)
-  .build() {
+export class UpdateIntermediateTableCommand extends command<UpdateIntermediateTableCommandInput, UpdateIntermediateTableCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateIntermediateTable",
+  UpdateIntermediateTable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

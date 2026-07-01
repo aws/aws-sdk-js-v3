@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCacheReportsInput, ListCacheReportsOutput } from "../models/models_0";
 import { ListCacheReports$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +101,12 @@ export interface ListCacheReportsCommandOutput extends ListCacheReportsOutput, _
  *
  * @public
  */
-export class ListCacheReportsCommand extends $Command
-  .classBuilder<
-    ListCacheReportsCommandInput,
-    ListCacheReportsCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "ListCacheReports", {})
-  .n("StorageGatewayClient", "ListCacheReportsCommand")
-  .sc(ListCacheReports$)
-  .build() {
+export class ListCacheReportsCommand extends command<ListCacheReportsCommandInput, ListCacheReportsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCacheReports",
+  ListCacheReports$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

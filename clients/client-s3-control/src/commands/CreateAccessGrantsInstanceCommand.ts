@@ -1,20 +1,14 @@
 // smithy-typescript generated code
-import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3/s3-control";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
-import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAccessGrantsInstanceRequest, CreateAccessGrantsInstanceResult } from "../models/models_0";
-import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { CreateAccessGrantsInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,30 +77,12 @@ export interface CreateAccessGrantsInstanceCommandOutput extends CreateAccessGra
  *
  * @public
  */
-export class CreateAccessGrantsInstanceCommand extends $Command
-  .classBuilder<
-    CreateAccessGrantsInstanceCommandInput,
-    CreateAccessGrantsInstanceCommandOutput,
-    S3ControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    RequiresAccountId: { type: "staticContextParams", value: true },
-    AccountId: { type: "contextParams", name: "AccountId" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getProcessArnablesPlugin(config),
-      getApplyMd5BodyChecksumPlugin(config),
-    ];
-  })
-  .s("AWSS3ControlServiceV20180820", "CreateAccessGrantsInstance", {})
-  .n("S3ControlClient", "CreateAccessGrantsInstanceCommand")
-  .sc(CreateAccessGrantsInstance$)
-  .build() {
+export class CreateAccessGrantsInstanceCommand extends command<CreateAccessGrantsInstanceCommandInput, CreateAccessGrantsInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAccessGrantsInstance",
+  CreateAccessGrantsInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

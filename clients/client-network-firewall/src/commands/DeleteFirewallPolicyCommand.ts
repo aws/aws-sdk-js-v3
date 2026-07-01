@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFirewallPolicyRequest, DeleteFirewallPolicyResponse } from "../models/models_0";
-import type {
-  NetworkFirewallClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFirewallClient";
 import { DeleteFirewallPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +110,12 @@ export interface DeleteFirewallPolicyCommandOutput extends DeleteFirewallPolicyR
  *
  * @public
  */
-export class DeleteFirewallPolicyCommand extends $Command
-  .classBuilder<
-    DeleteFirewallPolicyCommandInput,
-    DeleteFirewallPolicyCommandOutput,
-    NetworkFirewallClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFirewall_20201112", "DeleteFirewallPolicy", {})
-  .n("NetworkFirewallClient", "DeleteFirewallPolicyCommand")
-  .sc(DeleteFirewallPolicy$)
-  .build() {
+export class DeleteFirewallPolicyCommand extends command<DeleteFirewallPolicyCommandInput, DeleteFirewallPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFirewallPolicy",
+  DeleteFirewallPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

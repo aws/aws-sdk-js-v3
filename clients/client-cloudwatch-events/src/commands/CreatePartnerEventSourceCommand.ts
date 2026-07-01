@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchEventsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePartnerEventSourceRequest, CreatePartnerEventSourceResponse } from "../models/models_0";
 import { CreatePartnerEventSource$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreatePartnerEventSource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +95,12 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  *
  * @public
  */
-export class CreatePartnerEventSourceCommand extends $Command
-  .classBuilder<
-    CreatePartnerEventSourceCommandInput,
-    CreatePartnerEventSourceCommandOutput,
-    CloudWatchEventsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSEvents", "CreatePartnerEventSource", {})
-  .n("CloudWatchEventsClient", "CreatePartnerEventSourceCommand")
-  .sc(CreatePartnerEventSource$)
-  .build() {
+export class CreatePartnerEventSourceCommand extends command<CreatePartnerEventSourceCommandInput, CreatePartnerEventSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePartnerEventSource",
+  CreatePartnerEventSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListBudgetsForResourceInput, ListBudgetsForResourceOutput } from "../models/models_0";
 import { ListBudgetsForResource$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +69,12 @@ export interface ListBudgetsForResourceCommandOutput extends ListBudgetsForResou
  *
  * @public
  */
-export class ListBudgetsForResourceCommand extends $Command
-  .classBuilder<
-    ListBudgetsForResourceCommandInput,
-    ListBudgetsForResourceCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "ListBudgetsForResource", {})
-  .n("ServiceCatalogClient", "ListBudgetsForResourceCommand")
-  .sc(ListBudgetsForResource$)
-  .build() {
+export class ListBudgetsForResourceCommand extends command<ListBudgetsForResourceCommandInput, ListBudgetsForResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBudgetsForResource",
+  ListBudgetsForResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

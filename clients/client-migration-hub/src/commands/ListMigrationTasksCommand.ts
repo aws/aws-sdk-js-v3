@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListMigrationTasksRequest, ListMigrationTasksResult } from "../models/models_0";
 import { ListMigrationTasks$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListMigrationTasks$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +111,12 @@ export interface ListMigrationTasksCommandOutput extends ListMigrationTasksResul
  *
  * @public
  */
-export class ListMigrationTasksCommand extends $Command
-  .classBuilder<
-    ListMigrationTasksCommandInput,
-    ListMigrationTasksCommandOutput,
-    MigrationHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHub", "ListMigrationTasks", {})
-  .n("MigrationHubClient", "ListMigrationTasksCommand")
-  .sc(ListMigrationTasks$)
-  .build() {
+export class ListMigrationTasksCommand extends command<ListMigrationTasksCommandInput, ListMigrationTasksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMigrationTasks",
+  ListMigrationTasks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

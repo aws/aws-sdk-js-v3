@@ -13,7 +13,6 @@ import { de_NoInputAndOutputCommand, se_NoInputAndOutputCommand } from "../proto
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

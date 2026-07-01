@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveAttributesFromFindingsRequest, RemoveAttributesFromFindingsResponse } from "../models/models_0";
 import { RemoveAttributesFromFindings$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RemoveAttributesFromFindings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface RemoveAttributesFromFindingsCommandOutput extends RemoveAttribu
  *
  * @public
  */
-export class RemoveAttributesFromFindingsCommand extends $Command
-  .classBuilder<
-    RemoveAttributesFromFindingsCommandInput,
-    RemoveAttributesFromFindingsCommandOutput,
-    InspectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("InspectorService", "RemoveAttributesFromFindings", {})
-  .n("InspectorClient", "RemoveAttributesFromFindingsCommand")
-  .sc(RemoveAttributesFromFindings$)
-  .build() {
+export class RemoveAttributesFromFindingsCommand extends command<RemoveAttributesFromFindingsCommandInput, RemoveAttributesFromFindingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveAttributesFromFindings",
+  RemoveAttributesFromFindings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAccessEntryRequest, DeleteAccessEntryResponse } from "../models/models_0";
 import { DeleteAccessEntry$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAccessEntry$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DeleteAccessEntryCommandOutput extends DeleteAccessEntryRespons
  *
  * @public
  */
-export class DeleteAccessEntryCommand extends $Command
-  .classBuilder<
-    DeleteAccessEntryCommandInput,
-    DeleteAccessEntryCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "DeleteAccessEntry", {})
-  .n("EKSClient", "DeleteAccessEntryCommand")
-  .sc(DeleteAccessEntry$)
-  .build() {
+export class DeleteAccessEntryCommand extends command<DeleteAccessEntryCommandInput, DeleteAccessEntryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAccessEntry",
+  DeleteAccessEntry$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

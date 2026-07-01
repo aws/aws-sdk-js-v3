@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchDeleteCodeReviewsInput, BatchDeleteCodeReviewsOutput } from "../models/models_0";
 import { BatchDeleteCodeReviews$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface BatchDeleteCodeReviewsCommandOutput extends BatchDeleteCodeRevi
  *
  * @public
  */
-export class BatchDeleteCodeReviewsCommand extends $Command
-  .classBuilder<
-    BatchDeleteCodeReviewsCommandInput,
-    BatchDeleteCodeReviewsCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "BatchDeleteCodeReviews", {})
-  .n("SecurityAgentClient", "BatchDeleteCodeReviewsCommand")
-  .sc(BatchDeleteCodeReviews$)
-  .build() {
+export class BatchDeleteCodeReviewsCommand extends command<BatchDeleteCodeReviewsCommandInput, BatchDeleteCodeReviewsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDeleteCodeReviews",
+  BatchDeleteCodeReviews$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

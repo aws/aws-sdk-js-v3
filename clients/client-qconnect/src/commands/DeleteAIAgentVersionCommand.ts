@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAIAgentVersionRequest, DeleteAIAgentVersionResponse } from "../models/models_0";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { DeleteAIAgentVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DeleteAIAgentVersionCommandOutput extends DeleteAIAgentVersionR
  *
  * @public
  */
-export class DeleteAIAgentVersionCommand extends $Command
-  .classBuilder<
-    DeleteAIAgentVersionCommandInput,
-    DeleteAIAgentVersionCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "DeleteAIAgentVersion", {})
-  .n("QConnectClient", "DeleteAIAgentVersionCommand")
-  .sc(DeleteAIAgentVersion$)
-  .build() {
+export class DeleteAIAgentVersionCommand extends command<DeleteAIAgentVersionCommandInput, DeleteAIAgentVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAIAgentVersion",
+  DeleteAIAgentVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

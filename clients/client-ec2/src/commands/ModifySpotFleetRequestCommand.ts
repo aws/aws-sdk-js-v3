@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifySpotFleetRequestRequest, ModifySpotFleetRequestResponse } from "../models/models_7";
 import { ModifySpotFleetRequest$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ModifySpotFleetRequest$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -202,22 +198,12 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  *
  * @public
  */
-export class ModifySpotFleetRequestCommand extends $Command
-  .classBuilder<
-    ModifySpotFleetRequestCommandInput,
-    ModifySpotFleetRequestCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "ModifySpotFleetRequest", {})
-  .n("EC2Client", "ModifySpotFleetRequestCommand")
-  .sc(ModifySpotFleetRequest$)
-  .build() {
+export class ModifySpotFleetRequestCommand extends command<ModifySpotFleetRequestCommandInput, ModifySpotFleetRequestCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifySpotFleetRequest",
+  ModifySpotFleetRequest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListFormTypesRequest, ListFormTypesResponse } from "../models/models_2";
 import { ListFormTypes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListFormTypes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface ListFormTypesCommandOutput extends ListFormTypesResponse, __Met
  *
  * @public
  */
-export class ListFormTypesCommand extends $Command
-  .classBuilder<
-    ListFormTypesCommandInput,
-    ListFormTypesCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "ListFormTypes", {})
-  .n("GlueClient", "ListFormTypesCommand")
-  .sc(ListFormTypes$)
-  .build() {
+export class ListFormTypesCommand extends command<ListFormTypesCommandInput, ListFormTypesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFormTypes",
+  ListFormTypes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

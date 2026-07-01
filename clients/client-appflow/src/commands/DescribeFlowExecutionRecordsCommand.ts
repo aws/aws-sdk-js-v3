@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeFlowExecutionRecordsRequest, DescribeFlowExecutionRecordsResponse } from "../models/models_0";
 import { DescribeFlowExecutionRecords$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeFlowExecutionRecords$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface DescribeFlowExecutionRecordsCommandOutput extends DescribeFlowE
  *
  * @public
  */
-export class DescribeFlowExecutionRecordsCommand extends $Command
-  .classBuilder<
-    DescribeFlowExecutionRecordsCommandInput,
-    DescribeFlowExecutionRecordsCommandOutput,
-    AppflowClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SandstoneConfigurationServiceLambda", "DescribeFlowExecutionRecords", {})
-  .n("AppflowClient", "DescribeFlowExecutionRecordsCommand")
-  .sc(DescribeFlowExecutionRecords$)
-  .build() {
+export class DescribeFlowExecutionRecordsCommand extends command<DescribeFlowExecutionRecordsCommandInput, DescribeFlowExecutionRecordsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeFlowExecutionRecords",
+  DescribeFlowExecutionRecords$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

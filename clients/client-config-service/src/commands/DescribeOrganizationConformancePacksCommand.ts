@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeOrganizationConformancePacksRequest,
   DescribeOrganizationConformancePacksResponse,
@@ -15,7 +12,6 @@ import { DescribeOrganizationConformancePacks$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -135,22 +131,12 @@ export interface DescribeOrganizationConformancePacksCommandOutput extends Descr
  *
  * @public
  */
-export class DescribeOrganizationConformancePacksCommand extends $Command
-  .classBuilder<
-    DescribeOrganizationConformancePacksCommandInput,
-    DescribeOrganizationConformancePacksCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DescribeOrganizationConformancePacks", {})
-  .n("ConfigServiceClient", "DescribeOrganizationConformancePacksCommand")
-  .sc(DescribeOrganizationConformancePacks$)
-  .build() {
+export class DescribeOrganizationConformancePacksCommand extends command<DescribeOrganizationConformancePacksCommandInput, DescribeOrganizationConformancePacksCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeOrganizationConformancePacks",
+  DescribeOrganizationConformancePacks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

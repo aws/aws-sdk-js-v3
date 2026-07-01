@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateBrokerTypeRequest, UpdateBrokerTypeResponse } from "../models/models_0";
 import { UpdateBrokerType$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateBrokerType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface UpdateBrokerTypeCommandOutput extends UpdateBrokerTypeResponse,
  *
  * @public
  */
-export class UpdateBrokerTypeCommand extends $Command
-  .classBuilder<
-    UpdateBrokerTypeCommandInput,
-    UpdateBrokerTypeCommandOutput,
-    KafkaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kafka", "UpdateBrokerType", {})
-  .n("KafkaClient", "UpdateBrokerTypeCommand")
-  .sc(UpdateBrokerType$)
-  .build() {
+export class UpdateBrokerTypeCommand extends command<UpdateBrokerTypeCommandInput, UpdateBrokerTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateBrokerType",
+  UpdateBrokerType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

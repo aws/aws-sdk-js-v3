@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
-import type { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSnapshotBlockRequest, GetSnapshotBlockResponse } from "../models/models_0";
 import { GetSnapshotBlock$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetSnapshotBlock$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface GetSnapshotBlockCommandOutput extends Omit<GetSnapshotBlockResp
  *
  * @public
  */
-export class GetSnapshotBlockCommand extends $Command
-  .classBuilder<
-    GetSnapshotBlockCommandInput,
-    GetSnapshotBlockCommandOutput,
-    EBSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EBSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Ebs", "GetSnapshotBlock", {})
-  .n("EBSClient", "GetSnapshotBlockCommand")
-  .sc(GetSnapshotBlock$)
-  .build() {
+export class GetSnapshotBlockCommand extends command<GetSnapshotBlockCommandInput, GetSnapshotBlockCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSnapshotBlock",
+  GetSnapshotBlock$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

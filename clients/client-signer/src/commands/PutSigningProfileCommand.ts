@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutSigningProfileRequest, PutSigningProfileResponse } from "../models/models_0";
 import { PutSigningProfile$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface PutSigningProfileCommandOutput extends PutSigningProfileRespons
  *
  * @public
  */
-export class PutSigningProfileCommand extends $Command
-  .classBuilder<
-    PutSigningProfileCommandInput,
-    PutSigningProfileCommandOutput,
-    SignerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SignerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WallabyService", "PutSigningProfile", {})
-  .n("SignerClient", "PutSigningProfileCommand")
-  .sc(PutSigningProfile$)
-  .build() {
+export class PutSigningProfileCommand extends command<PutSigningProfileCommandInput, PutSigningProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutSigningProfile",
+  PutSigningProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

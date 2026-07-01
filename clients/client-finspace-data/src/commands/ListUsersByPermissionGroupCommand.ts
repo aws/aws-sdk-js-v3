@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListUsersByPermissionGroupRequest, ListUsersByPermissionGroupResponse } from "../models/models_0";
 import { ListUsersByPermissionGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListUsersByPermissionGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface ListUsersByPermissionGroupCommandOutput extends ListUsersByPerm
  *
  * @public
  */
-export class ListUsersByPermissionGroupCommand extends $Command
-  .classBuilder<
-    ListUsersByPermissionGroupCommandInput,
-    ListUsersByPermissionGroupCommandOutput,
-    FinspaceDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHabaneroPublicAPI", "ListUsersByPermissionGroup", {})
-  .n("FinspaceDataClient", "ListUsersByPermissionGroupCommand")
-  .sc(ListUsersByPermissionGroup$)
-  .build() {
+export class ListUsersByPermissionGroupCommand extends command<ListUsersByPermissionGroupCommandInput, ListUsersByPermissionGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListUsersByPermissionGroup",
+  ListUsersByPermissionGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

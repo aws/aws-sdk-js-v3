@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSubscriptionGrantInput, DeleteSubscriptionGrantOutput } from "../models/models_1";
 import { DeleteSubscriptionGrant$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteSubscriptionGrant$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface DeleteSubscriptionGrantCommandOutput extends DeleteSubscription
  *
  * @public
  */
-export class DeleteSubscriptionGrantCommand extends $Command
-  .classBuilder<
-    DeleteSubscriptionGrantCommandInput,
-    DeleteSubscriptionGrantCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "DeleteSubscriptionGrant", {})
-  .n("DataZoneClient", "DeleteSubscriptionGrantCommand")
-  .sc(DeleteSubscriptionGrant$)
-  .build() {
+export class DeleteSubscriptionGrantCommand extends command<DeleteSubscriptionGrantCommandInput, DeleteSubscriptionGrantCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSubscriptionGrant",
+  DeleteSubscriptionGrant$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

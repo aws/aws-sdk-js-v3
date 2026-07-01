@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateMeshInput, UpdateMeshOutput } from "../models/models_0";
 import { UpdateMesh$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateMesh$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +111,12 @@ export interface UpdateMeshCommandOutput extends UpdateMeshOutput, __MetadataBea
  *
  * @public
  */
-export class UpdateMeshCommand extends $Command
-  .classBuilder<
-    UpdateMeshCommandInput,
-    UpdateMeshCommandOutput,
-    AppMeshClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppMeshClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppMesh", "UpdateMesh", {})
-  .n("AppMeshClient", "UpdateMeshCommand")
-  .sc(UpdateMesh$)
-  .build() {
+export class UpdateMeshCommand extends command<UpdateMeshCommandInput, UpdateMeshCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateMesh",
+  UpdateMesh$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

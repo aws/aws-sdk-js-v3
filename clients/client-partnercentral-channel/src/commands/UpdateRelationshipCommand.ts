@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRelationshipRequest, UpdateRelationshipResponse } from "../models/models_0";
-import type {
-  PartnerCentralChannelClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralChannelClient";
 import { UpdateRelationship$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -131,22 +123,12 @@ export interface UpdateRelationshipCommandOutput extends UpdateRelationshipRespo
  *
  * @public
  */
-export class UpdateRelationshipCommand extends $Command
-  .classBuilder<
-    UpdateRelationshipCommandInput,
-    UpdateRelationshipCommandOutput,
-    PartnerCentralChannelClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralChannelClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralChannel", "UpdateRelationship", {})
-  .n("PartnerCentralChannelClient", "UpdateRelationshipCommand")
-  .sc(UpdateRelationship$)
-  .build() {
+export class UpdateRelationshipCommand extends command<UpdateRelationshipCommandInput, UpdateRelationshipCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRelationship",
+  UpdateRelationship$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

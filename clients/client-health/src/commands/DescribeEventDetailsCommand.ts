@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeEventDetailsRequest, DescribeEventDetailsResponse } from "../models/models_0";
 import { DescribeEventDetails$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeEventDetails$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface DescribeEventDetailsCommandOutput extends DescribeEventDetailsR
  *
  * @public
  */
-export class DescribeEventDetailsCommand extends $Command
-  .classBuilder<
-    DescribeEventDetailsCommandInput,
-    DescribeEventDetailsCommandOutput,
-    HealthClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: HealthClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHealth_20160804", "DescribeEventDetails", {})
-  .n("HealthClient", "DescribeEventDetailsCommand")
-  .sc(DescribeEventDetails$)
-  .build() {
+export class DescribeEventDetailsCommand extends command<DescribeEventDetailsCommandInput, DescribeEventDetailsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEventDetails",
+  DescribeEventDetails$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

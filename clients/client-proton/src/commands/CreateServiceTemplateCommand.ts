@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateServiceTemplateInput, CreateServiceTemplateOutput } from "../models/models_0";
-import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 import { CreateServiceTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface CreateServiceTemplateCommandOutput extends CreateServiceTemplat
  *
  * @public
  */
-export class CreateServiceTemplateCommand extends $Command
-  .classBuilder<
-    CreateServiceTemplateCommandInput,
-    CreateServiceTemplateCommandOutput,
-    ProtonClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsProton20200720", "CreateServiceTemplate", {})
-  .n("ProtonClient", "CreateServiceTemplateCommand")
-  .sc(CreateServiceTemplate$)
-  .build() {
+export class CreateServiceTemplateCommand extends command<CreateServiceTemplateCommandInput, CreateServiceTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateServiceTemplate",
+  CreateServiceTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

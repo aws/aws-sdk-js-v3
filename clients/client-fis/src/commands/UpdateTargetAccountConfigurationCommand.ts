@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateTargetAccountConfigurationRequest,
   UpdateTargetAccountConfigurationResponse,
@@ -15,7 +12,6 @@ import { UpdateTargetAccountConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface UpdateTargetAccountConfigurationCommandOutput extends UpdateTar
  *
  * @public
  */
-export class UpdateTargetAccountConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateTargetAccountConfigurationCommandInput,
-    UpdateTargetAccountConfigurationCommandOutput,
-    FisClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FisClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FaultInjectionSimulator", "UpdateTargetAccountConfiguration", {})
-  .n("FisClient", "UpdateTargetAccountConfigurationCommand")
-  .sc(UpdateTargetAccountConfiguration$)
-  .build() {
+export class UpdateTargetAccountConfigurationCommand extends command<UpdateTargetAccountConfigurationCommandInput, UpdateTargetAccountConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateTargetAccountConfiguration",
+  UpdateTargetAccountConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

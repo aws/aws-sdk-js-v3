@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopBatchEvaluationRequest, StopBatchEvaluationResponse } from "../models/models_0";
 import { StopBatchEvaluation$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StopBatchEvaluation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface StopBatchEvaluationCommandOutput extends StopBatchEvaluationRes
  *
  * @public
  */
-export class StopBatchEvaluationCommand extends $Command
-  .classBuilder<
-    StopBatchEvaluationCommandInput,
-    StopBatchEvaluationCommandOutput,
-    BedrockAgentCoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCore", "StopBatchEvaluation", {})
-  .n("BedrockAgentCoreClient", "StopBatchEvaluationCommand")
-  .sc(StopBatchEvaluation$)
-  .build() {
+export class StopBatchEvaluationCommand extends command<StopBatchEvaluationCommandInput, StopBatchEvaluationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopBatchEvaluation",
+  StopBatchEvaluation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

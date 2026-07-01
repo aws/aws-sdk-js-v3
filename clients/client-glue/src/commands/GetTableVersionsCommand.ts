@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTableVersionsRequest } from "../models/models_2";
 import type { GetTableVersionsResponse } from "../models/models_3";
 import { GetTableVersions$ } from "../schemas/schemas_0";
@@ -13,7 +10,6 @@ import { GetTableVersions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -483,22 +479,12 @@ export interface GetTableVersionsCommandOutput extends GetTableVersionsResponse,
  *
  * @public
  */
-export class GetTableVersionsCommand extends $Command
-  .classBuilder<
-    GetTableVersionsCommandInput,
-    GetTableVersionsCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "GetTableVersions", {})
-  .n("GlueClient", "GetTableVersionsCommand")
-  .sc(GetTableVersions$)
-  .build() {
+export class GetTableVersionsCommand extends command<GetTableVersionsCommandInput, GetTableVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTableVersions",
+  GetTableVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

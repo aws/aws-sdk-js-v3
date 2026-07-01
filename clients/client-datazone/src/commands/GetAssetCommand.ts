@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAssetInput, GetAssetOutput } from "../models/models_0";
 import { GetAsset$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetAsset$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -127,22 +123,12 @@ export interface GetAssetCommandOutput extends GetAssetOutput, __MetadataBearer 
  *
  * @public
  */
-export class GetAssetCommand extends $Command
-  .classBuilder<
-    GetAssetCommandInput,
-    GetAssetCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "GetAsset", {})
-  .n("DataZoneClient", "GetAssetCommand")
-  .sc(GetAsset$)
-  .build() {
+export class GetAssetCommand extends command<GetAssetCommandInput, GetAssetCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAsset",
+  GetAsset$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

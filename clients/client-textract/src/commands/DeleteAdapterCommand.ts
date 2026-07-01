@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAdapterRequest, DeleteAdapterResponse } from "../models/models_0";
 import { DeleteAdapter$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface DeleteAdapterCommandOutput extends DeleteAdapterResponse, __Met
  *
  * @public
  */
-export class DeleteAdapterCommand extends $Command
-  .classBuilder<
-    DeleteAdapterCommandInput,
-    DeleteAdapterCommandOutput,
-    TextractClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Textract", "DeleteAdapter", {})
-  .n("TextractClient", "DeleteAdapterCommand")
-  .sc(DeleteAdapter$)
-  .build() {
+export class DeleteAdapterCommand extends command<DeleteAdapterCommandInput, DeleteAdapterCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAdapter",
+  DeleteAdapter$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

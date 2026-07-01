@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateCustomerGatewayRequest, DisassociateCustomerGatewayResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { DisassociateCustomerGateway$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface DisassociateCustomerGatewayCommandOutput extends DisassociateCu
  *
  * @public
  */
-export class DisassociateCustomerGatewayCommand extends $Command
-  .classBuilder<
-    DisassociateCustomerGatewayCommandInput,
-    DisassociateCustomerGatewayCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "DisassociateCustomerGateway", {})
-  .n("NetworkManagerClient", "DisassociateCustomerGatewayCommand")
-  .sc(DisassociateCustomerGateway$)
-  .build() {
+export class DisassociateCustomerGatewayCommand extends command<DisassociateCustomerGatewayCommandInput, DisassociateCustomerGatewayCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateCustomerGateway",
+  DisassociateCustomerGateway$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

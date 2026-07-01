@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetAutomationRulesRequest, BatchGetAutomationRulesResponse } from "../models/models_2";
 import { BatchGetAutomationRules$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -381,22 +377,12 @@ export interface BatchGetAutomationRulesCommandOutput extends BatchGetAutomation
  *
  * @public
  */
-export class BatchGetAutomationRulesCommand extends $Command
-  .classBuilder<
-    BatchGetAutomationRulesCommandInput,
-    BatchGetAutomationRulesCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "BatchGetAutomationRules", {})
-  .n("SecurityHubClient", "BatchGetAutomationRulesCommand")
-  .sc(BatchGetAutomationRules$)
-  .build() {
+export class BatchGetAutomationRulesCommand extends command<BatchGetAutomationRulesCommandInput, BatchGetAutomationRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetAutomationRules",
+  BatchGetAutomationRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetServiceSettingRequest } from "../models/models_0";
 import type { GetServiceSettingResult } from "../models/models_1";
 import { GetServiceSetting$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface GetServiceSettingCommandOutput extends GetServiceSettingResult,
  *
  * @public
  */
-export class GetServiceSettingCommand extends $Command
-  .classBuilder<
-    GetServiceSettingCommandInput,
-    GetServiceSettingCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "GetServiceSetting", {})
-  .n("SSMClient", "GetServiceSettingCommand")
-  .sc(GetServiceSetting$)
-  .build() {
+export class GetServiceSettingCommand extends command<GetServiceSettingCommandInput, GetServiceSettingCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetServiceSetting",
+  GetServiceSetting$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

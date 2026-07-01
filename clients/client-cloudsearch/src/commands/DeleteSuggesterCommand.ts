@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSuggesterRequest, DeleteSuggesterResponse } from "../models/models_0";
 import { DeleteSuggester$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteSuggester$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface DeleteSuggesterCommandOutput extends DeleteSuggesterResponse, _
  *
  * @public
  */
-export class DeleteSuggesterCommand extends $Command
-  .classBuilder<
-    DeleteSuggesterCommandInput,
-    DeleteSuggesterCommandOutput,
-    CloudSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("A9SearchCloudConfigService2013", "DeleteSuggester", {})
-  .n("CloudSearchClient", "DeleteSuggesterCommand")
-  .sc(DeleteSuggester$)
-  .build() {
+export class DeleteSuggesterCommand extends command<DeleteSuggesterCommandInput, DeleteSuggesterCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSuggester",
+  DeleteSuggester$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

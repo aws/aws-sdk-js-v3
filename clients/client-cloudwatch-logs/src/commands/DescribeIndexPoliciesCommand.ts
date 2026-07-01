@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeIndexPoliciesRequest, DescribeIndexPoliciesResponse } from "../models/models_0";
 import { DescribeIndexPolicies$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeIndexPolicies$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface DescribeIndexPoliciesCommandOutput extends DescribeIndexPolicie
  *
  * @public
  */
-export class DescribeIndexPoliciesCommand extends $Command
-  .classBuilder<
-    DescribeIndexPoliciesCommandInput,
-    DescribeIndexPoliciesCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "DescribeIndexPolicies", {})
-  .n("CloudWatchLogsClient", "DescribeIndexPoliciesCommand")
-  .sc(DescribeIndexPolicies$)
-  .build() {
+export class DescribeIndexPoliciesCommand extends command<DescribeIndexPoliciesCommandInput, DescribeIndexPoliciesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeIndexPolicies",
+  DescribeIndexPolicies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

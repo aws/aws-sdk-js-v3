@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListManagedNotificationChannelAssociationsRequest,
   ListManagedNotificationChannelAssociationsResponse,
 } from "../models/models_0";
-import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
 import { ListManagedNotificationChannelAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface ListManagedNotificationChannelAssociationsCommandOutput extends
  *
  * @public
  */
-export class ListManagedNotificationChannelAssociationsCommand extends $Command
-  .classBuilder<
-    ListManagedNotificationChannelAssociationsCommandInput,
-    ListManagedNotificationChannelAssociationsCommandOutput,
-    NotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Notifications", "ListManagedNotificationChannelAssociations", {})
-  .n("NotificationsClient", "ListManagedNotificationChannelAssociationsCommand")
-  .sc(ListManagedNotificationChannelAssociations$)
-  .build() {
+export class ListManagedNotificationChannelAssociationsCommand extends command<ListManagedNotificationChannelAssociationsCommandInput, ListManagedNotificationChannelAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListManagedNotificationChannelAssociations",
+  ListManagedNotificationChannelAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

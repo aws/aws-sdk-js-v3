@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateHubContentRequest, UpdateHubContentResponse } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { UpdateHubContent$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface UpdateHubContentCommandOutput extends UpdateHubContentResponse,
  *
  * @public
  */
-export class UpdateHubContentCommand extends $Command
-  .classBuilder<
-    UpdateHubContentCommandInput,
-    UpdateHubContentCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "UpdateHubContent", {})
-  .n("SageMakerClient", "UpdateHubContentCommand")
-  .sc(UpdateHubContent$)
-  .build() {
+export class UpdateHubContentCommand extends command<UpdateHubContentCommandInput, UpdateHubContentCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateHubContent",
+  UpdateHubContent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

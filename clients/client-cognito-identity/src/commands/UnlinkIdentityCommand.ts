@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UnlinkIdentityInput } from "../models/models_0";
 import { UnlinkIdentity$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UnlinkIdentity$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +86,12 @@ export interface UnlinkIdentityCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UnlinkIdentityCommand extends $Command
-  .classBuilder<
-    UnlinkIdentityCommandInput,
-    UnlinkIdentityCommandOutput,
-    CognitoIdentityClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityService", "UnlinkIdentity", {})
-  .n("CognitoIdentityClient", "UnlinkIdentityCommand")
-  .sc(UnlinkIdentity$)
-  .build() {
+export class UnlinkIdentityCommand extends command<UnlinkIdentityCommandInput, UnlinkIdentityCommandOutput>(
+  _ep0,
+  _mw0,
+  "UnlinkIdentity",
+  UnlinkIdentity$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

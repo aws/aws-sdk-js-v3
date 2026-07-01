@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTimeSeriesServiceStatisticsRequest, GetTimeSeriesServiceStatisticsResult } from "../models/models_0";
 import { GetTimeSeriesServiceStatistics$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface GetTimeSeriesServiceStatisticsCommandOutput extends GetTimeSeri
  *
  * @public
  */
-export class GetTimeSeriesServiceStatisticsCommand extends $Command
-  .classBuilder<
-    GetTimeSeriesServiceStatisticsCommandInput,
-    GetTimeSeriesServiceStatisticsCommandOutput,
-    XRayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSXRay", "GetTimeSeriesServiceStatistics", {})
-  .n("XRayClient", "GetTimeSeriesServiceStatisticsCommand")
-  .sc(GetTimeSeriesServiceStatistics$)
-  .build() {
+export class GetTimeSeriesServiceStatisticsCommand extends command<GetTimeSeriesServiceStatisticsCommandInput, GetTimeSeriesServiceStatisticsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTimeSeriesServiceStatistics",
+  GetTimeSeriesServiceStatistics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

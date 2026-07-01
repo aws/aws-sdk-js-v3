@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteGitHubAccountTokenInput, DeleteGitHubAccountTokenOutput } from "../models/models_0";
 import { DeleteGitHubAccountToken$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteGitHubAccountToken$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DeleteGitHubAccountTokenCommandOutput extends DeleteGitHubAccou
  *
  * @public
  */
-export class DeleteGitHubAccountTokenCommand extends $Command
-  .classBuilder<
-    DeleteGitHubAccountTokenCommandInput,
-    DeleteGitHubAccountTokenCommandOutput,
-    CodeDeployClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeDeploy_20141006", "DeleteGitHubAccountToken", {})
-  .n("CodeDeployClient", "DeleteGitHubAccountTokenCommand")
-  .sc(DeleteGitHubAccountToken$)
-  .build() {
+export class DeleteGitHubAccountTokenCommand extends command<DeleteGitHubAccountTokenCommandInput, DeleteGitHubAccountTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteGitHubAccountToken",
+  DeleteGitHubAccountToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

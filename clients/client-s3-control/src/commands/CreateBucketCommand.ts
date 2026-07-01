@@ -1,20 +1,14 @@
 // smithy-typescript generated code
-import { getRedirectFromPostIdPlugin } from "@aws-sdk/middleware-sdk-s3/s3-control";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
-import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep2, _mw2, command } from "../commandBuilder";
 import type { CreateBucketRequest, CreateBucketResult } from "../models/models_0";
-import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { CreateBucket$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -134,30 +128,12 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  *
  * @public
  */
-export class CreateBucketCommand extends $Command
-  .classBuilder<
-    CreateBucketCommandInput,
-    CreateBucketCommandOutput,
-    S3ControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    OutpostId: { type: "contextParams", name: "OutpostId" },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getRedirectFromPostIdPlugin(config),
-      getApplyMd5BodyChecksumPlugin(config),
-    ];
-  })
-  .s("AWSS3ControlServiceV20180820", "CreateBucket", {})
-  .n("S3ControlClient", "CreateBucketCommand")
-  .sc(CreateBucket$)
-  .build() {
+export class CreateBucketCommand extends command<CreateBucketCommandInput, CreateBucketCommandOutput>(
+  _ep2,
+  _mw2,
+  "CreateBucket",
+  CreateBucket$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

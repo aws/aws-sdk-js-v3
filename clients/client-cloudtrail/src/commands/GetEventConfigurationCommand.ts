@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEventConfigurationRequest, GetEventConfigurationResponse } from "../models/models_0";
 import { GetEventConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetEventConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -148,22 +144,12 @@ export interface GetEventConfigurationCommandOutput extends GetEventConfiguratio
  *
  * @public
  */
-export class GetEventConfigurationCommand extends $Command
-  .classBuilder<
-    GetEventConfigurationCommandInput,
-    GetEventConfigurationCommandOutput,
-    CloudTrailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudTrail_20131101", "GetEventConfiguration", {})
-  .n("CloudTrailClient", "GetEventConfigurationCommand")
-  .sc(GetEventConfiguration$)
-  .build() {
+export class GetEventConfigurationCommand extends command<GetEventConfigurationCommandInput, GetEventConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEventConfiguration",
+  GetEventConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

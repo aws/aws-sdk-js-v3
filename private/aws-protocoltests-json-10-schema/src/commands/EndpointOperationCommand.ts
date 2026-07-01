@@ -1,17 +1,13 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import { EndpointOperation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -54,22 +50,12 @@ export interface EndpointOperationCommandOutput extends __MetadataBearer {}
  *
  *
  */
-export class EndpointOperationCommand extends $Command
-  .classBuilder<
-    EndpointOperationCommandInput,
-    EndpointOperationCommandOutput,
-    JSONRPC10ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: JSONRPC10ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("JsonRpc10", "EndpointOperation", {})
-  .n("JSONRPC10Client", "EndpointOperationCommand")
-  .sc(EndpointOperation$)
-  .build() {
+export class EndpointOperationCommand extends command<EndpointOperationCommandInput, EndpointOperationCommandOutput>(
+  _ep0,
+  _mw0,
+  "EndpointOperation",
+  EndpointOperation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

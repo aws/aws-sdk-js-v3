@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutConfigurationRequest } from "../models/models_0";
 import { PutConfiguration$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogAppRegistryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogAppRegistryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +70,12 @@ export interface PutConfigurationCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutConfigurationCommand extends $Command
-  .classBuilder<
-    PutConfigurationCommandInput,
-    PutConfigurationCommandOutput,
-    ServiceCatalogAppRegistryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogAppRegistryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242AppRegistry", "PutConfiguration", {})
-  .n("ServiceCatalogAppRegistryClient", "PutConfigurationCommand")
-  .sc(PutConfiguration$)
-  .build() {
+export class PutConfigurationCommand extends command<PutConfigurationCommandInput, PutConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutConfiguration",
+  PutConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

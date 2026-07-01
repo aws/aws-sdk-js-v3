@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListMemoriesInput, ListMemoriesOutput } from "../models/models_1";
 import { ListMemories$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListMemories$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface ListMemoriesCommandOutput extends ListMemoriesOutput, __Metadat
  *
  * @public
  */
-export class ListMemoriesCommand extends $Command
-  .classBuilder<
-    ListMemoriesCommandInput,
-    ListMemoriesCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "ListMemories", {})
-  .n("BedrockAgentCoreControlClient", "ListMemoriesCommand")
-  .sc(ListMemories$)
-  .build() {
+export class ListMemoriesCommand extends command<ListMemoriesCommandInput, ListMemoriesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMemories",
+  ListMemories$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

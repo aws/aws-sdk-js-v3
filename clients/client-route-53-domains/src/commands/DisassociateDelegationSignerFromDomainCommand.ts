@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateDelegationSignerFromDomainRequest,
   DisassociateDelegationSignerFromDomainResponse,
 } from "../models/models_0";
-import type {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53DomainsClient";
 import { DisassociateDelegationSignerFromDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface DisassociateDelegationSignerFromDomainCommandOutput extends Dis
  *
  * @public
  */
-export class DisassociateDelegationSignerFromDomainCommand extends $Command
-  .classBuilder<
-    DisassociateDelegationSignerFromDomainCommandInput,
-    DisassociateDelegationSignerFromDomainCommandOutput,
-    Route53DomainsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Domains_v20140515", "DisassociateDelegationSignerFromDomain", {})
-  .n("Route53DomainsClient", "DisassociateDelegationSignerFromDomainCommand")
-  .sc(DisassociateDelegationSignerFromDomain$)
-  .build() {
+export class DisassociateDelegationSignerFromDomainCommand extends command<DisassociateDelegationSignerFromDomainCommandInput, DisassociateDelegationSignerFromDomainCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateDelegationSignerFromDomain",
+  DisassociateDelegationSignerFromDomain$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

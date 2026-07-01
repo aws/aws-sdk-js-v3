@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IvschatClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvschatClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisconnectUserRequest, DisconnectUserResponse } from "../models/models_0";
 import { DisconnectUser$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisconnectUser$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DisconnectUserCommandOutput extends DisconnectUserResponse, __M
  *
  * @public
  */
-export class DisconnectUserCommand extends $Command
-  .classBuilder<
-    DisconnectUserCommandInput,
-    DisconnectUserCommandOutput,
-    IvschatClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IvschatClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoServiceChat", "DisconnectUser", {})
-  .n("IvschatClient", "DisconnectUserCommand")
-  .sc(DisconnectUser$)
-  .build() {
+export class DisconnectUserCommand extends command<DisconnectUserCommandInput, DisconnectUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisconnectUser",
+  DisconnectUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

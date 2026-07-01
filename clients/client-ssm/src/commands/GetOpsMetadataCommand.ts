@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetOpsMetadataRequest, GetOpsMetadataResult } from "../models/models_0";
 import { GetOpsMetadata$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface GetOpsMetadataCommandOutput extends GetOpsMetadataResult, __Met
  *
  * @public
  */
-export class GetOpsMetadataCommand extends $Command
-  .classBuilder<
-    GetOpsMetadataCommandInput,
-    GetOpsMetadataCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "GetOpsMetadata", {})
-  .n("SSMClient", "GetOpsMetadataCommand")
-  .sc(GetOpsMetadata$)
-  .build() {
+export class GetOpsMetadataCommand extends command<GetOpsMetadataCommandInput, GetOpsMetadataCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetOpsMetadata",
+  GetOpsMetadata$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

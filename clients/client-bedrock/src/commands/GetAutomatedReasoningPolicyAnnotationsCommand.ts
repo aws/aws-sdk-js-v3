@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetAutomatedReasoningPolicyAnnotationsRequest,
   GetAutomatedReasoningPolicyAnnotationsResponse,
@@ -15,7 +12,6 @@ import { GetAutomatedReasoningPolicyAnnotations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -162,22 +158,12 @@ export interface GetAutomatedReasoningPolicyAnnotationsCommandOutput extends Get
  *
  * @public
  */
-export class GetAutomatedReasoningPolicyAnnotationsCommand extends $Command
-  .classBuilder<
-    GetAutomatedReasoningPolicyAnnotationsCommandInput,
-    GetAutomatedReasoningPolicyAnnotationsCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "GetAutomatedReasoningPolicyAnnotations", {})
-  .n("BedrockClient", "GetAutomatedReasoningPolicyAnnotationsCommand")
-  .sc(GetAutomatedReasoningPolicyAnnotations$)
-  .build() {
+export class GetAutomatedReasoningPolicyAnnotationsCommand extends command<GetAutomatedReasoningPolicyAnnotationsCommandInput, GetAutomatedReasoningPolicyAnnotationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAutomatedReasoningPolicyAnnotations",
+  GetAutomatedReasoningPolicyAnnotations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

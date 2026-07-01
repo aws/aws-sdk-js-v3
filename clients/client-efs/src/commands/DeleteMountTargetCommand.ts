@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMountTargetRequest } from "../models/models_0";
 import { DeleteMountTarget$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteMountTarget$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +111,12 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteMountTargetCommand extends $Command
-  .classBuilder<
-    DeleteMountTargetCommandInput,
-    DeleteMountTargetCommandOutput,
-    EFSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MagnolioAPIService_v20150201", "DeleteMountTarget", {})
-  .n("EFSClient", "DeleteMountTargetCommand")
-  .sc(DeleteMountTarget$)
-  .build() {
+export class DeleteMountTargetCommand extends command<DeleteMountTargetCommandInput, DeleteMountTargetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMountTarget",
+  DeleteMountTarget$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

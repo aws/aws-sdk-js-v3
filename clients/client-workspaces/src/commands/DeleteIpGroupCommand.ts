@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteIpGroupRequest, DeleteIpGroupResult } from "../models/models_0";
 import { DeleteIpGroup$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface DeleteIpGroupCommandOutput extends DeleteIpGroupResult, __Metad
  *
  * @public
  */
-export class DeleteIpGroupCommand extends $Command
-  .classBuilder<
-    DeleteIpGroupCommandInput,
-    DeleteIpGroupCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "DeleteIpGroup", {})
-  .n("WorkSpacesClient", "DeleteIpGroupCommand")
-  .sc(DeleteIpGroup$)
-  .build() {
+export class DeleteIpGroupCommand extends command<DeleteIpGroupCommandInput, DeleteIpGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteIpGroup",
+  DeleteIpGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

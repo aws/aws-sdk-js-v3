@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AllocateHostsRequest, AllocateHostsResult } from "../models/models_0";
 import { AllocateHosts$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AllocateHosts$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface AllocateHostsCommandOutput extends AllocateHostsResult, __Metad
  *
  * @public
  */
-export class AllocateHostsCommand extends $Command
-  .classBuilder<
-    AllocateHostsCommandInput,
-    AllocateHostsCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "AllocateHosts", {})
-  .n("EC2Client", "AllocateHostsCommand")
-  .sc(AllocateHosts$)
-  .build() {
+export class AllocateHostsCommand extends command<AllocateHostsCommandInput, AllocateHostsCommandOutput>(
+  _ep0,
+  _mw0,
+  "AllocateHosts",
+  AllocateHosts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

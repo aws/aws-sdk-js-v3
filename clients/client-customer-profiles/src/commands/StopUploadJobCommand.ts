@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopUploadJobRequest, StopUploadJobResponse } from "../models/models_1";
 import { StopUploadJob$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StopUploadJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +69,12 @@ export interface StopUploadJobCommandOutput extends StopUploadJobResponse, __Met
  *
  * @public
  */
-export class StopUploadJobCommand extends $Command
-  .classBuilder<
-    StopUploadJobCommandInput,
-    StopUploadJobCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "StopUploadJob", {})
-  .n("CustomerProfilesClient", "StopUploadJobCommand")
-  .sc(StopUploadJob$)
-  .build() {
+export class StopUploadJobCommand extends command<StopUploadJobCommandInput, StopUploadJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopUploadJob",
+  StopUploadJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

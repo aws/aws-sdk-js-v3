@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EnableHostedZoneDNSSECRequest, EnableHostedZoneDNSSECResponse } from "../models/models_0";
-import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 import { EnableHostedZoneDNSSEC$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,25 +91,12 @@ export interface EnableHostedZoneDNSSECCommandOutput extends EnableHostedZoneDNS
  *
  * @public
  */
-export class EnableHostedZoneDNSSECCommand extends $Command
-  .classBuilder<
-    EnableHostedZoneDNSSECCommandInput,
-    EnableHostedZoneDNSSECCommandOutput,
-    Route53ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getIdNormalizerPlugin(config),
-    ];
-  })
-  .s("AWSDnsV20130401", "EnableHostedZoneDNSSEC", {})
-  .n("Route53Client", "EnableHostedZoneDNSSECCommand")
-  .sc(EnableHostedZoneDNSSEC$)
-  .build() {
+export class EnableHostedZoneDNSSECCommand extends command<EnableHostedZoneDNSSECCommandInput, EnableHostedZoneDNSSECCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableHostedZoneDNSSEC",
+  EnableHostedZoneDNSSEC$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

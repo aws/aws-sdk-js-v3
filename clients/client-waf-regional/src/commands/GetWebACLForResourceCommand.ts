@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetWebACLForResourceRequest, GetWebACLForResourceResponse } from "../models/models_0";
 import { GetWebACLForResource$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  *
  * @public
  */
-export class GetWebACLForResourceCommand extends $Command
-  .classBuilder<
-    GetWebACLForResourceCommandInput,
-    GetWebACLForResourceCommandOutput,
-    WAFRegionalClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_Regional_20161128", "GetWebACLForResource", {})
-  .n("WAFRegionalClient", "GetWebACLForResourceCommand")
-  .sc(GetWebACLForResource$)
-  .build() {
+export class GetWebACLForResourceCommand extends command<GetWebACLForResourceCommandInput, GetWebACLForResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetWebACLForResource",
+  GetWebACLForResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

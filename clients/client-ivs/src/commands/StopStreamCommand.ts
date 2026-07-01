@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopStreamRequest, StopStreamResponse } from "../models/models_0";
 import { StopStream$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopStream$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface StopStreamCommandOutput extends StopStreamResponse, __MetadataB
  *
  * @public
  */
-export class StopStreamCommand extends $Command
-  .classBuilder<
-    StopStreamCommandInput,
-    StopStreamCommandOutput,
-    IvsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoService", "StopStream", {})
-  .n("IvsClient", "StopStreamCommand")
-  .sc(StopStream$)
-  .build() {
+export class StopStreamCommand extends command<StopStreamCommandInput, StopStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopStream",
+  StopStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

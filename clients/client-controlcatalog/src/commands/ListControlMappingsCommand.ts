@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ControlCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ControlCatalogClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListControlMappingsRequest, ListControlMappingsResponse } from "../models/models_0";
 import { ListControlMappings$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListControlMappings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface ListControlMappingsCommandOutput extends ListControlMappingsRes
  *
  * @public
  */
-export class ListControlMappingsCommand extends $Command
-  .classBuilder<
-    ListControlMappingsCommandInput,
-    ListControlMappingsCommandOutput,
-    ControlCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ControlCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ControlCatalog", "ListControlMappings", {})
-  .n("ControlCatalogClient", "ListControlMappingsCommand")
-  .sc(ListControlMappings$)
-  .build() {
+export class ListControlMappingsCommand extends command<ListControlMappingsCommandInput, ListControlMappingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListControlMappings",
+  ListControlMappings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

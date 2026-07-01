@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerUserSubscriptionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerUserSubscriptionsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListIdentityProvidersRequest, ListIdentityProvidersResponse } from "../models/models_0";
 import { ListIdentityProviders$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListIdentityProviders$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +125,12 @@ export interface ListIdentityProvidersCommandOutput extends ListIdentityProvider
  *
  * @public
  */
-export class ListIdentityProvidersCommand extends $Command
-  .classBuilder<
-    ListIdentityProvidersCommandInput,
-    ListIdentityProvidersCommandOutput,
-    LicenseManagerUserSubscriptionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerUserSubscriptionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LicenseManagerUserSubscriptions", "ListIdentityProviders", {})
-  .n("LicenseManagerUserSubscriptionsClient", "ListIdentityProvidersCommand")
-  .sc(ListIdentityProviders$)
-  .build() {
+export class ListIdentityProvidersCommand extends command<ListIdentityProvidersCommandInput, ListIdentityProvidersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListIdentityProviders",
+  ListIdentityProviders$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

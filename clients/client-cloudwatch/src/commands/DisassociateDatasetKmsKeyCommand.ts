@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateDatasetKmsKeyInput, DisassociateDatasetKmsKeyOutput } from "../models/models_0";
 import { DisassociateDatasetKmsKey$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateDatasetKmsKey$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface DisassociateDatasetKmsKeyCommandOutput extends DisassociateData
  *
  * @public
  */
-export class DisassociateDatasetKmsKeyCommand extends $Command
-  .classBuilder<
-    DisassociateDatasetKmsKeyCommandInput,
-    DisassociateDatasetKmsKeyCommandOutput,
-    CloudWatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GraniteServiceVersion20100801", "DisassociateDatasetKmsKey", {})
-  .n("CloudWatchClient", "DisassociateDatasetKmsKeyCommand")
-  .sc(DisassociateDatasetKmsKey$)
-  .build() {
+export class DisassociateDatasetKmsKeyCommand extends command<DisassociateDatasetKmsKeyCommandInput, DisassociateDatasetKmsKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateDatasetKmsKey",
+  DisassociateDatasetKmsKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

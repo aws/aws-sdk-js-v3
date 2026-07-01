@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSoftwareSetsRequest, ListSoftwareSetsResponse } from "../models/models_0";
 import { ListSoftwareSets$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkSpacesThinClientClientResolvedConfig,
-} from "../WorkSpacesThinClientClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface ListSoftwareSetsCommandOutput extends ListSoftwareSetsResponse,
  *
  * @public
  */
-export class ListSoftwareSetsCommand extends $Command
-  .classBuilder<
-    ListSoftwareSetsCommandInput,
-    ListSoftwareSetsCommandOutput,
-    WorkSpacesThinClientClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesThinClientClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ThinClient", "ListSoftwareSets", {})
-  .n("WorkSpacesThinClientClient", "ListSoftwareSetsCommand")
-  .sc(ListSoftwareSets$)
-  .build() {
+export class ListSoftwareSetsCommand extends command<ListSoftwareSetsCommandInput, ListSoftwareSetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSoftwareSets",
+  ListSoftwareSets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

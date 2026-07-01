@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ConnectCampaignsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ConnectCampaignsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartCampaignRequest } from "../models/models_0";
 import { StartCampaign$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartCampaign$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface StartCampaignCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class StartCampaignCommand extends $Command
-  .classBuilder<
-    StartCampaignCommandInput,
-    StartCampaignCommandOutput,
-    ConnectCampaignsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCampaignService", "StartCampaign", {})
-  .n("ConnectCampaignsClient", "StartCampaignCommand")
-  .sc(StartCampaign$)
-  .build() {
+export class StartCampaignCommand extends command<StartCampaignCommandInput, StartCampaignCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartCampaign",
+  StartCampaign$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

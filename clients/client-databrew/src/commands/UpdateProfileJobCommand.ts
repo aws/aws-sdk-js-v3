@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataBrewClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataBrewClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateProfileJobRequest, UpdateProfileJobResponse } from "../models/models_0";
 import { UpdateProfileJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateProfileJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -146,22 +142,12 @@ export interface UpdateProfileJobCommandOutput extends UpdateProfileJobResponse,
  *
  * @public
  */
-export class UpdateProfileJobCommand extends $Command
-  .classBuilder<
-    UpdateProfileJobCommandInput,
-    UpdateProfileJobCommandOutput,
-    DataBrewClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlueDataBrew", "UpdateProfileJob", {})
-  .n("DataBrewClient", "UpdateProfileJobCommand")
-  .sc(UpdateProfileJob$)
-  .build() {
+export class UpdateProfileJobCommand extends command<UpdateProfileJobCommandInput, UpdateProfileJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateProfileJob",
+  UpdateProfileJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeprovisionPublicIpv4PoolCidrRequest, DeprovisionPublicIpv4PoolCidrResult } from "../models/models_3";
 import { DeprovisionPublicIpv4PoolCidr$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeprovisionPublicIpv4PoolCidr$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -64,22 +60,12 @@ export interface DeprovisionPublicIpv4PoolCidrCommandOutput extends DeprovisionP
  *
  * @public
  */
-export class DeprovisionPublicIpv4PoolCidrCommand extends $Command
-  .classBuilder<
-    DeprovisionPublicIpv4PoolCidrCommandInput,
-    DeprovisionPublicIpv4PoolCidrCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeprovisionPublicIpv4PoolCidr", {})
-  .n("EC2Client", "DeprovisionPublicIpv4PoolCidrCommand")
-  .sc(DeprovisionPublicIpv4PoolCidr$)
-  .build() {
+export class DeprovisionPublicIpv4PoolCidrCommand extends command<DeprovisionPublicIpv4PoolCidrCommandInput, DeprovisionPublicIpv4PoolCidrCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeprovisionPublicIpv4PoolCidr",
+  DeprovisionPublicIpv4PoolCidr$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

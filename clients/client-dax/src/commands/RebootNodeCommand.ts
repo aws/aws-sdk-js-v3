@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RebootNodeRequest, RebootNodeResponse } from "../models/models_0";
 import { RebootNode$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RebootNode$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -142,22 +138,12 @@ export interface RebootNodeCommandOutput extends RebootNodeResponse, __MetadataB
  *
  * @public
  */
-export class RebootNodeCommand extends $Command
-  .classBuilder<
-    RebootNodeCommandInput,
-    RebootNodeCommandOutput,
-    DAXClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DAXClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDAXV3", "RebootNode", {})
-  .n("DAXClient", "RebootNodeCommand")
-  .sc(RebootNode$)
-  .build() {
+export class RebootNodeCommand extends command<RebootNodeCommandInput, RebootNodeCommandOutput>(
+  _ep0,
+  _mw0,
+  "RebootNode",
+  RebootNode$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { VerifySoftwareTokenRequest, VerifySoftwareTokenResponse } from "../models/models_1";
 import { VerifySoftwareToken$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { VerifySoftwareToken$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +117,12 @@ export interface VerifySoftwareTokenCommandOutput extends VerifySoftwareTokenRes
  *
  * @public
  */
-export class VerifySoftwareTokenCommand extends $Command
-  .classBuilder<
-    VerifySoftwareTokenCommandInput,
-    VerifySoftwareTokenCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "VerifySoftwareToken", {})
-  .n("CognitoIdentityProviderClient", "VerifySoftwareTokenCommand")
-  .sc(VerifySoftwareToken$)
-  .build() {
+export class VerifySoftwareTokenCommand extends command<VerifySoftwareTokenCommandInput, VerifySoftwareTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "VerifySoftwareToken",
+  VerifySoftwareToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

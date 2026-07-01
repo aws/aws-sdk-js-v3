@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMobileSdkReleaseRequest, GetMobileSdkReleaseResponse } from "../models/models_0";
 import { GetMobileSdkRelease$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface GetMobileSdkReleaseCommandOutput extends GetMobileSdkReleaseRes
  *
  * @public
  */
-export class GetMobileSdkReleaseCommand extends $Command
-  .classBuilder<
-    GetMobileSdkReleaseCommandInput,
-    GetMobileSdkReleaseCommandOutput,
-    WAFV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20190729", "GetMobileSdkRelease", {})
-  .n("WAFV2Client", "GetMobileSdkReleaseCommand")
-  .sc(GetMobileSdkRelease$)
-  .build() {
+export class GetMobileSdkReleaseCommand extends command<GetMobileSdkReleaseCommandInput, GetMobileSdkReleaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMobileSdkRelease",
+  GetMobileSdkRelease$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

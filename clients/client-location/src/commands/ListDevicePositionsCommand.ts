@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDevicePositionsRequest, ListDevicePositionsResponse } from "../models/models_0";
 import { ListDevicePositions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDevicePositions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface ListDevicePositionsCommandOutput extends ListDevicePositionsRes
  *
  * @public
  */
-export class ListDevicePositionsCommand extends $Command
-  .classBuilder<
-    ListDevicePositionsCommandInput,
-    ListDevicePositionsCommandOutput,
-    LocationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LocationService", "ListDevicePositions", {})
-  .n("LocationClient", "ListDevicePositionsCommand")
-  .sc(ListDevicePositions$)
-  .build() {
+export class ListDevicePositionsCommand extends command<ListDevicePositionsCommandInput, ListDevicePositionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDevicePositions",
+  ListDevicePositions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

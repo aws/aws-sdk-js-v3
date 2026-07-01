@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UngroupResourcesInput, UngroupResourcesOutput } from "../models/models_0";
-import type {
-  ResourceGroupsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceGroupsClient";
 import { UngroupResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +105,12 @@ export interface UngroupResourcesCommandOutput extends UngroupResourcesOutput, _
  *
  * @public
  */
-export class UngroupResourcesCommand extends $Command
-  .classBuilder<
-    UngroupResourcesCommandInput,
-    UngroupResourcesCommandOutput,
-    ResourceGroupsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceGroupsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Ardi", "UngroupResources", {})
-  .n("ResourceGroupsClient", "UngroupResourcesCommand")
-  .sc(UngroupResources$)
-  .build() {
+export class UngroupResourcesCommand extends command<UngroupResourcesCommandInput, UngroupResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "UngroupResources",
+  UngroupResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

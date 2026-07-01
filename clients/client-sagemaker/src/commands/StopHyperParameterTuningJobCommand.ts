@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopHyperParameterTuningJobRequest } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { StopHyperParameterTuningJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -60,22 +56,12 @@ export interface StopHyperParameterTuningJobCommandOutput extends __MetadataBear
  *
  * @public
  */
-export class StopHyperParameterTuningJobCommand extends $Command
-  .classBuilder<
-    StopHyperParameterTuningJobCommandInput,
-    StopHyperParameterTuningJobCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "StopHyperParameterTuningJob", {})
-  .n("SageMakerClient", "StopHyperParameterTuningJobCommand")
-  .sc(StopHyperParameterTuningJob$)
-  .build() {
+export class StopHyperParameterTuningJobCommand extends command<StopHyperParameterTuningJobCommandInput, StopHyperParameterTuningJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopHyperParameterTuningJob",
+  StopHyperParameterTuningJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListClusterJobsRequest, ListClusterJobsResult } from "../models/models_0";
 import { ListClusterJobs$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface ListClusterJobsCommandOutput extends ListClusterJobsResult, __M
  *
  * @public
  */
-export class ListClusterJobsCommand extends $Command
-  .classBuilder<
-    ListClusterJobsCommandInput,
-    ListClusterJobsCommandOutput,
-    SnowballClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIESnowballJobManagementService", "ListClusterJobs", {})
-  .n("SnowballClient", "ListClusterJobsCommand")
-  .sc(ListClusterJobs$)
-  .build() {
+export class ListClusterJobsCommand extends command<ListClusterJobsCommandInput, ListClusterJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListClusterJobs",
+  ListClusterJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PartnerIntegrationInputMessage, PartnerIntegrationOutputMessage } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { DeletePartner$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeletePartnerCommandOutput extends PartnerIntegrationOutputMess
  *
  * @public
  */
-export class DeletePartnerCommand extends $Command
-  .classBuilder<
-    DeletePartnerCommandInput,
-    DeletePartnerCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "DeletePartner", {})
-  .n("RedshiftClient", "DeletePartnerCommand")
-  .sc(DeletePartner$)
-  .build() {
+export class DeletePartnerCommand extends command<DeletePartnerCommandInput, DeletePartnerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePartner",
+  DeletePartner$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

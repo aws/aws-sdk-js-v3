@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEnvironmentMembershipRequest, DeleteEnvironmentMembershipResult } from "../models/models_0";
 import { DeleteEnvironmentMembership$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteEnvironmentMembership$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface DeleteEnvironmentMembershipCommandOutput extends DeleteEnvironm
  *
  * @public
  */
-export class DeleteEnvironmentMembershipCommand extends $Command
-  .classBuilder<
-    DeleteEnvironmentMembershipCommandInput,
-    DeleteEnvironmentMembershipCommandOutput,
-    Cloud9ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Cloud9ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCloud9WorkspaceManagementService", "DeleteEnvironmentMembership", {})
-  .n("Cloud9Client", "DeleteEnvironmentMembershipCommand")
-  .sc(DeleteEnvironmentMembership$)
-  .build() {
+export class DeleteEnvironmentMembershipCommand extends command<DeleteEnvironmentMembershipCommandInput, DeleteEnvironmentMembershipCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEnvironmentMembership",
+  DeleteEnvironmentMembership$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

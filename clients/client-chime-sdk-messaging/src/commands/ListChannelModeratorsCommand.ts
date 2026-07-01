@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMessagingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMessagingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListChannelModeratorsRequest, ListChannelModeratorsResponse } from "../models/models_0";
 import { ListChannelModerators$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListChannelModerators$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +90,12 @@ export interface ListChannelModeratorsCommandOutput extends ListChannelModerator
  *
  * @public
  */
-export class ListChannelModeratorsCommand extends $Command
-  .classBuilder<
-    ListChannelModeratorsCommandInput,
-    ListChannelModeratorsCommandOutput,
-    ChimeSDKMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeMessagingService", "ListChannelModerators", {})
-  .n("ChimeSDKMessagingClient", "ListChannelModeratorsCommand")
-  .sc(ListChannelModerators$)
-  .build() {
+export class ListChannelModeratorsCommand extends command<ListChannelModeratorsCommandInput, ListChannelModeratorsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListChannelModerators",
+  ListChannelModerators$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

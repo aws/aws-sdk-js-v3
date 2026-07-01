@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockDataAutomationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockDataAutomationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   InvokeDataAutomationLibraryIngestionJobRequest,
   InvokeDataAutomationLibraryIngestionJobResponse,
@@ -19,7 +12,6 @@ import { InvokeDataAutomationLibraryIngestionJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +124,12 @@ export interface InvokeDataAutomationLibraryIngestionJobCommandOutput extends In
  *
  * @public
  */
-export class InvokeDataAutomationLibraryIngestionJobCommand extends $Command
-  .classBuilder<
-    InvokeDataAutomationLibraryIngestionJobCommandInput,
-    InvokeDataAutomationLibraryIngestionJobCommandOutput,
-    BedrockDataAutomationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockDataAutomationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockKeystoneBuildTimeService", "InvokeDataAutomationLibraryIngestionJob", {})
-  .n("BedrockDataAutomationClient", "InvokeDataAutomationLibraryIngestionJobCommand")
-  .sc(InvokeDataAutomationLibraryIngestionJob$)
-  .build() {
+export class InvokeDataAutomationLibraryIngestionJobCommand extends command<InvokeDataAutomationLibraryIngestionJobCommandInput, InvokeDataAutomationLibraryIngestionJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "InvokeDataAutomationLibraryIngestionJob",
+  InvokeDataAutomationLibraryIngestionJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

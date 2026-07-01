@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeOrganizationResourceCollectionHealthRequest,
   DescribeOrganizationResourceCollectionHealthResponse,
@@ -15,7 +12,6 @@ import { DescribeOrganizationResourceCollectionHealth$ } from "../schemas/schema
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface DescribeOrganizationResourceCollectionHealthCommandOutput exten
  *
  * @public
  */
-export class DescribeOrganizationResourceCollectionHealthCommand extends $Command
-  .classBuilder<
-    DescribeOrganizationResourceCollectionHealthCommandInput,
-    DescribeOrganizationResourceCollectionHealthCommandOutput,
-    DevOpsGuruClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CapstoneControlPlaneService", "DescribeOrganizationResourceCollectionHealth", {})
-  .n("DevOpsGuruClient", "DescribeOrganizationResourceCollectionHealthCommand")
-  .sc(DescribeOrganizationResourceCollectionHealth$)
-  .build() {
+export class DescribeOrganizationResourceCollectionHealthCommand extends command<DescribeOrganizationResourceCollectionHealthCommandInput, DescribeOrganizationResourceCollectionHealthCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeOrganizationResourceCollectionHealth",
+  DescribeOrganizationResourceCollectionHealth$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

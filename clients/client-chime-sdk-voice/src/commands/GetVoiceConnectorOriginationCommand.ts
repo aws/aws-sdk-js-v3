@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetVoiceConnectorOriginationRequest, GetVoiceConnectorOriginationResponse } from "../models/models_0";
 import { GetVoiceConnectorOrigination$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetVoiceConnectorOrigination$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface GetVoiceConnectorOriginationCommandOutput extends GetVoiceConne
  *
  * @public
  */
-export class GetVoiceConnectorOriginationCommand extends $Command
-  .classBuilder<
-    GetVoiceConnectorOriginationCommandInput,
-    GetVoiceConnectorOriginationCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "GetVoiceConnectorOrigination", {})
-  .n("ChimeSDKVoiceClient", "GetVoiceConnectorOriginationCommand")
-  .sc(GetVoiceConnectorOrigination$)
-  .build() {
+export class GetVoiceConnectorOriginationCommand extends command<GetVoiceConnectorOriginationCommandInput, GetVoiceConnectorOriginationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetVoiceConnectorOrigination",
+  GetVoiceConnectorOrigination$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

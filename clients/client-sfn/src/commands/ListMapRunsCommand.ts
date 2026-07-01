@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListMapRunsInput, ListMapRunsOutput } from "../models/models_0";
 import { ListMapRuns$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface ListMapRunsCommandOutput extends ListMapRunsOutput, __MetadataB
  *
  * @public
  */
-export class ListMapRunsCommand extends $Command
-  .classBuilder<
-    ListMapRunsCommandInput,
-    ListMapRunsCommandOutput,
-    SFNClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStepFunctions", "ListMapRuns", {})
-  .n("SFNClient", "ListMapRunsCommand")
-  .sc(ListMapRuns$)
-  .build() {
+export class ListMapRunsCommand extends command<ListMapRunsCommandInput, ListMapRunsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMapRuns",
+  ListMapRuns$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

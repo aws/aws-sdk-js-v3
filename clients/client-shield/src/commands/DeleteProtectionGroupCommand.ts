@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteProtectionGroupRequest, DeleteProtectionGroupResponse } from "../models/models_0";
 import { DeleteProtectionGroup$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface DeleteProtectionGroupCommandOutput extends DeleteProtectionGrou
  *
  * @public
  */
-export class DeleteProtectionGroupCommand extends $Command
-  .classBuilder<
-    DeleteProtectionGroupCommandInput,
-    DeleteProtectionGroupCommandOutput,
-    ShieldClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShield_20160616", "DeleteProtectionGroup", {})
-  .n("ShieldClient", "DeleteProtectionGroupCommand")
-  .sc(DeleteProtectionGroup$)
-  .build() {
+export class DeleteProtectionGroupCommand extends command<DeleteProtectionGroupCommandInput, DeleteProtectionGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteProtectionGroup",
+  DeleteProtectionGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

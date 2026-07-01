@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PauseServiceRequest, PauseServiceResponse } from "../models/models_0";
 import { PauseService$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PauseService$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -167,22 +163,12 @@ export interface PauseServiceCommandOutput extends PauseServiceResponse, __Metad
  *
  * @public
  */
-export class PauseServiceCommand extends $Command
-  .classBuilder<
-    PauseServiceCommandInput,
-    PauseServiceCommandOutput,
-    AppRunnerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppRunner", "PauseService", {})
-  .n("AppRunnerClient", "PauseServiceCommand")
-  .sc(PauseService$)
-  .build() {
+export class PauseServiceCommand extends command<PauseServiceCommandInput, PauseServiceCommandOutput>(
+  _ep0,
+  _mw0,
+  "PauseService",
+  PauseService$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

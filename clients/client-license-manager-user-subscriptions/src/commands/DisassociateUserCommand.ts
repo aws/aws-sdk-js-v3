@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerUserSubscriptionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerUserSubscriptionsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateUserRequest, DisassociateUserResponse } from "../models/models_0";
 import { DisassociateUser$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DisassociateUser$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -148,22 +140,12 @@ export interface DisassociateUserCommandOutput extends DisassociateUserResponse,
  *
  * @public
  */
-export class DisassociateUserCommand extends $Command
-  .classBuilder<
-    DisassociateUserCommandInput,
-    DisassociateUserCommandOutput,
-    LicenseManagerUserSubscriptionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerUserSubscriptionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LicenseManagerUserSubscriptions", "DisassociateUser", {})
-  .n("LicenseManagerUserSubscriptionsClient", "DisassociateUserCommand")
-  .sc(DisassociateUser$)
-  .build() {
+export class DisassociateUserCommand extends command<DisassociateUserCommandInput, DisassociateUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateUser",
+  DisassociateUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

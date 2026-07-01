@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateTrafficPolicyVersionRequest, CreateTrafficPolicyVersionResponse } from "../models/models_0";
-import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 import { CreateTrafficPolicyVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,25 +93,12 @@ export interface CreateTrafficPolicyVersionCommandOutput extends CreateTrafficPo
  *
  * @public
  */
-export class CreateTrafficPolicyVersionCommand extends $Command
-  .classBuilder<
-    CreateTrafficPolicyVersionCommandInput,
-    CreateTrafficPolicyVersionCommandOutput,
-    Route53ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getIdNormalizerPlugin(config),
-    ];
-  })
-  .s("AWSDnsV20130401", "CreateTrafficPolicyVersion", {})
-  .n("Route53Client", "CreateTrafficPolicyVersionCommand")
-  .sc(CreateTrafficPolicyVersion$)
-  .build() {
+export class CreateTrafficPolicyVersionCommand extends command<CreateTrafficPolicyVersionCommandInput, CreateTrafficPolicyVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTrafficPolicyVersion",
+  CreateTrafficPolicyVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

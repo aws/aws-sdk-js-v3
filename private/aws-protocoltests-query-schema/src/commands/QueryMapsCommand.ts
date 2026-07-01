@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { QueryMapsInput } from "../models/models_0";
-import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 import { QueryMaps$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface QueryMapsCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class QueryMapsCommand extends $Command
-  .classBuilder<
-    QueryMapsCommandInput,
-    QueryMapsCommandOutput,
-    QueryProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QueryProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsQuery", "QueryMaps", {})
-  .n("QueryProtocolClient", "QueryMapsCommand")
-  .sc(QueryMaps$)
-  .build() {
+export class QueryMapsCommand extends command<QueryMapsCommandInput, QueryMapsCommandOutput>(
+  _ep0,
+  _mw0,
+  "QueryMaps",
+  QueryMaps$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,11 +1,7 @@
 // smithy-typescript generated code
-import { getCopySnapshotPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-ec2";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { CopySnapshotRequest, CopySnapshotResult } from "../models/models_0";
 import { CopySnapshot$ } from "../schemas/schemas_0";
 
@@ -13,7 +9,6 @@ import { CopySnapshot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -135,25 +130,12 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *
  * @public
  */
-export class CopySnapshotCommand extends $Command
-  .classBuilder<
-    CopySnapshotCommandInput,
-    CopySnapshotCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getCopySnapshotPresignedUrlPlugin(config),
-    ];
-  })
-  .s("AmazonEC2", "CopySnapshot", {})
-  .n("EC2Client", "CopySnapshotCommand")
-  .sc(CopySnapshot$)
-  .build() {
+export class CopySnapshotCommand extends command<CopySnapshotCommandInput, CopySnapshotCommandOutput>(
+  _ep0,
+  _mw1,
+  "CopySnapshot",
+  CopySnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

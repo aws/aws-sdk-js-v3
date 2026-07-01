@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeHsmConfigurationsMessage, HsmConfigurationMessage } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { DescribeHsmConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface DescribeHsmConfigurationsCommandOutput extends HsmConfiguration
  *
  * @public
  */
-export class DescribeHsmConfigurationsCommand extends $Command
-  .classBuilder<
-    DescribeHsmConfigurationsCommandInput,
-    DescribeHsmConfigurationsCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "DescribeHsmConfigurations", {})
-  .n("RedshiftClient", "DescribeHsmConfigurationsCommand")
-  .sc(DescribeHsmConfigurations$)
-  .build() {
+export class DescribeHsmConfigurationsCommand extends command<DescribeHsmConfigurationsCommandInput, DescribeHsmConfigurationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeHsmConfigurations",
+  DescribeHsmConfigurations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListVolumesInput, ListVolumesOutput } from "../models/models_0";
 import { ListVolumes$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -129,22 +121,12 @@ export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataB
  *
  * @public
  */
-export class ListVolumesCommand extends $Command
-  .classBuilder<
-    ListVolumesCommandInput,
-    ListVolumesCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "ListVolumes", {})
-  .n("StorageGatewayClient", "ListVolumesCommand")
-  .sc(ListVolumes$)
-  .build() {
+export class ListVolumesCommand extends command<ListVolumesCommandInput, ListVolumesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListVolumes",
+  ListVolumes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

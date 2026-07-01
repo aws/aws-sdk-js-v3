@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { Integration } from "../models/models_0";
 import type { ModifyIntegrationMessage } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { ModifyIntegration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +115,12 @@ export interface ModifyIntegrationCommandOutput extends Integration, __MetadataB
  *
  * @public
  */
-export class ModifyIntegrationCommand extends $Command
-  .classBuilder<
-    ModifyIntegrationCommandInput,
-    ModifyIntegrationCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "ModifyIntegration", {})
-  .n("RDSClient", "ModifyIntegrationCommand")
-  .sc(ModifyIntegration$)
-  .build() {
+export class ModifyIntegrationCommand extends command<ModifyIntegrationCommandInput, ModifyIntegrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyIntegration",
+  ModifyIntegration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

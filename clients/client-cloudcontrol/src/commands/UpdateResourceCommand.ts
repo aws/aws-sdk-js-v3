@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateResourceInput, UpdateResourceOutput } from "../models/models_0";
 import { UpdateResource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -160,22 +156,12 @@ export interface UpdateResourceCommandOutput extends UpdateResourceOutput, __Met
  *
  * @public
  */
-export class UpdateResourceCommand extends $Command
-  .classBuilder<
-    UpdateResourceCommandInput,
-    UpdateResourceCommandOutput,
-    CloudControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudApiService", "UpdateResource", {})
-  .n("CloudControlClient", "UpdateResourceCommand")
-  .sc(UpdateResource$)
-  .build() {
+export class UpdateResourceCommand extends command<UpdateResourceCommandInput, UpdateResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateResource",
+  UpdateResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

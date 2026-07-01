@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateVoiceProfileRequest, UpdateVoiceProfileResponse } from "../models/models_0";
 import { UpdateVoiceProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateVoiceProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface UpdateVoiceProfileCommandOutput extends UpdateVoiceProfileRespo
  *
  * @public
  */
-export class UpdateVoiceProfileCommand extends $Command
-  .classBuilder<
-    UpdateVoiceProfileCommandInput,
-    UpdateVoiceProfileCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "UpdateVoiceProfile", {})
-  .n("ChimeSDKVoiceClient", "UpdateVoiceProfileCommand")
-  .sc(UpdateVoiceProfile$)
-  .build() {
+export class UpdateVoiceProfileCommand extends command<UpdateVoiceProfileCommandInput, UpdateVoiceProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateVoiceProfile",
+  UpdateVoiceProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

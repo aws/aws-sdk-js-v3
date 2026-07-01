@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateQuotaShareRequest, UpdateQuotaShareResponse } from "../models/models_0";
 import { UpdateQuotaShare$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateQuotaShare$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface UpdateQuotaShareCommandOutput extends UpdateQuotaShareResponse,
  *
  * @public
  */
-export class UpdateQuotaShareCommand extends $Command
-  .classBuilder<
-    UpdateQuotaShareCommandInput,
-    UpdateQuotaShareCommandOutput,
-    BatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBatchV20160810", "UpdateQuotaShare", {})
-  .n("BatchClient", "UpdateQuotaShareCommand")
-  .sc(UpdateQuotaShare$)
-  .build() {
+export class UpdateQuotaShareCommand extends command<UpdateQuotaShareCommandInput, UpdateQuotaShareCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateQuotaShare",
+  UpdateQuotaShare$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

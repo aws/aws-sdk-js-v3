@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDeviceRequest, GetDeviceResponse } from "../models/models_0";
 import { GetDevice$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkSpacesThinClientClientResolvedConfig,
-} from "../WorkSpacesThinClientClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +92,12 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  *
  * @public
  */
-export class GetDeviceCommand extends $Command
-  .classBuilder<
-    GetDeviceCommandInput,
-    GetDeviceCommandOutput,
-    WorkSpacesThinClientClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesThinClientClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ThinClient", "GetDevice", {})
-  .n("WorkSpacesThinClientClient", "GetDeviceCommand")
-  .sc(GetDevice$)
-  .build() {
+export class GetDeviceCommand extends command<GetDeviceCommandInput, GetDeviceCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDevice",
+  GetDevice$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

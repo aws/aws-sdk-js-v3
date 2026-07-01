@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRPUBLICClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRPUBLICClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRepositoryPolicyRequest, DeleteRepositoryPolicyResponse } from "../models/models_0";
 import { DeleteRepositoryPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteRepositoryPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
  *
  * @public
  */
-export class DeleteRepositoryPolicyCommand extends $Command
-  .classBuilder<
-    DeleteRepositoryPolicyCommandInput,
-    DeleteRepositoryPolicyCommandOutput,
-    ECRPUBLICClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRPUBLICClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SpencerFrontendService", "DeleteRepositoryPolicy", {})
-  .n("ECRPUBLICClient", "DeleteRepositoryPolicyCommand")
-  .sc(DeleteRepositoryPolicy$)
-  .build() {
+export class DeleteRepositoryPolicyCommand extends command<DeleteRepositoryPolicyCommandInput, DeleteRepositoryPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRepositoryPolicy",
+  DeleteRepositoryPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

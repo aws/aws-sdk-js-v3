@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAccountCustomizationsInput, UpdateAccountCustomizationsOutput } from "../models/models_0";
 import { UpdateAccountCustomizations$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, UxcClientResolvedConfig } from "../UxcClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface UpdateAccountCustomizationsCommandOutput extends UpdateAccountC
  *
  * @public
  */
-export class UpdateAccountCustomizationsCommand extends $Command
-  .classBuilder<
-    UpdateAccountCustomizationsCommandInput,
-    UpdateAccountCustomizationsCommandOutput,
-    UxcClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: UxcClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSAccountUXSetting", "UpdateAccountCustomizations", {})
-  .n("UxcClient", "UpdateAccountCustomizationsCommand")
-  .sc(UpdateAccountCustomizations$)
-  .build() {
+export class UpdateAccountCustomizationsCommand extends command<UpdateAccountCustomizationsCommandInput, UpdateAccountCustomizationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAccountCustomizations",
+  UpdateAccountCustomizations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

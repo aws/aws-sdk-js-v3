@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListQueueEnvironmentsRequest, ListQueueEnvironmentsResponse } from "../models/models_1";
 import { ListQueueEnvironments$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListQueueEnvironments$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface ListQueueEnvironmentsCommandOutput extends ListQueueEnvironment
  *
  * @public
  */
-export class ListQueueEnvironmentsCommand extends $Command
-  .classBuilder<
-    ListQueueEnvironmentsCommandInput,
-    ListQueueEnvironmentsCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "ListQueueEnvironments", {})
-  .n("DeadlineClient", "ListQueueEnvironmentsCommand")
-  .sc(ListQueueEnvironments$)
-  .build() {
+export class ListQueueEnvironmentsCommand extends command<ListQueueEnvironmentsCommandInput, ListQueueEnvironmentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListQueueEnvironments",
+  ListQueueEnvironments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   RemoveSourceIdentifierFromSubscriptionMessage,
   RemoveSourceIdentifierFromSubscriptionResult,
 } from "../models/models_0";
-import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import { RemoveSourceIdentifierFromSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface RemoveSourceIdentifierFromSubscriptionCommandOutput extends Rem
  *
  * @public
  */
-export class RemoveSourceIdentifierFromSubscriptionCommand extends $Command
-  .classBuilder<
-    RemoveSourceIdentifierFromSubscriptionCommandInput,
-    RemoveSourceIdentifierFromSubscriptionCommandOutput,
-    NeptuneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "RemoveSourceIdentifierFromSubscription", {})
-  .n("NeptuneClient", "RemoveSourceIdentifierFromSubscriptionCommand")
-  .sc(RemoveSourceIdentifierFromSubscription$)
-  .build() {
+export class RemoveSourceIdentifierFromSubscriptionCommand extends command<RemoveSourceIdentifierFromSubscriptionCommandInput, RemoveSourceIdentifierFromSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveSourceIdentifierFromSubscription",
+  RemoveSourceIdentifierFromSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

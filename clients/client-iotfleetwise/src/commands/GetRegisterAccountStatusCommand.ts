@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRegisterAccountStatusRequest, GetRegisterAccountStatusResponse } from "../models/models_0";
 import { GetRegisterAccountStatus$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetRegisterAccountStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface GetRegisterAccountStatusCommandOutput extends GetRegisterAccoun
  *
  * @public
  */
-export class GetRegisterAccountStatusCommand extends $Command
-  .classBuilder<
-    GetRegisterAccountStatusCommandInput,
-    GetRegisterAccountStatusCommandOutput,
-    IoTFleetWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IoTAutobahnControlPlane", "GetRegisterAccountStatus", {})
-  .n("IoTFleetWiseClient", "GetRegisterAccountStatusCommand")
-  .sc(GetRegisterAccountStatus$)
-  .build() {
+export class GetRegisterAccountStatusCommand extends command<GetRegisterAccountStatusCommandInput, GetRegisterAccountStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRegisterAccountStatus",
+  GetRegisterAccountStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

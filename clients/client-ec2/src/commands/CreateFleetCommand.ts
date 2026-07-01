@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFleetRequest, CreateFleetResult } from "../models/models_1";
 import { CreateFleet$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateFleet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -497,22 +493,12 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *
  * @public
  */
-export class CreateFleetCommand extends $Command
-  .classBuilder<
-    CreateFleetCommandInput,
-    CreateFleetCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "CreateFleet", {})
-  .n("EC2Client", "CreateFleetCommand")
-  .sc(CreateFleet$)
-  .build() {
+export class CreateFleetCommand extends command<CreateFleetCommandInput, CreateFleetCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateFleet",
+  CreateFleet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { Applications, ListApplicationsRequest } from "../models/models_0";
 import { ListApplications$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListApplications$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface ListApplicationsCommandOutput extends Applications, __MetadataB
  *
  * @public
  */
-export class ListApplicationsCommand extends $Command
-  .classBuilder<
-    ListApplicationsCommandInput,
-    ListApplicationsCommandOutput,
-    AppConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAppConfig", "ListApplications", {})
-  .n("AppConfigClient", "ListApplicationsCommand")
-  .sc(ListApplications$)
-  .build() {
+export class ListApplicationsCommand extends command<ListApplicationsCommandInput, ListApplicationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListApplications",
+  ListApplications$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

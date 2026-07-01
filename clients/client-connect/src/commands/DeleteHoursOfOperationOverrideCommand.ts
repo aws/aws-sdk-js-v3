@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteHoursOfOperationOverrideRequest } from "../models/models_1";
 import { DeleteHoursOfOperationOverride$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteHoursOfOperationOverride$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DeleteHoursOfOperationOverrideCommandOutput extends __MetadataB
  *
  * @public
  */
-export class DeleteHoursOfOperationOverrideCommand extends $Command
-  .classBuilder<
-    DeleteHoursOfOperationOverrideCommandInput,
-    DeleteHoursOfOperationOverrideCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DeleteHoursOfOperationOverride", {})
-  .n("ConnectClient", "DeleteHoursOfOperationOverrideCommand")
-  .sc(DeleteHoursOfOperationOverride$)
-  .build() {
+export class DeleteHoursOfOperationOverrideCommand extends command<DeleteHoursOfOperationOverrideCommandInput, DeleteHoursOfOperationOverrideCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteHoursOfOperationOverride",
+  DeleteHoursOfOperationOverride$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisableAWSServiceAccessRequest } from "../models/models_0";
-import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { DisableAWSServiceAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -535,22 +531,12 @@ export interface DisableAWSServiceAccessCommandOutput extends __MetadataBearer {
  *
  * @public
  */
-export class DisableAWSServiceAccessCommand extends $Command
-  .classBuilder<
-    DisableAWSServiceAccessCommandInput,
-    DisableAWSServiceAccessCommandOutput,
-    OrganizationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrganizationsV20161128", "DisableAWSServiceAccess", {})
-  .n("OrganizationsClient", "DisableAWSServiceAccessCommand")
-  .sc(DisableAWSServiceAccess$)
-  .build() {
+export class DisableAWSServiceAccessCommand extends command<DisableAWSServiceAccessCommandInput, DisableAWSServiceAccessCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableAWSServiceAccess",
+  DisableAWSServiceAccess$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

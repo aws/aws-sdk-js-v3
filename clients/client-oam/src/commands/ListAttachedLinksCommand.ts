@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAttachedLinksInput, ListAttachedLinksOutput } from "../models/models_0";
-import type { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
 import { ListAttachedLinks$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface ListAttachedLinksCommandOutput extends ListAttachedLinksOutput,
  *
  * @public
  */
-export class ListAttachedLinksCommand extends $Command
-  .classBuilder<
-    ListAttachedLinksCommandInput,
-    ListAttachedLinksCommandOutput,
-    OAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("oamservice", "ListAttachedLinks", {})
-  .n("OAMClient", "ListAttachedLinksCommand")
-  .sc(ListAttachedLinks$)
-  .build() {
+export class ListAttachedLinksCommand extends command<ListAttachedLinksCommandInput, ListAttachedLinksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAttachedLinks",
+  ListAttachedLinks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

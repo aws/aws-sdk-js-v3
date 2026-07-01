@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAnomalyDetectorInput, DeleteAnomalyDetectorOutput } from "../models/models_0";
 import { DeleteAnomalyDetector$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAnomalyDetector$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
  *
  * @public
  */
-export class DeleteAnomalyDetectorCommand extends $Command
-  .classBuilder<
-    DeleteAnomalyDetectorCommandInput,
-    DeleteAnomalyDetectorCommandOutput,
-    CloudWatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GraniteServiceVersion20100801", "DeleteAnomalyDetector", {})
-  .n("CloudWatchClient", "DeleteAnomalyDetectorCommand")
-  .sc(DeleteAnomalyDetector$)
-  .build() {
+export class DeleteAnomalyDetectorCommand extends command<DeleteAnomalyDetectorCommandInput, DeleteAnomalyDetectorCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAnomalyDetector",
+  DeleteAnomalyDetector$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

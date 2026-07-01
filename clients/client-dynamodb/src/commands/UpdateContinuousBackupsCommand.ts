@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep2, _mw0, command } from "../commandBuilder";
 import type { UpdateContinuousBackupsInput, UpdateContinuousBackupsOutput } from "../models/models_0";
 import { UpdateContinuousBackups$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateContinuousBackups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,25 +92,12 @@ export interface UpdateContinuousBackupsCommandOutput extends UpdateContinuousBa
  *
  * @public
  */
-export class UpdateContinuousBackupsCommand extends $Command
-  .classBuilder<
-    UpdateContinuousBackupsCommandInput,
-    UpdateContinuousBackupsCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "contextParams", name: "TableName" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "UpdateContinuousBackups", {})
-  .n("DynamoDBClient", "UpdateContinuousBackupsCommand")
-  .sc(UpdateContinuousBackups$)
-  .build() {
+export class UpdateContinuousBackupsCommand extends command<UpdateContinuousBackupsCommandInput, UpdateContinuousBackupsCommandOutput>(
+  _ep2,
+  _mw0,
+  "UpdateContinuousBackups",
+  UpdateContinuousBackups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

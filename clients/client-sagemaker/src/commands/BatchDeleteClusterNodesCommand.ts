@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchDeleteClusterNodesRequest, BatchDeleteClusterNodesResponse } from "../models/models_0";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { BatchDeleteClusterNodes$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface BatchDeleteClusterNodesCommandOutput extends BatchDeleteCluster
  *
  * @public
  */
-export class BatchDeleteClusterNodesCommand extends $Command
-  .classBuilder<
-    BatchDeleteClusterNodesCommandInput,
-    BatchDeleteClusterNodesCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "BatchDeleteClusterNodes", {})
-  .n("SageMakerClient", "BatchDeleteClusterNodesCommand")
-  .sc(BatchDeleteClusterNodes$)
-  .build() {
+export class BatchDeleteClusterNodesCommand extends command<BatchDeleteClusterNodesCommandInput, BatchDeleteClusterNodesCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDeleteClusterNodes",
+  BatchDeleteClusterNodes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAgentRuntimeRequest, DeleteAgentRuntimeResponse } from "../models/models_0";
 import { DeleteAgentRuntime$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteAgentRuntime$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface DeleteAgentRuntimeCommandOutput extends DeleteAgentRuntimeRespo
  *
  * @public
  */
-export class DeleteAgentRuntimeCommand extends $Command
-  .classBuilder<
-    DeleteAgentRuntimeCommandInput,
-    DeleteAgentRuntimeCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "DeleteAgentRuntime", {})
-  .n("BedrockAgentCoreControlClient", "DeleteAgentRuntimeCommand")
-  .sc(DeleteAgentRuntime$)
-  .build() {
+export class DeleteAgentRuntimeCommand extends command<DeleteAgentRuntimeCommandInput, DeleteAgentRuntimeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAgentRuntime",
+  DeleteAgentRuntime$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

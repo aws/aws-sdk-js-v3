@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListFarmMembersRequest, ListFarmMembersResponse } from "../models/models_0";
 import { ListFarmMembers$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListFarmMembers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface ListFarmMembersCommandOutput extends ListFarmMembersResponse, _
  *
  * @public
  */
-export class ListFarmMembersCommand extends $Command
-  .classBuilder<
-    ListFarmMembersCommandInput,
-    ListFarmMembersCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "ListFarmMembers", {})
-  .n("DeadlineClient", "ListFarmMembersCommand")
-  .sc(ListFarmMembers$)
-  .build() {
+export class ListFarmMembersCommand extends command<ListFarmMembersCommandInput, ListFarmMembersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFarmMembers",
+  ListFarmMembers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

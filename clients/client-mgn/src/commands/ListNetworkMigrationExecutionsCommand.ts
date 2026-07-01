@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListNetworkMigrationExecutionsRequest, ListNetworkMigrationExecutionsResponse } from "../models/models_0";
 import { ListNetworkMigrationExecutions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListNetworkMigrationExecutions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface ListNetworkMigrationExecutionsCommandOutput extends ListNetwork
  *
  * @public
  */
-export class ListNetworkMigrationExecutionsCommand extends $Command
-  .classBuilder<
-    ListNetworkMigrationExecutionsCommandInput,
-    ListNetworkMigrationExecutionsCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "ListNetworkMigrationExecutions", {})
-  .n("MgnClient", "ListNetworkMigrationExecutionsCommand")
-  .sc(ListNetworkMigrationExecutions$)
-  .build() {
+export class ListNetworkMigrationExecutionsCommand extends command<ListNetworkMigrationExecutionsCommandInput, ListNetworkMigrationExecutionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListNetworkMigrationExecutions",
+  ListNetworkMigrationExecutions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

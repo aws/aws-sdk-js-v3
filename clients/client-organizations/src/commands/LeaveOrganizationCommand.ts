@@ -1,17 +1,13 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import { LeaveOrganization$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -561,22 +557,12 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class LeaveOrganizationCommand extends $Command
-  .classBuilder<
-    LeaveOrganizationCommandInput,
-    LeaveOrganizationCommandOutput,
-    OrganizationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrganizationsV20161128", "LeaveOrganization", {})
-  .n("OrganizationsClient", "LeaveOrganizationCommand")
-  .sc(LeaveOrganization$)
-  .build() {
+export class LeaveOrganizationCommand extends command<LeaveOrganizationCommandInput, LeaveOrganizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "LeaveOrganization",
+  LeaveOrganization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

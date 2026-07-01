@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRepositoriesInput, ListRepositoriesOutput } from "../models/models_0";
-import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 import { ListRepositories$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface ListRepositoriesCommandOutput extends ListRepositoriesOutput, _
  *
  * @public
  */
-export class ListRepositoriesCommand extends $Command
-  .classBuilder<
-    ListRepositoriesCommandInput,
-    ListRepositoriesCommandOutput,
-    ProtonClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsProton20200720", "ListRepositories", {})
-  .n("ProtonClient", "ListRepositoriesCommand")
-  .sc(ListRepositories$)
-  .build() {
+export class ListRepositoriesCommand extends command<ListRepositoriesCommandInput, ListRepositoriesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRepositories",
+  ListRepositories$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

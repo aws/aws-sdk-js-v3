@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { FailoverPrimaryComputeInputMessage, FailoverPrimaryComputeResult } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { FailoverPrimaryCompute$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -263,22 +259,12 @@ export interface FailoverPrimaryComputeCommandOutput extends FailoverPrimaryComp
  *
  * @public
  */
-export class FailoverPrimaryComputeCommand extends $Command
-  .classBuilder<
-    FailoverPrimaryComputeCommandInput,
-    FailoverPrimaryComputeCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "FailoverPrimaryCompute", {})
-  .n("RedshiftClient", "FailoverPrimaryComputeCommand")
-  .sc(FailoverPrimaryCompute$)
-  .build() {
+export class FailoverPrimaryComputeCommand extends command<FailoverPrimaryComputeCommandInput, FailoverPrimaryComputeCommandOutput>(
+  _ep0,
+  _mw0,
+  "FailoverPrimaryCompute",
+  FailoverPrimaryCompute$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

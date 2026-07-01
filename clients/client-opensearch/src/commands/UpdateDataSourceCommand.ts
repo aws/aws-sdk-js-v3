@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateDataSourceRequest, UpdateDataSourceResponse } from "../models/models_1";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { UpdateDataSource$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  *
  * @public
  */
-export class UpdateDataSourceCommand extends $Command
-  .classBuilder<
-    UpdateDataSourceCommandInput,
-    UpdateDataSourceCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "UpdateDataSource", {})
-  .n("OpenSearchClient", "UpdateDataSourceCommand")
-  .sc(UpdateDataSource$)
-  .build() {
+export class UpdateDataSourceCommand extends command<UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDataSource",
+  UpdateDataSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

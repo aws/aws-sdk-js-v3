@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateBaiduChannelRequest, UpdateBaiduChannelResponse } from "../models/models_1";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { UpdateBaiduChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface UpdateBaiduChannelCommandOutput extends UpdateBaiduChannelRespo
  *
  * @public
  */
-export class UpdateBaiduChannelCommand extends $Command
-  .classBuilder<
-    UpdateBaiduChannelCommandInput,
-    UpdateBaiduChannelCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "UpdateBaiduChannel", {})
-  .n("PinpointClient", "UpdateBaiduChannelCommand")
-  .sc(UpdateBaiduChannel$)
-  .build() {
+export class UpdateBaiduChannelCommand extends command<UpdateBaiduChannelCommandInput, UpdateBaiduChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateBaiduChannel",
+  UpdateBaiduChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

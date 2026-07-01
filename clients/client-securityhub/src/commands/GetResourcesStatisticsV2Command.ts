@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetResourcesStatisticsV2Response } from "../models/models_2";
 import type { GetResourcesStatisticsV2Request } from "../models/models_3";
 import { GetResourcesStatisticsV2$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -217,22 +213,12 @@ export interface GetResourcesStatisticsV2CommandOutput extends GetResourcesStati
  *
  * @public
  */
-export class GetResourcesStatisticsV2Command extends $Command
-  .classBuilder<
-    GetResourcesStatisticsV2CommandInput,
-    GetResourcesStatisticsV2CommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "GetResourcesStatisticsV2", {})
-  .n("SecurityHubClient", "GetResourcesStatisticsV2Command")
-  .sc(GetResourcesStatisticsV2$)
-  .build() {
+export class GetResourcesStatisticsV2Command extends command<GetResourcesStatisticsV2CommandInput, GetResourcesStatisticsV2CommandOutput>(
+  _ep0,
+  _mw0,
+  "GetResourcesStatisticsV2",
+  GetResourcesStatisticsV2$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

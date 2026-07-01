@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { XmlListsRequest, XmlListsResponse } from "../models/models_0";
-import type {
-  RestXmlProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestXmlProtocolClient";
 import { XmlLists$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -178,22 +170,12 @@ export interface XmlListsCommandOutput extends XmlListsResponse, __MetadataBeare
  *
  * @public
  */
-export class XmlListsCommand extends $Command
-  .classBuilder<
-    XmlListsCommandInput,
-    XmlListsCommandOutput,
-    RestXmlProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestXml", "XmlLists", {})
-  .n("RestXmlProtocolClient", "XmlListsCommand")
-  .sc(XmlLists$)
-  .build() {
+export class XmlListsCommand extends command<XmlListsCommandInput, XmlListsCommandOutput>(
+  _ep0,
+  _mw0,
+  "XmlLists",
+  XmlLists$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

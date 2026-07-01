@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAnomalySubscriptionRequest, DeleteAnomalySubscriptionResponse } from "../models/models_0";
 import { DeleteAnomalySubscription$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAnomalySubscription$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface DeleteAnomalySubscriptionCommandOutput extends DeleteAnomalySub
  *
  * @public
  */
-export class DeleteAnomalySubscriptionCommand extends $Command
-  .classBuilder<
-    DeleteAnomalySubscriptionCommandInput,
-    DeleteAnomalySubscriptionCommandOutput,
-    CostExplorerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSInsightsIndexService", "DeleteAnomalySubscription", {})
-  .n("CostExplorerClient", "DeleteAnomalySubscriptionCommand")
-  .sc(DeleteAnomalySubscription$)
-  .build() {
+export class DeleteAnomalySubscriptionCommand extends command<DeleteAnomalySubscriptionCommandInput, DeleteAnomalySubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAnomalySubscription",
+  DeleteAnomalySubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

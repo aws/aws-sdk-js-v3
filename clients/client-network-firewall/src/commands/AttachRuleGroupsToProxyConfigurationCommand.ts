@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AttachRuleGroupsToProxyConfigurationRequest,
   AttachRuleGroupsToProxyConfigurationResponse,
 } from "../models/models_0";
-import type {
-  NetworkFirewallClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFirewallClient";
 import { AttachRuleGroupsToProxyConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +120,12 @@ export interface AttachRuleGroupsToProxyConfigurationCommandOutput extends Attac
  *
  * @public
  */
-export class AttachRuleGroupsToProxyConfigurationCommand extends $Command
-  .classBuilder<
-    AttachRuleGroupsToProxyConfigurationCommandInput,
-    AttachRuleGroupsToProxyConfigurationCommandOutput,
-    NetworkFirewallClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFirewall_20201112", "AttachRuleGroupsToProxyConfiguration", {})
-  .n("NetworkFirewallClient", "AttachRuleGroupsToProxyConfigurationCommand")
-  .sc(AttachRuleGroupsToProxyConfiguration$)
-  .build() {
+export class AttachRuleGroupsToProxyConfigurationCommand extends command<AttachRuleGroupsToProxyConfigurationCommandInput, AttachRuleGroupsToProxyConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "AttachRuleGroupsToProxyConfiguration",
+  AttachRuleGroupsToProxyConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

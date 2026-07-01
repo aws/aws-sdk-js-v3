@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAIAgentsRequest, ListAIAgentsResponse } from "../models/models_0";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { ListAIAgents$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -317,22 +313,12 @@ export interface ListAIAgentsCommandOutput extends ListAIAgentsResponse, __Metad
  *
  * @public
  */
-export class ListAIAgentsCommand extends $Command
-  .classBuilder<
-    ListAIAgentsCommandInput,
-    ListAIAgentsCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "ListAIAgents", {})
-  .n("QConnectClient", "ListAIAgentsCommand")
-  .sc(ListAIAgents$)
-  .build() {
+export class ListAIAgentsCommand extends command<ListAIAgentsCommandInput, ListAIAgentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAIAgents",
+  ListAIAgents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

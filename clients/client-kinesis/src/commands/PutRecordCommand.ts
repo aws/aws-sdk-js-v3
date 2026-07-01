@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
+import { _ep4, _mw0, command } from "../commandBuilder";
 import type { PutRecordInput, PutRecordOutput } from "../models/models_0";
 import { PutRecord$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutRecord$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -157,27 +153,12 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  *
  * @public
  */
-export class PutRecordCommand extends $Command
-  .classBuilder<
-    PutRecordCommandInput,
-    PutRecordCommandOutput,
-    KinesisClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    OperationType: { type: "staticContextParams", value: `data` },
-    StreamId: { type: "contextParams", name: "StreamId" },
-    StreamARN: { type: "contextParams", name: "StreamARN" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kinesis_20131202", "PutRecord", {})
-  .n("KinesisClient", "PutRecordCommand")
-  .sc(PutRecord$)
-  .build() {
+export class PutRecordCommand extends command<PutRecordCommandInput, PutRecordCommandOutput>(
+  _ep4,
+  _mw0,
+  "PutRecord",
+  PutRecord$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

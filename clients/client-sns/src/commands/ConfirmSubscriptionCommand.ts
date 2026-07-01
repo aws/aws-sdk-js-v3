@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ConfirmSubscriptionInput, ConfirmSubscriptionResponse } from "../models/models_0";
 import { ConfirmSubscription$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionRes
  *
  * @public
  */
-export class ConfirmSubscriptionCommand extends $Command
-  .classBuilder<
-    ConfirmSubscriptionCommandInput,
-    ConfirmSubscriptionCommandOutput,
-    SNSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSimpleNotificationService", "ConfirmSubscription", {})
-  .n("SNSClient", "ConfirmSubscriptionCommand")
-  .sc(ConfirmSubscription$)
-  .build() {
+export class ConfirmSubscriptionCommand extends command<ConfirmSubscriptionCommandInput, ConfirmSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ConfirmSubscription",
+  ConfirmSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

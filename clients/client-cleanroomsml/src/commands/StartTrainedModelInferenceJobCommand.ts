@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartTrainedModelInferenceJobRequest, StartTrainedModelInferenceJobResponse } from "../models/models_0";
 import { StartTrainedModelInferenceJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartTrainedModelInferenceJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface StartTrainedModelInferenceJobCommandOutput extends StartTrained
  *
  * @public
  */
-export class StartTrainedModelInferenceJobCommand extends $Command
-  .classBuilder<
-    StartTrainedModelInferenceJobCommandInput,
-    StartTrainedModelInferenceJobCommandOutput,
-    CleanRoomsMLClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStarkControlService", "StartTrainedModelInferenceJob", {})
-  .n("CleanRoomsMLClient", "StartTrainedModelInferenceJobCommand")
-  .sc(StartTrainedModelInferenceJob$)
-  .build() {
+export class StartTrainedModelInferenceJobCommand extends command<StartTrainedModelInferenceJobCommandInput, StartTrainedModelInferenceJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartTrainedModelInferenceJob",
+  StartTrainedModelInferenceJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

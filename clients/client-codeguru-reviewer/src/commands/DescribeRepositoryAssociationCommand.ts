@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeGuruReviewerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeGuruReviewerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRepositoryAssociationRequest, DescribeRepositoryAssociationResponse } from "../models/models_0";
 import { DescribeRepositoryAssociation$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeRepositoryAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface DescribeRepositoryAssociationCommandOutput extends DescribeRepo
  *
  * @public
  */
-export class DescribeRepositoryAssociationCommand extends $Command
-  .classBuilder<
-    DescribeRepositoryAssociationCommandInput,
-    DescribeRepositoryAssociationCommandOutput,
-    CodeGuruReviewerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeGuruReviewerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGuruFrontendService", "DescribeRepositoryAssociation", {})
-  .n("CodeGuruReviewerClient", "DescribeRepositoryAssociationCommand")
-  .sc(DescribeRepositoryAssociation$)
-  .build() {
+export class DescribeRepositoryAssociationCommand extends command<DescribeRepositoryAssociationCommandInput, DescribeRepositoryAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRepositoryAssociation",
+  DescribeRepositoryAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

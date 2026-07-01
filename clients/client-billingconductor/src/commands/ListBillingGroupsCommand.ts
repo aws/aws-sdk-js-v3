@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BillingconductorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BillingconductorClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListBillingGroupsInput, ListBillingGroupsOutput } from "../models/models_0";
 import { ListBillingGroups$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListBillingGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +118,12 @@ export interface ListBillingGroupsCommandOutput extends ListBillingGroupsOutput,
  *
  * @public
  */
-export class ListBillingGroupsCommand extends $Command
-  .classBuilder<
-    ListBillingGroupsCommandInput,
-    ListBillingGroupsCommandOutput,
-    BillingconductorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBillingConductor", "ListBillingGroups", {})
-  .n("BillingconductorClient", "ListBillingGroupsCommand")
-  .sc(ListBillingGroups$)
-  .build() {
+export class ListBillingGroupsCommand extends command<ListBillingGroupsCommandInput, ListBillingGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBillingGroups",
+  ListBillingGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutOptedOutNumberRequest, PutOptedOutNumberResult } from "../models/models_0";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { PutOptedOutNumber$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface PutOptedOutNumberCommandOutput extends PutOptedOutNumberResult,
  *
  * @public
  */
-export class PutOptedOutNumberCommand extends $Command
-  .classBuilder<
-    PutOptedOutNumberCommandInput,
-    PutOptedOutNumberCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "PutOptedOutNumber", {})
-  .n("PinpointSMSVoiceV2Client", "PutOptedOutNumberCommand")
-  .sc(PutOptedOutNumber$)
-  .build() {
+export class PutOptedOutNumberCommand extends command<PutOptedOutNumberCommandInput, PutOptedOutNumberCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutOptedOutNumber",
+  PutOptedOutNumber$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

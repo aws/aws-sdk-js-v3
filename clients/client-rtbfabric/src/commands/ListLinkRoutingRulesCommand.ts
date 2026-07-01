@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLinkRoutingRulesRequest, ListLinkRoutingRulesResponse } from "../models/models_0";
-import type { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
 import { ListLinkRoutingRules$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +122,12 @@ export interface ListLinkRoutingRulesCommandOutput extends ListLinkRoutingRulesR
  *
  * @public
  */
-export class ListLinkRoutingRulesCommand extends $Command
-  .classBuilder<
-    ListLinkRoutingRulesCommandInput,
-    ListLinkRoutingRulesCommandOutput,
-    RTBFabricClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RTBFabricClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RTBFabric", "ListLinkRoutingRules", {})
-  .n("RTBFabricClient", "ListLinkRoutingRulesCommand")
-  .sc(ListLinkRoutingRules$)
-  .build() {
+export class ListLinkRoutingRulesCommand extends command<ListLinkRoutingRulesCommandInput, ListLinkRoutingRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLinkRoutingRules",
+  ListLinkRoutingRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

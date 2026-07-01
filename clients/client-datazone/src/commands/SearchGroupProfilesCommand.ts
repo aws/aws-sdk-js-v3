@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchGroupProfilesInput, SearchGroupProfilesOutput } from "../models/models_2";
 import { SearchGroupProfiles$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SearchGroupProfiles$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface SearchGroupProfilesCommandOutput extends SearchGroupProfilesOut
  *
  * @public
  */
-export class SearchGroupProfilesCommand extends $Command
-  .classBuilder<
-    SearchGroupProfilesCommandInput,
-    SearchGroupProfilesCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "SearchGroupProfiles", {})
-  .n("DataZoneClient", "SearchGroupProfilesCommand")
-  .sc(SearchGroupProfiles$)
-  .build() {
+export class SearchGroupProfilesCommand extends command<SearchGroupProfilesCommandInput, SearchGroupProfilesCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchGroupProfiles",
+  SearchGroupProfiles$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

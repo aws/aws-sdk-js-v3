@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListWavesRequest, ListWavesResponse } from "../models/models_0";
 import { ListWaves$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListWaves$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface ListWavesCommandOutput extends ListWavesResponse, __MetadataBea
  *
  * @public
  */
-export class ListWavesCommand extends $Command
-  .classBuilder<
-    ListWavesCommandInput,
-    ListWavesCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "ListWaves", {})
-  .n("MgnClient", "ListWavesCommand")
-  .sc(ListWaves$)
-  .build() {
+export class ListWavesCommand extends command<ListWavesCommandInput, ListWavesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListWaves",
+  ListWaves$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

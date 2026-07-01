@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteStreamProcessorRequest, DeleteStreamProcessorResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { DeleteStreamProcessor$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface DeleteStreamProcessorCommandOutput extends DeleteStreamProcesso
  *
  * @public
  */
-export class DeleteStreamProcessorCommand extends $Command
-  .classBuilder<
-    DeleteStreamProcessorCommandInput,
-    DeleteStreamProcessorCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "DeleteStreamProcessor", {})
-  .n("RekognitionClient", "DeleteStreamProcessorCommand")
-  .sc(DeleteStreamProcessor$)
-  .build() {
+export class DeleteStreamProcessorCommand extends command<DeleteStreamProcessorCommandInput, DeleteStreamProcessorCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteStreamProcessor",
+  DeleteStreamProcessor$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

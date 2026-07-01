@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ContainsPiiEntitiesRequest, ContainsPiiEntitiesResponse } from "../models/models_0";
 import { ContainsPiiEntities$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ContainsPiiEntities$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface ContainsPiiEntitiesCommandOutput extends ContainsPiiEntitiesRes
  *
  * @public
  */
-export class ContainsPiiEntitiesCommand extends $Command
-  .classBuilder<
-    ContainsPiiEntitiesCommandInput,
-    ContainsPiiEntitiesCommandOutput,
-    ComprehendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Comprehend_20171127", "ContainsPiiEntities", {})
-  .n("ComprehendClient", "ContainsPiiEntitiesCommand")
-  .sc(ContainsPiiEntities$)
-  .build() {
+export class ContainsPiiEntitiesCommand extends command<ContainsPiiEntitiesCommandInput, ContainsPiiEntitiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ContainsPiiEntities",
+  ContainsPiiEntities$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

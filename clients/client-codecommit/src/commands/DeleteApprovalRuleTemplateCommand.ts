@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteApprovalRuleTemplateInput, DeleteApprovalRuleTemplateOutput } from "../models/models_0";
 import { DeleteApprovalRuleTemplate$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteApprovalRuleTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface DeleteApprovalRuleTemplateCommandOutput extends DeleteApprovalR
  *
  * @public
  */
-export class DeleteApprovalRuleTemplateCommand extends $Command
-  .classBuilder<
-    DeleteApprovalRuleTemplateCommandInput,
-    DeleteApprovalRuleTemplateCommandOutput,
-    CodeCommitClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCommit_20150413", "DeleteApprovalRuleTemplate", {})
-  .n("CodeCommitClient", "DeleteApprovalRuleTemplateCommand")
-  .sc(DeleteApprovalRuleTemplate$)
-  .build() {
+export class DeleteApprovalRuleTemplateCommand extends command<DeleteApprovalRuleTemplateCommandInput, DeleteApprovalRuleTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteApprovalRuleTemplate",
+  DeleteApprovalRuleTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

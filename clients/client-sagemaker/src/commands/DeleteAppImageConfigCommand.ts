@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAppImageConfigRequest } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DeleteAppImageConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -60,22 +56,12 @@ export interface DeleteAppImageConfigCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteAppImageConfigCommand extends $Command
-  .classBuilder<
-    DeleteAppImageConfigCommandInput,
-    DeleteAppImageConfigCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DeleteAppImageConfig", {})
-  .n("SageMakerClient", "DeleteAppImageConfigCommand")
-  .sc(DeleteAppImageConfig$)
-  .build() {
+export class DeleteAppImageConfigCommand extends command<DeleteAppImageConfigCommandInput, DeleteAppImageConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAppImageConfig",
+  DeleteAppImageConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

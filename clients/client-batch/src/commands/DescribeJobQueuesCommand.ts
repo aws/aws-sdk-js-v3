@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeJobQueuesRequest, DescribeJobQueuesResponse } from "../models/models_0";
 import { DescribeJobQueues$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeJobQueues$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -138,22 +134,12 @@ export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesRespons
  *
  * @public
  */
-export class DescribeJobQueuesCommand extends $Command
-  .classBuilder<
-    DescribeJobQueuesCommandInput,
-    DescribeJobQueuesCommandOutput,
-    BatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBatchV20160810", "DescribeJobQueues", {})
-  .n("BatchClient", "DescribeJobQueuesCommand")
-  .sc(DescribeJobQueues$)
-  .build() {
+export class DescribeJobQueuesCommand extends command<DescribeJobQueuesCommandInput, DescribeJobQueuesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeJobQueues",
+  DescribeJobQueues$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

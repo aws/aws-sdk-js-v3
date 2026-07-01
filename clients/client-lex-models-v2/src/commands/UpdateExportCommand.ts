@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateExportRequest, UpdateExportResponse } from "../models/models_1";
 import { UpdateExport$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateExport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface UpdateExportCommandOutput extends UpdateExportResponse, __Metad
  *
  * @public
  */
-export class UpdateExportCommand extends $Command
-  .classBuilder<
-    UpdateExportCommandInput,
-    UpdateExportCommandOutput,
-    LexModelsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LexModelBuildingServiceV2", "UpdateExport", {})
-  .n("LexModelsV2Client", "UpdateExportCommand")
-  .sc(UpdateExport$)
-  .build() {
+export class UpdateExportCommand extends command<UpdateExportCommandInput, UpdateExportCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateExport",
+  UpdateExport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

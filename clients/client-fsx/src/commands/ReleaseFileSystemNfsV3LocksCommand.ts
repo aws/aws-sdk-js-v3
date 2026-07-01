@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ReleaseFileSystemNfsV3LocksRequest, ReleaseFileSystemNfsV3LocksResponse } from "../models/models_0";
 import { ReleaseFileSystemNfsV3Locks$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ReleaseFileSystemNfsV3Locks$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -691,22 +687,12 @@ export interface ReleaseFileSystemNfsV3LocksCommandOutput extends ReleaseFileSys
  *
  * @public
  */
-export class ReleaseFileSystemNfsV3LocksCommand extends $Command
-  .classBuilder<
-    ReleaseFileSystemNfsV3LocksCommandInput,
-    ReleaseFileSystemNfsV3LocksCommandOutput,
-    FSxClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSimbaAPIService_v20180301", "ReleaseFileSystemNfsV3Locks", {})
-  .n("FSxClient", "ReleaseFileSystemNfsV3LocksCommand")
-  .sc(ReleaseFileSystemNfsV3Locks$)
-  .build() {
+export class ReleaseFileSystemNfsV3LocksCommand extends command<ReleaseFileSystemNfsV3LocksCommandInput, ReleaseFileSystemNfsV3LocksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ReleaseFileSystemNfsV3Locks",
+  ReleaseFileSystemNfsV3Locks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MachineLearningClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MachineLearningClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDataSourceFromS3Input, CreateDataSourceFromS3Output } from "../models/models_0";
 import { CreateDataSourceFromS3$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateDataSourceFromS3$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +102,12 @@ export interface CreateDataSourceFromS3CommandOutput extends CreateDataSourceFro
  *
  * @public
  */
-export class CreateDataSourceFromS3Command extends $Command
-  .classBuilder<
-    CreateDataSourceFromS3CommandInput,
-    CreateDataSourceFromS3CommandOutput,
-    MachineLearningClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonML_20141212", "CreateDataSourceFromS3", {})
-  .n("MachineLearningClient", "CreateDataSourceFromS3Command")
-  .sc(CreateDataSourceFromS3$)
-  .build() {
+export class CreateDataSourceFromS3Command extends command<CreateDataSourceFromS3CommandInput, CreateDataSourceFromS3CommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDataSourceFromS3",
+  CreateDataSourceFromS3$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAssetsForLicenseAssetGroupRequest, ListAssetsForLicenseAssetGroupResponse } from "../models/models_0";
 import { ListAssetsForLicenseAssetGroup$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListAssetsForLicenseAssetGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface ListAssetsForLicenseAssetGroupCommandOutput extends ListAssetsF
  *
  * @public
  */
-export class ListAssetsForLicenseAssetGroupCommand extends $Command
-  .classBuilder<
-    ListAssetsForLicenseAssetGroupCommandInput,
-    ListAssetsForLicenseAssetGroupCommandOutput,
-    LicenseManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLicenseManager", "ListAssetsForLicenseAssetGroup", {})
-  .n("LicenseManagerClient", "ListAssetsForLicenseAssetGroupCommand")
-  .sc(ListAssetsForLicenseAssetGroup$)
-  .build() {
+export class ListAssetsForLicenseAssetGroupCommand extends command<ListAssetsForLicenseAssetGroupCommandInput, ListAssetsForLicenseAssetGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAssetsForLicenseAssetGroup",
+  ListAssetsForLicenseAssetGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListProxiesRequest, ListProxiesResponse } from "../models/models_0";
-import type {
-  NetworkFirewallClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFirewallClient";
 import { ListProxies$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface ListProxiesCommandOutput extends ListProxiesResponse, __Metadat
  *
  * @public
  */
-export class ListProxiesCommand extends $Command
-  .classBuilder<
-    ListProxiesCommandInput,
-    ListProxiesCommandOutput,
-    NetworkFirewallClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFirewall_20201112", "ListProxies", {})
-  .n("NetworkFirewallClient", "ListProxiesCommand")
-  .sc(ListProxies$)
-  .build() {
+export class ListProxiesCommand extends command<ListProxiesCommandInput, ListProxiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListProxies",
+  ListProxies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

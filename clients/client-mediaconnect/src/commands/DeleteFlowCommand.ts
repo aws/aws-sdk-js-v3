@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFlowRequest, DeleteFlowResponse } from "../models/models_0";
 import { DeleteFlow$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteFlow$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DeleteFlowCommandOutput extends DeleteFlowResponse, __MetadataB
  *
  * @public
  */
-export class DeleteFlowCommand extends $Command
-  .classBuilder<
-    DeleteFlowCommandInput,
-    DeleteFlowCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "DeleteFlow", {})
-  .n("MediaConnectClient", "DeleteFlowCommand")
-  .sc(DeleteFlow$)
-  .build() {
+export class DeleteFlowCommand extends command<DeleteFlowCommandInput, DeleteFlowCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFlow",
+  DeleteFlow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

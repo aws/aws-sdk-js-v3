@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { InvokeAssistantRequest, InvokeAssistantResponse } from "../models/models_0";
 import { InvokeAssistant$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { InvokeAssistant$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -139,29 +135,12 @@ export interface InvokeAssistantCommandOutput extends InvokeAssistantResponse, _
  *
  * @public
  */
-export class InvokeAssistantCommand extends $Command
-  .classBuilder<
-    InvokeAssistantCommandInput,
-    InvokeAssistantCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "InvokeAssistant", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      output: true,
-    },
-  })
-  .n("IoTSiteWiseClient", "InvokeAssistantCommand")
-  .sc(InvokeAssistant$)
-  .build() {
+export class InvokeAssistantCommand extends command<InvokeAssistantCommandInput, InvokeAssistantCommandOutput>(
+  _ep0,
+  _mw0,
+  "InvokeAssistant",
+  InvokeAssistant$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

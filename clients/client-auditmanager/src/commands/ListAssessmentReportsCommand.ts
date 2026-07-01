@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAssessmentReportsRequest, ListAssessmentReportsResponse } from "../models/models_0";
 import { ListAssessmentReports$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAssessmentReports$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface ListAssessmentReportsCommandOutput extends ListAssessmentReport
  *
  * @public
  */
-export class ListAssessmentReportsCommand extends $Command
-  .classBuilder<
-    ListAssessmentReportsCommandInput,
-    ListAssessmentReportsCommandOutput,
-    AuditManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BedrockAssessmentManagerLambda", "ListAssessmentReports", {})
-  .n("AuditManagerClient", "ListAssessmentReportsCommand")
-  .sc(ListAssessmentReports$)
-  .build() {
+export class ListAssessmentReportsCommand extends command<ListAssessmentReportsCommandInput, ListAssessmentReportsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAssessmentReports",
+  ListAssessmentReports$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

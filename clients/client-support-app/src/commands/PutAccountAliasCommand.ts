@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutAccountAliasRequest, PutAccountAliasResult } from "../models/models_0";
 import { PutAccountAlias$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface PutAccountAliasCommandOutput extends PutAccountAliasResult, __M
  *
  * @public
  */
-export class PutAccountAliasCommand extends $Command
-  .classBuilder<
-    PutAccountAliasCommandInput,
-    PutAccountAliasCommandOutput,
-    SupportAppClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupportAppClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SupportApp", "PutAccountAlias", {})
-  .n("SupportAppClient", "PutAccountAliasCommand")
-  .sc(PutAccountAlias$)
-  .build() {
+export class PutAccountAliasCommand extends command<PutAccountAliasCommandInput, PutAccountAliasCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAccountAlias",
+  PutAccountAlias$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

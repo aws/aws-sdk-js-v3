@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticsearchServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticsearchServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StartElasticsearchServiceSoftwareUpdateRequest,
   StartElasticsearchServiceSoftwareUpdateResponse,
@@ -19,7 +12,6 @@ import { StartElasticsearchServiceSoftwareUpdate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface StartElasticsearchServiceSoftwareUpdateCommandOutput extends St
  *
  * @public
  */
-export class StartElasticsearchServiceSoftwareUpdateCommand extends $Command
-  .classBuilder<
-    StartElasticsearchServiceSoftwareUpdateCommandInput,
-    StartElasticsearchServiceSoftwareUpdateCommandOutput,
-    ElasticsearchServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticsearchService2015", "StartElasticsearchServiceSoftwareUpdate", {})
-  .n("ElasticsearchServiceClient", "StartElasticsearchServiceSoftwareUpdateCommand")
-  .sc(StartElasticsearchServiceSoftwareUpdate$)
-  .build() {
+export class StartElasticsearchServiceSoftwareUpdateCommand extends command<StartElasticsearchServiceSoftwareUpdateCommandInput, StartElasticsearchServiceSoftwareUpdateCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartElasticsearchServiceSoftwareUpdate",
+  StartElasticsearchServiceSoftwareUpdate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

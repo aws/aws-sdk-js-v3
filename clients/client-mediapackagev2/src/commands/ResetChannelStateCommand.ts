@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MediaPackageV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MediaPackageV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ResetChannelStateRequest, ResetChannelStateResponse } from "../models/models_0";
 import { ResetChannelState$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ResetChannelState$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface ResetChannelStateCommandOutput extends ResetChannelStateRespons
  *
  * @public
  */
-export class ResetChannelStateCommand extends $Command
-  .classBuilder<
-    ResetChannelStateCommandInput,
-    ResetChannelStateCommandOutput,
-    MediaPackageV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("mediapackagev2", "ResetChannelState", {})
-  .n("MediaPackageV2Client", "ResetChannelStateCommand")
-  .sc(ResetChannelState$)
-  .build() {
+export class ResetChannelStateCommand extends command<ResetChannelStateCommandInput, ResetChannelStateCommandOutput>(
+  _ep0,
+  _mw0,
+  "ResetChannelState",
+  ResetChannelState$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

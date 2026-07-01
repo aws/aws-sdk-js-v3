@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchEventsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeauthorizeConnectionRequest, DeauthorizeConnectionResponse } from "../models/models_0";
 import { DeauthorizeConnection$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeauthorizeConnection$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +69,12 @@ export interface DeauthorizeConnectionCommandOutput extends DeauthorizeConnectio
  *
  * @public
  */
-export class DeauthorizeConnectionCommand extends $Command
-  .classBuilder<
-    DeauthorizeConnectionCommandInput,
-    DeauthorizeConnectionCommandOutput,
-    CloudWatchEventsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSEvents", "DeauthorizeConnection", {})
-  .n("CloudWatchEventsClient", "DeauthorizeConnectionCommand")
-  .sc(DeauthorizeConnection$)
-  .build() {
+export class DeauthorizeConnectionCommand extends command<DeauthorizeConnectionCommandInput, DeauthorizeConnectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeauthorizeConnection",
+  DeauthorizeConnection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDataSetRequest, CreateDataSetResponse } from "../models/models_0";
 import { CreateDataSet$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateDataSet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface CreateDataSetCommandOutput extends CreateDataSetResponse, __Met
  *
  * @public
  */
-export class CreateDataSetCommand extends $Command
-  .classBuilder<
-    CreateDataSetCommandInput,
-    CreateDataSetCommandOutput,
-    DataExchangeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataExchange", "CreateDataSet", {})
-  .n("DataExchangeClient", "CreateDataSetCommand")
-  .sc(CreateDataSet$)
-  .build() {
+export class CreateDataSetCommand extends command<CreateDataSetCommandInput, CreateDataSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDataSet",
+  CreateDataSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

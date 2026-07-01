@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateDashboardPublishedVersionRequest,
   UpdateDashboardPublishedVersionResponse,
 } from "../models/models_5";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { UpdateDashboardPublishedVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface UpdateDashboardPublishedVersionCommandOutput extends UpdateDash
  *
  * @public
  */
-export class UpdateDashboardPublishedVersionCommand extends $Command
-  .classBuilder<
-    UpdateDashboardPublishedVersionCommandInput,
-    UpdateDashboardPublishedVersionCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "UpdateDashboardPublishedVersion", {})
-  .n("QuickSightClient", "UpdateDashboardPublishedVersionCommand")
-  .sc(UpdateDashboardPublishedVersion$)
-  .build() {
+export class UpdateDashboardPublishedVersionCommand extends command<UpdateDashboardPublishedVersionCommandInput, UpdateDashboardPublishedVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateDashboardPublishedVersion",
+  UpdateDashboardPublishedVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

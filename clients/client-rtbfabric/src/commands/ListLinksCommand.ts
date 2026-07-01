@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLinksRequest, ListLinksResponse } from "../models/models_0";
-import type { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
 import { ListLinks$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -226,22 +222,12 @@ export interface ListLinksCommandOutput extends ListLinksResponse, __MetadataBea
  *
  * @public
  */
-export class ListLinksCommand extends $Command
-  .classBuilder<
-    ListLinksCommandInput,
-    ListLinksCommandOutput,
-    RTBFabricClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RTBFabricClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RTBFabric", "ListLinks", {})
-  .n("RTBFabricClient", "ListLinksCommand")
-  .sc(ListLinks$)
-  .build() {
+export class ListLinksCommand extends command<ListLinksCommandInput, ListLinksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLinks",
+  ListLinks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

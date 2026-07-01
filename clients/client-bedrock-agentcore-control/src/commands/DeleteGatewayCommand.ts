@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteGatewayRequest, DeleteGatewayResponse } from "../models/models_0";
 import { DeleteGateway$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteGateway$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface DeleteGatewayCommandOutput extends DeleteGatewayResponse, __Met
  *
  * @public
  */
-export class DeleteGatewayCommand extends $Command
-  .classBuilder<
-    DeleteGatewayCommandInput,
-    DeleteGatewayCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "DeleteGateway", {})
-  .n("BedrockAgentCoreControlClient", "DeleteGatewayCommand")
-  .sc(DeleteGateway$)
-  .build() {
+export class DeleteGatewayCommand extends command<DeleteGatewayCommandInput, DeleteGatewayCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteGateway",
+  DeleteGateway$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

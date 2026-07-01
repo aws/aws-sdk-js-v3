@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateEndpointsBatchRequest, UpdateEndpointsBatchResponse } from "../models/models_1";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { UpdateEndpointsBatch$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface UpdateEndpointsBatchCommandOutput extends UpdateEndpointsBatchR
  *
  * @public
  */
-export class UpdateEndpointsBatchCommand extends $Command
-  .classBuilder<
-    UpdateEndpointsBatchCommandInput,
-    UpdateEndpointsBatchCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "UpdateEndpointsBatch", {})
-  .n("PinpointClient", "UpdateEndpointsBatchCommand")
-  .sc(UpdateEndpointsBatch$)
-  .build() {
+export class UpdateEndpointsBatchCommand extends command<UpdateEndpointsBatchCommandInput, UpdateEndpointsBatchCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateEndpointsBatch",
+  UpdateEndpointsBatch$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

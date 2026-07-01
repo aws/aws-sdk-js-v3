@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeIndexFieldsRequest, DescribeIndexFieldsResponse } from "../models/models_0";
 import { DescribeIndexFields$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeIndexFields$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -172,22 +168,12 @@ export interface DescribeIndexFieldsCommandOutput extends DescribeIndexFieldsRes
  *
  * @public
  */
-export class DescribeIndexFieldsCommand extends $Command
-  .classBuilder<
-    DescribeIndexFieldsCommandInput,
-    DescribeIndexFieldsCommandOutput,
-    CloudSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("A9SearchCloudConfigService2013", "DescribeIndexFields", {})
-  .n("CloudSearchClient", "DescribeIndexFieldsCommand")
-  .sc(DescribeIndexFields$)
-  .build() {
+export class DescribeIndexFieldsCommand extends command<DescribeIndexFieldsCommandInput, DescribeIndexFieldsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeIndexFields",
+  DescribeIndexFields$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

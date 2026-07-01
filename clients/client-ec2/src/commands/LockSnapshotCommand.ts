@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { LockSnapshotRequest, LockSnapshotResult } from "../models/models_6";
 import { LockSnapshot$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { LockSnapshot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface LockSnapshotCommandOutput extends LockSnapshotResult, __Metadat
  *
  * @public
  */
-export class LockSnapshotCommand extends $Command
-  .classBuilder<
-    LockSnapshotCommandInput,
-    LockSnapshotCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "LockSnapshot", {})
-  .n("EC2Client", "LockSnapshotCommand")
-  .sc(LockSnapshot$)
-  .build() {
+export class LockSnapshotCommand extends command<LockSnapshotCommandInput, LockSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "LockSnapshot",
+  LockSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

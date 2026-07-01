@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceCommerceAnalyticsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceCommerceAnalyticsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GenerateDataSetRequest, GenerateDataSetResult } from "../models/models_0";
 import { GenerateDataSet$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GenerateDataSet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface GenerateDataSetCommandOutput extends GenerateDataSetResult, __M
  *
  * @public
  */
-export class GenerateDataSetCommand extends $Command
-  .classBuilder<
-    GenerateDataSetCommandInput,
-    GenerateDataSetCommandOutput,
-    MarketplaceCommerceAnalyticsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceCommerceAnalyticsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MarketplaceCommerceAnalytics20150701", "GenerateDataSet", {})
-  .n("MarketplaceCommerceAnalyticsClient", "GenerateDataSetCommand")
-  .sc(GenerateDataSet$)
-  .build() {
+export class GenerateDataSetCommand extends command<GenerateDataSetCommandInput, GenerateDataSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "GenerateDataSet",
+  GenerateDataSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

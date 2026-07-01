@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaCoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaCoreClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListNetworkConnectorsRequest, ListNetworkConnectorsResponse } from "../models/models_0";
 import { ListNetworkConnectors$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListNetworkConnectors$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface ListNetworkConnectorsCommandOutput extends ListNetworkConnector
  *
  * @public
  */
-export class ListNetworkConnectorsCommand extends $Command
-  .classBuilder<
-    ListNetworkConnectorsCommandInput,
-    ListNetworkConnectorsCommandOutput,
-    LambdaCoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaCoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LambdaCoreApiService", "ListNetworkConnectors", {})
-  .n("LambdaCoreClient", "ListNetworkConnectorsCommand")
-  .sc(ListNetworkConnectors$)
-  .build() {
+export class ListNetworkConnectorsCommand extends command<ListNetworkConnectorsCommandInput, ListNetworkConnectorsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListNetworkConnectors",
+  ListNetworkConnectors$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

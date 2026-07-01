@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateQueueEmailAddressesRequest } from "../models/models_0";
 import { AssociateQueueEmailAddresses$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateQueueEmailAddresses$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface AssociateQueueEmailAddressesCommandOutput extends __MetadataBea
  *
  * @public
  */
-export class AssociateQueueEmailAddressesCommand extends $Command
-  .classBuilder<
-    AssociateQueueEmailAddressesCommandInput,
-    AssociateQueueEmailAddressesCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "AssociateQueueEmailAddresses", {})
-  .n("ConnectClient", "AssociateQueueEmailAddressesCommand")
-  .sc(AssociateQueueEmailAddresses$)
-  .build() {
+export class AssociateQueueEmailAddressesCommand extends command<AssociateQueueEmailAddressesCommandInput, AssociateQueueEmailAddressesCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateQueueEmailAddresses",
+  AssociateQueueEmailAddresses$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

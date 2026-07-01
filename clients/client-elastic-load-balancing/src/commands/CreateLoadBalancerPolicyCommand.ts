@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticLoadBalancingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticLoadBalancingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateLoadBalancerPolicyInput, CreateLoadBalancerPolicyOutput } from "../models/models_0";
 import { CreateLoadBalancerPolicy$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateLoadBalancerPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -148,22 +140,12 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  *
  * @public
  */
-export class CreateLoadBalancerPolicyCommand extends $Command
-  .classBuilder<
-    CreateLoadBalancerPolicyCommandInput,
-    CreateLoadBalancerPolicyCommandOutput,
-    ElasticLoadBalancingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticLoadBalancing_v7", "CreateLoadBalancerPolicy", {})
-  .n("ElasticLoadBalancingClient", "CreateLoadBalancerPolicyCommand")
-  .sc(CreateLoadBalancerPolicy$)
-  .build() {
+export class CreateLoadBalancerPolicyCommand extends command<CreateLoadBalancerPolicyCommandInput, CreateLoadBalancerPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateLoadBalancerPolicy",
+  CreateLoadBalancerPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

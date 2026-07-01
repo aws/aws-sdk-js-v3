@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSegmentExportJobsRequest, GetSegmentExportJobsResponse } from "../models/models_1";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { GetSegmentExportJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface GetSegmentExportJobsCommandOutput extends GetSegmentExportJobsR
  *
  * @public
  */
-export class GetSegmentExportJobsCommand extends $Command
-  .classBuilder<
-    GetSegmentExportJobsCommandInput,
-    GetSegmentExportJobsCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "GetSegmentExportJobs", {})
-  .n("PinpointClient", "GetSegmentExportJobsCommand")
-  .sc(GetSegmentExportJobs$)
-  .build() {
+export class GetSegmentExportJobsCommand extends command<GetSegmentExportJobsCommandInput, GetSegmentExportJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSegmentExportJobs",
+  GetSegmentExportJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

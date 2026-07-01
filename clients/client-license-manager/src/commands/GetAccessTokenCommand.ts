@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAccessTokenRequest, GetAccessTokenResponse } from "../models/models_0";
 import { GetAccessToken$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetAccessToken$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface GetAccessTokenCommandOutput extends GetAccessTokenResponse, __M
  *
  * @public
  */
-export class GetAccessTokenCommand extends $Command
-  .classBuilder<
-    GetAccessTokenCommandInput,
-    GetAccessTokenCommandOutput,
-    LicenseManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLicenseManager", "GetAccessToken", {})
-  .n("LicenseManagerClient", "GetAccessTokenCommand")
-  .sc(GetAccessToken$)
-  .build() {
+export class GetAccessTokenCommand extends command<GetAccessTokenCommandInput, GetAccessTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAccessToken",
+  GetAccessToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

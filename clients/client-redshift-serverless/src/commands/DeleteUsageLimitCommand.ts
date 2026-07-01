@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteUsageLimitRequest, DeleteUsageLimitResponse } from "../models/models_0";
-import type {
-  RedshiftServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RedshiftServerlessClient";
 import { DeleteUsageLimit$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface DeleteUsageLimitCommandOutput extends DeleteUsageLimitResponse,
  *
  * @public
  */
-export class DeleteUsageLimitCommand extends $Command
-  .classBuilder<
-    DeleteUsageLimitCommandInput,
-    DeleteUsageLimitCommandOutput,
-    RedshiftServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServerless", "DeleteUsageLimit", {})
-  .n("RedshiftServerlessClient", "DeleteUsageLimitCommand")
-  .sc(DeleteUsageLimit$)
-  .build() {
+export class DeleteUsageLimitCommand extends command<DeleteUsageLimitCommandInput, DeleteUsageLimitCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteUsageLimit",
+  DeleteUsageLimit$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

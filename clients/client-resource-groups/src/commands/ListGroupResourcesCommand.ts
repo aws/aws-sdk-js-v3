@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListGroupResourcesInput, ListGroupResourcesOutput } from "../models/models_0";
-import type {
-  ResourceGroupsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceGroupsClient";
 import { ListGroupResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -147,22 +139,12 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesOutpu
  *
  * @public
  */
-export class ListGroupResourcesCommand extends $Command
-  .classBuilder<
-    ListGroupResourcesCommandInput,
-    ListGroupResourcesCommandOutput,
-    ResourceGroupsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceGroupsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Ardi", "ListGroupResources", {})
-  .n("ResourceGroupsClient", "ListGroupResourcesCommand")
-  .sc(ListGroupResources$)
-  .build() {
+export class ListGroupResourcesCommand extends command<ListGroupResourcesCommandInput, ListGroupResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListGroupResources",
+  ListGroupResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

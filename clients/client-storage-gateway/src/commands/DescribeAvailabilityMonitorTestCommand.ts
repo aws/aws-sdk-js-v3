@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAvailabilityMonitorTestInput, DescribeAvailabilityMonitorTestOutput } from "../models/models_0";
 import { DescribeAvailabilityMonitorTest$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +67,12 @@ export interface DescribeAvailabilityMonitorTestCommandOutput extends DescribeAv
  *
  * @public
  */
-export class DescribeAvailabilityMonitorTestCommand extends $Command
-  .classBuilder<
-    DescribeAvailabilityMonitorTestCommandInput,
-    DescribeAvailabilityMonitorTestCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "DescribeAvailabilityMonitorTest", {})
-  .n("StorageGatewayClient", "DescribeAvailabilityMonitorTestCommand")
-  .sc(DescribeAvailabilityMonitorTest$)
-  .build() {
+export class DescribeAvailabilityMonitorTestCommand extends command<DescribeAvailabilityMonitorTestCommandInput, DescribeAvailabilityMonitorTestCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAvailabilityMonitorTest",
+  DescribeAvailabilityMonitorTest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetArchiveExportRequest, GetArchiveExportResponse } from "../models/models_0";
 import { GetArchiveExport$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetArchiveExport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface GetArchiveExportCommandOutput extends GetArchiveExportResponse,
  *
  * @public
  */
-export class GetArchiveExportCommand extends $Command
-  .classBuilder<
-    GetArchiveExportCommandInput,
-    GetArchiveExportCommandOutput,
-    MailManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MailManagerSvc", "GetArchiveExport", {})
-  .n("MailManagerClient", "GetArchiveExportCommand")
-  .sc(GetArchiveExport$)
-  .build() {
+export class GetArchiveExportCommand extends command<GetArchiveExportCommandInput, GetArchiveExportCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetArchiveExport",
+  GetArchiveExport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

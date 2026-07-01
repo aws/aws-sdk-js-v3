@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GenerateOrganizationsAccessReportRequest,
   GenerateOrganizationsAccessReportResponse,
@@ -15,7 +12,6 @@ import { GenerateOrganizationsAccessReport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -212,22 +208,12 @@ export interface GenerateOrganizationsAccessReportCommandOutput extends Generate
  *
  * @public
  */
-export class GenerateOrganizationsAccessReportCommand extends $Command
-  .classBuilder<
-    GenerateOrganizationsAccessReportCommandInput,
-    GenerateOrganizationsAccessReportCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "GenerateOrganizationsAccessReport", {})
-  .n("IAMClient", "GenerateOrganizationsAccessReportCommand")
-  .sc(GenerateOrganizationsAccessReport$)
-  .build() {
+export class GenerateOrganizationsAccessReportCommand extends command<GenerateOrganizationsAccessReportCommandInput, GenerateOrganizationsAccessReportCommandOutput>(
+  _ep0,
+  _mw0,
+  "GenerateOrganizationsAccessReport",
+  GenerateOrganizationsAccessReport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

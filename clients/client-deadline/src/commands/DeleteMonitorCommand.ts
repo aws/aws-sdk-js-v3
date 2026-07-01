@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMonitorRequest, DeleteMonitorResponse } from "../models/models_1";
 import { DeleteMonitor$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteMonitor$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteMonitorCommandOutput extends DeleteMonitorResponse, __Met
  *
  * @public
  */
-export class DeleteMonitorCommand extends $Command
-  .classBuilder<
-    DeleteMonitorCommandInput,
-    DeleteMonitorCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "DeleteMonitor", {})
-  .n("DeadlineClient", "DeleteMonitorCommand")
-  .sc(DeleteMonitor$)
-  .build() {
+export class DeleteMonitorCommand extends command<DeleteMonitorCommandInput, DeleteMonitorCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMonitor",
+  DeleteMonitor$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateKeyDescriptionRequest } from "../models/models_0";
 import { UpdateKeyDescription$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateKeyDescription$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +128,12 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdateKeyDescriptionCommand extends $Command
-  .classBuilder<
-    UpdateKeyDescriptionCommandInput,
-    UpdateKeyDescriptionCommandOutput,
-    KMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrentService", "UpdateKeyDescription", {})
-  .n("KMSClient", "UpdateKeyDescriptionCommand")
-  .sc(UpdateKeyDescription$)
-  .build() {
+export class UpdateKeyDescriptionCommand extends command<UpdateKeyDescriptionCommandInput, UpdateKeyDescriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateKeyDescription",
+  UpdateKeyDescription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

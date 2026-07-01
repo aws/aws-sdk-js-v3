@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDeploymentRequest, CreateDeploymentResponse } from "../models/models_0";
 import { CreateDeployment$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateDeployment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentResponse,
  *
  * @public
  */
-export class CreateDeploymentCommand extends $Command
-  .classBuilder<
-    CreateDeploymentCommandInput,
-    CreateDeploymentCommandOutput,
-    M2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: M2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsSupernovaControlPlaneService", "CreateDeployment", {})
-  .n("M2Client", "CreateDeploymentCommand")
-  .sc(CreateDeployment$)
-  .build() {
+export class CreateDeploymentCommand extends command<CreateDeploymentCommandInput, CreateDeploymentCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDeployment",
+  CreateDeployment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

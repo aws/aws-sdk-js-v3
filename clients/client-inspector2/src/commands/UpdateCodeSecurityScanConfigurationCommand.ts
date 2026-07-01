@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateCodeSecurityScanConfigurationRequest,
   UpdateCodeSecurityScanConfigurationResponse,
@@ -15,7 +12,6 @@ import { UpdateCodeSecurityScanConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface UpdateCodeSecurityScanConfigurationCommandOutput extends Update
  *
  * @public
  */
-export class UpdateCodeSecurityScanConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateCodeSecurityScanConfigurationCommandInput,
-    UpdateCodeSecurityScanConfigurationCommandOutput,
-    Inspector2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Inspector2", "UpdateCodeSecurityScanConfiguration", {})
-  .n("Inspector2Client", "UpdateCodeSecurityScanConfigurationCommand")
-  .sc(UpdateCodeSecurityScanConfiguration$)
-  .build() {
+export class UpdateCodeSecurityScanConfigurationCommand extends command<UpdateCodeSecurityScanConfigurationCommandInput, UpdateCodeSecurityScanConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateCodeSecurityScanConfiguration",
+  UpdateCodeSecurityScanConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

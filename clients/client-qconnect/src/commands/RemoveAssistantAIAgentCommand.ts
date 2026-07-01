@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveAssistantAIAgentRequest, RemoveAssistantAIAgentResponse } from "../models/models_0";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { RemoveAssistantAIAgent$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface RemoveAssistantAIAgentCommandOutput extends RemoveAssistantAIAg
  *
  * @public
  */
-export class RemoveAssistantAIAgentCommand extends $Command
-  .classBuilder<
-    RemoveAssistantAIAgentCommandInput,
-    RemoveAssistantAIAgentCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "RemoveAssistantAIAgent", {})
-  .n("QConnectClient", "RemoveAssistantAIAgentCommand")
-  .sc(RemoveAssistantAIAgent$)
-  .build() {
+export class RemoveAssistantAIAgentCommand extends command<RemoveAssistantAIAgentCommandInput, RemoveAssistantAIAgentCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveAssistantAIAgent",
+  RemoveAssistantAIAgent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

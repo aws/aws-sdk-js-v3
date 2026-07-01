@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetTemporaryDataLocationCredentialsRequest,
   GetTemporaryDataLocationCredentialsResponse,
@@ -15,7 +12,6 @@ import { GetTemporaryDataLocationCredentials$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface GetTemporaryDataLocationCredentialsCommandOutput extends GetTem
  *
  * @public
  */
-export class GetTemporaryDataLocationCredentialsCommand extends $Command
-  .classBuilder<
-    GetTemporaryDataLocationCredentialsCommandInput,
-    GetTemporaryDataLocationCredentialsCommandOutput,
-    LakeFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLakeFormation", "GetTemporaryDataLocationCredentials", {})
-  .n("LakeFormationClient", "GetTemporaryDataLocationCredentialsCommand")
-  .sc(GetTemporaryDataLocationCredentials$)
-  .build() {
+export class GetTemporaryDataLocationCredentialsCommand extends command<GetTemporaryDataLocationCredentialsCommandInput, GetTemporaryDataLocationCredentialsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTemporaryDataLocationCredentials",
+  GetTemporaryDataLocationCredentials$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetApplicationRequest, GetApplicationResponse } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { GetApplication$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  *
  * @public
  */
-export class GetApplicationCommand extends $Command
-  .classBuilder<
-    GetApplicationCommandInput,
-    GetApplicationCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "GetApplication", {})
-  .n("QBusinessClient", "GetApplicationCommand")
-  .sc(GetApplication$)
-  .build() {
+export class GetApplicationCommand extends command<GetApplicationCommandInput, GetApplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetApplication",
+  GetApplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

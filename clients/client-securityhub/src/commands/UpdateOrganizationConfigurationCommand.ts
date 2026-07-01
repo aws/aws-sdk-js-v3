@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateOrganizationConfigurationRequest,
   UpdateOrganizationConfigurationResponse,
 } from "../models/models_3";
 import { UpdateOrganizationConfiguration$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface UpdateOrganizationConfigurationCommandOutput extends UpdateOrga
  *
  * @public
  */
-export class UpdateOrganizationConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateOrganizationConfigurationCommandInput,
-    UpdateOrganizationConfigurationCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "UpdateOrganizationConfiguration", {})
-  .n("SecurityHubClient", "UpdateOrganizationConfigurationCommand")
-  .sc(UpdateOrganizationConfiguration$)
-  .build() {
+export class UpdateOrganizationConfigurationCommand extends command<UpdateOrganizationConfigurationCommandInput, UpdateOrganizationConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateOrganizationConfiguration",
+  UpdateOrganizationConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

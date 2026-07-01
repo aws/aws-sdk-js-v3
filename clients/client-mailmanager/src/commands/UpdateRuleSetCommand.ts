@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRuleSetRequest, UpdateRuleSetResponse } from "../models/models_0";
 import { UpdateRuleSet$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateRuleSet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -277,22 +273,12 @@ export interface UpdateRuleSetCommandOutput extends UpdateRuleSetResponse, __Met
  *
  * @public
  */
-export class UpdateRuleSetCommand extends $Command
-  .classBuilder<
-    UpdateRuleSetCommandInput,
-    UpdateRuleSetCommandOutput,
-    MailManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MailManagerSvc", "UpdateRuleSet", {})
-  .n("MailManagerClient", "UpdateRuleSetCommand")
-  .sc(UpdateRuleSet$)
-  .build() {
+export class UpdateRuleSetCommand extends command<UpdateRuleSetCommandInput, UpdateRuleSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRuleSet",
+  UpdateRuleSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

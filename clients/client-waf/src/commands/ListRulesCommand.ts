@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRulesRequest, ListRulesResponse } from "../models/models_0";
 import { ListRules$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  *
  * @public
  */
-export class ListRulesCommand extends $Command
-  .classBuilder<
-    ListRulesCommandInput,
-    ListRulesCommandOutput,
-    WAFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20150824", "ListRules", {})
-  .n("WAFClient", "ListRulesCommand")
-  .sc(ListRules$)
-  .build() {
+export class ListRulesCommand extends command<ListRulesCommandInput, ListRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRules",
+  ListRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

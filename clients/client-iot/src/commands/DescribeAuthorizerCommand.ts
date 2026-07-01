@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAuthorizerRequest, DescribeAuthorizerResponse } from "../models/models_1";
 import { DescribeAuthorizer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeAuthorizer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface DescribeAuthorizerCommandOutput extends DescribeAuthorizerRespo
  *
  * @public
  */
-export class DescribeAuthorizerCommand extends $Command
-  .classBuilder<
-    DescribeAuthorizerCommandInput,
-    DescribeAuthorizerCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "DescribeAuthorizer", {})
-  .n("IoTClient", "DescribeAuthorizerCommand")
-  .sc(DescribeAuthorizer$)
-  .build() {
+export class DescribeAuthorizerCommand extends command<DescribeAuthorizerCommandInput, DescribeAuthorizerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAuthorizer",
+  DescribeAuthorizer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssumeImpersonationRoleRequest, AssumeImpersonationRoleResponse } from "../models/models_0";
 import { AssumeImpersonationRole$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface AssumeImpersonationRoleCommandOutput extends AssumeImpersonatio
  *
  * @public
  */
-export class AssumeImpersonationRoleCommand extends $Command
-  .classBuilder<
-    AssumeImpersonationRoleCommandInput,
-    AssumeImpersonationRoleCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "AssumeImpersonationRole", {})
-  .n("WorkMailClient", "AssumeImpersonationRoleCommand")
-  .sc(AssumeImpersonationRole$)
-  .build() {
+export class AssumeImpersonationRoleCommand extends command<AssumeImpersonationRoleCommandInput, AssumeImpersonationRoleCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssumeImpersonationRole",
+  AssumeImpersonationRole$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

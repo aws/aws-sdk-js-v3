@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchAvailablePhoneNumbersRequest, SearchAvailablePhoneNumbersResponse } from "../models/models_0";
 import { SearchAvailablePhoneNumbers$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SearchAvailablePhoneNumbers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface SearchAvailablePhoneNumbersCommandOutput extends SearchAvailabl
  *
  * @public
  */
-export class SearchAvailablePhoneNumbersCommand extends $Command
-  .classBuilder<
-    SearchAvailablePhoneNumbersCommandInput,
-    SearchAvailablePhoneNumbersCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "SearchAvailablePhoneNumbers", {})
-  .n("ChimeSDKVoiceClient", "SearchAvailablePhoneNumbersCommand")
-  .sc(SearchAvailablePhoneNumbers$)
-  .build() {
+export class SearchAvailablePhoneNumbersCommand extends command<SearchAvailablePhoneNumbersCommandInput, SearchAvailablePhoneNumbersCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchAvailablePhoneNumbers",
+  SearchAvailablePhoneNumbers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

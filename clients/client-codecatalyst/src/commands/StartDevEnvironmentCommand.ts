@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartDevEnvironmentRequest, StartDevEnvironmentResponse } from "../models/models_0";
 import { StartDevEnvironment$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartDevEnvironment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface StartDevEnvironmentCommandOutput extends StartDevEnvironmentRes
  *
  * @public
  */
-export class StartDevEnvironmentCommand extends $Command
-  .classBuilder<
-    StartDevEnvironmentCommandInput,
-    StartDevEnvironmentCommandOutput,
-    CodeCatalystClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCatalyst", "StartDevEnvironment", {})
-  .n("CodeCatalystClient", "StartDevEnvironmentCommand")
-  .sc(StartDevEnvironment$)
-  .build() {
+export class StartDevEnvironmentCommand extends command<StartDevEnvironmentCommandInput, StartDevEnvironmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartDevEnvironment",
+  StartDevEnvironment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeConnectionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeConnectionsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRepositorySyncStatusInput, GetRepositorySyncStatusOutput } from "../models/models_0";
 import { GetRepositorySyncStatus$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetRepositorySyncStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +84,12 @@ export interface GetRepositorySyncStatusCommandOutput extends GetRepositorySyncS
  *
  * @public
  */
-export class GetRepositorySyncStatusCommand extends $Command
-  .classBuilder<
-    GetRepositorySyncStatusCommandInput,
-    GetRepositorySyncStatusCommandOutput,
-    CodeConnectionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeConnectionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeConnections_20231201", "GetRepositorySyncStatus", {})
-  .n("CodeConnectionsClient", "GetRepositorySyncStatusCommand")
-  .sc(GetRepositorySyncStatus$)
-  .build() {
+export class GetRepositorySyncStatusCommand extends command<GetRepositorySyncStatusCommandInput, GetRepositorySyncStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRepositorySyncStatus",
+  GetRepositorySyncStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

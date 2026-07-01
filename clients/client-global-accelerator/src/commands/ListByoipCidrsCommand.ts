@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  GlobalAcceleratorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../GlobalAcceleratorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListByoipCidrsRequest, ListByoipCidrsResponse } from "../models/models_0";
 import { ListByoipCidrs$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListByoipCidrs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface ListByoipCidrsCommandOutput extends ListByoipCidrsResponse, __M
  *
  * @public
  */
-export class ListByoipCidrsCommand extends $Command
-  .classBuilder<
-    ListByoipCidrsCommandInput,
-    ListByoipCidrsCommandOutput,
-    GlobalAcceleratorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GlobalAccelerator_V20180706", "ListByoipCidrs", {})
-  .n("GlobalAcceleratorClient", "ListByoipCidrsCommand")
-  .sc(ListByoipCidrs$)
-  .build() {
+export class ListByoipCidrsCommand extends command<ListByoipCidrsCommandInput, ListByoipCidrsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListByoipCidrs",
+  ListByoipCidrs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

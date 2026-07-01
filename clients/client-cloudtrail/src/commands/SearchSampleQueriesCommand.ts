@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchSampleQueriesRequest, SearchSampleQueriesResponse } from "../models/models_0";
 import { SearchSampleQueries$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SearchSampleQueries$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface SearchSampleQueriesCommandOutput extends SearchSampleQueriesRes
  *
  * @public
  */
-export class SearchSampleQueriesCommand extends $Command
-  .classBuilder<
-    SearchSampleQueriesCommandInput,
-    SearchSampleQueriesCommandOutput,
-    CloudTrailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudTrail_20131101", "SearchSampleQueries", {})
-  .n("CloudTrailClient", "SearchSampleQueriesCommand")
-  .sc(SearchSampleQueries$)
-  .build() {
+export class SearchSampleQueriesCommand extends command<SearchSampleQueriesCommandInput, SearchSampleQueriesCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchSampleQueries",
+  SearchSampleQueries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

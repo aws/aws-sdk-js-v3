@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeactivateTypeInput, DeactivateTypeOutput } from "../models/models_0";
 import { DeactivateType$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeactivateType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +69,12 @@ export interface DeactivateTypeCommandOutput extends DeactivateTypeOutput, __Met
  *
  * @public
  */
-export class DeactivateTypeCommand extends $Command
-  .classBuilder<
-    DeactivateTypeCommandInput,
-    DeactivateTypeCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "DeactivateType", {})
-  .n("CloudFormationClient", "DeactivateTypeCommand")
-  .sc(DeactivateType$)
-  .build() {
+export class DeactivateTypeCommand extends command<DeactivateTypeCommandInput, DeactivateTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeactivateType",
+  DeactivateType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendCustomVerificationEmailRequest, SendCustomVerificationEmailResponse } from "../models/models_0";
 import { SendCustomVerificationEmail$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface SendCustomVerificationEmailCommandOutput extends SendCustomVeri
  *
  * @public
  */
-export class SendCustomVerificationEmailCommand extends $Command
-  .classBuilder<
-    SendCustomVerificationEmailCommandInput,
-    SendCustomVerificationEmailCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "SendCustomVerificationEmail", {})
-  .n("SESClient", "SendCustomVerificationEmailCommand")
-  .sc(SendCustomVerificationEmail$)
-  .build() {
+export class SendCustomVerificationEmailCommand extends command<SendCustomVerificationEmailCommandInput, SendCustomVerificationEmailCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendCustomVerificationEmail",
+  SendCustomVerificationEmail$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

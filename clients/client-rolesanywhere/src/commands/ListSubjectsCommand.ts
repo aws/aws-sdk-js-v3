@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRequest, ListSubjectsResponse } from "../models/models_0";
-import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { ListSubjects$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface ListSubjectsCommandOutput extends ListSubjectsResponse, __Metad
  *
  * @public
  */
-export class ListSubjectsCommand extends $Command
-  .classBuilder<
-    ListSubjectsCommandInput,
-    ListSubjectsCommandOutput,
-    RolesAnywhereClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RolesAnywhereClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RolesAnywhere", "ListSubjects", {})
-  .n("RolesAnywhereClient", "ListSubjectsCommand")
-  .sc(ListSubjects$)
-  .build() {
+export class ListSubjectsCommand extends command<ListSubjectsCommandInput, ListSubjectsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSubjects",
+  ListSubjects$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

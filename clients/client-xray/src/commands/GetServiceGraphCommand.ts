@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetServiceGraphRequest, GetServiceGraphResult } from "../models/models_0";
 import { GetServiceGraph$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -160,22 +156,12 @@ export interface GetServiceGraphCommandOutput extends GetServiceGraphResult, __M
  *
  * @public
  */
-export class GetServiceGraphCommand extends $Command
-  .classBuilder<
-    GetServiceGraphCommandInput,
-    GetServiceGraphCommandOutput,
-    XRayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSXRay", "GetServiceGraph", {})
-  .n("XRayClient", "GetServiceGraphCommand")
-  .sc(GetServiceGraph$)
-  .build() {
+export class GetServiceGraphCommand extends command<GetServiceGraphCommandInput, GetServiceGraphCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetServiceGraph",
+  GetServiceGraph$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

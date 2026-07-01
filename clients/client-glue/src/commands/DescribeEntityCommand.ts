@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeEntityRequest, DescribeEntityResponse } from "../models/models_1";
 import { DescribeEntity$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeEntity$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface DescribeEntityCommandOutput extends DescribeEntityResponse, __M
  *
  * @public
  */
-export class DescribeEntityCommand extends $Command
-  .classBuilder<
-    DescribeEntityCommandInput,
-    DescribeEntityCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "DescribeEntity", {})
-  .n("GlueClient", "DescribeEntityCommand")
-  .sc(DescribeEntity$)
-  .build() {
+export class DescribeEntityCommand extends command<DescribeEntityCommandInput, DescribeEntityCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEntity",
+  DescribeEntity$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

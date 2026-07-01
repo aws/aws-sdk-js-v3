@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetRecordRequest, BatchGetRecordResponse } from "../models/models_0";
-import type {
-  SageMakerFeatureStoreRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SageMakerFeatureStoreRuntimeClient";
 import { BatchGetRecord$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +113,12 @@ export interface BatchGetRecordCommandOutput extends BatchGetRecordResponse, __M
  *
  * @public
  */
-export class BatchGetRecordCommand extends $Command
-  .classBuilder<
-    BatchGetRecordCommandInput,
-    BatchGetRecordCommandOutput,
-    SageMakerFeatureStoreRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerFeatureStoreRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSageMakerFeatureStoreRuntime", "BatchGetRecord", {})
-  .n("SageMakerFeatureStoreRuntimeClient", "BatchGetRecordCommand")
-  .sc(BatchGetRecord$)
-  .build() {
+export class BatchGetRecordCommand extends command<BatchGetRecordCommandInput, BatchGetRecordCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetRecord",
+  BatchGetRecord$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAgentAliasRequest, UpdateAgentAliasResponse } from "../models/models_0";
 import { UpdateAgentAlias$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateAgentAlias$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface UpdateAgentAliasCommandOutput extends UpdateAgentAliasResponse,
  *
  * @public
  */
-export class UpdateAgentAliasCommand extends $Command
-  .classBuilder<
-    UpdateAgentAliasCommandInput,
-    UpdateAgentAliasCommandOutput,
-    BedrockAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentBuildTimeLambda", "UpdateAgentAlias", {})
-  .n("BedrockAgentClient", "UpdateAgentAliasCommand")
-  .sc(UpdateAgentAlias$)
-  .build() {
+export class UpdateAgentAliasCommand extends command<UpdateAgentAliasCommandInput, UpdateAgentAliasCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAgentAlias",
+  UpdateAgentAlias$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

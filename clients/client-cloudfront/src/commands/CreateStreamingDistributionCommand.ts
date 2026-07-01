@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateStreamingDistributionRequest, CreateStreamingDistributionResult } from "../models/models_0";
 import { CreateStreamingDistribution$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateStreamingDistribution$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -176,22 +172,12 @@ export interface CreateStreamingDistributionCommandOutput extends CreateStreamin
  *
  * @public
  */
-export class CreateStreamingDistributionCommand extends $Command
-  .classBuilder<
-    CreateStreamingDistributionCommandInput,
-    CreateStreamingDistributionCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "CreateStreamingDistribution", {})
-  .n("CloudFrontClient", "CreateStreamingDistributionCommand")
-  .sc(CreateStreamingDistribution$)
-  .build() {
+export class CreateStreamingDistributionCommand extends command<CreateStreamingDistributionCommandInput, CreateStreamingDistributionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateStreamingDistribution",
+  CreateStreamingDistribution$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

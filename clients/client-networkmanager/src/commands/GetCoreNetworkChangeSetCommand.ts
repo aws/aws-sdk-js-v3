@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCoreNetworkChangeSetRequest, GetCoreNetworkChangeSetResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { GetCoreNetworkChangeSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -209,22 +201,12 @@ export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChan
  *
  * @public
  */
-export class GetCoreNetworkChangeSetCommand extends $Command
-  .classBuilder<
-    GetCoreNetworkChangeSetCommandInput,
-    GetCoreNetworkChangeSetCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "GetCoreNetworkChangeSet", {})
-  .n("NetworkManagerClient", "GetCoreNetworkChangeSetCommand")
-  .sc(GetCoreNetworkChangeSet$)
-  .build() {
+export class GetCoreNetworkChangeSetCommand extends command<GetCoreNetworkChangeSetCommandInput, GetCoreNetworkChangeSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCoreNetworkChangeSet",
+  GetCoreNetworkChangeSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

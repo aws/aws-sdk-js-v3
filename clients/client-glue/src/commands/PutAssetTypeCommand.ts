@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutAssetTypeRequest, PutAssetTypeResponse } from "../models/models_2";
 import { PutAssetType$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutAssetType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface PutAssetTypeCommandOutput extends PutAssetTypeResponse, __Metad
  *
  * @public
  */
-export class PutAssetTypeCommand extends $Command
-  .classBuilder<
-    PutAssetTypeCommandInput,
-    PutAssetTypeCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "PutAssetType", {})
-  .n("GlueClient", "PutAssetTypeCommand")
-  .sc(PutAssetType$)
-  .build() {
+export class PutAssetTypeCommand extends command<PutAssetTypeCommandInput, PutAssetTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAssetType",
+  PutAssetType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

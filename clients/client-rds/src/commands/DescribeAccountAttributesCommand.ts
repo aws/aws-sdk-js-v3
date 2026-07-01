@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AccountAttributesMessage, DescribeAccountAttributesMessage } from "../models/models_0";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DescribeAccountAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -152,22 +148,12 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  *
  * @public
  */
-export class DescribeAccountAttributesCommand extends $Command
-  .classBuilder<
-    DescribeAccountAttributesCommandInput,
-    DescribeAccountAttributesCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DescribeAccountAttributes", {})
-  .n("RDSClient", "DescribeAccountAttributesCommand")
-  .sc(DescribeAccountAttributes$)
-  .build() {
+export class DescribeAccountAttributesCommand extends command<DescribeAccountAttributesCommandInput, DescribeAccountAttributesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAccountAttributes",
+  DescribeAccountAttributes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

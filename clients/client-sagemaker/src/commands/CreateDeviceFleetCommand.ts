@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDeviceFleetRequest } from "../models/models_1";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreateDeviceFleet$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface CreateDeviceFleetCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class CreateDeviceFleetCommand extends $Command
-  .classBuilder<
-    CreateDeviceFleetCommandInput,
-    CreateDeviceFleetCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "CreateDeviceFleet", {})
-  .n("SageMakerClient", "CreateDeviceFleetCommand")
-  .sc(CreateDeviceFleet$)
-  .build() {
+export class CreateDeviceFleetCommand extends command<CreateDeviceFleetCommandInput, CreateDeviceFleetCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDeviceFleet",
+  CreateDeviceFleet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

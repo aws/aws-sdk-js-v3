@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectHealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectHealthClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeactivateSubscriptionInput, DeactivateSubscriptionOutput } from "../models/models_0";
 import { DeactivateSubscription$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeactivateSubscription$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface DeactivateSubscriptionCommandOutput extends DeactivateSubscript
  *
  * @public
  */
-export class DeactivateSubscriptionCommand extends $Command
-  .classBuilder<
-    DeactivateSubscriptionCommandInput,
-    DeactivateSubscriptionCommandOutput,
-    ConnectHealthClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectHealthClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ConnectHealth", "DeactivateSubscription", {})
-  .n("ConnectHealthClient", "DeactivateSubscriptionCommand")
-  .sc(DeactivateSubscription$)
-  .build() {
+export class DeactivateSubscriptionCommand extends command<DeactivateSubscriptionCommandInput, DeactivateSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeactivateSubscription",
+  DeactivateSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

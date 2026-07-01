@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListDistributionsByOriginRequestPolicyIdRequest,
   ListDistributionsByOriginRequestPolicyIdResult,
@@ -15,7 +12,6 @@ import { ListDistributionsByOriginRequestPolicyId$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface ListDistributionsByOriginRequestPolicyIdCommandOutput extends L
  *
  * @public
  */
-export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command
-  .classBuilder<
-    ListDistributionsByOriginRequestPolicyIdCommandInput,
-    ListDistributionsByOriginRequestPolicyIdCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "ListDistributionsByOriginRequestPolicyId", {})
-  .n("CloudFrontClient", "ListDistributionsByOriginRequestPolicyIdCommand")
-  .sc(ListDistributionsByOriginRequestPolicyId$)
-  .build() {
+export class ListDistributionsByOriginRequestPolicyIdCommand extends command<ListDistributionsByOriginRequestPolicyIdCommandInput, ListDistributionsByOriginRequestPolicyIdCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDistributionsByOriginRequestPolicyId",
+  ListDistributionsByOriginRequestPolicyId$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteWhatsAppMessageTemplateInput, DeleteWhatsAppMessageTemplateOutput } from "../models/models_0";
 import { DeleteWhatsAppMessageTemplate$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SocialMessagingClientResolvedConfig,
-} from "../SocialMessagingClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface DeleteWhatsAppMessageTemplateCommandOutput extends DeleteWhatsA
  *
  * @public
  */
-export class DeleteWhatsAppMessageTemplateCommand extends $Command
-  .classBuilder<
-    DeleteWhatsAppMessageTemplateCommandInput,
-    DeleteWhatsAppMessageTemplateCommandOutput,
-    SocialMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SocialMessaging", "DeleteWhatsAppMessageTemplate", {})
-  .n("SocialMessagingClient", "DeleteWhatsAppMessageTemplateCommand")
-  .sc(DeleteWhatsAppMessageTemplate$)
-  .build() {
+export class DeleteWhatsAppMessageTemplateCommand extends command<DeleteWhatsAppMessageTemplateCommandInput, DeleteWhatsAppMessageTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteWhatsAppMessageTemplate",
+  DeleteWhatsAppMessageTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

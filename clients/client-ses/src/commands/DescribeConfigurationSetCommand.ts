@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeConfigurationSetRequest, DescribeConfigurationSetResponse } from "../models/models_0";
 import { DescribeConfigurationSet$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface DescribeConfigurationSetCommandOutput extends DescribeConfigura
  *
  * @public
  */
-export class DescribeConfigurationSetCommand extends $Command
-  .classBuilder<
-    DescribeConfigurationSetCommandInput,
-    DescribeConfigurationSetCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "DescribeConfigurationSet", {})
-  .n("SESClient", "DescribeConfigurationSetCommand")
-  .sc(DescribeConfigurationSet$)
-  .build() {
+export class DescribeConfigurationSetCommand extends command<DescribeConfigurationSetCommandInput, DescribeConfigurationSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeConfigurationSet",
+  DescribeConfigurationSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,23 +1,14 @@
 // smithy-typescript generated code
-import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelQueryRequest, CancelQueryResponse } from "../models/models_0";
 import { CancelQuery$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TimestreamQueryClientResolvedConfig,
-} from "../TimestreamQueryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,29 +75,12 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  *
  * @public
  */
-export class CancelQueryCommand extends $Command
-  .classBuilder<
-    CancelQueryCommandInput,
-    CancelQueryCommandOutput,
-    TimestreamQueryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TimestreamQueryClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEndpointDiscoveryPlugin(config, {
-        clientStack: cs,
-        isDiscoveredEndpointRequired: true,
-        options: o,
-      }),
-    ];
-  })
-  .s("Timestream_20181101", "CancelQuery", {})
-  .n("TimestreamQueryClient", "CancelQueryCommand")
-  .sc(CancelQuery$)
-  .build() {
+export class CancelQueryCommand extends command<CancelQueryCommandInput, CancelQueryCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelQuery",
+  CancelQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

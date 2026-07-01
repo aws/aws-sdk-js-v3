@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteBuildBatchInput, DeleteBuildBatchOutput } from "../models/models_0";
 import { DeleteBuildBatch$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteBuildBatch$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface DeleteBuildBatchCommandOutput extends DeleteBuildBatchOutput, _
  *
  * @public
  */
-export class DeleteBuildBatchCommand extends $Command
-  .classBuilder<
-    DeleteBuildBatchCommandInput,
-    DeleteBuildBatchCommandOutput,
-    CodeBuildClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeBuild_20161006", "DeleteBuildBatch", {})
-  .n("CodeBuildClient", "DeleteBuildBatchCommand")
-  .sc(DeleteBuildBatch$)
-  .build() {
+export class DeleteBuildBatchCommand extends command<DeleteBuildBatchCommandInput, DeleteBuildBatchCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteBuildBatch",
+  DeleteBuildBatch$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

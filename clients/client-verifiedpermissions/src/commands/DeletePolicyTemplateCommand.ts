@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePolicyTemplateInput, DeletePolicyTemplateOutput } from "../models/models_0";
 import { DeletePolicyTemplate$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  VerifiedPermissionsClientResolvedConfig,
-} from "../VerifiedPermissionsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +86,12 @@ export interface DeletePolicyTemplateCommandOutput extends DeletePolicyTemplateO
  *
  * @public
  */
-export class DeletePolicyTemplateCommand extends $Command
-  .classBuilder<
-    DeletePolicyTemplateCommandInput,
-    DeletePolicyTemplateCommandOutput,
-    VerifiedPermissionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("VerifiedPermissions", "DeletePolicyTemplate", {})
-  .n("VerifiedPermissionsClient", "DeletePolicyTemplateCommand")
-  .sc(DeletePolicyTemplate$)
-  .build() {
+export class DeletePolicyTemplateCommand extends command<DeletePolicyTemplateCommandInput, DeletePolicyTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePolicyTemplate",
+  DeletePolicyTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

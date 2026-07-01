@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LexModelBuildingServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LexModelBuildingServiceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteBotVersionRequest } from "../models/models_0";
 import { DeleteBotVersion$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteBotVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface DeleteBotVersionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteBotVersionCommand extends $Command
-  .classBuilder<
-    DeleteBotVersionCommandInput,
-    DeleteBotVersionCommandOutput,
-    LexModelBuildingServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepSenseModelBuildingService", "DeleteBotVersion", {})
-  .n("LexModelBuildingServiceClient", "DeleteBotVersionCommand")
-  .sc(DeleteBotVersion$)
-  .build() {
+export class DeleteBotVersionCommand extends command<DeleteBotVersionCommandInput, DeleteBotVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteBotVersion",
+  DeleteBotVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

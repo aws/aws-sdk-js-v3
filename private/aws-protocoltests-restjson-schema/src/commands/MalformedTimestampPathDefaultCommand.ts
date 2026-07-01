@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { MalformedTimestampPathDefaultInput } from "../models/models_0";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
 import { MalformedTimestampPathDefault$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -61,22 +53,12 @@ export interface MalformedTimestampPathDefaultCommandOutput extends __MetadataBe
  *
  *
  */
-export class MalformedTimestampPathDefaultCommand extends $Command
-  .classBuilder<
-    MalformedTimestampPathDefaultCommandInput,
-    MalformedTimestampPathDefaultCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestJson", "MalformedTimestampPathDefault", {})
-  .n("RestJsonProtocolClient", "MalformedTimestampPathDefaultCommand")
-  .sc(MalformedTimestampPathDefault$)
-  .build() {
+export class MalformedTimestampPathDefaultCommand extends command<MalformedTimestampPathDefaultCommandInput, MalformedTimestampPathDefaultCommandOutput>(
+  _ep0,
+  _mw0,
+  "MalformedTimestampPathDefault",
+  MalformedTimestampPathDefault$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

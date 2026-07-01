@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAssessmentFrameworkShareRequest, DeleteAssessmentFrameworkShareResponse } from "../models/models_0";
 import { DeleteAssessmentFrameworkShare$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAssessmentFrameworkShare$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteAssessmentFrameworkShareCommandOutput extends DeleteAsses
  *
  * @public
  */
-export class DeleteAssessmentFrameworkShareCommand extends $Command
-  .classBuilder<
-    DeleteAssessmentFrameworkShareCommandInput,
-    DeleteAssessmentFrameworkShareCommandOutput,
-    AuditManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BedrockAssessmentManagerLambda", "DeleteAssessmentFrameworkShare", {})
-  .n("AuditManagerClient", "DeleteAssessmentFrameworkShareCommand")
-  .sc(DeleteAssessmentFrameworkShare$)
-  .build() {
+export class DeleteAssessmentFrameworkShareCommand extends command<DeleteAssessmentFrameworkShareCommandInput, DeleteAssessmentFrameworkShareCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAssessmentFrameworkShare",
+  DeleteAssessmentFrameworkShare$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

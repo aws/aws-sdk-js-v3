@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeConfigurationRequest, DescribeConfigurationResponse } from "../models/models_0";
 import { DescribeConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface DescribeConfigurationCommandOutput extends DescribeConfiguratio
  *
  * @public
  */
-export class DescribeConfigurationCommand extends $Command
-  .classBuilder<
-    DescribeConfigurationCommandInput,
-    DescribeConfigurationCommandOutput,
-    KafkaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kafka", "DescribeConfiguration", {})
-  .n("KafkaClient", "DescribeConfigurationCommand")
-  .sc(DescribeConfiguration$)
-  .build() {
+export class DescribeConfigurationCommand extends command<DescribeConfigurationCommandInput, DescribeConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeConfiguration",
+  DescribeConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticLoadBalancingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticLoadBalancingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeregisterEndPointsInput, DeregisterEndPointsOutput } from "../models/models_0";
 import { DeregisterInstancesFromLoadBalancer$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeregisterInstancesFromLoadBalancer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +102,12 @@ export interface DeregisterInstancesFromLoadBalancerCommandOutput extends Deregi
  *
  * @public
  */
-export class DeregisterInstancesFromLoadBalancerCommand extends $Command
-  .classBuilder<
-    DeregisterInstancesFromLoadBalancerCommandInput,
-    DeregisterInstancesFromLoadBalancerCommandOutput,
-    ElasticLoadBalancingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticLoadBalancing_v7", "DeregisterInstancesFromLoadBalancer", {})
-  .n("ElasticLoadBalancingClient", "DeregisterInstancesFromLoadBalancerCommand")
-  .sc(DeregisterInstancesFromLoadBalancer$)
-  .build() {
+export class DeregisterInstancesFromLoadBalancerCommand extends command<DeregisterInstancesFromLoadBalancerCommandInput, DeregisterInstancesFromLoadBalancerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeregisterInstancesFromLoadBalancer",
+  DeregisterInstancesFromLoadBalancer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

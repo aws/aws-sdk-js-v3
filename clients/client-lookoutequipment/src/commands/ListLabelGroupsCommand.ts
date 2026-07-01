@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LookoutEquipmentClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LookoutEquipmentClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLabelGroupsRequest, ListLabelGroupsResponse } from "../models/models_0";
 import { ListLabelGroups$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListLabelGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface ListLabelGroupsCommandOutput extends ListLabelGroupsResponse, _
  *
  * @public
  */
-export class ListLabelGroupsCommand extends $Command
-  .classBuilder<
-    ListLabelGroupsCommandInput,
-    ListLabelGroupsCommandOutput,
-    LookoutEquipmentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLookoutEquipmentFrontendService", "ListLabelGroups", {})
-  .n("LookoutEquipmentClient", "ListLabelGroupsCommand")
-  .sc(ListLabelGroups$)
-  .build() {
+export class ListLabelGroupsCommand extends command<ListLabelGroupsCommandInput, ListLabelGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLabelGroups",
+  ListLabelGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

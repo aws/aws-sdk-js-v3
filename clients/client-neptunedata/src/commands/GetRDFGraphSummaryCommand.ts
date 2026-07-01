@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRDFGraphSummaryInput, GetRDFGraphSummaryOutput } from "../models/models_0";
-import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
 import { GetRDFGraphSummary$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface GetRDFGraphSummaryCommandOutput extends GetRDFGraphSummaryOutpu
  *
  * @public
  */
-export class GetRDFGraphSummaryCommand extends $Command
-  .classBuilder<
-    GetRDFGraphSummaryCommandInput,
-    GetRDFGraphSummaryCommandOutput,
-    NeptunedataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneDataplane", "GetRDFGraphSummary", {})
-  .n("NeptunedataClient", "GetRDFGraphSummaryCommand")
-  .sc(GetRDFGraphSummary$)
-  .build() {
+export class GetRDFGraphSummaryCommand extends command<GetRDFGraphSummaryCommandInput, GetRDFGraphSummaryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRDFGraphSummary",
+  GetRDFGraphSummary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

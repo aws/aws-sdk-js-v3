@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteServiceQuotaIncreaseRequestFromTemplateRequest,
   DeleteServiceQuotaIncreaseRequestFromTemplateResponse,
 } from "../models/models_0";
 import { DeleteServiceQuotaIncreaseRequestFromTemplate$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput exte
  *
  * @public
  */
-export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Command
-  .classBuilder<
-    DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
-    DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput,
-    ServiceQuotasClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ServiceQuotasV20190624", "DeleteServiceQuotaIncreaseRequestFromTemplate", {})
-  .n("ServiceQuotasClient", "DeleteServiceQuotaIncreaseRequestFromTemplateCommand")
-  .sc(DeleteServiceQuotaIncreaseRequestFromTemplate$)
-  .build() {
+export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends command<DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput, DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteServiceQuotaIncreaseRequestFromTemplate",
+  DeleteServiceQuotaIncreaseRequestFromTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

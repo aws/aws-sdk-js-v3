@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCapacityTasksInput, ListCapacityTasksOutput } from "../models/models_0";
-import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import { ListCapacityTasks$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface ListCapacityTasksCommandOutput extends ListCapacityTasksOutput,
  *
  * @public
  */
-export class ListCapacityTasksCommand extends $Command
-  .classBuilder<
-    ListCapacityTasksCommandInput,
-    ListCapacityTasksCommandOutput,
-    OutpostsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OutpostsOlafService", "ListCapacityTasks", {})
-  .n("OutpostsClient", "ListCapacityTasksCommand")
-  .sc(ListCapacityTasks$)
-  .build() {
+export class ListCapacityTasksCommand extends command<ListCapacityTasksCommandInput, ListCapacityTasksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCapacityTasks",
+  ListCapacityTasks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

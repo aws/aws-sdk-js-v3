@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCodeSigningConfigRequest, DeleteCodeSigningConfigResponse } from "../models/models_0";
 import { DeleteCodeSigningConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteCodeSigningConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteCodeSigningConfigCommandOutput extends DeleteCodeSigningC
  *
  * @public
  */
-export class DeleteCodeSigningConfigCommand extends $Command
-  .classBuilder<
-    DeleteCodeSigningConfigCommandInput,
-    DeleteCodeSigningConfigCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "DeleteCodeSigningConfig", {})
-  .n("LambdaClient", "DeleteCodeSigningConfigCommand")
-  .sc(DeleteCodeSigningConfig$)
-  .build() {
+export class DeleteCodeSigningConfigCommand extends command<DeleteCodeSigningConfigCommandInput, DeleteCodeSigningConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCodeSigningConfig",
+  DeleteCodeSigningConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

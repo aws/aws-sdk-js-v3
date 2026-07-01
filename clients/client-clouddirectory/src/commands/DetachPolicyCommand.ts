@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudDirectoryClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DetachPolicyRequest, DetachPolicyResponse } from "../models/models_0";
 import { DetachPolicy$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DetachPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +106,12 @@ export interface DetachPolicyCommandOutput extends DetachPolicyResponse, __Metad
  *
  * @public
  */
-export class DetachPolicyCommand extends $Command
-  .classBuilder<
-    DetachPolicyCommandInput,
-    DetachPolicyCommandOutput,
-    CloudDirectoryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonCloudDirectory_20170111", "DetachPolicy", {})
-  .n("CloudDirectoryClient", "DetachPolicyCommand")
-  .sc(DetachPolicy$)
-  .build() {
+export class DetachPolicyCommand extends command<DetachPolicyCommandInput, DetachPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DetachPolicy",
+  DetachPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

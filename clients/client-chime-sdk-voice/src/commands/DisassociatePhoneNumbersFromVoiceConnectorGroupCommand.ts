@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociatePhoneNumbersFromVoiceConnectorGroupRequest,
   DisassociatePhoneNumbersFromVoiceConnectorGroupResponse,
@@ -15,7 +12,6 @@ import { DisassociatePhoneNumbersFromVoiceConnectorGroup$ } from "../schemas/sch
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput ex
  *
  * @public
  */
-export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends $Command
-  .classBuilder<
-    DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
-    DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "DisassociatePhoneNumbersFromVoiceConnectorGroup", {})
-  .n("ChimeSDKVoiceClient", "DisassociatePhoneNumbersFromVoiceConnectorGroupCommand")
-  .sc(DisassociatePhoneNumbersFromVoiceConnectorGroup$)
-  .build() {
+export class DisassociatePhoneNumbersFromVoiceConnectorGroupCommand extends command<DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput, DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociatePhoneNumbersFromVoiceConnectorGroup",
+  DisassociatePhoneNumbersFromVoiceConnectorGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

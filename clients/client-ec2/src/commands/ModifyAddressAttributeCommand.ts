@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyAddressAttributeRequest, ModifyAddressAttributeResult } from "../models/models_6";
 import { ModifyAddressAttribute$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ModifyAddressAttribute$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface ModifyAddressAttributeCommandOutput extends ModifyAddressAttrib
  *
  * @public
  */
-export class ModifyAddressAttributeCommand extends $Command
-  .classBuilder<
-    ModifyAddressAttributeCommandInput,
-    ModifyAddressAttributeCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "ModifyAddressAttribute", {})
-  .n("EC2Client", "ModifyAddressAttributeCommand")
-  .sc(ModifyAddressAttribute$)
-  .build() {
+export class ModifyAddressAttributeCommand extends command<ModifyAddressAttributeCommandInput, ModifyAddressAttributeCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyAddressAttribute",
+  ModifyAddressAttribute$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

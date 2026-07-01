@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateTermsRequest, UpdateTermsResponse } from "../models/models_1";
 import { UpdateTerms$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateTerms$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -141,22 +133,12 @@ export interface UpdateTermsCommandOutput extends UpdateTermsResponse, __Metadat
  *
  * @public
  */
-export class UpdateTermsCommand extends $Command
-  .classBuilder<
-    UpdateTermsCommandInput,
-    UpdateTermsCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "UpdateTerms", {})
-  .n("CognitoIdentityProviderClient", "UpdateTermsCommand")
-  .sc(UpdateTerms$)
-  .build() {
+export class UpdateTermsCommand extends command<UpdateTermsCommandInput, UpdateTermsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateTerms",
+  UpdateTerms$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

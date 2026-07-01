@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetObjectTypeAttributeStatisticsRequest,
   GetObjectTypeAttributeStatisticsResponse,
@@ -19,7 +12,6 @@ import { GetObjectTypeAttributeStatistics$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface GetObjectTypeAttributeStatisticsCommandOutput extends GetObject
  *
  * @public
  */
-export class GetObjectTypeAttributeStatisticsCommand extends $Command
-  .classBuilder<
-    GetObjectTypeAttributeStatisticsCommandInput,
-    GetObjectTypeAttributeStatisticsCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "GetObjectTypeAttributeStatistics", {})
-  .n("CustomerProfilesClient", "GetObjectTypeAttributeStatisticsCommand")
-  .sc(GetObjectTypeAttributeStatistics$)
-  .build() {
+export class GetObjectTypeAttributeStatisticsCommand extends command<GetObjectTypeAttributeStatisticsCommandInput, GetObjectTypeAttributeStatisticsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetObjectTypeAttributeStatistics",
+  GetObjectTypeAttributeStatistics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

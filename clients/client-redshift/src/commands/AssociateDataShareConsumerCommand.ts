@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateDataShareConsumerMessage, DataShare } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { AssociateDataShareConsumer$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface AssociateDataShareConsumerCommandOutput extends DataShare, __Me
  *
  * @public
  */
-export class AssociateDataShareConsumerCommand extends $Command
-  .classBuilder<
-    AssociateDataShareConsumerCommandInput,
-    AssociateDataShareConsumerCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "AssociateDataShareConsumer", {})
-  .n("RedshiftClient", "AssociateDataShareConsumerCommand")
-  .sc(AssociateDataShareConsumer$)
-  .build() {
+export class AssociateDataShareConsumerCommand extends command<AssociateDataShareConsumerCommandInput, AssociateDataShareConsumerCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateDataShareConsumer",
+  AssociateDataShareConsumer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

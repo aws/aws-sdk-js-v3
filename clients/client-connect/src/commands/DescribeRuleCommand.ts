@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRuleRequest, DescribeRuleResponse } from "../models/models_1";
 import { DescribeRule$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -184,22 +180,12 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  *
  * @public
  */
-export class DescribeRuleCommand extends $Command
-  .classBuilder<
-    DescribeRuleCommandInput,
-    DescribeRuleCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DescribeRule", {})
-  .n("ConnectClient", "DescribeRuleCommand")
-  .sc(DescribeRule$)
-  .build() {
+export class DescribeRuleCommand extends command<DescribeRuleCommandInput, DescribeRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRule",
+  DescribeRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchEventsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisableRuleRequest } from "../models/models_0";
 import { DisableRule$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DisableRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface DisableRuleCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DisableRuleCommand extends $Command
-  .classBuilder<
-    DisableRuleCommandInput,
-    DisableRuleCommandOutput,
-    CloudWatchEventsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSEvents", "DisableRule", {})
-  .n("CloudWatchEventsClient", "DisableRuleCommand")
-  .sc(DisableRule$)
-  .build() {
+export class DisableRuleCommand extends command<DisableRuleCommandInput, DisableRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableRule",
+  DisableRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

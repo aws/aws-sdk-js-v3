@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RetrieveResponse } from "../models/models_0";
 import type { RetrieveRequest } from "../models/models_1";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { Retrieve$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -153,22 +149,12 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  *
  * @public
  */
-export class RetrieveCommand extends $Command
-  .classBuilder<
-    RetrieveCommandInput,
-    RetrieveCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "Retrieve", {})
-  .n("QConnectClient", "RetrieveCommand")
-  .sc(Retrieve$)
-  .build() {
+export class RetrieveCommand extends command<RetrieveCommandInput, RetrieveCommandOutput>(
+  _ep0,
+  _mw0,
+  "Retrieve",
+  Retrieve$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

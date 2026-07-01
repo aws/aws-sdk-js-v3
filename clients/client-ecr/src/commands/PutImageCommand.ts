@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutImageRequest, PutImageResponse } from "../models/models_0";
 import { PutImage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutImage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +114,12 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  *
  * @public
  */
-export class PutImageCommand extends $Command
-  .classBuilder<
-    PutImageCommandInput,
-    PutImageCommandOutput,
-    ECRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerRegistry_V20150921", "PutImage", {})
-  .n("ECRClient", "PutImageCommand")
-  .sc(PutImage$)
-  .build() {
+export class PutImageCommand extends command<PutImageCommandInput, PutImageCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutImage",
+  PutImage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

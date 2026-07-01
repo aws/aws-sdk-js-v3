@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateImagePermissionsRequest, UpdateImagePermissionsResult } from "../models/models_0";
 import { UpdateImagePermissions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateImagePermissions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface UpdateImagePermissionsCommandOutput extends UpdateImagePermissi
  *
  * @public
  */
-export class UpdateImagePermissionsCommand extends $Command
-  .classBuilder<
-    UpdateImagePermissionsCommandInput,
-    UpdateImagePermissionsCommandOutput,
-    AppStreamClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PhotonAdminProxyService", "UpdateImagePermissions", {})
-  .n("AppStreamClient", "UpdateImagePermissionsCommand")
-  .sc(UpdateImagePermissions$)
-  .build() {
+export class UpdateImagePermissionsCommand extends command<UpdateImagePermissionsCommandInput, UpdateImagePermissionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateImagePermissions",
+  UpdateImagePermissions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

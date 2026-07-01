@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LookoutEquipmentClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LookoutEquipmentClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteResourcePolicyRequest } from "../models/models_0";
 import { DeleteResourcePolicy$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteResourcePolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteResourcePolicyCommand extends $Command
-  .classBuilder<
-    DeleteResourcePolicyCommandInput,
-    DeleteResourcePolicyCommandOutput,
-    LookoutEquipmentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLookoutEquipmentFrontendService", "DeleteResourcePolicy", {})
-  .n("LookoutEquipmentClient", "DeleteResourcePolicyCommand")
-  .sc(DeleteResourcePolicy$)
-  .build() {
+export class DeleteResourcePolicyCommand extends command<DeleteResourcePolicyCommandInput, DeleteResourcePolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteResourcePolicy",
+  DeleteResourcePolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

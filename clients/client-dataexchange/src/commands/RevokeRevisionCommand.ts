@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RevokeRevisionRequest, RevokeRevisionResponse } from "../models/models_0";
 import { RevokeRevision$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RevokeRevision$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface RevokeRevisionCommandOutput extends RevokeRevisionResponse, __M
  *
  * @public
  */
-export class RevokeRevisionCommand extends $Command
-  .classBuilder<
-    RevokeRevisionCommandInput,
-    RevokeRevisionCommandOutput,
-    DataExchangeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataExchange", "RevokeRevision", {})
-  .n("DataExchangeClient", "RevokeRevisionCommand")
-  .sc(RevokeRevision$)
-  .build() {
+export class RevokeRevisionCommand extends command<RevokeRevisionCommandInput, RevokeRevisionCommandOutput>(
+  _ep0,
+  _mw0,
+  "RevokeRevision",
+  RevokeRevision$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

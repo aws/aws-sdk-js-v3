@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetQualificationScoreRequest, GetQualificationScoreResponse } from "../models/models_0";
-import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { GetQualificationScore$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface GetQualificationScoreCommandOutput extends GetQualificationScor
  *
  * @public
  */
-export class GetQualificationScoreCommand extends $Command
-  .classBuilder<
-    GetQualificationScoreCommandInput,
-    GetQualificationScoreCommandOutput,
-    MTurkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MTurkRequesterServiceV20170117", "GetQualificationScore", {})
-  .n("MTurkClient", "GetQualificationScoreCommand")
-  .sc(GetQualificationScore$)
-  .build() {
+export class GetQualificationScoreCommand extends command<GetQualificationScoreCommandInput, GetQualificationScoreCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetQualificationScore",
+  GetQualificationScore$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

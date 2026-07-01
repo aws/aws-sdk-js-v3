@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateIdentityProviderRequest, CreateIdentityProviderResponse } from "../models/models_0";
 import { CreateIdentityProvider$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface CreateIdentityProviderCommandOutput extends CreateIdentityProvi
  *
  * @public
  */
-export class CreateIdentityProviderCommand extends $Command
-  .classBuilder<
-    CreateIdentityProviderCommandInput,
-    CreateIdentityProviderCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "CreateIdentityProvider", {})
-  .n("WorkSpacesWebClient", "CreateIdentityProviderCommand")
-  .sc(CreateIdentityProvider$)
-  .build() {
+export class CreateIdentityProviderCommand extends command<CreateIdentityProviderCommandInput, CreateIdentityProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateIdentityProvider",
+  CreateIdentityProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

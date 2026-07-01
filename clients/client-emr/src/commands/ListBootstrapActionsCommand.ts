@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListBootstrapActionsInput, ListBootstrapActionsOutput } from "../models/models_0";
 import { ListBootstrapActions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListBootstrapActions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface ListBootstrapActionsCommandOutput extends ListBootstrapActionsO
  *
  * @public
  */
-export class ListBootstrapActionsCommand extends $Command
-  .classBuilder<
-    ListBootstrapActionsCommandInput,
-    ListBootstrapActionsCommandOutput,
-    EMRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticMapReduce", "ListBootstrapActions", {})
-  .n("EMRClient", "ListBootstrapActionsCommand")
-  .sc(ListBootstrapActions$)
-  .build() {
+export class ListBootstrapActionsCommand extends command<ListBootstrapActionsCommandInput, ListBootstrapActionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBootstrapActions",
+  ListBootstrapActions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

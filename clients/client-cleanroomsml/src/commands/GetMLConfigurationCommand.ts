@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMLConfigurationRequest, GetMLConfigurationResponse } from "../models/models_0";
 import { GetMLConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetMLConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface GetMLConfigurationCommandOutput extends GetMLConfigurationRespo
  *
  * @public
  */
-export class GetMLConfigurationCommand extends $Command
-  .classBuilder<
-    GetMLConfigurationCommandInput,
-    GetMLConfigurationCommandOutput,
-    CleanRoomsMLClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStarkControlService", "GetMLConfiguration", {})
-  .n("CleanRoomsMLClient", "GetMLConfigurationCommand")
-  .sc(GetMLConfiguration$)
-  .build() {
+export class GetMLConfigurationCommand extends command<GetMLConfigurationCommandInput, GetMLConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMLConfiguration",
+  GetMLConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

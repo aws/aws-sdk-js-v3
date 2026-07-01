@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DBSnapshotMessage, DescribeDBSnapshotsMessage } from "../models/models_0";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DescribeDBSnapshots$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -181,22 +177,12 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  *
  * @public
  */
-export class DescribeDBSnapshotsCommand extends $Command
-  .classBuilder<
-    DescribeDBSnapshotsCommandInput,
-    DescribeDBSnapshotsCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DescribeDBSnapshots", {})
-  .n("RDSClient", "DescribeDBSnapshotsCommand")
-  .sc(DescribeDBSnapshots$)
-  .build() {
+export class DescribeDBSnapshotsCommand extends command<DescribeDBSnapshotsCommandInput, DescribeDBSnapshotsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDBSnapshots",
+  DescribeDBSnapshots$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

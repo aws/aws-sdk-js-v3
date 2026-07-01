@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSpotDatafeedSubscriptionRequest } from "../models/models_3";
 import { DeleteSpotDatafeedSubscription$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteSpotDatafeedSubscription$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface DeleteSpotDatafeedSubscriptionCommandOutput extends __MetadataB
  *
  * @public
  */
-export class DeleteSpotDatafeedSubscriptionCommand extends $Command
-  .classBuilder<
-    DeleteSpotDatafeedSubscriptionCommandInput,
-    DeleteSpotDatafeedSubscriptionCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeleteSpotDatafeedSubscription", {})
-  .n("EC2Client", "DeleteSpotDatafeedSubscriptionCommand")
-  .sc(DeleteSpotDatafeedSubscription$)
-  .build() {
+export class DeleteSpotDatafeedSubscriptionCommand extends command<DeleteSpotDatafeedSubscriptionCommandInput, DeleteSpotDatafeedSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSpotDatafeedSubscription",
+  DeleteSpotDatafeedSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

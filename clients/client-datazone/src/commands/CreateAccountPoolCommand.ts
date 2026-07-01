@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAccountPoolInput, CreateAccountPoolOutput } from "../models/models_0";
 import { CreateAccountPool$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateAccountPool$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +121,12 @@ export interface CreateAccountPoolCommandOutput extends CreateAccountPoolOutput,
  *
  * @public
  */
-export class CreateAccountPoolCommand extends $Command
-  .classBuilder<
-    CreateAccountPoolCommandInput,
-    CreateAccountPoolCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "CreateAccountPool", {})
-  .n("DataZoneClient", "CreateAccountPoolCommand")
-  .sc(CreateAccountPool$)
-  .build() {
+export class CreateAccountPoolCommand extends command<CreateAccountPoolCommandInput, CreateAccountPoolCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAccountPool",
+  CreateAccountPool$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

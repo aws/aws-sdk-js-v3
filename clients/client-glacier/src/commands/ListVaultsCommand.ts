@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListVaultsInput, ListVaultsOutput } from "../models/models_0";
 import { ListVaults$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListVaults$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface ListVaultsCommandOutput extends ListVaultsOutput, __MetadataBea
  *
  * @public
  */
-export class ListVaultsCommand extends $Command
-  .classBuilder<
-    ListVaultsCommandInput,
-    ListVaultsCommandOutput,
-    GlacierClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Glacier", "ListVaults", {})
-  .n("GlacierClient", "ListVaultsCommand")
-  .sc(ListVaults$)
-  .build() {
+export class ListVaultsCommand extends command<ListVaultsCommandInput, ListVaultsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListVaults",
+  ListVaults$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

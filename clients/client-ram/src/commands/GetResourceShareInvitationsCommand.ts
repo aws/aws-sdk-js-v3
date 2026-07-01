@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetResourceShareInvitationsRequest, GetResourceShareInvitationsResponse } from "../models/models_0";
-import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import { GetResourceShareInvitations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +124,12 @@ export interface GetResourceShareInvitationsCommandOutput extends GetResourceSha
  *
  * @public
  */
-export class GetResourceShareInvitationsCommand extends $Command
-  .classBuilder<
-    GetResourceShareInvitationsCommandInput,
-    GetResourceShareInvitationsCommandOutput,
-    RAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonResourceSharing", "GetResourceShareInvitations", {})
-  .n("RAMClient", "GetResourceShareInvitationsCommand")
-  .sc(GetResourceShareInvitations$)
-  .build() {
+export class GetResourceShareInvitationsCommand extends command<GetResourceShareInvitationsCommandInput, GetResourceShareInvitationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetResourceShareInvitations",
+  GetResourceShareInvitations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

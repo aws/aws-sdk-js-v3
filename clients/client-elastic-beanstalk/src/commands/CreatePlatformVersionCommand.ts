@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePlatformVersionRequest, CreatePlatformVersionResult } from "../models/models_0";
 import { CreatePlatformVersion$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreatePlatformVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +105,12 @@ export interface CreatePlatformVersionCommandOutput extends CreatePlatformVersio
  *
  * @public
  */
-export class CreatePlatformVersionCommand extends $Command
-  .classBuilder<
-    CreatePlatformVersionCommandInput,
-    CreatePlatformVersionCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "CreatePlatformVersion", {})
-  .n("ElasticBeanstalkClient", "CreatePlatformVersionCommand")
-  .sc(CreatePlatformVersion$)
-  .build() {
+export class CreatePlatformVersionCommand extends command<CreatePlatformVersionCommandInput, CreatePlatformVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePlatformVersion",
+  CreatePlatformVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

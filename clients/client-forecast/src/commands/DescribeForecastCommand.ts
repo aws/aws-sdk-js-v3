@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeForecastRequest, DescribeForecastResponse } from "../models/models_0";
 import { DescribeForecast$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeForecast$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +122,12 @@ export interface DescribeForecastCommandOutput extends DescribeForecastResponse,
  *
  * @public
  */
-export class DescribeForecastCommand extends $Command
-  .classBuilder<
-    DescribeForecastCommandInput,
-    DescribeForecastCommandOutput,
-    ForecastClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonForecast", "DescribeForecast", {})
-  .n("ForecastClient", "DescribeForecastCommand")
-  .sc(DescribeForecast$)
-  .build() {
+export class DescribeForecastCommand extends command<DescribeForecastCommandInput, DescribeForecastCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeForecast",
+  DescribeForecast$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

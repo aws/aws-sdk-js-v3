@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StartBulkAssociateWirelessDeviceWithMulticastGroupRequest,
   StartBulkAssociateWirelessDeviceWithMulticastGroupResponse,
@@ -15,7 +12,6 @@ import { StartBulkAssociateWirelessDeviceWithMulticastGroup$ } from "../schemas/
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput
  *
  * @public
  */
-export class StartBulkAssociateWirelessDeviceWithMulticastGroupCommand extends $Command
-  .classBuilder<
-    StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput,
-    StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "StartBulkAssociateWirelessDeviceWithMulticastGroup", {})
-  .n("IoTWirelessClient", "StartBulkAssociateWirelessDeviceWithMulticastGroupCommand")
-  .sc(StartBulkAssociateWirelessDeviceWithMulticastGroup$)
-  .build() {
+export class StartBulkAssociateWirelessDeviceWithMulticastGroupCommand extends command<StartBulkAssociateWirelessDeviceWithMulticastGroupCommandInput, StartBulkAssociateWirelessDeviceWithMulticastGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartBulkAssociateWirelessDeviceWithMulticastGroup",
+  StartBulkAssociateWirelessDeviceWithMulticastGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

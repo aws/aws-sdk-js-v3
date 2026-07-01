@@ -1,23 +1,14 @@
 // smithy-typescript generated code
-import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateScheduledQueryRequest, CreateScheduledQueryResponse } from "../models/models_0";
 import { CreateScheduledQuery$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TimestreamQueryClientResolvedConfig,
-} from "../TimestreamQueryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -153,29 +144,12 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  *
  * @public
  */
-export class CreateScheduledQueryCommand extends $Command
-  .classBuilder<
-    CreateScheduledQueryCommandInput,
-    CreateScheduledQueryCommandOutput,
-    TimestreamQueryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TimestreamQueryClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEndpointDiscoveryPlugin(config, {
-        clientStack: cs,
-        isDiscoveredEndpointRequired: true,
-        options: o,
-      }),
-    ];
-  })
-  .s("Timestream_20181101", "CreateScheduledQuery", {})
-  .n("TimestreamQueryClient", "CreateScheduledQueryCommand")
-  .sc(CreateScheduledQuery$)
-  .build() {
+export class CreateScheduledQueryCommand extends command<CreateScheduledQueryCommandInput, CreateScheduledQueryCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateScheduledQuery",
+  CreateScheduledQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

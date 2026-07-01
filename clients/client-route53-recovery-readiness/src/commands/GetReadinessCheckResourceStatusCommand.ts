@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetReadinessCheckResourceStatusRequest,
   GetReadinessCheckResourceStatusResponse,
 } from "../models/models_0";
-import type {
-  Route53RecoveryReadinessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryReadinessClient";
 import { GetReadinessCheckResourceStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +89,12 @@ export interface GetReadinessCheckResourceStatusCommandOutput extends GetReadine
  *
  * @public
  */
-export class GetReadinessCheckResourceStatusCommand extends $Command
-  .classBuilder<
-    GetReadinessCheckResourceStatusCommandInput,
-    GetReadinessCheckResourceStatusCommandOutput,
-    Route53RecoveryReadinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryReadinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53RecoveryReadiness", "GetReadinessCheckResourceStatus", {})
-  .n("Route53RecoveryReadinessClient", "GetReadinessCheckResourceStatusCommand")
-  .sc(GetReadinessCheckResourceStatus$)
-  .build() {
+export class GetReadinessCheckResourceStatusCommand extends command<GetReadinessCheckResourceStatusCommandInput, GetReadinessCheckResourceStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetReadinessCheckResourceStatus",
+  GetReadinessCheckResourceStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMessageTemplateRequest, DeleteMessageTemplateResponse } from "../models/models_1";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { DeleteMessageTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteMessageTemplateCommandOutput extends DeleteMessageTemplat
  *
  * @public
  */
-export class DeleteMessageTemplateCommand extends $Command
-  .classBuilder<
-    DeleteMessageTemplateCommandInput,
-    DeleteMessageTemplateCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "DeleteMessageTemplate", {})
-  .n("QConnectClient", "DeleteMessageTemplateCommand")
-  .sc(DeleteMessageTemplate$)
-  .build() {
+export class DeleteMessageTemplateCommand extends command<DeleteMessageTemplateCommandInput, DeleteMessageTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMessageTemplate",
+  DeleteMessageTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

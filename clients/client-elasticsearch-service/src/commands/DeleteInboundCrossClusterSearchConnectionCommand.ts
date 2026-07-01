@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticsearchServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticsearchServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteInboundCrossClusterSearchConnectionRequest,
   DeleteInboundCrossClusterSearchConnectionResponse,
@@ -19,7 +12,6 @@ import { DeleteInboundCrossClusterSearchConnection$ } from "../schemas/schemas_0
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface DeleteInboundCrossClusterSearchConnectionCommandOutput extends 
  *
  * @public
  */
-export class DeleteInboundCrossClusterSearchConnectionCommand extends $Command
-  .classBuilder<
-    DeleteInboundCrossClusterSearchConnectionCommandInput,
-    DeleteInboundCrossClusterSearchConnectionCommandOutput,
-    ElasticsearchServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticsearchService2015", "DeleteInboundCrossClusterSearchConnection", {})
-  .n("ElasticsearchServiceClient", "DeleteInboundCrossClusterSearchConnectionCommand")
-  .sc(DeleteInboundCrossClusterSearchConnection$)
-  .build() {
+export class DeleteInboundCrossClusterSearchConnectionCommand extends command<DeleteInboundCrossClusterSearchConnectionCommandInput, DeleteInboundCrossClusterSearchConnectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteInboundCrossClusterSearchConnection",
+  DeleteInboundCrossClusterSearchConnection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

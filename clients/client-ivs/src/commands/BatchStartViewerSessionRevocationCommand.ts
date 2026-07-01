@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchStartViewerSessionRevocationRequest,
   BatchStartViewerSessionRevocationResponse,
@@ -15,7 +12,6 @@ import { BatchStartViewerSessionRevocation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface BatchStartViewerSessionRevocationCommandOutput extends BatchSta
  *
  * @public
  */
-export class BatchStartViewerSessionRevocationCommand extends $Command
-  .classBuilder<
-    BatchStartViewerSessionRevocationCommandInput,
-    BatchStartViewerSessionRevocationCommandOutput,
-    IvsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoService", "BatchStartViewerSessionRevocation", {})
-  .n("IvsClient", "BatchStartViewerSessionRevocationCommand")
-  .sc(BatchStartViewerSessionRevocation$)
-  .build() {
+export class BatchStartViewerSessionRevocationCommand extends command<BatchStartViewerSessionRevocationCommandInput, BatchStartViewerSessionRevocationCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchStartViewerSessionRevocation",
+  BatchStartViewerSessionRevocation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

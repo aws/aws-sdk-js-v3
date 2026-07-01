@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetConfigurationPolicyAssociationRequest,
   GetConfigurationPolicyAssociationResponse,
 } from "../models/models_2";
 import { GetConfigurationPolicyAssociation$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +115,12 @@ export interface GetConfigurationPolicyAssociationCommandOutput extends GetConfi
  *
  * @public
  */
-export class GetConfigurationPolicyAssociationCommand extends $Command
-  .classBuilder<
-    GetConfigurationPolicyAssociationCommandInput,
-    GetConfigurationPolicyAssociationCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "GetConfigurationPolicyAssociation", {})
-  .n("SecurityHubClient", "GetConfigurationPolicyAssociationCommand")
-  .sc(GetConfigurationPolicyAssociation$)
-  .build() {
+export class GetConfigurationPolicyAssociationCommand extends command<GetConfigurationPolicyAssociationCommandInput, GetConfigurationPolicyAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetConfigurationPolicyAssociation",
+  GetConfigurationPolicyAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

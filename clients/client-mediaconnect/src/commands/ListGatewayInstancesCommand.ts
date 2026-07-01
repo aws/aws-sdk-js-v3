@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListGatewayInstancesRequest, ListGatewayInstancesResponse } from "../models/models_0";
 import { ListGatewayInstances$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListGatewayInstances$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface ListGatewayInstancesCommandOutput extends ListGatewayInstancesR
  *
  * @public
  */
-export class ListGatewayInstancesCommand extends $Command
-  .classBuilder<
-    ListGatewayInstancesCommandInput,
-    ListGatewayInstancesCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "ListGatewayInstances", {})
-  .n("MediaConnectClient", "ListGatewayInstancesCommand")
-  .sc(ListGatewayInstances$)
-  .build() {
+export class ListGatewayInstancesCommand extends command<ListGatewayInstancesCommandInput, ListGatewayInstancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListGatewayInstances",
+  ListGatewayInstances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

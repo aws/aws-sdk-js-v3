@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListReceivedGrantsForOrganizationRequest,
   ListReceivedGrantsForOrganizationResponse,
@@ -19,7 +12,6 @@ import { ListReceivedGrantsForOrganization$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +109,12 @@ export interface ListReceivedGrantsForOrganizationCommandOutput extends ListRece
  *
  * @public
  */
-export class ListReceivedGrantsForOrganizationCommand extends $Command
-  .classBuilder<
-    ListReceivedGrantsForOrganizationCommandInput,
-    ListReceivedGrantsForOrganizationCommandOutput,
-    LicenseManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLicenseManager", "ListReceivedGrantsForOrganization", {})
-  .n("LicenseManagerClient", "ListReceivedGrantsForOrganizationCommand")
-  .sc(ListReceivedGrantsForOrganization$)
-  .build() {
+export class ListReceivedGrantsForOrganizationCommand extends command<ListReceivedGrantsForOrganizationCommandInput, ListReceivedGrantsForOrganizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListReceivedGrantsForOrganization",
+  ListReceivedGrantsForOrganization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

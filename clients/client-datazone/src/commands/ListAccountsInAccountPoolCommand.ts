@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAccountsInAccountPoolInput, ListAccountsInAccountPoolOutput } from "../models/models_1";
 import { ListAccountsInAccountPool$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAccountsInAccountPool$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ListAccountsInAccountPoolCommandOutput extends ListAccountsInAc
  *
  * @public
  */
-export class ListAccountsInAccountPoolCommand extends $Command
-  .classBuilder<
-    ListAccountsInAccountPoolCommandInput,
-    ListAccountsInAccountPoolCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "ListAccountsInAccountPool", {})
-  .n("DataZoneClient", "ListAccountsInAccountPoolCommand")
-  .sc(ListAccountsInAccountPool$)
-  .build() {
+export class ListAccountsInAccountPoolCommand extends command<ListAccountsInAccountPoolCommandInput, ListAccountsInAccountPoolCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAccountsInAccountPool",
+  ListAccountsInAccountPool$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

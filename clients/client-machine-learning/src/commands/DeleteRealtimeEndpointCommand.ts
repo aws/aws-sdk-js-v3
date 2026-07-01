@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MachineLearningClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MachineLearningClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRealtimeEndpointInput, DeleteRealtimeEndpointOutput } from "../models/models_0";
 import { DeleteRealtimeEndpoint$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteRealtimeEndpoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +70,12 @@ export interface DeleteRealtimeEndpointCommandOutput extends DeleteRealtimeEndpo
  *
  * @public
  */
-export class DeleteRealtimeEndpointCommand extends $Command
-  .classBuilder<
-    DeleteRealtimeEndpointCommandInput,
-    DeleteRealtimeEndpointCommandOutput,
-    MachineLearningClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonML_20141212", "DeleteRealtimeEndpoint", {})
-  .n("MachineLearningClient", "DeleteRealtimeEndpointCommand")
-  .sc(DeleteRealtimeEndpoint$)
-  .build() {
+export class DeleteRealtimeEndpointCommand extends command<DeleteRealtimeEndpointCommandInput, DeleteRealtimeEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRealtimeEndpoint",
+  DeleteRealtimeEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

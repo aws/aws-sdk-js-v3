@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPrivateGraphEndpointInput, GetPrivateGraphEndpointOutput } from "../models/models_0";
-import type { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
 import { GetPrivateGraphEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,25 +73,12 @@ export interface GetPrivateGraphEndpointCommandOutput extends GetPrivateGraphEnd
  *
  * @public
  */
-export class GetPrivateGraphEndpointCommand extends $Command
-  .classBuilder<
-    GetPrivateGraphEndpointCommandInput,
-    GetPrivateGraphEndpointCommandOutput,
-    NeptuneGraphClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ApiType: { type: "staticContextParams", value: `ControlPlane` },
-  })
-  .m(function (this: any, Command: any, cs: any, config: NeptuneGraphClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneGraph", "GetPrivateGraphEndpoint", {})
-  .n("NeptuneGraphClient", "GetPrivateGraphEndpointCommand")
-  .sc(GetPrivateGraphEndpoint$)
-  .build() {
+export class GetPrivateGraphEndpointCommand extends command<GetPrivateGraphEndpointCommandInput, GetPrivateGraphEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPrivateGraphEndpoint",
+  GetPrivateGraphEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

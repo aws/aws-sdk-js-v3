@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateGlossaryInput, UpdateGlossaryOutput } from "../models/models_1";
 import { UpdateGlossary$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateGlossary$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface UpdateGlossaryCommandOutput extends UpdateGlossaryOutput, __Met
  *
  * @public
  */
-export class UpdateGlossaryCommand extends $Command
-  .classBuilder<
-    UpdateGlossaryCommandInput,
-    UpdateGlossaryCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "UpdateGlossary", {})
-  .n("DataZoneClient", "UpdateGlossaryCommand")
-  .sc(UpdateGlossary$)
-  .build() {
+export class UpdateGlossaryCommand extends command<UpdateGlossaryCommandInput, UpdateGlossaryCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateGlossary",
+  UpdateGlossary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

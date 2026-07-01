@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyReplicationConfigMessage, ModifyReplicationConfigResponse } from "../models/models_0";
 import { ModifyReplicationConfig$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ModifyReplicationConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -134,22 +126,12 @@ export interface ModifyReplicationConfigCommandOutput extends ModifyReplicationC
  *
  * @public
  */
-export class ModifyReplicationConfigCommand extends $Command
-  .classBuilder<
-    ModifyReplicationConfigCommandInput,
-    ModifyReplicationConfigCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "ModifyReplicationConfig", {})
-  .n("DatabaseMigrationServiceClient", "ModifyReplicationConfigCommand")
-  .sc(ModifyReplicationConfig$)
-  .build() {
+export class ModifyReplicationConfigCommand extends command<ModifyReplicationConfigCommandInput, ModifyReplicationConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyReplicationConfig",
+  ModifyReplicationConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

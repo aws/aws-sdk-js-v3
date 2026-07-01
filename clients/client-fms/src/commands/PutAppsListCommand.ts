@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutAppsListRequest, PutAppsListResponse } from "../models/models_0";
 import { PutAppsList$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutAppsList$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +129,12 @@ export interface PutAppsListCommandOutput extends PutAppsListResponse, __Metadat
  *
  * @public
  */
-export class PutAppsListCommand extends $Command
-  .classBuilder<
-    PutAppsListCommandInput,
-    PutAppsListCommandOutput,
-    FMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSFMS_20180101", "PutAppsList", {})
-  .n("FMSClient", "PutAppsListCommand")
-  .sc(PutAppsList$)
-  .build() {
+export class PutAppsListCommand extends command<PutAppsListCommandInput, PutAppsListCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAppsList",
+  PutAppsList$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

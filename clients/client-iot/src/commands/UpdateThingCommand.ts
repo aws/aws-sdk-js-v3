@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateThingRequest, UpdateThingResponse } from "../models/models_2";
 import { UpdateThing$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateThing$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface UpdateThingCommandOutput extends UpdateThingResponse, __Metadat
  *
  * @public
  */
-export class UpdateThingCommand extends $Command
-  .classBuilder<
-    UpdateThingCommandInput,
-    UpdateThingCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "UpdateThing", {})
-  .n("IoTClient", "UpdateThingCommand")
-  .sc(UpdateThing$)
-  .build() {
+export class UpdateThingCommand extends command<UpdateThingCommandInput, UpdateThingCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateThing",
+  UpdateThing$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeScheduledActionsMessage, ScheduledActionsMessage } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { DescribeScheduledActions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsM
  *
  * @public
  */
-export class DescribeScheduledActionsCommand extends $Command
-  .classBuilder<
-    DescribeScheduledActionsCommandInput,
-    DescribeScheduledActionsCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "DescribeScheduledActions", {})
-  .n("RedshiftClient", "DescribeScheduledActionsCommand")
-  .sc(DescribeScheduledActions$)
-  .build() {
+export class DescribeScheduledActionsCommand extends command<DescribeScheduledActionsCommandInput, DescribeScheduledActionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeScheduledActions",
+  DescribeScheduledActions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

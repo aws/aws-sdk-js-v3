@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCollaborationInput, DeleteCollaborationOutput } from "../models/models_0";
 import { DeleteCollaboration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteCollaboration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteCollaborationCommandOutput extends DeleteCollaborationOut
  *
  * @public
  */
-export class DeleteCollaborationCommand extends $Command
-  .classBuilder<
-    DeleteCollaborationCommandInput,
-    DeleteCollaborationCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "DeleteCollaboration", {})
-  .n("CleanRoomsClient", "DeleteCollaborationCommand")
-  .sc(DeleteCollaboration$)
-  .build() {
+export class DeleteCollaborationCommand extends command<DeleteCollaborationCommandInput, DeleteCollaborationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCollaboration",
+  DeleteCollaboration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

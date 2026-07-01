@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSecurityProfileRequest, CreateSecurityProfileResponse } from "../models/models_0";
 import { CreateSecurityProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateSecurityProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -143,22 +139,12 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  *
  * @public
  */
-export class CreateSecurityProfileCommand extends $Command
-  .classBuilder<
-    CreateSecurityProfileCommandInput,
-    CreateSecurityProfileCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "CreateSecurityProfile", {})
-  .n("IoTClient", "CreateSecurityProfileCommand")
-  .sc(CreateSecurityProfile$)
-  .build() {
+export class CreateSecurityProfileCommand extends command<CreateSecurityProfileCommandInput, CreateSecurityProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSecurityProfile",
+  CreateSecurityProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

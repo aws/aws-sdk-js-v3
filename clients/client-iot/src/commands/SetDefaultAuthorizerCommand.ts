@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SetDefaultAuthorizerRequest, SetDefaultAuthorizerResponse } from "../models/models_2";
 import { SetDefaultAuthorizer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SetDefaultAuthorizer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface SetDefaultAuthorizerCommandOutput extends SetDefaultAuthorizerR
  *
  * @public
  */
-export class SetDefaultAuthorizerCommand extends $Command
-  .classBuilder<
-    SetDefaultAuthorizerCommandInput,
-    SetDefaultAuthorizerCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "SetDefaultAuthorizer", {})
-  .n("IoTClient", "SetDefaultAuthorizerCommand")
-  .sc(SetDefaultAuthorizer$)
-  .build() {
+export class SetDefaultAuthorizerCommand extends command<SetDefaultAuthorizerCommandInput, SetDefaultAuthorizerCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetDefaultAuthorizer",
+  SetDefaultAuthorizer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

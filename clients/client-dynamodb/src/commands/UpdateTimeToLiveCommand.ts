@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep2, _mw0, command } from "../commandBuilder";
 import type { UpdateTimeToLiveInput, UpdateTimeToLiveOutput } from "../models/models_0";
 import { UpdateTimeToLive$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateTimeToLive$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -134,25 +130,12 @@ export interface UpdateTimeToLiveCommandOutput extends UpdateTimeToLiveOutput, _
  *
  * @public
  */
-export class UpdateTimeToLiveCommand extends $Command
-  .classBuilder<
-    UpdateTimeToLiveCommandInput,
-    UpdateTimeToLiveCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "contextParams", name: "TableName" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "UpdateTimeToLive", {})
-  .n("DynamoDBClient", "UpdateTimeToLiveCommand")
-  .sc(UpdateTimeToLive$)
-  .build() {
+export class UpdateTimeToLiveCommand extends command<UpdateTimeToLiveCommandInput, UpdateTimeToLiveCommandOutput>(
+  _ep2,
+  _mw0,
+  "UpdateTimeToLive",
+  UpdateTimeToLive$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

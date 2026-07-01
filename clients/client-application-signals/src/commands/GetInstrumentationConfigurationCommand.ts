@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationSignalsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationSignalsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetInstrumentationConfigurationRequest,
   GetInstrumentationConfigurationResponse,
@@ -19,7 +12,6 @@ import { GetInstrumentationConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -136,22 +128,12 @@ export interface GetInstrumentationConfigurationCommandOutput extends GetInstrum
  *
  * @public
  */
-export class GetInstrumentationConfigurationCommand extends $Command
-  .classBuilder<
-    GetInstrumentationConfigurationCommandInput,
-    GetInstrumentationConfigurationCommandOutput,
-    ApplicationSignalsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationSignalsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationSignals", "GetInstrumentationConfiguration", {})
-  .n("ApplicationSignalsClient", "GetInstrumentationConfigurationCommand")
-  .sc(GetInstrumentationConfiguration$)
-  .build() {
+export class GetInstrumentationConfigurationCommand extends command<GetInstrumentationConfigurationCommandInput, GetInstrumentationConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetInstrumentationConfiguration",
+  GetInstrumentationConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

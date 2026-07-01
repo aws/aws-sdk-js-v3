@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { MediaTypeHeaderInput, MediaTypeHeaderOutput } from "../models/models_0";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
 import { MediaTypeHeader$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +55,12 @@ export interface MediaTypeHeaderCommandOutput extends MediaTypeHeaderOutput, __M
  *
  * @public
  */
-export class MediaTypeHeaderCommand extends $Command
-  .classBuilder<
-    MediaTypeHeaderCommandInput,
-    MediaTypeHeaderCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestJson", "MediaTypeHeader", {})
-  .n("RestJsonProtocolClient", "MediaTypeHeaderCommand")
-  .sc(MediaTypeHeader$)
-  .build() {
+export class MediaTypeHeaderCommand extends command<MediaTypeHeaderCommandInput, MediaTypeHeaderCommandOutput>(
+  _ep0,
+  _mw0,
+  "MediaTypeHeader",
+  MediaTypeHeader$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyBackendClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyBackendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTokenRequest, GetTokenResponse } from "../models/models_0";
 import { GetToken$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetToken$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface GetTokenCommandOutput extends GetTokenResponse, __MetadataBeare
  *
  * @public
  */
-export class GetTokenCommand extends $Command
-  .classBuilder<
-    GetTokenCommandInput,
-    GetTokenCommandOutput,
-    AmplifyBackendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyBackendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyBackend", "GetToken", {})
-  .n("AmplifyBackendClient", "GetTokenCommand")
-  .sc(GetToken$)
-  .build() {
+export class GetTokenCommand extends command<GetTokenCommandInput, GetTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetToken",
+  GetToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

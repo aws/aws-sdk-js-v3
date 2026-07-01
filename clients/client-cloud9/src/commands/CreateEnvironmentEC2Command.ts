@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateEnvironmentEC2Request, CreateEnvironmentEC2Result } from "../models/models_0";
 import { CreateEnvironmentEC2$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateEnvironmentEC2$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  *
  * @public
  */
-export class CreateEnvironmentEC2Command extends $Command
-  .classBuilder<
-    CreateEnvironmentEC2CommandInput,
-    CreateEnvironmentEC2CommandOutput,
-    Cloud9ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Cloud9ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCloud9WorkspaceManagementService", "CreateEnvironmentEC2", {})
-  .n("Cloud9Client", "CreateEnvironmentEC2Command")
-  .sc(CreateEnvironmentEC2$)
-  .build() {
+export class CreateEnvironmentEC2Command extends command<CreateEnvironmentEC2CommandInput, CreateEnvironmentEC2CommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateEnvironmentEC2",
+  CreateEnvironmentEC2$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

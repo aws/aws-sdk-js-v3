@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteProfileRequest } from "../models/models_0";
 import { DeleteProfile$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteProfileCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteProfileCommand extends $Command
-  .classBuilder<
-    DeleteProfileCommandInput,
-    DeleteProfileCommandOutput,
-    TransferClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TransferService", "DeleteProfile", {})
-  .n("TransferClient", "DeleteProfileCommand")
-  .sc(DeleteProfile$)
-  .build() {
+export class DeleteProfileCommand extends command<DeleteProfileCommandInput, DeleteProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteProfile",
+  DeleteProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

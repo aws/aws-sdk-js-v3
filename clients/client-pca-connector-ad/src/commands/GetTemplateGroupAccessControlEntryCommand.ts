@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetTemplateGroupAccessControlEntryRequest,
   GetTemplateGroupAccessControlEntryResponse,
 } from "../models/models_0";
-import type {
-  PcaConnectorAdClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PcaConnectorAdClient";
 import { GetTemplateGroupAccessControlEntry$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface GetTemplateGroupAccessControlEntryCommandOutput extends GetTemp
  *
  * @public
  */
-export class GetTemplateGroupAccessControlEntryCommand extends $Command
-  .classBuilder<
-    GetTemplateGroupAccessControlEntryCommandInput,
-    GetTemplateGroupAccessControlEntryCommandOutput,
-    PcaConnectorAdClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PcaConnectorAdClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PcaConnectorAd", "GetTemplateGroupAccessControlEntry", {})
-  .n("PcaConnectorAdClient", "GetTemplateGroupAccessControlEntryCommand")
-  .sc(GetTemplateGroupAccessControlEntry$)
-  .build() {
+export class GetTemplateGroupAccessControlEntryCommand extends command<GetTemplateGroupAccessControlEntryCommandInput, GetTemplateGroupAccessControlEntryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTemplateGroupAccessControlEntry",
+  GetTemplateGroupAccessControlEntry$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

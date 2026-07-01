@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetContentModerationRequest, GetContentModerationResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { GetContentModeration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -157,22 +153,12 @@ export interface GetContentModerationCommandOutput extends GetContentModerationR
  *
  * @public
  */
-export class GetContentModerationCommand extends $Command
-  .classBuilder<
-    GetContentModerationCommandInput,
-    GetContentModerationCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "GetContentModeration", {})
-  .n("RekognitionClient", "GetContentModerationCommand")
-  .sc(GetContentModeration$)
-  .build() {
+export class GetContentModerationCommand extends command<GetContentModerationCommandInput, GetContentModerationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetContentModeration",
+  GetContentModeration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

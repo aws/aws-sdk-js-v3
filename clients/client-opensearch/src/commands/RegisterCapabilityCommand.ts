@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterCapabilityRequest } from "../models/models_0";
 import type { RegisterCapabilityResponse } from "../models/models_1";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { RegisterCapability$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface RegisterCapabilityCommandOutput extends RegisterCapabilityRespo
  *
  * @public
  */
-export class RegisterCapabilityCommand extends $Command
-  .classBuilder<
-    RegisterCapabilityCommandInput,
-    RegisterCapabilityCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "RegisterCapability", {})
-  .n("OpenSearchClient", "RegisterCapabilityCommand")
-  .sc(RegisterCapability$)
-  .build() {
+export class RegisterCapabilityCommand extends command<RegisterCapabilityCommandInput, RegisterCapabilityCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterCapability",
+  RegisterCapability$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

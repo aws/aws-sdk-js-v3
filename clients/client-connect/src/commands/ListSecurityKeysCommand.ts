@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSecurityKeysRequest, ListSecurityKeysResponse } from "../models/models_2";
 import { ListSecurityKeys$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListSecurityKeys$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface ListSecurityKeysCommandOutput extends ListSecurityKeysResponse,
  *
  * @public
  */
-export class ListSecurityKeysCommand extends $Command
-  .classBuilder<
-    ListSecurityKeysCommandInput,
-    ListSecurityKeysCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "ListSecurityKeys", {})
-  .n("ConnectClient", "ListSecurityKeysCommand")
-  .sc(ListSecurityKeys$)
-  .build() {
+export class ListSecurityKeysCommand extends command<ListSecurityKeysCommandInput, ListSecurityKeysCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSecurityKeys",
+  ListSecurityKeys$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

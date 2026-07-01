@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateInputSecurityGroupRequest, UpdateInputSecurityGroupResponse } from "../models/models_1";
 import { UpdateInputSecurityGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateInputSecurityGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface UpdateInputSecurityGroupCommandOutput extends UpdateInputSecuri
  *
  * @public
  */
-export class UpdateInputSecurityGroupCommand extends $Command
-  .classBuilder<
-    UpdateInputSecurityGroupCommandInput,
-    UpdateInputSecurityGroupCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "UpdateInputSecurityGroup", {})
-  .n("MediaLiveClient", "UpdateInputSecurityGroupCommand")
-  .sc(UpdateInputSecurityGroup$)
-  .build() {
+export class UpdateInputSecurityGroupCommand extends command<UpdateInputSecurityGroupCommandInput, UpdateInputSecurityGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateInputSecurityGroup",
+  UpdateInputSecurityGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeregisterTargetFromMaintenanceWindowRequest,
   DeregisterTargetFromMaintenanceWindowResult,
 } from "../models/models_0";
 import { DeregisterTargetFromMaintenanceWindow$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DeregisterTargetFromMaintenanceWindowCommandOutput extends Dere
  *
  * @public
  */
-export class DeregisterTargetFromMaintenanceWindowCommand extends $Command
-  .classBuilder<
-    DeregisterTargetFromMaintenanceWindowCommandInput,
-    DeregisterTargetFromMaintenanceWindowCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "DeregisterTargetFromMaintenanceWindow", {})
-  .n("SSMClient", "DeregisterTargetFromMaintenanceWindowCommand")
-  .sc(DeregisterTargetFromMaintenanceWindow$)
-  .build() {
+export class DeregisterTargetFromMaintenanceWindowCommand extends command<DeregisterTargetFromMaintenanceWindowCommandInput, DeregisterTargetFromMaintenanceWindowCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeregisterTargetFromMaintenanceWindow",
+  DeregisterTargetFromMaintenanceWindow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

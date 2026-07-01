@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDataMigrationMessage, DeleteDataMigrationResponse } from "../models/models_0";
 import { DeleteDataMigration$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteDataMigration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +111,12 @@ export interface DeleteDataMigrationCommandOutput extends DeleteDataMigrationRes
  *
  * @public
  */
-export class DeleteDataMigrationCommand extends $Command
-  .classBuilder<
-    DeleteDataMigrationCommandInput,
-    DeleteDataMigrationCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "DeleteDataMigration", {})
-  .n("DatabaseMigrationServiceClient", "DeleteDataMigrationCommand")
-  .sc(DeleteDataMigration$)
-  .build() {
+export class DeleteDataMigrationCommand extends command<DeleteDataMigrationCommandInput, DeleteDataMigrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDataMigration",
+  DeleteDataMigration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

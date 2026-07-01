@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  ManagedBlockchainClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ManagedBlockchainClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMemberInput, GetMemberOutput } from "../models/models_0";
 import { GetMember$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetMember$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +102,12 @@ export interface GetMemberCommandOutput extends GetMemberOutput, __MetadataBeare
  *
  * @public
  */
-export class GetMemberCommand extends $Command
-  .classBuilder<
-    GetMemberCommandInput,
-    GetMemberCommandOutput,
-    ManagedBlockchainClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TaigaWebService", "GetMember", {})
-  .n("ManagedBlockchainClient", "GetMemberCommand")
-  .sc(GetMember$)
-  .build() {
+export class GetMemberCommand extends command<GetMemberCommandInput, GetMemberCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMember",
+  GetMember$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

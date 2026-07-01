@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StartConfigurationPolicyDisassociationRequest,
   StartConfigurationPolicyDisassociationResponse,
 } from "../models/models_3";
 import { StartConfigurationPolicyDisassociation$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface StartConfigurationPolicyDisassociationCommandOutput extends Sta
  *
  * @public
  */
-export class StartConfigurationPolicyDisassociationCommand extends $Command
-  .classBuilder<
-    StartConfigurationPolicyDisassociationCommandInput,
-    StartConfigurationPolicyDisassociationCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "StartConfigurationPolicyDisassociation", {})
-  .n("SecurityHubClient", "StartConfigurationPolicyDisassociationCommand")
-  .sc(StartConfigurationPolicyDisassociation$)
-  .build() {
+export class StartConfigurationPolicyDisassociationCommand extends command<StartConfigurationPolicyDisassociationCommandInput, StartConfigurationPolicyDisassociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartConfigurationPolicyDisassociation",
+  StartConfigurationPolicyDisassociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

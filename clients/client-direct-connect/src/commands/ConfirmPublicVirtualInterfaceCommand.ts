@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ConfirmPublicVirtualInterfaceRequest, ConfirmPublicVirtualInterfaceResponse } from "../models/models_0";
 import { ConfirmPublicVirtualInterface$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ConfirmPublicVirtualInterface$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface ConfirmPublicVirtualInterfaceCommandOutput extends ConfirmPubli
  *
  * @public
  */
-export class ConfirmPublicVirtualInterfaceCommand extends $Command
-  .classBuilder<
-    ConfirmPublicVirtualInterfaceCommandInput,
-    ConfirmPublicVirtualInterfaceCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "ConfirmPublicVirtualInterface", {})
-  .n("DirectConnectClient", "ConfirmPublicVirtualInterfaceCommand")
-  .sc(ConfirmPublicVirtualInterface$)
-  .build() {
+export class ConfirmPublicVirtualInterfaceCommand extends command<ConfirmPublicVirtualInterfaceCommandInput, ConfirmPublicVirtualInterfaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "ConfirmPublicVirtualInterface",
+  ConfirmPublicVirtualInterface$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

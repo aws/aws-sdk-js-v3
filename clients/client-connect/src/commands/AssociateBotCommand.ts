@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateBotRequest } from "../models/models_0";
 import { AssociateBot$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateBot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface AssociateBotCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class AssociateBotCommand extends $Command
-  .classBuilder<
-    AssociateBotCommandInput,
-    AssociateBotCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "AssociateBot", {})
-  .n("ConnectClient", "AssociateBotCommand")
-  .sc(AssociateBot$)
-  .build() {
+export class AssociateBotCommand extends command<AssociateBotCommandInput, AssociateBotCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateBot",
+  AssociateBot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

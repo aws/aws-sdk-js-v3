@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CopyClusterSnapshotInput, CopyClusterSnapshotOutput } from "../models/models_0";
 import { CopyClusterSnapshot$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CopyClusterSnapshot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -135,22 +131,12 @@ export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotOut
  *
  * @public
  */
-export class CopyClusterSnapshotCommand extends $Command
-  .classBuilder<
-    CopyClusterSnapshotCommandInput,
-    CopyClusterSnapshotCommandOutput,
-    DocDBElasticClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DocDBElasticClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeraDbLionfishServiceLambda", "CopyClusterSnapshot", {})
-  .n("DocDBElasticClient", "CopyClusterSnapshotCommand")
-  .sc(CopyClusterSnapshot$)
-  .build() {
+export class CopyClusterSnapshotCommand extends command<CopyClusterSnapshotCommandInput, CopyClusterSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "CopyClusterSnapshot",
+  CopyClusterSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

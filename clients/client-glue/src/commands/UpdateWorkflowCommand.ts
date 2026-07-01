@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateWorkflowRequest, UpdateWorkflowResponse } from "../models/models_3";
 import { UpdateWorkflow$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateWorkflow$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface UpdateWorkflowCommandOutput extends UpdateWorkflowResponse, __M
  *
  * @public
  */
-export class UpdateWorkflowCommand extends $Command
-  .classBuilder<
-    UpdateWorkflowCommandInput,
-    UpdateWorkflowCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "UpdateWorkflow", {})
-  .n("GlueClient", "UpdateWorkflowCommand")
-  .sc(UpdateWorkflow$)
-  .build() {
+export class UpdateWorkflowCommand extends command<UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateWorkflow",
+  UpdateWorkflow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

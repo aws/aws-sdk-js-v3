@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSessionsInput, ListSessionsOutput } from "../models/models_1";
 import { ListSessions$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListSessions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +89,12 @@ export interface ListSessionsCommandOutput extends ListSessionsOutput, __Metadat
  *
  * @public
  */
-export class ListSessionsCommand extends $Command
-  .classBuilder<
-    ListSessionsCommandInput,
-    ListSessionsCommandOutput,
-    BedrockAgentCoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCore", "ListSessions", {})
-  .n("BedrockAgentCoreClient", "ListSessionsCommand")
-  .sc(ListSessions$)
-  .build() {
+export class ListSessionsCommand extends command<ListSessionsCommandInput, ListSessionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSessions",
+  ListSessions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

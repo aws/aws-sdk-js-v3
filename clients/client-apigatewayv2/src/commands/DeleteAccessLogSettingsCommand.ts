@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAccessLogSettingsRequest } from "../models/models_0";
 import { DeleteAccessLogSettings$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAccessLogSettings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -64,22 +60,12 @@ export interface DeleteAccessLogSettingsCommandOutput extends __MetadataBearer {
  *
  * @public
  */
-export class DeleteAccessLogSettingsCommand extends $Command
-  .classBuilder<
-    DeleteAccessLogSettingsCommandInput,
-    DeleteAccessLogSettingsCommandOutput,
-    ApiGatewayV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApiGatewayV2", "DeleteAccessLogSettings", {})
-  .n("ApiGatewayV2Client", "DeleteAccessLogSettingsCommand")
-  .sc(DeleteAccessLogSettings$)
-  .build() {
+export class DeleteAccessLogSettingsCommand extends command<DeleteAccessLogSettingsCommandInput, DeleteAccessLogSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAccessLogSettings",
+  DeleteAccessLogSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

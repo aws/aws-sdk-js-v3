@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateBackupPlanInput, UpdateBackupPlanOutput } from "../models/models_0";
 import { UpdateBackupPlan$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateBackupPlan$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -157,22 +153,12 @@ export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, _
  *
  * @public
  */
-export class UpdateBackupPlanCommand extends $Command
-  .classBuilder<
-    UpdateBackupPlanCommandInput,
-    UpdateBackupPlanCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "UpdateBackupPlan", {})
-  .n("BackupClient", "UpdateBackupPlanCommand")
-  .sc(UpdateBackupPlan$)
-  .build() {
+export class UpdateBackupPlanCommand extends command<UpdateBackupPlanCommandInput, UpdateBackupPlanCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateBackupPlan",
+  UpdateBackupPlan$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

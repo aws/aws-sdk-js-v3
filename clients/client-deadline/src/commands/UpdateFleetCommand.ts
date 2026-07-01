@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateFleetRequest, UpdateFleetResponse } from "../models/models_0";
 import { UpdateFleet$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateFleet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -209,22 +205,12 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
  *
  * @public
  */
-export class UpdateFleetCommand extends $Command
-  .classBuilder<
-    UpdateFleetCommandInput,
-    UpdateFleetCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "UpdateFleet", {})
-  .n("DeadlineClient", "UpdateFleetCommand")
-  .sc(UpdateFleet$)
-  .build() {
+export class UpdateFleetCommand extends command<UpdateFleetCommandInput, UpdateFleetCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateFleet",
+  UpdateFleet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

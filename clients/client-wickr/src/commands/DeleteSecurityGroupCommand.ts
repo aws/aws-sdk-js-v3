@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSecurityGroupRequest, DeleteSecurityGroupResponse } from "../models/models_0";
 import { DeleteSecurityGroup$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +111,12 @@ export interface DeleteSecurityGroupCommandOutput extends DeleteSecurityGroupRes
  *
  * @public
  */
-export class DeleteSecurityGroupCommand extends $Command
-  .classBuilder<
-    DeleteSecurityGroupCommandInput,
-    DeleteSecurityGroupCommandOutput,
-    WickrClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WickrAdminApi", "DeleteSecurityGroup", {})
-  .n("WickrClient", "DeleteSecurityGroupCommand")
-  .sc(DeleteSecurityGroup$)
-  .build() {
+export class DeleteSecurityGroupCommand extends command<DeleteSecurityGroupCommandInput, DeleteSecurityGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSecurityGroup",
+  DeleteSecurityGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

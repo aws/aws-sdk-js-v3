@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSAuthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSAuthClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssumeRoleForPodIdentityRequest, AssumeRoleForPodIdentityResponse } from "../models/models_0";
 import { AssumeRoleForPodIdentity$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssumeRoleForPodIdentity$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface AssumeRoleForPodIdentityCommandOutput extends AssumeRoleForPodI
  *
  * @public
  */
-export class AssumeRoleForPodIdentityCommand extends $Command
-  .classBuilder<
-    AssumeRoleForPodIdentityCommandInput,
-    AssumeRoleForPodIdentityCommandOutput,
-    EKSAuthClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSAuthClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EKSAuthFrontend", "AssumeRoleForPodIdentity", {})
-  .n("EKSAuthClient", "AssumeRoleForPodIdentityCommand")
-  .sc(AssumeRoleForPodIdentity$)
-  .build() {
+export class AssumeRoleForPodIdentityCommand extends command<AssumeRoleForPodIdentityCommandInput, AssumeRoleForPodIdentityCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssumeRoleForPodIdentity",
+  AssumeRoleForPodIdentity$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

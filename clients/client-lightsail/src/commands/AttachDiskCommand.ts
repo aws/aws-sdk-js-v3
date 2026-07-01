@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AttachDiskRequest, AttachDiskResult } from "../models/models_0";
 import { AttachDisk$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AttachDisk$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +114,12 @@ export interface AttachDiskCommandOutput extends AttachDiskResult, __MetadataBea
  *
  * @public
  */
-export class AttachDiskCommand extends $Command
-  .classBuilder<
-    AttachDiskCommandInput,
-    AttachDiskCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "AttachDisk", {})
-  .n("LightsailClient", "AttachDiskCommand")
-  .sc(AttachDisk$)
-  .build() {
+export class AttachDiskCommand extends command<AttachDiskCommandInput, AttachDiskCommandOutput>(
+  _ep0,
+  _mw0,
+  "AttachDisk",
+  AttachDisk$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

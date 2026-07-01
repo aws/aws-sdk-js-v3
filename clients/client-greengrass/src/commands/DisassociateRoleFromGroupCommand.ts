@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateRoleFromGroupRequest, DisassociateRoleFromGroupResponse } from "../models/models_0";
 import { DisassociateRoleFromGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateRoleFromGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -65,22 +61,12 @@ export interface DisassociateRoleFromGroupCommandOutput extends DisassociateRole
  *
  * @public
  */
-export class DisassociateRoleFromGroupCommand extends $Command
-  .classBuilder<
-    DisassociateRoleFromGroupCommandInput,
-    DisassociateRoleFromGroupCommandOutput,
-    GreengrassClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Greengrass", "DisassociateRoleFromGroup", {})
-  .n("GreengrassClient", "DisassociateRoleFromGroupCommand")
-  .sc(DisassociateRoleFromGroup$)
-  .build() {
+export class DisassociateRoleFromGroupCommand extends command<DisassociateRoleFromGroupCommandInput, DisassociateRoleFromGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateRoleFromGroup",
+  DisassociateRoleFromGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

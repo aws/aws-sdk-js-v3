@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAppMonitorsRequest, ListAppMonitorsResponse } from "../models/models_0";
-import type { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 import { ListAppMonitors$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface ListAppMonitorsCommandOutput extends ListAppMonitorsResponse, _
  *
  * @public
  */
-export class ListAppMonitorsCommand extends $Command
-  .classBuilder<
-    ListAppMonitorsCommandInput,
-    ListAppMonitorsCommandOutput,
-    RUMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RUMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RUM", "ListAppMonitors", {})
-  .n("RUMClient", "ListAppMonitorsCommand")
-  .sc(ListAppMonitors$)
-  .build() {
+export class ListAppMonitorsCommand extends command<ListAppMonitorsCommandInput, ListAppMonitorsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAppMonitors",
+  ListAppMonitors$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

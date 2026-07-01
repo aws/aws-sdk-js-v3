@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateSharedVpcConfigurationRequest, UpdateSharedVpcConfigurationResponse } from "../models/models_0";
 import { UpdateSharedVpcConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateSharedVpcConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface UpdateSharedVpcConfigurationCommandOutput extends UpdateSharedV
  *
  * @public
  */
-export class UpdateSharedVpcConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateSharedVpcConfigurationCommandInput,
-    UpdateSharedVpcConfigurationCommandOutput,
-    FSxClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSimbaAPIService_v20180301", "UpdateSharedVpcConfiguration", {})
-  .n("FSxClient", "UpdateSharedVpcConfigurationCommand")
-  .sc(UpdateSharedVpcConfiguration$)
-  .build() {
+export class UpdateSharedVpcConfigurationCommand extends command<UpdateSharedVpcConfigurationCommandInput, UpdateSharedVpcConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSharedVpcConfiguration",
+  UpdateSharedVpcConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

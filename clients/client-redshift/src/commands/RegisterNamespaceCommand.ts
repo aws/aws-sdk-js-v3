@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterNamespaceInputMessage, RegisterNamespaceOutputMessage } from "../models/models_1";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { RegisterNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface RegisterNamespaceCommandOutput extends RegisterNamespaceOutputM
  *
  * @public
  */
-export class RegisterNamespaceCommand extends $Command
-  .classBuilder<
-    RegisterNamespaceCommandInput,
-    RegisterNamespaceCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "RegisterNamespace", {})
-  .n("RedshiftClient", "RegisterNamespaceCommand")
-  .sc(RegisterNamespace$)
-  .build() {
+export class RegisterNamespaceCommand extends command<RegisterNamespaceCommandInput, RegisterNamespaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterNamespace",
+  RegisterNamespace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

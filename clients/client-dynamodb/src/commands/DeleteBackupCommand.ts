@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep4, _mw0, command } from "../commandBuilder";
 import type { DeleteBackupInput, DeleteBackupOutput } from "../models/models_0";
 import { DeleteBackup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteBackup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -182,25 +178,12 @@ export interface DeleteBackupCommandOutput extends DeleteBackupOutput, __Metadat
  *
  * @public
  */
-export class DeleteBackupCommand extends $Command
-  .classBuilder<
-    DeleteBackupCommandInput,
-    DeleteBackupCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "contextParams", name: "BackupArn" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "DeleteBackup", {})
-  .n("DynamoDBClient", "DeleteBackupCommand")
-  .sc(DeleteBackup$)
-  .build() {
+export class DeleteBackupCommand extends command<DeleteBackupCommandInput, DeleteBackupCommandOutput>(
+  _ep4,
+  _mw0,
+  "DeleteBackup",
+  DeleteBackup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

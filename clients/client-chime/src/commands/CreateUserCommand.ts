@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateUserRequest, CreateUserResponse } from "../models/models_0";
 import { CreateUser$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateUser$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface CreateUserCommandOutput extends CreateUserResponse, __MetadataB
  *
  * @public
  */
-export class CreateUserCommand extends $Command
-  .classBuilder<
-    CreateUserCommandInput,
-    CreateUserCommandOutput,
-    ChimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("UCBuzzConsoleService", "CreateUser", {})
-  .n("ChimeClient", "CreateUserCommand")
-  .sc(CreateUser$)
-  .build() {
+export class CreateUserCommand extends command<CreateUserCommandInput, CreateUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateUser",
+  CreateUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

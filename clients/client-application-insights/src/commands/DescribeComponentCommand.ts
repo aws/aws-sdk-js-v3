@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationInsightsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationInsightsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeComponentRequest, DescribeComponentResponse } from "../models/models_0";
 import { DescribeComponent$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeComponent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface DescribeComponentCommandOutput extends DescribeComponentRespons
  *
  * @public
  */
-export class DescribeComponentCommand extends $Command
-  .classBuilder<
-    DescribeComponentCommandInput,
-    DescribeComponentCommandOutput,
-    ApplicationInsightsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EC2WindowsBarleyService", "DescribeComponent", {})
-  .n("ApplicationInsightsClient", "DescribeComponentCommand")
-  .sc(DescribeComponent$)
-  .build() {
+export class DescribeComponentCommand extends command<DescribeComponentCommandInput, DescribeComponentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeComponent",
+  DescribeComponent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

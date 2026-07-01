@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateInterconnectRequest, Interconnect } from "../models/models_0";
 import { CreateInterconnect$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateInterconnect$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -127,22 +123,12 @@ export interface CreateInterconnectCommandOutput extends Interconnect, __Metadat
  *
  * @public
  */
-export class CreateInterconnectCommand extends $Command
-  .classBuilder<
-    CreateInterconnectCommandInput,
-    CreateInterconnectCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "CreateInterconnect", {})
-  .n("DirectConnectClient", "CreateInterconnectCommand")
-  .sc(CreateInterconnect$)
-  .build() {
+export class CreateInterconnectCommand extends command<CreateInterconnectCommandInput, CreateInterconnectCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateInterconnect",
+  CreateInterconnect$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeTrustedAdvisorCheckResultRequest,
   DescribeTrustedAdvisorCheckResultResponse,
 } from "../models/models_0";
 import { DescribeTrustedAdvisorCheckResult$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -156,22 +152,12 @@ export interface DescribeTrustedAdvisorCheckResultCommandOutput extends Describe
  *
  * @public
  */
-export class DescribeTrustedAdvisorCheckResultCommand extends $Command
-  .classBuilder<
-    DescribeTrustedAdvisorCheckResultCommandInput,
-    DescribeTrustedAdvisorCheckResultCommandOutput,
-    SupportClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupportClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSupport_20130415", "DescribeTrustedAdvisorCheckResult", {})
-  .n("SupportClient", "DescribeTrustedAdvisorCheckResultCommand")
-  .sc(DescribeTrustedAdvisorCheckResult$)
-  .build() {
+export class DescribeTrustedAdvisorCheckResultCommand extends command<DescribeTrustedAdvisorCheckResultCommandInput, DescribeTrustedAdvisorCheckResultCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeTrustedAdvisorCheckResult",
+  DescribeTrustedAdvisorCheckResult$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

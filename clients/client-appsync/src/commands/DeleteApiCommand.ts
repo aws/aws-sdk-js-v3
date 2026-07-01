@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteApiRequest, DeleteApiResponse } from "../models/models_0";
 import { DeleteApi$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteApi$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DeleteApiCommandOutput extends DeleteApiResponse, __MetadataBea
  *
  * @public
  */
-export class DeleteApiCommand extends $Command
-  .classBuilder<
-    DeleteApiCommandInput,
-    DeleteApiCommandOutput,
-    AppSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepdishControlPlaneService", "DeleteApi", {})
-  .n("AppSyncClient", "DeleteApiCommand")
-  .sc(DeleteApi$)
-  .build() {
+export class DeleteApiCommand extends command<DeleteApiCommandInput, DeleteApiCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteApi",
+  DeleteApi$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

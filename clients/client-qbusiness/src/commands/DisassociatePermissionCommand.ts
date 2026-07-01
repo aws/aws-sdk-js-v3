@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociatePermissionRequest, DisassociatePermissionResponse } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { DisassociatePermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DisassociatePermissionCommandOutput extends DisassociatePermiss
  *
  * @public
  */
-export class DisassociatePermissionCommand extends $Command
-  .classBuilder<
-    DisassociatePermissionCommandInput,
-    DisassociatePermissionCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "DisassociatePermission", {})
-  .n("QBusinessClient", "DisassociatePermissionCommand")
-  .sc(DisassociatePermission$)
-  .build() {
+export class DisassociatePermissionCommand extends command<DisassociatePermissionCommandInput, DisassociatePermissionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociatePermission",
+  DisassociatePermission$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

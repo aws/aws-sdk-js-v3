@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateChannelRequest, AssociateChannelResponse } from "../models/models_0";
-import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
 import { AssociateChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface AssociateChannelCommandOutput extends AssociateChannelResponse,
  *
  * @public
  */
-export class AssociateChannelCommand extends $Command
-  .classBuilder<
-    AssociateChannelCommandInput,
-    AssociateChannelCommandOutput,
-    NotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Notifications", "AssociateChannel", {})
-  .n("NotificationsClient", "AssociateChannelCommand")
-  .sc(AssociateChannel$)
-  .build() {
+export class AssociateChannelCommand extends command<AssociateChannelCommandInput, AssociateChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateChannel",
+  AssociateChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

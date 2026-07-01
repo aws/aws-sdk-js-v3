@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListImagesRequest, ListImagesResponse } from "../models/models_3";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListImages$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  *
  * @public
  */
-export class ListImagesCommand extends $Command
-  .classBuilder<
-    ListImagesCommandInput,
-    ListImagesCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "ListImages", {})
-  .n("SageMakerClient", "ListImagesCommand")
-  .sc(ListImages$)
-  .build() {
+export class ListImagesCommand extends command<ListImagesCommandInput, ListImagesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListImages",
+  ListImages$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

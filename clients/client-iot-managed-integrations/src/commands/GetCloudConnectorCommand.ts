@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCloudConnectorRequest, GetCloudConnectorResponse } from "../models/models_0";
 import { GetCloudConnector$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetCloudConnector$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -142,22 +134,12 @@ export interface GetCloudConnectorCommandOutput extends GetCloudConnectorRespons
  *
  * @public
  */
-export class GetCloudConnectorCommand extends $Command
-  .classBuilder<
-    GetCloudConnectorCommandInput,
-    GetCloudConnectorCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "GetCloudConnector", {})
-  .n("IoTManagedIntegrationsClient", "GetCloudConnectorCommand")
-  .sc(GetCloudConnector$)
-  .build() {
+export class GetCloudConnectorCommand extends command<GetCloudConnectorCommandInput, GetCloudConnectorCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCloudConnector",
+  GetCloudConnector$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

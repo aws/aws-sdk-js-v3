@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeSupportedLanguagesRequest, DescribeSupportedLanguagesResponse } from "../models/models_0";
 import { DescribeSupportedLanguages$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface DescribeSupportedLanguagesCommandOutput extends DescribeSupport
  *
  * @public
  */
-export class DescribeSupportedLanguagesCommand extends $Command
-  .classBuilder<
-    DescribeSupportedLanguagesCommandInput,
-    DescribeSupportedLanguagesCommandOutput,
-    SupportClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupportClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSupport_20130415", "DescribeSupportedLanguages", {})
-  .n("SupportClient", "DescribeSupportedLanguagesCommand")
-  .sc(DescribeSupportedLanguages$)
-  .build() {
+export class DescribeSupportedLanguagesCommand extends command<DescribeSupportedLanguagesCommandInput, DescribeSupportedLanguagesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSupportedLanguages",
+  DescribeSupportedLanguages$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetBundlesRequest, GetBundlesResult } from "../models/models_0";
 import { GetBundles$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetBundles$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface GetBundlesCommandOutput extends GetBundlesResult, __MetadataBea
  *
  * @public
  */
-export class GetBundlesCommand extends $Command
-  .classBuilder<
-    GetBundlesCommandInput,
-    GetBundlesCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "GetBundles", {})
-  .n("LightsailClient", "GetBundlesCommand")
-  .sc(GetBundles$)
-  .build() {
+export class GetBundlesCommand extends command<GetBundlesCommandInput, GetBundlesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetBundles",
+  GetBundles$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

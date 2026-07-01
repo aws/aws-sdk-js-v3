@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePackageRequest, UpdatePackageResponse } from "../models/models_1";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { UpdatePackage$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +129,12 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  *
  * @public
  */
-export class UpdatePackageCommand extends $Command
-  .classBuilder<
-    UpdatePackageCommandInput,
-    UpdatePackageCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "UpdatePackage", {})
-  .n("OpenSearchClient", "UpdatePackageCommand")
-  .sc(UpdatePackage$)
-  .build() {
+export class UpdatePackageCommand extends command<UpdatePackageCommandInput, UpdatePackageCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePackage",
+  UpdatePackage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

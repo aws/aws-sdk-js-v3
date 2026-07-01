@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IdentitystoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IdentitystoreClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { IsMemberInGroupsRequest, IsMemberInGroupsResponse } from "../models/models_0";
 import { IsMemberInGroups$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { IsMemberInGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface IsMemberInGroupsCommandOutput extends IsMemberInGroupsResponse,
  *
  * @public
  */
-export class IsMemberInGroupsCommand extends $Command
-  .classBuilder<
-    IsMemberInGroupsCommandInput,
-    IsMemberInGroupsCommandOutput,
-    IdentitystoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IdentitystoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityStore", "IsMemberInGroups", {})
-  .n("IdentitystoreClient", "IsMemberInGroupsCommand")
-  .sc(IsMemberInGroups$)
-  .build() {
+export class IsMemberInGroupsCommand extends command<IsMemberInGroupsCommandInput, IsMemberInGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "IsMemberInGroups",
+  IsMemberInGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

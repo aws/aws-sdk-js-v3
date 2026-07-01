@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartEngagementRequest, StartEngagementResult } from "../models/models_0";
 import { StartEngagement$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface StartEngagementCommandOutput extends StartEngagementResult, __M
  *
  * @public
  */
-export class StartEngagementCommand extends $Command
-  .classBuilder<
-    StartEngagementCommandInput,
-    StartEngagementCommandOutput,
-    SSMContactsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMContacts", "StartEngagement", {})
-  .n("SSMContactsClient", "StartEngagementCommand")
-  .sc(StartEngagement$)
-  .build() {
+export class StartEngagementCommand extends command<StartEngagementCommandInput, StartEngagementCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartEngagement",
+  StartEngagement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

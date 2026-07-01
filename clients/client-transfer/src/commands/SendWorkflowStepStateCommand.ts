@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendWorkflowStepStateRequest, SendWorkflowStepStateResponse } from "../models/models_0";
 import { SendWorkflowStepState$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface SendWorkflowStepStateCommandOutput extends SendWorkflowStepStat
  *
  * @public
  */
-export class SendWorkflowStepStateCommand extends $Command
-  .classBuilder<
-    SendWorkflowStepStateCommandInput,
-    SendWorkflowStepStateCommandOutput,
-    TransferClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TransferService", "SendWorkflowStepState", {})
-  .n("TransferClient", "SendWorkflowStepStateCommand")
-  .sc(SendWorkflowStepState$)
-  .build() {
+export class SendWorkflowStepStateCommand extends command<SendWorkflowStepStateCommandInput, SendWorkflowStepStateCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendWorkflowStepState",
+  SendWorkflowStepState$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

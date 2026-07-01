@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutDedicatedIpWarmupAttributesRequest, PutDedicatedIpWarmupAttributesResponse } from "../models/models_0";
 import { PutDedicatedIpWarmupAttributes$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface PutDedicatedIpWarmupAttributesCommandOutput extends PutDedicate
  *
  * @public
  */
-export class PutDedicatedIpWarmupAttributesCommand extends $Command
-  .classBuilder<
-    PutDedicatedIpWarmupAttributesCommandInput,
-    PutDedicatedIpWarmupAttributesCommandOutput,
-    SESv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService_v2", "PutDedicatedIpWarmupAttributes", {})
-  .n("SESv2Client", "PutDedicatedIpWarmupAttributesCommand")
-  .sc(PutDedicatedIpWarmupAttributes$)
-  .build() {
+export class PutDedicatedIpWarmupAttributesCommand extends command<PutDedicatedIpWarmupAttributesCommandInput, PutDedicatedIpWarmupAttributesCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutDedicatedIpWarmupAttributes",
+  PutDedicatedIpWarmupAttributes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

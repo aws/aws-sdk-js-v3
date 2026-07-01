@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveClientIDFromOpenIDConnectProviderRequest } from "../models/models_0";
 import { RemoveClientIDFromOpenIDConnectProvider$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RemoveClientIDFromOpenIDConnectProvider$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface RemoveClientIDFromOpenIDConnectProviderCommandOutput extends __
  *
  * @public
  */
-export class RemoveClientIDFromOpenIDConnectProviderCommand extends $Command
-  .classBuilder<
-    RemoveClientIDFromOpenIDConnectProviderCommandInput,
-    RemoveClientIDFromOpenIDConnectProviderCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "RemoveClientIDFromOpenIDConnectProvider", {})
-  .n("IAMClient", "RemoveClientIDFromOpenIDConnectProviderCommand")
-  .sc(RemoveClientIDFromOpenIDConnectProvider$)
-  .build() {
+export class RemoveClientIDFromOpenIDConnectProviderCommand extends command<RemoveClientIDFromOpenIDConnectProviderCommandInput, RemoveClientIDFromOpenIDConnectProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveClientIDFromOpenIDConnectProvider",
+  RemoveClientIDFromOpenIDConnectProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

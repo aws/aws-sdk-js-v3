@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ImportClientBrandingRequest, ImportClientBrandingResult } from "../models/models_0";
 import { ImportClientBranding$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -205,22 +201,12 @@ export interface ImportClientBrandingCommandOutput extends ImportClientBrandingR
  *
  * @public
  */
-export class ImportClientBrandingCommand extends $Command
-  .classBuilder<
-    ImportClientBrandingCommandInput,
-    ImportClientBrandingCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "ImportClientBranding", {})
-  .n("WorkSpacesClient", "ImportClientBrandingCommand")
-  .sc(ImportClientBranding$)
-  .build() {
+export class ImportClientBrandingCommand extends command<ImportClientBrandingCommandInput, ImportClientBrandingCommandOutput>(
+  _ep0,
+  _mw0,
+  "ImportClientBranding",
+  ImportClientBranding$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

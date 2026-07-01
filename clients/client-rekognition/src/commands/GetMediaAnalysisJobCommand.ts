@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMediaAnalysisJobRequest, GetMediaAnalysisJobResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { GetMediaAnalysisJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface GetMediaAnalysisJobCommandOutput extends GetMediaAnalysisJobRes
  *
  * @public
  */
-export class GetMediaAnalysisJobCommand extends $Command
-  .classBuilder<
-    GetMediaAnalysisJobCommandInput,
-    GetMediaAnalysisJobCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "GetMediaAnalysisJob", {})
-  .n("RekognitionClient", "GetMediaAnalysisJobCommand")
-  .sc(GetMediaAnalysisJob$)
-  .build() {
+export class GetMediaAnalysisJobCommand extends command<GetMediaAnalysisJobCommandInput, GetMediaAnalysisJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMediaAnalysisJob",
+  GetMediaAnalysisJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

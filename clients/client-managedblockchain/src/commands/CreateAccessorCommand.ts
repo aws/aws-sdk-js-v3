@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  ManagedBlockchainClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ManagedBlockchainClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAccessorInput, CreateAccessorOutput } from "../models/models_0";
 import { CreateAccessor$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateAccessor$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface CreateAccessorCommandOutput extends CreateAccessorOutput, __Met
  *
  * @public
  */
-export class CreateAccessorCommand extends $Command
-  .classBuilder<
-    CreateAccessorCommandInput,
-    CreateAccessorCommandOutput,
-    ManagedBlockchainClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TaigaWebService", "CreateAccessor", {})
-  .n("ManagedBlockchainClient", "CreateAccessorCommand")
-  .sc(CreateAccessor$)
-  .build() {
+export class CreateAccessorCommand extends command<CreateAccessorCommandInput, CreateAccessorCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAccessor",
+  CreateAccessor$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

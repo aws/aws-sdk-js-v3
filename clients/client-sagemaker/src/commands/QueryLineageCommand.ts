@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { QueryLineageRequest, QueryLineageResponse } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { QueryLineage$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface QueryLineageCommandOutput extends QueryLineageResponse, __Metad
  *
  * @public
  */
-export class QueryLineageCommand extends $Command
-  .classBuilder<
-    QueryLineageCommandInput,
-    QueryLineageCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "QueryLineage", {})
-  .n("SageMakerClient", "QueryLineageCommand")
-  .sc(QueryLineage$)
-  .build() {
+export class QueryLineageCommand extends command<QueryLineageCommandInput, QueryLineageCommandOutput>(
+  _ep0,
+  _mw0,
+  "QueryLineage",
+  QueryLineage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

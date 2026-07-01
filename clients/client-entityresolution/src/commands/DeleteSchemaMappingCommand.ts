@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  EntityResolutionClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../EntityResolutionClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSchemaMappingInput, DeleteSchemaMappingOutput } from "../models/models_0";
 import { DeleteSchemaMapping$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteSchemaMapping$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +70,12 @@ export interface DeleteSchemaMappingCommandOutput extends DeleteSchemaMappingOut
  *
  * @public
  */
-export class DeleteSchemaMappingCommand extends $Command
-  .classBuilder<
-    DeleteSchemaMappingCommandInput,
-    DeleteSchemaMappingCommandOutput,
-    EntityResolutionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EntityResolutionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSVeniceService", "DeleteSchemaMapping", {})
-  .n("EntityResolutionClient", "DeleteSchemaMappingCommand")
-  .sc(DeleteSchemaMapping$)
-  .build() {
+export class DeleteSchemaMappingCommand extends command<DeleteSchemaMappingCommandInput, DeleteSchemaMappingCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSchemaMapping",
+  DeleteSchemaMapping$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

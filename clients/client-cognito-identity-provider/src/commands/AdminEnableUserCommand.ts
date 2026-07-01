@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AdminEnableUserRequest, AdminEnableUserResponse } from "../models/models_0";
 import { AdminEnableUser$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AdminEnableUser$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +99,12 @@ export interface AdminEnableUserCommandOutput extends AdminEnableUserResponse, _
  *
  * @public
  */
-export class AdminEnableUserCommand extends $Command
-  .classBuilder<
-    AdminEnableUserCommandInput,
-    AdminEnableUserCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "AdminEnableUser", {})
-  .n("CognitoIdentityProviderClient", "AdminEnableUserCommand")
-  .sc(AdminEnableUser$)
-  .build() {
+export class AdminEnableUserCommand extends command<AdminEnableUserCommandInput, AdminEnableUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "AdminEnableUser",
+  AdminEnableUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

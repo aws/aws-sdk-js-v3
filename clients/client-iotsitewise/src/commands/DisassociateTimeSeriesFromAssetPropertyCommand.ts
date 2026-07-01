@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateTimeSeriesFromAssetPropertyRequest } from "../models/models_0";
 import { DisassociateTimeSeriesFromAssetProperty$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateTimeSeriesFromAssetProperty$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface DisassociateTimeSeriesFromAssetPropertyCommandOutput extends __
  *
  * @public
  */
-export class DisassociateTimeSeriesFromAssetPropertyCommand extends $Command
-  .classBuilder<
-    DisassociateTimeSeriesFromAssetPropertyCommandInput,
-    DisassociateTimeSeriesFromAssetPropertyCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "DisassociateTimeSeriesFromAssetProperty", {})
-  .n("IoTSiteWiseClient", "DisassociateTimeSeriesFromAssetPropertyCommand")
-  .sc(DisassociateTimeSeriesFromAssetProperty$)
-  .build() {
+export class DisassociateTimeSeriesFromAssetPropertyCommand extends command<DisassociateTimeSeriesFromAssetPropertyCommandInput, DisassociateTimeSeriesFromAssetPropertyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateTimeSeriesFromAssetProperty",
+  DisassociateTimeSeriesFromAssetProperty$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

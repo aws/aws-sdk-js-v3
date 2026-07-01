@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeInboundIntegrationsMessage, InboundIntegrationsMessage } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { DescribeInboundIntegrations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface DescribeInboundIntegrationsCommandOutput extends InboundIntegra
  *
  * @public
  */
-export class DescribeInboundIntegrationsCommand extends $Command
-  .classBuilder<
-    DescribeInboundIntegrationsCommandInput,
-    DescribeInboundIntegrationsCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "DescribeInboundIntegrations", {})
-  .n("RedshiftClient", "DescribeInboundIntegrationsCommand")
-  .sc(DescribeInboundIntegrations$)
-  .build() {
+export class DescribeInboundIntegrationsCommand extends command<DescribeInboundIntegrationsCommandInput, DescribeInboundIntegrationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeInboundIntegrations",
+  DescribeInboundIntegrations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

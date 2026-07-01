@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddAssociationRequest, AddAssociationResponse } from "../models/models_0";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { AddAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface AddAssociationCommandOutput extends AddAssociationResponse, __M
  *
  * @public
  */
-export class AddAssociationCommand extends $Command
-  .classBuilder<
-    AddAssociationCommandInput,
-    AddAssociationCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "AddAssociation", {})
-  .n("SageMakerClient", "AddAssociationCommand")
-  .sc(AddAssociation$)
-  .build() {
+export class AddAssociationCommand extends command<AddAssociationCommandInput, AddAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddAssociation",
+  AddAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

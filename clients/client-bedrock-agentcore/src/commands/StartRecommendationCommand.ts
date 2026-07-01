@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartRecommendationRequest, StartRecommendationResponse } from "../models/models_0";
 import { StartRecommendation$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartRecommendation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -305,22 +297,12 @@ export interface StartRecommendationCommandOutput extends StartRecommendationRes
  *
  * @public
  */
-export class StartRecommendationCommand extends $Command
-  .classBuilder<
-    StartRecommendationCommandInput,
-    StartRecommendationCommandOutput,
-    BedrockAgentCoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCore", "StartRecommendation", {})
-  .n("BedrockAgentCoreClient", "StartRecommendationCommand")
-  .sc(StartRecommendation$)
-  .build() {
+export class StartRecommendationCommand extends command<StartRecommendationCommandInput, StartRecommendationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartRecommendation",
+  StartRecommendation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

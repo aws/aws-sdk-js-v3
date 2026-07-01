@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchStopJobRunRequest, BatchStopJobRunResponse } from "../models/models_0";
 import { BatchStopJobRun$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchStopJobRun$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface BatchStopJobRunCommandOutput extends BatchStopJobRunResponse, _
  *
  * @public
  */
-export class BatchStopJobRunCommand extends $Command
-  .classBuilder<
-    BatchStopJobRunCommandInput,
-    BatchStopJobRunCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "BatchStopJobRun", {})
-  .n("GlueClient", "BatchStopJobRunCommand")
-  .sc(BatchStopJobRun$)
-  .build() {
+export class BatchStopJobRunCommand extends command<BatchStopJobRunCommandInput, BatchStopJobRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchStopJobRun",
+  BatchStopJobRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

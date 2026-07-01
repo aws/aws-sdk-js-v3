@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartMatchBackfillInput, StartMatchBackfillOutput } from "../models/models_0";
 import { StartMatchBackfill$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartMatchBackfill$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -179,22 +175,12 @@ export interface StartMatchBackfillCommandOutput extends StartMatchBackfillOutpu
  *
  * @public
  */
-export class StartMatchBackfillCommand extends $Command
-  .classBuilder<
-    StartMatchBackfillCommandInput,
-    StartMatchBackfillCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "StartMatchBackfill", {})
-  .n("GameLiftClient", "StartMatchBackfillCommand")
-  .sc(StartMatchBackfill$)
-  .build() {
+export class StartMatchBackfillCommand extends command<StartMatchBackfillCommandInput, StartMatchBackfillCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartMatchBackfill",
+  StartMatchBackfill$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeregisterGameServerInput } from "../models/models_0";
 import { DeregisterGameServer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeregisterGameServer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface DeregisterGameServerCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeregisterGameServerCommand extends $Command
-  .classBuilder<
-    DeregisterGameServerCommandInput,
-    DeregisterGameServerCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "DeregisterGameServer", {})
-  .n("GameLiftClient", "DeregisterGameServerCommand")
-  .sc(DeregisterGameServer$)
-  .build() {
+export class DeregisterGameServerCommand extends command<DeregisterGameServerCommandInput, DeregisterGameServerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeregisterGameServer",
+  DeregisterGameServer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

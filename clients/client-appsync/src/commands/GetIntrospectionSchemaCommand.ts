@@ -1,11 +1,8 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import { Uint8ArrayBlobAdapter } from "@smithy/core/serde";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetIntrospectionSchemaRequest, GetIntrospectionSchemaResponse } from "../models/models_0";
 import { GetIntrospectionSchema$ } from "../schemas/schemas_0";
 
@@ -13,7 +10,6 @@ import { GetIntrospectionSchema$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface GetIntrospectionSchemaCommandOutput extends GetIntrospectionSch
  *
  * @public
  */
-export class GetIntrospectionSchemaCommand extends $Command
-  .classBuilder<
-    GetIntrospectionSchemaCommandInput,
-    GetIntrospectionSchemaCommandOutput,
-    AppSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepdishControlPlaneService", "GetIntrospectionSchema", {})
-  .n("AppSyncClient", "GetIntrospectionSchemaCommand")
-  .sc(GetIntrospectionSchema$)
-  .build() {
+export class GetIntrospectionSchemaCommand extends command<GetIntrospectionSchemaCommandInput, GetIntrospectionSchemaCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIntrospectionSchema",
+  GetIntrospectionSchema$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

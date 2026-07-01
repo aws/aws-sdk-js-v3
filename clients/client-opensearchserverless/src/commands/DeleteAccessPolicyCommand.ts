@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAccessPolicyRequest, DeleteAccessPolicyResponse } from "../models/models_0";
-import type {
-  OpenSearchServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../OpenSearchServerlessClient";
 import { DeleteAccessPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +67,12 @@ export interface DeleteAccessPolicyCommandOutput extends DeleteAccessPolicyRespo
  *
  * @public
  */
-export class DeleteAccessPolicyCommand extends $Command
-  .classBuilder<
-    DeleteAccessPolicyCommandInput,
-    DeleteAccessPolicyCommandOutput,
-    OpenSearchServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OpenSearchServerless", "DeleteAccessPolicy", {})
-  .n("OpenSearchServerlessClient", "DeleteAccessPolicyCommand")
-  .sc(DeleteAccessPolicy$)
-  .build() {
+export class DeleteAccessPolicyCommand extends command<DeleteAccessPolicyCommandInput, DeleteAccessPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAccessPolicy",
+  DeleteAccessPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { EvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateEntitlementRequest, CreateEntitlementResponse } from "../models/models_0";
 import { CreateEntitlement$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateEntitlement$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface CreateEntitlementCommandOutput extends CreateEntitlementRespons
  *
  * @public
  */
-export class CreateEntitlementCommand extends $Command
-  .classBuilder<
-    CreateEntitlementCommandInput,
-    CreateEntitlementCommandOutput,
-    EvsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EvsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticVMwareService", "CreateEntitlement", {})
-  .n("EvsClient", "CreateEntitlementCommand")
-  .sc(CreateEntitlement$)
-  .build() {
+export class CreateEntitlementCommand extends command<CreateEntitlementCommandInput, CreateEntitlementCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateEntitlement",
+  CreateEntitlement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

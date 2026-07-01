@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RestoreVolumeFromSnapshotRequest, RestoreVolumeFromSnapshotResponse } from "../models/models_0";
 import { RestoreVolumeFromSnapshot$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RestoreVolumeFromSnapshot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -703,22 +699,12 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  *
  * @public
  */
-export class RestoreVolumeFromSnapshotCommand extends $Command
-  .classBuilder<
-    RestoreVolumeFromSnapshotCommandInput,
-    RestoreVolumeFromSnapshotCommandOutput,
-    FSxClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSimbaAPIService_v20180301", "RestoreVolumeFromSnapshot", {})
-  .n("FSxClient", "RestoreVolumeFromSnapshotCommand")
-  .sc(RestoreVolumeFromSnapshot$)
-  .build() {
+export class RestoreVolumeFromSnapshotCommand extends command<RestoreVolumeFromSnapshotCommandInput, RestoreVolumeFromSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "RestoreVolumeFromSnapshot",
+  RestoreVolumeFromSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

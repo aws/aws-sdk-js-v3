@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ConnectCampaignsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ConnectCampaignsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteInstanceOnboardingJobRequest } from "../models/models_0";
 import { DeleteInstanceOnboardingJob$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteInstanceOnboardingJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +68,12 @@ export interface DeleteInstanceOnboardingJobCommandOutput extends __MetadataBear
  *
  * @public
  */
-export class DeleteInstanceOnboardingJobCommand extends $Command
-  .classBuilder<
-    DeleteInstanceOnboardingJobCommandInput,
-    DeleteInstanceOnboardingJobCommandOutput,
-    ConnectCampaignsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCampaignService", "DeleteInstanceOnboardingJob", {})
-  .n("ConnectCampaignsClient", "DeleteInstanceOnboardingJobCommand")
-  .sc(DeleteInstanceOnboardingJob$)
-  .build() {
+export class DeleteInstanceOnboardingJobCommand extends command<DeleteInstanceOnboardingJobCommandInput, DeleteInstanceOnboardingJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteInstanceOnboardingJob",
+  DeleteInstanceOnboardingJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

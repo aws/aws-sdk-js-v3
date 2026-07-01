@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCloudExadataInfrastructureInput, DeleteCloudExadataInfrastructureOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { DeleteCloudExadataInfrastructure$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteCloudExadataInfrastructureCommandOutput extends DeleteClo
  *
  * @public
  */
-export class DeleteCloudExadataInfrastructureCommand extends $Command
-  .classBuilder<
-    DeleteCloudExadataInfrastructureCommandInput,
-    DeleteCloudExadataInfrastructureCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "DeleteCloudExadataInfrastructure", {})
-  .n("OdbClient", "DeleteCloudExadataInfrastructureCommand")
-  .sc(DeleteCloudExadataInfrastructure$)
-  .build() {
+export class DeleteCloudExadataInfrastructureCommand extends command<DeleteCloudExadataInfrastructureCommandInput, DeleteCloudExadataInfrastructureCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCloudExadataInfrastructure",
+  DeleteCloudExadataInfrastructure$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

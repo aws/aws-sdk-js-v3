@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateServiceNetworkServiceAssociationRequest,
   CreateServiceNetworkServiceAssociationResponse,
 } from "../models/models_0";
 import { CreateServiceNetworkServiceAssociation$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface CreateServiceNetworkServiceAssociationCommandOutput extends Cre
  *
  * @public
  */
-export class CreateServiceNetworkServiceAssociationCommand extends $Command
-  .classBuilder<
-    CreateServiceNetworkServiceAssociationCommandInput,
-    CreateServiceNetworkServiceAssociationCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "CreateServiceNetworkServiceAssociation", {})
-  .n("VPCLatticeClient", "CreateServiceNetworkServiceAssociationCommand")
-  .sc(CreateServiceNetworkServiceAssociation$)
-  .build() {
+export class CreateServiceNetworkServiceAssociationCommand extends command<CreateServiceNetworkServiceAssociationCommandInput, CreateServiceNetworkServiceAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateServiceNetworkServiceAssociation",
+  CreateServiceNetworkServiceAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

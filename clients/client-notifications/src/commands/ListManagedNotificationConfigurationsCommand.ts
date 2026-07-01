@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListManagedNotificationConfigurationsRequest,
   ListManagedNotificationConfigurationsResponse,
 } from "../models/models_0";
-import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
 import { ListManagedNotificationConfigurations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface ListManagedNotificationConfigurationsCommandOutput extends List
  *
  * @public
  */
-export class ListManagedNotificationConfigurationsCommand extends $Command
-  .classBuilder<
-    ListManagedNotificationConfigurationsCommandInput,
-    ListManagedNotificationConfigurationsCommandOutput,
-    NotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Notifications", "ListManagedNotificationConfigurations", {})
-  .n("NotificationsClient", "ListManagedNotificationConfigurationsCommand")
-  .sc(ListManagedNotificationConfigurations$)
-  .build() {
+export class ListManagedNotificationConfigurationsCommand extends command<ListManagedNotificationConfigurationsCommandInput, ListManagedNotificationConfigurationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListManagedNotificationConfigurations",
+  ListManagedNotificationConfigurations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

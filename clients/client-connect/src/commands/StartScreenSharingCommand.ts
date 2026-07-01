@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartScreenSharingRequest, StartScreenSharingResponse } from "../models/models_3";
 import { StartScreenSharing$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartScreenSharing$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface StartScreenSharingCommandOutput extends StartScreenSharingRespo
  *
  * @public
  */
-export class StartScreenSharingCommand extends $Command
-  .classBuilder<
-    StartScreenSharingCommandInput,
-    StartScreenSharingCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "StartScreenSharing", {})
-  .n("ConnectClient", "StartScreenSharingCommand")
-  .sc(StartScreenSharing$)
-  .build() {
+export class StartScreenSharingCommand extends command<StartScreenSharingCommandInput, StartScreenSharingCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartScreenSharing",
+  StartScreenSharing$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

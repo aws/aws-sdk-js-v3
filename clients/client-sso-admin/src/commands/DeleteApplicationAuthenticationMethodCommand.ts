@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteApplicationAuthenticationMethodRequest } from "../models/models_0";
 import { DeleteApplicationAuthenticationMethod$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteApplicationAuthenticationMethodCommandOutput extends __Me
  *
  * @public
  */
-export class DeleteApplicationAuthenticationMethodCommand extends $Command
-  .classBuilder<
-    DeleteApplicationAuthenticationMethodCommandInput,
-    DeleteApplicationAuthenticationMethodCommandOutput,
-    SSOAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBExternalService", "DeleteApplicationAuthenticationMethod", {})
-  .n("SSOAdminClient", "DeleteApplicationAuthenticationMethodCommand")
-  .sc(DeleteApplicationAuthenticationMethod$)
-  .build() {
+export class DeleteApplicationAuthenticationMethodCommand extends command<DeleteApplicationAuthenticationMethodCommandInput, DeleteApplicationAuthenticationMethodCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteApplicationAuthenticationMethod",
+  DeleteApplicationAuthenticationMethod$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

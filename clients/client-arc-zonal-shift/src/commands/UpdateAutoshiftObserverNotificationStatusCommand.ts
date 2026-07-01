@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateAutoshiftObserverNotificationStatusRequest,
   UpdateAutoshiftObserverNotificationStatusResponse,
@@ -15,7 +12,6 @@ import { UpdateAutoshiftObserverNotificationStatus$ } from "../schemas/schemas_0
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface UpdateAutoshiftObserverNotificationStatusCommandOutput extends 
  *
  * @public
  */
-export class UpdateAutoshiftObserverNotificationStatusCommand extends $Command
-  .classBuilder<
-    UpdateAutoshiftObserverNotificationStatusCommandInput,
-    UpdateAutoshiftObserverNotificationStatusCommandOutput,
-    ARCZonalShiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PercDataPlane", "UpdateAutoshiftObserverNotificationStatus", {})
-  .n("ARCZonalShiftClient", "UpdateAutoshiftObserverNotificationStatusCommand")
-  .sc(UpdateAutoshiftObserverNotificationStatus$)
-  .build() {
+export class UpdateAutoshiftObserverNotificationStatusCommand extends command<UpdateAutoshiftObserverNotificationStatusCommandInput, UpdateAutoshiftObserverNotificationStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAutoshiftObserverNotificationStatus",
+  UpdateAutoshiftObserverNotificationStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

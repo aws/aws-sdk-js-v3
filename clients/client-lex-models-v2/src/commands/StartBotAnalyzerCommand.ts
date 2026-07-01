@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartBotAnalyzerRequest, StartBotAnalyzerResponse } from "../models/models_1";
 import { StartBotAnalyzer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartBotAnalyzer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface StartBotAnalyzerCommandOutput extends StartBotAnalyzerResponse,
  *
  * @public
  */
-export class StartBotAnalyzerCommand extends $Command
-  .classBuilder<
-    StartBotAnalyzerCommandInput,
-    StartBotAnalyzerCommandOutput,
-    LexModelsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LexModelBuildingServiceV2", "StartBotAnalyzer", {})
-  .n("LexModelsV2Client", "StartBotAnalyzerCommand")
-  .sc(StartBotAnalyzer$)
-  .build() {
+export class StartBotAnalyzerCommand extends command<StartBotAnalyzerCommandInput, StartBotAnalyzerCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartBotAnalyzer",
+  StartBotAnalyzer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

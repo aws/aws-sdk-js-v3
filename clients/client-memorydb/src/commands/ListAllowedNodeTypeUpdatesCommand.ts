@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAllowedNodeTypeUpdatesRequest, ListAllowedNodeTypeUpdatesResponse } from "../models/models_0";
 import { ListAllowedNodeTypeUpdates$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAllowedNodeTypeUpdates$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface ListAllowedNodeTypeUpdatesCommandOutput extends ListAllowedNode
  *
  * @public
  */
-export class ListAllowedNodeTypeUpdatesCommand extends $Command
-  .classBuilder<
-    ListAllowedNodeTypeUpdatesCommandInput,
-    ListAllowedNodeTypeUpdatesCommandOutput,
-    MemoryDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMemoryDB", "ListAllowedNodeTypeUpdates", {})
-  .n("MemoryDBClient", "ListAllowedNodeTypeUpdatesCommand")
-  .sc(ListAllowedNodeTypeUpdates$)
-  .build() {
+export class ListAllowedNodeTypeUpdatesCommand extends command<ListAllowedNodeTypeUpdatesCommandInput, ListAllowedNodeTypeUpdatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAllowedNodeTypeUpdates",
+  ListAllowedNodeTypeUpdates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

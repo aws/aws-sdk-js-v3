@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeLoaRequest, Loa } from "../models/models_0";
 import { DescribeLoa$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeLoa$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface DescribeLoaCommandOutput extends Loa, __MetadataBearer {}
  *
  * @public
  */
-export class DescribeLoaCommand extends $Command
-  .classBuilder<
-    DescribeLoaCommandInput,
-    DescribeLoaCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "DescribeLoa", {})
-  .n("DirectConnectClient", "DescribeLoaCommand")
-  .sc(DescribeLoa$)
-  .build() {
+export class DescribeLoaCommand extends command<DescribeLoaCommandInput, DescribeLoaCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeLoa",
+  DescribeLoa$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

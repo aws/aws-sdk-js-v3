@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateChannelRequest, DisassociateChannelResponse } from "../models/models_0";
-import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
 import { DisassociateChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DisassociateChannelCommandOutput extends DisassociateChannelRes
  *
  * @public
  */
-export class DisassociateChannelCommand extends $Command
-  .classBuilder<
-    DisassociateChannelCommandInput,
-    DisassociateChannelCommandOutput,
-    NotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Notifications", "DisassociateChannel", {})
-  .n("NotificationsClient", "DisassociateChannelCommand")
-  .sc(DisassociateChannel$)
-  .build() {
+export class DisassociateChannelCommand extends command<DisassociateChannelCommandInput, DisassociateChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateChannel",
+  DisassociateChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

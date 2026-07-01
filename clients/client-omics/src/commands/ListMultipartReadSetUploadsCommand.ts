@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListMultipartReadSetUploadsRequest, ListMultipartReadSetUploadsResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { ListMultipartReadSetUploads$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface ListMultipartReadSetUploadsCommandOutput extends ListMultipartR
  *
  * @public
  */
-export class ListMultipartReadSetUploadsCommand extends $Command
-  .classBuilder<
-    ListMultipartReadSetUploadsCommandInput,
-    ListMultipartReadSetUploadsCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "ListMultipartReadSetUploads", {})
-  .n("OmicsClient", "ListMultipartReadSetUploadsCommand")
-  .sc(ListMultipartReadSetUploads$)
-  .build() {
+export class ListMultipartReadSetUploadsCommand extends command<ListMultipartReadSetUploadsCommandInput, ListMultipartReadSetUploadsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMultipartReadSetUploads",
+  ListMultipartReadSetUploads$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

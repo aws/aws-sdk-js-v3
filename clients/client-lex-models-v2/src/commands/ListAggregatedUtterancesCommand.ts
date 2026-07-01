@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAggregatedUtterancesRequest, ListAggregatedUtterancesResponse } from "../models/models_1";
 import { ListAggregatedUtterances$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAggregatedUtterances$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -147,22 +143,12 @@ export interface ListAggregatedUtterancesCommandOutput extends ListAggregatedUtt
  *
  * @public
  */
-export class ListAggregatedUtterancesCommand extends $Command
-  .classBuilder<
-    ListAggregatedUtterancesCommandInput,
-    ListAggregatedUtterancesCommandOutput,
-    LexModelsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LexModelBuildingServiceV2", "ListAggregatedUtterances", {})
-  .n("LexModelsV2Client", "ListAggregatedUtterancesCommand")
-  .sc(ListAggregatedUtterances$)
-  .build() {
+export class ListAggregatedUtterancesCommand extends command<ListAggregatedUtterancesCommandInput, ListAggregatedUtterancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAggregatedUtterances",
+  ListAggregatedUtterances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

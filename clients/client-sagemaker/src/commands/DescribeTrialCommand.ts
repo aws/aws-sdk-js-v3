@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeTrialRequest, DescribeTrialResponse } from "../models/models_3";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeTrial$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface DescribeTrialCommandOutput extends DescribeTrialResponse, __Met
  *
  * @public
  */
-export class DescribeTrialCommand extends $Command
-  .classBuilder<
-    DescribeTrialCommandInput,
-    DescribeTrialCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DescribeTrial", {})
-  .n("SageMakerClient", "DescribeTrialCommand")
-  .sc(DescribeTrial$)
-  .build() {
+export class DescribeTrialCommand extends command<DescribeTrialCommandInput, DescribeTrialCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeTrial",
+  DescribeTrial$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

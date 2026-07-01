@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  KinesisAnalyticsV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../KinesisAnalyticsV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteApplicationSnapshotRequest, DeleteApplicationSnapshotResponse } from "../models/models_0";
 import { DeleteApplicationSnapshot$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteApplicationSnapshot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface DeleteApplicationSnapshotCommandOutput extends DeleteApplicatio
  *
  * @public
  */
-export class DeleteApplicationSnapshotCommand extends $Command
-  .classBuilder<
-    DeleteApplicationSnapshotCommandInput,
-    DeleteApplicationSnapshotCommandOutput,
-    KinesisAnalyticsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KinesisAnalytics_20180523", "DeleteApplicationSnapshot", {})
-  .n("KinesisAnalyticsV2Client", "DeleteApplicationSnapshotCommand")
-  .sc(DeleteApplicationSnapshot$)
-  .build() {
+export class DeleteApplicationSnapshotCommand extends command<DeleteApplicationSnapshotCommandInput, DeleteApplicationSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteApplicationSnapshot",
+  DeleteApplicationSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

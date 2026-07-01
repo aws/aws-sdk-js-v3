@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAppAssessmentRequest, DescribeAppAssessmentResponse } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { DescribeAppAssessment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -166,22 +162,12 @@ export interface DescribeAppAssessmentCommandOutput extends DescribeAppAssessmen
  *
  * @public
  */
-export class DescribeAppAssessmentCommand extends $Command
-  .classBuilder<
-    DescribeAppAssessmentCommandInput,
-    DescribeAppAssessmentCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "DescribeAppAssessment", {})
-  .n("ResiliencehubClient", "DescribeAppAssessmentCommand")
-  .sc(DescribeAppAssessment$)
-  .build() {
+export class DescribeAppAssessmentCommand extends command<DescribeAppAssessmentCommandInput, DescribeAppAssessmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAppAssessment",
+  DescribeAppAssessment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateVodSourceRequest, UpdateVodSourceResponse } from "../models/models_0";
 import { UpdateVodSource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateVodSource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface UpdateVodSourceCommandOutput extends UpdateVodSourceResponse, _
  *
  * @public
  */
-export class UpdateVodSourceCommand extends $Command
-  .classBuilder<
-    UpdateVodSourceCommandInput,
-    UpdateVodSourceCommandOutput,
-    MediaTailorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaTailor", "UpdateVodSource", {})
-  .n("MediaTailorClient", "UpdateVodSourceCommand")
-  .sc(UpdateVodSource$)
-  .build() {
+export class UpdateVodSourceCommand extends command<UpdateVodSourceCommandInput, UpdateVodSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateVodSource",
+  UpdateVodSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

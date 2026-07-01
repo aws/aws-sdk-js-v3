@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeHostReservationOfferingsRequest,
   DescribeHostReservationOfferingsResult,
@@ -15,7 +12,6 @@ import { DescribeHostReservationOfferings$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface DescribeHostReservationOfferingsCommandOutput extends DescribeH
  *
  * @public
  */
-export class DescribeHostReservationOfferingsCommand extends $Command
-  .classBuilder<
-    DescribeHostReservationOfferingsCommandInput,
-    DescribeHostReservationOfferingsCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeHostReservationOfferings", {})
-  .n("EC2Client", "DescribeHostReservationOfferingsCommand")
-  .sc(DescribeHostReservationOfferings$)
-  .build() {
+export class DescribeHostReservationOfferingsCommand extends command<DescribeHostReservationOfferingsCommandInput, DescribeHostReservationOfferingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeHostReservationOfferings",
+  DescribeHostReservationOfferings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetLinkedWhatsAppBusinessAccountInput, GetLinkedWhatsAppBusinessAccountOutput } from "../models/models_0";
 import { GetLinkedWhatsAppBusinessAccount$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SocialMessagingClientResolvedConfig,
-} from "../SocialMessagingClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +103,12 @@ export interface GetLinkedWhatsAppBusinessAccountCommandOutput extends GetLinked
  *
  * @public
  */
-export class GetLinkedWhatsAppBusinessAccountCommand extends $Command
-  .classBuilder<
-    GetLinkedWhatsAppBusinessAccountCommandInput,
-    GetLinkedWhatsAppBusinessAccountCommandOutput,
-    SocialMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SocialMessaging", "GetLinkedWhatsAppBusinessAccount", {})
-  .n("SocialMessagingClient", "GetLinkedWhatsAppBusinessAccountCommand")
-  .sc(GetLinkedWhatsAppBusinessAccount$)
-  .build() {
+export class GetLinkedWhatsAppBusinessAccountCommand extends command<GetLinkedWhatsAppBusinessAccountCommandInput, GetLinkedWhatsAppBusinessAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetLinkedWhatsAppBusinessAccount",
+  GetLinkedWhatsAppBusinessAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

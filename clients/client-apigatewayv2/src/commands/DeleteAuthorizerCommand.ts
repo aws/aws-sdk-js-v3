@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAuthorizerRequest } from "../models/models_0";
 import { DeleteAuthorizer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAuthorizer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -64,22 +60,12 @@ export interface DeleteAuthorizerCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteAuthorizerCommand extends $Command
-  .classBuilder<
-    DeleteAuthorizerCommandInput,
-    DeleteAuthorizerCommandOutput,
-    ApiGatewayV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApiGatewayV2", "DeleteAuthorizer", {})
-  .n("ApiGatewayV2Client", "DeleteAuthorizerCommand")
-  .sc(DeleteAuthorizer$)
-  .build() {
+export class DeleteAuthorizerCommand extends command<DeleteAuthorizerCommandInput, DeleteAuthorizerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAuthorizer",
+  DeleteAuthorizer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteApplicationRequest, DeleteApplicationResponse } from "../models/models_0";
 import { DeleteApplication$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteApplication$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  *
  * @public
  */
-export class DeleteApplicationCommand extends $Command
-  .classBuilder<
-    DeleteApplicationCommandInput,
-    DeleteApplicationCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "DeleteApplication", {})
-  .n("MgnClient", "DeleteApplicationCommand")
-  .sc(DeleteApplication$)
-  .build() {
+export class DeleteApplicationCommand extends command<DeleteApplicationCommandInput, DeleteApplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteApplication",
+  DeleteApplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

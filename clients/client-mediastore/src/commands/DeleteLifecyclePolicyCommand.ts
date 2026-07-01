@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteLifecyclePolicyInput, DeleteLifecyclePolicyOutput } from "../models/models_0";
 import { DeleteLifecyclePolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteLifecyclePolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface DeleteLifecyclePolicyCommandOutput extends DeleteLifecyclePolic
  *
  * @public
  */
-export class DeleteLifecyclePolicyCommand extends $Command
-  .classBuilder<
-    DeleteLifecyclePolicyCommandInput,
-    DeleteLifecyclePolicyCommandOutput,
-    MediaStoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaStoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaStore_20170901", "DeleteLifecyclePolicy", {})
-  .n("MediaStoreClient", "DeleteLifecyclePolicyCommand")
-  .sc(DeleteLifecyclePolicy$)
-  .build() {
+export class DeleteLifecyclePolicyCommand extends command<DeleteLifecyclePolicyCommandInput, DeleteLifecyclePolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteLifecyclePolicy",
+  DeleteLifecyclePolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

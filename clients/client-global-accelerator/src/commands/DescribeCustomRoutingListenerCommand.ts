@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  GlobalAcceleratorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../GlobalAcceleratorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeCustomRoutingListenerRequest, DescribeCustomRoutingListenerResponse } from "../models/models_0";
 import { DescribeCustomRoutingListener$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeCustomRoutingListener$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface DescribeCustomRoutingListenerCommandOutput extends DescribeCust
  *
  * @public
  */
-export class DescribeCustomRoutingListenerCommand extends $Command
-  .classBuilder<
-    DescribeCustomRoutingListenerCommandInput,
-    DescribeCustomRoutingListenerCommandOutput,
-    GlobalAcceleratorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GlobalAccelerator_V20180706", "DescribeCustomRoutingListener", {})
-  .n("GlobalAcceleratorClient", "DescribeCustomRoutingListenerCommand")
-  .sc(DescribeCustomRoutingListener$)
-  .build() {
+export class DescribeCustomRoutingListenerCommand extends command<DescribeCustomRoutingListenerCommandInput, DescribeCustomRoutingListenerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCustomRoutingListener",
+  DescribeCustomRoutingListener$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

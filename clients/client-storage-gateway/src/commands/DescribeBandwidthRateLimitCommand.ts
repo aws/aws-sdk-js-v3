@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeBandwidthRateLimitInput, DescribeBandwidthRateLimitOutput } from "../models/models_0";
 import { DescribeBandwidthRateLimit$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +89,12 @@ export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwid
  *
  * @public
  */
-export class DescribeBandwidthRateLimitCommand extends $Command
-  .classBuilder<
-    DescribeBandwidthRateLimitCommandInput,
-    DescribeBandwidthRateLimitCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "DescribeBandwidthRateLimit", {})
-  .n("StorageGatewayClient", "DescribeBandwidthRateLimitCommand")
-  .sc(DescribeBandwidthRateLimit$)
-  .build() {
+export class DescribeBandwidthRateLimitCommand extends command<DescribeBandwidthRateLimitCommandInput, DescribeBandwidthRateLimitCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeBandwidthRateLimit",
+  DescribeBandwidthRateLimit$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

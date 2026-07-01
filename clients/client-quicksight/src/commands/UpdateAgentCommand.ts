@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAgentRequest, UpdateAgentResponse } from "../models/models_5";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { UpdateAgent$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -151,22 +147,12 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  *
  * @public
  */
-export class UpdateAgentCommand extends $Command
-  .classBuilder<
-    UpdateAgentCommandInput,
-    UpdateAgentCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "UpdateAgent", {})
-  .n("QuickSightClient", "UpdateAgentCommand")
-  .sc(UpdateAgent$)
-  .build() {
+export class UpdateAgentCommand extends command<UpdateAgentCommandInput, UpdateAgentCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAgent",
+  UpdateAgent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

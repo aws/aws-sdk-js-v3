@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateWirelessGatewayFromCertificateRequest,
   DisassociateWirelessGatewayFromCertificateResponse,
@@ -15,7 +12,6 @@ import { DisassociateWirelessGatewayFromCertificate$ } from "../schemas/schemas_
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DisassociateWirelessGatewayFromCertificateCommandOutput extends
  *
  * @public
  */
-export class DisassociateWirelessGatewayFromCertificateCommand extends $Command
-  .classBuilder<
-    DisassociateWirelessGatewayFromCertificateCommandInput,
-    DisassociateWirelessGatewayFromCertificateCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "DisassociateWirelessGatewayFromCertificate", {})
-  .n("IoTWirelessClient", "DisassociateWirelessGatewayFromCertificateCommand")
-  .sc(DisassociateWirelessGatewayFromCertificate$)
-  .build() {
+export class DisassociateWirelessGatewayFromCertificateCommand extends command<DisassociateWirelessGatewayFromCertificateCommandInput, DisassociateWirelessGatewayFromCertificateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateWirelessGatewayFromCertificate",
+  DisassociateWirelessGatewayFromCertificate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

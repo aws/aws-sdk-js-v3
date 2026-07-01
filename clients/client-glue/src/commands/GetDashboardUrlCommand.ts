@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDashboardUrlRequest, GetDashboardUrlResponse } from "../models/models_1";
 import { GetDashboardUrl$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDashboardUrl$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface GetDashboardUrlCommandOutput extends GetDashboardUrlResponse, _
  *
  * @public
  */
-export class GetDashboardUrlCommand extends $Command
-  .classBuilder<
-    GetDashboardUrlCommandInput,
-    GetDashboardUrlCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "GetDashboardUrl", {})
-  .n("GlueClient", "GetDashboardUrlCommand")
-  .sc(GetDashboardUrl$)
-  .build() {
+export class GetDashboardUrlCommand extends command<GetDashboardUrlCommandInput, GetDashboardUrlCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDashboardUrl",
+  GetDashboardUrl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTableOptimizerRequest, GetTableOptimizerResponse } from "../models/models_2";
 import { GetTableOptimizer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetTableOptimizer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -152,22 +148,12 @@ export interface GetTableOptimizerCommandOutput extends GetTableOptimizerRespons
  *
  * @public
  */
-export class GetTableOptimizerCommand extends $Command
-  .classBuilder<
-    GetTableOptimizerCommandInput,
-    GetTableOptimizerCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "GetTableOptimizer", {})
-  .n("GlueClient", "GetTableOptimizerCommand")
-  .sc(GetTableOptimizer$)
-  .build() {
+export class GetTableOptimizerCommand extends command<GetTableOptimizerCommandInput, GetTableOptimizerCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTableOptimizer",
+  GetTableOptimizer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

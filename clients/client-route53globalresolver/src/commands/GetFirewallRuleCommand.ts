@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFirewallRuleInput, GetFirewallRuleOutput } from "../models/models_0";
-import type {
-  Route53GlobalResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53GlobalResolverClient";
 import { GetFirewallRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +86,12 @@ export interface GetFirewallRuleCommandOutput extends GetFirewallRuleOutput, __M
  *
  * @public
  */
-export class GetFirewallRuleCommand extends $Command
-  .classBuilder<
-    GetFirewallRuleCommandInput,
-    GetFirewallRuleCommandOutput,
-    Route53GlobalResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53GlobalResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EC2DNSGlobalResolverCustomerAPI", "GetFirewallRule", {})
-  .n("Route53GlobalResolverClient", "GetFirewallRuleCommand")
-  .sc(GetFirewallRule$)
-  .build() {
+export class GetFirewallRuleCommand extends command<GetFirewallRuleCommandInput, GetFirewallRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFirewallRule",
+  GetFirewallRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

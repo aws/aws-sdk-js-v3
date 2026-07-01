@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerAutomationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerAutomationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRecommendedActionsRequest, ListRecommendedActionsResponse } from "../models/models_0";
 import { ListRecommendedActions$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListRecommendedActions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +132,12 @@ export interface ListRecommendedActionsCommandOutput extends ListRecommendedActi
  *
  * @public
  */
-export class ListRecommendedActionsCommand extends $Command
-  .classBuilder<
-    ListRecommendedActionsCommandInput,
-    ListRecommendedActionsCommandOutput,
-    ComputeOptimizerAutomationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerAutomationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerAutomationService", "ListRecommendedActions", {})
-  .n("ComputeOptimizerAutomationClient", "ListRecommendedActionsCommand")
-  .sc(ListRecommendedActions$)
-  .build() {
+export class ListRecommendedActionsCommand extends command<ListRecommendedActionsCommandInput, ListRecommendedActionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRecommendedActions",
+  ListRecommendedActions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

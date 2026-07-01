@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePartnerAppRequest, DeletePartnerAppResponse } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DeletePartnerApp$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +62,12 @@ export interface DeletePartnerAppCommandOutput extends DeletePartnerAppResponse,
  *
  * @public
  */
-export class DeletePartnerAppCommand extends $Command
-  .classBuilder<
-    DeletePartnerAppCommandInput,
-    DeletePartnerAppCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DeletePartnerApp", {})
-  .n("SageMakerClient", "DeletePartnerAppCommand")
-  .sc(DeletePartnerApp$)
-  .build() {
+export class DeletePartnerAppCommand extends command<DeletePartnerAppCommandInput, DeletePartnerAppCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePartnerApp",
+  DeletePartnerApp$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

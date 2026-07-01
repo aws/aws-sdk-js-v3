@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisableImportFindingsForProductRequest,
   DisableImportFindingsForProductResponse,
 } from "../models/models_2";
 import { DisableImportFindingsForProduct$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface DisableImportFindingsForProductCommandOutput extends DisableImp
  *
  * @public
  */
-export class DisableImportFindingsForProductCommand extends $Command
-  .classBuilder<
-    DisableImportFindingsForProductCommandInput,
-    DisableImportFindingsForProductCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "DisableImportFindingsForProduct", {})
-  .n("SecurityHubClient", "DisableImportFindingsForProductCommand")
-  .sc(DisableImportFindingsForProduct$)
-  .build() {
+export class DisableImportFindingsForProductCommand extends command<DisableImportFindingsForProductCommandInput, DisableImportFindingsForProductCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableImportFindingsForProduct",
+  DisableImportFindingsForProduct$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

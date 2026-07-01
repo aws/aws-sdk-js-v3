@@ -13,7 +13,6 @@ import { de_SimpleScalarXmlPropertiesCommand, se_SimpleScalarXmlPropertiesComman
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

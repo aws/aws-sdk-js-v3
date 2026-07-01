@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutGeofenceRequest, PutGeofenceResponse } from "../models/models_0";
 import { PutGeofence$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutGeofence$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface PutGeofenceCommandOutput extends PutGeofenceResponse, __Metadat
  *
  * @public
  */
-export class PutGeofenceCommand extends $Command
-  .classBuilder<
-    PutGeofenceCommandInput,
-    PutGeofenceCommandOutput,
-    LocationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LocationService", "PutGeofence", {})
-  .n("LocationClient", "PutGeofenceCommand")
-  .sc(PutGeofence$)
-  .build() {
+export class PutGeofenceCommand extends command<PutGeofenceCommandInput, PutGeofenceCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutGeofence",
+  PutGeofence$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

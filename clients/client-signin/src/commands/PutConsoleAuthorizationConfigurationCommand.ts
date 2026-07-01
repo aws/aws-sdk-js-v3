@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type {
   PutConsoleAuthorizationConfigurationInput,
   PutConsoleAuthorizationConfigurationOutput,
 } from "../models/models_0";
 import { PutConsoleAuthorizationConfiguration$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SigninClientResolvedConfig } from "../SigninClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,25 +113,12 @@ export interface PutConsoleAuthorizationConfigurationCommandOutput extends PutCo
  *
  * @public
  */
-export class PutConsoleAuthorizationConfigurationCommand extends $Command
-  .classBuilder<
-    PutConsoleAuthorizationConfigurationCommandInput,
-    PutConsoleAuthorizationConfigurationCommandOutput,
-    SigninClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    IsControlPlane: { type: "staticContextParams", value: true },
-  })
-  .m(function (this: any, Command: any, cs: any, config: SigninClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Signin", "PutConsoleAuthorizationConfiguration", {})
-  .n("SigninClient", "PutConsoleAuthorizationConfigurationCommand")
-  .sc(PutConsoleAuthorizationConfiguration$)
-  .build() {
+export class PutConsoleAuthorizationConfigurationCommand extends command<PutConsoleAuthorizationConfigurationCommandInput, PutConsoleAuthorizationConfigurationCommandOutput>(
+  _ep1,
+  _mw0,
+  "PutConsoleAuthorizationConfiguration",
+  PutConsoleAuthorizationConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

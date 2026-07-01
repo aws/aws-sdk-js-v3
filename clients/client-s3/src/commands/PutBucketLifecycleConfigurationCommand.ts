@@ -1,20 +1,14 @@
 // smithy-typescript generated code
-import { getFlexibleChecksumsPlugin } from "@aws-sdk/checksums/flexible-checksums";
-import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep3, _mw5, command } from "../commandBuilder";
 import type { PutBucketLifecycleConfigurationOutput, PutBucketLifecycleConfigurationRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { PutBucketLifecycleConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -279,33 +273,12 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends PutBucketL
  *
  * @public
  */
-export class PutBucketLifecycleConfigurationCommand extends $Command
-  .classBuilder<
-    PutBucketLifecycleConfigurationCommandInput,
-    PutBucketLifecycleConfigurationCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
-        requestChecksumRequired: true,
-      }),
-      getThrow200ExceptionsPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "PutBucketLifecycleConfiguration", {})
-  .n("S3Client", "PutBucketLifecycleConfigurationCommand")
-  .sc(PutBucketLifecycleConfiguration$)
-  .build() {
+export class PutBucketLifecycleConfigurationCommand extends command<PutBucketLifecycleConfigurationCommandInput, PutBucketLifecycleConfigurationCommandOutput>(
+  _ep3,
+  _mw5,
+  "PutBucketLifecycleConfiguration",
+  PutBucketLifecycleConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

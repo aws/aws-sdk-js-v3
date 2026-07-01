@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeChapCredentialsInput, DescribeChapCredentialsOutput } from "../models/models_0";
 import { DescribeChapCredentials$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface DescribeChapCredentialsCommandOutput extends DescribeChapCreden
  *
  * @public
  */
-export class DescribeChapCredentialsCommand extends $Command
-  .classBuilder<
-    DescribeChapCredentialsCommandInput,
-    DescribeChapCredentialsCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "DescribeChapCredentials", {})
-  .n("StorageGatewayClient", "DescribeChapCredentialsCommand")
-  .sc(DescribeChapCredentials$)
-  .build() {
+export class DescribeChapCredentialsCommand extends command<DescribeChapCredentialsCommandInput, DescribeChapCredentialsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeChapCredentials",
+  DescribeChapCredentials$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

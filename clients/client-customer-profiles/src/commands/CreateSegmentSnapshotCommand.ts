@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSegmentSnapshotRequest, CreateSegmentSnapshotResponse } from "../models/models_0";
 import { CreateSegmentSnapshot$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateSegmentSnapshot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface CreateSegmentSnapshotCommandOutput extends CreateSegmentSnapsho
  *
  * @public
  */
-export class CreateSegmentSnapshotCommand extends $Command
-  .classBuilder<
-    CreateSegmentSnapshotCommandInput,
-    CreateSegmentSnapshotCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "CreateSegmentSnapshot", {})
-  .n("CustomerProfilesClient", "CreateSegmentSnapshotCommand")
-  .sc(CreateSegmentSnapshot$)
-  .build() {
+export class CreateSegmentSnapshotCommand extends command<CreateSegmentSnapshotCommandInput, CreateSegmentSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSegmentSnapshot",
+  CreateSegmentSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

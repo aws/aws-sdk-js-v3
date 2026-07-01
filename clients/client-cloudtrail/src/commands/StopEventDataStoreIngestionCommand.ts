@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopEventDataStoreIngestionRequest, StopEventDataStoreIngestionResponse } from "../models/models_0";
 import { StopEventDataStoreIngestion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopEventDataStoreIngestion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface StopEventDataStoreIngestionCommandOutput extends StopEventDataS
  *
  * @public
  */
-export class StopEventDataStoreIngestionCommand extends $Command
-  .classBuilder<
-    StopEventDataStoreIngestionCommandInput,
-    StopEventDataStoreIngestionCommandOutput,
-    CloudTrailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudTrail_20131101", "StopEventDataStoreIngestion", {})
-  .n("CloudTrailClient", "StopEventDataStoreIngestionCommand")
-  .sc(StopEventDataStoreIngestion$)
-  .build() {
+export class StopEventDataStoreIngestionCommand extends command<StopEventDataStoreIngestionCommandInput, StopEventDataStoreIngestionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopEventDataStoreIngestion",
+  StopEventDataStoreIngestion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ProvisionIpamPoolCidrRequest, ProvisionIpamPoolCidrResult } from "../models/models_7";
 import { ProvisionIpamPoolCidr$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ProvisionIpamPoolCidr$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface ProvisionIpamPoolCidrCommandOutput extends ProvisionIpamPoolCid
  *
  * @public
  */
-export class ProvisionIpamPoolCidrCommand extends $Command
-  .classBuilder<
-    ProvisionIpamPoolCidrCommandInput,
-    ProvisionIpamPoolCidrCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "ProvisionIpamPoolCidr", {})
-  .n("EC2Client", "ProvisionIpamPoolCidrCommand")
-  .sc(ProvisionIpamPoolCidr$)
-  .build() {
+export class ProvisionIpamPoolCidrCommand extends command<ProvisionIpamPoolCidrCommandInput, ProvisionIpamPoolCidrCommandOutput>(
+  _ep0,
+  _mw0,
+  "ProvisionIpamPoolCidr",
+  ProvisionIpamPoolCidr$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

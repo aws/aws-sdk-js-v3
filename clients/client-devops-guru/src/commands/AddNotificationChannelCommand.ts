@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddNotificationChannelRequest, AddNotificationChannelResponse } from "../models/models_0";
 import { AddNotificationChannel$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AddNotificationChannel$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface AddNotificationChannelCommandOutput extends AddNotificationChan
  *
  * @public
  */
-export class AddNotificationChannelCommand extends $Command
-  .classBuilder<
-    AddNotificationChannelCommandInput,
-    AddNotificationChannelCommandOutput,
-    DevOpsGuruClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CapstoneControlPlaneService", "AddNotificationChannel", {})
-  .n("DevOpsGuruClient", "AddNotificationChannelCommand")
-  .sc(AddNotificationChannel$)
-  .build() {
+export class AddNotificationChannelCommand extends command<AddNotificationChannelCommandInput, AddNotificationChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddNotificationChannel",
+  AddNotificationChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

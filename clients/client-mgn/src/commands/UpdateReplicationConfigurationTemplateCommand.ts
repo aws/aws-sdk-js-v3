@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ReplicationConfigurationTemplate,
   UpdateReplicationConfigurationTemplateRequest,
@@ -15,7 +12,6 @@ import { UpdateReplicationConfigurationTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -131,22 +127,12 @@ export interface UpdateReplicationConfigurationTemplateCommandOutput extends Rep
  *
  * @public
  */
-export class UpdateReplicationConfigurationTemplateCommand extends $Command
-  .classBuilder<
-    UpdateReplicationConfigurationTemplateCommandInput,
-    UpdateReplicationConfigurationTemplateCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "UpdateReplicationConfigurationTemplate", {})
-  .n("MgnClient", "UpdateReplicationConfigurationTemplateCommand")
-  .sc(UpdateReplicationConfigurationTemplate$)
-  .build() {
+export class UpdateReplicationConfigurationTemplateCommand extends command<UpdateReplicationConfigurationTemplateCommandInput, UpdateReplicationConfigurationTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateReplicationConfigurationTemplate",
+  UpdateReplicationConfigurationTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FisClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteExperimentTemplateRequest, DeleteExperimentTemplateResponse } from "../models/models_0";
 import { DeleteExperimentTemplate$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteExperimentTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -151,22 +147,12 @@ export interface DeleteExperimentTemplateCommandOutput extends DeleteExperimentT
  *
  * @public
  */
-export class DeleteExperimentTemplateCommand extends $Command
-  .classBuilder<
-    DeleteExperimentTemplateCommandInput,
-    DeleteExperimentTemplateCommandOutput,
-    FisClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FisClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FaultInjectionSimulator", "DeleteExperimentTemplate", {})
-  .n("FisClient", "DeleteExperimentTemplateCommand")
-  .sc(DeleteExperimentTemplate$)
-  .build() {
+export class DeleteExperimentTemplateCommand extends command<DeleteExperimentTemplateCommandInput, DeleteExperimentTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteExperimentTemplate",
+  DeleteExperimentTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

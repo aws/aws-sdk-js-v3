@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutConfigRuleRequest } from "../models/models_0";
 import { PutConfigRule$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutConfigRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -218,22 +214,12 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutConfigRuleCommand extends $Command
-  .classBuilder<
-    PutConfigRuleCommandInput,
-    PutConfigRuleCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "PutConfigRule", {})
-  .n("ConfigServiceClient", "PutConfigRuleCommand")
-  .sc(PutConfigRule$)
-  .build() {
+export class PutConfigRuleCommand extends command<PutConfigRuleCommandInput, PutConfigRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutConfigRule",
+  PutConfigRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

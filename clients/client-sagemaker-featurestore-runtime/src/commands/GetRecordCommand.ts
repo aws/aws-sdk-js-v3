@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRecordRequest, GetRecordResponse } from "../models/models_0";
-import type {
-  SageMakerFeatureStoreRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SageMakerFeatureStoreRuntimeClient";
 import { GetRecord$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface GetRecordCommandOutput extends GetRecordResponse, __MetadataBea
  *
  * @public
  */
-export class GetRecordCommand extends $Command
-  .classBuilder<
-    GetRecordCommandInput,
-    GetRecordCommandOutput,
-    SageMakerFeatureStoreRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerFeatureStoreRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSageMakerFeatureStoreRuntime", "GetRecord", {})
-  .n("SageMakerFeatureStoreRuntimeClient", "GetRecordCommand")
-  .sc(GetRecord$)
-  .build() {
+export class GetRecordCommand extends command<GetRecordCommandInput, GetRecordCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRecord",
+  GetRecord$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  GlobalAcceleratorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../GlobalAcceleratorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListListenersRequest, ListListenersResponse } from "../models/models_0";
 import { ListListeners$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListListeners$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface ListListenersCommandOutput extends ListListenersResponse, __Met
  *
  * @public
  */
-export class ListListenersCommand extends $Command
-  .classBuilder<
-    ListListenersCommandInput,
-    ListListenersCommandOutput,
-    GlobalAcceleratorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GlobalAccelerator_V20180706", "ListListeners", {})
-  .n("GlobalAcceleratorClient", "ListListenersCommand")
-  .sc(ListListeners$)
-  .build() {
+export class ListListenersCommand extends command<ListListenersCommandInput, ListListenersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListListeners",
+  ListListeners$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

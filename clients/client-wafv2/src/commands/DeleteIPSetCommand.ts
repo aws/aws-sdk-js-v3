@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteIPSetRequest, DeleteIPSetResponse } from "../models/models_0";
 import { DeleteIPSet$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  *
  * @public
  */
-export class DeleteIPSetCommand extends $Command
-  .classBuilder<
-    DeleteIPSetCommandInput,
-    DeleteIPSetCommandOutput,
-    WAFV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20190729", "DeleteIPSet", {})
-  .n("WAFV2Client", "DeleteIPSetCommand")
-  .sc(DeleteIPSet$)
-  .build() {
+export class DeleteIPSetCommand extends command<DeleteIPSetCommandInput, DeleteIPSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteIPSet",
+  DeleteIPSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

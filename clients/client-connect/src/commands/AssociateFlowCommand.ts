@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateFlowRequest, AssociateFlowResponse } from "../models/models_0";
 import { AssociateFlow$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateFlow$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface AssociateFlowCommandOutput extends AssociateFlowResponse, __Met
  *
  * @public
  */
-export class AssociateFlowCommand extends $Command
-  .classBuilder<
-    AssociateFlowCommandInput,
-    AssociateFlowCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "AssociateFlow", {})
-  .n("ConnectClient", "AssociateFlowCommand")
-  .sc(AssociateFlow$)
-  .build() {
+export class AssociateFlowCommand extends command<AssociateFlowCommandInput, AssociateFlowCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateFlow",
+  AssociateFlow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

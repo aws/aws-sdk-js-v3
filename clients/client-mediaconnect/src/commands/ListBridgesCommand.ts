@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListBridgesRequest, ListBridgesResponse } from "../models/models_0";
 import { ListBridges$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListBridges$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface ListBridgesCommandOutput extends ListBridgesResponse, __Metadat
  *
  * @public
  */
-export class ListBridgesCommand extends $Command
-  .classBuilder<
-    ListBridgesCommandInput,
-    ListBridgesCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "ListBridges", {})
-  .n("MediaConnectClient", "ListBridgesCommand")
-  .sc(ListBridges$)
-  .build() {
+export class ListBridgesCommand extends command<ListBridgesCommandInput, ListBridgesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBridges",
+  ListBridges$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

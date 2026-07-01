@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ConnectCampaignsV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ConnectCampaignsV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateCampaignFlowAssociationRequest } from "../models/models_0";
 import { UpdateCampaignFlowAssociation$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateCampaignFlowAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface UpdateCampaignFlowAssociationCommandOutput extends __MetadataBe
  *
  * @public
  */
-export class UpdateCampaignFlowAssociationCommand extends $Command
-  .classBuilder<
-    UpdateCampaignFlowAssociationCommandInput,
-    UpdateCampaignFlowAssociationCommandOutput,
-    ConnectCampaignsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCampaignServiceV2", "UpdateCampaignFlowAssociation", {})
-  .n("ConnectCampaignsV2Client", "UpdateCampaignFlowAssociationCommand")
-  .sc(UpdateCampaignFlowAssociation$)
-  .build() {
+export class UpdateCampaignFlowAssociationCommand extends command<UpdateCampaignFlowAssociationCommandInput, UpdateCampaignFlowAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateCampaignFlowAssociation",
+  UpdateCampaignFlowAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribePackageRequest, DescribePackageResult } from "../models/models_0";
 import { DescribePackage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribePackage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface DescribePackageCommandOutput extends DescribePackageResult, __M
  *
  * @public
  */
-export class DescribePackageCommand extends $Command
-  .classBuilder<
-    DescribePackageCommandInput,
-    DescribePackageCommandOutput,
-    CodeartifactClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeArtifactControlPlaneService", "DescribePackage", {})
-  .n("CodeartifactClient", "DescribePackageCommand")
-  .sc(DescribePackage$)
-  .build() {
+export class DescribePackageCommand extends command<DescribePackageCommandInput, DescribePackageCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribePackage",
+  DescribePackage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

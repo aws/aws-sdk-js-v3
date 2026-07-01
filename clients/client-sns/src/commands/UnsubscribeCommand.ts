@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UnsubscribeInput } from "../models/models_0";
 import { Unsubscribe$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface UnsubscribeCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UnsubscribeCommand extends $Command
-  .classBuilder<
-    UnsubscribeCommandInput,
-    UnsubscribeCommandOutput,
-    SNSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSimpleNotificationService", "Unsubscribe", {})
-  .n("SNSClient", "UnsubscribeCommand")
-  .sc(Unsubscribe$)
-  .build() {
+export class UnsubscribeCommand extends command<UnsubscribeCommandInput, UnsubscribeCommandOutput>(
+  _ep0,
+  _mw0,
+  "Unsubscribe",
+  Unsubscribe$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

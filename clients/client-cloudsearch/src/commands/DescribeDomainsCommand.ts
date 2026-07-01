@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeDomainsRequest, DescribeDomainsResponse } from "../models/models_0";
 import { DescribeDomains$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeDomains$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  *
  * @public
  */
-export class DescribeDomainsCommand extends $Command
-  .classBuilder<
-    DescribeDomainsCommandInput,
-    DescribeDomainsCommandOutput,
-    CloudSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("A9SearchCloudConfigService2013", "DescribeDomains", {})
-  .n("CloudSearchClient", "DescribeDomainsCommand")
-  .sc(DescribeDomains$)
-  .build() {
+export class DescribeDomainsCommand extends command<DescribeDomainsCommandInput, DescribeDomainsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDomains",
+  DescribeDomains$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

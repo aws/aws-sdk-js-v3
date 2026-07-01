@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteWorkspaceServiceAccountRequest, DeleteWorkspaceServiceAccountResponse } from "../models/models_0";
 import { DeleteWorkspaceServiceAccount$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteWorkspaceServiceAccount$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DeleteWorkspaceServiceAccountCommandOutput extends DeleteWorksp
  *
  * @public
  */
-export class DeleteWorkspaceServiceAccountCommand extends $Command
-  .classBuilder<
-    DeleteWorkspaceServiceAccountCommandInput,
-    DeleteWorkspaceServiceAccountCommandOutput,
-    GrafanaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GrafanaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGrafanaControlPlane", "DeleteWorkspaceServiceAccount", {})
-  .n("GrafanaClient", "DeleteWorkspaceServiceAccountCommand")
-  .sc(DeleteWorkspaceServiceAccount$)
-  .build() {
+export class DeleteWorkspaceServiceAccountCommand extends command<DeleteWorkspaceServiceAccountCommandInput, DeleteWorkspaceServiceAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteWorkspaceServiceAccount",
+  DeleteWorkspaceServiceAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

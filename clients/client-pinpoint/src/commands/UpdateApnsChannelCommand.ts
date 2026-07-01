@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateApnsChannelRequest, UpdateApnsChannelResponse } from "../models/models_1";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { UpdateApnsChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface UpdateApnsChannelCommandOutput extends UpdateApnsChannelRespons
  *
  * @public
  */
-export class UpdateApnsChannelCommand extends $Command
-  .classBuilder<
-    UpdateApnsChannelCommandInput,
-    UpdateApnsChannelCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "UpdateApnsChannel", {})
-  .n("PinpointClient", "UpdateApnsChannelCommand")
-  .sc(UpdateApnsChannel$)
-  .build() {
+export class UpdateApnsChannelCommand extends command<UpdateApnsChannelCommandInput, UpdateApnsChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateApnsChannel",
+  UpdateApnsChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

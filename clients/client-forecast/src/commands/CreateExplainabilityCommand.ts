@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateExplainabilityRequest, CreateExplainabilityResponse } from "../models/models_0";
 import { CreateExplainability$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateExplainability$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -223,22 +219,12 @@ export interface CreateExplainabilityCommandOutput extends CreateExplainabilityR
  *
  * @public
  */
-export class CreateExplainabilityCommand extends $Command
-  .classBuilder<
-    CreateExplainabilityCommandInput,
-    CreateExplainabilityCommandOutput,
-    ForecastClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonForecast", "CreateExplainability", {})
-  .n("ForecastClient", "CreateExplainabilityCommand")
-  .sc(CreateExplainability$)
-  .build() {
+export class CreateExplainabilityCommand extends command<CreateExplainabilityCommandInput, CreateExplainabilityCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateExplainability",
+  CreateExplainability$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

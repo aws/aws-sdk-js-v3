@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateLocalGatewayVirtualInterfaceRequest,
   CreateLocalGatewayVirtualInterfaceResult,
@@ -15,7 +12,6 @@ import { CreateLocalGatewayVirtualInterface$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface CreateLocalGatewayVirtualInterfaceCommandOutput extends CreateL
  *
  * @public
  */
-export class CreateLocalGatewayVirtualInterfaceCommand extends $Command
-  .classBuilder<
-    CreateLocalGatewayVirtualInterfaceCommandInput,
-    CreateLocalGatewayVirtualInterfaceCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "CreateLocalGatewayVirtualInterface", {})
-  .n("EC2Client", "CreateLocalGatewayVirtualInterfaceCommand")
-  .sc(CreateLocalGatewayVirtualInterface$)
-  .build() {
+export class CreateLocalGatewayVirtualInterfaceCommand extends command<CreateLocalGatewayVirtualInterfaceCommandInput, CreateLocalGatewayVirtualInterfaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateLocalGatewayVirtualInterface",
+  CreateLocalGatewayVirtualInterface$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

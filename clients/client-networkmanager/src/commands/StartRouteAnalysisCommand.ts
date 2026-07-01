@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartRouteAnalysisRequest, StartRouteAnalysisResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { StartRouteAnalysis$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -157,22 +149,12 @@ export interface StartRouteAnalysisCommandOutput extends StartRouteAnalysisRespo
  *
  * @public
  */
-export class StartRouteAnalysisCommand extends $Command
-  .classBuilder<
-    StartRouteAnalysisCommandInput,
-    StartRouteAnalysisCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "StartRouteAnalysis", {})
-  .n("NetworkManagerClient", "StartRouteAnalysisCommand")
-  .sc(StartRouteAnalysis$)
-  .build() {
+export class StartRouteAnalysisCommand extends command<StartRouteAnalysisCommandInput, StartRouteAnalysisCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartRouteAnalysis",
+  StartRouteAnalysis$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

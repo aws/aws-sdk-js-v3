@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MigrationHubRefactorSpacesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MigrationHubRefactorSpacesClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRouteRequest, GetRouteResponse } from "../models/models_0";
 import { GetRoute$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetRoute$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +105,12 @@ export interface GetRouteCommandOutput extends GetRouteResponse, __MetadataBeare
  *
  * @public
  */
-export class GetRouteCommand extends $Command
-  .classBuilder<
-    GetRouteCommandInput,
-    GetRouteCommandOutput,
-    MigrationHubRefactorSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubRefactorSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RefactorSpaces", "GetRoute", {})
-  .n("MigrationHubRefactorSpacesClient", "GetRouteCommand")
-  .sc(GetRoute$)
-  .build() {
+export class GetRouteCommand extends command<GetRouteCommandInput, GetRouteCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRoute",
+  GetRoute$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

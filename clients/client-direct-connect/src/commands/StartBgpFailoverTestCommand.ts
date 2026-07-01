@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartBgpFailoverTestRequest, StartBgpFailoverTestResponse } from "../models/models_0";
 import { StartBgpFailoverTest$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartBgpFailoverTest$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface StartBgpFailoverTestCommandOutput extends StartBgpFailoverTestR
  *
  * @public
  */
-export class StartBgpFailoverTestCommand extends $Command
-  .classBuilder<
-    StartBgpFailoverTestCommandInput,
-    StartBgpFailoverTestCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "StartBgpFailoverTest", {})
-  .n("DirectConnectClient", "StartBgpFailoverTestCommand")
-  .sc(StartBgpFailoverTest$)
-  .build() {
+export class StartBgpFailoverTestCommand extends command<StartBgpFailoverTestCommandInput, StartBgpFailoverTestCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartBgpFailoverTest",
+  StartBgpFailoverTest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

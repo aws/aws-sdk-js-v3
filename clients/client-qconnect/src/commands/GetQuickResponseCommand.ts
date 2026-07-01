@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetQuickResponseRequest, GetQuickResponseResponse } from "../models/models_1";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { GetQuickResponse$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface GetQuickResponseCommandOutput extends GetQuickResponseResponse,
  *
  * @public
  */
-export class GetQuickResponseCommand extends $Command
-  .classBuilder<
-    GetQuickResponseCommandInput,
-    GetQuickResponseCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "GetQuickResponse", {})
-  .n("QConnectClient", "GetQuickResponseCommand")
-  .sc(GetQuickResponse$)
-  .build() {
+export class GetQuickResponseCommand extends command<GetQuickResponseCommandInput, GetQuickResponseCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetQuickResponse",
+  GetQuickResponse$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

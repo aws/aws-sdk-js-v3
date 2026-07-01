@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeOrganizationalUnitRequest, DescribeOrganizationalUnitResponse } from "../models/models_0";
-import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { DescribeOrganizationalUnit$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -258,22 +254,12 @@ export interface DescribeOrganizationalUnitCommandOutput extends DescribeOrganiz
  *
  * @public
  */
-export class DescribeOrganizationalUnitCommand extends $Command
-  .classBuilder<
-    DescribeOrganizationalUnitCommandInput,
-    DescribeOrganizationalUnitCommandOutput,
-    OrganizationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrganizationsV20161128", "DescribeOrganizationalUnit", {})
-  .n("OrganizationsClient", "DescribeOrganizationalUnitCommand")
-  .sc(DescribeOrganizationalUnit$)
-  .build() {
+export class DescribeOrganizationalUnitCommand extends command<DescribeOrganizationalUnitCommandInput, DescribeOrganizationalUnitCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeOrganizationalUnit",
+  DescribeOrganizationalUnit$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

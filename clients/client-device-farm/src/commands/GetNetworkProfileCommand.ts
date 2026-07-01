@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetNetworkProfileRequest, GetNetworkProfileResult } from "../models/models_0";
 import { GetNetworkProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetNetworkProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface GetNetworkProfileCommandOutput extends GetNetworkProfileResult,
  *
  * @public
  */
-export class GetNetworkProfileCommand extends $Command
-  .classBuilder<
-    GetNetworkProfileCommandInput,
-    GetNetworkProfileCommandOutput,
-    DeviceFarmClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DeviceFarm_20150623", "GetNetworkProfile", {})
-  .n("DeviceFarmClient", "GetNetworkProfileCommand")
-  .sc(GetNetworkProfile$)
-  .build() {
+export class GetNetworkProfileCommand extends command<GetNetworkProfileCommandInput, GetNetworkProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetNetworkProfile",
+  GetNetworkProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

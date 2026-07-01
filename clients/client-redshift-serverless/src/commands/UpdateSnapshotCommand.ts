@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateSnapshotRequest, UpdateSnapshotResponse } from "../models/models_0";
-import type {
-  RedshiftServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RedshiftServerlessClient";
 import { UpdateSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +95,12 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  *
  * @public
  */
-export class UpdateSnapshotCommand extends $Command
-  .classBuilder<
-    UpdateSnapshotCommandInput,
-    UpdateSnapshotCommandOutput,
-    RedshiftServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServerless", "UpdateSnapshot", {})
-  .n("RedshiftServerlessClient", "UpdateSnapshotCommand")
-  .sc(UpdateSnapshot$)
-  .build() {
+export class UpdateSnapshotCommand extends command<UpdateSnapshotCommandInput, UpdateSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSnapshot",
+  UpdateSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

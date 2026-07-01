@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListResourceRecordSetsRequest, ListResourceRecordSetsResponse } from "../models/models_0";
-import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 import { ListResourceRecordSets$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -189,25 +184,12 @@ export interface ListResourceRecordSetsCommandOutput extends ListResourceRecordS
  *
  * @public
  */
-export class ListResourceRecordSetsCommand extends $Command
-  .classBuilder<
-    ListResourceRecordSetsCommandInput,
-    ListResourceRecordSetsCommandOutput,
-    Route53ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getIdNormalizerPlugin(config),
-    ];
-  })
-  .s("AWSDnsV20130401", "ListResourceRecordSets", {})
-  .n("Route53Client", "ListResourceRecordSetsCommand")
-  .sc(ListResourceRecordSets$)
-  .build() {
+export class ListResourceRecordSetsCommand extends command<ListResourceRecordSetsCommandInput, ListResourceRecordSetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListResourceRecordSets",
+  ListResourceRecordSets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep10, _mw0, command } from "../commandBuilder";
 import type { RestoreTableFromBackupInput, RestoreTableFromBackupOutput } from "../models/models_0";
 import { RestoreTableFromBackup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RestoreTableFromBackup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -359,25 +355,12 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  *
  * @public
  */
-export class RestoreTableFromBackupCommand extends $Command
-  .classBuilder<
-    RestoreTableFromBackupCommandInput,
-    RestoreTableFromBackupCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "contextParams", name: "TargetTableName" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "RestoreTableFromBackup", {})
-  .n("DynamoDBClient", "RestoreTableFromBackupCommand")
-  .sc(RestoreTableFromBackup$)
-  .build() {
+export class RestoreTableFromBackupCommand extends command<RestoreTableFromBackupCommandInput, RestoreTableFromBackupCommandOutput>(
+  _ep10,
+  _mw0,
+  "RestoreTableFromBackup",
+  RestoreTableFromBackup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

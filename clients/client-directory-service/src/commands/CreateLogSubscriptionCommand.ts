@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateLogSubscriptionRequest, CreateLogSubscriptionResult } from "../models/models_0";
 import { CreateLogSubscription$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateLogSubscription$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface CreateLogSubscriptionCommandOutput extends CreateLogSubscriptio
  *
  * @public
  */
-export class CreateLogSubscriptionCommand extends $Command
-  .classBuilder<
-    CreateLogSubscriptionCommandInput,
-    CreateLogSubscriptionCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "CreateLogSubscription", {})
-  .n("DirectoryServiceClient", "CreateLogSubscriptionCommand")
-  .sc(CreateLogSubscription$)
-  .build() {
+export class CreateLogSubscriptionCommand extends command<CreateLogSubscriptionCommandInput, CreateLogSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateLogSubscription",
+  CreateLogSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

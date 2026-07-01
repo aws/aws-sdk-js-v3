@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IotDeviceAdvisorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IotDeviceAdvisorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSuiteDefinitionRequest, DeleteSuiteDefinitionResponse } from "../models/models_0";
 import { DeleteSuiteDefinition$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteSuiteDefinition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +60,12 @@ export interface DeleteSuiteDefinitionCommandOutput extends DeleteSuiteDefinitio
  *
  * @public
  */
-export class DeleteSuiteDefinitionCommand extends $Command
-  .classBuilder<
-    DeleteSuiteDefinitionCommandInput,
-    DeleteSuiteDefinitionCommandOutput,
-    IotDeviceAdvisorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IotDeviceAdvisorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotSenateService", "DeleteSuiteDefinition", {})
-  .n("IotDeviceAdvisorClient", "DeleteSuiteDefinitionCommand")
-  .sc(DeleteSuiteDefinition$)
-  .build() {
+export class DeleteSuiteDefinitionCommand extends command<DeleteSuiteDefinitionCommandInput, DeleteSuiteDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSuiteDefinition",
+  DeleteSuiteDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

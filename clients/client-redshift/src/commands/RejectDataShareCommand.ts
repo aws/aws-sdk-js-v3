@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DataShare } from "../models/models_0";
 import type { RejectDataShareMessage } from "../models/models_1";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { RejectDataShare$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface RejectDataShareCommandOutput extends DataShare, __MetadataBeare
  *
  * @public
  */
-export class RejectDataShareCommand extends $Command
-  .classBuilder<
-    RejectDataShareCommandInput,
-    RejectDataShareCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "RejectDataShare", {})
-  .n("RedshiftClient", "RejectDataShareCommand")
-  .sc(RejectDataShare$)
-  .build() {
+export class RejectDataShareCommand extends command<RejectDataShareCommandInput, RejectDataShareCommandOutput>(
+  _ep0,
+  _mw0,
+  "RejectDataShare",
+  RejectDataShare$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

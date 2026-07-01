@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAddonSubscriptionRequest, GetAddonSubscriptionResponse } from "../models/models_0";
 import { GetAddonSubscription$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetAddonSubscription$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface GetAddonSubscriptionCommandOutput extends GetAddonSubscriptionR
  *
  * @public
  */
-export class GetAddonSubscriptionCommand extends $Command
-  .classBuilder<
-    GetAddonSubscriptionCommandInput,
-    GetAddonSubscriptionCommandOutput,
-    MailManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MailManagerSvc", "GetAddonSubscription", {})
-  .n("MailManagerClient", "GetAddonSubscriptionCommand")
-  .sc(GetAddonSubscription$)
-  .build() {
+export class GetAddonSubscriptionCommand extends command<GetAddonSubscriptionCommandInput, GetAddonSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAddonSubscription",
+  GetAddonSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

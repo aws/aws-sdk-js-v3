@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListContainerAssociationsRequest, ListContainerAssociationsResponse } from "../models/models_0";
-import type {
-  NetworkFirewallClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFirewallClient";
 import { ListContainerAssociations$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface ListContainerAssociationsCommandOutput extends ListContainerAss
  *
  * @public
  */
-export class ListContainerAssociationsCommand extends $Command
-  .classBuilder<
-    ListContainerAssociationsCommandInput,
-    ListContainerAssociationsCommandOutput,
-    NetworkFirewallClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFirewall_20201112", "ListContainerAssociations", {})
-  .n("NetworkFirewallClient", "ListContainerAssociationsCommand")
-  .sc(ListContainerAssociations$)
-  .build() {
+export class ListContainerAssociationsCommand extends command<ListContainerAssociationsCommandInput, ListContainerAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListContainerAssociations",
+  ListContainerAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

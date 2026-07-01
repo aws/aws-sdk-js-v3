@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateLocationAzureBlobRequest, CreateLocationAzureBlobResponse } from "../models/models_0";
 import { CreateLocationAzureBlob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateLocationAzureBlob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface CreateLocationAzureBlobCommandOutput extends CreateLocationAzur
  *
  * @public
  */
-export class CreateLocationAzureBlobCommand extends $Command
-  .classBuilder<
-    CreateLocationAzureBlobCommandInput,
-    CreateLocationAzureBlobCommandOutput,
-    DataSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FmrsService", "CreateLocationAzureBlob", {})
-  .n("DataSyncClient", "CreateLocationAzureBlobCommand")
-  .sc(CreateLocationAzureBlob$)
-  .build() {
+export class CreateLocationAzureBlobCommand extends command<CreateLocationAzureBlobCommandInput, CreateLocationAzureBlobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateLocationAzureBlob",
+  CreateLocationAzureBlob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

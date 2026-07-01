@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisableHttpEndpointRequest, DisableHttpEndpointResponse } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { DisableHttpEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +62,12 @@ export interface DisableHttpEndpointCommandOutput extends DisableHttpEndpointRes
  *
  * @public
  */
-export class DisableHttpEndpointCommand extends $Command
-  .classBuilder<
-    DisableHttpEndpointCommandInput,
-    DisableHttpEndpointCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DisableHttpEndpoint", {})
-  .n("RDSClient", "DisableHttpEndpointCommand")
-  .sc(DisableHttpEndpoint$)
-  .build() {
+export class DisableHttpEndpointCommand extends command<DisableHttpEndpointCommandInput, DisableHttpEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableHttpEndpoint",
+  DisableHttpEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

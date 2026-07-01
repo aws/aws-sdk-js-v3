@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddInstanceGroupsInput, AddInstanceGroupsOutput } from "../models/models_0";
 import { AddInstanceGroups$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AddInstanceGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -147,22 +143,12 @@ export interface AddInstanceGroupsCommandOutput extends AddInstanceGroupsOutput,
  *
  * @public
  */
-export class AddInstanceGroupsCommand extends $Command
-  .classBuilder<
-    AddInstanceGroupsCommandInput,
-    AddInstanceGroupsCommandOutput,
-    EMRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticMapReduce", "AddInstanceGroups", {})
-  .n("EMRClient", "AddInstanceGroupsCommand")
-  .sc(AddInstanceGroups$)
-  .build() {
+export class AddInstanceGroupsCommand extends command<AddInstanceGroupsCommandInput, AddInstanceGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddInstanceGroups",
+  AddInstanceGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

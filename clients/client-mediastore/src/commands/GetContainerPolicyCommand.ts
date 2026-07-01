@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetContainerPolicyInput, GetContainerPolicyOutput } from "../models/models_0";
 import { GetContainerPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetContainerPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface GetContainerPolicyCommandOutput extends GetContainerPolicyOutpu
  *
  * @public
  */
-export class GetContainerPolicyCommand extends $Command
-  .classBuilder<
-    GetContainerPolicyCommandInput,
-    GetContainerPolicyCommandOutput,
-    MediaStoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaStoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaStore_20170901", "GetContainerPolicy", {})
-  .n("MediaStoreClient", "GetContainerPolicyCommand")
-  .sc(GetContainerPolicy$)
-  .build() {
+export class GetContainerPolicyCommand extends command<GetContainerPolicyCommandInput, GetContainerPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetContainerPolicy",
+  GetContainerPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAccessPointRequest } from "../models/models_0";
-import type { S3FilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3FilesClient";
 import { DeleteAccessPoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteAccessPointCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteAccessPointCommand extends $Command
-  .classBuilder<
-    DeleteAccessPointCommandInput,
-    DeleteAccessPointCommandOutput,
-    S3FilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: S3FilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("S3Files", "DeleteAccessPoint", {})
-  .n("S3FilesClient", "DeleteAccessPointCommand")
-  .sc(DeleteAccessPoint$)
-  .build() {
+export class DeleteAccessPointCommand extends command<DeleteAccessPointCommandInput, DeleteAccessPointCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAccessPoint",
+  DeleteAccessPoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

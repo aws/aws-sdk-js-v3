@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateConnectorDefinitionRequest, CreateConnectorDefinitionResponse } from "../models/models_0";
 import { CreateConnectorDefinition$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateConnectorDefinition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface CreateConnectorDefinitionCommandOutput extends CreateConnectorD
  *
  * @public
  */
-export class CreateConnectorDefinitionCommand extends $Command
-  .classBuilder<
-    CreateConnectorDefinitionCommandInput,
-    CreateConnectorDefinitionCommandOutput,
-    GreengrassClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Greengrass", "CreateConnectorDefinition", {})
-  .n("GreengrassClient", "CreateConnectorDefinitionCommand")
-  .sc(CreateConnectorDefinition$)
-  .build() {
+export class CreateConnectorDefinitionCommand extends command<CreateConnectorDefinitionCommandInput, CreateConnectorDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateConnectorDefinition",
+  CreateConnectorDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAttributeGroupRequest, GetAttributeGroupResponse } from "../models/models_0";
 import { GetAttributeGroup$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogAppRegistryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogAppRegistryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface GetAttributeGroupCommandOutput extends GetAttributeGroupRespons
  *
  * @public
  */
-export class GetAttributeGroupCommand extends $Command
-  .classBuilder<
-    GetAttributeGroupCommandInput,
-    GetAttributeGroupCommandOutput,
-    ServiceCatalogAppRegistryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogAppRegistryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242AppRegistry", "GetAttributeGroup", {})
-  .n("ServiceCatalogAppRegistryClient", "GetAttributeGroupCommand")
-  .sc(GetAttributeGroup$)
-  .build() {
+export class GetAttributeGroupCommand extends command<GetAttributeGroupCommandInput, GetAttributeGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAttributeGroup",
+  GetAttributeGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

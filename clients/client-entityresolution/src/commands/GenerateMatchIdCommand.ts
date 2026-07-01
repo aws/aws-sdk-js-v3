@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  EntityResolutionClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../EntityResolutionClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GenerateMatchIdInput, GenerateMatchIdOutput } from "../models/models_0";
 import { GenerateMatchId$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GenerateMatchId$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface GenerateMatchIdCommandOutput extends GenerateMatchIdOutput, __M
  *
  * @public
  */
-export class GenerateMatchIdCommand extends $Command
-  .classBuilder<
-    GenerateMatchIdCommandInput,
-    GenerateMatchIdCommandOutput,
-    EntityResolutionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EntityResolutionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSVeniceService", "GenerateMatchId", {})
-  .n("EntityResolutionClient", "GenerateMatchIdCommand")
-  .sc(GenerateMatchId$)
-  .build() {
+export class GenerateMatchIdCommand extends command<GenerateMatchIdCommandInput, GenerateMatchIdCommandOutput>(
+  _ep0,
+  _mw0,
+  "GenerateMatchId",
+  GenerateMatchId$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

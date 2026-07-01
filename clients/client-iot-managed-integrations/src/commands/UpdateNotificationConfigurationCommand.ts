@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateNotificationConfigurationRequest } from "../models/models_0";
 import { UpdateNotificationConfiguration$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateNotificationConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +69,12 @@ export interface UpdateNotificationConfigurationCommandOutput extends __Metadata
  *
  * @public
  */
-export class UpdateNotificationConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateNotificationConfigurationCommandInput,
-    UpdateNotificationConfigurationCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "UpdateNotificationConfiguration", {})
-  .n("IoTManagedIntegrationsClient", "UpdateNotificationConfigurationCommand")
-  .sc(UpdateNotificationConfiguration$)
-  .build() {
+export class UpdateNotificationConfigurationCommand extends command<UpdateNotificationConfigurationCommandInput, UpdateNotificationConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateNotificationConfiguration",
+  UpdateNotificationConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

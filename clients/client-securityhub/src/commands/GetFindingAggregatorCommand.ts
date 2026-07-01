@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFindingAggregatorRequest, GetFindingAggregatorResponse } from "../models/models_2";
 import { GetFindingAggregator$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface GetFindingAggregatorCommandOutput extends GetFindingAggregatorR
  *
  * @public
  */
-export class GetFindingAggregatorCommand extends $Command
-  .classBuilder<
-    GetFindingAggregatorCommandInput,
-    GetFindingAggregatorCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "GetFindingAggregator", {})
-  .n("SecurityHubClient", "GetFindingAggregatorCommand")
-  .sc(GetFindingAggregator$)
-  .build() {
+export class GetFindingAggregatorCommand extends command<GetFindingAggregatorCommandInput, GetFindingAggregatorCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFindingAggregator",
+  GetFindingAggregator$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

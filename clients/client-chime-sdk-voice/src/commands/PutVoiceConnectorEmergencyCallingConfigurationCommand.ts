@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutVoiceConnectorEmergencyCallingConfigurationRequest,
   PutVoiceConnectorEmergencyCallingConfigurationResponse,
@@ -15,7 +12,6 @@ import { PutVoiceConnectorEmergencyCallingConfiguration$ } from "../schemas/sche
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface PutVoiceConnectorEmergencyCallingConfigurationCommandOutput ext
  *
  * @public
  */
-export class PutVoiceConnectorEmergencyCallingConfigurationCommand extends $Command
-  .classBuilder<
-    PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
-    PutVoiceConnectorEmergencyCallingConfigurationCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "PutVoiceConnectorEmergencyCallingConfiguration", {})
-  .n("ChimeSDKVoiceClient", "PutVoiceConnectorEmergencyCallingConfigurationCommand")
-  .sc(PutVoiceConnectorEmergencyCallingConfiguration$)
-  .build() {
+export class PutVoiceConnectorEmergencyCallingConfigurationCommand extends command<PutVoiceConnectorEmergencyCallingConfigurationCommandInput, PutVoiceConnectorEmergencyCallingConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutVoiceConnectorEmergencyCallingConfiguration",
+  PutVoiceConnectorEmergencyCallingConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPendingMessagesRequest, ListPendingMessagesResponse } from "../models/models_0";
 import { ListPendingMessages$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListPendingMessages$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface ListPendingMessagesCommandOutput extends ListPendingMessagesRes
  *
  * @public
  */
-export class ListPendingMessagesCommand extends $Command
-  .classBuilder<
-    ListPendingMessagesCommandInput,
-    ListPendingMessagesCommandOutput,
-    DevOpsAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DevOpsAgent", "ListPendingMessages", {})
-  .n("DevOpsAgentClient", "ListPendingMessagesCommand")
-  .sc(ListPendingMessages$)
-  .build() {
+export class ListPendingMessagesCommand extends command<ListPendingMessagesCommandInput, ListPendingMessagesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPendingMessages",
+  ListPendingMessages$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

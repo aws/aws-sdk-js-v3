@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartCostAllocationTagBackfillRequest, StartCostAllocationTagBackfillResponse } from "../models/models_0";
 import { StartCostAllocationTagBackfill$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartCostAllocationTagBackfill$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface StartCostAllocationTagBackfillCommandOutput extends StartCostAl
  *
  * @public
  */
-export class StartCostAllocationTagBackfillCommand extends $Command
-  .classBuilder<
-    StartCostAllocationTagBackfillCommandInput,
-    StartCostAllocationTagBackfillCommandOutput,
-    CostExplorerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSInsightsIndexService", "StartCostAllocationTagBackfill", {})
-  .n("CostExplorerClient", "StartCostAllocationTagBackfillCommand")
-  .sc(StartCostAllocationTagBackfill$)
-  .build() {
+export class StartCostAllocationTagBackfillCommand extends command<StartCostAllocationTagBackfillCommandInput, StartCostAllocationTagBackfillCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartCostAllocationTagBackfill",
+  StartCostAllocationTagBackfill$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

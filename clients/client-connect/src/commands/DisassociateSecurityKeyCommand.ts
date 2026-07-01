@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateSecurityKeyRequest } from "../models/models_1";
 import { DisassociateSecurityKey$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateSecurityKey$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DisassociateSecurityKeyCommandOutput extends __MetadataBearer {
  *
  * @public
  */
-export class DisassociateSecurityKeyCommand extends $Command
-  .classBuilder<
-    DisassociateSecurityKeyCommandInput,
-    DisassociateSecurityKeyCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DisassociateSecurityKey", {})
-  .n("ConnectClient", "DisassociateSecurityKeyCommand")
-  .sc(DisassociateSecurityKey$)
-  .build() {
+export class DisassociateSecurityKeyCommand extends command<DisassociateSecurityKeyCommandInput, DisassociateSecurityKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateSecurityKey",
+  DisassociateSecurityKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

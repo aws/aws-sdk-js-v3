@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociatePhoneNumberWithUserRequest, AssociatePhoneNumberWithUserResponse } from "../models/models_0";
 import { AssociatePhoneNumberWithUser$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociatePhoneNumberWithUser$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface AssociatePhoneNumberWithUserCommandOutput extends AssociatePhon
  *
  * @public
  */
-export class AssociatePhoneNumberWithUserCommand extends $Command
-  .classBuilder<
-    AssociatePhoneNumberWithUserCommandInput,
-    AssociatePhoneNumberWithUserCommandOutput,
-    ChimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("UCBuzzConsoleService", "AssociatePhoneNumberWithUser", {})
-  .n("ChimeClient", "AssociatePhoneNumberWithUserCommand")
-  .sc(AssociatePhoneNumberWithUser$)
-  .build() {
+export class AssociatePhoneNumberWithUserCommand extends command<AssociatePhoneNumberWithUserCommandInput, AssociatePhoneNumberWithUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociatePhoneNumberWithUser",
+  AssociatePhoneNumberWithUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

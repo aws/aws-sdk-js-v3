@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateScheduledAuditRequest, UpdateScheduledAuditResponse } from "../models/models_2";
 import { UpdateScheduledAudit$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateScheduledAudit$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface UpdateScheduledAuditCommandOutput extends UpdateScheduledAuditR
  *
  * @public
  */
-export class UpdateScheduledAuditCommand extends $Command
-  .classBuilder<
-    UpdateScheduledAuditCommandInput,
-    UpdateScheduledAuditCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "UpdateScheduledAudit", {})
-  .n("IoTClient", "UpdateScheduledAuditCommand")
-  .sc(UpdateScheduledAudit$)
-  .build() {
+export class UpdateScheduledAuditCommand extends command<UpdateScheduledAuditCommandInput, UpdateScheduledAuditCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateScheduledAudit",
+  UpdateScheduledAudit$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchDeleteAdvancedPromptOptimizationJobRequest,
   BatchDeleteAdvancedPromptOptimizationJobResponse,
@@ -15,7 +12,6 @@ import { BatchDeleteAdvancedPromptOptimizationJob$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface BatchDeleteAdvancedPromptOptimizationJobCommandOutput extends B
  *
  * @public
  */
-export class BatchDeleteAdvancedPromptOptimizationJobCommand extends $Command
-  .classBuilder<
-    BatchDeleteAdvancedPromptOptimizationJobCommandInput,
-    BatchDeleteAdvancedPromptOptimizationJobCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "BatchDeleteAdvancedPromptOptimizationJob", {})
-  .n("BedrockClient", "BatchDeleteAdvancedPromptOptimizationJobCommand")
-  .sc(BatchDeleteAdvancedPromptOptimizationJob$)
-  .build() {
+export class BatchDeleteAdvancedPromptOptimizationJobCommand extends command<BatchDeleteAdvancedPromptOptimizationJobCommandInput, BatchDeleteAdvancedPromptOptimizationJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDeleteAdvancedPromptOptimizationJob",
+  BatchDeleteAdvancedPromptOptimizationJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

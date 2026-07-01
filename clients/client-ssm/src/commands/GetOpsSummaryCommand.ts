@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetOpsSummaryResult } from "../models/models_0";
 import type { GetOpsSummaryRequest } from "../models/models_1";
 import { GetOpsSummary$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -144,22 +140,12 @@ export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __Metad
  *
  * @public
  */
-export class GetOpsSummaryCommand extends $Command
-  .classBuilder<
-    GetOpsSummaryCommandInput,
-    GetOpsSummaryCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "GetOpsSummary", {})
-  .n("SSMClient", "GetOpsSummaryCommand")
-  .sc(GetOpsSummary$)
-  .build() {
+export class GetOpsSummaryCommand extends command<GetOpsSummaryCommandInput, GetOpsSummaryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetOpsSummary",
+  GetOpsSummary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

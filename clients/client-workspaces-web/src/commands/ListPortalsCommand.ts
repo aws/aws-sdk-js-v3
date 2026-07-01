@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPortalsRequest, ListPortalsResponse } from "../models/models_0";
 import { ListPortals$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  *
  * @public
  */
-export class ListPortalsCommand extends $Command
-  .classBuilder<
-    ListPortalsCommandInput,
-    ListPortalsCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "ListPortals", {})
-  .n("WorkSpacesWebClient", "ListPortalsCommand")
-  .sc(ListPortals$)
-  .build() {
+export class ListPortalsCommand extends command<ListPortalsCommandInput, ListPortalsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPortals",
+  ListPortals$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

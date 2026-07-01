@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GeoRoutesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoRoutesClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CalculateRouteMatrixRequest, CalculateRouteMatrixResponse } from "../models/models_0";
 import { CalculateRouteMatrix$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CalculateRouteMatrix$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -267,22 +263,12 @@ export interface CalculateRouteMatrixCommandOutput extends CalculateRouteMatrixR
  *
  * @public
  */
-export class CalculateRouteMatrixCommand extends $Command
-  .classBuilder<
-    CalculateRouteMatrixCommandInput,
-    CalculateRouteMatrixCommandOutput,
-    GeoRoutesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GeoRoutesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RoutesService", "CalculateRouteMatrix", {})
-  .n("GeoRoutesClient", "CalculateRouteMatrixCommand")
-  .sc(CalculateRouteMatrix$)
-  .build() {
+export class CalculateRouteMatrixCommand extends command<CalculateRouteMatrixCommandInput, CalculateRouteMatrixCommandOutput>(
+  _ep0,
+  _mw0,
+  "CalculateRouteMatrix",
+  CalculateRouteMatrix$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTThingsGraphClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTThingsGraphClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeNamespaceRequest, DescribeNamespaceResponse } from "../models/models_0";
 import { DescribeNamespace$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeNamespace$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
  *
  * @public
  */
-export class DescribeNamespaceCommand extends $Command
-  .classBuilder<
-    DescribeNamespaceCommandInput,
-    DescribeNamespaceCommandOutput,
-    IoTThingsGraphClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotThingsGraphFrontEndService", "DescribeNamespace", {})
-  .n("IoTThingsGraphClient", "DescribeNamespaceCommand")
-  .sc(DescribeNamespace$)
-  .build() {
+export class DescribeNamespaceCommand extends command<DescribeNamespaceCommandInput, DescribeNamespaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeNamespace",
+  DescribeNamespace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAssessmentRunsRequest, ListAssessmentRunsResponse } from "../models/models_0";
 import { ListAssessmentRuns$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAssessmentRuns$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +124,12 @@ export interface ListAssessmentRunsCommandOutput extends ListAssessmentRunsRespo
  *
  * @public
  */
-export class ListAssessmentRunsCommand extends $Command
-  .classBuilder<
-    ListAssessmentRunsCommandInput,
-    ListAssessmentRunsCommandOutput,
-    InspectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("InspectorService", "ListAssessmentRuns", {})
-  .n("InspectorClient", "ListAssessmentRunsCommand")
-  .sc(ListAssessmentRuns$)
-  .build() {
+export class ListAssessmentRunsCommand extends command<ListAssessmentRunsCommandInput, ListAssessmentRunsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAssessmentRuns",
+  ListAssessmentRuns$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

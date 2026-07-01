@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendBonusRequest, SendBonusResponse } from "../models/models_0";
-import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { SendBonus$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface SendBonusCommandOutput extends SendBonusResponse, __MetadataBea
  *
  * @public
  */
-export class SendBonusCommand extends $Command
-  .classBuilder<
-    SendBonusCommandInput,
-    SendBonusCommandOutput,
-    MTurkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MTurkRequesterServiceV20170117", "SendBonus", {})
-  .n("MTurkClient", "SendBonusCommand")
-  .sc(SendBonus$)
-  .build() {
+export class SendBonusCommand extends command<SendBonusCommandInput, SendBonusCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendBonus",
+  SendBonus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

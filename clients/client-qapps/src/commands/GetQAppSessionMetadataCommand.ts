@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetQAppSessionMetadataInput, GetQAppSessionMetadataOutput } from "../models/models_0";
-import type { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
 import { GetQAppSessionMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface GetQAppSessionMetadataCommandOutput extends GetQAppSessionMetad
  *
  * @public
  */
-export class GetQAppSessionMetadataCommand extends $Command
-  .classBuilder<
-    GetQAppSessionMetadataCommandInput,
-    GetQAppSessionMetadataCommandOutput,
-    QAppsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QAppsService", "GetQAppSessionMetadata", {})
-  .n("QAppsClient", "GetQAppSessionMetadataCommand")
-  .sc(GetQAppSessionMetadata$)
-  .build() {
+export class GetQAppSessionMetadataCommand extends command<GetQAppSessionMetadataCommandInput, GetQAppSessionMetadataCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetQAppSessionMetadata",
+  GetQAppSessionMetadata$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

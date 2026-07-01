@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRecordHistoryInput, ListRecordHistoryOutput } from "../models/models_0";
 import { ListRecordHistory$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface ListRecordHistoryCommandOutput extends ListRecordHistoryOutput,
  *
  * @public
  */
-export class ListRecordHistoryCommand extends $Command
-  .classBuilder<
-    ListRecordHistoryCommandInput,
-    ListRecordHistoryCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "ListRecordHistory", {})
-  .n("ServiceCatalogClient", "ListRecordHistoryCommand")
-  .sc(ListRecordHistory$)
-  .build() {
+export class ListRecordHistoryCommand extends command<ListRecordHistoryCommandInput, ListRecordHistoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRecordHistory",
+  ListRecordHistory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

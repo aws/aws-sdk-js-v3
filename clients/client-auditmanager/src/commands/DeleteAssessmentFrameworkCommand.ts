@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAssessmentFrameworkRequest, DeleteAssessmentFrameworkResponse } from "../models/models_0";
 import { DeleteAssessmentFramework$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAssessmentFramework$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface DeleteAssessmentFrameworkCommandOutput extends DeleteAssessment
  *
  * @public
  */
-export class DeleteAssessmentFrameworkCommand extends $Command
-  .classBuilder<
-    DeleteAssessmentFrameworkCommandInput,
-    DeleteAssessmentFrameworkCommandOutput,
-    AuditManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BedrockAssessmentManagerLambda", "DeleteAssessmentFramework", {})
-  .n("AuditManagerClient", "DeleteAssessmentFrameworkCommand")
-  .sc(DeleteAssessmentFramework$)
-  .build() {
+export class DeleteAssessmentFrameworkCommand extends command<DeleteAssessmentFrameworkCommandInput, DeleteAssessmentFrameworkCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAssessmentFramework",
+  DeleteAssessmentFramework$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

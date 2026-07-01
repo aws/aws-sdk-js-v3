@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateBrowserSettingsRequest, DisassociateBrowserSettingsResponse } from "../models/models_0";
 import { DisassociateBrowserSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DisassociateBrowserSettingsCommandOutput extends DisassociateBr
  *
  * @public
  */
-export class DisassociateBrowserSettingsCommand extends $Command
-  .classBuilder<
-    DisassociateBrowserSettingsCommandInput,
-    DisassociateBrowserSettingsCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "DisassociateBrowserSettings", {})
-  .n("WorkSpacesWebClient", "DisassociateBrowserSettingsCommand")
-  .sc(DisassociateBrowserSettings$)
-  .build() {
+export class DisassociateBrowserSettingsCommand extends command<DisassociateBrowserSettingsCommandInput, DisassociateBrowserSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateBrowserSettings",
+  DisassociateBrowserSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

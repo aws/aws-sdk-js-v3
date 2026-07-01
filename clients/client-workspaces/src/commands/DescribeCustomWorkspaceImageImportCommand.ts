@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeCustomWorkspaceImageImportRequest,
   DescribeCustomWorkspaceImageImportResult,
 } from "../models/models_0";
 import { DescribeCustomWorkspaceImageImport$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface DescribeCustomWorkspaceImageImportCommandOutput extends Describ
  *
  * @public
  */
-export class DescribeCustomWorkspaceImageImportCommand extends $Command
-  .classBuilder<
-    DescribeCustomWorkspaceImageImportCommandInput,
-    DescribeCustomWorkspaceImageImportCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "DescribeCustomWorkspaceImageImport", {})
-  .n("WorkSpacesClient", "DescribeCustomWorkspaceImageImportCommand")
-  .sc(DescribeCustomWorkspaceImageImport$)
-  .build() {
+export class DescribeCustomWorkspaceImageImportCommand extends command<DescribeCustomWorkspaceImageImportCommandInput, DescribeCustomWorkspaceImageImportCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCustomWorkspaceImageImport",
+  DescribeCustomWorkspaceImageImport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

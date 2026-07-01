@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopGameSessionPlacementInput, StopGameSessionPlacementOutput } from "../models/models_0";
 import { StopGameSessionPlacement$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopGameSessionPlacement$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPl
  *
  * @public
  */
-export class StopGameSessionPlacementCommand extends $Command
-  .classBuilder<
-    StopGameSessionPlacementCommandInput,
-    StopGameSessionPlacementCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "StopGameSessionPlacement", {})
-  .n("GameLiftClient", "StopGameSessionPlacementCommand")
-  .sc(StopGameSessionPlacement$)
-  .build() {
+export class StopGameSessionPlacementCommand extends command<StopGameSessionPlacementCommandInput, StopGameSessionPlacementCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopGameSessionPlacement",
+  StopGameSessionPlacement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSpendingLimitRequest, DeleteSpendingLimitResponse } from "../models/models_0";
 import { DeleteSpendingLimit$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteSpendingLimit$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteSpendingLimitCommandOutput extends DeleteSpendingLimitRes
  *
  * @public
  */
-export class DeleteSpendingLimitCommand extends $Command
-  .classBuilder<
-    DeleteSpendingLimitCommandInput,
-    DeleteSpendingLimitCommandOutput,
-    BraketClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BraketClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Braket", "DeleteSpendingLimit", {})
-  .n("BraketClient", "DeleteSpendingLimitCommand")
-  .sc(DeleteSpendingLimit$)
-  .build() {
+export class DeleteSpendingLimitCommand extends command<DeleteSpendingLimitCommandInput, DeleteSpendingLimitCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSpendingLimit",
+  DeleteSpendingLimit$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCoreNetworkPolicyVersionsRequest, ListCoreNetworkPolicyVersionsResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { ListCoreNetworkPolicyVersions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface ListCoreNetworkPolicyVersionsCommandOutput extends ListCoreNetw
  *
  * @public
  */
-export class ListCoreNetworkPolicyVersionsCommand extends $Command
-  .classBuilder<
-    ListCoreNetworkPolicyVersionsCommandInput,
-    ListCoreNetworkPolicyVersionsCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "ListCoreNetworkPolicyVersions", {})
-  .n("NetworkManagerClient", "ListCoreNetworkPolicyVersionsCommand")
-  .sc(ListCoreNetworkPolicyVersions$)
-  .build() {
+export class ListCoreNetworkPolicyVersionsCommand extends command<ListCoreNetworkPolicyVersionsCommandInput, ListCoreNetworkPolicyVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCoreNetworkPolicyVersions",
+  ListCoreNetworkPolicyVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockDataAutomationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockDataAutomationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListDataAutomationLibraryIngestionJobsRequest,
   ListDataAutomationLibraryIngestionJobsResponse,
@@ -19,7 +12,6 @@ import { ListDataAutomationLibraryIngestionJobs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface ListDataAutomationLibraryIngestionJobsCommandOutput extends Lis
  *
  * @public
  */
-export class ListDataAutomationLibraryIngestionJobsCommand extends $Command
-  .classBuilder<
-    ListDataAutomationLibraryIngestionJobsCommandInput,
-    ListDataAutomationLibraryIngestionJobsCommandOutput,
-    BedrockDataAutomationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockDataAutomationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockKeystoneBuildTimeService", "ListDataAutomationLibraryIngestionJobs", {})
-  .n("BedrockDataAutomationClient", "ListDataAutomationLibraryIngestionJobsCommand")
-  .sc(ListDataAutomationLibraryIngestionJobs$)
-  .build() {
+export class ListDataAutomationLibraryIngestionJobsCommand extends command<ListDataAutomationLibraryIngestionJobsCommandInput, ListDataAutomationLibraryIngestionJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDataAutomationLibraryIngestionJobs",
+  ListDataAutomationLibraryIngestionJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

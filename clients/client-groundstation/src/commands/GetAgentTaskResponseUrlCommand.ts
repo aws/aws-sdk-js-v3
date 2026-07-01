@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAgentTaskResponseUrlRequest, GetAgentTaskResponseUrlResponse } from "../models/models_0";
 import { GetAgentTaskResponseUrl$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetAgentTaskResponseUrl$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface GetAgentTaskResponseUrlCommandOutput extends GetAgentTaskRespon
  *
  * @public
  */
-export class GetAgentTaskResponseUrlCommand extends $Command
-  .classBuilder<
-    GetAgentTaskResponseUrlCommandInput,
-    GetAgentTaskResponseUrlCommandOutput,
-    GroundStationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GroundStation", "GetAgentTaskResponseUrl", {})
-  .n("GroundStationClient", "GetAgentTaskResponseUrlCommand")
-  .sc(GetAgentTaskResponseUrl$)
-  .build() {
+export class GetAgentTaskResponseUrlCommand extends command<GetAgentTaskResponseUrlCommandInput, GetAgentTaskResponseUrlCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAgentTaskResponseUrl",
+  GetAgentTaskResponseUrl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

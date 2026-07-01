@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateEksAnywhereSubscriptionRequest, UpdateEksAnywhereSubscriptionResponse } from "../models/models_0";
 import { UpdateEksAnywhereSubscription$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateEksAnywhereSubscription$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface UpdateEksAnywhereSubscriptionCommandOutput extends UpdateEksAny
  *
  * @public
  */
-export class UpdateEksAnywhereSubscriptionCommand extends $Command
-  .classBuilder<
-    UpdateEksAnywhereSubscriptionCommandInput,
-    UpdateEksAnywhereSubscriptionCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "UpdateEksAnywhereSubscription", {})
-  .n("EKSClient", "UpdateEksAnywhereSubscriptionCommand")
-  .sc(UpdateEksAnywhereSubscription$)
-  .build() {
+export class UpdateEksAnywhereSubscriptionCommand extends command<UpdateEksAnywhereSubscriptionCommandInput, UpdateEksAnywhereSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateEksAnywhereSubscription",
+  UpdateEksAnywhereSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

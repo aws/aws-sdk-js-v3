@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteOptedOutNumberRequest, DeleteOptedOutNumberResult } from "../models/models_0";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { DeleteOptedOutNumber$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface DeleteOptedOutNumberCommandOutput extends DeleteOptedOutNumberR
  *
  * @public
  */
-export class DeleteOptedOutNumberCommand extends $Command
-  .classBuilder<
-    DeleteOptedOutNumberCommandInput,
-    DeleteOptedOutNumberCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "DeleteOptedOutNumber", {})
-  .n("PinpointSMSVoiceV2Client", "DeleteOptedOutNumberCommand")
-  .sc(DeleteOptedOutNumber$)
-  .build() {
+export class DeleteOptedOutNumberCommand extends command<DeleteOptedOutNumberCommandInput, DeleteOptedOutNumberCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteOptedOutNumber",
+  DeleteOptedOutNumber$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

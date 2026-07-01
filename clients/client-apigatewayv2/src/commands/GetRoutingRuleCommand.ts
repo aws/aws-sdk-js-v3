@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRoutingRuleRequest, GetRoutingRuleResponse } from "../models/models_0";
 import { GetRoutingRule$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetRoutingRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface GetRoutingRuleCommandOutput extends GetRoutingRuleResponse, __M
  *
  * @public
  */
-export class GetRoutingRuleCommand extends $Command
-  .classBuilder<
-    GetRoutingRuleCommandInput,
-    GetRoutingRuleCommandOutput,
-    ApiGatewayV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApiGatewayV2", "GetRoutingRule", {})
-  .n("ApiGatewayV2Client", "GetRoutingRuleCommand")
-  .sc(GetRoutingRule$)
-  .build() {
+export class GetRoutingRuleCommand extends command<GetRoutingRuleCommandInput, GetRoutingRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRoutingRule",
+  GetRoutingRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

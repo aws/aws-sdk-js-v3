@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateTieringConfigurationInput, CreateTieringConfigurationOutput } from "../models/models_0";
 import { CreateTieringConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateTieringConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface CreateTieringConfigurationCommandOutput extends CreateTieringCo
  *
  * @public
  */
-export class CreateTieringConfigurationCommand extends $Command
-  .classBuilder<
-    CreateTieringConfigurationCommandInput,
-    CreateTieringConfigurationCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "CreateTieringConfiguration", {})
-  .n("BackupClient", "CreateTieringConfigurationCommand")
-  .sc(CreateTieringConfiguration$)
-  .build() {
+export class CreateTieringConfigurationCommand extends command<CreateTieringConfigurationCommandInput, CreateTieringConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTieringConfiguration",
+  CreateTieringConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

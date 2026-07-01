@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeConnectionAliasPermissionsRequest,
   DescribeConnectionAliasPermissionsResult,
 } from "../models/models_0";
 import { DescribeConnectionAliasPermissions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface DescribeConnectionAliasPermissionsCommandOutput extends Describ
  *
  * @public
  */
-export class DescribeConnectionAliasPermissionsCommand extends $Command
-  .classBuilder<
-    DescribeConnectionAliasPermissionsCommandInput,
-    DescribeConnectionAliasPermissionsCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "DescribeConnectionAliasPermissions", {})
-  .n("WorkSpacesClient", "DescribeConnectionAliasPermissionsCommand")
-  .sc(DescribeConnectionAliasPermissions$)
-  .build() {
+export class DescribeConnectionAliasPermissionsCommand extends command<DescribeConnectionAliasPermissionsCommandInput, DescribeConnectionAliasPermissionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeConnectionAliasPermissions",
+  DescribeConnectionAliasPermissions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPolicyTagsRequest, ListPolicyTagsResponse } from "../models/models_0";
 import { ListPolicyTags$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListPolicyTags$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface ListPolicyTagsCommandOutput extends ListPolicyTagsResponse, __M
  *
  * @public
  */
-export class ListPolicyTagsCommand extends $Command
-  .classBuilder<
-    ListPolicyTagsCommandInput,
-    ListPolicyTagsCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "ListPolicyTags", {})
-  .n("IAMClient", "ListPolicyTagsCommand")
-  .sc(ListPolicyTags$)
-  .build() {
+export class ListPolicyTagsCommand extends command<ListPolicyTagsCommandInput, ListPolicyTagsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPolicyTags",
+  ListPolicyTags$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

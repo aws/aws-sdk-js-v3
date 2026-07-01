@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeExpressionsRequest, DescribeExpressionsResponse } from "../models/models_0";
 import { DescribeExpressions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeExpressions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface DescribeExpressionsCommandOutput extends DescribeExpressionsRes
  *
  * @public
  */
-export class DescribeExpressionsCommand extends $Command
-  .classBuilder<
-    DescribeExpressionsCommandInput,
-    DescribeExpressionsCommandOutput,
-    CloudSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("A9SearchCloudConfigService2013", "DescribeExpressions", {})
-  .n("CloudSearchClient", "DescribeExpressionsCommand")
-  .sc(DescribeExpressions$)
-  .build() {
+export class DescribeExpressionsCommand extends command<DescribeExpressionsCommandInput, DescribeExpressionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeExpressions",
+  DescribeExpressions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

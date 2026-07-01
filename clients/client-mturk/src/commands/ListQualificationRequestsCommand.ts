@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListQualificationRequestsRequest, ListQualificationRequestsResponse } from "../models/models_0";
-import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { ListQualificationRequests$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface ListQualificationRequestsCommandOutput extends ListQualificatio
  *
  * @public
  */
-export class ListQualificationRequestsCommand extends $Command
-  .classBuilder<
-    ListQualificationRequestsCommandInput,
-    ListQualificationRequestsCommandOutput,
-    MTurkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MTurkRequesterServiceV20170117", "ListQualificationRequests", {})
-  .n("MTurkClient", "ListQualificationRequestsCommand")
-  .sc(ListQualificationRequests$)
-  .build() {
+export class ListQualificationRequestsCommand extends command<ListQualificationRequestsCommandInput, ListQualificationRequestsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListQualificationRequests",
+  ListQualificationRequests$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

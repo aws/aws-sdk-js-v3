@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListApplicationAccessScopesRequest, ListApplicationAccessScopesResponse } from "../models/models_0";
 import { ListApplicationAccessScopes$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface ListApplicationAccessScopesCommandOutput extends ListApplicatio
  *
  * @public
  */
-export class ListApplicationAccessScopesCommand extends $Command
-  .classBuilder<
-    ListApplicationAccessScopesCommandInput,
-    ListApplicationAccessScopesCommandOutput,
-    SSOAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBExternalService", "ListApplicationAccessScopes", {})
-  .n("SSOAdminClient", "ListApplicationAccessScopesCommand")
-  .sc(ListApplicationAccessScopes$)
-  .build() {
+export class ListApplicationAccessScopesCommand extends command<ListApplicationAccessScopesCommandInput, ListApplicationAccessScopesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListApplicationAccessScopes",
+  ListApplicationAccessScopes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

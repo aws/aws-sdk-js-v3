@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteReportInput, DeleteReportOutput } from "../models/models_0";
 import { DeleteReport$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteReport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -62,22 +58,12 @@ export interface DeleteReportCommandOutput extends DeleteReportOutput, __Metadat
  *
  * @public
  */
-export class DeleteReportCommand extends $Command
-  .classBuilder<
-    DeleteReportCommandInput,
-    DeleteReportCommandOutput,
-    CodeBuildClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeBuild_20161006", "DeleteReport", {})
-  .n("CodeBuildClient", "DeleteReportCommand")
-  .sc(DeleteReport$)
-  .build() {
+export class DeleteReportCommand extends command<DeleteReportCommandInput, DeleteReportCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteReport",
+  DeleteReport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

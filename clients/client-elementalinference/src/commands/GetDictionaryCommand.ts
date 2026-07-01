@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElementalInferenceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElementalInferenceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDictionaryRequest, GetDictionaryResponse } from "../models/models_0";
 import { GetDictionary$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetDictionary$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface GetDictionaryCommandOutput extends GetDictionaryResponse, __Met
  *
  * @public
  */
-export class GetDictionaryCommand extends $Command
-  .classBuilder<
-    GetDictionaryCommandInput,
-    GetDictionaryCommandOutput,
-    ElementalInferenceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElementalInferenceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElementalInference", "GetDictionary", {})
-  .n("ElementalInferenceClient", "GetDictionaryCommand")
-  .sc(GetDictionary$)
-  .build() {
+export class GetDictionaryCommand extends command<GetDictionaryCommandInput, GetDictionaryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDictionary",
+  GetDictionary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

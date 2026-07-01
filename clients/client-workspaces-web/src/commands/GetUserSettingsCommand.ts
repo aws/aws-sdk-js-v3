@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetUserSettingsRequest, GetUserSettingsResponse } from "../models/models_0";
 import { GetUserSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -147,22 +143,12 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
  *
  * @public
  */
-export class GetUserSettingsCommand extends $Command
-  .classBuilder<
-    GetUserSettingsCommandInput,
-    GetUserSettingsCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "GetUserSettings", {})
-  .n("WorkSpacesWebClient", "GetUserSettingsCommand")
-  .sc(GetUserSettings$)
-  .build() {
+export class GetUserSettingsCommand extends command<GetUserSettingsCommandInput, GetUserSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetUserSettings",
+  GetUserSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

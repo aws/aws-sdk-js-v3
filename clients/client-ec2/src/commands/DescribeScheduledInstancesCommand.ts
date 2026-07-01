@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeScheduledInstancesRequest, DescribeScheduledInstancesResult } from "../models/models_4";
 import { DescribeScheduledInstances$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeScheduledInstances$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface DescribeScheduledInstancesCommandOutput extends DescribeSchedul
  *
  * @public
  */
-export class DescribeScheduledInstancesCommand extends $Command
-  .classBuilder<
-    DescribeScheduledInstancesCommandInput,
-    DescribeScheduledInstancesCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeScheduledInstances", {})
-  .n("EC2Client", "DescribeScheduledInstancesCommand")
-  .sc(DescribeScheduledInstances$)
-  .build() {
+export class DescribeScheduledInstancesCommand extends command<DescribeScheduledInstancesCommandInput, DescribeScheduledInstancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeScheduledInstances",
+  DescribeScheduledInstances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

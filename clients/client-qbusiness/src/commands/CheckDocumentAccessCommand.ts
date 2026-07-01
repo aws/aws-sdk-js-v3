@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CheckDocumentAccessRequest, CheckDocumentAccessResponse } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { CheckDocumentAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +128,12 @@ export interface CheckDocumentAccessCommandOutput extends CheckDocumentAccessRes
  *
  * @public
  */
-export class CheckDocumentAccessCommand extends $Command
-  .classBuilder<
-    CheckDocumentAccessCommandInput,
-    CheckDocumentAccessCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "CheckDocumentAccess", {})
-  .n("QBusinessClient", "CheckDocumentAccessCommand")
-  .sc(CheckDocumentAccess$)
-  .build() {
+export class CheckDocumentAccessCommand extends command<CheckDocumentAccessCommandInput, CheckDocumentAccessCommandOutput>(
+  _ep0,
+  _mw0,
+  "CheckDocumentAccess",
+  CheckDocumentAccess$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

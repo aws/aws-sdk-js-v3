@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateCodeSigningConfigRequest, UpdateCodeSigningConfigResponse } from "../models/models_0";
 import { UpdateCodeSigningConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateCodeSigningConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface UpdateCodeSigningConfigCommandOutput extends UpdateCodeSigningC
  *
  * @public
  */
-export class UpdateCodeSigningConfigCommand extends $Command
-  .classBuilder<
-    UpdateCodeSigningConfigCommandInput,
-    UpdateCodeSigningConfigCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "UpdateCodeSigningConfig", {})
-  .n("LambdaClient", "UpdateCodeSigningConfigCommand")
-  .sc(UpdateCodeSigningConfig$)
-  .build() {
+export class UpdateCodeSigningConfigCommand extends command<UpdateCodeSigningConfigCommandInput, UpdateCodeSigningConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateCodeSigningConfig",
+  UpdateCodeSigningConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

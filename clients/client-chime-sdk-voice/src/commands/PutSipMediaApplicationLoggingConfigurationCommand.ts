@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutSipMediaApplicationLoggingConfigurationRequest,
   PutSipMediaApplicationLoggingConfigurationResponse,
@@ -15,7 +12,6 @@ import { PutSipMediaApplicationLoggingConfiguration$ } from "../schemas/schemas_
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface PutSipMediaApplicationLoggingConfigurationCommandOutput extends
  *
  * @public
  */
-export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command
-  .classBuilder<
-    PutSipMediaApplicationLoggingConfigurationCommandInput,
-    PutSipMediaApplicationLoggingConfigurationCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "PutSipMediaApplicationLoggingConfiguration", {})
-  .n("ChimeSDKVoiceClient", "PutSipMediaApplicationLoggingConfigurationCommand")
-  .sc(PutSipMediaApplicationLoggingConfiguration$)
-  .build() {
+export class PutSipMediaApplicationLoggingConfigurationCommand extends command<PutSipMediaApplicationLoggingConfigurationCommandInput, PutSipMediaApplicationLoggingConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutSipMediaApplicationLoggingConfiguration",
+  PutSipMediaApplicationLoggingConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchRebootClusterNodesRequest, BatchRebootClusterNodesResponse } from "../models/models_0";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { BatchRebootClusterNodes$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface BatchRebootClusterNodesCommandOutput extends BatchRebootCluster
  *
  * @public
  */
-export class BatchRebootClusterNodesCommand extends $Command
-  .classBuilder<
-    BatchRebootClusterNodesCommandInput,
-    BatchRebootClusterNodesCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "BatchRebootClusterNodes", {})
-  .n("SageMakerClient", "BatchRebootClusterNodesCommand")
-  .sc(BatchRebootClusterNodes$)
-  .build() {
+export class BatchRebootClusterNodesCommand extends command<BatchRebootClusterNodesCommandInput, BatchRebootClusterNodesCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchRebootClusterNodes",
+  BatchRebootClusterNodes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

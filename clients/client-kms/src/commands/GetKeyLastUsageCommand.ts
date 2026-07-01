@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetKeyLastUsageRequest, GetKeyLastUsageResponse } from "../models/models_0";
 import { GetKeyLastUsage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetKeyLastUsage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -173,22 +169,12 @@ export interface GetKeyLastUsageCommandOutput extends GetKeyLastUsageResponse, _
  *
  * @public
  */
-export class GetKeyLastUsageCommand extends $Command
-  .classBuilder<
-    GetKeyLastUsageCommandInput,
-    GetKeyLastUsageCommandOutput,
-    KMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrentService", "GetKeyLastUsage", {})
-  .n("KMSClient", "GetKeyLastUsageCommand")
-  .sc(GetKeyLastUsage$)
-  .build() {
+export class GetKeyLastUsageCommand extends command<GetKeyLastUsageCommandInput, GetKeyLastUsageCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetKeyLastUsage",
+  GetKeyLastUsage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

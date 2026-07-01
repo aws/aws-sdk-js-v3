@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopRouterInputRequest, StopRouterInputResponse } from "../models/models_1";
 import { StopRouterInput$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopRouterInput$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface StopRouterInputCommandOutput extends StopRouterInputResponse, _
  *
  * @public
  */
-export class StopRouterInputCommand extends $Command
-  .classBuilder<
-    StopRouterInputCommandInput,
-    StopRouterInputCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "StopRouterInput", {})
-  .n("MediaConnectClient", "StopRouterInputCommand")
-  .sc(StopRouterInput$)
-  .build() {
+export class StopRouterInputCommand extends command<StopRouterInputCommandInput, StopRouterInputCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopRouterInput",
+  StopRouterInput$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

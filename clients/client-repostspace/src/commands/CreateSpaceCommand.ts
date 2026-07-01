@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSpaceInput, CreateSpaceOutput } from "../models/models_0";
-import type { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
 import { CreateSpace$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface CreateSpaceCommandOutput extends CreateSpaceOutput, __MetadataB
  *
  * @public
  */
-export class CreateSpaceCommand extends $Command
-  .classBuilder<
-    CreateSpaceCommandInput,
-    CreateSpaceCommandOutput,
-    RepostspaceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RepostspaceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RepostSpace", "CreateSpace", {})
-  .n("RepostspaceClient", "CreateSpaceCommand")
-  .sc(CreateSpace$)
-  .build() {
+export class CreateSpaceCommand extends command<CreateSpaceCommandInput, CreateSpaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSpace",
+  CreateSpace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

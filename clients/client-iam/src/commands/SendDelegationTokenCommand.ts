@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendDelegationTokenRequest } from "../models/models_0";
 import { SendDelegationToken$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SendDelegationToken$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface SendDelegationTokenCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class SendDelegationTokenCommand extends $Command
-  .classBuilder<
-    SendDelegationTokenCommandInput,
-    SendDelegationTokenCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "SendDelegationToken", {})
-  .n("IAMClient", "SendDelegationTokenCommand")
-  .sc(SendDelegationToken$)
-  .build() {
+export class SendDelegationTokenCommand extends command<SendDelegationTokenCommandInput, SendDelegationTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendDelegationToken",
+  SendDelegationToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDomainEntryRequest, DeleteDomainEntryResult } from "../models/models_0";
 import { DeleteDomainEntry$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteDomainEntry$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface DeleteDomainEntryCommandOutput extends DeleteDomainEntryResult,
  *
  * @public
  */
-export class DeleteDomainEntryCommand extends $Command
-  .classBuilder<
-    DeleteDomainEntryCommandInput,
-    DeleteDomainEntryCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "DeleteDomainEntry", {})
-  .n("LightsailClient", "DeleteDomainEntryCommand")
-  .sc(DeleteDomainEntry$)
-  .build() {
+export class DeleteDomainEntryCommand extends command<DeleteDomainEntryCommandInput, DeleteDomainEntryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDomainEntry",
+  DeleteDomainEntry$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

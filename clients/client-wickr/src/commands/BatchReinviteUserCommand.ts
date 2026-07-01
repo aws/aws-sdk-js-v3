@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchReinviteUserRequest, BatchReinviteUserResponse } from "../models/models_0";
 import { BatchReinviteUser$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -176,22 +172,12 @@ export interface BatchReinviteUserCommandOutput extends BatchReinviteUserRespons
  *
  * @public
  */
-export class BatchReinviteUserCommand extends $Command
-  .classBuilder<
-    BatchReinviteUserCommandInput,
-    BatchReinviteUserCommandOutput,
-    WickrClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WickrAdminApi", "BatchReinviteUser", {})
-  .n("WickrClient", "BatchReinviteUserCommand")
-  .sc(BatchReinviteUser$)
-  .build() {
+export class BatchReinviteUserCommand extends command<BatchReinviteUserCommandInput, BatchReinviteUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchReinviteUser",
+  BatchReinviteUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

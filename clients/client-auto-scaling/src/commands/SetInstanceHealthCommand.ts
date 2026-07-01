@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SetInstanceHealthQuery } from "../models/models_0";
 import { SetInstanceHealth$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SetInstanceHealth$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface SetInstanceHealthCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class SetInstanceHealthCommand extends $Command
-  .classBuilder<
-    SetInstanceHealthCommandInput,
-    SetInstanceHealthCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "SetInstanceHealth", {})
-  .n("AutoScalingClient", "SetInstanceHealthCommand")
-  .sc(SetInstanceHealth$)
-  .build() {
+export class SetInstanceHealthCommand extends command<SetInstanceHealthCommandInput, SetInstanceHealthCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetInstanceHealth",
+  SetInstanceHealth$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

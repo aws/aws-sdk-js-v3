@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListGeneratedTemplatesInput, ListGeneratedTemplatesOutput } from "../models/models_0";
 import { ListGeneratedTemplates$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListGeneratedTemplates$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +67,12 @@ export interface ListGeneratedTemplatesCommandOutput extends ListGeneratedTempla
  *
  * @public
  */
-export class ListGeneratedTemplatesCommand extends $Command
-  .classBuilder<
-    ListGeneratedTemplatesCommandInput,
-    ListGeneratedTemplatesCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "ListGeneratedTemplates", {})
-  .n("CloudFormationClient", "ListGeneratedTemplatesCommand")
-  .sc(ListGeneratedTemplates$)
-  .build() {
+export class ListGeneratedTemplatesCommand extends command<ListGeneratedTemplatesCommandInput, ListGeneratedTemplatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListGeneratedTemplates",
+  ListGeneratedTemplates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

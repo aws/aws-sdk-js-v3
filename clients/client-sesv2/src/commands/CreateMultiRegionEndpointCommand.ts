@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateMultiRegionEndpointRequest, CreateMultiRegionEndpointResponse } from "../models/models_0";
 import { CreateMultiRegionEndpoint$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface CreateMultiRegionEndpointCommandOutput extends CreateMultiRegio
  *
  * @public
  */
-export class CreateMultiRegionEndpointCommand extends $Command
-  .classBuilder<
-    CreateMultiRegionEndpointCommandInput,
-    CreateMultiRegionEndpointCommandOutput,
-    SESv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService_v2", "CreateMultiRegionEndpoint", {})
-  .n("SESv2Client", "CreateMultiRegionEndpointCommand")
-  .sc(CreateMultiRegionEndpoint$)
-  .build() {
+export class CreateMultiRegionEndpointCommand extends command<CreateMultiRegionEndpointCommandInput, CreateMultiRegionEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateMultiRegionEndpoint",
+  CreateMultiRegionEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

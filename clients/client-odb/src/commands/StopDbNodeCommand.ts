@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopDbNodeInput, StopDbNodeOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { StopDbNode$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface StopDbNodeCommandOutput extends StopDbNodeOutput, __MetadataBea
  *
  * @public
  */
-export class StopDbNodeCommand extends $Command
-  .classBuilder<
-    StopDbNodeCommandInput,
-    StopDbNodeCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "StopDbNode", {})
-  .n("OdbClient", "StopDbNodeCommand")
-  .sc(StopDbNode$)
-  .build() {
+export class StopDbNodeCommand extends command<StopDbNodeCommandInput, StopDbNodeCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopDbNode",
+  StopDbNode$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

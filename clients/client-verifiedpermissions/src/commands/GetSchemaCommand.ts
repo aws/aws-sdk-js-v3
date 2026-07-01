@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSchemaInput, GetSchemaOutput } from "../models/models_0";
 import { GetSchema$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  VerifiedPermissionsClientResolvedConfig,
-} from "../VerifiedPermissionsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +120,12 @@ export interface GetSchemaCommandOutput extends GetSchemaOutput, __MetadataBeare
  *
  * @public
  */
-export class GetSchemaCommand extends $Command
-  .classBuilder<
-    GetSchemaCommandInput,
-    GetSchemaCommandOutput,
-    VerifiedPermissionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("VerifiedPermissions", "GetSchema", {})
-  .n("VerifiedPermissionsClient", "GetSchemaCommand")
-  .sc(GetSchema$)
-  .build() {
+export class GetSchemaCommand extends command<GetSchemaCommandInput, GetSchemaCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSchema",
+  GetSchema$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

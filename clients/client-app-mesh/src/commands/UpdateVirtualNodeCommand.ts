@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateVirtualNodeInput, UpdateVirtualNodeOutput } from "../models/models_0";
 import { UpdateVirtualNode$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateVirtualNode$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -556,22 +552,12 @@ export interface UpdateVirtualNodeCommandOutput extends UpdateVirtualNodeOutput,
  *
  * @public
  */
-export class UpdateVirtualNodeCommand extends $Command
-  .classBuilder<
-    UpdateVirtualNodeCommandInput,
-    UpdateVirtualNodeCommandOutput,
-    AppMeshClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppMeshClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppMesh", "UpdateVirtualNode", {})
-  .n("AppMeshClient", "UpdateVirtualNodeCommand")
-  .sc(UpdateVirtualNode$)
-  .build() {
+export class UpdateVirtualNodeCommand extends command<UpdateVirtualNodeCommandInput, UpdateVirtualNodeCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateVirtualNode",
+  UpdateVirtualNode$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep5, _mw0, command } from "../commandBuilder";
 import type { PutResourcePolicyInput, PutResourcePolicyOutput } from "../models/models_0";
 import { PutResourcePolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutResourcePolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,25 +128,12 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyOutput,
  *
  * @public
  */
-export class PutResourcePolicyCommand extends $Command
-  .classBuilder<
-    PutResourcePolicyCommandInput,
-    PutResourcePolicyCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "contextParams", name: "ResourceArn" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "PutResourcePolicy", {})
-  .n("DynamoDBClient", "PutResourcePolicyCommand")
-  .sc(PutResourcePolicy$)
-  .build() {
+export class PutResourcePolicyCommand extends command<PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput>(
+  _ep5,
+  _mw0,
+  "PutResourcePolicy",
+  PutResourcePolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

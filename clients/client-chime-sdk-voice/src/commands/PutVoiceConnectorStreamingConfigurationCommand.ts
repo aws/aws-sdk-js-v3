@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutVoiceConnectorStreamingConfigurationRequest,
   PutVoiceConnectorStreamingConfigurationResponse,
@@ -15,7 +12,6 @@ import { PutVoiceConnectorStreamingConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface PutVoiceConnectorStreamingConfigurationCommandOutput extends Pu
  *
  * @public
  */
-export class PutVoiceConnectorStreamingConfigurationCommand extends $Command
-  .classBuilder<
-    PutVoiceConnectorStreamingConfigurationCommandInput,
-    PutVoiceConnectorStreamingConfigurationCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "PutVoiceConnectorStreamingConfiguration", {})
-  .n("ChimeSDKVoiceClient", "PutVoiceConnectorStreamingConfigurationCommand")
-  .sc(PutVoiceConnectorStreamingConfiguration$)
-  .build() {
+export class PutVoiceConnectorStreamingConfigurationCommand extends command<PutVoiceConnectorStreamingConfigurationCommandInput, PutVoiceConnectorStreamingConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutVoiceConnectorStreamingConfiguration",
+  PutVoiceConnectorStreamingConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

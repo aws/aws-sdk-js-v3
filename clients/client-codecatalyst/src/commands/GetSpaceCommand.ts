@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSpaceRequest, GetSpaceResponse } from "../models/models_0";
 import { GetSpace$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetSpace$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface GetSpaceCommandOutput extends GetSpaceResponse, __MetadataBeare
  *
  * @public
  */
-export class GetSpaceCommand extends $Command
-  .classBuilder<
-    GetSpaceCommandInput,
-    GetSpaceCommandOutput,
-    CodeCatalystClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCatalyst", "GetSpace", {})
-  .n("CodeCatalystClient", "GetSpaceCommand")
-  .sc(GetSpace$)
-  .build() {
+export class GetSpaceCommand extends command<GetSpaceCommandInput, GetSpaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSpace",
+  GetSpace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

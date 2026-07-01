@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateGroupRequest, CreateGroupResponse } from "../models/models_0";
 import { CreateGroup$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  *
  * @public
  */
-export class CreateGroupCommand extends $Command
-  .classBuilder<
-    CreateGroupCommandInput,
-    CreateGroupCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "CreateGroup", {})
-  .n("WorkMailClient", "CreateGroupCommand")
-  .sc(CreateGroup$)
-  .build() {
+export class CreateGroupCommand extends command<CreateGroupCommandInput, CreateGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateGroup",
+  CreateGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

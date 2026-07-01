@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRecommendationTemplateRequest, CreateRecommendationTemplateResponse } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { CreateRecommendationTemplate$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface CreateRecommendationTemplateCommandOutput extends CreateRecomme
  *
  * @public
  */
-export class CreateRecommendationTemplateCommand extends $Command
-  .classBuilder<
-    CreateRecommendationTemplateCommandInput,
-    CreateRecommendationTemplateCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "CreateRecommendationTemplate", {})
-  .n("ResiliencehubClient", "CreateRecommendationTemplateCommand")
-  .sc(CreateRecommendationTemplate$)
-  .build() {
+export class CreateRecommendationTemplateCommand extends command<CreateRecommendationTemplateCommandInput, CreateRecommendationTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRecommendationTemplate",
+  CreateRecommendationTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

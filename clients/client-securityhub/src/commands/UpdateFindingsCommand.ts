@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateFindingsRequest, UpdateFindingsResponse } from "../models/models_3";
 import { UpdateFindings$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -359,22 +355,12 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  *
  * @public
  */
-export class UpdateFindingsCommand extends $Command
-  .classBuilder<
-    UpdateFindingsCommandInput,
-    UpdateFindingsCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "UpdateFindings", {})
-  .n("SecurityHubClient", "UpdateFindingsCommand")
-  .sc(UpdateFindings$)
-  .build() {
+export class UpdateFindingsCommand extends command<UpdateFindingsCommandInput, UpdateFindingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateFindings",
+  UpdateFindings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

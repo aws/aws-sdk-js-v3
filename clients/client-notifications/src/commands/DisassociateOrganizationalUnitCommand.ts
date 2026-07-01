@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateOrganizationalUnitRequest, DisassociateOrganizationalUnitResponse } from "../models/models_0";
-import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
 import { DisassociateOrganizationalUnit$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DisassociateOrganizationalUnitCommandOutput extends Disassociat
  *
  * @public
  */
-export class DisassociateOrganizationalUnitCommand extends $Command
-  .classBuilder<
-    DisassociateOrganizationalUnitCommandInput,
-    DisassociateOrganizationalUnitCommandOutput,
-    NotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Notifications", "DisassociateOrganizationalUnit", {})
-  .n("NotificationsClient", "DisassociateOrganizationalUnitCommand")
-  .sc(DisassociateOrganizationalUnit$)
-  .build() {
+export class DisassociateOrganizationalUnitCommand extends command<DisassociateOrganizationalUnitCommandInput, DisassociateOrganizationalUnitCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateOrganizationalUnit",
+  DisassociateOrganizationalUnit$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

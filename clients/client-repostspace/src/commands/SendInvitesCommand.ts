@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendInvitesInput } from "../models/models_0";
-import type { RepostspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RepostspaceClient";
 import { SendInvites$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface SendInvitesCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class SendInvitesCommand extends $Command
-  .classBuilder<
-    SendInvitesCommandInput,
-    SendInvitesCommandOutput,
-    RepostspaceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RepostspaceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RepostSpace", "SendInvites", {})
-  .n("RepostspaceClient", "SendInvitesCommand")
-  .sc(SendInvites$)
-  .build() {
+export class SendInvitesCommand extends command<SendInvitesCommandInput, SendInvitesCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendInvites",
+  SendInvites$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

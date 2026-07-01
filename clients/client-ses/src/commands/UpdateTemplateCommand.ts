@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateTemplateRequest, UpdateTemplateResponse } from "../models/models_0";
 import { UpdateTemplate$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *
  * @public
  */
-export class UpdateTemplateCommand extends $Command
-  .classBuilder<
-    UpdateTemplateCommandInput,
-    UpdateTemplateCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "UpdateTemplate", {})
-  .n("SESClient", "UpdateTemplateCommand")
-  .sc(UpdateTemplate$)
-  .build() {
+export class UpdateTemplateCommand extends command<UpdateTemplateCommandInput, UpdateTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateTemplate",
+  UpdateTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

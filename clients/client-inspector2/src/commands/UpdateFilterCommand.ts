@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateFilterRequest, UpdateFilterResponse } from "../models/models_1";
 import { UpdateFilter$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateFilter$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -220,22 +216,12 @@ export interface UpdateFilterCommandOutput extends UpdateFilterResponse, __Metad
  *
  * @public
  */
-export class UpdateFilterCommand extends $Command
-  .classBuilder<
-    UpdateFilterCommandInput,
-    UpdateFilterCommandOutput,
-    Inspector2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Inspector2", "UpdateFilter", {})
-  .n("Inspector2Client", "UpdateFilterCommand")
-  .sc(UpdateFilter$)
-  .build() {
+export class UpdateFilterCommand extends command<UpdateFilterCommandInput, UpdateFilterCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateFilter",
+  UpdateFilter$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

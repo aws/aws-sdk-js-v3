@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetVectorBucketInput, GetVectorBucketOutput } from "../models/models_0";
-import type { S3VectorsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3VectorsClient";
 import { GetVectorBucket$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface GetVectorBucketCommandOutput extends GetVectorBucketOutput, __M
  *
  * @public
  */
-export class GetVectorBucketCommand extends $Command
-  .classBuilder<
-    GetVectorBucketCommandInput,
-    GetVectorBucketCommandOutput,
-    S3VectorsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: S3VectorsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("S3Vectors", "GetVectorBucket", {})
-  .n("S3VectorsClient", "GetVectorBucketCommand")
-  .sc(GetVectorBucket$)
-  .build() {
+export class GetVectorBucketCommand extends command<GetVectorBucketCommandInput, GetVectorBucketCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetVectorBucket",
+  GetVectorBucket$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

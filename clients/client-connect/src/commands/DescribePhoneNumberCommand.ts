@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribePhoneNumberRequest, DescribePhoneNumberResponse } from "../models/models_1";
 import { DescribePhoneNumber$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribePhoneNumber$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface DescribePhoneNumberCommandOutput extends DescribePhoneNumberRes
  *
  * @public
  */
-export class DescribePhoneNumberCommand extends $Command
-  .classBuilder<
-    DescribePhoneNumberCommandInput,
-    DescribePhoneNumberCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DescribePhoneNumber", {})
-  .n("ConnectClient", "DescribePhoneNumberCommand")
-  .sc(DescribePhoneNumber$)
-  .build() {
+export class DescribePhoneNumberCommand extends command<DescribePhoneNumberCommandInput, DescribePhoneNumberCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribePhoneNumber",
+  DescribePhoneNumber$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

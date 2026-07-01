@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListModelInvocationJobsRequest, ListModelInvocationJobsResponse } from "../models/models_1";
 import { ListModelInvocationJobs$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListModelInvocationJobs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface ListModelInvocationJobsCommandOutput extends ListModelInvocatio
  *
  * @public
  */
-export class ListModelInvocationJobsCommand extends $Command
-  .classBuilder<
-    ListModelInvocationJobsCommandInput,
-    ListModelInvocationJobsCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "ListModelInvocationJobs", {})
-  .n("BedrockClient", "ListModelInvocationJobsCommand")
-  .sc(ListModelInvocationJobs$)
-  .build() {
+export class ListModelInvocationJobsCommand extends command<ListModelInvocationJobsCommandInput, ListModelInvocationJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListModelInvocationJobs",
+  ListModelInvocationJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMLInputChannelDataRequest } from "../models/models_0";
 import { DeleteMLInputChannelData$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteMLInputChannelData$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteMLInputChannelDataCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class DeleteMLInputChannelDataCommand extends $Command
-  .classBuilder<
-    DeleteMLInputChannelDataCommandInput,
-    DeleteMLInputChannelDataCommandOutput,
-    CleanRoomsMLClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStarkControlService", "DeleteMLInputChannelData", {})
-  .n("CleanRoomsMLClient", "DeleteMLInputChannelDataCommand")
-  .sc(DeleteMLInputChannelData$)
-  .build() {
+export class DeleteMLInputChannelDataCommand extends command<DeleteMLInputChannelDataCommandInput, DeleteMLInputChannelDataCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMLInputChannelData",
+  DeleteMLInputChannelData$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

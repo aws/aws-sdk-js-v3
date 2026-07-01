@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpgradeProfileVersionInput } from "../models/models_0";
 import { UpgradeProfileVersion$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WellArchitectedClientResolvedConfig,
-} from "../WellArchitectedClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface UpgradeProfileVersionCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpgradeProfileVersionCommand extends $Command
-  .classBuilder<
-    UpgradeProfileVersionCommandInput,
-    UpgradeProfileVersionCommandOutput,
-    WellArchitectedClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WellArchitectedApiServiceLambda", "UpgradeProfileVersion", {})
-  .n("WellArchitectedClient", "UpgradeProfileVersionCommand")
-  .sc(UpgradeProfileVersion$)
-  .build() {
+export class UpgradeProfileVersionCommand extends command<UpgradeProfileVersionCommandInput, UpgradeProfileVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpgradeProfileVersion",
+  UpgradeProfileVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListEntityOwnersInput, ListEntityOwnersOutput } from "../models/models_1";
 import { ListEntityOwners$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListEntityOwners$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface ListEntityOwnersCommandOutput extends ListEntityOwnersOutput, _
  *
  * @public
  */
-export class ListEntityOwnersCommand extends $Command
-  .classBuilder<
-    ListEntityOwnersCommandInput,
-    ListEntityOwnersCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "ListEntityOwners", {})
-  .n("DataZoneClient", "ListEntityOwnersCommand")
-  .sc(ListEntityOwners$)
-  .build() {
+export class ListEntityOwnersCommand extends command<ListEntityOwnersCommandInput, ListEntityOwnersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEntityOwners",
+  ListEntityOwners$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

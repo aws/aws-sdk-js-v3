@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAIPromptRequest, CreateAIPromptResponse } from "../models/models_0";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { CreateAIPrompt$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -131,22 +127,12 @@ export interface CreateAIPromptCommandOutput extends CreateAIPromptResponse, __M
  *
  * @public
  */
-export class CreateAIPromptCommand extends $Command
-  .classBuilder<
-    CreateAIPromptCommandInput,
-    CreateAIPromptCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "CreateAIPrompt", {})
-  .n("QConnectClient", "CreateAIPromptCommand")
-  .sc(CreateAIPrompt$)
-  .build() {
+export class CreateAIPromptCommand extends command<CreateAIPromptCommandInput, CreateAIPromptCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAIPrompt",
+  CreateAIPrompt$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

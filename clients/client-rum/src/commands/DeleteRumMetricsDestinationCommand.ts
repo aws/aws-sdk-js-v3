@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRumMetricsDestinationRequest, DeleteRumMetricsDestinationResponse } from "../models/models_0";
-import type { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 import { DeleteRumMetricsDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DeleteRumMetricsDestinationCommandOutput extends DeleteRumMetri
  *
  * @public
  */
-export class DeleteRumMetricsDestinationCommand extends $Command
-  .classBuilder<
-    DeleteRumMetricsDestinationCommandInput,
-    DeleteRumMetricsDestinationCommandOutput,
-    RUMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RUMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RUM", "DeleteRumMetricsDestination", {})
-  .n("RUMClient", "DeleteRumMetricsDestinationCommand")
-  .sc(DeleteRumMetricsDestination$)
-  .build() {
+export class DeleteRumMetricsDestinationCommand extends command<DeleteRumMetricsDestinationCommandInput, DeleteRumMetricsDestinationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRumMetricsDestination",
+  DeleteRumMetricsDestination$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

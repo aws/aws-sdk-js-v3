@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TestConnectionRequest, TestConnectionResponse } from "../models/models_3";
 import { TestConnection$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { TestConnection$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +122,12 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  *
  * @public
  */
-export class TestConnectionCommand extends $Command
-  .classBuilder<
-    TestConnectionCommandInput,
-    TestConnectionCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "TestConnection", {})
-  .n("GlueClient", "TestConnectionCommand")
-  .sc(TestConnection$)
-  .build() {
+export class TestConnectionCommand extends command<TestConnectionCommandInput, TestConnectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "TestConnection",
+  TestConnection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

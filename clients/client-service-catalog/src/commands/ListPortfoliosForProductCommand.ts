@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPortfoliosForProductInput, ListPortfoliosForProductOutput } from "../models/models_0";
 import { ListPortfoliosForProduct$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface ListPortfoliosForProductCommandOutput extends ListPortfoliosFor
  *
  * @public
  */
-export class ListPortfoliosForProductCommand extends $Command
-  .classBuilder<
-    ListPortfoliosForProductCommandInput,
-    ListPortfoliosForProductCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "ListPortfoliosForProduct", {})
-  .n("ServiceCatalogClient", "ListPortfoliosForProductCommand")
-  .sc(ListPortfoliosForProduct$)
-  .build() {
+export class ListPortfoliosForProductCommand extends command<ListPortfoliosForProductCommandInput, ListPortfoliosForProductCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPortfoliosForProduct",
+  ListPortfoliosForProduct$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

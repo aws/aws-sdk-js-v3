@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateLunaClientRequest, CreateLunaClientResponse } from "../models/models_0";
 import { CreateLunaClient$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateLunaClient$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface CreateLunaClientCommandOutput extends CreateLunaClientResponse,
  *
  * @public
  */
-export class CreateLunaClientCommand extends $Command
-  .classBuilder<
-    CreateLunaClientCommandInput,
-    CreateLunaClientCommandOutput,
-    CloudHSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudHSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudHsmFrontendService", "CreateLunaClient", {})
-  .n("CloudHSMClient", "CreateLunaClientCommand")
-  .sc(CreateLunaClient$)
-  .build() {
+export class CreateLunaClientCommand extends command<CreateLunaClientCommandInput, CreateLunaClientCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateLunaClient",
+  CreateLunaClient$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

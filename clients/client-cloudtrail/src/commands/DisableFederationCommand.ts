@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisableFederationRequest, DisableFederationResponse } from "../models/models_0";
 import { DisableFederation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisableFederation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +116,12 @@ export interface DisableFederationCommandOutput extends DisableFederationRespons
  *
  * @public
  */
-export class DisableFederationCommand extends $Command
-  .classBuilder<
-    DisableFederationCommandInput,
-    DisableFederationCommandOutput,
-    CloudTrailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudTrail_20131101", "DisableFederation", {})
-  .n("CloudTrailClient", "DisableFederationCommand")
-  .sc(DisableFederation$)
-  .build() {
+export class DisableFederationCommand extends command<DisableFederationCommandInput, DisableFederationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableFederation",
+  DisableFederation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

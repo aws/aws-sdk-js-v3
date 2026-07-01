@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateBacklogTaskRequest, UpdateBacklogTaskResponse } from "../models/models_0";
 import { UpdateBacklogTask$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateBacklogTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface UpdateBacklogTaskCommandOutput extends UpdateBacklogTaskRespons
  *
  * @public
  */
-export class UpdateBacklogTaskCommand extends $Command
-  .classBuilder<
-    UpdateBacklogTaskCommandInput,
-    UpdateBacklogTaskCommandOutput,
-    DevOpsAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DevOpsAgent", "UpdateBacklogTask", {})
-  .n("DevOpsAgentClient", "UpdateBacklogTaskCommand")
-  .sc(UpdateBacklogTask$)
-  .build() {
+export class UpdateBacklogTaskCommand extends command<UpdateBacklogTaskCommandInput, UpdateBacklogTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateBacklogTask",
+  UpdateBacklogTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

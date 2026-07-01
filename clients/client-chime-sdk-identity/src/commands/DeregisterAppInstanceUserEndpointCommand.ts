@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKIdentityClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKIdentityClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeregisterAppInstanceUserEndpointRequest } from "../models/models_0";
 import { DeregisterAppInstanceUserEndpoint$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeregisterAppInstanceUserEndpoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface DeregisterAppInstanceUserEndpointCommandOutput extends __Metada
  *
  * @public
  */
-export class DeregisterAppInstanceUserEndpointCommand extends $Command
-  .classBuilder<
-    DeregisterAppInstanceUserEndpointCommandInput,
-    DeregisterAppInstanceUserEndpointCommandOutput,
-    ChimeSDKIdentityClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKIdentityClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeIdentityService", "DeregisterAppInstanceUserEndpoint", {})
-  .n("ChimeSDKIdentityClient", "DeregisterAppInstanceUserEndpointCommand")
-  .sc(DeregisterAppInstanceUserEndpoint$)
-  .build() {
+export class DeregisterAppInstanceUserEndpointCommand extends command<DeregisterAppInstanceUserEndpointCommandInput, DeregisterAppInstanceUserEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeregisterAppInstanceUserEndpoint",
+  DeregisterAppInstanceUserEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

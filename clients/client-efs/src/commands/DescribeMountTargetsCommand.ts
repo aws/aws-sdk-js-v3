@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeMountTargetsRequest, DescribeMountTargetsResponse } from "../models/models_0";
 import { DescribeMountTargets$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeMountTargets$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -129,22 +125,12 @@ export interface DescribeMountTargetsCommandOutput extends DescribeMountTargetsR
  *
  * @public
  */
-export class DescribeMountTargetsCommand extends $Command
-  .classBuilder<
-    DescribeMountTargetsCommandInput,
-    DescribeMountTargetsCommandOutput,
-    EFSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MagnolioAPIService_v20150201", "DescribeMountTargets", {})
-  .n("EFSClient", "DescribeMountTargetsCommand")
-  .sc(DescribeMountTargets$)
-  .build() {
+export class DescribeMountTargetsCommand extends command<DescribeMountTargetsCommandInput, DescribeMountTargetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeMountTargets",
+  DescribeMountTargets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

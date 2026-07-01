@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeGroupMembershipRequest, DescribeGroupMembershipResponse } from "../models/models_4";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DescribeGroupMembership$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembe
  *
  * @public
  */
-export class DescribeGroupMembershipCommand extends $Command
-  .classBuilder<
-    DescribeGroupMembershipCommandInput,
-    DescribeGroupMembershipCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "DescribeGroupMembership", {})
-  .n("QuickSightClient", "DescribeGroupMembershipCommand")
-  .sc(DescribeGroupMembership$)
-  .build() {
+export class DescribeGroupMembershipCommand extends command<DescribeGroupMembershipCommandInput, DescribeGroupMembershipCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeGroupMembership",
+  DescribeGroupMembership$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

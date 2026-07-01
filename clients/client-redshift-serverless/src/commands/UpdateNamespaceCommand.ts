@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateNamespaceRequest, UpdateNamespaceResponse } from "../models/models_0";
-import type {
-  RedshiftServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RedshiftServerlessClient";
 import { UpdateNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +99,12 @@ export interface UpdateNamespaceCommandOutput extends UpdateNamespaceResponse, _
  *
  * @public
  */
-export class UpdateNamespaceCommand extends $Command
-  .classBuilder<
-    UpdateNamespaceCommandInput,
-    UpdateNamespaceCommandOutput,
-    RedshiftServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServerless", "UpdateNamespace", {})
-  .n("RedshiftServerlessClient", "UpdateNamespaceCommand")
-  .sc(UpdateNamespace$)
-  .build() {
+export class UpdateNamespaceCommand extends command<UpdateNamespaceCommandInput, UpdateNamespaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateNamespace",
+  UpdateNamespace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

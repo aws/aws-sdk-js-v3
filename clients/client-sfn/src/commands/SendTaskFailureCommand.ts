@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendTaskFailureInput, SendTaskFailureOutput } from "../models/models_0";
 import { SendTaskFailure$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface SendTaskFailureCommandOutput extends SendTaskFailureOutput, __M
  *
  * @public
  */
-export class SendTaskFailureCommand extends $Command
-  .classBuilder<
-    SendTaskFailureCommandInput,
-    SendTaskFailureCommandOutput,
-    SFNClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStepFunctions", "SendTaskFailure", {})
-  .n("SFNClient", "SendTaskFailureCommand")
-  .sc(SendTaskFailure$)
-  .build() {
+export class SendTaskFailureCommand extends command<SendTaskFailureCommandInput, SendTaskFailureCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendTaskFailure",
+  SendTaskFailure$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

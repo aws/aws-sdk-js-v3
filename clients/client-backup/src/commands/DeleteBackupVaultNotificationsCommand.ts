@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteBackupVaultNotificationsInput } from "../models/models_0";
 import { DeleteBackupVaultNotifications$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteBackupVaultNotifications$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface DeleteBackupVaultNotificationsCommandOutput extends __MetadataB
  *
  * @public
  */
-export class DeleteBackupVaultNotificationsCommand extends $Command
-  .classBuilder<
-    DeleteBackupVaultNotificationsCommandInput,
-    DeleteBackupVaultNotificationsCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "DeleteBackupVaultNotifications", {})
-  .n("BackupClient", "DeleteBackupVaultNotificationsCommand")
-  .sc(DeleteBackupVaultNotifications$)
-  .build() {
+export class DeleteBackupVaultNotificationsCommand extends command<DeleteBackupVaultNotificationsCommandInput, DeleteBackupVaultNotificationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteBackupVaultNotifications",
+  DeleteBackupVaultNotifications$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

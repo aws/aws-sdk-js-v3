@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListWorkspaceInstancesRequest, ListWorkspaceInstancesResponse } from "../models/models_0";
 import { ListWorkspaceInstances$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkspacesInstancesClientResolvedConfig,
-} from "../WorkspacesInstancesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface ListWorkspaceInstancesCommandOutput extends ListWorkspaceInstan
  *
  * @public
  */
-export class ListWorkspaceInstancesCommand extends $Command
-  .classBuilder<
-    ListWorkspaceInstancesCommandInput,
-    ListWorkspaceInstancesCommandOutput,
-    WorkspacesInstancesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkspacesInstancesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EUCMIFrontendAPIService", "ListWorkspaceInstances", {})
-  .n("WorkspacesInstancesClient", "ListWorkspaceInstancesCommand")
-  .sc(ListWorkspaceInstances$)
-  .build() {
+export class ListWorkspaceInstancesCommand extends command<ListWorkspaceInstancesCommandInput, ListWorkspaceInstancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListWorkspaceInstances",
+  ListWorkspaceInstances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

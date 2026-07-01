@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPromptFileRequest, GetPromptFileResponse } from "../models/models_2";
 import { GetPromptFile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetPromptFile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface GetPromptFileCommandOutput extends GetPromptFileResponse, __Met
  *
  * @public
  */
-export class GetPromptFileCommand extends $Command
-  .classBuilder<
-    GetPromptFileCommandInput,
-    GetPromptFileCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "GetPromptFile", {})
-  .n("ConnectClient", "GetPromptFileCommand")
-  .sc(GetPromptFile$)
-  .build() {
+export class GetPromptFileCommand extends command<GetPromptFileCommandInput, GetPromptFileCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPromptFile",
+  GetPromptFile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

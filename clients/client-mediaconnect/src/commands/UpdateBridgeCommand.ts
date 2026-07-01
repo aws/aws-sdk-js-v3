@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateBridgeRequest, UpdateBridgeResponse } from "../models/models_0";
 import { UpdateBridge$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateBridge$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -163,22 +159,12 @@ export interface UpdateBridgeCommandOutput extends UpdateBridgeResponse, __Metad
  *
  * @public
  */
-export class UpdateBridgeCommand extends $Command
-  .classBuilder<
-    UpdateBridgeCommandInput,
-    UpdateBridgeCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "UpdateBridge", {})
-  .n("MediaConnectClient", "UpdateBridgeCommand")
-  .sc(UpdateBridge$)
-  .build() {
+export class UpdateBridgeCommand extends command<UpdateBridgeCommandInput, UpdateBridgeCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateBridge",
+  UpdateBridge$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

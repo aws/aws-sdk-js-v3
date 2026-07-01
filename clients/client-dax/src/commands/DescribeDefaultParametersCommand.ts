@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeDefaultParametersRequest, DescribeDefaultParametersResponse } from "../models/models_0";
 import { DescribeDefaultParameters$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeDefaultParameters$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface DescribeDefaultParametersCommandOutput extends DescribeDefaultP
  *
  * @public
  */
-export class DescribeDefaultParametersCommand extends $Command
-  .classBuilder<
-    DescribeDefaultParametersCommandInput,
-    DescribeDefaultParametersCommandOutput,
-    DAXClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DAXClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDAXV3", "DescribeDefaultParameters", {})
-  .n("DAXClient", "DescribeDefaultParametersCommand")
-  .sc(DescribeDefaultParameters$)
-  .build() {
+export class DescribeDefaultParametersCommand extends command<DescribeDefaultParametersCommandInput, DescribeDefaultParametersCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDefaultParameters",
+  DescribeDefaultParameters$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

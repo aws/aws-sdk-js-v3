@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeInstanceRequest, DescribeInstanceResponse } from "../models/models_0";
 import { DescribeInstance$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  *
  * @public
  */
-export class DescribeInstanceCommand extends $Command
-  .classBuilder<
-    DescribeInstanceCommandInput,
-    DescribeInstanceCommandOutput,
-    SSOAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBExternalService", "DescribeInstance", {})
-  .n("SSOAdminClient", "DescribeInstanceCommand")
-  .sc(DescribeInstance$)
-  .build() {
+export class DescribeInstanceCommand extends command<DescribeInstanceCommandInput, DescribeInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeInstance",
+  DescribeInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

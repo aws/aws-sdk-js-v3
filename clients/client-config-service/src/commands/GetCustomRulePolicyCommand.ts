@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCustomRulePolicyRequest, GetCustomRulePolicyResponse } from "../models/models_0";
 import { GetCustomRulePolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetCustomRulePolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -62,22 +58,12 @@ export interface GetCustomRulePolicyCommandOutput extends GetCustomRulePolicyRes
  *
  * @public
  */
-export class GetCustomRulePolicyCommand extends $Command
-  .classBuilder<
-    GetCustomRulePolicyCommandInput,
-    GetCustomRulePolicyCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "GetCustomRulePolicy", {})
-  .n("ConfigServiceClient", "GetCustomRulePolicyCommand")
-  .sc(GetCustomRulePolicy$)
-  .build() {
+export class GetCustomRulePolicyCommand extends command<GetCustomRulePolicyCommandInput, GetCustomRulePolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCustomRulePolicy",
+  GetCustomRulePolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

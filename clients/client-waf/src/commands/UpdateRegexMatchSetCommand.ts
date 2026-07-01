@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRegexMatchSetRequest, UpdateRegexMatchSetResponse } from "../models/models_0";
 import { UpdateRegexMatchSet$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -176,22 +172,12 @@ export interface UpdateRegexMatchSetCommandOutput extends UpdateRegexMatchSetRes
  *
  * @public
  */
-export class UpdateRegexMatchSetCommand extends $Command
-  .classBuilder<
-    UpdateRegexMatchSetCommandInput,
-    UpdateRegexMatchSetCommandOutput,
-    WAFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20150824", "UpdateRegexMatchSet", {})
-  .n("WAFClient", "UpdateRegexMatchSetCommand")
-  .sc(UpdateRegexMatchSet$)
-  .build() {
+export class UpdateRegexMatchSetCommand extends command<UpdateRegexMatchSetCommandInput, UpdateRegexMatchSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRegexMatchSet",
+  UpdateRegexMatchSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

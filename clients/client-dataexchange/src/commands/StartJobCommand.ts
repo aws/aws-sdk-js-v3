@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartJobRequest, StartJobResponse } from "../models/models_0";
 import { StartJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface StartJobCommandOutput extends StartJobResponse, __MetadataBeare
  *
  * @public
  */
-export class StartJobCommand extends $Command
-  .classBuilder<
-    StartJobCommandInput,
-    StartJobCommandOutput,
-    DataExchangeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataExchange", "StartJob", {})
-  .n("DataExchangeClient", "StartJobCommand")
-  .sc(StartJob$)
-  .build() {
+export class StartJobCommand extends command<StartJobCommandInput, StartJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartJob",
+  StartJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

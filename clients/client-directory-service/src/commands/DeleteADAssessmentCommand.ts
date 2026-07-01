@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteADAssessmentRequest, DeleteADAssessmentResult } from "../models/models_0";
 import { DeleteADAssessment$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteADAssessment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface DeleteADAssessmentCommandOutput extends DeleteADAssessmentResul
  *
  * @public
  */
-export class DeleteADAssessmentCommand extends $Command
-  .classBuilder<
-    DeleteADAssessmentCommandInput,
-    DeleteADAssessmentCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "DeleteADAssessment", {})
-  .n("DirectoryServiceClient", "DeleteADAssessmentCommand")
-  .sc(DeleteADAssessment$)
-  .build() {
+export class DeleteADAssessmentCommand extends command<DeleteADAssessmentCommandInput, DeleteADAssessmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteADAssessment",
+  DeleteADAssessment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

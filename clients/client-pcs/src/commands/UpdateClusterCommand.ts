@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateClusterRequest, UpdateClusterResponse } from "../models/models_0";
-import type { PCSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PCSClient";
 import { UpdateCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -183,22 +179,12 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *
  * @public
  */
-export class UpdateClusterCommand extends $Command
-  .classBuilder<
-    UpdateClusterCommandInput,
-    UpdateClusterCommandOutput,
-    PCSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PCSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSParallelComputingService", "UpdateCluster", {})
-  .n("PCSClient", "UpdateClusterCommand")
-  .sc(UpdateCluster$)
-  .build() {
+export class UpdateClusterCommand extends command<UpdateClusterCommandInput, UpdateClusterCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateCluster",
+  UpdateCluster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

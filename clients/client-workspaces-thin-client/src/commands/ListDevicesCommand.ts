@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDevicesRequest, ListDevicesResponse } from "../models/models_0";
 import { ListDevices$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkSpacesThinClientClientResolvedConfig,
-} from "../WorkSpacesThinClientClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  *
  * @public
  */
-export class ListDevicesCommand extends $Command
-  .classBuilder<
-    ListDevicesCommandInput,
-    ListDevicesCommandOutput,
-    WorkSpacesThinClientClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesThinClientClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ThinClient", "ListDevices", {})
-  .n("WorkSpacesThinClientClient", "ListDevicesCommand")
-  .sc(ListDevices$)
-  .build() {
+export class ListDevicesCommand extends command<ListDevicesCommandInput, ListDevicesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDevices",
+  ListDevices$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

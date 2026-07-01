@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteQAppInput } from "../models/models_0";
-import type { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
 import { DeleteQApp$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface DeleteQAppCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteQAppCommand extends $Command
-  .classBuilder<
-    DeleteQAppCommandInput,
-    DeleteQAppCommandOutput,
-    QAppsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QAppsService", "DeleteQApp", {})
-  .n("QAppsClient", "DeleteQAppCommand")
-  .sc(DeleteQApp$)
-  .build() {
+export class DeleteQAppCommand extends command<DeleteQAppCommandInput, DeleteQAppCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteQApp",
+  DeleteQApp$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

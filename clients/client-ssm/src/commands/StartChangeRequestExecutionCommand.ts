@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartChangeRequestExecutionRequest, StartChangeRequestExecutionResult } from "../models/models_1";
 import { StartChangeRequestExecution$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -177,22 +173,12 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  *
  * @public
  */
-export class StartChangeRequestExecutionCommand extends $Command
-  .classBuilder<
-    StartChangeRequestExecutionCommandInput,
-    StartChangeRequestExecutionCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "StartChangeRequestExecution", {})
-  .n("SSMClient", "StartChangeRequestExecutionCommand")
-  .sc(StartChangeRequestExecution$)
-  .build() {
+export class StartChangeRequestExecutionCommand extends command<StartChangeRequestExecutionCommandInput, StartChangeRequestExecutionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartChangeRequestExecution",
+  StartChangeRequestExecution$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

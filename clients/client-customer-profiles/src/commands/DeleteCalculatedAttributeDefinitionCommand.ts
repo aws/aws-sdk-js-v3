@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteCalculatedAttributeDefinitionRequest,
   DeleteCalculatedAttributeDefinitionResponse,
@@ -19,7 +12,6 @@ import { DeleteCalculatedAttributeDefinition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface DeleteCalculatedAttributeDefinitionCommandOutput extends Delete
  *
  * @public
  */
-export class DeleteCalculatedAttributeDefinitionCommand extends $Command
-  .classBuilder<
-    DeleteCalculatedAttributeDefinitionCommandInput,
-    DeleteCalculatedAttributeDefinitionCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "DeleteCalculatedAttributeDefinition", {})
-  .n("CustomerProfilesClient", "DeleteCalculatedAttributeDefinitionCommand")
-  .sc(DeleteCalculatedAttributeDefinition$)
-  .build() {
+export class DeleteCalculatedAttributeDefinitionCommand extends command<DeleteCalculatedAttributeDefinitionCommandInput, DeleteCalculatedAttributeDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCalculatedAttributeDefinition",
+  DeleteCalculatedAttributeDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

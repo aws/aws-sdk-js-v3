@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAlternateContactRequest, GetAlternateContactResponse } from "../models/models_0";
 import { GetAlternateContact$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetAlternateContact$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface GetAlternateContactCommandOutput extends GetAlternateContactRes
  *
  * @public
  */
-export class GetAlternateContactCommand extends $Command
-  .classBuilder<
-    GetAlternateContactCommandInput,
-    GetAlternateContactCommandOutput,
-    AccountClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AccountClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Account", "GetAlternateContact", {})
-  .n("AccountClient", "GetAlternateContactCommand")
-  .sc(GetAlternateContact$)
-  .build() {
+export class GetAlternateContactCommand extends command<GetAlternateContactCommandInput, GetAlternateContactCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAlternateContact",
+  GetAlternateContact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

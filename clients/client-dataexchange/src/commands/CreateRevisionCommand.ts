@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRevisionRequest, CreateRevisionResponse } from "../models/models_0";
 import { CreateRevision$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateRevision$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface CreateRevisionCommandOutput extends CreateRevisionResponse, __M
  *
  * @public
  */
-export class CreateRevisionCommand extends $Command
-  .classBuilder<
-    CreateRevisionCommandInput,
-    CreateRevisionCommandOutput,
-    DataExchangeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataExchange", "CreateRevision", {})
-  .n("DataExchangeClient", "CreateRevisionCommand")
-  .sc(CreateRevision$)
-  .build() {
+export class CreateRevisionCommand extends command<CreateRevisionCommandInput, CreateRevisionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRevision",
+  CreateRevision$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

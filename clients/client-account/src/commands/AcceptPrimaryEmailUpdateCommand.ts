@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AcceptPrimaryEmailUpdateRequest, AcceptPrimaryEmailUpdateResponse } from "../models/models_0";
 import { AcceptPrimaryEmailUpdate$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AcceptPrimaryEmailUpdate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface AcceptPrimaryEmailUpdateCommandOutput extends AcceptPrimaryEmai
  *
  * @public
  */
-export class AcceptPrimaryEmailUpdateCommand extends $Command
-  .classBuilder<
-    AcceptPrimaryEmailUpdateCommandInput,
-    AcceptPrimaryEmailUpdateCommandOutput,
-    AccountClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AccountClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Account", "AcceptPrimaryEmailUpdate", {})
-  .n("AccountClient", "AcceptPrimaryEmailUpdateCommand")
-  .sc(AcceptPrimaryEmailUpdate$)
-  .build() {
+export class AcceptPrimaryEmailUpdateCommand extends command<AcceptPrimaryEmailUpdateCommandInput, AcceptPrimaryEmailUpdateCommandOutput>(
+  _ep0,
+  _mw0,
+  "AcceptPrimaryEmailUpdate",
+  AcceptPrimaryEmailUpdate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

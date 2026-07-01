@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { FractionalSecondsOutput } from "../models/models_0";
-import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 import { FractionalSeconds$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -57,22 +53,12 @@ export interface FractionalSecondsCommandOutput extends FractionalSecondsOutput,
  *
  *
  */
-export class FractionalSecondsCommand extends $Command
-  .classBuilder<
-    FractionalSecondsCommandInput,
-    FractionalSecondsCommandOutput,
-    QueryProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QueryProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsQuery", "FractionalSeconds", {})
-  .n("QueryProtocolClient", "FractionalSecondsCommand")
-  .sc(FractionalSeconds$)
-  .build() {
+export class FractionalSecondsCommand extends command<FractionalSecondsCommandInput, FractionalSecondsCommandOutput>(
+  _ep0,
+  _mw0,
+  "FractionalSeconds",
+  FractionalSeconds$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

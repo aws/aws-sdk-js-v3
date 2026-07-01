@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRoutingRulesRequest, ListRoutingRulesResponse } from "../models/models_0";
 import { ListRoutingRules$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListRoutingRules$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface ListRoutingRulesCommandOutput extends ListRoutingRulesResponse,
  *
  * @public
  */
-export class ListRoutingRulesCommand extends $Command
-  .classBuilder<
-    ListRoutingRulesCommandInput,
-    ListRoutingRulesCommandOutput,
-    ApiGatewayV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApiGatewayV2", "ListRoutingRules", {})
-  .n("ApiGatewayV2Client", "ListRoutingRulesCommand")
-  .sc(ListRoutingRules$)
-  .build() {
+export class ListRoutingRulesCommand extends command<ListRoutingRulesCommandInput, ListRoutingRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRoutingRules",
+  ListRoutingRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

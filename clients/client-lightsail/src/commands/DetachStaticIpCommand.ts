@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DetachStaticIpRequest, DetachStaticIpResult } from "../models/models_0";
 import { DetachStaticIp$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DetachStaticIp$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface DetachStaticIpCommandOutput extends DetachStaticIpResult, __Met
  *
  * @public
  */
-export class DetachStaticIpCommand extends $Command
-  .classBuilder<
-    DetachStaticIpCommandInput,
-    DetachStaticIpCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "DetachStaticIp", {})
-  .n("LightsailClient", "DetachStaticIpCommand")
-  .sc(DetachStaticIp$)
-  .build() {
+export class DetachStaticIpCommand extends command<DetachStaticIpCommandInput, DetachStaticIpCommandOutput>(
+  _ep0,
+  _mw0,
+  "DetachStaticIp",
+  DetachStaticIp$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteWebExperienceRequest, DeleteWebExperienceResponse } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { DeleteWebExperience$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteWebExperienceCommandOutput extends DeleteWebExperienceRes
  *
  * @public
  */
-export class DeleteWebExperienceCommand extends $Command
-  .classBuilder<
-    DeleteWebExperienceCommandInput,
-    DeleteWebExperienceCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "DeleteWebExperience", {})
-  .n("QBusinessClient", "DeleteWebExperienceCommand")
-  .sc(DeleteWebExperience$)
-  .build() {
+export class DeleteWebExperienceCommand extends command<DeleteWebExperienceCommandInput, DeleteWebExperienceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteWebExperience",
+  DeleteWebExperience$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

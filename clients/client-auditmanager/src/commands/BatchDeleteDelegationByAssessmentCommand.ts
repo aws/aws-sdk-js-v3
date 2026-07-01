@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchDeleteDelegationByAssessmentRequest,
   BatchDeleteDelegationByAssessmentResponse,
@@ -15,7 +12,6 @@ import { BatchDeleteDelegationByAssessment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface BatchDeleteDelegationByAssessmentCommandOutput extends BatchDel
  *
  * @public
  */
-export class BatchDeleteDelegationByAssessmentCommand extends $Command
-  .classBuilder<
-    BatchDeleteDelegationByAssessmentCommandInput,
-    BatchDeleteDelegationByAssessmentCommandOutput,
-    AuditManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BedrockAssessmentManagerLambda", "BatchDeleteDelegationByAssessment", {})
-  .n("AuditManagerClient", "BatchDeleteDelegationByAssessmentCommand")
-  .sc(BatchDeleteDelegationByAssessment$)
-  .build() {
+export class BatchDeleteDelegationByAssessmentCommand extends command<BatchDeleteDelegationByAssessmentCommandInput, BatchDeleteDelegationByAssessmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDeleteDelegationByAssessment",
+  BatchDeleteDelegationByAssessment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RpcV2CborDenseMapsInputOutput } from "../models/models_0";
-import type { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RpcV2ProtocolClient";
 import { RpcV2CborDenseMaps$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface RpcV2CborDenseMapsCommandOutput extends RpcV2CborDenseMapsInput
  *
  * @public
  */
-export class RpcV2CborDenseMapsCommand extends $Command
-  .classBuilder<
-    RpcV2CborDenseMapsCommandInput,
-    RpcV2CborDenseMapsCommandOutput,
-    RpcV2ProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RpcV2ProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RpcV2Protocol", "RpcV2CborDenseMaps", {})
-  .n("RpcV2ProtocolClient", "RpcV2CborDenseMapsCommand")
-  .sc(RpcV2CborDenseMaps$)
-  .build() {
+export class RpcV2CborDenseMapsCommand extends command<RpcV2CborDenseMapsCommandInput, RpcV2CborDenseMapsCommandOutput>(
+  _ep0,
+  _mw0,
+  "RpcV2CborDenseMaps",
+  RpcV2CborDenseMaps$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

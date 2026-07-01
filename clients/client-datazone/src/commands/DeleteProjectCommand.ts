@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteProjectInput, DeleteProjectOutput } from "../models/models_1";
 import { DeleteProject$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteProject$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DeleteProjectCommandOutput extends DeleteProjectOutput, __Metad
  *
  * @public
  */
-export class DeleteProjectCommand extends $Command
-  .classBuilder<
-    DeleteProjectCommandInput,
-    DeleteProjectCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "DeleteProject", {})
-  .n("DataZoneClient", "DeleteProjectCommand")
-  .sc(DeleteProject$)
-  .build() {
+export class DeleteProjectCommand extends command<DeleteProjectCommandInput, DeleteProjectCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteProject",
+  DeleteProject$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

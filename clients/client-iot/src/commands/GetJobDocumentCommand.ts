@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetJobDocumentRequest, GetJobDocumentResponse } from "../models/models_1";
 import { GetJobDocument$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetJobDocument$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __M
  *
  * @public
  */
-export class GetJobDocumentCommand extends $Command
-  .classBuilder<
-    GetJobDocumentCommandInput,
-    GetJobDocumentCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "GetJobDocument", {})
-  .n("IoTClient", "GetJobDocumentCommand")
-  .sc(GetJobDocument$)
-  .build() {
+export class GetJobDocumentCommand extends command<GetJobDocumentCommandInput, GetJobDocumentCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetJobDocument",
+  GetJobDocument$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

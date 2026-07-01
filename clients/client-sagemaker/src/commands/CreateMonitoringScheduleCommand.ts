@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateMonitoringScheduleRequest, CreateMonitoringScheduleResponse } from "../models/models_1";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreateMonitoringSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -180,22 +176,12 @@ export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringS
  *
  * @public
  */
-export class CreateMonitoringScheduleCommand extends $Command
-  .classBuilder<
-    CreateMonitoringScheduleCommandInput,
-    CreateMonitoringScheduleCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "CreateMonitoringSchedule", {})
-  .n("SageMakerClient", "CreateMonitoringScheduleCommand")
-  .sc(CreateMonitoringSchedule$)
-  .build() {
+export class CreateMonitoringScheduleCommand extends command<CreateMonitoringScheduleCommandInput, CreateMonitoringScheduleCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateMonitoringSchedule",
+  CreateMonitoringSchedule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateOrgEc2DeepInspectionConfigurationRequest,
   UpdateOrgEc2DeepInspectionConfigurationResponse,
@@ -15,7 +12,6 @@ import { UpdateOrgEc2DeepInspectionConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface UpdateOrgEc2DeepInspectionConfigurationCommandOutput extends Up
  *
  * @public
  */
-export class UpdateOrgEc2DeepInspectionConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateOrgEc2DeepInspectionConfigurationCommandInput,
-    UpdateOrgEc2DeepInspectionConfigurationCommandOutput,
-    Inspector2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Inspector2", "UpdateOrgEc2DeepInspectionConfiguration", {})
-  .n("Inspector2Client", "UpdateOrgEc2DeepInspectionConfigurationCommand")
-  .sc(UpdateOrgEc2DeepInspectionConfiguration$)
-  .build() {
+export class UpdateOrgEc2DeepInspectionConfigurationCommand extends command<UpdateOrgEc2DeepInspectionConfigurationCommandInput, UpdateOrgEc2DeepInspectionConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateOrgEc2DeepInspectionConfiguration",
+  UpdateOrgEc2DeepInspectionConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

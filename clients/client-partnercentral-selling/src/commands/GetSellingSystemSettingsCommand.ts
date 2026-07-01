@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSellingSystemSettingsRequest, GetSellingSystemSettingsResponse } from "../models/models_0";
-import type {
-  PartnerCentralSellingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralSellingClient";
 import { GetSellingSystemSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface GetSellingSystemSettingsCommandOutput extends GetSellingSystemS
  *
  * @public
  */
-export class GetSellingSystemSettingsCommand extends $Command
-  .classBuilder<
-    GetSellingSystemSettingsCommandInput,
-    GetSellingSystemSettingsCommandOutput,
-    PartnerCentralSellingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralSellingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPartnerCentralSelling", "GetSellingSystemSettings", {})
-  .n("PartnerCentralSellingClient", "GetSellingSystemSettingsCommand")
-  .sc(GetSellingSystemSettings$)
-  .build() {
+export class GetSellingSystemSettingsCommand extends command<GetSellingSystemSettingsCommandInput, GetSellingSystemSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSellingSystemSettings",
+  GetSellingSystemSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

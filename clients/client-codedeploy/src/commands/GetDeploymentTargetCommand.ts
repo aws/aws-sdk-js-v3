@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDeploymentTargetInput, GetDeploymentTargetOutput } from "../models/models_0";
 import { GetDeploymentTarget$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDeploymentTarget$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -193,22 +189,12 @@ export interface GetDeploymentTargetCommandOutput extends GetDeploymentTargetOut
  *
  * @public
  */
-export class GetDeploymentTargetCommand extends $Command
-  .classBuilder<
-    GetDeploymentTargetCommandInput,
-    GetDeploymentTargetCommandOutput,
-    CodeDeployClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeDeploy_20141006", "GetDeploymentTarget", {})
-  .n("CodeDeployClient", "GetDeploymentTargetCommand")
-  .sc(GetDeploymentTarget$)
-  .build() {
+export class GetDeploymentTargetCommand extends command<GetDeploymentTargetCommandInput, GetDeploymentTargetCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDeploymentTarget",
+  GetDeploymentTarget$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

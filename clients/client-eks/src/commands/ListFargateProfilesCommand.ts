@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListFargateProfilesRequest, ListFargateProfilesResponse } from "../models/models_0";
 import { ListFargateProfiles$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListFargateProfiles$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface ListFargateProfilesCommandOutput extends ListFargateProfilesRes
  *
  * @public
  */
-export class ListFargateProfilesCommand extends $Command
-  .classBuilder<
-    ListFargateProfilesCommandInput,
-    ListFargateProfilesCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "ListFargateProfiles", {})
-  .n("EKSClient", "ListFargateProfilesCommand")
-  .sc(ListFargateProfiles$)
-  .build() {
+export class ListFargateProfilesCommand extends command<ListFargateProfilesCommandInput, ListFargateProfilesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListFargateProfiles",
+  ListFargateProfiles$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

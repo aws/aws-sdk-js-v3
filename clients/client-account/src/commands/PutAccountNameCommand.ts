@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AccountClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccountClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutAccountNameRequest } from "../models/models_0";
 import { PutAccountName$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutAccountName$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface PutAccountNameCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutAccountNameCommand extends $Command
-  .classBuilder<
-    PutAccountNameCommandInput,
-    PutAccountNameCommandOutput,
-    AccountClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AccountClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Account", "PutAccountName", {})
-  .n("AccountClient", "PutAccountNameCommand")
-  .sc(PutAccountName$)
-  .build() {
+export class PutAccountNameCommand extends command<PutAccountNameCommandInput, PutAccountNameCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAccountName",
+  PutAccountName$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

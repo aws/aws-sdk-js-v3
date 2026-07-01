@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePolicyRequest, UpdatePolicyResponse } from "../models/models_0";
-import type {
-  Resiliencehubv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Resiliencehubv2Client";
 import { UpdatePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +114,12 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  *
  * @public
  */
-export class UpdatePolicyCommand extends $Command
-  .classBuilder<
-    UpdatePolicyCommandInput,
-    UpdatePolicyCommandOutput,
-    Resiliencehubv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Resiliencehubv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NGRHServiceCore", "UpdatePolicy", {})
-  .n("Resiliencehubv2Client", "UpdatePolicyCommand")
-  .sc(UpdatePolicy$)
-  .build() {
+export class UpdatePolicyCommand extends command<UpdatePolicyCommandInput, UpdatePolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePolicy",
+  UpdatePolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

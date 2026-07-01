@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAddressListsRequest, ListAddressListsResponse } from "../models/models_0";
 import { ListAddressLists$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAddressLists$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface ListAddressListsCommandOutput extends ListAddressListsResponse,
  *
  * @public
  */
-export class ListAddressListsCommand extends $Command
-  .classBuilder<
-    ListAddressListsCommandInput,
-    ListAddressListsCommandOutput,
-    MailManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MailManagerSvc", "ListAddressLists", {})
-  .n("MailManagerClient", "ListAddressListsCommand")
-  .sc(ListAddressLists$)
-  .build() {
+export class ListAddressListsCommand extends command<ListAddressListsCommandInput, ListAddressListsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAddressLists",
+  ListAddressLists$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

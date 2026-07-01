@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddFlowSourcesRequest, AddFlowSourcesResponse } from "../models/models_0";
 import { AddFlowSources$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AddFlowSources$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -228,22 +224,12 @@ export interface AddFlowSourcesCommandOutput extends AddFlowSourcesResponse, __M
  *
  * @public
  */
-export class AddFlowSourcesCommand extends $Command
-  .classBuilder<
-    AddFlowSourcesCommandInput,
-    AddFlowSourcesCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "AddFlowSources", {})
-  .n("MediaConnectClient", "AddFlowSourcesCommand")
-  .sc(AddFlowSources$)
-  .build() {
+export class AddFlowSourcesCommand extends command<AddFlowSourcesCommandInput, AddFlowSourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddFlowSources",
+  AddFlowSources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

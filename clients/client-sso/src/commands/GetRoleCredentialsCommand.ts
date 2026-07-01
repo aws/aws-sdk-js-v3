@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRoleCredentialsRequest, GetRoleCredentialsResponse } from "../models/models_0";
 import { GetRoleCredentials$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "../SSOClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface GetRoleCredentialsCommandOutput extends GetRoleCredentialsRespo
  *
  * @public
  */
-export class GetRoleCredentialsCommand extends $Command
-  .classBuilder<
-    GetRoleCredentialsCommandInput,
-    GetRoleCredentialsCommandOutput,
-    SSOClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBPortalService", "GetRoleCredentials", {})
-  .n("SSOClient", "GetRoleCredentialsCommand")
-  .sc(GetRoleCredentials$)
-  .build() {
+export class GetRoleCredentialsCommand extends command<GetRoleCredentialsCommandInput, GetRoleCredentialsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRoleCredentials",
+  GetRoleCredentials$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

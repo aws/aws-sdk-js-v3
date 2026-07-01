@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { FunctionEventInvokeConfig, GetFunctionEventInvokeConfigRequest } from "../models/models_0";
 import { GetFunctionEventInvokeConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetFunctionEventInvokeConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface GetFunctionEventInvokeConfigCommandOutput extends FunctionEvent
  *
  * @public
  */
-export class GetFunctionEventInvokeConfigCommand extends $Command
-  .classBuilder<
-    GetFunctionEventInvokeConfigCommandInput,
-    GetFunctionEventInvokeConfigCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "GetFunctionEventInvokeConfig", {})
-  .n("LambdaClient", "GetFunctionEventInvokeConfigCommand")
-  .sc(GetFunctionEventInvokeConfig$)
-  .build() {
+export class GetFunctionEventInvokeConfigCommand extends command<GetFunctionEventInvokeConfigCommandInput, GetFunctionEventInvokeConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFunctionEventInvokeConfig",
+  GetFunctionEventInvokeConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

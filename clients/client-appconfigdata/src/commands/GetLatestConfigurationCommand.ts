@@ -1,11 +1,8 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import { Uint8ArrayBlobAdapter } from "@smithy/core/serde";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppConfigDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigDataClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetLatestConfigurationRequest, GetLatestConfigurationResponse } from "../models/models_0";
 import { GetLatestConfiguration$ } from "../schemas/schemas_0";
 
@@ -13,7 +10,6 @@ import { GetLatestConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface GetLatestConfigurationCommandOutput extends GetLatestConfigurat
  *
  * @public
  */
-export class GetLatestConfigurationCommand extends $Command
-  .classBuilder<
-    GetLatestConfigurationCommandInput,
-    GetLatestConfigurationCommandOutput,
-    AppConfigDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppConfigDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppConfigData", "GetLatestConfiguration", {})
-  .n("AppConfigDataClient", "GetLatestConfigurationCommand")
-  .sc(GetLatestConfiguration$)
-  .build() {
+export class GetLatestConfigurationCommand extends command<GetLatestConfigurationCommandInput, GetLatestConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetLatestConfiguration",
+  GetLatestConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

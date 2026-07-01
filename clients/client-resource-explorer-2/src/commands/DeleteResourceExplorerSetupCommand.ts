@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteResourceExplorerSetupInput, DeleteResourceExplorerSetupOutput } from "../models/models_0";
-import type {
-  ResourceExplorer2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceExplorer2Client";
 import { DeleteResourceExplorerSetup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface DeleteResourceExplorerSetupCommandOutput extends DeleteResource
  *
  * @public
  */
-export class DeleteResourceExplorerSetupCommand extends $Command
-  .classBuilder<
-    DeleteResourceExplorerSetupCommandInput,
-    DeleteResourceExplorerSetupCommandOutput,
-    ResourceExplorer2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ResourceExplorer", "DeleteResourceExplorerSetup", {})
-  .n("ResourceExplorer2Client", "DeleteResourceExplorerSetupCommand")
-  .sc(DeleteResourceExplorerSetup$)
-  .build() {
+export class DeleteResourceExplorerSetupCommand extends command<DeleteResourceExplorerSetupCommandInput, DeleteResourceExplorerSetupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteResourceExplorerSetup",
+  DeleteResourceExplorerSetup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

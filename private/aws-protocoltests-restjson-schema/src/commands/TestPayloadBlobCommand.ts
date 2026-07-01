@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import { Uint8ArrayBlobAdapter } from "@smithy/core/serde";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TestPayloadBlobInputOutput } from "../models/models_0";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
 import { TestPayloadBlob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  */
@@ -87,22 +79,12 @@ export interface TestPayloadBlobCommandOutput extends TestPayloadBlobCommandOutp
  *
  * @public
  */
-export class TestPayloadBlobCommand extends $Command
-  .classBuilder<
-    TestPayloadBlobCommandInput,
-    TestPayloadBlobCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestJson", "TestPayloadBlob", {})
-  .n("RestJsonProtocolClient", "TestPayloadBlobCommand")
-  .sc(TestPayloadBlob$)
-  .build() {
+export class TestPayloadBlobCommand extends command<TestPayloadBlobCommandInput, TestPayloadBlobCommandOutput>(
+  _ep0,
+  _mw0,
+  "TestPayloadBlob",
+  TestPayloadBlob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

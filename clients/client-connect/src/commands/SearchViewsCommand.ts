@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchViewsRequest, SearchViewsResponse } from "../models/models_3";
 import { SearchViews$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SearchViews$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -157,22 +153,12 @@ export interface SearchViewsCommandOutput extends SearchViewsResponse, __Metadat
  *
  * @public
  */
-export class SearchViewsCommand extends $Command
-  .classBuilder<
-    SearchViewsCommandInput,
-    SearchViewsCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "SearchViews", {})
-  .n("ConnectClient", "SearchViewsCommand")
-  .sc(SearchViews$)
-  .build() {
+export class SearchViewsCommand extends command<SearchViewsCommandInput, SearchViewsCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchViews",
+  SearchViews$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

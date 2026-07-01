@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  KinesisVideoMediaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../KinesisVideoMediaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMediaInput, GetMediaOutput } from "../models/models_0";
 import { GetMedia$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetMedia$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -147,22 +139,12 @@ export interface GetMediaCommandOutput extends Omit<GetMediaOutput, "Payload">, 
  *
  * @public
  */
-export class GetMediaCommand extends $Command
-  .classBuilder<
-    GetMediaCommandInput,
-    GetMediaCommandOutput,
-    KinesisVideoMediaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisVideoMediaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSAcuityInletService", "GetMedia", {})
-  .n("KinesisVideoMediaClient", "GetMediaCommand")
-  .sc(GetMedia$)
-  .build() {
+export class GetMediaCommand extends command<GetMediaCommandInput, GetMediaCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMedia",
+  GetMedia$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

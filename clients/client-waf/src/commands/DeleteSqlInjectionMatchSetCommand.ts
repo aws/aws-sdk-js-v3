@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSqlInjectionMatchSetRequest, DeleteSqlInjectionMatchSetResponse } from "../models/models_0";
 import { DeleteSqlInjectionMatchSet$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -141,22 +137,12 @@ export interface DeleteSqlInjectionMatchSetCommandOutput extends DeleteSqlInject
  *
  * @public
  */
-export class DeleteSqlInjectionMatchSetCommand extends $Command
-  .classBuilder<
-    DeleteSqlInjectionMatchSetCommandInput,
-    DeleteSqlInjectionMatchSetCommandOutput,
-    WAFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20150824", "DeleteSqlInjectionMatchSet", {})
-  .n("WAFClient", "DeleteSqlInjectionMatchSetCommand")
-  .sc(DeleteSqlInjectionMatchSet$)
-  .build() {
+export class DeleteSqlInjectionMatchSetCommand extends command<DeleteSqlInjectionMatchSetCommandInput, DeleteSqlInjectionMatchSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSqlInjectionMatchSet",
+  DeleteSqlInjectionMatchSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

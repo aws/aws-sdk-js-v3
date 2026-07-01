@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePortalRequest, UpdatePortalResponse } from "../models/models_1";
 import { UpdatePortal$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdatePortal$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  *
  * @public
  */
-export class UpdatePortalCommand extends $Command
-  .classBuilder<
-    UpdatePortalCommandInput,
-    UpdatePortalCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "UpdatePortal", {})
-  .n("IoTSiteWiseClient", "UpdatePortalCommand")
-  .sc(UpdatePortal$)
-  .build() {
+export class UpdatePortalCommand extends command<UpdatePortalCommandInput, UpdatePortalCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePortal",
+  UpdatePortal$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

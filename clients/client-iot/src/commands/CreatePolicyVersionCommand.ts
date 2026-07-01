@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePolicyVersionRequest, CreatePolicyVersionResponse } from "../models/models_0";
 import { CreatePolicyVersion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreatePolicyVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface CreatePolicyVersionCommandOutput extends CreatePolicyVersionRes
  *
  * @public
  */
-export class CreatePolicyVersionCommand extends $Command
-  .classBuilder<
-    CreatePolicyVersionCommandInput,
-    CreatePolicyVersionCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "CreatePolicyVersion", {})
-  .n("IoTClient", "CreatePolicyVersionCommand")
-  .sc(CreatePolicyVersion$)
-  .build() {
+export class CreatePolicyVersionCommand extends command<CreatePolicyVersionCommandInput, CreatePolicyVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePolicyVersion",
+  CreatePolicyVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

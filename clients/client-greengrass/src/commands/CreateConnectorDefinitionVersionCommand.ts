@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateConnectorDefinitionVersionRequest,
   CreateConnectorDefinitionVersionResponse,
@@ -15,7 +12,6 @@ import { CreateConnectorDefinitionVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface CreateConnectorDefinitionVersionCommandOutput extends CreateCon
  *
  * @public
  */
-export class CreateConnectorDefinitionVersionCommand extends $Command
-  .classBuilder<
-    CreateConnectorDefinitionVersionCommandInput,
-    CreateConnectorDefinitionVersionCommandOutput,
-    GreengrassClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Greengrass", "CreateConnectorDefinitionVersion", {})
-  .n("GreengrassClient", "CreateConnectorDefinitionVersionCommand")
-  .sc(CreateConnectorDefinitionVersion$)
-  .build() {
+export class CreateConnectorDefinitionVersionCommand extends command<CreateConnectorDefinitionVersionCommandInput, CreateConnectorDefinitionVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateConnectorDefinitionVersion",
+  CreateConnectorDefinitionVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

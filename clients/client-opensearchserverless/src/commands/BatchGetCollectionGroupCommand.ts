@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetCollectionGroupRequest, BatchGetCollectionGroupResponse } from "../models/models_0";
-import type {
-  OpenSearchServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../OpenSearchServerlessClient";
 import { BatchGetCollectionGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +107,12 @@ export interface BatchGetCollectionGroupCommandOutput extends BatchGetCollection
  *
  * @public
  */
-export class BatchGetCollectionGroupCommand extends $Command
-  .classBuilder<
-    BatchGetCollectionGroupCommandInput,
-    BatchGetCollectionGroupCommandOutput,
-    OpenSearchServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OpenSearchServerless", "BatchGetCollectionGroup", {})
-  .n("OpenSearchServerlessClient", "BatchGetCollectionGroupCommand")
-  .sc(BatchGetCollectionGroup$)
-  .build() {
+export class BatchGetCollectionGroupCommand extends command<BatchGetCollectionGroupCommandInput, BatchGetCollectionGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetCollectionGroup",
+  BatchGetCollectionGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

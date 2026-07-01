@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCaseEventConfigurationRequest, GetCaseEventConfigurationResponse } from "../models/models_0";
 import { GetCaseEventConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetCaseEventConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface GetCaseEventConfigurationCommandOutput extends GetCaseEventConf
  *
  * @public
  */
-export class GetCaseEventConfigurationCommand extends $Command
-  .classBuilder<
-    GetCaseEventConfigurationCommandInput,
-    GetCaseEventConfigurationCommandOutput,
-    ConnectCasesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCases", "GetCaseEventConfiguration", {})
-  .n("ConnectCasesClient", "GetCaseEventConfigurationCommand")
-  .sc(GetCaseEventConfiguration$)
-  .build() {
+export class GetCaseEventConfigurationCommand extends command<GetCaseEventConfigurationCommandInput, GetCaseEventConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCaseEventConfiguration",
+  GetCaseEventConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

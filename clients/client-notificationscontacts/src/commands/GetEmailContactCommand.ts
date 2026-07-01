@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEmailContactRequest, GetEmailContactResponse } from "../models/models_0";
-import type {
-  NotificationsContactsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NotificationsContactsClient";
 import { GetEmailContact$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface GetEmailContactCommandOutput extends GetEmailContactResponse, _
  *
  * @public
  */
-export class GetEmailContactCommand extends $Command
-  .classBuilder<
-    GetEmailContactCommandInput,
-    GetEmailContactCommandOutput,
-    NotificationsContactsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NotificationsContactsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NotificationsContacts", "GetEmailContact", {})
-  .n("NotificationsContactsClient", "GetEmailContactCommand")
-  .sc(GetEmailContact$)
-  .build() {
+export class GetEmailContactCommand extends command<GetEmailContactCommandInput, GetEmailContactCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEmailContact",
+  GetEmailContact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

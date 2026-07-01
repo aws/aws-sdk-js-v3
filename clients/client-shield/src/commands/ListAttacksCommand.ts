@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAttacksRequest, ListAttacksResponse } from "../models/models_0";
 import { ListAttacks$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface ListAttacksCommandOutput extends ListAttacksResponse, __Metadat
  *
  * @public
  */
-export class ListAttacksCommand extends $Command
-  .classBuilder<
-    ListAttacksCommandInput,
-    ListAttacksCommandOutput,
-    ShieldClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShield_20160616", "ListAttacks", {})
-  .n("ShieldClient", "ListAttacksCommand")
-  .sc(ListAttacks$)
-  .build() {
+export class ListAttacksCommand extends command<ListAttacksCommandInput, ListAttacksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAttacks",
+  ListAttacks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

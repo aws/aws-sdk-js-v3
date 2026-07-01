@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPackageRequest, GetPackageResponse } from "../models/models_1";
 import { GetPackage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetPackage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface GetPackageCommandOutput extends GetPackageResponse, __MetadataB
  *
  * @public
  */
-export class GetPackageCommand extends $Command
-  .classBuilder<
-    GetPackageCommandInput,
-    GetPackageCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "GetPackage", {})
-  .n("IoTClient", "GetPackageCommand")
-  .sc(GetPackage$)
-  .build() {
+export class GetPackageCommand extends command<GetPackageCommandInput, GetPackageCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPackage",
+  GetPackage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

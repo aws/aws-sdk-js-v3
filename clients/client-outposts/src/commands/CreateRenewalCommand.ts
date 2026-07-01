@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRenewalInput, CreateRenewalOutput } from "../models/models_0";
-import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import { CreateRenewal$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface CreateRenewalCommandOutput extends CreateRenewalOutput, __Metad
  *
  * @public
  */
-export class CreateRenewalCommand extends $Command
-  .classBuilder<
-    CreateRenewalCommandInput,
-    CreateRenewalCommandOutput,
-    OutpostsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OutpostsOlafService", "CreateRenewal", {})
-  .n("OutpostsClient", "CreateRenewalCommand")
-  .sc(CreateRenewal$)
-  .build() {
+export class CreateRenewalCommand extends command<CreateRenewalCommandInput, CreateRenewalCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRenewal",
+  CreateRenewal$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

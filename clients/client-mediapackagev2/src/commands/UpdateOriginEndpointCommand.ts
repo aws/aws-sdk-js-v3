@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MediaPackageV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MediaPackageV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateOriginEndpointRequest, UpdateOriginEndpointResponse } from "../models/models_0";
 import { UpdateOriginEndpoint$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateOriginEndpoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -800,22 +792,12 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *
  * @public
  */
-export class UpdateOriginEndpointCommand extends $Command
-  .classBuilder<
-    UpdateOriginEndpointCommandInput,
-    UpdateOriginEndpointCommandOutput,
-    MediaPackageV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("mediapackagev2", "UpdateOriginEndpoint", {})
-  .n("MediaPackageV2Client", "UpdateOriginEndpointCommand")
-  .sc(UpdateOriginEndpoint$)
-  .build() {
+export class UpdateOriginEndpointCommand extends command<UpdateOriginEndpointCommandInput, UpdateOriginEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateOriginEndpoint",
+  UpdateOriginEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

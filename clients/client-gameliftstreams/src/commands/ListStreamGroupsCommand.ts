@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  GameLiftStreamsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../GameLiftStreamsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListStreamGroupsInput, ListStreamGroupsOutput } from "../models/models_0";
 import { ListStreamGroups$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListStreamGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +84,12 @@ export interface ListStreamGroupsCommandOutput extends ListStreamGroupsOutput, _
  *
  * @public
  */
-export class ListStreamGroupsCommand extends $Command
-  .classBuilder<
-    ListStreamGroupsCommandInput,
-    ListStreamGroupsCommandOutput,
-    GameLiftStreamsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftStreamsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLiftStreams", "ListStreamGroups", {})
-  .n("GameLiftStreamsClient", "ListStreamGroupsCommand")
-  .sc(ListStreamGroups$)
-  .build() {
+export class ListStreamGroupsCommand extends command<ListStreamGroupsCommandInput, ListStreamGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListStreamGroups",
+  ListStreamGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

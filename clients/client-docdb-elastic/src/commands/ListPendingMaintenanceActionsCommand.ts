@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPendingMaintenanceActionsInput, ListPendingMaintenanceActionsOutput } from "../models/models_0";
 import { ListPendingMaintenanceActions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListPendingMaintenanceActions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface ListPendingMaintenanceActionsCommandOutput extends ListPendingM
  *
  * @public
  */
-export class ListPendingMaintenanceActionsCommand extends $Command
-  .classBuilder<
-    ListPendingMaintenanceActionsCommandInput,
-    ListPendingMaintenanceActionsCommandOutput,
-    DocDBElasticClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DocDBElasticClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeraDbLionfishServiceLambda", "ListPendingMaintenanceActions", {})
-  .n("DocDBElasticClient", "ListPendingMaintenanceActionsCommand")
-  .sc(ListPendingMaintenanceActions$)
-  .build() {
+export class ListPendingMaintenanceActionsCommand extends command<ListPendingMaintenanceActionsCommandInput, ListPendingMaintenanceActionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPendingMaintenanceActions",
+  ListPendingMaintenanceActions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMetricFilterRequest } from "../models/models_0";
 import { DeleteMetricFilter$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteMetricFilter$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +66,12 @@ export interface DeleteMetricFilterCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteMetricFilterCommand extends $Command
-  .classBuilder<
-    DeleteMetricFilterCommandInput,
-    DeleteMetricFilterCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "DeleteMetricFilter", {})
-  .n("CloudWatchLogsClient", "DeleteMetricFilterCommand")
-  .sc(DeleteMetricFilter$)
-  .build() {
+export class DeleteMetricFilterCommand extends command<DeleteMetricFilterCommandInput, DeleteMetricFilterCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMetricFilter",
+  DeleteMetricFilter$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

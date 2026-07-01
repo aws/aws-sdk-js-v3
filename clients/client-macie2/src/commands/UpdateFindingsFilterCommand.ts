@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateFindingsFilterRequest, UpdateFindingsFilterResponse } from "../models/models_0";
 import { UpdateFindingsFilter$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateFindingsFilter$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface UpdateFindingsFilterCommandOutput extends UpdateFindingsFilterR
  *
  * @public
  */
-export class UpdateFindingsFilterCommand extends $Command
-  .classBuilder<
-    UpdateFindingsFilterCommandInput,
-    UpdateFindingsFilterCommandOutput,
-    Macie2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Macie2", "UpdateFindingsFilter", {})
-  .n("Macie2Client", "UpdateFindingsFilterCommand")
-  .sc(UpdateFindingsFilter$)
-  .build() {
+export class UpdateFindingsFilterCommand extends command<UpdateFindingsFilterCommandInput, UpdateFindingsFilterCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateFindingsFilter",
+  UpdateFindingsFilter$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

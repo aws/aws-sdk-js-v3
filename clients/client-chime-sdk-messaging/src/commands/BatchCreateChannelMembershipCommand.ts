@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMessagingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMessagingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchCreateChannelMembershipRequest, BatchCreateChannelMembershipResponse } from "../models/models_0";
 import { BatchCreateChannelMembership$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { BatchCreateChannelMembership$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +106,12 @@ export interface BatchCreateChannelMembershipCommandOutput extends BatchCreateCh
  *
  * @public
  */
-export class BatchCreateChannelMembershipCommand extends $Command
-  .classBuilder<
-    BatchCreateChannelMembershipCommandInput,
-    BatchCreateChannelMembershipCommandOutput,
-    ChimeSDKMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeMessagingService", "BatchCreateChannelMembership", {})
-  .n("ChimeSDKMessagingClient", "BatchCreateChannelMembershipCommand")
-  .sc(BatchCreateChannelMembership$)
-  .build() {
+export class BatchCreateChannelMembershipCommand extends command<BatchCreateChannelMembershipCommandInput, BatchCreateChannelMembershipCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchCreateChannelMembership",
+  BatchCreateChannelMembership$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

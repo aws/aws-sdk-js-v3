@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListIntegrationResourcePropertiesRequest,
   ListIntegrationResourcePropertiesResponse,
@@ -15,7 +12,6 @@ import { ListIntegrationResourceProperties$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface ListIntegrationResourcePropertiesCommandOutput extends ListInte
  *
  * @public
  */
-export class ListIntegrationResourcePropertiesCommand extends $Command
-  .classBuilder<
-    ListIntegrationResourcePropertiesCommandInput,
-    ListIntegrationResourcePropertiesCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "ListIntegrationResourceProperties", {})
-  .n("GlueClient", "ListIntegrationResourcePropertiesCommand")
-  .sc(ListIntegrationResourceProperties$)
-  .build() {
+export class ListIntegrationResourcePropertiesCommand extends command<ListIntegrationResourcePropertiesCommandInput, ListIntegrationResourcePropertiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListIntegrationResourceProperties",
+  ListIntegrationResourceProperties$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

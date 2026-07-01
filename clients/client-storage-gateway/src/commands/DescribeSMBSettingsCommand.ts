@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeSMBSettingsInput, DescribeSMBSettingsOutput } from "../models/models_0";
 import { DescribeSMBSettings$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface DescribeSMBSettingsCommandOutput extends DescribeSMBSettingsOut
  *
  * @public
  */
-export class DescribeSMBSettingsCommand extends $Command
-  .classBuilder<
-    DescribeSMBSettingsCommandInput,
-    DescribeSMBSettingsCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "DescribeSMBSettings", {})
-  .n("StorageGatewayClient", "DescribeSMBSettingsCommand")
-  .sc(DescribeSMBSettings$)
-  .build() {
+export class DescribeSMBSettingsCommand extends command<DescribeSMBSettingsCommandInput, DescribeSMBSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSMBSettings",
+  DescribeSMBSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

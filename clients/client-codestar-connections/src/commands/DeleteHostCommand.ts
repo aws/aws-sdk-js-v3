@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeStarConnectionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeStarConnectionsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteHostInput, DeleteHostOutput } from "../models/models_0";
 import { DeleteHost$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteHost$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +62,12 @@ export interface DeleteHostCommandOutput extends DeleteHostOutput, __MetadataBea
  *
  * @public
  */
-export class DeleteHostCommand extends $Command
-  .classBuilder<
-    DeleteHostCommandInput,
-    DeleteHostCommandOutput,
-    CodeStarConnectionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeStarConnectionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeStar_connections_20191201", "DeleteHost", {})
-  .n("CodeStarConnectionsClient", "DeleteHostCommand")
-  .sc(DeleteHost$)
-  .build() {
+export class DeleteHostCommand extends command<DeleteHostCommandInput, DeleteHostCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteHost",
+  DeleteHost$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

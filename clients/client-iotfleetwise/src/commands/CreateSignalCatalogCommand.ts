@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSignalCatalogRequest, CreateSignalCatalogResponse } from "../models/models_0";
 import { CreateSignalCatalog$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateSignalCatalog$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -164,22 +160,12 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *
  * @public
  */
-export class CreateSignalCatalogCommand extends $Command
-  .classBuilder<
-    CreateSignalCatalogCommandInput,
-    CreateSignalCatalogCommandOutput,
-    IoTFleetWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IoTAutobahnControlPlane", "CreateSignalCatalog", {})
-  .n("IoTFleetWiseClient", "CreateSignalCatalogCommand")
-  .sc(CreateSignalCatalog$)
-  .build() {
+export class CreateSignalCatalogCommand extends command<CreateSignalCatalogCommandInput, CreateSignalCatalogCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSignalCatalog",
+  CreateSignalCatalog$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerAutomationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerAutomationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAutomationRuleRequest, DeleteAutomationRuleResponse } from "../models/models_0";
 import { DeleteAutomationRule$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteAutomationRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface DeleteAutomationRuleCommandOutput extends DeleteAutomationRuleR
  *
  * @public
  */
-export class DeleteAutomationRuleCommand extends $Command
-  .classBuilder<
-    DeleteAutomationRuleCommandInput,
-    DeleteAutomationRuleCommandOutput,
-    ComputeOptimizerAutomationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerAutomationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerAutomationService", "DeleteAutomationRule", {})
-  .n("ComputeOptimizerAutomationClient", "DeleteAutomationRuleCommand")
-  .sc(DeleteAutomationRule$)
-  .build() {
+export class DeleteAutomationRuleCommand extends command<DeleteAutomationRuleCommandInput, DeleteAutomationRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAutomationRule",
+  DeleteAutomationRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

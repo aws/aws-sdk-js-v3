@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRoutingControlRequest, DescribeRoutingControlResponse } from "../models/models_0";
-import type {
-  Route53RecoveryControlConfigClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53RecoveryControlConfigClient";
 import { DescribeRoutingControl$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface DescribeRoutingControlCommandOutput extends DescribeRoutingCont
  *
  * @public
  */
-export class DescribeRoutingControlCommand extends $Command
-  .classBuilder<
-    DescribeRoutingControlCommandInput,
-    DescribeRoutingControlCommandOutput,
-    Route53RecoveryControlConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53RecoveryControlConfig", "DescribeRoutingControl", {})
-  .n("Route53RecoveryControlConfigClient", "DescribeRoutingControlCommand")
-  .sc(DescribeRoutingControl$)
-  .build() {
+export class DescribeRoutingControlCommand extends command<DescribeRoutingControlCommandInput, DescribeRoutingControlCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRoutingControl",
+  DescribeRoutingControl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BCMDataExportsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BCMDataExportsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateExportRequest, CreateExportResponse } from "../models/models_0";
 import { CreateExport$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateExport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +105,12 @@ export interface CreateExportCommandOutput extends CreateExportResponse, __Metad
  *
  * @public
  */
-export class CreateExportCommand extends $Command
-  .classBuilder<
-    CreateExportCommandInput,
-    CreateExportCommandOutput,
-    BCMDataExportsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BCMDataExportsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBillingAndCostManagementDataExports", "CreateExport", {})
-  .n("BCMDataExportsClient", "CreateExportCommand")
-  .sc(CreateExport$)
-  .build() {
+export class CreateExportCommand extends command<CreateExportCommandInput, CreateExportCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateExport",
+  CreateExport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

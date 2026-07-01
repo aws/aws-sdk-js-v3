@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPredictiveScalingForecastAnswer, GetPredictiveScalingForecastType } from "../models/models_0";
 import { GetPredictiveScalingForecast$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetPredictiveScalingForecast$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -179,22 +175,12 @@ export interface GetPredictiveScalingForecastCommandOutput extends GetPredictive
  *
  * @public
  */
-export class GetPredictiveScalingForecastCommand extends $Command
-  .classBuilder<
-    GetPredictiveScalingForecastCommandInput,
-    GetPredictiveScalingForecastCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "GetPredictiveScalingForecast", {})
-  .n("AutoScalingClient", "GetPredictiveScalingForecastCommand")
-  .sc(GetPredictiveScalingForecast$)
-  .build() {
+export class GetPredictiveScalingForecastCommand extends command<GetPredictiveScalingForecastCommandInput, GetPredictiveScalingForecastCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPredictiveScalingForecast",
+  GetPredictiveScalingForecast$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetReferenceMetadataRequest, GetReferenceMetadataResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { GetReferenceMetadata$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface GetReferenceMetadataCommandOutput extends GetReferenceMetadataR
  *
  * @public
  */
-export class GetReferenceMetadataCommand extends $Command
-  .classBuilder<
-    GetReferenceMetadataCommandInput,
-    GetReferenceMetadataCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "GetReferenceMetadata", {})
-  .n("OmicsClient", "GetReferenceMetadataCommand")
-  .sc(GetReferenceMetadata$)
-  .build() {
+export class GetReferenceMetadataCommand extends command<GetReferenceMetadataCommandInput, GetReferenceMetadataCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetReferenceMetadata",
+  GetReferenceMetadata$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

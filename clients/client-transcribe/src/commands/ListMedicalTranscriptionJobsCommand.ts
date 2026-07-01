@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListMedicalTranscriptionJobsRequest, ListMedicalTranscriptionJobsResponse } from "../models/models_0";
 import { ListMedicalTranscriptionJobs$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface ListMedicalTranscriptionJobsCommandOutput extends ListMedicalTr
  *
  * @public
  */
-export class ListMedicalTranscriptionJobsCommand extends $Command
-  .classBuilder<
-    ListMedicalTranscriptionJobsCommandInput,
-    ListMedicalTranscriptionJobsCommandOutput,
-    TranscribeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Transcribe", "ListMedicalTranscriptionJobs", {})
-  .n("TranscribeClient", "ListMedicalTranscriptionJobsCommand")
-  .sc(ListMedicalTranscriptionJobs$)
-  .build() {
+export class ListMedicalTranscriptionJobsCommand extends command<ListMedicalTranscriptionJobsCommandInput, ListMedicalTranscriptionJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMedicalTranscriptionJobs",
+  ListMedicalTranscriptionJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

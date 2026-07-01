@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteVerifiedAccessEndpointRequest, DeleteVerifiedAccessEndpointResult } from "../models/models_3";
 import { DeleteVerifiedAccessEndpoint$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteVerifiedAccessEndpoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -141,22 +137,12 @@ export interface DeleteVerifiedAccessEndpointCommandOutput extends DeleteVerifie
  *
  * @public
  */
-export class DeleteVerifiedAccessEndpointCommand extends $Command
-  .classBuilder<
-    DeleteVerifiedAccessEndpointCommandInput,
-    DeleteVerifiedAccessEndpointCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeleteVerifiedAccessEndpoint", {})
-  .n("EC2Client", "DeleteVerifiedAccessEndpointCommand")
-  .sc(DeleteVerifiedAccessEndpoint$)
-  .build() {
+export class DeleteVerifiedAccessEndpointCommand extends command<DeleteVerifiedAccessEndpointCommandInput, DeleteVerifiedAccessEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteVerifiedAccessEndpoint",
+  DeleteVerifiedAccessEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

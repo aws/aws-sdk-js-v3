@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartProtectedJobInput, StartProtectedJobOutput } from "../models/models_1";
 import { StartProtectedJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartProtectedJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -160,22 +156,12 @@ export interface StartProtectedJobCommandOutput extends StartProtectedJobOutput,
  *
  * @public
  */
-export class StartProtectedJobCommand extends $Command
-  .classBuilder<
-    StartProtectedJobCommandInput,
-    StartProtectedJobCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "StartProtectedJob", {})
-  .n("CleanRoomsClient", "StartProtectedJobCommand")
-  .sc(StartProtectedJob$)
-  .build() {
+export class StartProtectedJobCommand extends command<StartProtectedJobCommandInput, StartProtectedJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartProtectedJob",
+  StartProtectedJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

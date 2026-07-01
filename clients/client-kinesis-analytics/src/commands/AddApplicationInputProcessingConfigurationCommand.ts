@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  KinesisAnalyticsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../KinesisAnalyticsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AddApplicationInputProcessingConfigurationRequest,
   AddApplicationInputProcessingConfigurationResponse,
@@ -19,7 +12,6 @@ import { AddApplicationInputProcessingConfiguration$ } from "../schemas/schemas_
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +84,12 @@ export interface AddApplicationInputProcessingConfigurationCommandOutput extends
  *
  * @public
  */
-export class AddApplicationInputProcessingConfigurationCommand extends $Command
-  .classBuilder<
-    AddApplicationInputProcessingConfigurationCommandInput,
-    AddApplicationInputProcessingConfigurationCommandOutput,
-    KinesisAnalyticsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KinesisAnalytics_20150814", "AddApplicationInputProcessingConfiguration", {})
-  .n("KinesisAnalyticsClient", "AddApplicationInputProcessingConfigurationCommand")
-  .sc(AddApplicationInputProcessingConfiguration$)
-  .build() {
+export class AddApplicationInputProcessingConfigurationCommand extends command<AddApplicationInputProcessingConfigurationCommandInput, AddApplicationInputProcessingConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddApplicationInputProcessingConfiguration",
+  AddApplicationInputProcessingConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

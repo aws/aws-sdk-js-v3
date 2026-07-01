@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExecuteTransactionInput, ExecuteTransactionOutput } from "../models/models_0";
 import { ExecuteTransaction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ExecuteTransaction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -519,22 +515,12 @@ export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutpu
  *
  * @public
  */
-export class ExecuteTransactionCommand extends $Command
-  .classBuilder<
-    ExecuteTransactionCommandInput,
-    ExecuteTransactionCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "ExecuteTransaction", {})
-  .n("DynamoDBClient", "ExecuteTransactionCommand")
-  .sc(ExecuteTransaction$)
-  .build() {
+export class ExecuteTransactionCommand extends command<ExecuteTransactionCommandInput, ExecuteTransactionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExecuteTransaction",
+  ExecuteTransaction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

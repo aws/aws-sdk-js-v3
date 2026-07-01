@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetAutoshiftObserverNotificationStatusRequest,
   GetAutoshiftObserverNotificationStatusResponse,
@@ -15,7 +12,6 @@ import { GetAutoshiftObserverNotificationStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface GetAutoshiftObserverNotificationStatusCommandOutput extends Get
  *
  * @public
  */
-export class GetAutoshiftObserverNotificationStatusCommand extends $Command
-  .classBuilder<
-    GetAutoshiftObserverNotificationStatusCommandInput,
-    GetAutoshiftObserverNotificationStatusCommandOutput,
-    ARCZonalShiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PercDataPlane", "GetAutoshiftObserverNotificationStatus", {})
-  .n("ARCZonalShiftClient", "GetAutoshiftObserverNotificationStatusCommand")
-  .sc(GetAutoshiftObserverNotificationStatus$)
-  .build() {
+export class GetAutoshiftObserverNotificationStatusCommand extends command<GetAutoshiftObserverNotificationStatusCommandInput, GetAutoshiftObserverNotificationStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAutoshiftObserverNotificationStatus",
+  GetAutoshiftObserverNotificationStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

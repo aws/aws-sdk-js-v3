@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAgreementRequest, UpdateAgreementResponse } from "../models/models_0";
 import { UpdateAgreement$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface UpdateAgreementCommandOutput extends UpdateAgreementResponse, _
  *
  * @public
  */
-export class UpdateAgreementCommand extends $Command
-  .classBuilder<
-    UpdateAgreementCommandInput,
-    UpdateAgreementCommandOutput,
-    TransferClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TransferService", "UpdateAgreement", {})
-  .n("TransferClient", "UpdateAgreementCommand")
-  .sc(UpdateAgreement$)
-  .build() {
+export class UpdateAgreementCommand extends command<UpdateAgreementCommandInput, UpdateAgreementCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAgreement",
+  UpdateAgreement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

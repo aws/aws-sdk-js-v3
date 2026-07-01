@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  EntityResolutionClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../EntityResolutionClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartMatchingJobInput, StartMatchingJobOutput } from "../models/models_0";
 import { StartMatchingJob$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartMatchingJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface StartMatchingJobCommandOutput extends StartMatchingJobOutput, _
  *
  * @public
  */
-export class StartMatchingJobCommand extends $Command
-  .classBuilder<
-    StartMatchingJobCommandInput,
-    StartMatchingJobCommandOutput,
-    EntityResolutionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EntityResolutionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSVeniceService", "StartMatchingJob", {})
-  .n("EntityResolutionClient", "StartMatchingJobCommand")
-  .sc(StartMatchingJob$)
-  .build() {
+export class StartMatchingJobCommand extends command<StartMatchingJobCommandInput, StartMatchingJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartMatchingJob",
+  StartMatchingJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

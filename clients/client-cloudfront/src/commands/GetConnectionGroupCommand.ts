@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetConnectionGroupRequest, GetConnectionGroupResult } from "../models/models_0";
 import { GetConnectionGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetConnectionGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface GetConnectionGroupCommandOutput extends GetConnectionGroupResul
  *
  * @public
  */
-export class GetConnectionGroupCommand extends $Command
-  .classBuilder<
-    GetConnectionGroupCommandInput,
-    GetConnectionGroupCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "GetConnectionGroup", {})
-  .n("CloudFrontClient", "GetConnectionGroupCommand")
-  .sc(GetConnectionGroup$)
-  .build() {
+export class GetConnectionGroupCommand extends command<GetConnectionGroupCommandInput, GetConnectionGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetConnectionGroup",
+  GetConnectionGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

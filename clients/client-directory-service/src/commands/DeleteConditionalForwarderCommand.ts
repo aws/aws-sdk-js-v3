@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteConditionalForwarderRequest, DeleteConditionalForwarderResult } from "../models/models_0";
 import { DeleteConditionalForwarder$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteConditionalForwarder$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface DeleteConditionalForwarderCommandOutput extends DeleteCondition
  *
  * @public
  */
-export class DeleteConditionalForwarderCommand extends $Command
-  .classBuilder<
-    DeleteConditionalForwarderCommandInput,
-    DeleteConditionalForwarderCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "DeleteConditionalForwarder", {})
-  .n("DirectoryServiceClient", "DeleteConditionalForwarderCommand")
-  .sc(DeleteConditionalForwarder$)
-  .build() {
+export class DeleteConditionalForwarderCommand extends command<DeleteConditionalForwarderCommandInput, DeleteConditionalForwarderCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteConditionalForwarder",
+  DeleteConditionalForwarder$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

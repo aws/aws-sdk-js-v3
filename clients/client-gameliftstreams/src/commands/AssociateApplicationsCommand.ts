@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  GameLiftStreamsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../GameLiftStreamsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateApplicationsInput, AssociateApplicationsOutput } from "../models/models_0";
 import { AssociateApplications$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AssociateApplications$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface AssociateApplicationsCommandOutput extends AssociateApplication
  *
  * @public
  */
-export class AssociateApplicationsCommand extends $Command
-  .classBuilder<
-    AssociateApplicationsCommandInput,
-    AssociateApplicationsCommandOutput,
-    GameLiftStreamsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftStreamsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLiftStreams", "AssociateApplications", {})
-  .n("GameLiftStreamsClient", "AssociateApplicationsCommand")
-  .sc(AssociateApplications$)
-  .build() {
+export class AssociateApplicationsCommand extends command<AssociateApplicationsCommandInput, AssociateApplicationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateApplications",
+  AssociateApplications$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

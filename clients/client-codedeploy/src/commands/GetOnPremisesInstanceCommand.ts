@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetOnPremisesInstanceInput, GetOnPremisesInstanceOutput } from "../models/models_0";
 import { GetOnPremisesInstance$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetOnPremisesInstance$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface GetOnPremisesInstanceCommandOutput extends GetOnPremisesInstanc
  *
  * @public
  */
-export class GetOnPremisesInstanceCommand extends $Command
-  .classBuilder<
-    GetOnPremisesInstanceCommandInput,
-    GetOnPremisesInstanceCommandOutput,
-    CodeDeployClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeDeploy_20141006", "GetOnPremisesInstance", {})
-  .n("CodeDeployClient", "GetOnPremisesInstanceCommand")
-  .sc(GetOnPremisesInstance$)
-  .build() {
+export class GetOnPremisesInstanceCommand extends command<GetOnPremisesInstanceCommandInput, GetOnPremisesInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetOnPremisesInstance",
+  GetOnPremisesInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

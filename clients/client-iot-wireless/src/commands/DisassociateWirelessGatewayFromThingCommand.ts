@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateWirelessGatewayFromThingRequest,
   DisassociateWirelessGatewayFromThingResponse,
@@ -15,7 +12,6 @@ import { DisassociateWirelessGatewayFromThing$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DisassociateWirelessGatewayFromThingCommandOutput extends Disas
  *
  * @public
  */
-export class DisassociateWirelessGatewayFromThingCommand extends $Command
-  .classBuilder<
-    DisassociateWirelessGatewayFromThingCommandInput,
-    DisassociateWirelessGatewayFromThingCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "DisassociateWirelessGatewayFromThing", {})
-  .n("IoTWirelessClient", "DisassociateWirelessGatewayFromThingCommand")
-  .sc(DisassociateWirelessGatewayFromThing$)
-  .build() {
+export class DisassociateWirelessGatewayFromThingCommand extends command<DisassociateWirelessGatewayFromThingCommandInput, DisassociateWirelessGatewayFromThingCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateWirelessGatewayFromThing",
+  DisassociateWirelessGatewayFromThing$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

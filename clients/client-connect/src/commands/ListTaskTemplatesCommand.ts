@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTaskTemplatesRequest, ListTaskTemplatesResponse } from "../models/models_2";
 import { ListTaskTemplates$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListTaskTemplates$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ListTaskTemplatesCommandOutput extends ListTaskTemplatesRespons
  *
  * @public
  */
-export class ListTaskTemplatesCommand extends $Command
-  .classBuilder<
-    ListTaskTemplatesCommandInput,
-    ListTaskTemplatesCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "ListTaskTemplates", {})
-  .n("ConnectClient", "ListTaskTemplatesCommand")
-  .sc(ListTaskTemplates$)
-  .build() {
+export class ListTaskTemplatesCommand extends command<ListTaskTemplatesCommandInput, ListTaskTemplatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTaskTemplates",
+  ListTaskTemplates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

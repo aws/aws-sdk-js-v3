@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ModifyInstanceCreditSpecificationRequest,
   ModifyInstanceCreditSpecificationResult,
@@ -15,7 +12,6 @@ import { ModifyInstanceCreditSpecification$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface ModifyInstanceCreditSpecificationCommandOutput extends ModifyIn
  *
  * @public
  */
-export class ModifyInstanceCreditSpecificationCommand extends $Command
-  .classBuilder<
-    ModifyInstanceCreditSpecificationCommandInput,
-    ModifyInstanceCreditSpecificationCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "ModifyInstanceCreditSpecification", {})
-  .n("EC2Client", "ModifyInstanceCreditSpecificationCommand")
-  .sc(ModifyInstanceCreditSpecification$)
-  .build() {
+export class ModifyInstanceCreditSpecificationCommand extends command<ModifyInstanceCreditSpecificationCommandInput, ModifyInstanceCreditSpecificationCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyInstanceCreditSpecification",
+  ModifyInstanceCreditSpecification$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

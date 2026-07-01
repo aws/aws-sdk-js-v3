@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTenantsRequest, ListTenantsResponse } from "../models/models_0";
 import { ListTenants$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface ListTenantsCommandOutput extends ListTenantsResponse, __Metadat
  *
  * @public
  */
-export class ListTenantsCommand extends $Command
-  .classBuilder<
-    ListTenantsCommandInput,
-    ListTenantsCommandOutput,
-    SESv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService_v2", "ListTenants", {})
-  .n("SESv2Client", "ListTenantsCommand")
-  .sc(ListTenants$)
-  .build() {
+export class ListTenantsCommand extends command<ListTenantsCommandInput, ListTenantsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTenants",
+  ListTenants$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

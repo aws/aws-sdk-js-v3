@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAssistantAssociationRequest, GetAssistantAssociationResponse } from "../models/models_0";
 import { GetAssistantAssociation$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface GetAssistantAssociationCommandOutput extends GetAssistantAssoci
  *
  * @public
  */
-export class GetAssistantAssociationCommand extends $Command
-  .classBuilder<
-    GetAssistantAssociationCommandInput,
-    GetAssistantAssociationCommandOutput,
-    WisdomClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "GetAssistantAssociation", {})
-  .n("WisdomClient", "GetAssistantAssociationCommand")
-  .sc(GetAssistantAssociation$)
-  .build() {
+export class GetAssistantAssociationCommand extends command<GetAssistantAssociationCommandInput, GetAssistantAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAssistantAssociation",
+  GetAssistantAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

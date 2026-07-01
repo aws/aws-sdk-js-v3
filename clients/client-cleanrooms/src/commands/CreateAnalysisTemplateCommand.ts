@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAnalysisTemplateInput, CreateAnalysisTemplateOutput } from "../models/models_0";
 import { CreateAnalysisTemplate$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateAnalysisTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -221,22 +217,12 @@ export interface CreateAnalysisTemplateCommandOutput extends CreateAnalysisTempl
  *
  * @public
  */
-export class CreateAnalysisTemplateCommand extends $Command
-  .classBuilder<
-    CreateAnalysisTemplateCommandInput,
-    CreateAnalysisTemplateCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "CreateAnalysisTemplate", {})
-  .n("CleanRoomsClient", "CreateAnalysisTemplateCommand")
-  .sc(CreateAnalysisTemplate$)
-  .build() {
+export class CreateAnalysisTemplateCommand extends command<CreateAnalysisTemplateCommandInput, CreateAnalysisTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAnalysisTemplate",
+  CreateAnalysisTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

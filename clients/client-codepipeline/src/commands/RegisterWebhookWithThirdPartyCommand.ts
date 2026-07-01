@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterWebhookWithThirdPartyInput, RegisterWebhookWithThirdPartyOutput } from "../models/models_0";
 import { RegisterWebhookWithThirdParty$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RegisterWebhookWithThirdParty$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -65,22 +61,12 @@ export interface RegisterWebhookWithThirdPartyCommandOutput extends RegisterWebh
  *
  * @public
  */
-export class RegisterWebhookWithThirdPartyCommand extends $Command
-  .classBuilder<
-    RegisterWebhookWithThirdPartyCommandInput,
-    RegisterWebhookWithThirdPartyCommandOutput,
-    CodePipelineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodePipeline_20150709", "RegisterWebhookWithThirdParty", {})
-  .n("CodePipelineClient", "RegisterWebhookWithThirdPartyCommand")
-  .sc(RegisterWebhookWithThirdParty$)
-  .build() {
+export class RegisterWebhookWithThirdPartyCommand extends command<RegisterWebhookWithThirdPartyCommandInput, RegisterWebhookWithThirdPartyCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterWebhookWithThirdParty",
+  RegisterWebhookWithThirdParty$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

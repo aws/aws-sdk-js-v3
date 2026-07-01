@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateConfigurationManagerInput } from "../models/models_0";
 import { UpdateConfigurationManager$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMQuickSetupClientResolvedConfig } from "../SSMQuickSetupClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface UpdateConfigurationManagerCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class UpdateConfigurationManagerCommand extends $Command
-  .classBuilder<
-    UpdateConfigurationManagerCommandInput,
-    UpdateConfigurationManagerCommandOutput,
-    SSMQuickSetupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMQuickSetupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSetup", "UpdateConfigurationManager", {})
-  .n("SSMQuickSetupClient", "UpdateConfigurationManagerCommand")
-  .sc(UpdateConfigurationManager$)
-  .build() {
+export class UpdateConfigurationManagerCommand extends command<UpdateConfigurationManagerCommandInput, UpdateConfigurationManagerCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateConfigurationManager",
+  UpdateConfigurationManager$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

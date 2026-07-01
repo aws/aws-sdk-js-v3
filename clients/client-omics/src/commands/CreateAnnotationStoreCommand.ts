@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAnnotationStoreRequest, CreateAnnotationStoreResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { CreateAnnotationStore$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -127,22 +123,12 @@ export interface CreateAnnotationStoreCommandOutput extends CreateAnnotationStor
  *
  * @public
  */
-export class CreateAnnotationStoreCommand extends $Command
-  .classBuilder<
-    CreateAnnotationStoreCommandInput,
-    CreateAnnotationStoreCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "CreateAnnotationStore", {})
-  .n("OmicsClient", "CreateAnnotationStoreCommand")
-  .sc(CreateAnnotationStore$)
-  .build() {
+export class CreateAnnotationStoreCommand extends command<CreateAnnotationStoreCommandInput, CreateAnnotationStoreCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAnnotationStore",
+  CreateAnnotationStore$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

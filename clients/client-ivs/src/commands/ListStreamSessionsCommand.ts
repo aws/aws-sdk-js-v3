@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListStreamSessionsRequest, ListStreamSessionsResponse } from "../models/models_0";
 import { ListStreamSessions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListStreamSessions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface ListStreamSessionsCommandOutput extends ListStreamSessionsRespo
  *
  * @public
  */
-export class ListStreamSessionsCommand extends $Command
-  .classBuilder<
-    ListStreamSessionsCommandInput,
-    ListStreamSessionsCommandOutput,
-    IvsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoService", "ListStreamSessions", {})
-  .n("IvsClient", "ListStreamSessionsCommand")
-  .sc(ListStreamSessions$)
-  .build() {
+export class ListStreamSessionsCommand extends command<ListStreamSessionsCommandInput, ListStreamSessionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListStreamSessions",
+  ListStreamSessions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

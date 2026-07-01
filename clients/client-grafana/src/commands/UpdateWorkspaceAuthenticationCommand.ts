@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateWorkspaceAuthenticationRequest, UpdateWorkspaceAuthenticationResponse } from "../models/models_0";
 import { UpdateWorkspaceAuthentication$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateWorkspaceAuthentication$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -142,22 +138,12 @@ export interface UpdateWorkspaceAuthenticationCommandOutput extends UpdateWorksp
  *
  * @public
  */
-export class UpdateWorkspaceAuthenticationCommand extends $Command
-  .classBuilder<
-    UpdateWorkspaceAuthenticationCommandInput,
-    UpdateWorkspaceAuthenticationCommandOutput,
-    GrafanaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GrafanaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGrafanaControlPlane", "UpdateWorkspaceAuthentication", {})
-  .n("GrafanaClient", "UpdateWorkspaceAuthenticationCommand")
-  .sc(UpdateWorkspaceAuthentication$)
-  .build() {
+export class UpdateWorkspaceAuthenticationCommand extends command<UpdateWorkspaceAuthenticationCommandInput, UpdateWorkspaceAuthenticationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateWorkspaceAuthentication",
+  UpdateWorkspaceAuthentication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

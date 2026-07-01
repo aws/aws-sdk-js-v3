@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetAdvancedPromptOptimizationJobRequest,
   GetAdvancedPromptOptimizationJobResponse,
@@ -15,7 +12,6 @@ import { GetAdvancedPromptOptimizationJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface GetAdvancedPromptOptimizationJobCommandOutput extends GetAdvanc
  *
  * @public
  */
-export class GetAdvancedPromptOptimizationJobCommand extends $Command
-  .classBuilder<
-    GetAdvancedPromptOptimizationJobCommandInput,
-    GetAdvancedPromptOptimizationJobCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "GetAdvancedPromptOptimizationJob", {})
-  .n("BedrockClient", "GetAdvancedPromptOptimizationJobCommand")
-  .sc(GetAdvancedPromptOptimizationJob$)
-  .build() {
+export class GetAdvancedPromptOptimizationJobCommand extends command<GetAdvancedPromptOptimizationJobCommandInput, GetAdvancedPromptOptimizationJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAdvancedPromptOptimizationJob",
+  GetAdvancedPromptOptimizationJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

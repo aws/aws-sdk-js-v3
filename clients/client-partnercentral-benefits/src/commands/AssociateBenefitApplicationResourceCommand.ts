@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AssociateBenefitApplicationResourceInput,
   AssociateBenefitApplicationResourceOutput,
 } from "../models/models_0";
-import type {
-  PartnerCentralBenefitsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralBenefitsClient";
 import { AssociateBenefitApplicationResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface AssociateBenefitApplicationResourceCommandOutput extends Associ
  *
  * @public
  */
-export class AssociateBenefitApplicationResourceCommand extends $Command
-  .classBuilder<
-    AssociateBenefitApplicationResourceCommandInput,
-    AssociateBenefitApplicationResourceCommandOutput,
-    PartnerCentralBenefitsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralBenefitsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralBenefitsService", "AssociateBenefitApplicationResource", {})
-  .n("PartnerCentralBenefitsClient", "AssociateBenefitApplicationResourceCommand")
-  .sc(AssociateBenefitApplicationResource$)
-  .build() {
+export class AssociateBenefitApplicationResourceCommand extends command<AssociateBenefitApplicationResourceCommandInput, AssociateBenefitApplicationResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateBenefitApplicationResource",
+  AssociateBenefitApplicationResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

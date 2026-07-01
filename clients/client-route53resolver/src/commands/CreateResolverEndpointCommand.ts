@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateResolverEndpointRequest, CreateResolverEndpointResponse } from "../models/models_0";
-import type {
-  Route53ResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ResolverClient";
 import { CreateResolverEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -152,22 +144,12 @@ export interface CreateResolverEndpointCommandOutput extends CreateResolverEndpo
  *
  * @public
  */
-export class CreateResolverEndpointCommand extends $Command
-  .classBuilder<
-    CreateResolverEndpointCommandInput,
-    CreateResolverEndpointCommandOutput,
-    Route53ResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Resolver", "CreateResolverEndpoint", {})
-  .n("Route53ResolverClient", "CreateResolverEndpointCommand")
-  .sc(CreateResolverEndpoint$)
-  .build() {
+export class CreateResolverEndpointCommand extends command<CreateResolverEndpointCommandInput, CreateResolverEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateResolverEndpoint",
+  CreateResolverEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep2, _mw0, command } from "../commandBuilder";
 import type { UpdateTableReplicaAutoScalingInput, UpdateTableReplicaAutoScalingOutput } from "../models/models_0";
 import { UpdateTableReplicaAutoScaling$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateTableReplicaAutoScaling$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -231,25 +227,12 @@ export interface UpdateTableReplicaAutoScalingCommandOutput extends UpdateTableR
  *
  * @public
  */
-export class UpdateTableReplicaAutoScalingCommand extends $Command
-  .classBuilder<
-    UpdateTableReplicaAutoScalingCommandInput,
-    UpdateTableReplicaAutoScalingCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "contextParams", name: "TableName" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "UpdateTableReplicaAutoScaling", {})
-  .n("DynamoDBClient", "UpdateTableReplicaAutoScalingCommand")
-  .sc(UpdateTableReplicaAutoScaling$)
-  .build() {
+export class UpdateTableReplicaAutoScalingCommand extends command<UpdateTableReplicaAutoScalingCommandInput, UpdateTableReplicaAutoScalingCommandOutput>(
+  _ep2,
+  _mw0,
+  "UpdateTableReplicaAutoScaling",
+  UpdateTableReplicaAutoScaling$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

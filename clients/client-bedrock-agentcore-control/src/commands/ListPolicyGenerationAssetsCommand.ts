@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPolicyGenerationAssetsRequest, ListPolicyGenerationAssetsResponse } from "../models/models_1";
 import { ListPolicyGenerationAssets$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListPolicyGenerationAssets$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +97,12 @@ export interface ListPolicyGenerationAssetsCommandOutput extends ListPolicyGener
  *
  * @public
  */
-export class ListPolicyGenerationAssetsCommand extends $Command
-  .classBuilder<
-    ListPolicyGenerationAssetsCommandInput,
-    ListPolicyGenerationAssetsCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "ListPolicyGenerationAssets", {})
-  .n("BedrockAgentCoreControlClient", "ListPolicyGenerationAssetsCommand")
-  .sc(ListPolicyGenerationAssets$)
-  .build() {
+export class ListPolicyGenerationAssetsCommand extends command<ListPolicyGenerationAssetsCommandInput, ListPolicyGenerationAssetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPolicyGenerationAssets",
+  ListPolicyGenerationAssets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

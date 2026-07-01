@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartSpeechSynthesisTaskInput, StartSpeechSynthesisTaskOutput } from "../models/models_0";
-import type { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient";
 import { StartSpeechSynthesisTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -159,22 +155,12 @@ export interface StartSpeechSynthesisTaskCommandOutput extends StartSpeechSynthe
  *
  * @public
  */
-export class StartSpeechSynthesisTaskCommand extends $Command
-  .classBuilder<
-    StartSpeechSynthesisTaskCommandInput,
-    StartSpeechSynthesisTaskCommandOutput,
-    PollyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PollyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Parrot_v1", "StartSpeechSynthesisTask", {})
-  .n("PollyClient", "StartSpeechSynthesisTaskCommand")
-  .sc(StartSpeechSynthesisTask$)
-  .build() {
+export class StartSpeechSynthesisTaskCommand extends command<StartSpeechSynthesisTaskCommandInput, StartSpeechSynthesisTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartSpeechSynthesisTask",
+  StartSpeechSynthesisTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

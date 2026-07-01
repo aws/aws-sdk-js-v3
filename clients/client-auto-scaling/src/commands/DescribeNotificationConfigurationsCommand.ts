@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeNotificationConfigurationsAnswer,
   DescribeNotificationConfigurationsType,
@@ -15,7 +12,6 @@ import { DescribeNotificationConfigurations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface DescribeNotificationConfigurationsCommandOutput extends Describ
  *
  * @public
  */
-export class DescribeNotificationConfigurationsCommand extends $Command
-  .classBuilder<
-    DescribeNotificationConfigurationsCommandInput,
-    DescribeNotificationConfigurationsCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "DescribeNotificationConfigurations", {})
-  .n("AutoScalingClient", "DescribeNotificationConfigurationsCommand")
-  .sc(DescribeNotificationConfigurations$)
-  .build() {
+export class DescribeNotificationConfigurationsCommand extends command<DescribeNotificationConfigurationsCommandInput, DescribeNotificationConfigurationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeNotificationConfigurations",
+  DescribeNotificationConfigurations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

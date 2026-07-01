@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeInstanceTopologyRequest, DescribeInstanceTopologyResult } from "../models/models_4";
 import { DescribeInstanceTopology$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeInstanceTopology$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface DescribeInstanceTopologyCommandOutput extends DescribeInstanceT
  *
  * @public
  */
-export class DescribeInstanceTopologyCommand extends $Command
-  .classBuilder<
-    DescribeInstanceTopologyCommandInput,
-    DescribeInstanceTopologyCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeInstanceTopology", {})
-  .n("EC2Client", "DescribeInstanceTopologyCommand")
-  .sc(DescribeInstanceTopology$)
-  .build() {
+export class DescribeInstanceTopologyCommand extends command<DescribeInstanceTopologyCommandInput, DescribeInstanceTopologyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeInstanceTopology",
+  DescribeInstanceTopology$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

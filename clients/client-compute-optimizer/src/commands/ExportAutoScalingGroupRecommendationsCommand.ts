@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ExportAutoScalingGroupRecommendationsRequest,
   ExportAutoScalingGroupRecommendationsResponse,
@@ -19,7 +12,6 @@ import { ExportAutoScalingGroupRecommendations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +117,12 @@ export interface ExportAutoScalingGroupRecommendationsCommandOutput extends Expo
  *
  * @public
  */
-export class ExportAutoScalingGroupRecommendationsCommand extends $Command
-  .classBuilder<
-    ExportAutoScalingGroupRecommendationsCommandInput,
-    ExportAutoScalingGroupRecommendationsCommandOutput,
-    ComputeOptimizerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerService", "ExportAutoScalingGroupRecommendations", {})
-  .n("ComputeOptimizerClient", "ExportAutoScalingGroupRecommendationsCommand")
-  .sc(ExportAutoScalingGroupRecommendations$)
-  .build() {
+export class ExportAutoScalingGroupRecommendationsCommand extends command<ExportAutoScalingGroupRecommendationsCommandInput, ExportAutoScalingGroupRecommendationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExportAutoScalingGroupRecommendations",
+  ExportAutoScalingGroupRecommendations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

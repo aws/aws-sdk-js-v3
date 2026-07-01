@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListManagedThingAccountAssociationsRequest,
   ListManagedThingAccountAssociationsResponse,
@@ -19,7 +12,6 @@ import { ListManagedThingAccountAssociations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface ListManagedThingAccountAssociationsCommandOutput extends ListMa
  *
  * @public
  */
-export class ListManagedThingAccountAssociationsCommand extends $Command
-  .classBuilder<
-    ListManagedThingAccountAssociationsCommandInput,
-    ListManagedThingAccountAssociationsCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "ListManagedThingAccountAssociations", {})
-  .n("IoTManagedIntegrationsClient", "ListManagedThingAccountAssociationsCommand")
-  .sc(ListManagedThingAccountAssociations$)
-  .build() {
+export class ListManagedThingAccountAssociationsCommand extends command<ListManagedThingAccountAssociationsCommandInput, ListManagedThingAccountAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListManagedThingAccountAssociations",
+  ListManagedThingAccountAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

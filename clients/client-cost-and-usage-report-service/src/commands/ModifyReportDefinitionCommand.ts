@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CostAndUsageReportServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CostAndUsageReportServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyReportDefinitionRequest, ModifyReportDefinitionResponse } from "../models/models_0";
 import { ModifyReportDefinition$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ModifyReportDefinition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
  *
  * @public
  */
-export class ModifyReportDefinitionCommand extends $Command
-  .classBuilder<
-    ModifyReportDefinitionCommandInput,
-    ModifyReportDefinitionCommandOutput,
-    CostAndUsageReportServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostAndUsageReportServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrigamiServiceGatewayService", "ModifyReportDefinition", {})
-  .n("CostAndUsageReportServiceClient", "ModifyReportDefinitionCommand")
-  .sc(ModifyReportDefinition$)
-  .build() {
+export class ModifyReportDefinitionCommand extends command<ModifyReportDefinitionCommandInput, ModifyReportDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyReportDefinition",
+  ModifyReportDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

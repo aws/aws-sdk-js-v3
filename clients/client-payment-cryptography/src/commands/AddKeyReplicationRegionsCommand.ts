@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddKeyReplicationRegionsInput, AddKeyReplicationRegionsOutput } from "../models/models_0";
-import type {
-  PaymentCryptographyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PaymentCryptographyClient";
 import { AddKeyReplicationRegions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +124,12 @@ export interface AddKeyReplicationRegionsCommandOutput extends AddKeyReplication
  *
  * @public
  */
-export class AddKeyReplicationRegionsCommand extends $Command
-  .classBuilder<
-    AddKeyReplicationRegionsCommandInput,
-    AddKeyReplicationRegionsCommandOutput,
-    PaymentCryptographyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PaymentCryptographyControlPlane", "AddKeyReplicationRegions", {})
-  .n("PaymentCryptographyClient", "AddKeyReplicationRegionsCommand")
-  .sc(AddKeyReplicationRegions$)
-  .build() {
+export class AddKeyReplicationRegionsCommand extends command<AddKeyReplicationRegionsCommandInput, AddKeyReplicationRegionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddKeyReplicationRegions",
+  AddKeyReplicationRegions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BCMPricingCalculatorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BCMPricingCalculatorClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchDeleteBillScenarioCommitmentModificationRequest,
   BatchDeleteBillScenarioCommitmentModificationResponse,
@@ -19,7 +12,6 @@ import { BatchDeleteBillScenarioCommitmentModification$ } from "../schemas/schem
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface BatchDeleteBillScenarioCommitmentModificationCommandOutput exte
  *
  * @public
  */
-export class BatchDeleteBillScenarioCommitmentModificationCommand extends $Command
-  .classBuilder<
-    BatchDeleteBillScenarioCommitmentModificationCommandInput,
-    BatchDeleteBillScenarioCommitmentModificationCommandOutput,
-    BCMPricingCalculatorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BCMPricingCalculatorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBCMPricingCalculator", "BatchDeleteBillScenarioCommitmentModification", {})
-  .n("BCMPricingCalculatorClient", "BatchDeleteBillScenarioCommitmentModificationCommand")
-  .sc(BatchDeleteBillScenarioCommitmentModification$)
-  .build() {
+export class BatchDeleteBillScenarioCommitmentModificationCommand extends command<BatchDeleteBillScenarioCommitmentModificationCommandInput, BatchDeleteBillScenarioCommitmentModificationCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDeleteBillScenarioCommitmentModification",
+  BatchDeleteBillScenarioCommitmentModification$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

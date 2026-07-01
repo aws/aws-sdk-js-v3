@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeSecurityHubV2Request, DescribeSecurityHubV2Response } from "../models/models_2";
 import { DescribeSecurityHubV2$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DescribeSecurityHubV2CommandOutput extends DescribeSecurityHubV
  *
  * @public
  */
-export class DescribeSecurityHubV2Command extends $Command
-  .classBuilder<
-    DescribeSecurityHubV2CommandInput,
-    DescribeSecurityHubV2CommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "DescribeSecurityHubV2", {})
-  .n("SecurityHubClient", "DescribeSecurityHubV2Command")
-  .sc(DescribeSecurityHubV2$)
-  .build() {
+export class DescribeSecurityHubV2Command extends command<DescribeSecurityHubV2CommandInput, DescribeSecurityHubV2CommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSecurityHubV2",
+  DescribeSecurityHubV2$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

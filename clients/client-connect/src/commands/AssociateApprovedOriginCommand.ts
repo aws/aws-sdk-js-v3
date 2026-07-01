@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateApprovedOriginRequest } from "../models/models_0";
 import { AssociateApprovedOrigin$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateApprovedOrigin$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface AssociateApprovedOriginCommandOutput extends __MetadataBearer {
  *
  * @public
  */
-export class AssociateApprovedOriginCommand extends $Command
-  .classBuilder<
-    AssociateApprovedOriginCommandInput,
-    AssociateApprovedOriginCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "AssociateApprovedOrigin", {})
-  .n("ConnectClient", "AssociateApprovedOriginCommand")
-  .sc(AssociateApprovedOrigin$)
-  .build() {
+export class AssociateApprovedOriginCommand extends command<AssociateApprovedOriginCommandInput, AssociateApprovedOriginCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateApprovedOrigin",
+  AssociateApprovedOrigin$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

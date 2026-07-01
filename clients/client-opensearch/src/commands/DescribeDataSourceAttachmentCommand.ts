@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeDataSourceAttachmentRequest, DescribeDataSourceAttachmentResponse } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { DescribeDataSourceAttachment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DescribeDataSourceAttachmentCommandOutput extends DescribeDataS
  *
  * @public
  */
-export class DescribeDataSourceAttachmentCommand extends $Command
-  .classBuilder<
-    DescribeDataSourceAttachmentCommandInput,
-    DescribeDataSourceAttachmentCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "DescribeDataSourceAttachment", {})
-  .n("OpenSearchClient", "DescribeDataSourceAttachmentCommand")
-  .sc(DescribeDataSourceAttachment$)
-  .build() {
+export class DescribeDataSourceAttachmentCommand extends command<DescribeDataSourceAttachmentCommandInput, DescribeDataSourceAttachmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDataSourceAttachment",
+  DescribeDataSourceAttachment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

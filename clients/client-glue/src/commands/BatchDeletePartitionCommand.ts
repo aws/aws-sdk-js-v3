@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchDeletePartitionRequest, BatchDeletePartitionResponse } from "../models/models_0";
 import { BatchDeletePartition$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchDeletePartition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface BatchDeletePartitionCommandOutput extends BatchDeletePartitionR
  *
  * @public
  */
-export class BatchDeletePartitionCommand extends $Command
-  .classBuilder<
-    BatchDeletePartitionCommandInput,
-    BatchDeletePartitionCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "BatchDeletePartition", {})
-  .n("GlueClient", "BatchDeletePartitionCommand")
-  .sc(BatchDeletePartition$)
-  .build() {
+export class BatchDeletePartitionCommand extends command<BatchDeletePartitionCommandInput, BatchDeletePartitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDeletePartition",
+  BatchDeletePartition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

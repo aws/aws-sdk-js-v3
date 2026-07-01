@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterWorkspaceDirectoryRequest, RegisterWorkspaceDirectoryResult } from "../models/models_0";
 import { RegisterWorkspaceDirectory$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +115,12 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  *
  * @public
  */
-export class RegisterWorkspaceDirectoryCommand extends $Command
-  .classBuilder<
-    RegisterWorkspaceDirectoryCommandInput,
-    RegisterWorkspaceDirectoryCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "RegisterWorkspaceDirectory", {})
-  .n("WorkSpacesClient", "RegisterWorkspaceDirectoryCommand")
-  .sc(RegisterWorkspaceDirectory$)
-  .build() {
+export class RegisterWorkspaceDirectoryCommand extends command<RegisterWorkspaceDirectoryCommandInput, RegisterWorkspaceDirectoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterWorkspaceDirectory",
+  RegisterWorkspaceDirectory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

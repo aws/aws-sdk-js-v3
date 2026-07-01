@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeLocationFsxWindowsRequest, DescribeLocationFsxWindowsResponse } from "../models/models_0";
 import { DescribeLocationFsxWindows$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeLocationFsxWindows$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DescribeLocationFsxWindowsCommandOutput extends DescribeLocatio
  *
  * @public
  */
-export class DescribeLocationFsxWindowsCommand extends $Command
-  .classBuilder<
-    DescribeLocationFsxWindowsCommandInput,
-    DescribeLocationFsxWindowsCommandOutput,
-    DataSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FmrsService", "DescribeLocationFsxWindows", {})
-  .n("DataSyncClient", "DescribeLocationFsxWindowsCommand")
-  .sc(DescribeLocationFsxWindows$)
-  .build() {
+export class DescribeLocationFsxWindowsCommand extends command<DescribeLocationFsxWindowsCommandInput, DescribeLocationFsxWindowsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeLocationFsxWindows",
+  DescribeLocationFsxWindows$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

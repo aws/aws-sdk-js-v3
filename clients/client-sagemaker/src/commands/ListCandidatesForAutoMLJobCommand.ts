@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCandidatesForAutoMLJobRequest, ListCandidatesForAutoMLJobResponse } from "../models/models_3";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListCandidatesForAutoMLJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -127,22 +123,12 @@ export interface ListCandidatesForAutoMLJobCommandOutput extends ListCandidatesF
  *
  * @public
  */
-export class ListCandidatesForAutoMLJobCommand extends $Command
-  .classBuilder<
-    ListCandidatesForAutoMLJobCommandInput,
-    ListCandidatesForAutoMLJobCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "ListCandidatesForAutoMLJob", {})
-  .n("SageMakerClient", "ListCandidatesForAutoMLJobCommand")
-  .sc(ListCandidatesForAutoMLJob$)
-  .build() {
+export class ListCandidatesForAutoMLJobCommand extends command<ListCandidatesForAutoMLJobCommandInput, ListCandidatesForAutoMLJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCandidatesForAutoMLJob",
+  ListCandidatesForAutoMLJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

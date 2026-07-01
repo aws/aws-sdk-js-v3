@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateWorkloadShareInput, UpdateWorkloadShareOutput } from "../models/models_0";
 import { UpdateWorkloadShare$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WellArchitectedClientResolvedConfig,
-} from "../WellArchitectedClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +84,12 @@ export interface UpdateWorkloadShareCommandOutput extends UpdateWorkloadShareOut
  *
  * @public
  */
-export class UpdateWorkloadShareCommand extends $Command
-  .classBuilder<
-    UpdateWorkloadShareCommandInput,
-    UpdateWorkloadShareCommandOutput,
-    WellArchitectedClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WellArchitectedApiServiceLambda", "UpdateWorkloadShare", {})
-  .n("WellArchitectedClient", "UpdateWorkloadShareCommand")
-  .sc(UpdateWorkloadShare$)
-  .build() {
+export class UpdateWorkloadShareCommand extends command<UpdateWorkloadShareCommandInput, UpdateWorkloadShareCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateWorkloadShare",
+  UpdateWorkloadShare$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

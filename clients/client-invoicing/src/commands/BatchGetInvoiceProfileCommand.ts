@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InvoicingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InvoicingClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetInvoiceProfileRequest, BatchGetInvoiceProfileResponse } from "../models/models_0";
 import { BatchGetInvoiceProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetInvoiceProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +122,12 @@ export interface BatchGetInvoiceProfileCommandOutput extends BatchGetInvoiceProf
  *
  * @public
  */
-export class BatchGetInvoiceProfileCommand extends $Command
-  .classBuilder<
-    BatchGetInvoiceProfileCommandInput,
-    BatchGetInvoiceProfileCommandOutput,
-    InvoicingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InvoicingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Invoicing", "BatchGetInvoiceProfile", {})
-  .n("InvoicingClient", "BatchGetInvoiceProfileCommand")
-  .sc(BatchGetInvoiceProfile$)
-  .build() {
+export class BatchGetInvoiceProfileCommand extends command<BatchGetInvoiceProfileCommandInput, BatchGetInvoiceProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetInvoiceProfile",
+  BatchGetInvoiceProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

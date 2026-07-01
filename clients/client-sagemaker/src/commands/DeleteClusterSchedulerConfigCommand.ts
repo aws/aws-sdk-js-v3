@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteClusterSchedulerConfigRequest } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DeleteClusterSchedulerConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -60,22 +56,12 @@ export interface DeleteClusterSchedulerConfigCommandOutput extends __MetadataBea
  *
  * @public
  */
-export class DeleteClusterSchedulerConfigCommand extends $Command
-  .classBuilder<
-    DeleteClusterSchedulerConfigCommandInput,
-    DeleteClusterSchedulerConfigCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DeleteClusterSchedulerConfig", {})
-  .n("SageMakerClient", "DeleteClusterSchedulerConfigCommand")
-  .sc(DeleteClusterSchedulerConfig$)
-  .build() {
+export class DeleteClusterSchedulerConfigCommand extends command<DeleteClusterSchedulerConfigCommandInput, DeleteClusterSchedulerConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteClusterSchedulerConfig",
+  DeleteClusterSchedulerConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

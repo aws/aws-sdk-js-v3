@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAliasRequest } from "../models/models_0";
 import { UpdateAlias$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateAlias$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -174,22 +170,12 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdateAliasCommand extends $Command
-  .classBuilder<
-    UpdateAliasCommandInput,
-    UpdateAliasCommandOutput,
-    KMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrentService", "UpdateAlias", {})
-  .n("KMSClient", "UpdateAliasCommand")
-  .sc(UpdateAlias$)
-  .build() {
+export class UpdateAliasCommand extends command<UpdateAliasCommandInput, UpdateAliasCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAlias",
+  UpdateAlias$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LexModelBuildingServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LexModelBuildingServiceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetBotChannelAssociationsRequest, GetBotChannelAssociationsResponse } from "../models/models_0";
 import { GetBotChannelAssociations$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetBotChannelAssociations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface GetBotChannelAssociationsCommandOutput extends GetBotChannelAss
  *
  * @public
  */
-export class GetBotChannelAssociationsCommand extends $Command
-  .classBuilder<
-    GetBotChannelAssociationsCommandInput,
-    GetBotChannelAssociationsCommandOutput,
-    LexModelBuildingServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepSenseModelBuildingService", "GetBotChannelAssociations", {})
-  .n("LexModelBuildingServiceClient", "GetBotChannelAssociationsCommand")
-  .sc(GetBotChannelAssociations$)
-  .build() {
+export class GetBotChannelAssociationsCommand extends command<GetBotChannelAssociationsCommandInput, GetBotChannelAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetBotChannelAssociations",
+  GetBotChannelAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

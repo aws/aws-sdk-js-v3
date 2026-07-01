@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetOciOnboardingStatusInput, GetOciOnboardingStatusOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { GetOciOnboardingStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface GetOciOnboardingStatusCommandOutput extends GetOciOnboardingSta
  *
  * @public
  */
-export class GetOciOnboardingStatusCommand extends $Command
-  .classBuilder<
-    GetOciOnboardingStatusCommandInput,
-    GetOciOnboardingStatusCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "GetOciOnboardingStatus", {})
-  .n("OdbClient", "GetOciOnboardingStatusCommand")
-  .sc(GetOciOnboardingStatus$)
-  .build() {
+export class GetOciOnboardingStatusCommand extends command<GetOciOnboardingStatusCommandInput, GetOciOnboardingStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetOciOnboardingStatus",
+  GetOciOnboardingStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

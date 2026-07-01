@@ -1,17 +1,13 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import { OnlyHttpApiKeyAndBearerAuthReversed$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -54,22 +50,12 @@ export interface OnlyHttpApiKeyAndBearerAuthReversedCommandOutput extends __Meta
  *
  *
  */
-export class OnlyHttpApiKeyAndBearerAuthReversedCommand extends $Command
-  .classBuilder<
-    OnlyHttpApiKeyAndBearerAuthReversedCommandInput,
-    OnlyHttpApiKeyAndBearerAuthReversedCommandOutput,
-    WeatherClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Weather", "OnlyHttpApiKeyAndBearerAuthReversed", {})
-  .n("WeatherClient", "OnlyHttpApiKeyAndBearerAuthReversedCommand")
-  .sc(OnlyHttpApiKeyAndBearerAuthReversed$)
-  .build() {
+export class OnlyHttpApiKeyAndBearerAuthReversedCommand extends command<OnlyHttpApiKeyAndBearerAuthReversedCommandInput, OnlyHttpApiKeyAndBearerAuthReversedCommandOutput>(
+  _ep0,
+  _mw0,
+  "OnlyHttpApiKeyAndBearerAuthReversed",
+  OnlyHttpApiKeyAndBearerAuthReversed$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

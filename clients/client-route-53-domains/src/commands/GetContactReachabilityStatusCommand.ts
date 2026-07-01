@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetContactReachabilityStatusRequest, GetContactReachabilityStatusResponse } from "../models/models_0";
-import type {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53DomainsClient";
 import { GetContactReachabilityStatus$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface GetContactReachabilityStatusCommandOutput extends GetContactRea
  *
  * @public
  */
-export class GetContactReachabilityStatusCommand extends $Command
-  .classBuilder<
-    GetContactReachabilityStatusCommandInput,
-    GetContactReachabilityStatusCommandOutput,
-    Route53DomainsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Domains_v20140515", "GetContactReachabilityStatus", {})
-  .n("Route53DomainsClient", "GetContactReachabilityStatusCommand")
-  .sc(GetContactReachabilityStatus$)
-  .build() {
+export class GetContactReachabilityStatusCommand extends command<GetContactReachabilityStatusCommandInput, GetContactReachabilityStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetContactReachabilityStatus",
+  GetContactReachabilityStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

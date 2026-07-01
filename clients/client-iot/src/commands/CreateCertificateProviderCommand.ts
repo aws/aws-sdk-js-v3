@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCertificateProviderRequest, CreateCertificateProviderResponse } from "../models/models_0";
 import { CreateCertificateProvider$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateCertificateProvider$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface CreateCertificateProviderCommandOutput extends CreateCertificat
  *
  * @public
  */
-export class CreateCertificateProviderCommand extends $Command
-  .classBuilder<
-    CreateCertificateProviderCommandInput,
-    CreateCertificateProviderCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "CreateCertificateProvider", {})
-  .n("IoTClient", "CreateCertificateProviderCommand")
-  .sc(CreateCertificateProvider$)
-  .build() {
+export class CreateCertificateProviderCommand extends command<CreateCertificateProviderCommandInput, CreateCertificateProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCertificateProvider",
+  CreateCertificateProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

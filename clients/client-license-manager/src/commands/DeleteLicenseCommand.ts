@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteLicenseRequest, DeleteLicenseResponse } from "../models/models_0";
 import { DeleteLicense$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteLicense$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface DeleteLicenseCommandOutput extends DeleteLicenseResponse, __Met
  *
  * @public
  */
-export class DeleteLicenseCommand extends $Command
-  .classBuilder<
-    DeleteLicenseCommandInput,
-    DeleteLicenseCommandOutput,
-    LicenseManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLicenseManager", "DeleteLicense", {})
-  .n("LicenseManagerClient", "DeleteLicenseCommand")
-  .sc(DeleteLicense$)
-  .build() {
+export class DeleteLicenseCommand extends command<DeleteLicenseCommandInput, DeleteLicenseCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteLicense",
+  DeleteLicense$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

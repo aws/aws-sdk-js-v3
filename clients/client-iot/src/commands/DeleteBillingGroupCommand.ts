@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteBillingGroupRequest, DeleteBillingGroupResponse } from "../models/models_0";
 import { DeleteBillingGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteBillingGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupRespo
  *
  * @public
  */
-export class DeleteBillingGroupCommand extends $Command
-  .classBuilder<
-    DeleteBillingGroupCommandInput,
-    DeleteBillingGroupCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "DeleteBillingGroup", {})
-  .n("IoTClient", "DeleteBillingGroupCommand")
-  .sc(DeleteBillingGroup$)
-  .build() {
+export class DeleteBillingGroupCommand extends command<DeleteBillingGroupCommandInput, DeleteBillingGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteBillingGroup",
+  DeleteBillingGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeStarConnectionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeStarConnectionsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSyncConfigurationInput, DeleteSyncConfigurationOutput } from "../models/models_0";
 import { DeleteSyncConfiguration$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteSyncConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface DeleteSyncConfigurationCommandOutput extends DeleteSyncConfigur
  *
  * @public
  */
-export class DeleteSyncConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteSyncConfigurationCommandInput,
-    DeleteSyncConfigurationCommandOutput,
-    CodeStarConnectionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeStarConnectionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeStar_connections_20191201", "DeleteSyncConfiguration", {})
-  .n("CodeStarConnectionsClient", "DeleteSyncConfigurationCommand")
-  .sc(DeleteSyncConfiguration$)
-  .build() {
+export class DeleteSyncConfigurationCommand extends command<DeleteSyncConfigurationCommandInput, DeleteSyncConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSyncConfiguration",
+  DeleteSyncConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

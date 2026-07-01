@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeRegistrationSectionDefinitionsRequest,
   DescribeRegistrationSectionDefinitionsResult,
 } from "../models/models_0";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { DescribeRegistrationSectionDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface DescribeRegistrationSectionDefinitionsCommandOutput extends Des
  *
  * @public
  */
-export class DescribeRegistrationSectionDefinitionsCommand extends $Command
-  .classBuilder<
-    DescribeRegistrationSectionDefinitionsCommandInput,
-    DescribeRegistrationSectionDefinitionsCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "DescribeRegistrationSectionDefinitions", {})
-  .n("PinpointSMSVoiceV2Client", "DescribeRegistrationSectionDefinitionsCommand")
-  .sc(DescribeRegistrationSectionDefinitions$)
-  .build() {
+export class DescribeRegistrationSectionDefinitionsCommand extends command<DescribeRegistrationSectionDefinitionsCommandInput, DescribeRegistrationSectionDefinitionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRegistrationSectionDefinitions",
+  DescribeRegistrationSectionDefinitions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

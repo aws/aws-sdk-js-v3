@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DBEngineVersion } from "../models/models_0";
 import type { ModifyCustomDBEngineVersionMessage } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { ModifyCustomDBEngineVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -160,22 +156,12 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
  *
  * @public
  */
-export class ModifyCustomDBEngineVersionCommand extends $Command
-  .classBuilder<
-    ModifyCustomDBEngineVersionCommandInput,
-    ModifyCustomDBEngineVersionCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "ModifyCustomDBEngineVersion", {})
-  .n("RDSClient", "ModifyCustomDBEngineVersionCommand")
-  .sc(ModifyCustomDBEngineVersion$)
-  .build() {
+export class ModifyCustomDBEngineVersionCommand extends command<ModifyCustomDBEngineVersionCommandInput, ModifyCustomDBEngineVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyCustomDBEngineVersion",
+  ModifyCustomDBEngineVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

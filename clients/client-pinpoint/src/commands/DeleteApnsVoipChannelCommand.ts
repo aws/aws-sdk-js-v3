@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteApnsVoipChannelRequest, DeleteApnsVoipChannelResponse } from "../models/models_0";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { DeleteApnsVoipChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface DeleteApnsVoipChannelCommandOutput extends DeleteApnsVoipChanne
  *
  * @public
  */
-export class DeleteApnsVoipChannelCommand extends $Command
-  .classBuilder<
-    DeleteApnsVoipChannelCommandInput,
-    DeleteApnsVoipChannelCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "DeleteApnsVoipChannel", {})
-  .n("PinpointClient", "DeleteApnsVoipChannelCommand")
-  .sc(DeleteApnsVoipChannel$)
-  .build() {
+export class DeleteApnsVoipChannelCommand extends command<DeleteApnsVoipChannelCommandInput, DeleteApnsVoipChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteApnsVoipChannel",
+  DeleteApnsVoipChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteBrandRequest, DeleteBrandResponse } from "../models/models_3";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DeleteBrand$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface DeleteBrandCommandOutput extends DeleteBrandResponse, __Metadat
  *
  * @public
  */
-export class DeleteBrandCommand extends $Command
-  .classBuilder<
-    DeleteBrandCommandInput,
-    DeleteBrandCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "DeleteBrand", {})
-  .n("QuickSightClient", "DeleteBrandCommand")
-  .sc(DeleteBrand$)
-  .build() {
+export class DeleteBrandCommand extends command<DeleteBrandCommandInput, DeleteBrandCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteBrand",
+  DeleteBrand$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,21 +1,13 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  ObservabilityAdminClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ObservabilityAdminClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import { StopTelemetryEvaluation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +62,12 @@ export interface StopTelemetryEvaluationCommandOutput extends __MetadataBearer {
  *
  * @public
  */
-export class StopTelemetryEvaluationCommand extends $Command
-  .classBuilder<
-    StopTelemetryEvaluationCommandInput,
-    StopTelemetryEvaluationCommandOutput,
-    ObservabilityAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ObservabilityAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ObservabilityAdmin", "StopTelemetryEvaluation", {})
-  .n("ObservabilityAdminClient", "StopTelemetryEvaluationCommand")
-  .sc(StopTelemetryEvaluation$)
-  .build() {
+export class StopTelemetryEvaluationCommand extends command<StopTelemetryEvaluationCommandInput, StopTelemetryEvaluationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopTelemetryEvaluation",
+  StopTelemetryEvaluation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

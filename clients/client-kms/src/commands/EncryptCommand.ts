@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EncryptRequest, EncryptResponse } from "../models/models_0";
 import { Encrypt$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { Encrypt$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -285,22 +281,12 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *
  * @public
  */
-export class EncryptCommand extends $Command
-  .classBuilder<
-    EncryptCommandInput,
-    EncryptCommandOutput,
-    KMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrentService", "Encrypt", {})
-  .n("KMSClient", "EncryptCommand")
-  .sc(Encrypt$)
-  .build() {
+export class EncryptCommand extends command<EncryptCommandInput, EncryptCommandOutput>(
+  _ep0,
+  _mw0,
+  "Encrypt",
+  Encrypt$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

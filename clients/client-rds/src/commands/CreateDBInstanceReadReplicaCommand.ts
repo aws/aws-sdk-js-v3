@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getCrossRegionPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-rds";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { CreateDBInstanceReadReplicaMessage, CreateDBInstanceReadReplicaResult } from "../models/models_0";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { CreateDBInstanceReadReplica$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -488,25 +483,12 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *
  * @public
  */
-export class CreateDBInstanceReadReplicaCommand extends $Command
-  .classBuilder<
-    CreateDBInstanceReadReplicaCommandInput,
-    CreateDBInstanceReadReplicaCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getCrossRegionPresignedUrlPlugin(config),
-    ];
-  })
-  .s("AmazonRDSv19", "CreateDBInstanceReadReplica", {})
-  .n("RDSClient", "CreateDBInstanceReadReplicaCommand")
-  .sc(CreateDBInstanceReadReplica$)
-  .build() {
+export class CreateDBInstanceReadReplicaCommand extends command<CreateDBInstanceReadReplicaCommandInput, CreateDBInstanceReadReplicaCommandOutput>(
+  _ep0,
+  _mw1,
+  "CreateDBInstanceReadReplica",
+  CreateDBInstanceReadReplica$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

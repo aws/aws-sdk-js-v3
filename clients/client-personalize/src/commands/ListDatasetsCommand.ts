@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDatasetsRequest, ListDatasetsResponse } from "../models/models_0";
-import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { ListDatasets$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  *
  * @public
  */
-export class ListDatasetsCommand extends $Command
-  .classBuilder<
-    ListDatasetsCommandInput,
-    ListDatasetsCommandOutput,
-    PersonalizeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPersonalize", "ListDatasets", {})
-  .n("PersonalizeClient", "ListDatasetsCommand")
-  .sc(ListDatasets$)
-  .build() {
+export class ListDatasetsCommand extends command<ListDatasetsCommandInput, ListDatasetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDatasets",
+  ListDatasets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

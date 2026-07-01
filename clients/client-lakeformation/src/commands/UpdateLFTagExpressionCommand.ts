@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateLFTagExpressionRequest, UpdateLFTagExpressionResponse } from "../models/models_0";
 import { UpdateLFTagExpression$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateLFTagExpression$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface UpdateLFTagExpressionCommandOutput extends UpdateLFTagExpressio
  *
  * @public
  */
-export class UpdateLFTagExpressionCommand extends $Command
-  .classBuilder<
-    UpdateLFTagExpressionCommandInput,
-    UpdateLFTagExpressionCommandOutput,
-    LakeFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLakeFormation", "UpdateLFTagExpression", {})
-  .n("LakeFormationClient", "UpdateLFTagExpressionCommand")
-  .sc(UpdateLFTagExpression$)
-  .build() {
+export class UpdateLFTagExpressionCommand extends command<UpdateLFTagExpressionCommandInput, UpdateLFTagExpressionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateLFTagExpression",
+  UpdateLFTagExpression$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

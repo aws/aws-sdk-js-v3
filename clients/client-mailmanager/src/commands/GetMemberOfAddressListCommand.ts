@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMemberOfAddressListRequest, GetMemberOfAddressListResponse } from "../models/models_0";
 import { GetMemberOfAddressList$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetMemberOfAddressList$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface GetMemberOfAddressListCommandOutput extends GetMemberOfAddressL
  *
  * @public
  */
-export class GetMemberOfAddressListCommand extends $Command
-  .classBuilder<
-    GetMemberOfAddressListCommandInput,
-    GetMemberOfAddressListCommandOutput,
-    MailManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MailManagerSvc", "GetMemberOfAddressList", {})
-  .n("MailManagerClient", "GetMemberOfAddressListCommand")
-  .sc(GetMemberOfAddressList$)
-  .build() {
+export class GetMemberOfAddressListCommand extends command<GetMemberOfAddressListCommandInput, GetMemberOfAddressListCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMemberOfAddressList",
+  GetMemberOfAddressList$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

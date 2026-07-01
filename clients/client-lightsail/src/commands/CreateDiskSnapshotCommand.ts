@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDiskSnapshotRequest, CreateDiskSnapshotResult } from "../models/models_0";
 import { CreateDiskSnapshot$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateDiskSnapshot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -137,22 +133,12 @@ export interface CreateDiskSnapshotCommandOutput extends CreateDiskSnapshotResul
  *
  * @public
  */
-export class CreateDiskSnapshotCommand extends $Command
-  .classBuilder<
-    CreateDiskSnapshotCommandInput,
-    CreateDiskSnapshotCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "CreateDiskSnapshot", {})
-  .n("LightsailClient", "CreateDiskSnapshotCommand")
-  .sc(CreateDiskSnapshot$)
-  .build() {
+export class CreateDiskSnapshotCommand extends command<CreateDiskSnapshotCommandInput, CreateDiskSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDiskSnapshot",
+  CreateDiskSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

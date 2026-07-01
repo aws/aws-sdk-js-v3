@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetOpenIdTokenInput, GetOpenIdTokenResponse } from "../models/models_0";
 import { GetOpenIdToken$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetOpenIdToken$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface GetOpenIdTokenCommandOutput extends GetOpenIdTokenResponse, __M
  *
  * @public
  */
-export class GetOpenIdTokenCommand extends $Command
-  .classBuilder<
-    GetOpenIdTokenCommandInput,
-    GetOpenIdTokenCommandOutput,
-    CognitoIdentityClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityService", "GetOpenIdToken", {})
-  .n("CognitoIdentityClient", "GetOpenIdTokenCommand")
-  .sc(GetOpenIdToken$)
-  .build() {
+export class GetOpenIdTokenCommand extends command<GetOpenIdTokenCommandInput, GetOpenIdTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetOpenIdToken",
+  GetOpenIdToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

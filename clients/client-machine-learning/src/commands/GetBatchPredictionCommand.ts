@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MachineLearningClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MachineLearningClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetBatchPredictionInput, GetBatchPredictionOutput } from "../models/models_0";
 import { GetBatchPrediction$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetBatchPrediction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface GetBatchPredictionCommandOutput extends GetBatchPredictionOutpu
  *
  * @public
  */
-export class GetBatchPredictionCommand extends $Command
-  .classBuilder<
-    GetBatchPredictionCommandInput,
-    GetBatchPredictionCommandOutput,
-    MachineLearningClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonML_20141212", "GetBatchPrediction", {})
-  .n("MachineLearningClient", "GetBatchPredictionCommand")
-  .sc(GetBatchPrediction$)
-  .build() {
+export class GetBatchPredictionCommand extends command<GetBatchPredictionCommandInput, GetBatchPredictionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetBatchPrediction",
+  GetBatchPrediction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

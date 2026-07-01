@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  KinesisVideoArchivedMediaClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../KinesisVideoArchivedMediaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetHLSStreamingSessionURLInput, GetHLSStreamingSessionURLOutput } from "../models/models_0";
 import { GetHLSStreamingSessionURL$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetHLSStreamingSessionURL$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -303,22 +295,12 @@ export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingS
  *
  * @public
  */
-export class GetHLSStreamingSessionURLCommand extends $Command
-  .classBuilder<
-    GetHLSStreamingSessionURLCommandInput,
-    GetHLSStreamingSessionURLCommandOutput,
-    KinesisVideoArchivedMediaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisVideoArchivedMediaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSAcuityReader", "GetHLSStreamingSessionURL", {})
-  .n("KinesisVideoArchivedMediaClient", "GetHLSStreamingSessionURLCommand")
-  .sc(GetHLSStreamingSessionURL$)
-  .build() {
+export class GetHLSStreamingSessionURLCommand extends command<GetHLSStreamingSessionURLCommandInput, GetHLSStreamingSessionURLCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetHLSStreamingSessionURL",
+  GetHLSStreamingSessionURL$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

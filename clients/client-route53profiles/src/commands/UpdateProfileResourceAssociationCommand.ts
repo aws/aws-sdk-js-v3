@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateProfileResourceAssociationRequest,
   UpdateProfileResourceAssociationResponse,
 } from "../models/models_0";
-import type {
-  Route53ProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ProfilesClient";
 import { UpdateProfileResourceAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +114,12 @@ export interface UpdateProfileResourceAssociationCommandOutput extends UpdatePro
  *
  * @public
  */
-export class UpdateProfileResourceAssociationCommand extends $Command
-  .classBuilder<
-    UpdateProfileResourceAssociationCommandInput,
-    UpdateProfileResourceAssociationCommandOutput,
-    Route53ProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Profiles", "UpdateProfileResourceAssociation", {})
-  .n("Route53ProfilesClient", "UpdateProfileResourceAssociationCommand")
-  .sc(UpdateProfileResourceAssociation$)
-  .build() {
+export class UpdateProfileResourceAssociationCommand extends command<UpdateProfileResourceAssociationCommandInput, UpdateProfileResourceAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateProfileResourceAssociation",
+  UpdateProfileResourceAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

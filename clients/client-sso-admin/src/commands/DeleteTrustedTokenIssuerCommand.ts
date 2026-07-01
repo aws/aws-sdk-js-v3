@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTrustedTokenIssuerRequest, DeleteTrustedTokenIssuerResponse } from "../models/models_0";
 import { DeleteTrustedTokenIssuer$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteTrustedTokenIssuerCommandOutput extends DeleteTrustedToke
  *
  * @public
  */
-export class DeleteTrustedTokenIssuerCommand extends $Command
-  .classBuilder<
-    DeleteTrustedTokenIssuerCommandInput,
-    DeleteTrustedTokenIssuerCommandOutput,
-    SSOAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBExternalService", "DeleteTrustedTokenIssuer", {})
-  .n("SSOAdminClient", "DeleteTrustedTokenIssuerCommand")
-  .sc(DeleteTrustedTokenIssuer$)
-  .build() {
+export class DeleteTrustedTokenIssuerCommand extends command<DeleteTrustedTokenIssuerCommandInput, DeleteTrustedTokenIssuerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTrustedTokenIssuer",
+  DeleteTrustedTokenIssuer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

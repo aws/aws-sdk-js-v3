@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InspectorScanClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorScanClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ScanSbomRequest, ScanSbomResponse } from "../models/models_0";
 import { ScanSbom$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ScanSbom$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -244,22 +240,12 @@ export interface ScanSbomCommandOutput extends ScanSbomResponse, __MetadataBeare
  *
  * @public
  */
-export class ScanSbomCommand extends $Command
-  .classBuilder<
-    ScanSbomCommandInput,
-    ScanSbomCommandOutput,
-    InspectorScanClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InspectorScanClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("InspectorScan", "ScanSbom", {})
-  .n("InspectorScanClient", "ScanSbomCommand")
-  .sc(ScanSbom$)
-  .build() {
+export class ScanSbomCommand extends command<ScanSbomCommandInput, ScanSbomCommandOutput>(
+  _ep0,
+  _mw0,
+  "ScanSbom",
+  ScanSbom$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

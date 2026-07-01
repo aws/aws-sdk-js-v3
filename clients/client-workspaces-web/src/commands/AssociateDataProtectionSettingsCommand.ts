@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AssociateDataProtectionSettingsRequest,
   AssociateDataProtectionSettingsResponse,
 } from "../models/models_0";
 import { AssociateDataProtectionSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface AssociateDataProtectionSettingsCommandOutput extends AssociateD
  *
  * @public
  */
-export class AssociateDataProtectionSettingsCommand extends $Command
-  .classBuilder<
-    AssociateDataProtectionSettingsCommandInput,
-    AssociateDataProtectionSettingsCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "AssociateDataProtectionSettings", {})
-  .n("WorkSpacesWebClient", "AssociateDataProtectionSettingsCommand")
-  .sc(AssociateDataProtectionSettings$)
-  .build() {
+export class AssociateDataProtectionSettingsCommand extends command<AssociateDataProtectionSettingsCommandInput, AssociateDataProtectionSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateDataProtectionSettings",
+  AssociateDataProtectionSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

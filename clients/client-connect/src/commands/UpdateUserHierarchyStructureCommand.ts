@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateUserHierarchyStructureRequest } from "../models/models_3";
 import { UpdateUserHierarchyStructure$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateUserHierarchyStructure$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface UpdateUserHierarchyStructureCommandOutput extends __MetadataBea
  *
  * @public
  */
-export class UpdateUserHierarchyStructureCommand extends $Command
-  .classBuilder<
-    UpdateUserHierarchyStructureCommandInput,
-    UpdateUserHierarchyStructureCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "UpdateUserHierarchyStructure", {})
-  .n("ConnectClient", "UpdateUserHierarchyStructureCommand")
-  .sc(UpdateUserHierarchyStructure$)
-  .build() {
+export class UpdateUserHierarchyStructureCommand extends command<UpdateUserHierarchyStructureCommandInput, UpdateUserHierarchyStructureCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateUserHierarchyStructure",
+  UpdateUserHierarchyStructure$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

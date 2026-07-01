@@ -1,23 +1,14 @@
 // smithy-typescript generated code
-import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { InputStreamInput } from "../models/models_0";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
 import { InputStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,32 +93,12 @@ export interface InputStreamCommandOutput extends __MetadataBearer {}
  *
  *
  */
-export class InputStreamCommand extends $Command
-  .classBuilder<
-    InputStreamCommandInput,
-    InputStreamCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEventStreamPlugin(config),
-    ];
-  })
-  .s("RestJson", "InputStream", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      input: true,
-    },
-  })
-  .n("RestJsonProtocolClient", "InputStreamCommand")
-  .sc(InputStream$)
-  .build() {
+export class InputStreamCommand extends command<InputStreamCommandInput, InputStreamCommandOutput>(
+  _ep0,
+  _mw1,
+  "InputStream",
+  InputStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

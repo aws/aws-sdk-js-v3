@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetExecutionHistoryInput, GetExecutionHistoryOutput } from "../models/models_0";
 import { GetExecutionHistory$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -288,22 +284,12 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  *
  * @public
  */
-export class GetExecutionHistoryCommand extends $Command
-  .classBuilder<
-    GetExecutionHistoryCommandInput,
-    GetExecutionHistoryCommandOutput,
-    SFNClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStepFunctions", "GetExecutionHistory", {})
-  .n("SFNClient", "GetExecutionHistoryCommand")
-  .sc(GetExecutionHistory$)
-  .build() {
+export class GetExecutionHistoryCommand extends command<GetExecutionHistoryCommandInput, GetExecutionHistoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetExecutionHistory",
+  GetExecutionHistory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

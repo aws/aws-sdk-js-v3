@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartDashboardRefreshRequest, StartDashboardRefreshResponse } from "../models/models_0";
 import { StartDashboardRefresh$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartDashboardRefresh$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface StartDashboardRefreshCommandOutput extends StartDashboardRefres
  *
  * @public
  */
-export class StartDashboardRefreshCommand extends $Command
-  .classBuilder<
-    StartDashboardRefreshCommandInput,
-    StartDashboardRefreshCommandOutput,
-    CloudTrailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudTrail_20131101", "StartDashboardRefresh", {})
-  .n("CloudTrailClient", "StartDashboardRefreshCommand")
-  .sc(StartDashboardRefresh$)
-  .build() {
+export class StartDashboardRefreshCommand extends command<StartDashboardRefreshCommandInput, StartDashboardRefreshCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartDashboardRefresh",
+  StartDashboardRefresh$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

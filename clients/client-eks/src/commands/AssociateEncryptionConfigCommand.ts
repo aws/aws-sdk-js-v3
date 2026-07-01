@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateEncryptionConfigRequest, AssociateEncryptionConfigResponse } from "../models/models_0";
 import { AssociateEncryptionConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateEncryptionConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +122,12 @@ export interface AssociateEncryptionConfigCommandOutput extends AssociateEncrypt
  *
  * @public
  */
-export class AssociateEncryptionConfigCommand extends $Command
-  .classBuilder<
-    AssociateEncryptionConfigCommandInput,
-    AssociateEncryptionConfigCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "AssociateEncryptionConfig", {})
-  .n("EKSClient", "AssociateEncryptionConfigCommand")
-  .sc(AssociateEncryptionConfig$)
-  .build() {
+export class AssociateEncryptionConfigCommand extends command<AssociateEncryptionConfigCommandInput, AssociateEncryptionConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateEncryptionConfig",
+  AssociateEncryptionConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

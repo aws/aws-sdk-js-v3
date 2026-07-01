@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDefaultRetentionPolicyRequest, GetDefaultRetentionPolicyResponse } from "../models/models_0";
 import { GetDefaultRetentionPolicy$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface GetDefaultRetentionPolicyCommandOutput extends GetDefaultRetent
  *
  * @public
  */
-export class GetDefaultRetentionPolicyCommand extends $Command
-  .classBuilder<
-    GetDefaultRetentionPolicyCommandInput,
-    GetDefaultRetentionPolicyCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "GetDefaultRetentionPolicy", {})
-  .n("WorkMailClient", "GetDefaultRetentionPolicyCommand")
-  .sc(GetDefaultRetentionPolicy$)
-  .build() {
+export class GetDefaultRetentionPolicyCommand extends command<GetDefaultRetentionPolicyCommandInput, GetDefaultRetentionPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDefaultRetentionPolicy",
+  GetDefaultRetentionPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

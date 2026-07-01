@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetComputeNodeGroupRequest, GetComputeNodeGroupResponse } from "../models/models_0";
-import type { PCSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PCSClient";
 import { GetComputeNodeGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface GetComputeNodeGroupCommandOutput extends GetComputeNodeGroupRes
  *
  * @public
  */
-export class GetComputeNodeGroupCommand extends $Command
-  .classBuilder<
-    GetComputeNodeGroupCommandInput,
-    GetComputeNodeGroupCommandOutput,
-    PCSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PCSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSParallelComputingService", "GetComputeNodeGroup", {})
-  .n("PCSClient", "GetComputeNodeGroupCommand")
-  .sc(GetComputeNodeGroup$)
-  .build() {
+export class GetComputeNodeGroupCommand extends command<GetComputeNodeGroupCommandInput, GetComputeNodeGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetComputeNodeGroup",
+  GetComputeNodeGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

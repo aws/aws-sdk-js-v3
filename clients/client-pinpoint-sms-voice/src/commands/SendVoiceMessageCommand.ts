@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendVoiceMessageRequest, SendVoiceMessageResponse } from "../models/models_0";
-import type {
-  PinpointSMSVoiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceClient";
 import { SendVoiceMessage$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface SendVoiceMessageCommandOutput extends SendVoiceMessageResponse,
  *
  * @public
  */
-export class SendVoiceMessageCommand extends $Command
-  .classBuilder<
-    SendVoiceMessageCommandInput,
-    SendVoiceMessageCommandOutput,
-    PinpointSMSVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoice", "SendVoiceMessage", {})
-  .n("PinpointSMSVoiceClient", "SendVoiceMessageCommand")
-  .sc(SendVoiceMessage$)
-  .build() {
+export class SendVoiceMessageCommand extends command<SendVoiceMessageCommandInput, SendVoiceMessageCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendVoiceMessage",
+  SendVoiceMessage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

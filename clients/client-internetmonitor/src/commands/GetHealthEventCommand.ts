@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  InternetMonitorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../InternetMonitorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetHealthEventInput, GetHealthEventOutput } from "../models/models_0";
 import { GetHealthEvent$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetHealthEvent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -141,22 +133,12 @@ export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __Met
  *
  * @public
  */
-export class GetHealthEventCommand extends $Command
-  .classBuilder<
-    GetHealthEventCommandInput,
-    GetHealthEventCommandOutput,
-    InternetMonitorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InternetMonitorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("InternetMonitor20210603", "GetHealthEvent", {})
-  .n("InternetMonitorClient", "GetHealthEventCommand")
-  .sc(GetHealthEvent$)
-  .build() {
+export class GetHealthEventCommand extends command<GetHealthEventCommandInput, GetHealthEventCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetHealthEvent",
+  GetHealthEvent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

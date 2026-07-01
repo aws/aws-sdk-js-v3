@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetParametersByPathRequest, GetParametersByPathResult } from "../models/models_0";
 import { GetParametersByPath$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface GetParametersByPathCommandOutput extends GetParametersByPathRes
  *
  * @public
  */
-export class GetParametersByPathCommand extends $Command
-  .classBuilder<
-    GetParametersByPathCommandInput,
-    GetParametersByPathCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "GetParametersByPath", {})
-  .n("SSMClient", "GetParametersByPathCommand")
-  .sc(GetParametersByPath$)
-  .build() {
+export class GetParametersByPathCommand extends command<GetParametersByPathCommandInput, GetParametersByPathCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetParametersByPath",
+  GetParametersByPath$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

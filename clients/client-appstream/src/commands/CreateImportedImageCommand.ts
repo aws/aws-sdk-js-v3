@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateImportedImageRequest, CreateImportedImageResult } from "../models/models_0";
 import { CreateImportedImage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateImportedImage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -175,22 +171,12 @@ export interface CreateImportedImageCommandOutput extends CreateImportedImageRes
  *
  * @public
  */
-export class CreateImportedImageCommand extends $Command
-  .classBuilder<
-    CreateImportedImageCommandInput,
-    CreateImportedImageCommandOutput,
-    AppStreamClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PhotonAdminProxyService", "CreateImportedImage", {})
-  .n("AppStreamClient", "CreateImportedImageCommand")
-  .sc(CreateImportedImage$)
-  .build() {
+export class CreateImportedImageCommand extends command<CreateImportedImageCommandInput, CreateImportedImageCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateImportedImage",
+  CreateImportedImage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutAlarmRequest, PutAlarmResult } from "../models/models_1";
 import { PutAlarm$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutAlarm$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -139,22 +135,12 @@ export interface PutAlarmCommandOutput extends PutAlarmResult, __MetadataBearer 
  *
  * @public
  */
-export class PutAlarmCommand extends $Command
-  .classBuilder<
-    PutAlarmCommandInput,
-    PutAlarmCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "PutAlarm", {})
-  .n("LightsailClient", "PutAlarmCommand")
-  .sc(PutAlarm$)
-  .build() {
+export class PutAlarmCommand extends command<PutAlarmCommandInput, PutAlarmCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAlarm",
+  PutAlarm$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

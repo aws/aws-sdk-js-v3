@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetEstimatedCarbonEmissionsDimensionValuesRequest,
   GetEstimatedCarbonEmissionsDimensionValuesResponse,
 } from "../models/models_0";
 import { GetEstimatedCarbonEmissionsDimensionValues$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SustainabilityClientResolvedConfig,
-} from "../SustainabilityClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -144,22 +136,12 @@ export interface GetEstimatedCarbonEmissionsDimensionValuesCommandOutput extends
  *
  * @public
  */
-export class GetEstimatedCarbonEmissionsDimensionValuesCommand extends $Command
-  .classBuilder<
-    GetEstimatedCarbonEmissionsDimensionValuesCommandInput,
-    GetEstimatedCarbonEmissionsDimensionValuesCommandOutput,
-    SustainabilityClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SustainabilityClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsSustainabilityApiService", "GetEstimatedCarbonEmissionsDimensionValues", {})
-  .n("SustainabilityClient", "GetEstimatedCarbonEmissionsDimensionValuesCommand")
-  .sc(GetEstimatedCarbonEmissionsDimensionValues$)
-  .build() {
+export class GetEstimatedCarbonEmissionsDimensionValuesCommand extends command<GetEstimatedCarbonEmissionsDimensionValuesCommandInput, GetEstimatedCarbonEmissionsDimensionValuesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEstimatedCarbonEmissionsDimensionValues",
+  GetEstimatedCarbonEmissionsDimensionValues$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetPlatformApplicationAttributesInput,
   GetPlatformApplicationAttributesResponse,
 } from "../models/models_0";
 import { GetPlatformApplicationAttributes$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface GetPlatformApplicationAttributesCommandOutput extends GetPlatfo
  *
  * @public
  */
-export class GetPlatformApplicationAttributesCommand extends $Command
-  .classBuilder<
-    GetPlatformApplicationAttributesCommandInput,
-    GetPlatformApplicationAttributesCommandOutput,
-    SNSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSimpleNotificationService", "GetPlatformApplicationAttributes", {})
-  .n("SNSClient", "GetPlatformApplicationAttributesCommand")
-  .sc(GetPlatformApplicationAttributes$)
-  .build() {
+export class GetPlatformApplicationAttributesCommand extends command<GetPlatformApplicationAttributesCommandInput, GetPlatformApplicationAttributesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPlatformApplicationAttributes",
+  GetPlatformApplicationAttributes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

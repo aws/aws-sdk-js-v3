@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListIpRoutesRequest, ListIpRoutesResult } from "../models/models_0";
 import { ListIpRoutes$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListIpRoutes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +107,12 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
  *
  * @public
  */
-export class ListIpRoutesCommand extends $Command
-  .classBuilder<
-    ListIpRoutesCommandInput,
-    ListIpRoutesCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "ListIpRoutes", {})
-  .n("DirectoryServiceClient", "ListIpRoutesCommand")
-  .sc(ListIpRoutes$)
-  .build() {
+export class ListIpRoutesCommand extends command<ListIpRoutesCommandInput, ListIpRoutesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListIpRoutes",
+  ListIpRoutes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateScopeInput, UpdateScopeOutput } from "../models/models_0";
-import type {
-  NetworkFlowMonitorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFlowMonitorClient";
 import { UpdateScope$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +103,12 @@ export interface UpdateScopeCommandOutput extends UpdateScopeOutput, __MetadataB
  *
  * @public
  */
-export class UpdateScopeCommand extends $Command
-  .classBuilder<
-    UpdateScopeCommandInput,
-    UpdateScopeCommandOutput,
-    NetworkFlowMonitorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFlowMonitorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFlowMonitor", "UpdateScope", {})
-  .n("NetworkFlowMonitorClient", "UpdateScopeCommand")
-  .sc(UpdateScope$)
-  .build() {
+export class UpdateScopeCommand extends command<UpdateScopeCommandInput, UpdateScopeCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateScope",
+  UpdateScope$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

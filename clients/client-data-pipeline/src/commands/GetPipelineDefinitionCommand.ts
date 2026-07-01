@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPipelineDefinitionInput, GetPipelineDefinitionOutput } from "../models/models_0";
 import { GetPipelineDefinition$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetPipelineDefinition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -165,22 +161,12 @@ export interface GetPipelineDefinitionCommandOutput extends GetPipelineDefinitio
  *
  * @public
  */
-export class GetPipelineDefinitionCommand extends $Command
-  .classBuilder<
-    GetPipelineDefinitionCommandInput,
-    GetPipelineDefinitionCommandOutput,
-    DataPipelineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataPipelineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataPipeline", "GetPipelineDefinition", {})
-  .n("DataPipelineClient", "GetPipelineDefinitionCommand")
-  .sc(GetPipelineDefinition$)
-  .build() {
+export class GetPipelineDefinitionCommand extends command<GetPipelineDefinitionCommandInput, GetPipelineDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPipelineDefinition",
+  GetPipelineDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

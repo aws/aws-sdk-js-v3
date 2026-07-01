@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  KinesisAnalyticsV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../KinesisAnalyticsV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteApplicationCloudWatchLoggingOptionRequest,
   DeleteApplicationCloudWatchLoggingOptionResponse,
@@ -19,7 +12,6 @@ import { DeleteApplicationCloudWatchLoggingOption$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +90,12 @@ export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput extends D
  *
  * @public
  */
-export class DeleteApplicationCloudWatchLoggingOptionCommand extends $Command
-  .classBuilder<
-    DeleteApplicationCloudWatchLoggingOptionCommandInput,
-    DeleteApplicationCloudWatchLoggingOptionCommandOutput,
-    KinesisAnalyticsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KinesisAnalytics_20180523", "DeleteApplicationCloudWatchLoggingOption", {})
-  .n("KinesisAnalyticsV2Client", "DeleteApplicationCloudWatchLoggingOptionCommand")
-  .sc(DeleteApplicationCloudWatchLoggingOption$)
-  .build() {
+export class DeleteApplicationCloudWatchLoggingOptionCommand extends command<DeleteApplicationCloudWatchLoggingOptionCommandInput, DeleteApplicationCloudWatchLoggingOptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteApplicationCloudWatchLoggingOption",
+  DeleteApplicationCloudWatchLoggingOption$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

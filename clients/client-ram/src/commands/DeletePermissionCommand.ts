@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePermissionRequest, DeletePermissionResponse } from "../models/models_0";
-import type { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient";
 import { DeletePermission$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface DeletePermissionCommandOutput extends DeletePermissionResponse,
  *
  * @public
  */
-export class DeletePermissionCommand extends $Command
-  .classBuilder<
-    DeletePermissionCommandInput,
-    DeletePermissionCommandOutput,
-    RAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonResourceSharing", "DeletePermission", {})
-  .n("RAMClient", "DeletePermissionCommand")
-  .sc(DeletePermission$)
-  .build() {
+export class DeletePermissionCommand extends command<DeletePermissionCommandInput, DeletePermissionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePermission",
+  DeletePermission$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

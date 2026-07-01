@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRegistryInput, DeleteRegistryResponse } from "../models/models_1";
 import { DeleteRegistry$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteRegistry$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteRegistryCommandOutput extends DeleteRegistryResponse, __M
  *
  * @public
  */
-export class DeleteRegistryCommand extends $Command
-  .classBuilder<
-    DeleteRegistryCommandInput,
-    DeleteRegistryCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "DeleteRegistry", {})
-  .n("GlueClient", "DeleteRegistryCommand")
-  .sc(DeleteRegistry$)
-  .build() {
+export class DeleteRegistryCommand extends command<DeleteRegistryCommandInput, DeleteRegistryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRegistry",
+  DeleteRegistry$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutMailboxPermissionsRequest, PutMailboxPermissionsResponse } from "../models/models_0";
 import { PutMailboxPermissions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface PutMailboxPermissionsCommandOutput extends PutMailboxPermission
  *
  * @public
  */
-export class PutMailboxPermissionsCommand extends $Command
-  .classBuilder<
-    PutMailboxPermissionsCommandInput,
-    PutMailboxPermissionsCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "PutMailboxPermissions", {})
-  .n("WorkMailClient", "PutMailboxPermissionsCommand")
-  .sc(PutMailboxPermissions$)
-  .build() {
+export class PutMailboxPermissionsCommand extends command<PutMailboxPermissionsCommandInput, PutMailboxPermissionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutMailboxPermissions",
+  PutMailboxPermissions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

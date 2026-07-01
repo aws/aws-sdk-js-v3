@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeRemediationExecutionStatusRequest,
   DescribeRemediationExecutionStatusResponse,
@@ -15,7 +12,6 @@ import { DescribeRemediationExecutionStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface DescribeRemediationExecutionStatusCommandOutput extends Describ
  *
  * @public
  */
-export class DescribeRemediationExecutionStatusCommand extends $Command
-  .classBuilder<
-    DescribeRemediationExecutionStatusCommandInput,
-    DescribeRemediationExecutionStatusCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DescribeRemediationExecutionStatus", {})
-  .n("ConfigServiceClient", "DescribeRemediationExecutionStatusCommand")
-  .sc(DescribeRemediationExecutionStatus$)
-  .build() {
+export class DescribeRemediationExecutionStatusCommand extends command<DescribeRemediationExecutionStatusCommandInput, DescribeRemediationExecutionStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRemediationExecutionStatus",
+  DescribeRemediationExecutionStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

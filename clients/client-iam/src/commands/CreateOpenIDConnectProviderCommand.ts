@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateOpenIDConnectProviderRequest, CreateOpenIDConnectProviderResponse } from "../models/models_0";
 import { CreateOpenIDConnectProvider$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateOpenIDConnectProvider$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -162,22 +158,12 @@ export interface CreateOpenIDConnectProviderCommandOutput extends CreateOpenIDCo
  *
  * @public
  */
-export class CreateOpenIDConnectProviderCommand extends $Command
-  .classBuilder<
-    CreateOpenIDConnectProviderCommandInput,
-    CreateOpenIDConnectProviderCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "CreateOpenIDConnectProvider", {})
-  .n("IAMClient", "CreateOpenIDConnectProviderCommand")
-  .sc(CreateOpenIDConnectProvider$)
-  .build() {
+export class CreateOpenIDConnectProviderCommand extends command<CreateOpenIDConnectProviderCommandInput, CreateOpenIDConnectProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateOpenIDConnectProvider",
+  CreateOpenIDConnectProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

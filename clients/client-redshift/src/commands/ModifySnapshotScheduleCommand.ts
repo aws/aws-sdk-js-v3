@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SnapshotSchedule } from "../models/models_0";
 import type { ModifySnapshotScheduleMessage } from "../models/models_1";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { ModifySnapshotSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface ModifySnapshotScheduleCommandOutput extends SnapshotSchedule, _
  *
  * @public
  */
-export class ModifySnapshotScheduleCommand extends $Command
-  .classBuilder<
-    ModifySnapshotScheduleCommandInput,
-    ModifySnapshotScheduleCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "ModifySnapshotSchedule", {})
-  .n("RedshiftClient", "ModifySnapshotScheduleCommand")
-  .sc(ModifySnapshotSchedule$)
-  .build() {
+export class ModifySnapshotScheduleCommand extends command<ModifySnapshotScheduleCommandInput, ModifySnapshotScheduleCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifySnapshotSchedule",
+  ModifySnapshotSchedule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

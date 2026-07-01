@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateActionConnectorPermissionsRequest,
   UpdateActionConnectorPermissionsResponse,
 } from "../models/models_5";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { UpdateActionConnectorPermissions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +116,12 @@ export interface UpdateActionConnectorPermissionsCommandOutput extends UpdateAct
  *
  * @public
  */
-export class UpdateActionConnectorPermissionsCommand extends $Command
-  .classBuilder<
-    UpdateActionConnectorPermissionsCommandInput,
-    UpdateActionConnectorPermissionsCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "UpdateActionConnectorPermissions", {})
-  .n("QuickSightClient", "UpdateActionConnectorPermissionsCommand")
-  .sc(UpdateActionConnectorPermissions$)
-  .build() {
+export class UpdateActionConnectorPermissionsCommand extends command<UpdateActionConnectorPermissionsCommandInput, UpdateActionConnectorPermissionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateActionConnectorPermissions",
+  UpdateActionConnectorPermissions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

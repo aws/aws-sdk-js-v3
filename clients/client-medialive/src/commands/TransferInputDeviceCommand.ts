@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TransferInputDeviceRequest, TransferInputDeviceResponse } from "../models/models_1";
 import { TransferInputDevice$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { TransferInputDevice$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface TransferInputDeviceCommandOutput extends TransferInputDeviceRes
  *
  * @public
  */
-export class TransferInputDeviceCommand extends $Command
-  .classBuilder<
-    TransferInputDeviceCommandInput,
-    TransferInputDeviceCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "TransferInputDevice", {})
-  .n("MediaLiveClient", "TransferInputDeviceCommand")
-  .sc(TransferInputDevice$)
-  .build() {
+export class TransferInputDeviceCommand extends command<TransferInputDeviceCommandInput, TransferInputDeviceCommandOutput>(
+  _ep0,
+  _mw0,
+  "TransferInputDevice",
+  TransferInputDevice$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

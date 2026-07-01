@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateMemberToFarmRequest, AssociateMemberToFarmResponse } from "../models/models_0";
 import { AssociateMemberToFarm$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateMemberToFarm$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface AssociateMemberToFarmCommandOutput extends AssociateMemberToFar
  *
  * @public
  */
-export class AssociateMemberToFarmCommand extends $Command
-  .classBuilder<
-    AssociateMemberToFarmCommandInput,
-    AssociateMemberToFarmCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "AssociateMemberToFarm", {})
-  .n("DeadlineClient", "AssociateMemberToFarmCommand")
-  .sc(AssociateMemberToFarm$)
-  .build() {
+export class AssociateMemberToFarmCommand extends command<AssociateMemberToFarmCommandInput, AssociateMemberToFarmCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateMemberToFarm",
+  AssociateMemberToFarm$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

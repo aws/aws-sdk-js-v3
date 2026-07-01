@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticLoadBalancingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticLoadBalancingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ApplySecurityGroupsToLoadBalancerInput,
   ApplySecurityGroupsToLoadBalancerOutput,
@@ -19,7 +12,6 @@ import { ApplySecurityGroupsToLoadBalancer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface ApplySecurityGroupsToLoadBalancerCommandOutput extends ApplySec
  *
  * @public
  */
-export class ApplySecurityGroupsToLoadBalancerCommand extends $Command
-  .classBuilder<
-    ApplySecurityGroupsToLoadBalancerCommandInput,
-    ApplySecurityGroupsToLoadBalancerCommandOutput,
-    ElasticLoadBalancingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticLoadBalancing_v7", "ApplySecurityGroupsToLoadBalancer", {})
-  .n("ElasticLoadBalancingClient", "ApplySecurityGroupsToLoadBalancerCommand")
-  .sc(ApplySecurityGroupsToLoadBalancer$)
-  .build() {
+export class ApplySecurityGroupsToLoadBalancerCommand extends command<ApplySecurityGroupsToLoadBalancerCommandInput, ApplySecurityGroupsToLoadBalancerCommandOutput>(
+  _ep0,
+  _mw0,
+  "ApplySecurityGroupsToLoadBalancer",
+  ApplySecurityGroupsToLoadBalancer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

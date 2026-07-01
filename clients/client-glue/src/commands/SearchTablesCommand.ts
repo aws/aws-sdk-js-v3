@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchTablesRequest } from "../models/models_2";
 import type { SearchTablesResponse } from "../models/models_3";
 import { SearchTables$ } from "../schemas/schemas_0";
@@ -13,7 +10,6 @@ import { SearchTables$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -481,22 +477,12 @@ export interface SearchTablesCommandOutput extends SearchTablesResponse, __Metad
  *
  * @public
  */
-export class SearchTablesCommand extends $Command
-  .classBuilder<
-    SearchTablesCommandInput,
-    SearchTablesCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "SearchTables", {})
-  .n("GlueClient", "SearchTablesCommand")
-  .sc(SearchTables$)
-  .build() {
+export class SearchTablesCommand extends command<SearchTablesCommandInput, SearchTablesCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchTables",
+  SearchTables$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

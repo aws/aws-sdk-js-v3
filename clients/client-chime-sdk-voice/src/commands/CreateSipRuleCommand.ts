@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeSDKVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKVoiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSipRuleRequest, CreateSipRuleResponse } from "../models/models_0";
 import { CreateSipRule$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateSipRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __Met
  *
  * @public
  */
-export class CreateSipRuleCommand extends $Command
-  .classBuilder<
-    CreateSipRuleCommandInput,
-    CreateSipRuleCommandOutput,
-    ChimeSDKVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeSDKTelephonyService", "CreateSipRule", {})
-  .n("ChimeSDKVoiceClient", "CreateSipRuleCommand")
-  .sc(CreateSipRule$)
-  .build() {
+export class CreateSipRuleCommand extends command<CreateSipRuleCommandInput, CreateSipRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSipRule",
+  CreateSipRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

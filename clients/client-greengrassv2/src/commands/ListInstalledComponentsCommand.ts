@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListInstalledComponentsRequest, ListInstalledComponentsResponse } from "../models/models_0";
 import { ListInstalledComponents$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListInstalledComponents$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface ListInstalledComponentsCommandOutput extends ListInstalledCompo
  *
  * @public
  */
-export class ListInstalledComponentsCommand extends $Command
-  .classBuilder<
-    ListInstalledComponentsCommandInput,
-    ListInstalledComponentsCommandOutput,
-    GreengrassV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GreengrassV2", "ListInstalledComponents", {})
-  .n("GreengrassV2Client", "ListInstalledComponentsCommand")
-  .sc(ListInstalledComponents$)
-  .build() {
+export class ListInstalledComponentsCommand extends command<ListInstalledComponentsCommandInput, ListInstalledComponentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListInstalledComponents",
+  ListInstalledComponents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

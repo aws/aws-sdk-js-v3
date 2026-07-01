@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeQueriesRequest, DescribeQueriesResponse } from "../models/models_0";
 import { DescribeQueries$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeQueries$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, _
  *
  * @public
  */
-export class DescribeQueriesCommand extends $Command
-  .classBuilder<
-    DescribeQueriesCommandInput,
-    DescribeQueriesCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "DescribeQueries", {})
-  .n("CloudWatchLogsClient", "DescribeQueriesCommand")
-  .sc(DescribeQueries$)
-  .build() {
+export class DescribeQueriesCommand extends command<DescribeQueriesCommandInput, DescribeQueriesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeQueries",
+  DescribeQueries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

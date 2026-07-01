@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ComposeEnvironmentsMessage, EnvironmentDescriptionsMessage } from "../models/models_0";
 import { ComposeEnvironments$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ComposeEnvironments$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +116,12 @@ export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescription
  *
  * @public
  */
-export class ComposeEnvironmentsCommand extends $Command
-  .classBuilder<
-    ComposeEnvironmentsCommandInput,
-    ComposeEnvironmentsCommandOutput,
-    ElasticBeanstalkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSElasticBeanstalkService", "ComposeEnvironments", {})
-  .n("ElasticBeanstalkClient", "ComposeEnvironmentsCommand")
-  .sc(ComposeEnvironments$)
-  .build() {
+export class ComposeEnvironmentsCommand extends command<ComposeEnvironmentsCommandInput, ComposeEnvironmentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ComposeEnvironments",
+  ComposeEnvironments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

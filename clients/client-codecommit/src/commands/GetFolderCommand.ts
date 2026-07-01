@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFolderInput, GetFolderOutput } from "../models/models_0";
 import { GetFolder$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetFolder$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -138,22 +134,12 @@ export interface GetFolderCommandOutput extends GetFolderOutput, __MetadataBeare
  *
  * @public
  */
-export class GetFolderCommand extends $Command
-  .classBuilder<
-    GetFolderCommandInput,
-    GetFolderCommandOutput,
-    CodeCommitClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCommit_20150413", "GetFolder", {})
-  .n("CodeCommitClient", "GetFolderCommand")
-  .sc(GetFolder$)
-  .build() {
+export class GetFolderCommand extends command<GetFolderCommandInput, GetFolderCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFolder",
+  GetFolder$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

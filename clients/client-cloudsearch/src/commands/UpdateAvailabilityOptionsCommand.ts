@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAvailabilityOptionsRequest, UpdateAvailabilityOptionsResponse } from "../models/models_0";
 import { UpdateAvailabilityOptions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateAvailabilityOptions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface UpdateAvailabilityOptionsCommandOutput extends UpdateAvailabili
  *
  * @public
  */
-export class UpdateAvailabilityOptionsCommand extends $Command
-  .classBuilder<
-    UpdateAvailabilityOptionsCommandInput,
-    UpdateAvailabilityOptionsCommandOutput,
-    CloudSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("A9SearchCloudConfigService2013", "UpdateAvailabilityOptions", {})
-  .n("CloudSearchClient", "UpdateAvailabilityOptionsCommand")
-  .sc(UpdateAvailabilityOptions$)
-  .build() {
+export class UpdateAvailabilityOptionsCommand extends command<UpdateAvailabilityOptionsCommandInput, UpdateAvailabilityOptionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAvailabilityOptions",
+  UpdateAvailabilityOptions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

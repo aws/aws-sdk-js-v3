@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAssistantRequest, DeleteAssistantResponse } from "../models/models_0";
-import type { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 import { DeleteAssistant$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteAssistantCommandOutput extends DeleteAssistantResponse, _
  *
  * @public
  */
-export class DeleteAssistantCommand extends $Command
-  .classBuilder<
-    DeleteAssistantCommandInput,
-    DeleteAssistantCommandOutput,
-    QConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "DeleteAssistant", {})
-  .n("QConnectClient", "DeleteAssistantCommand")
-  .sc(DeleteAssistant$)
-  .build() {
+export class DeleteAssistantCommand extends command<DeleteAssistantCommandInput, DeleteAssistantCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAssistant",
+  DeleteAssistant$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

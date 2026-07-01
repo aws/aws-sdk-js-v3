@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticLoadBalancingV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticLoadBalancingV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeListenerCertificatesInput, DescribeListenerCertificatesOutput } from "../models/models_0";
 import { DescribeListenerCertificates$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeListenerCertificates$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface DescribeListenerCertificatesCommandOutput extends DescribeListe
  *
  * @public
  */
-export class DescribeListenerCertificatesCommand extends $Command
-  .classBuilder<
-    DescribeListenerCertificatesCommandInput,
-    DescribeListenerCertificatesCommandOutput,
-    ElasticLoadBalancingV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticLoadBalancing_v10", "DescribeListenerCertificates", {})
-  .n("ElasticLoadBalancingV2Client", "DescribeListenerCertificatesCommand")
-  .sc(DescribeListenerCertificates$)
-  .build() {
+export class DescribeListenerCertificatesCommand extends command<DescribeListenerCertificatesCommandInput, DescribeListenerCertificatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeListenerCertificates",
+  DescribeListenerCertificates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

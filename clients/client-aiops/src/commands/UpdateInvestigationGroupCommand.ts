@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AIOpsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AIOpsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateInvestigationGroupOutput, UpdateInvestigationGroupRequest } from "../models/models_0";
 import { UpdateInvestigationGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateInvestigationGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface UpdateInvestigationGroupCommandOutput extends UpdateInvestigati
  *
  * @public
  */
-export class UpdateInvestigationGroupCommand extends $Command
-  .classBuilder<
-    UpdateInvestigationGroupCommandInput,
-    UpdateInvestigationGroupCommandOutput,
-    AIOpsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AIOpsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AIOps", "UpdateInvestigationGroup", {})
-  .n("AIOpsClient", "UpdateInvestigationGroupCommand")
-  .sc(UpdateInvestigationGroup$)
-  .build() {
+export class UpdateInvestigationGroupCommand extends command<UpdateInvestigationGroupCommandInput, UpdateInvestigationGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateInvestigationGroup",
+  UpdateInvestigationGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

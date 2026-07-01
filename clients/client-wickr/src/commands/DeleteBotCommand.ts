@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteBotRequest, DeleteBotResponse } from "../models/models_0";
 import { DeleteBot$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface DeleteBotCommandOutput extends DeleteBotResponse, __MetadataBea
  *
  * @public
  */
-export class DeleteBotCommand extends $Command
-  .classBuilder<
-    DeleteBotCommandInput,
-    DeleteBotCommandOutput,
-    WickrClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WickrAdminApi", "DeleteBot", {})
-  .n("WickrClient", "DeleteBotCommand")
-  .sc(DeleteBot$)
-  .build() {
+export class DeleteBotCommand extends command<DeleteBotCommandInput, DeleteBotCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteBot",
+  DeleteBot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

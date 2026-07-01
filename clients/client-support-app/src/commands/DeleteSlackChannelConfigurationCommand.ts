@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSlackChannelConfigurationRequest, DeleteSlackChannelConfigurationResult } from "../models/models_0";
 import { DeleteSlackChannelConfiguration$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface DeleteSlackChannelConfigurationCommandOutput extends DeleteSlac
  *
  * @public
  */
-export class DeleteSlackChannelConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteSlackChannelConfigurationCommandInput,
-    DeleteSlackChannelConfigurationCommandOutput,
-    SupportAppClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupportAppClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SupportApp", "DeleteSlackChannelConfiguration", {})
-  .n("SupportAppClient", "DeleteSlackChannelConfigurationCommand")
-  .sc(DeleteSlackChannelConfiguration$)
-  .build() {
+export class DeleteSlackChannelConfigurationCommand extends command<DeleteSlackChannelConfigurationCommandInput, DeleteSlackChannelConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSlackChannelConfiguration",
+  DeleteSlackChannelConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

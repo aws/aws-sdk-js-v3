@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeSubnetGroupsRequest, DescribeSubnetGroupsResponse } from "../models/models_0";
 import { DescribeSubnetGroups$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeSubnetGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface DescribeSubnetGroupsCommandOutput extends DescribeSubnetGroupsR
  *
  * @public
  */
-export class DescribeSubnetGroupsCommand extends $Command
-  .classBuilder<
-    DescribeSubnetGroupsCommandInput,
-    DescribeSubnetGroupsCommandOutput,
-    MemoryDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMemoryDB", "DescribeSubnetGroups", {})
-  .n("MemoryDBClient", "DescribeSubnetGroupsCommand")
-  .sc(DescribeSubnetGroups$)
-  .build() {
+export class DescribeSubnetGroupsCommand extends command<DescribeSubnetGroupsCommandInput, DescribeSubnetGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSubnetGroups",
+  DescribeSubnetGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

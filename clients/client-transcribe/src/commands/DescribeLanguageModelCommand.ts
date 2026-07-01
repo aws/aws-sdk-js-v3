@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeLanguageModelRequest, DescribeLanguageModelResponse } from "../models/models_0";
 import { DescribeLanguageModel$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface DescribeLanguageModelCommandOutput extends DescribeLanguageMode
  *
  * @public
  */
-export class DescribeLanguageModelCommand extends $Command
-  .classBuilder<
-    DescribeLanguageModelCommandInput,
-    DescribeLanguageModelCommandOutput,
-    TranscribeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Transcribe", "DescribeLanguageModel", {})
-  .n("TranscribeClient", "DescribeLanguageModelCommand")
-  .sc(DescribeLanguageModel$)
-  .build() {
+export class DescribeLanguageModelCommand extends command<DescribeLanguageModelCommandInput, DescribeLanguageModelCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeLanguageModel",
+  DescribeLanguageModel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

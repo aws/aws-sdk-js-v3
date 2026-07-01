@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetResolverRuleAssociationRequest, GetResolverRuleAssociationResponse } from "../models/models_0";
-import type {
-  Route53ResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ResolverClient";
 import { GetResolverRuleAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface GetResolverRuleAssociationCommandOutput extends GetResolverRule
  *
  * @public
  */
-export class GetResolverRuleAssociationCommand extends $Command
-  .classBuilder<
-    GetResolverRuleAssociationCommandInput,
-    GetResolverRuleAssociationCommandOutput,
-    Route53ResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Resolver", "GetResolverRuleAssociation", {})
-  .n("Route53ResolverClient", "GetResolverRuleAssociationCommand")
-  .sc(GetResolverRuleAssociation$)
-  .build() {
+export class GetResolverRuleAssociationCommand extends command<GetResolverRuleAssociationCommandInput, GetResolverRuleAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetResolverRuleAssociation",
+  GetResolverRuleAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

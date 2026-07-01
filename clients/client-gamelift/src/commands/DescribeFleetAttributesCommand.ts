@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeFleetAttributesInput, DescribeFleetAttributesOutput } from "../models/models_0";
 import { DescribeFleetAttributes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeFleetAttributes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -152,22 +148,12 @@ export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttri
  *
  * @public
  */
-export class DescribeFleetAttributesCommand extends $Command
-  .classBuilder<
-    DescribeFleetAttributesCommandInput,
-    DescribeFleetAttributesCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "DescribeFleetAttributes", {})
-  .n("GameLiftClient", "DescribeFleetAttributesCommand")
-  .sc(DescribeFleetAttributes$)
-  .build() {
+export class DescribeFleetAttributesCommand extends command<DescribeFleetAttributesCommandInput, DescribeFleetAttributesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeFleetAttributes",
+  DescribeFleetAttributes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

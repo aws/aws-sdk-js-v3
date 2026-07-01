@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteServiceFunctionResourcesRequest, DeleteServiceFunctionResourcesResponse } from "../models/models_0";
-import type {
-  Resiliencehubv2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Resiliencehubv2Client";
 import { DeleteServiceFunctionResources$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface DeleteServiceFunctionResourcesCommandOutput extends DeleteServi
  *
  * @public
  */
-export class DeleteServiceFunctionResourcesCommand extends $Command
-  .classBuilder<
-    DeleteServiceFunctionResourcesCommandInput,
-    DeleteServiceFunctionResourcesCommandOutput,
-    Resiliencehubv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Resiliencehubv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NGRHServiceCore", "DeleteServiceFunctionResources", {})
-  .n("Resiliencehubv2Client", "DeleteServiceFunctionResourcesCommand")
-  .sc(DeleteServiceFunctionResources$)
-  .build() {
+export class DeleteServiceFunctionResourcesCommand extends command<DeleteServiceFunctionResourcesCommandInput, DeleteServiceFunctionResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteServiceFunctionResources",
+  DeleteServiceFunctionResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

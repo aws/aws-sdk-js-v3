@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteInferenceExperimentRequest, DeleteInferenceExperimentResponse } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DeleteInferenceExperiment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -65,22 +61,12 @@ export interface DeleteInferenceExperimentCommandOutput extends DeleteInferenceE
  *
  * @public
  */
-export class DeleteInferenceExperimentCommand extends $Command
-  .classBuilder<
-    DeleteInferenceExperimentCommandInput,
-    DeleteInferenceExperimentCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DeleteInferenceExperiment", {})
-  .n("SageMakerClient", "DeleteInferenceExperimentCommand")
-  .sc(DeleteInferenceExperiment$)
-  .build() {
+export class DeleteInferenceExperimentCommand extends command<DeleteInferenceExperimentCommandInput, DeleteInferenceExperimentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteInferenceExperiment",
+  DeleteInferenceExperiment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelQuantumTaskRequest, CancelQuantumTaskResponse } from "../models/models_0";
 import { CancelQuantumTask$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CancelQuantumTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface CancelQuantumTaskCommandOutput extends CancelQuantumTaskRespons
  *
  * @public
  */
-export class CancelQuantumTaskCommand extends $Command
-  .classBuilder<
-    CancelQuantumTaskCommandInput,
-    CancelQuantumTaskCommandOutput,
-    BraketClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BraketClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Braket", "CancelQuantumTask", {})
-  .n("BraketClient", "CancelQuantumTaskCommand")
-  .sc(CancelQuantumTask$)
-  .build() {
+export class CancelQuantumTaskCommand extends command<CancelQuantumTaskCommandInput, CancelQuantumTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelQuantumTask",
+  CancelQuantumTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

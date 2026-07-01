@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2ProtocolClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { XmlNamespacesOutput } from "../models/models_0";
 import { XmlNamespaces$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { XmlNamespaces$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -62,22 +58,12 @@ export interface XmlNamespacesCommandOutput extends XmlNamespacesOutput, __Metad
  *
  *
  */
-export class XmlNamespacesCommand extends $Command
-  .classBuilder<
-    XmlNamespacesCommandInput,
-    XmlNamespacesCommandOutput,
-    EC2ProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsEc2", "XmlNamespaces", {})
-  .n("EC2ProtocolClient", "XmlNamespacesCommand")
-  .sc(XmlNamespaces$)
-  .build() {
+export class XmlNamespacesCommand extends command<XmlNamespacesCommandInput, XmlNamespacesCommandOutput>(
+  _ep0,
+  _mw0,
+  "XmlNamespaces",
+  XmlNamespaces$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

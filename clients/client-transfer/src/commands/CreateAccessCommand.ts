@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAccessRequest, CreateAccessResponse } from "../models/models_0";
 import { CreateAccess$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface CreateAccessCommandOutput extends CreateAccessResponse, __Metad
  *
  * @public
  */
-export class CreateAccessCommand extends $Command
-  .classBuilder<
-    CreateAccessCommandInput,
-    CreateAccessCommandOutput,
-    TransferClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TransferService", "CreateAccess", {})
-  .n("TransferClient", "CreateAccessCommand")
-  .sc(CreateAccess$)
-  .build() {
+export class CreateAccessCommand extends command<CreateAccessCommandInput, CreateAccessCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAccess",
+  CreateAccess$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

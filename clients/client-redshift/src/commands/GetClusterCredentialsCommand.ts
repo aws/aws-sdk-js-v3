@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ClusterCredentials, GetClusterCredentialsMessage } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { GetClusterCredentials$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, 
  *
  * @public
  */
-export class GetClusterCredentialsCommand extends $Command
-  .classBuilder<
-    GetClusterCredentialsCommandInput,
-    GetClusterCredentialsCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "GetClusterCredentials", {})
-  .n("RedshiftClient", "GetClusterCredentialsCommand")
-  .sc(GetClusterCredentials$)
-  .build() {
+export class GetClusterCredentialsCommand extends command<GetClusterCredentialsCommandInput, GetClusterCredentialsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetClusterCredentials",
+  GetClusterCredentials$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DetachAndDeleteS3AccessPointRequest, DetachAndDeleteS3AccessPointResponse } from "../models/models_0";
 import { DetachAndDeleteS3AccessPoint$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DetachAndDeleteS3AccessPoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface DetachAndDeleteS3AccessPointCommandOutput extends DetachAndDele
  *
  * @public
  */
-export class DetachAndDeleteS3AccessPointCommand extends $Command
-  .classBuilder<
-    DetachAndDeleteS3AccessPointCommandInput,
-    DetachAndDeleteS3AccessPointCommandOutput,
-    FSxClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSimbaAPIService_v20180301", "DetachAndDeleteS3AccessPoint", {})
-  .n("FSxClient", "DetachAndDeleteS3AccessPointCommand")
-  .sc(DetachAndDeleteS3AccessPoint$)
-  .build() {
+export class DetachAndDeleteS3AccessPointCommand extends command<DetachAndDeleteS3AccessPointCommandInput, DetachAndDeleteS3AccessPointCommandOutput>(
+  _ep0,
+  _mw0,
+  "DetachAndDeleteS3AccessPoint",
+  DetachAndDeleteS3AccessPoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

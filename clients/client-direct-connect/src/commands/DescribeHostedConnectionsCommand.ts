@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { Connections, DescribeHostedConnectionsRequest } from "../models/models_0";
 import { DescribeHostedConnections$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeHostedConnections$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface DescribeHostedConnectionsCommandOutput extends Connections, __M
  *
  * @public
  */
-export class DescribeHostedConnectionsCommand extends $Command
-  .classBuilder<
-    DescribeHostedConnectionsCommandInput,
-    DescribeHostedConnectionsCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "DescribeHostedConnections", {})
-  .n("DirectConnectClient", "DescribeHostedConnectionsCommand")
-  .sc(DescribeHostedConnections$)
-  .build() {
+export class DescribeHostedConnectionsCommand extends command<DescribeHostedConnectionsCommandInput, DescribeHostedConnectionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeHostedConnections",
+  DescribeHostedConnections$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

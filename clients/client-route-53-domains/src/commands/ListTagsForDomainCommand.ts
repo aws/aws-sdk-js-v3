@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTagsForDomainRequest, ListTagsForDomainResponse } from "../models/models_0";
-import type {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53DomainsClient";
 import { ListTagsForDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface ListTagsForDomainCommandOutput extends ListTagsForDomainRespons
  *
  * @public
  */
-export class ListTagsForDomainCommand extends $Command
-  .classBuilder<
-    ListTagsForDomainCommandInput,
-    ListTagsForDomainCommandOutput,
-    Route53DomainsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Domains_v20140515", "ListTagsForDomain", {})
-  .n("Route53DomainsClient", "ListTagsForDomainCommand")
-  .sc(ListTagsForDomain$)
-  .build() {
+export class ListTagsForDomainCommand extends command<ListTagsForDomainCommandInput, ListTagsForDomainCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTagsForDomain",
+  ListTagsForDomain$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

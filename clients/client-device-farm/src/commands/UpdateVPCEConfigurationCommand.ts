@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateVPCEConfigurationRequest, UpdateVPCEConfigurationResult } from "../models/models_0";
 import { UpdateVPCEConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateVPCEConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface UpdateVPCEConfigurationCommandOutput extends UpdateVPCEConfigur
  *
  * @public
  */
-export class UpdateVPCEConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateVPCEConfigurationCommandInput,
-    UpdateVPCEConfigurationCommandOutput,
-    DeviceFarmClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DeviceFarm_20150623", "UpdateVPCEConfiguration", {})
-  .n("DeviceFarmClient", "UpdateVPCEConfigurationCommand")
-  .sc(UpdateVPCEConfiguration$)
-  .build() {
+export class UpdateVPCEConfigurationCommand extends command<UpdateVPCEConfigurationCommandInput, UpdateVPCEConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateVPCEConfiguration",
+  UpdateVPCEConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAutoManagementRequest, UpdateAutoManagementResponse } from "../models/models_0";
 import { UpdateAutoManagement$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface UpdateAutoManagementCommandOutput extends UpdateAutoManagementR
  *
  * @public
  */
-export class UpdateAutoManagementCommand extends $Command
-  .classBuilder<
-    UpdateAutoManagementCommandInput,
-    UpdateAutoManagementCommandOutput,
-    ServiceQuotasClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ServiceQuotasV20190624", "UpdateAutoManagement", {})
-  .n("ServiceQuotasClient", "UpdateAutoManagementCommand")
-  .sc(UpdateAutoManagement$)
-  .build() {
+export class UpdateAutoManagementCommand extends command<UpdateAutoManagementCommandInput, UpdateAutoManagementCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAutoManagement",
+  UpdateAutoManagement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

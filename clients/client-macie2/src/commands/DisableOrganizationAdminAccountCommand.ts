@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisableOrganizationAdminAccountRequest,
   DisableOrganizationAdminAccountResponse,
@@ -15,7 +12,6 @@ import { DisableOrganizationAdminAccount$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface DisableOrganizationAdminAccountCommandOutput extends DisableOrg
  *
  * @public
  */
-export class DisableOrganizationAdminAccountCommand extends $Command
-  .classBuilder<
-    DisableOrganizationAdminAccountCommandInput,
-    DisableOrganizationAdminAccountCommandOutput,
-    Macie2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Macie2", "DisableOrganizationAdminAccount", {})
-  .n("Macie2Client", "DisableOrganizationAdminAccountCommand")
-  .sc(DisableOrganizationAdminAccount$)
-  .build() {
+export class DisableOrganizationAdminAccountCommand extends command<DisableOrganizationAdminAccountCommandInput, DisableOrganizationAdminAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableOrganizationAdminAccount",
+  DisableOrganizationAdminAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

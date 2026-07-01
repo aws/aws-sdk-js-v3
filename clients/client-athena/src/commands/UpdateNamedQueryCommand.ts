@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateNamedQueryInput, UpdateNamedQueryOutput } from "../models/models_0";
 import { UpdateNamedQuery$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateNamedQuery$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface UpdateNamedQueryCommandOutput extends UpdateNamedQueryOutput, _
  *
  * @public
  */
-export class UpdateNamedQueryCommand extends $Command
-  .classBuilder<
-    UpdateNamedQueryCommandInput,
-    UpdateNamedQueryCommandOutput,
-    AthenaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAthena", "UpdateNamedQuery", {})
-  .n("AthenaClient", "UpdateNamedQueryCommand")
-  .sc(UpdateNamedQuery$)
-  .build() {
+export class UpdateNamedQueryCommand extends command<UpdateNamedQueryCommandInput, UpdateNamedQueryCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateNamedQuery",
+  UpdateNamedQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

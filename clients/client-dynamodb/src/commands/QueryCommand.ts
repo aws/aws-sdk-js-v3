@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep2, _mw0, command } from "../commandBuilder";
 import type { QueryInput, QueryOutput } from "../models/models_0";
 import { Query$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { Query$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -323,25 +319,12 @@ export interface QueryCommandOutput extends QueryOutput, __MetadataBearer {}
  *
  * @public
  */
-export class QueryCommand extends $Command
-  .classBuilder<
-    QueryCommandInput,
-    QueryCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "contextParams", name: "TableName" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "Query", {})
-  .n("DynamoDBClient", "QueryCommand")
-  .sc(Query$)
-  .build() {
+export class QueryCommand extends command<QueryCommandInput, QueryCommandOutput>(
+  _ep2,
+  _mw0,
+  "Query",
+  Query$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

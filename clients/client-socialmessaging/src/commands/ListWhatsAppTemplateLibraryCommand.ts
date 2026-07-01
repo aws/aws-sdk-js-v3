@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListWhatsAppTemplateLibraryInput, ListWhatsAppTemplateLibraryOutput } from "../models/models_0";
 import { ListWhatsAppTemplateLibrary$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SocialMessagingClientResolvedConfig,
-} from "../SocialMessagingClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +118,12 @@ export interface ListWhatsAppTemplateLibraryCommandOutput extends ListWhatsAppTe
  *
  * @public
  */
-export class ListWhatsAppTemplateLibraryCommand extends $Command
-  .classBuilder<
-    ListWhatsAppTemplateLibraryCommandInput,
-    ListWhatsAppTemplateLibraryCommandOutput,
-    SocialMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SocialMessaging", "ListWhatsAppTemplateLibrary", {})
-  .n("SocialMessagingClient", "ListWhatsAppTemplateLibraryCommand")
-  .sc(ListWhatsAppTemplateLibrary$)
-  .build() {
+export class ListWhatsAppTemplateLibraryCommand extends command<ListWhatsAppTemplateLibraryCommandInput, ListWhatsAppTemplateLibraryCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListWhatsAppTemplateLibrary",
+  ListWhatsAppTemplateLibrary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeMultiRegionClustersRequest, DescribeMultiRegionClustersResponse } from "../models/models_0";
 import { DescribeMultiRegionClusters$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeMultiRegionClusters$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface DescribeMultiRegionClustersCommandOutput extends DescribeMultiR
  *
  * @public
  */
-export class DescribeMultiRegionClustersCommand extends $Command
-  .classBuilder<
-    DescribeMultiRegionClustersCommandInput,
-    DescribeMultiRegionClustersCommandOutput,
-    MemoryDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMemoryDB", "DescribeMultiRegionClusters", {})
-  .n("MemoryDBClient", "DescribeMultiRegionClustersCommand")
-  .sc(DescribeMultiRegionClusters$)
-  .build() {
+export class DescribeMultiRegionClustersCommand extends command<DescribeMultiRegionClustersCommandInput, DescribeMultiRegionClustersCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeMultiRegionClusters",
+  DescribeMultiRegionClusters$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

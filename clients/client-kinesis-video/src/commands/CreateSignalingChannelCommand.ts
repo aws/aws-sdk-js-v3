@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSignalingChannelInput, CreateSignalingChannelOutput } from "../models/models_0";
 import { CreateSignalingChannel$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateSignalingChannel$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface CreateSignalingChannelCommandOutput extends CreateSignalingChan
  *
  * @public
  */
-export class CreateSignalingChannelCommand extends $Command
-  .classBuilder<
-    CreateSignalingChannelCommandInput,
-    CreateSignalingChannelCommandOutput,
-    KinesisVideoClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KinesisVideo_20170930", "CreateSignalingChannel", {})
-  .n("KinesisVideoClient", "CreateSignalingChannelCommand")
-  .sc(CreateSignalingChannel$)
-  .build() {
+export class CreateSignalingChannelCommand extends command<CreateSignalingChannelCommandInput, CreateSignalingChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSignalingChannel",
+  CreateSignalingChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

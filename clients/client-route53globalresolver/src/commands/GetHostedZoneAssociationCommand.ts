@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetHostedZoneAssociationInput, GetHostedZoneAssociationOutput } from "../models/models_0";
-import type {
-  Route53GlobalResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53GlobalResolverClient";
 import { GetHostedZoneAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface GetHostedZoneAssociationCommandOutput extends GetHostedZoneAsso
  *
  * @public
  */
-export class GetHostedZoneAssociationCommand extends $Command
-  .classBuilder<
-    GetHostedZoneAssociationCommandInput,
-    GetHostedZoneAssociationCommandOutput,
-    Route53GlobalResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53GlobalResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EC2DNSGlobalResolverCustomerAPI", "GetHostedZoneAssociation", {})
-  .n("Route53GlobalResolverClient", "GetHostedZoneAssociationCommand")
-  .sc(GetHostedZoneAssociation$)
-  .build() {
+export class GetHostedZoneAssociationCommand extends command<GetHostedZoneAssociationCommandInput, GetHostedZoneAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetHostedZoneAssociation",
+  GetHostedZoneAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

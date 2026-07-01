@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeSelfUpgradeConfigurationRequest,
   DescribeSelfUpgradeConfigurationResponse,
 } from "../models/models_4";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DescribeSelfUpgradeConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface DescribeSelfUpgradeConfigurationCommandOutput extends DescribeS
  *
  * @public
  */
-export class DescribeSelfUpgradeConfigurationCommand extends $Command
-  .classBuilder<
-    DescribeSelfUpgradeConfigurationCommandInput,
-    DescribeSelfUpgradeConfigurationCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "DescribeSelfUpgradeConfiguration", {})
-  .n("QuickSightClient", "DescribeSelfUpgradeConfigurationCommand")
-  .sc(DescribeSelfUpgradeConfiguration$)
-  .build() {
+export class DescribeSelfUpgradeConfigurationCommand extends command<DescribeSelfUpgradeConfigurationCommandInput, DescribeSelfUpgradeConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSelfUpgradeConfiguration",
+  DescribeSelfUpgradeConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

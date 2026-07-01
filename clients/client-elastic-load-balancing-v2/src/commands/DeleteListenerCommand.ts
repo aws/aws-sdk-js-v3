@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticLoadBalancingV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticLoadBalancingV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteListenerInput, DeleteListenerOutput } from "../models/models_0";
 import { DeleteListener$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteListener$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface DeleteListenerCommandOutput extends DeleteListenerOutput, __Met
  *
  * @public
  */
-export class DeleteListenerCommand extends $Command
-  .classBuilder<
-    DeleteListenerCommandInput,
-    DeleteListenerCommandOutput,
-    ElasticLoadBalancingV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticLoadBalancing_v10", "DeleteListener", {})
-  .n("ElasticLoadBalancingV2Client", "DeleteListenerCommand")
-  .sc(DeleteListener$)
-  .build() {
+export class DeleteListenerCommand extends command<DeleteListenerCommandInput, DeleteListenerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteListener",
+  DeleteListener$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

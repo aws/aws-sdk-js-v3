@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRuleSetsRequest, ListRuleSetsResponse } from "../models/models_0";
 import { ListRuleSets$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListRuleSets$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface ListRuleSetsCommandOutput extends ListRuleSetsResponse, __Metad
  *
  * @public
  */
-export class ListRuleSetsCommand extends $Command
-  .classBuilder<
-    ListRuleSetsCommandInput,
-    ListRuleSetsCommandOutput,
-    MailManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MailManagerSvc", "ListRuleSets", {})
-  .n("MailManagerClient", "ListRuleSetsCommand")
-  .sc(ListRuleSets$)
-  .build() {
+export class ListRuleSetsCommand extends command<ListRuleSetsCommandInput, ListRuleSetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRuleSets",
+  ListRuleSets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

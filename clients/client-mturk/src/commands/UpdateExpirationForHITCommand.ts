@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateExpirationForHITRequest, UpdateExpirationForHITResponse } from "../models/models_0";
-import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { UpdateExpirationForHIT$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface UpdateExpirationForHITCommandOutput extends UpdateExpirationFor
  *
  * @public
  */
-export class UpdateExpirationForHITCommand extends $Command
-  .classBuilder<
-    UpdateExpirationForHITCommandInput,
-    UpdateExpirationForHITCommandOutput,
-    MTurkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MTurkRequesterServiceV20170117", "UpdateExpirationForHIT", {})
-  .n("MTurkClient", "UpdateExpirationForHITCommand")
-  .sc(UpdateExpirationForHIT$)
-  .build() {
+export class UpdateExpirationForHITCommand extends command<UpdateExpirationForHITCommandInput, UpdateExpirationForHITCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateExpirationForHIT",
+  UpdateExpirationForHIT$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

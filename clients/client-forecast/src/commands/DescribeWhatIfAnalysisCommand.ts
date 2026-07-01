@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeWhatIfAnalysisRequest, DescribeWhatIfAnalysisResponse } from "../models/models_0";
 import { DescribeWhatIfAnalysis$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeWhatIfAnalysis$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface DescribeWhatIfAnalysisCommandOutput extends DescribeWhatIfAnaly
  *
  * @public
  */
-export class DescribeWhatIfAnalysisCommand extends $Command
-  .classBuilder<
-    DescribeWhatIfAnalysisCommandInput,
-    DescribeWhatIfAnalysisCommandOutput,
-    ForecastClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonForecast", "DescribeWhatIfAnalysis", {})
-  .n("ForecastClient", "DescribeWhatIfAnalysisCommand")
-  .sc(DescribeWhatIfAnalysis$)
-  .build() {
+export class DescribeWhatIfAnalysisCommand extends command<DescribeWhatIfAnalysisCommandInput, DescribeWhatIfAnalysisCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeWhatIfAnalysis",
+  DescribeWhatIfAnalysis$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

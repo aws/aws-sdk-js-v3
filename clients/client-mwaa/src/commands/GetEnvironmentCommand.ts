@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEnvironmentInput, GetEnvironmentOutput } from "../models/models_0";
-import type { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
 import { GetEnvironment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -149,22 +145,12 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  *
  * @public
  */
-export class GetEnvironmentCommand extends $Command
-  .classBuilder<
-    GetEnvironmentCommandInput,
-    GetEnvironmentCommandOutput,
-    MWAAClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MWAAClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMWAA", "GetEnvironment", {})
-  .n("MWAAClient", "GetEnvironmentCommand")
-  .sc(GetEnvironment$)
-  .build() {
+export class GetEnvironmentCommand extends command<GetEnvironmentCommandInput, GetEnvironmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEnvironment",
+  GetEnvironment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAccountLinkInvitationRequest, CreateAccountLinkInvitationResult } from "../models/models_0";
 import { CreateAccountLinkInvitation$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface CreateAccountLinkInvitationCommandOutput extends CreateAccountL
  *
  * @public
  */
-export class CreateAccountLinkInvitationCommand extends $Command
-  .classBuilder<
-    CreateAccountLinkInvitationCommandInput,
-    CreateAccountLinkInvitationCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "CreateAccountLinkInvitation", {})
-  .n("WorkSpacesClient", "CreateAccountLinkInvitationCommand")
-  .sc(CreateAccountLinkInvitation$)
-  .build() {
+export class CreateAccountLinkInvitationCommand extends command<CreateAccountLinkInvitationCommandInput, CreateAccountLinkInvitationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAccountLinkInvitation",
+  CreateAccountLinkInvitation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

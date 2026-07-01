@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListEventActionsRequest, ListEventActionsResponse } from "../models/models_0";
 import { ListEventActions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListEventActions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface ListEventActionsCommandOutput extends ListEventActionsResponse,
  *
  * @public
  */
-export class ListEventActionsCommand extends $Command
-  .classBuilder<
-    ListEventActionsCommandInput,
-    ListEventActionsCommandOutput,
-    DataExchangeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataExchange", "ListEventActions", {})
-  .n("DataExchangeClient", "ListEventActionsCommand")
-  .sc(ListEventActions$)
-  .build() {
+export class ListEventActionsCommand extends command<ListEventActionsCommandInput, ListEventActionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEventActions",
+  ListEventActions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

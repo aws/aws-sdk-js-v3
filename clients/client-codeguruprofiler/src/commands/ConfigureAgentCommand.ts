@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeGuruProfilerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeGuruProfilerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ConfigureAgentRequest, ConfigureAgentResponse } from "../models/models_0";
 import { ConfigureAgent$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ConfigureAgent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface ConfigureAgentCommandOutput extends ConfigureAgentResponse, __M
  *
  * @public
  */
-export class ConfigureAgentCommand extends $Command
-  .classBuilder<
-    ConfigureAgentCommandInput,
-    ConfigureAgentCommandOutput,
-    CodeGuruProfilerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeGuruProfilerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeGuruProfiler", "ConfigureAgent", {})
-  .n("CodeGuruProfilerClient", "ConfigureAgentCommand")
-  .sc(ConfigureAgent$)
-  .build() {
+export class ConfigureAgentCommand extends command<ConfigureAgentCommandInput, ConfigureAgentCommandOutput>(
+  _ep0,
+  _mw0,
+  "ConfigureAgent",
+  ConfigureAgent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

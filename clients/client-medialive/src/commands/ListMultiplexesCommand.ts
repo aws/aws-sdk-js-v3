@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListMultiplexesRequest, ListMultiplexesResponse } from "../models/models_1";
 import { ListMultiplexes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListMultiplexes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface ListMultiplexesCommandOutput extends ListMultiplexesResponse, _
  *
  * @public
  */
-export class ListMultiplexesCommand extends $Command
-  .classBuilder<
-    ListMultiplexesCommandInput,
-    ListMultiplexesCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "ListMultiplexes", {})
-  .n("MediaLiveClient", "ListMultiplexesCommand")
-  .sc(ListMultiplexes$)
-  .build() {
+export class ListMultiplexesCommand extends command<ListMultiplexesCommandInput, ListMultiplexesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMultiplexes",
+  ListMultiplexes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

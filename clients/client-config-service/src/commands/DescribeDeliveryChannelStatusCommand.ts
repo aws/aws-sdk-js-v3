@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeDeliveryChannelStatusRequest, DescribeDeliveryChannelStatusResponse } from "../models/models_0";
 import { DescribeDeliveryChannelStatus$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeDeliveryChannelStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface DescribeDeliveryChannelStatusCommandOutput extends DescribeDeli
  *
  * @public
  */
-export class DescribeDeliveryChannelStatusCommand extends $Command
-  .classBuilder<
-    DescribeDeliveryChannelStatusCommandInput,
-    DescribeDeliveryChannelStatusCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DescribeDeliveryChannelStatus", {})
-  .n("ConfigServiceClient", "DescribeDeliveryChannelStatusCommand")
-  .sc(DescribeDeliveryChannelStatus$)
-  .build() {
+export class DescribeDeliveryChannelStatusCommand extends command<DescribeDeliveryChannelStatusCommandInput, DescribeDeliveryChannelStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDeliveryChannelStatus",
+  DescribeDeliveryChannelStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

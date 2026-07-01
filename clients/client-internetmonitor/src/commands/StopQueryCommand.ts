@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  InternetMonitorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../InternetMonitorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopQueryInput, StopQueryOutput } from "../models/models_0";
 import { StopQuery$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StopQuery$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +69,12 @@ export interface StopQueryCommandOutput extends StopQueryOutput, __MetadataBeare
  *
  * @public
  */
-export class StopQueryCommand extends $Command
-  .classBuilder<
-    StopQueryCommandInput,
-    StopQueryCommandOutput,
-    InternetMonitorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InternetMonitorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("InternetMonitor20210603", "StopQuery", {})
-  .n("InternetMonitorClient", "StopQueryCommand")
-  .sc(StopQuery$)
-  .build() {
+export class StopQueryCommand extends command<StopQueryCommandInput, StopQueryCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopQuery",
+  StopQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

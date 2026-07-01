@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { Stage, UpdateStageRequest } from "../models/models_0";
 import { UpdateStage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateStage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -129,22 +125,12 @@ export interface UpdateStageCommandOutput extends Stage, __MetadataBearer {}
  *
  * @public
  */
-export class UpdateStageCommand extends $Command
-  .classBuilder<
-    UpdateStageCommandInput,
-    UpdateStageCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "UpdateStage", {})
-  .n("APIGatewayClient", "UpdateStageCommand")
-  .sc(UpdateStage$)
-  .build() {
+export class UpdateStageCommand extends command<UpdateStageCommandInput, UpdateStageCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateStage",
+  UpdateStage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

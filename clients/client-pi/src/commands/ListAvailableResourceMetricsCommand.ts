@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAvailableResourceMetricsRequest, ListAvailableResourceMetricsResponse } from "../models/models_0";
-import type { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
 import { ListAvailableResourceMetrics$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface ListAvailableResourceMetricsCommandOutput extends ListAvailable
  *
  * @public
  */
-export class ListAvailableResourceMetricsCommand extends $Command
-  .classBuilder<
-    ListAvailableResourceMetricsCommandInput,
-    ListAvailableResourceMetricsCommandOutput,
-    PIClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PIClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PerformanceInsightsv20180227", "ListAvailableResourceMetrics", {})
-  .n("PIClient", "ListAvailableResourceMetricsCommand")
-  .sc(ListAvailableResourceMetrics$)
-  .build() {
+export class ListAvailableResourceMetricsCommand extends command<ListAvailableResourceMetricsCommandInput, ListAvailableResourceMetricsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAvailableResourceMetrics",
+  ListAvailableResourceMetrics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

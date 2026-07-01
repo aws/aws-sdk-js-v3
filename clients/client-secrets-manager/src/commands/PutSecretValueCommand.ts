@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutSecretValueRequest, PutSecretValueResponse } from "../models/models_0";
 import { PutSecretValue$ } from "../schemas/schemas_0";
-import type {
-  SecretsManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SecretsManagerClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -172,22 +164,12 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  *
  * @public
  */
-export class PutSecretValueCommand extends $Command
-  .classBuilder<
-    PutSecretValueCommandInput,
-    PutSecretValueCommandOutput,
-    SecretsManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("secretsmanager", "PutSecretValue", {})
-  .n("SecretsManagerClient", "PutSecretValueCommand")
-  .sc(PutSecretValue$)
-  .build() {
+export class PutSecretValueCommand extends command<PutSecretValueCommandInput, PutSecretValueCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutSecretValue",
+  PutSecretValue$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

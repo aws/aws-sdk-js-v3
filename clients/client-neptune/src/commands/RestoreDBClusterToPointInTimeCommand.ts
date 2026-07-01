@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RestoreDBClusterToPointInTimeMessage, RestoreDBClusterToPointInTimeResult } from "../models/models_0";
-import type { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import { RestoreDBClusterToPointInTime$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -261,22 +257,12 @@ export interface RestoreDBClusterToPointInTimeCommandOutput extends RestoreDBClu
  *
  * @public
  */
-export class RestoreDBClusterToPointInTimeCommand extends $Command
-  .classBuilder<
-    RestoreDBClusterToPointInTimeCommandInput,
-    RestoreDBClusterToPointInTimeCommandOutput,
-    NeptuneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "RestoreDBClusterToPointInTime", {})
-  .n("NeptuneClient", "RestoreDBClusterToPointInTimeCommand")
-  .sc(RestoreDBClusterToPointInTime$)
-  .build() {
+export class RestoreDBClusterToPointInTimeCommand extends command<RestoreDBClusterToPointInTimeCommandInput, RestoreDBClusterToPointInTimeCommandOutput>(
+  _ep0,
+  _mw0,
+  "RestoreDBClusterToPointInTime",
+  RestoreDBClusterToPointInTime$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

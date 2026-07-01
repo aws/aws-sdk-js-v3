@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveTagsRequest, RemoveTagsResponse } from "../models/models_0";
 import { RemoveTags$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RemoveTags$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -147,22 +143,12 @@ export interface RemoveTagsCommandOutput extends RemoveTagsResponse, __MetadataB
  *
  * @public
  */
-export class RemoveTagsCommand extends $Command
-  .classBuilder<
-    RemoveTagsCommandInput,
-    RemoveTagsCommandOutput,
-    CloudTrailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudTrail_20131101", "RemoveTags", {})
-  .n("CloudTrailClient", "RemoveTagsCommand")
-  .sc(RemoveTags$)
-  .build() {
+export class RemoveTagsCommand extends command<RemoveTagsCommandInput, RemoveTagsCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveTags",
+  RemoveTags$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

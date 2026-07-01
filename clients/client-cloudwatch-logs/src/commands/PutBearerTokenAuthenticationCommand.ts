@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutBearerTokenAuthenticationRequest } from "../models/models_0";
 import { PutBearerTokenAuthentication$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { PutBearerTokenAuthentication$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface PutBearerTokenAuthenticationCommandOutput extends __MetadataBea
  *
  * @public
  */
-export class PutBearerTokenAuthenticationCommand extends $Command
-  .classBuilder<
-    PutBearerTokenAuthenticationCommandInput,
-    PutBearerTokenAuthenticationCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "PutBearerTokenAuthentication", {})
-  .n("CloudWatchLogsClient", "PutBearerTokenAuthenticationCommand")
-  .sc(PutBearerTokenAuthentication$)
-  .build() {
+export class PutBearerTokenAuthenticationCommand extends command<PutBearerTokenAuthenticationCommandInput, PutBearerTokenAuthenticationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutBearerTokenAuthentication",
+  PutBearerTokenAuthentication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

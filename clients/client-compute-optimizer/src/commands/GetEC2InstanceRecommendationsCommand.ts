@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEC2InstanceRecommendationsRequest, GetEC2InstanceRecommendationsResponse } from "../models/models_0";
 import { GetEC2InstanceRecommendations$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetEC2InstanceRecommendations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -247,22 +239,12 @@ export interface GetEC2InstanceRecommendationsCommandOutput extends GetEC2Instan
  *
  * @public
  */
-export class GetEC2InstanceRecommendationsCommand extends $Command
-  .classBuilder<
-    GetEC2InstanceRecommendationsCommandInput,
-    GetEC2InstanceRecommendationsCommandOutput,
-    ComputeOptimizerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerService", "GetEC2InstanceRecommendations", {})
-  .n("ComputeOptimizerClient", "GetEC2InstanceRecommendationsCommand")
-  .sc(GetEC2InstanceRecommendations$)
-  .build() {
+export class GetEC2InstanceRecommendationsCommand extends command<GetEC2InstanceRecommendationsCommandInput, GetEC2InstanceRecommendationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEC2InstanceRecommendations",
+  GetEC2InstanceRecommendations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

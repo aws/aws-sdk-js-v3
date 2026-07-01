@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ShrinkAutonomousDatabaseInput, ShrinkAutonomousDatabaseOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { ShrinkAutonomousDatabase$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface ShrinkAutonomousDatabaseCommandOutput extends ShrinkAutonomousD
  *
  * @public
  */
-export class ShrinkAutonomousDatabaseCommand extends $Command
-  .classBuilder<
-    ShrinkAutonomousDatabaseCommandInput,
-    ShrinkAutonomousDatabaseCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "ShrinkAutonomousDatabase", {})
-  .n("OdbClient", "ShrinkAutonomousDatabaseCommand")
-  .sc(ShrinkAutonomousDatabase$)
-  .build() {
+export class ShrinkAutonomousDatabaseCommand extends command<ShrinkAutonomousDatabaseCommandInput, ShrinkAutonomousDatabaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "ShrinkAutonomousDatabase",
+  ShrinkAutonomousDatabase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

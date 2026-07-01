@@ -1,23 +1,14 @@
 // smithy-typescript generated code
-import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateBatchLoadTaskRequest, CreateBatchLoadTaskResponse } from "../models/models_0";
 import { CreateBatchLoadTask$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TimestreamWriteClientResolvedConfig,
-} from "../TimestreamWriteClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -168,29 +159,12 @@ export interface CreateBatchLoadTaskCommandOutput extends CreateBatchLoadTaskRes
  *
  * @public
  */
-export class CreateBatchLoadTaskCommand extends $Command
-  .classBuilder<
-    CreateBatchLoadTaskCommandInput,
-    CreateBatchLoadTaskCommandOutput,
-    TimestreamWriteClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TimestreamWriteClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEndpointDiscoveryPlugin(config, {
-        clientStack: cs,
-        isDiscoveredEndpointRequired: true,
-        options: o,
-      }),
-    ];
-  })
-  .s("Timestream_20181101", "CreateBatchLoadTask", {})
-  .n("TimestreamWriteClient", "CreateBatchLoadTaskCommand")
-  .sc(CreateBatchLoadTask$)
-  .build() {
+export class CreateBatchLoadTaskCommand extends command<CreateBatchLoadTaskCommandInput, CreateBatchLoadTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateBatchLoadTask",
+  CreateBatchLoadTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

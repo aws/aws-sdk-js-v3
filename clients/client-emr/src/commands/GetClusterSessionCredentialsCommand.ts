@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetClusterSessionCredentialsInput, GetClusterSessionCredentialsOutput } from "../models/models_0";
 import { GetClusterSessionCredentials$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetClusterSessionCredentials$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface GetClusterSessionCredentialsCommandOutput extends GetClusterSes
  *
  * @public
  */
-export class GetClusterSessionCredentialsCommand extends $Command
-  .classBuilder<
-    GetClusterSessionCredentialsCommandInput,
-    GetClusterSessionCredentialsCommandOutput,
-    EMRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticMapReduce", "GetClusterSessionCredentials", {})
-  .n("EMRClient", "GetClusterSessionCredentialsCommand")
-  .sc(GetClusterSessionCredentials$)
-  .build() {
+export class GetClusterSessionCredentialsCommand extends command<GetClusterSessionCredentialsCommandInput, GetClusterSessionCredentialsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetClusterSessionCredentials",
+  GetClusterSessionCredentials$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

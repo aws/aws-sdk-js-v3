@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFraudsterRequest } from "../models/models_0";
 import { DeleteFraudster$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DeleteFraudsterCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteFraudsterCommand extends $Command
-  .classBuilder<
-    DeleteFraudsterCommandInput,
-    DeleteFraudsterCommandOutput,
-    VoiceIDClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("VoiceID", "DeleteFraudster", {})
-  .n("VoiceIDClient", "DeleteFraudsterCommand")
-  .sc(DeleteFraudster$)
-  .build() {
+export class DeleteFraudsterCommand extends command<DeleteFraudsterCommandInput, DeleteFraudsterCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFraudster",
+  DeleteFraudster$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

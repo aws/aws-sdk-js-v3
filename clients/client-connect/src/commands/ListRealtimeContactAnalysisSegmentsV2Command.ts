@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListRealtimeContactAnalysisSegmentsV2Request,
   ListRealtimeContactAnalysisSegmentsV2Response,
@@ -15,7 +12,6 @@ import { ListRealtimeContactAnalysisSegmentsV2$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -183,22 +179,12 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput extends List
  *
  * @public
  */
-export class ListRealtimeContactAnalysisSegmentsV2Command extends $Command
-  .classBuilder<
-    ListRealtimeContactAnalysisSegmentsV2CommandInput,
-    ListRealtimeContactAnalysisSegmentsV2CommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "ListRealtimeContactAnalysisSegmentsV2", {})
-  .n("ConnectClient", "ListRealtimeContactAnalysisSegmentsV2Command")
-  .sc(ListRealtimeContactAnalysisSegmentsV2$)
-  .build() {
+export class ListRealtimeContactAnalysisSegmentsV2Command extends command<ListRealtimeContactAnalysisSegmentsV2CommandInput, ListRealtimeContactAnalysisSegmentsV2CommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRealtimeContactAnalysisSegmentsV2",
+  ListRealtimeContactAnalysisSegmentsV2$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

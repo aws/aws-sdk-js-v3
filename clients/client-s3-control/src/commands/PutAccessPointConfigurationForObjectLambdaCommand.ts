@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3/s3-control";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { PutAccessPointConfigurationForObjectLambdaRequest } from "../models/models_0";
-import type { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 import { PutAccessPointConfigurationForObjectLambda$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,29 +86,12 @@ export interface PutAccessPointConfigurationForObjectLambdaCommandOutput extends
  *
  * @public
  */
-export class PutAccessPointConfigurationForObjectLambdaCommand extends $Command
-  .classBuilder<
-    PutAccessPointConfigurationForObjectLambdaCommandInput,
-    PutAccessPointConfigurationForObjectLambdaCommandOutput,
-    S3ControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    RequiresAccountId: { type: "staticContextParams", value: true },
-    AccountId: { type: "contextParams", name: "AccountId" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getProcessArnablesPlugin(config),
-    ];
-  })
-  .s("AWSS3ControlServiceV20180820", "PutAccessPointConfigurationForObjectLambda", {})
-  .n("S3ControlClient", "PutAccessPointConfigurationForObjectLambdaCommand")
-  .sc(PutAccessPointConfigurationForObjectLambda$)
-  .build() {
+export class PutAccessPointConfigurationForObjectLambdaCommand extends command<PutAccessPointConfigurationForObjectLambdaCommandInput, PutAccessPointConfigurationForObjectLambdaCommandOutput>(
+  _ep0,
+  _mw1,
+  "PutAccessPointConfigurationForObjectLambda",
+  PutAccessPointConfigurationForObjectLambda$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

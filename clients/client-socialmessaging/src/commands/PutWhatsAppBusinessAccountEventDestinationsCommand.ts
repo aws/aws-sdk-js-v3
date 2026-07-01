@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutWhatsAppBusinessAccountEventDestinationsInput,
   PutWhatsAppBusinessAccountEventDestinationsOutput,
 } from "../models/models_0";
 import { PutWhatsAppBusinessAccountEventDestinations$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SocialMessagingClientResolvedConfig,
-} from "../SocialMessagingClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface PutWhatsAppBusinessAccountEventDestinationsCommandOutput extend
  *
  * @public
  */
-export class PutWhatsAppBusinessAccountEventDestinationsCommand extends $Command
-  .classBuilder<
-    PutWhatsAppBusinessAccountEventDestinationsCommandInput,
-    PutWhatsAppBusinessAccountEventDestinationsCommandOutput,
-    SocialMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SocialMessaging", "PutWhatsAppBusinessAccountEventDestinations", {})
-  .n("SocialMessagingClient", "PutWhatsAppBusinessAccountEventDestinationsCommand")
-  .sc(PutWhatsAppBusinessAccountEventDestinations$)
-  .build() {
+export class PutWhatsAppBusinessAccountEventDestinationsCommand extends command<PutWhatsAppBusinessAccountEventDestinationsCommandInput, PutWhatsAppBusinessAccountEventDestinationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutWhatsAppBusinessAccountEventDestinations",
+  PutWhatsAppBusinessAccountEventDestinations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

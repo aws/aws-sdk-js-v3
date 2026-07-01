@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateZonalAutoshiftConfigurationRequest,
   UpdateZonalAutoshiftConfigurationResponse,
@@ -15,7 +12,6 @@ import { UpdateZonalAutoshiftConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface UpdateZonalAutoshiftConfigurationCommandOutput extends UpdateZo
  *
  * @public
  */
-export class UpdateZonalAutoshiftConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateZonalAutoshiftConfigurationCommandInput,
-    UpdateZonalAutoshiftConfigurationCommandOutput,
-    ARCZonalShiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PercDataPlane", "UpdateZonalAutoshiftConfiguration", {})
-  .n("ARCZonalShiftClient", "UpdateZonalAutoshiftConfigurationCommand")
-  .sc(UpdateZonalAutoshiftConfiguration$)
-  .build() {
+export class UpdateZonalAutoshiftConfigurationCommand extends command<UpdateZonalAutoshiftConfigurationCommandInput, UpdateZonalAutoshiftConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateZonalAutoshiftConfiguration",
+  UpdateZonalAutoshiftConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

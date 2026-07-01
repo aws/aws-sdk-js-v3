@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { HttpRequestWithLabelsInput } from "../models/models_0";
-import type {
-  RestXmlProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestXmlProtocolClient";
 import { HttpRequestWithLabels$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +61,12 @@ export interface HttpRequestWithLabelsCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class HttpRequestWithLabelsCommand extends $Command
-  .classBuilder<
-    HttpRequestWithLabelsCommandInput,
-    HttpRequestWithLabelsCommandOutput,
-    RestXmlProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestXml", "HttpRequestWithLabels", {})
-  .n("RestXmlProtocolClient", "HttpRequestWithLabelsCommand")
-  .sc(HttpRequestWithLabels$)
-  .build() {
+export class HttpRequestWithLabelsCommand extends command<HttpRequestWithLabelsCommandInput, HttpRequestWithLabelsCommandOutput>(
+  _ep0,
+  _mw0,
+  "HttpRequestWithLabels",
+  HttpRequestWithLabels$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

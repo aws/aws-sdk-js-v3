@@ -1,26 +1,18 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type {
   BlobPayloadInputTypes,
   MetadataBearer as __MetadataBearer,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SampleWithResponseStreamRequest, SampleWithResponseStreamResponse } from "../models/models_0";
-import type {
-  SagemakerJobRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SagemakerJobRuntimeClient";
 import { SampleWithResponseStream$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  */
@@ -124,22 +116,12 @@ export interface SampleWithResponseStreamCommandOutput extends Omit<SampleWithRe
  *
  * @public
  */
-export class SampleWithResponseStreamCommand extends $Command
-  .classBuilder<
-    SampleWithResponseStreamCommandInput,
-    SampleWithResponseStreamCommandOutput,
-    SagemakerJobRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SagemakerJobRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AgenticRFTRuntimeService", "SampleWithResponseStream", {})
-  .n("SagemakerJobRuntimeClient", "SampleWithResponseStreamCommand")
-  .sc(SampleWithResponseStream$)
-  .build() {
+export class SampleWithResponseStreamCommand extends command<SampleWithResponseStreamCommandInput, SampleWithResponseStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "SampleWithResponseStream",
+  SampleWithResponseStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

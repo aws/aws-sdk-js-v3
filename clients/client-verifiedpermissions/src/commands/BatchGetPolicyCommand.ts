@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetPolicyInput, BatchGetPolicyOutput } from "../models/models_0";
 import { BatchGetPolicy$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  VerifiedPermissionsClientResolvedConfig,
-} from "../VerifiedPermissionsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -239,22 +231,12 @@ export interface BatchGetPolicyCommandOutput extends BatchGetPolicyOutput, __Met
  *
  * @public
  */
-export class BatchGetPolicyCommand extends $Command
-  .classBuilder<
-    BatchGetPolicyCommandInput,
-    BatchGetPolicyCommandOutput,
-    VerifiedPermissionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("VerifiedPermissions", "BatchGetPolicy", {})
-  .n("VerifiedPermissionsClient", "BatchGetPolicyCommand")
-  .sc(BatchGetPolicy$)
-  .build() {
+export class BatchGetPolicyCommand extends command<BatchGetPolicyCommandInput, BatchGetPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetPolicy",
+  BatchGetPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

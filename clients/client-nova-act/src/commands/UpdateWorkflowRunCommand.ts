@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateWorkflowRunRequest, UpdateWorkflowRunResponse } from "../models/models_0";
-import type { NovaActClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NovaActClient";
 import { UpdateWorkflowRun$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface UpdateWorkflowRunCommandOutput extends UpdateWorkflowRunRespons
  *
  * @public
  */
-export class UpdateWorkflowRunCommand extends $Command
-  .classBuilder<
-    UpdateWorkflowRunCommandInput,
-    UpdateWorkflowRunCommandOutput,
-    NovaActClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NovaActClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNovaAgentsDataPlane", "UpdateWorkflowRun", {})
-  .n("NovaActClient", "UpdateWorkflowRunCommand")
-  .sc(UpdateWorkflowRun$)
-  .build() {
+export class UpdateWorkflowRunCommand extends command<UpdateWorkflowRunCommandInput, UpdateWorkflowRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateWorkflowRun",
+  UpdateWorkflowRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

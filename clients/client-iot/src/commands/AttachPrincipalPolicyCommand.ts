@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AttachPrincipalPolicyRequest } from "../models/models_0";
 import { AttachPrincipalPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AttachPrincipalPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface AttachPrincipalPolicyCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class AttachPrincipalPolicyCommand extends $Command
-  .classBuilder<
-    AttachPrincipalPolicyCommandInput,
-    AttachPrincipalPolicyCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "AttachPrincipalPolicy", {})
-  .n("IoTClient", "AttachPrincipalPolicyCommand")
-  .sc(AttachPrincipalPolicy$)
-  .build() {
+export class AttachPrincipalPolicyCommand extends command<AttachPrincipalPolicyCommandInput, AttachPrincipalPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "AttachPrincipalPolicy",
+  AttachPrincipalPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopArchiveSearchRequest, StopArchiveSearchResponse } from "../models/models_0";
 import { StopArchiveSearch$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StopArchiveSearch$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +62,12 @@ export interface StopArchiveSearchCommandOutput extends StopArchiveSearchRespons
  *
  * @public
  */
-export class StopArchiveSearchCommand extends $Command
-  .classBuilder<
-    StopArchiveSearchCommandInput,
-    StopArchiveSearchCommandOutput,
-    MailManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MailManagerSvc", "StopArchiveSearch", {})
-  .n("MailManagerClient", "StopArchiveSearchCommand")
-  .sc(StopArchiveSearch$)
-  .build() {
+export class StopArchiveSearchCommand extends command<StopArchiveSearchCommandInput, StopArchiveSearchCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopArchiveSearch",
+  StopArchiveSearch$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

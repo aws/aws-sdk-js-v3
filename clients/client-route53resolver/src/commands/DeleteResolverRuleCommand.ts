@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteResolverRuleRequest, DeleteResolverRuleResponse } from "../models/models_0";
-import type {
-  Route53ResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ResolverClient";
 import { DeleteResolverRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +99,12 @@ export interface DeleteResolverRuleCommandOutput extends DeleteResolverRuleRespo
  *
  * @public
  */
-export class DeleteResolverRuleCommand extends $Command
-  .classBuilder<
-    DeleteResolverRuleCommandInput,
-    DeleteResolverRuleCommandOutput,
-    Route53ResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Resolver", "DeleteResolverRule", {})
-  .n("Route53ResolverClient", "DeleteResolverRuleCommand")
-  .sc(DeleteResolverRule$)
-  .build() {
+export class DeleteResolverRuleCommand extends command<DeleteResolverRuleCommandInput, DeleteResolverRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteResolverRule",
+  DeleteResolverRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

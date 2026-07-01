@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCertificateAssociationRequest, GetCertificateAssociationResponse } from "../models/models_0";
-import type { RTBFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RTBFabricClient";
 import { GetCertificateAssociation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface GetCertificateAssociationCommandOutput extends GetCertificateAs
  *
  * @public
  */
-export class GetCertificateAssociationCommand extends $Command
-  .classBuilder<
-    GetCertificateAssociationCommandInput,
-    GetCertificateAssociationCommandOutput,
-    RTBFabricClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RTBFabricClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RTBFabric", "GetCertificateAssociation", {})
-  .n("RTBFabricClient", "GetCertificateAssociationCommand")
-  .sc(GetCertificateAssociation$)
-  .build() {
+export class GetCertificateAssociationCommand extends command<GetCertificateAssociationCommandInput, GetCertificateAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCertificateAssociation",
+  GetCertificateAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

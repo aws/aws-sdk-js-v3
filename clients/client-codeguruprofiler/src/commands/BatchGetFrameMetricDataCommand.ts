@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeGuruProfilerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeGuruProfilerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetFrameMetricDataRequest, BatchGetFrameMetricDataResponse } from "../models/models_0";
 import { BatchGetFrameMetricData$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { BatchGetFrameMetricData$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +110,12 @@ export interface BatchGetFrameMetricDataCommandOutput extends BatchGetFrameMetri
  *
  * @public
  */
-export class BatchGetFrameMetricDataCommand extends $Command
-  .classBuilder<
-    BatchGetFrameMetricDataCommandInput,
-    BatchGetFrameMetricDataCommandOutput,
-    CodeGuruProfilerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeGuruProfilerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeGuruProfiler", "BatchGetFrameMetricData", {})
-  .n("CodeGuruProfilerClient", "BatchGetFrameMetricDataCommand")
-  .sc(BatchGetFrameMetricData$)
-  .build() {
+export class BatchGetFrameMetricDataCommand extends command<BatchGetFrameMetricDataCommandInput, BatchGetFrameMetricDataCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetFrameMetricData",
+  BatchGetFrameMetricData$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

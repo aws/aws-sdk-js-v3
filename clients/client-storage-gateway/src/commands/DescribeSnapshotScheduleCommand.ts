@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeSnapshotScheduleInput, DescribeSnapshotScheduleOutput } from "../models/models_0";
 import { DescribeSnapshotSchedule$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +95,12 @@ export interface DescribeSnapshotScheduleCommandOutput extends DescribeSnapshotS
  *
  * @public
  */
-export class DescribeSnapshotScheduleCommand extends $Command
-  .classBuilder<
-    DescribeSnapshotScheduleCommandInput,
-    DescribeSnapshotScheduleCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "DescribeSnapshotSchedule", {})
-  .n("StorageGatewayClient", "DescribeSnapshotScheduleCommand")
-  .sc(DescribeSnapshotSchedule$)
-  .build() {
+export class DescribeSnapshotScheduleCommand extends command<DescribeSnapshotScheduleCommandInput, DescribeSnapshotScheduleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeSnapshotSchedule",
+  DescribeSnapshotSchedule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

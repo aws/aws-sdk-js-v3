@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListExplainabilitiesRequest, ListExplainabilitiesResponse } from "../models/models_0";
 import { ListExplainabilities$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListExplainabilities$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface ListExplainabilitiesCommandOutput extends ListExplainabilitiesR
  *
  * @public
  */
-export class ListExplainabilitiesCommand extends $Command
-  .classBuilder<
-    ListExplainabilitiesCommandInput,
-    ListExplainabilitiesCommandOutput,
-    ForecastClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonForecast", "ListExplainabilities", {})
-  .n("ForecastClient", "ListExplainabilitiesCommand")
-  .sc(ListExplainabilities$)
-  .build() {
+export class ListExplainabilitiesCommand extends command<ListExplainabilitiesCommandInput, ListExplainabilitiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListExplainabilities",
+  ListExplainabilities$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

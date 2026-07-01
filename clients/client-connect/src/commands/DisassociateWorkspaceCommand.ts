@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateWorkspaceRequest, DisassociateWorkspaceResponse } from "../models/models_1";
 import { DisassociateWorkspace$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateWorkspace$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface DisassociateWorkspaceCommandOutput extends DisassociateWorkspac
  *
  * @public
  */
-export class DisassociateWorkspaceCommand extends $Command
-  .classBuilder<
-    DisassociateWorkspaceCommandInput,
-    DisassociateWorkspaceCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DisassociateWorkspace", {})
-  .n("ConnectClient", "DisassociateWorkspaceCommand")
-  .sc(DisassociateWorkspace$)
-  .build() {
+export class DisassociateWorkspaceCommand extends command<DisassociateWorkspaceCommandInput, DisassociateWorkspaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateWorkspace",
+  DisassociateWorkspace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

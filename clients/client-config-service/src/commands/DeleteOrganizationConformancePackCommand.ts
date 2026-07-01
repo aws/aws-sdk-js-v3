@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteOrganizationConformancePackRequest } from "../models/models_0";
 import { DeleteOrganizationConformancePack$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteOrganizationConformancePack$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +122,12 @@ export interface DeleteOrganizationConformancePackCommandOutput extends __Metada
  *
  * @public
  */
-export class DeleteOrganizationConformancePackCommand extends $Command
-  .classBuilder<
-    DeleteOrganizationConformancePackCommandInput,
-    DeleteOrganizationConformancePackCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DeleteOrganizationConformancePack", {})
-  .n("ConfigServiceClient", "DeleteOrganizationConformancePackCommand")
-  .sc(DeleteOrganizationConformancePack$)
-  .build() {
+export class DeleteOrganizationConformancePackCommand extends command<DeleteOrganizationConformancePackCommandInput, DeleteOrganizationConformancePackCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteOrganizationConformancePack",
+  DeleteOrganizationConformancePack$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

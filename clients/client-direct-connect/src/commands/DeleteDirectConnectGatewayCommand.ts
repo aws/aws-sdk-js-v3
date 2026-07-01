@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDirectConnectGatewayRequest, DeleteDirectConnectGatewayResult } from "../models/models_0";
 import { DeleteDirectConnectGateway$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteDirectConnectGateway$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectCon
  *
  * @public
  */
-export class DeleteDirectConnectGatewayCommand extends $Command
-  .classBuilder<
-    DeleteDirectConnectGatewayCommandInput,
-    DeleteDirectConnectGatewayCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "DeleteDirectConnectGateway", {})
-  .n("DirectConnectClient", "DeleteDirectConnectGatewayCommand")
-  .sc(DeleteDirectConnectGateway$)
-  .build() {
+export class DeleteDirectConnectGatewayCommand extends command<DeleteDirectConnectGatewayCommandInput, DeleteDirectConnectGatewayCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDirectConnectGateway",
+  DeleteDirectConnectGateway$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

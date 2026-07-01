@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateOrganizationConfigurationRequest,
   UpdateOrganizationConfigurationResponse,
@@ -15,7 +12,6 @@ import { UpdateOrganizationConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface UpdateOrganizationConfigurationCommandOutput extends UpdateOrga
  *
  * @public
  */
-export class UpdateOrganizationConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateOrganizationConfigurationCommandInput,
-    UpdateOrganizationConfigurationCommandOutput,
-    Inspector2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Inspector2", "UpdateOrganizationConfiguration", {})
-  .n("Inspector2Client", "UpdateOrganizationConfigurationCommand")
-  .sc(UpdateOrganizationConfiguration$)
-  .build() {
+export class UpdateOrganizationConfigurationCommand extends command<UpdateOrganizationConfigurationCommandInput, UpdateOrganizationConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateOrganizationConfiguration",
+  UpdateOrganizationConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

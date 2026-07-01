@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListVirtualNodesInput, ListVirtualNodesOutput } from "../models/models_0";
 import { ListVirtualNodes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListVirtualNodes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface ListVirtualNodesCommandOutput extends ListVirtualNodesOutput, _
  *
  * @public
  */
-export class ListVirtualNodesCommand extends $Command
-  .classBuilder<
-    ListVirtualNodesCommandInput,
-    ListVirtualNodesCommandOutput,
-    AppMeshClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppMeshClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppMesh", "ListVirtualNodes", {})
-  .n("AppMeshClient", "ListVirtualNodesCommand")
-  .sc(ListVirtualNodes$)
-  .build() {
+export class ListVirtualNodesCommand extends command<ListVirtualNodesCommandInput, ListVirtualNodesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListVirtualNodes",
+  ListVirtualNodes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

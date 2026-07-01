@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteBudgetRequest, DeleteBudgetResponse } from "../models/models_0";
 import { DeleteBudget$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteBudget$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DeleteBudgetCommandOutput extends DeleteBudgetResponse, __Metad
  *
  * @public
  */
-export class DeleteBudgetCommand extends $Command
-  .classBuilder<
-    DeleteBudgetCommandInput,
-    DeleteBudgetCommandOutput,
-    BudgetsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BudgetsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBudgetServiceGateway", "DeleteBudget", {})
-  .n("BudgetsClient", "DeleteBudgetCommand")
-  .sc(DeleteBudget$)
-  .build() {
+export class DeleteBudgetCommand extends command<DeleteBudgetCommandInput, DeleteBudgetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteBudget",
+  DeleteBudget$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

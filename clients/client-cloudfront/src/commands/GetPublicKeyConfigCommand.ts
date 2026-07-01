@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPublicKeyConfigRequest, GetPublicKeyConfigResult } from "../models/models_1";
 import { GetPublicKeyConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetPublicKeyConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface GetPublicKeyConfigCommandOutput extends GetPublicKeyConfigResul
  *
  * @public
  */
-export class GetPublicKeyConfigCommand extends $Command
-  .classBuilder<
-    GetPublicKeyConfigCommandInput,
-    GetPublicKeyConfigCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "GetPublicKeyConfig", {})
-  .n("CloudFrontClient", "GetPublicKeyConfigCommand")
-  .sc(GetPublicKeyConfig$)
-  .build() {
+export class GetPublicKeyConfigCommand extends command<GetPublicKeyConfigCommandInput, GetPublicKeyConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPublicKeyConfig",
+  GetPublicKeyConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

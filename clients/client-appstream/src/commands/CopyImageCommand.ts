@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CopyImageRequest, CopyImageResponse } from "../models/models_0";
 import { CopyImage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CopyImage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface CopyImageCommandOutput extends CopyImageResponse, __MetadataBea
  *
  * @public
  */
-export class CopyImageCommand extends $Command
-  .classBuilder<
-    CopyImageCommandInput,
-    CopyImageCommandOutput,
-    AppStreamClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PhotonAdminProxyService", "CopyImage", {})
-  .n("AppStreamClient", "CopyImageCommand")
-  .sc(CopyImage$)
-  .build() {
+export class CopyImageCommand extends command<CopyImageCommandInput, CopyImageCommandOutput>(
+  _ep0,
+  _mw0,
+  "CopyImage",
+  CopyImage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

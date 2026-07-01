@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTrailsRequest, ListTrailsResponse } from "../models/models_0";
 import { ListTrails$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListTrails$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface ListTrailsCommandOutput extends ListTrailsResponse, __MetadataB
  *
  * @public
  */
-export class ListTrailsCommand extends $Command
-  .classBuilder<
-    ListTrailsCommandInput,
-    ListTrailsCommandOutput,
-    CloudTrailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudTrail_20131101", "ListTrails", {})
-  .n("CloudTrailClient", "ListTrailsCommand")
-  .sc(ListTrails$)
-  .build() {
+export class ListTrailsCommand extends command<ListTrailsCommandInput, ListTrailsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTrails",
+  ListTrails$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

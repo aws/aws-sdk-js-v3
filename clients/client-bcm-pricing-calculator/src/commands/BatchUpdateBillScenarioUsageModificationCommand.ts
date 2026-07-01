@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BCMPricingCalculatorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BCMPricingCalculatorClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchUpdateBillScenarioUsageModificationRequest,
   BatchUpdateBillScenarioUsageModificationResponse,
@@ -19,7 +12,6 @@ import { BatchUpdateBillScenarioUsageModification$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -191,22 +183,12 @@ export interface BatchUpdateBillScenarioUsageModificationCommandOutput extends B
  *
  * @public
  */
-export class BatchUpdateBillScenarioUsageModificationCommand extends $Command
-  .classBuilder<
-    BatchUpdateBillScenarioUsageModificationCommandInput,
-    BatchUpdateBillScenarioUsageModificationCommandOutput,
-    BCMPricingCalculatorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BCMPricingCalculatorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBCMPricingCalculator", "BatchUpdateBillScenarioUsageModification", {})
-  .n("BCMPricingCalculatorClient", "BatchUpdateBillScenarioUsageModificationCommand")
-  .sc(BatchUpdateBillScenarioUsageModification$)
-  .build() {
+export class BatchUpdateBillScenarioUsageModificationCommand extends command<BatchUpdateBillScenarioUsageModificationCommandInput, BatchUpdateBillScenarioUsageModificationCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchUpdateBillScenarioUsageModification",
+  BatchUpdateBillScenarioUsageModification$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

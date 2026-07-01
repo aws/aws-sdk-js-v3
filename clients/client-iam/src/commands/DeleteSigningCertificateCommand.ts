@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSigningCertificateRequest } from "../models/models_0";
 import { DeleteSigningCertificate$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteSigningCertificate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface DeleteSigningCertificateCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class DeleteSigningCertificateCommand extends $Command
-  .classBuilder<
-    DeleteSigningCertificateCommandInput,
-    DeleteSigningCertificateCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "DeleteSigningCertificate", {})
-  .n("IAMClient", "DeleteSigningCertificateCommand")
-  .sc(DeleteSigningCertificate$)
-  .build() {
+export class DeleteSigningCertificateCommand extends command<DeleteSigningCertificateCommandInput, DeleteSigningCertificateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSigningCertificate",
+  DeleteSigningCertificate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

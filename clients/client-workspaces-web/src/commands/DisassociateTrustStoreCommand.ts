@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateTrustStoreRequest, DisassociateTrustStoreResponse } from "../models/models_0";
 import { DisassociateTrustStore$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DisassociateTrustStoreCommandOutput extends DisassociateTrustSt
  *
  * @public
  */
-export class DisassociateTrustStoreCommand extends $Command
-  .classBuilder<
-    DisassociateTrustStoreCommandInput,
-    DisassociateTrustStoreCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "DisassociateTrustStore", {})
-  .n("WorkSpacesWebClient", "DisassociateTrustStoreCommand")
-  .sc(DisassociateTrustStore$)
-  .build() {
+export class DisassociateTrustStoreCommand extends command<DisassociateTrustStoreCommandInput, DisassociateTrustStoreCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateTrustStore",
+  DisassociateTrustStore$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

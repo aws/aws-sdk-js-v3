@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateWorkspaceInstanceRequest, CreateWorkspaceInstanceResponse } from "../models/models_0";
 import { CreateWorkspaceInstance$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkspacesInstancesClientResolvedConfig,
-} from "../WorkspacesInstancesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -267,22 +259,12 @@ export interface CreateWorkspaceInstanceCommandOutput extends CreateWorkspaceIns
  *
  * @public
  */
-export class CreateWorkspaceInstanceCommand extends $Command
-  .classBuilder<
-    CreateWorkspaceInstanceCommandInput,
-    CreateWorkspaceInstanceCommandOutput,
-    WorkspacesInstancesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkspacesInstancesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EUCMIFrontendAPIService", "CreateWorkspaceInstance", {})
-  .n("WorkspacesInstancesClient", "CreateWorkspaceInstanceCommand")
-  .sc(CreateWorkspaceInstance$)
-  .build() {
+export class CreateWorkspaceInstanceCommand extends command<CreateWorkspaceInstanceCommandInput, CreateWorkspaceInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateWorkspaceInstance",
+  CreateWorkspaceInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteConfigurationBundleRequest, DeleteConfigurationBundleResponse } from "../models/models_0";
 import { DeleteConfigurationBundle$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteConfigurationBundle$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface DeleteConfigurationBundleCommandOutput extends DeleteConfigurat
  *
  * @public
  */
-export class DeleteConfigurationBundleCommand extends $Command
-  .classBuilder<
-    DeleteConfigurationBundleCommandInput,
-    DeleteConfigurationBundleCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "DeleteConfigurationBundle", {})
-  .n("BedrockAgentCoreControlClient", "DeleteConfigurationBundleCommand")
-  .sc(DeleteConfigurationBundle$)
-  .build() {
+export class DeleteConfigurationBundleCommand extends command<DeleteConfigurationBundleCommandInput, DeleteConfigurationBundleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteConfigurationBundle",
+  DeleteConfigurationBundle$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

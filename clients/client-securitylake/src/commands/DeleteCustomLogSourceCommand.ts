@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCustomLogSourceRequest, DeleteCustomLogSourceResponse } from "../models/models_0";
 import { DeleteCustomLogSource$ } from "../schemas/schemas_0";
-import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DeleteCustomLogSourceCommandOutput extends DeleteCustomLogSourc
  *
  * @public
  */
-export class DeleteCustomLogSourceCommand extends $Command
-  .classBuilder<
-    DeleteCustomLogSourceCommandInput,
-    DeleteCustomLogSourceCommandOutput,
-    SecurityLakeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityLake", "DeleteCustomLogSource", {})
-  .n("SecurityLakeClient", "DeleteCustomLogSourceCommand")
-  .sc(DeleteCustomLogSource$)
-  .build() {
+export class DeleteCustomLogSourceCommand extends command<DeleteCustomLogSourceCommandInput, DeleteCustomLogSourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCustomLogSource",
+  DeleteCustomLogSource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

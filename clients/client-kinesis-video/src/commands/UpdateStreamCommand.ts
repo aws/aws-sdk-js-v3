@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateStreamInput, UpdateStreamOutput } from "../models/models_0";
 import { UpdateStream$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateStream$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface UpdateStreamCommandOutput extends UpdateStreamOutput, __Metadat
  *
  * @public
  */
-export class UpdateStreamCommand extends $Command
-  .classBuilder<
-    UpdateStreamCommandInput,
-    UpdateStreamCommandOutput,
-    KinesisVideoClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KinesisVideo_20170930", "UpdateStream", {})
-  .n("KinesisVideoClient", "UpdateStreamCommand")
-  .sc(UpdateStream$)
-  .build() {
+export class UpdateStreamCommand extends command<UpdateStreamCommandInput, UpdateStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateStream",
+  UpdateStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

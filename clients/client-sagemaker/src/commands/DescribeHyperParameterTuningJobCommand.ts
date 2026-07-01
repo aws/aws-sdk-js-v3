@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeHyperParameterTuningJobRequest } from "../models/models_2";
 import type { DescribeHyperParameterTuningJobResponse } from "../models/models_3";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeHyperParameterTuningJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -528,22 +524,12 @@ export interface DescribeHyperParameterTuningJobCommandOutput extends DescribeHy
  *
  * @public
  */
-export class DescribeHyperParameterTuningJobCommand extends $Command
-  .classBuilder<
-    DescribeHyperParameterTuningJobCommandInput,
-    DescribeHyperParameterTuningJobCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DescribeHyperParameterTuningJob", {})
-  .n("SageMakerClient", "DescribeHyperParameterTuningJobCommand")
-  .sc(DescribeHyperParameterTuningJob$)
-  .build() {
+export class DescribeHyperParameterTuningJobCommand extends command<DescribeHyperParameterTuningJobCommandInput, DescribeHyperParameterTuningJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeHyperParameterTuningJob",
+  DescribeHyperParameterTuningJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

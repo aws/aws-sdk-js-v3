@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateWorkforceRequest, CreateWorkforceResponse } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreateWorkforce$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  *
  * @public
  */
-export class CreateWorkforceCommand extends $Command
-  .classBuilder<
-    CreateWorkforceCommandInput,
-    CreateWorkforceCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "CreateWorkforce", {})
-  .n("SageMakerClient", "CreateWorkforceCommand")
-  .sc(CreateWorkforce$)
-  .build() {
+export class CreateWorkforceCommand extends command<CreateWorkforceCommandInput, CreateWorkforceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateWorkforce",
+  CreateWorkforce$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

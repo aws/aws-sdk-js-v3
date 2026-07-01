@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCacheReportInput, DeleteCacheReportOutput } from "../models/models_0";
 import { DeleteCacheReport$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +69,12 @@ export interface DeleteCacheReportCommandOutput extends DeleteCacheReportOutput,
  *
  * @public
  */
-export class DeleteCacheReportCommand extends $Command
-  .classBuilder<
-    DeleteCacheReportCommandInput,
-    DeleteCacheReportCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "DeleteCacheReport", {})
-  .n("StorageGatewayClient", "DeleteCacheReportCommand")
-  .sc(DeleteCacheReport$)
-  .build() {
+export class DeleteCacheReportCommand extends command<DeleteCacheReportCommandInput, DeleteCacheReportCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCacheReport",
+  DeleteCacheReport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

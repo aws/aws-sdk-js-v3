@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDashboardRequest, CreateDashboardResponse } from "../models/models_0";
 import { CreateDashboard$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateDashboard$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *
  * @public
  */
-export class CreateDashboardCommand extends $Command
-  .classBuilder<
-    CreateDashboardCommandInput,
-    CreateDashboardCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "CreateDashboard", {})
-  .n("IoTSiteWiseClient", "CreateDashboardCommand")
-  .sc(CreateDashboard$)
-  .build() {
+export class CreateDashboardCommand extends command<CreateDashboardCommandInput, CreateDashboardCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDashboard",
+  CreateDashboard$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

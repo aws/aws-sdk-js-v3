@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDomainNameRequest, DeleteDomainNameResponse } from "../models/models_0";
 import { DeleteDomainName$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteDomainName$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteDomainNameCommandOutput extends DeleteDomainNameResponse,
  *
  * @public
  */
-export class DeleteDomainNameCommand extends $Command
-  .classBuilder<
-    DeleteDomainNameCommandInput,
-    DeleteDomainNameCommandOutput,
-    AppSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepdishControlPlaneService", "DeleteDomainName", {})
-  .n("AppSyncClient", "DeleteDomainNameCommand")
-  .sc(DeleteDomainName$)
-  .build() {
+export class DeleteDomainNameCommand extends command<DeleteDomainNameCommandInput, DeleteDomainNameCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDomainName",
+  DeleteDomainName$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AdminDeleteUserAttributesRequest, AdminDeleteUserAttributesResponse } from "../models/models_0";
 import { AdminDeleteUserAttributes$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AdminDeleteUserAttributes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +103,12 @@ export interface AdminDeleteUserAttributesCommandOutput extends AdminDeleteUserA
  *
  * @public
  */
-export class AdminDeleteUserAttributesCommand extends $Command
-  .classBuilder<
-    AdminDeleteUserAttributesCommandInput,
-    AdminDeleteUserAttributesCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "AdminDeleteUserAttributes", {})
-  .n("CognitoIdentityProviderClient", "AdminDeleteUserAttributesCommand")
-  .sc(AdminDeleteUserAttributes$)
-  .build() {
+export class AdminDeleteUserAttributesCommand extends command<AdminDeleteUserAttributesCommandInput, AdminDeleteUserAttributesCommandOutput>(
+  _ep0,
+  _mw0,
+  "AdminDeleteUserAttributes",
+  AdminDeleteUserAttributes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

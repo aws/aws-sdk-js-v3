@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListCollaborationMLInputChannelsRequest,
   ListCollaborationMLInputChannelsResponse,
@@ -15,7 +12,6 @@ import { ListCollaborationMLInputChannels$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface ListCollaborationMLInputChannelsCommandOutput extends ListColla
  *
  * @public
  */
-export class ListCollaborationMLInputChannelsCommand extends $Command
-  .classBuilder<
-    ListCollaborationMLInputChannelsCommandInput,
-    ListCollaborationMLInputChannelsCommandOutput,
-    CleanRoomsMLClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStarkControlService", "ListCollaborationMLInputChannels", {})
-  .n("CleanRoomsMLClient", "ListCollaborationMLInputChannelsCommand")
-  .sc(ListCollaborationMLInputChannels$)
-  .build() {
+export class ListCollaborationMLInputChannelsCommand extends command<ListCollaborationMLInputChannelsCommandInput, ListCollaborationMLInputChannelsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCollaborationMLInputChannels",
+  ListCollaborationMLInputChannels$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

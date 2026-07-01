@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteScheduledQueryRequest, DeleteScheduledQueryResponse } from "../models/models_0";
 import { DeleteScheduledQuery$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteScheduledQuery$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeleteScheduledQueryCommandOutput extends DeleteScheduledQueryR
  *
  * @public
  */
-export class DeleteScheduledQueryCommand extends $Command
-  .classBuilder<
-    DeleteScheduledQueryCommandInput,
-    DeleteScheduledQueryCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "DeleteScheduledQuery", {})
-  .n("CloudWatchLogsClient", "DeleteScheduledQueryCommand")
-  .sc(DeleteScheduledQuery$)
-  .build() {
+export class DeleteScheduledQueryCommand extends command<DeleteScheduledQueryCommandInput, DeleteScheduledQueryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteScheduledQuery",
+  DeleteScheduledQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

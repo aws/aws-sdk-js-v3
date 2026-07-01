@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListConfiguredModelAlgorithmAssociationsRequest,
   ListConfiguredModelAlgorithmAssociationsResponse,
@@ -15,7 +12,6 @@ import { ListConfiguredModelAlgorithmAssociations$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface ListConfiguredModelAlgorithmAssociationsCommandOutput extends L
  *
  * @public
  */
-export class ListConfiguredModelAlgorithmAssociationsCommand extends $Command
-  .classBuilder<
-    ListConfiguredModelAlgorithmAssociationsCommandInput,
-    ListConfiguredModelAlgorithmAssociationsCommandOutput,
-    CleanRoomsMLClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStarkControlService", "ListConfiguredModelAlgorithmAssociations", {})
-  .n("CleanRoomsMLClient", "ListConfiguredModelAlgorithmAssociationsCommand")
-  .sc(ListConfiguredModelAlgorithmAssociations$)
-  .build() {
+export class ListConfiguredModelAlgorithmAssociationsCommand extends command<ListConfiguredModelAlgorithmAssociationsCommandInput, ListConfiguredModelAlgorithmAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListConfiguredModelAlgorithmAssociations",
+  ListConfiguredModelAlgorithmAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

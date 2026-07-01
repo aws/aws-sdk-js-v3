@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ARCRegionSwitchClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ARCRegionSwitchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { ListRoute53HealthChecksRequest, ListRoute53HealthChecksResponse } from "../models/models_0";
 import { ListRoute53HealthChecks$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListRoute53HealthChecks$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,25 +80,12 @@ export interface ListRoute53HealthChecksCommandOutput extends ListRoute53HealthC
  *
  * @public
  */
-export class ListRoute53HealthChecksCommand extends $Command
-  .classBuilder<
-    ListRoute53HealthChecksCommandInput,
-    ListRoute53HealthChecksCommandOutput,
-    ARCRegionSwitchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    UseControlPlaneEndpoint: { type: "staticContextParams", value: true },
-  })
-  .m(function (this: any, Command: any, cs: any, config: ARCRegionSwitchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ArcRegionSwitch", "ListRoute53HealthChecks", {})
-  .n("ARCRegionSwitchClient", "ListRoute53HealthChecksCommand")
-  .sc(ListRoute53HealthChecks$)
-  .build() {
+export class ListRoute53HealthChecksCommand extends command<ListRoute53HealthChecksCommandInput, ListRoute53HealthChecksCommandOutput>(
+  _ep1,
+  _mw0,
+  "ListRoute53HealthChecks",
+  ListRoute53HealthChecks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

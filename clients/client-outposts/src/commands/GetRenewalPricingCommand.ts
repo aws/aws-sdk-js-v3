@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRenewalPricingInput, GetRenewalPricingOutput } from "../models/models_0";
-import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import { GetRenewalPricing$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface GetRenewalPricingCommandOutput extends GetRenewalPricingOutput,
  *
  * @public
  */
-export class GetRenewalPricingCommand extends $Command
-  .classBuilder<
-    GetRenewalPricingCommandInput,
-    GetRenewalPricingCommandOutput,
-    OutpostsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OutpostsOlafService", "GetRenewalPricing", {})
-  .n("OutpostsClient", "GetRenewalPricingCommand")
-  .sc(GetRenewalPricing$)
-  .build() {
+export class GetRenewalPricingCommand extends command<GetRenewalPricingCommandInput, GetRenewalPricingCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRenewalPricing",
+  GetRenewalPricing$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeInstanceProfilesMessage, DescribeInstanceProfilesResponse } from "../models/models_0";
 import { DescribeInstanceProfiles$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeInstanceProfiles$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +125,12 @@ export interface DescribeInstanceProfilesCommandOutput extends DescribeInstanceP
  *
  * @public
  */
-export class DescribeInstanceProfilesCommand extends $Command
-  .classBuilder<
-    DescribeInstanceProfilesCommandInput,
-    DescribeInstanceProfilesCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "DescribeInstanceProfiles", {})
-  .n("DatabaseMigrationServiceClient", "DescribeInstanceProfilesCommand")
-  .sc(DescribeInstanceProfiles$)
-  .build() {
+export class DescribeInstanceProfilesCommand extends command<DescribeInstanceProfilesCommandInput, DescribeInstanceProfilesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeInstanceProfiles",
+  DescribeInstanceProfiles$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

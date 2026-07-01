@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListResolversByFunctionRequest, ListResolversByFunctionResponse } from "../models/models_0";
 import { ListResolversByFunction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListResolversByFunction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface ListResolversByFunctionCommandOutput extends ListResolversByFun
  *
  * @public
  */
-export class ListResolversByFunctionCommand extends $Command
-  .classBuilder<
-    ListResolversByFunctionCommandInput,
-    ListResolversByFunctionCommandOutput,
-    AppSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepdishControlPlaneService", "ListResolversByFunction", {})
-  .n("AppSyncClient", "ListResolversByFunctionCommand")
-  .sc(ListResolversByFunction$)
-  .build() {
+export class ListResolversByFunctionCommand extends command<ListResolversByFunctionCommandInput, ListResolversByFunctionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListResolversByFunction",
+  ListResolversByFunction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

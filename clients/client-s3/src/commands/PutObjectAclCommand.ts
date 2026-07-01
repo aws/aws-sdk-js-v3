@@ -1,20 +1,14 @@
 // smithy-typescript generated code
-import { getFlexibleChecksumsPlugin } from "@aws-sdk/checksums/flexible-checksums";
-import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw5, command } from "../commandBuilder";
 import type { PutObjectAclOutput, PutObjectAclRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { PutObjectAcl$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -302,33 +296,12 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *
  * @public
  */
-export class PutObjectAclCommand extends $Command
-  .classBuilder<
-    PutObjectAclCommandInput,
-    PutObjectAclCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    Bucket: { type: "contextParams", name: "Bucket" },
-    Key: { type: "contextParams", name: "Key" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
-        requestChecksumRequired: true,
-      }),
-      getThrow200ExceptionsPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "PutObjectAcl", {})
-  .n("S3Client", "PutObjectAclCommand")
-  .sc(PutObjectAcl$)
-  .build() {
+export class PutObjectAclCommand extends command<PutObjectAclCommandInput, PutObjectAclCommandOutput>(
+  _ep0,
+  _mw5,
+  "PutObjectAcl",
+  PutObjectAcl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

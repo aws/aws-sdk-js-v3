@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DSQLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DSQLClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetStreamInput, GetStreamOutput } from "../models/models_0";
 import { GetStream$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetStream$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface GetStreamCommandOutput extends GetStreamOutput, __MetadataBeare
  *
  * @public
  */
-export class GetStreamCommand extends $Command
-  .classBuilder<
-    GetStreamCommandInput,
-    GetStreamCommandOutput,
-    DSQLClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DSQLClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DSQL", "GetStream", {})
-  .n("DSQLClient", "GetStreamCommand")
-  .sc(GetStream$)
-  .build() {
+export class GetStreamCommand extends command<GetStreamCommandInput, GetStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetStream",
+  GetStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRegistryRecordRequest, DeleteRegistryRecordResponse } from "../models/models_1";
 import { DeleteRegistryRecord$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteRegistryRecord$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface DeleteRegistryRecordCommandOutput extends DeleteRegistryRecordR
  *
  * @public
  */
-export class DeleteRegistryRecordCommand extends $Command
-  .classBuilder<
-    DeleteRegistryRecordCommandInput,
-    DeleteRegistryRecordCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "DeleteRegistryRecord", {})
-  .n("BedrockAgentCoreControlClient", "DeleteRegistryRecordCommand")
-  .sc(DeleteRegistryRecord$)
-  .build() {
+export class DeleteRegistryRecordCommand extends command<DeleteRegistryRecordCommandInput, DeleteRegistryRecordCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRegistryRecord",
+  DeleteRegistryRecord$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

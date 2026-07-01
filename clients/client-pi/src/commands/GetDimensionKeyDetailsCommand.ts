@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDimensionKeyDetailsRequest, GetDimensionKeyDetailsResponse } from "../models/models_0";
-import type { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
 import { GetDimensionKeyDetails$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface GetDimensionKeyDetailsCommandOutput extends GetDimensionKeyDeta
  *
  * @public
  */
-export class GetDimensionKeyDetailsCommand extends $Command
-  .classBuilder<
-    GetDimensionKeyDetailsCommandInput,
-    GetDimensionKeyDetailsCommandOutput,
-    PIClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PIClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PerformanceInsightsv20180227", "GetDimensionKeyDetails", {})
-  .n("PIClient", "GetDimensionKeyDetailsCommand")
-  .sc(GetDimensionKeyDetails$)
-  .build() {
+export class GetDimensionKeyDetailsCommand extends command<GetDimensionKeyDetailsCommandInput, GetDimensionKeyDetailsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDimensionKeyDetails",
+  GetDimensionKeyDetails$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

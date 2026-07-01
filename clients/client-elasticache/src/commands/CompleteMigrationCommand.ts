@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CompleteMigrationMessage, CompleteMigrationResponse } from "../models/models_0";
 import { CompleteMigration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CompleteMigration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -192,22 +188,12 @@ export interface CompleteMigrationCommandOutput extends CompleteMigrationRespons
  *
  * @public
  */
-export class CompleteMigrationCommand extends $Command
-  .classBuilder<
-    CompleteMigrationCommandInput,
-    CompleteMigrationCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "CompleteMigration", {})
-  .n("ElastiCacheClient", "CompleteMigrationCommand")
-  .sc(CompleteMigration$)
-  .build() {
+export class CompleteMigrationCommand extends command<CompleteMigrationCommandInput, CompleteMigrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CompleteMigration",
+  CompleteMigration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

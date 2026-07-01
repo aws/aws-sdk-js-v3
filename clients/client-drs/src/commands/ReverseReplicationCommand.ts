@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ReverseReplicationRequest, ReverseReplicationResponse } from "../models/models_0";
 import { ReverseReplication$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ReverseReplication$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface ReverseReplicationCommandOutput extends ReverseReplicationRespo
  *
  * @public
  */
-export class ReverseReplicationCommand extends $Command
-  .classBuilder<
-    ReverseReplicationCommandInput,
-    ReverseReplicationCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "ReverseReplication", {})
-  .n("DrsClient", "ReverseReplicationCommand")
-  .sc(ReverseReplication$)
-  .build() {
+export class ReverseReplicationCommand extends command<ReverseReplicationCommandInput, ReverseReplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "ReverseReplication",
+  ReverseReplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

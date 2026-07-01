@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   RejectTransitGatewayMulticastDomainAssociationsRequest,
   RejectTransitGatewayMulticastDomainAssociationsResult,
@@ -15,7 +12,6 @@ import { RejectTransitGatewayMulticastDomainAssociations$ } from "../schemas/sch
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface RejectTransitGatewayMulticastDomainAssociationsCommandOutput ex
  *
  * @public
  */
-export class RejectTransitGatewayMulticastDomainAssociationsCommand extends $Command
-  .classBuilder<
-    RejectTransitGatewayMulticastDomainAssociationsCommandInput,
-    RejectTransitGatewayMulticastDomainAssociationsCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "RejectTransitGatewayMulticastDomainAssociations", {})
-  .n("EC2Client", "RejectTransitGatewayMulticastDomainAssociationsCommand")
-  .sc(RejectTransitGatewayMulticastDomainAssociations$)
-  .build() {
+export class RejectTransitGatewayMulticastDomainAssociationsCommand extends command<RejectTransitGatewayMulticastDomainAssociationsCommandInput, RejectTransitGatewayMulticastDomainAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "RejectTransitGatewayMulticastDomainAssociations",
+  RejectTransitGatewayMulticastDomainAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

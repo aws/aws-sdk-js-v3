@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListMembersRequest, ListMembersResponse } from "../models/models_3";
 import { ListMembers$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  *
  * @public
  */
-export class ListMembersCommand extends $Command
-  .classBuilder<
-    ListMembersCommandInput,
-    ListMembersCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "ListMembers", {})
-  .n("SecurityHubClient", "ListMembersCommand")
-  .sc(ListMembers$)
-  .build() {
+export class ListMembersCommand extends command<ListMembersCommandInput, ListMembersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMembers",
+  ListMembers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

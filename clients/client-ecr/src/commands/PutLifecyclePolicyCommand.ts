@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutLifecyclePolicyRequest, PutLifecyclePolicyResponse } from "../models/models_0";
 import { PutLifecyclePolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutLifecyclePolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyRespo
  *
  * @public
  */
-export class PutLifecyclePolicyCommand extends $Command
-  .classBuilder<
-    PutLifecyclePolicyCommandInput,
-    PutLifecyclePolicyCommandOutput,
-    ECRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerRegistry_V20150921", "PutLifecyclePolicy", {})
-  .n("ECRClient", "PutLifecyclePolicyCommand")
-  .sc(PutLifecyclePolicy$)
-  .build() {
+export class PutLifecyclePolicyCommand extends command<PutLifecyclePolicyCommandInput, PutLifecyclePolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutLifecyclePolicy",
+  PutLifecyclePolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

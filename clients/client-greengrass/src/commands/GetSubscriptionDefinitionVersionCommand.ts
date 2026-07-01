@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetSubscriptionDefinitionVersionRequest,
   GetSubscriptionDefinitionVersionResponse,
@@ -15,7 +12,6 @@ import { GetSubscriptionDefinitionVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface GetSubscriptionDefinitionVersionCommandOutput extends GetSubscr
  *
  * @public
  */
-export class GetSubscriptionDefinitionVersionCommand extends $Command
-  .classBuilder<
-    GetSubscriptionDefinitionVersionCommandInput,
-    GetSubscriptionDefinitionVersionCommandOutput,
-    GreengrassClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Greengrass", "GetSubscriptionDefinitionVersion", {})
-  .n("GreengrassClient", "GetSubscriptionDefinitionVersionCommand")
-  .sc(GetSubscriptionDefinitionVersion$)
-  .build() {
+export class GetSubscriptionDefinitionVersionCommand extends command<GetSubscriptionDefinitionVersionCommandInput, GetSubscriptionDefinitionVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSubscriptionDefinitionVersion",
+  GetSubscriptionDefinitionVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

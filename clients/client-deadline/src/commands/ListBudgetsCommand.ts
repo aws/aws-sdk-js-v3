@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListBudgetsRequest, ListBudgetsResponse } from "../models/models_0";
 import { ListBudgets$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListBudgets$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface ListBudgetsCommandOutput extends ListBudgetsResponse, __Metadat
  *
  * @public
  */
-export class ListBudgetsCommand extends $Command
-  .classBuilder<
-    ListBudgetsCommandInput,
-    ListBudgetsCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "ListBudgets", {})
-  .n("DeadlineClient", "ListBudgetsCommand")
-  .sc(ListBudgets$)
-  .build() {
+export class ListBudgetsCommand extends command<ListBudgetsCommandInput, ListBudgetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListBudgets",
+  ListBudgets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

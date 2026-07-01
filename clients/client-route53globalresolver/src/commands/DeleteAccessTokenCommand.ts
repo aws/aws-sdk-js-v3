@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAccessTokenInput, DeleteAccessTokenOutput } from "../models/models_0";
-import type {
-  Route53GlobalResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53GlobalResolverClient";
 import { DeleteAccessToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface DeleteAccessTokenCommandOutput extends DeleteAccessTokenOutput,
  *
  * @public
  */
-export class DeleteAccessTokenCommand extends $Command
-  .classBuilder<
-    DeleteAccessTokenCommandInput,
-    DeleteAccessTokenCommandOutput,
-    Route53GlobalResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53GlobalResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EC2DNSGlobalResolverCustomerAPI", "DeleteAccessToken", {})
-  .n("Route53GlobalResolverClient", "DeleteAccessTokenCommand")
-  .sc(DeleteAccessToken$)
-  .build() {
+export class DeleteAccessTokenCommand extends command<DeleteAccessTokenCommandInput, DeleteAccessTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAccessToken",
+  DeleteAccessToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

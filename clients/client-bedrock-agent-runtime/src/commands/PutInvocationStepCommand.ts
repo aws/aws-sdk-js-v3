@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentRuntimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutInvocationStepRequest, PutInvocationStepResponse } from "../models/models_1";
 import { PutInvocationStep$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { PutInvocationStep$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +95,12 @@ export interface PutInvocationStepCommandOutput extends PutInvocationStepRespons
  *
  * @public
  */
-export class PutInvocationStepCommand extends $Command
-  .classBuilder<
-    PutInvocationStepCommandInput,
-    PutInvocationStepCommandOutput,
-    BedrockAgentRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentRunTimeService", "PutInvocationStep", {})
-  .n("BedrockAgentRuntimeClient", "PutInvocationStepCommand")
-  .sc(PutInvocationStep$)
-  .build() {
+export class PutInvocationStepCommand extends command<PutInvocationStepCommandInput, PutInvocationStepCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutInvocationStep",
+  PutInvocationStep$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

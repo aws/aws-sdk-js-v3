@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetWorkloadAccessTokenRequest, GetWorkloadAccessTokenResponse } from "../models/models_0";
 import { GetWorkloadAccessToken$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetWorkloadAccessToken$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface GetWorkloadAccessTokenCommandOutput extends GetWorkloadAccessTo
  *
  * @public
  */
-export class GetWorkloadAccessTokenCommand extends $Command
-  .classBuilder<
-    GetWorkloadAccessTokenCommandInput,
-    GetWorkloadAccessTokenCommandOutput,
-    BedrockAgentCoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCore", "GetWorkloadAccessToken", {})
-  .n("BedrockAgentCoreClient", "GetWorkloadAccessTokenCommand")
-  .sc(GetWorkloadAccessToken$)
-  .build() {
+export class GetWorkloadAccessTokenCommand extends command<GetWorkloadAccessTokenCommandInput, GetWorkloadAccessTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetWorkloadAccessToken",
+  GetWorkloadAccessToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

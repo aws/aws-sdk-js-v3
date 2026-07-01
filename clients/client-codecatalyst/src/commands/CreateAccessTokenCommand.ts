@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAccessTokenRequest, CreateAccessTokenResponse } from "../models/models_0";
 import { CreateAccessToken$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateAccessToken$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface CreateAccessTokenCommandOutput extends CreateAccessTokenRespons
  *
  * @public
  */
-export class CreateAccessTokenCommand extends $Command
-  .classBuilder<
-    CreateAccessTokenCommandInput,
-    CreateAccessTokenCommandOutput,
-    CodeCatalystClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCatalyst", "CreateAccessToken", {})
-  .n("CodeCatalystClient", "CreateAccessTokenCommand")
-  .sc(CreateAccessToken$)
-  .build() {
+export class CreateAccessTokenCommand extends command<CreateAccessTokenCommandInput, CreateAccessTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAccessToken",
+  CreateAccessToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

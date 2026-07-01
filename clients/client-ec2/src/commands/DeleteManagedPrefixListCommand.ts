@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteManagedPrefixListRequest, DeleteManagedPrefixListResult } from "../models/models_2";
 import { DeleteManagedPrefixList$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteManagedPrefixList$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DeleteManagedPrefixListCommandOutput extends DeleteManagedPrefi
  *
  * @public
  */
-export class DeleteManagedPrefixListCommand extends $Command
-  .classBuilder<
-    DeleteManagedPrefixListCommandInput,
-    DeleteManagedPrefixListCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeleteManagedPrefixList", {})
-  .n("EC2Client", "DeleteManagedPrefixListCommand")
-  .sc(DeleteManagedPrefixList$)
-  .build() {
+export class DeleteManagedPrefixListCommand extends command<DeleteManagedPrefixListCommandInput, DeleteManagedPrefixListCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteManagedPrefixList",
+  DeleteManagedPrefixList$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

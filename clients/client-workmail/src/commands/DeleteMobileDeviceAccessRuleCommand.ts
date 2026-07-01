@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMobileDeviceAccessRuleRequest, DeleteMobileDeviceAccessRuleResponse } from "../models/models_0";
 import { DeleteMobileDeviceAccessRule$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteMobileDeviceAccessRuleCommandOutput extends DeleteMobileD
  *
  * @public
  */
-export class DeleteMobileDeviceAccessRuleCommand extends $Command
-  .classBuilder<
-    DeleteMobileDeviceAccessRuleCommandInput,
-    DeleteMobileDeviceAccessRuleCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "DeleteMobileDeviceAccessRule", {})
-  .n("WorkMailClient", "DeleteMobileDeviceAccessRuleCommand")
-  .sc(DeleteMobileDeviceAccessRule$)
-  .build() {
+export class DeleteMobileDeviceAccessRuleCommand extends command<DeleteMobileDeviceAccessRuleCommandInput, DeleteMobileDeviceAccessRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMobileDeviceAccessRule",
+  DeleteMobileDeviceAccessRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

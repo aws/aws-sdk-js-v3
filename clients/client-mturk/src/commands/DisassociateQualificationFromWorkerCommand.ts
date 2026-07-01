@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateQualificationFromWorkerRequest,
   DisassociateQualificationFromWorkerResponse,
 } from "../models/models_0";
-import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { DisassociateQualificationFromWorker$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DisassociateQualificationFromWorkerCommandOutput extends Disass
  *
  * @public
  */
-export class DisassociateQualificationFromWorkerCommand extends $Command
-  .classBuilder<
-    DisassociateQualificationFromWorkerCommandInput,
-    DisassociateQualificationFromWorkerCommandOutput,
-    MTurkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MTurkRequesterServiceV20170117", "DisassociateQualificationFromWorker", {})
-  .n("MTurkClient", "DisassociateQualificationFromWorkerCommand")
-  .sc(DisassociateQualificationFromWorker$)
-  .build() {
+export class DisassociateQualificationFromWorkerCommand extends command<DisassociateQualificationFromWorkerCommandInput, DisassociateQualificationFromWorkerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateQualificationFromWorker",
+  DisassociateQualificationFromWorker$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

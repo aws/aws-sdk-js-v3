@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   SearchTransitGatewayMulticastGroupsRequest,
   SearchTransitGatewayMulticastGroupsResult,
@@ -15,7 +12,6 @@ import { SearchTransitGatewayMulticastGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface SearchTransitGatewayMulticastGroupsCommandOutput extends Search
  *
  * @public
  */
-export class SearchTransitGatewayMulticastGroupsCommand extends $Command
-  .classBuilder<
-    SearchTransitGatewayMulticastGroupsCommandInput,
-    SearchTransitGatewayMulticastGroupsCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "SearchTransitGatewayMulticastGroups", {})
-  .n("EC2Client", "SearchTransitGatewayMulticastGroupsCommand")
-  .sc(SearchTransitGatewayMulticastGroups$)
-  .build() {
+export class SearchTransitGatewayMulticastGroupsCommand extends command<SearchTransitGatewayMulticastGroupsCommandInput, SearchTransitGatewayMulticastGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchTransitGatewayMulticastGroups",
+  SearchTransitGatewayMulticastGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteProductRestEndpointPageRequest } from "../models/models_0";
 import { DeleteProductRestEndpointPage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteProductRestEndpointPage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteProductRestEndpointPageCommandOutput extends __MetadataBe
  *
  * @public
  */
-export class DeleteProductRestEndpointPageCommand extends $Command
-  .classBuilder<
-    DeleteProductRestEndpointPageCommandInput,
-    DeleteProductRestEndpointPageCommandOutput,
-    ApiGatewayV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApiGatewayV2", "DeleteProductRestEndpointPage", {})
-  .n("ApiGatewayV2Client", "DeleteProductRestEndpointPageCommand")
-  .sc(DeleteProductRestEndpointPage$)
-  .build() {
+export class DeleteProductRestEndpointPageCommand extends command<DeleteProductRestEndpointPageCommandInput, DeleteProductRestEndpointPageCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteProductRestEndpointPage",
+  DeleteProductRestEndpointPage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

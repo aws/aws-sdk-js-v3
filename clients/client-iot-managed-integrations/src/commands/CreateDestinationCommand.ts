@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDestinationRequest, CreateDestinationResponse } from "../models/models_0";
 import { CreateDestination$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateDestination$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface CreateDestinationCommandOutput extends CreateDestinationRespons
  *
  * @public
  */
-export class CreateDestinationCommand extends $Command
-  .classBuilder<
-    CreateDestinationCommandInput,
-    CreateDestinationCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "CreateDestination", {})
-  .n("IoTManagedIntegrationsClient", "CreateDestinationCommand")
-  .sc(CreateDestination$)
-  .build() {
+export class CreateDestinationCommand extends command<CreateDestinationCommandInput, CreateDestinationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDestination",
+  CreateDestination$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

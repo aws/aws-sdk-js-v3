@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetReadSetRequest, GetReadSetResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { GetReadSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface GetReadSetCommandOutput extends Omit<GetReadSetResponse, "paylo
  *
  * @public
  */
-export class GetReadSetCommand extends $Command
-  .classBuilder<
-    GetReadSetCommandInput,
-    GetReadSetCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "GetReadSet", {})
-  .n("OmicsClient", "GetReadSetCommand")
-  .sc(GetReadSet$)
-  .build() {
+export class GetReadSetCommand extends command<GetReadSetCommandInput, GetReadSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetReadSet",
+  GetReadSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

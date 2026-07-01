@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AccessAnalyzerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AccessAnalyzerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CheckAccessNotGrantedRequest, CheckAccessNotGrantedResponse } from "../models/models_0";
 import { CheckAccessNotGranted$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CheckAccessNotGranted$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -179,22 +171,12 @@ export interface CheckAccessNotGrantedCommandOutput extends CheckAccessNotGrante
  *
  * @public
  */
-export class CheckAccessNotGrantedCommand extends $Command
-  .classBuilder<
-    CheckAccessNotGrantedCommandInput,
-    CheckAccessNotGrantedCommandOutput,
-    AccessAnalyzerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AccessAnalyzer", "CheckAccessNotGranted", {})
-  .n("AccessAnalyzerClient", "CheckAccessNotGrantedCommand")
-  .sc(CheckAccessNotGranted$)
-  .build() {
+export class CheckAccessNotGrantedCommand extends command<CheckAccessNotGrantedCommandInput, CheckAccessNotGrantedCommandOutput>(
+  _ep0,
+  _mw0,
+  "CheckAccessNotGranted",
+  CheckAccessNotGranted$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

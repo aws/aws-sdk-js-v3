@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartDeliveryStreamEncryptionInput, StartDeliveryStreamEncryptionOutput } from "../models/models_0";
 import { StartDeliveryStreamEncryption$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartDeliveryStreamEncryption$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface StartDeliveryStreamEncryptionCommandOutput extends StartDeliver
  *
  * @public
  */
-export class StartDeliveryStreamEncryptionCommand extends $Command
-  .classBuilder<
-    StartDeliveryStreamEncryptionCommandInput,
-    StartDeliveryStreamEncryptionCommandOutput,
-    FirehoseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FirehoseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Firehose_20150804", "StartDeliveryStreamEncryption", {})
-  .n("FirehoseClient", "StartDeliveryStreamEncryptionCommand")
-  .sc(StartDeliveryStreamEncryption$)
-  .build() {
+export class StartDeliveryStreamEncryptionCommand extends command<StartDeliveryStreamEncryptionCommandInput, StartDeliveryStreamEncryptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartDeliveryStreamEncryption",
+  StartDeliveryStreamEncryption$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

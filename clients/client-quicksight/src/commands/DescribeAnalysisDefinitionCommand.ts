@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAnalysisDefinitionRequest, DescribeAnalysisDefinitionResponse } from "../models/models_3";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DescribeAnalysisDefinition$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -7722,22 +7718,12 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  *
  * @public
  */
-export class DescribeAnalysisDefinitionCommand extends $Command
-  .classBuilder<
-    DescribeAnalysisDefinitionCommandInput,
-    DescribeAnalysisDefinitionCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "DescribeAnalysisDefinition", {})
-  .n("QuickSightClient", "DescribeAnalysisDefinitionCommand")
-  .sc(DescribeAnalysisDefinition$)
-  .build() {
+export class DescribeAnalysisDefinitionCommand extends command<DescribeAnalysisDefinitionCommandInput, DescribeAnalysisDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAnalysisDefinition",
+  DescribeAnalysisDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

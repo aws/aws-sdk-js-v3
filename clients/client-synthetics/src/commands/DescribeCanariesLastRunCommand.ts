@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeCanariesLastRunRequest, DescribeCanariesLastRunResponse } from "../models/models_0";
 import { DescribeCanariesLastRun$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  *
  * @public
  */
-export class DescribeCanariesLastRunCommand extends $Command
-  .classBuilder<
-    DescribeCanariesLastRunCommandInput,
-    DescribeCanariesLastRunCommandOutput,
-    SyntheticsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Synthetics", "DescribeCanariesLastRun", {})
-  .n("SyntheticsClient", "DescribeCanariesLastRunCommand")
-  .sc(DescribeCanariesLastRun$)
-  .build() {
+export class DescribeCanariesLastRunCommand extends command<DescribeCanariesLastRunCommandInput, DescribeCanariesLastRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCanariesLastRun",
+  DescribeCanariesLastRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

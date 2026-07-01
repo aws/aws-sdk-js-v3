@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateServiceSyncBlockerInput, UpdateServiceSyncBlockerOutput } from "../models/models_0";
-import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 import { UpdateServiceSyncBlocker$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface UpdateServiceSyncBlockerCommandOutput extends UpdateServiceSync
  *
  * @public
  */
-export class UpdateServiceSyncBlockerCommand extends $Command
-  .classBuilder<
-    UpdateServiceSyncBlockerCommandInput,
-    UpdateServiceSyncBlockerCommandOutput,
-    ProtonClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsProton20200720", "UpdateServiceSyncBlocker", {})
-  .n("ProtonClient", "UpdateServiceSyncBlockerCommand")
-  .sc(UpdateServiceSyncBlocker$)
-  .build() {
+export class UpdateServiceSyncBlockerCommand extends command<UpdateServiceSyncBlockerCommandInput, UpdateServiceSyncBlockerCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateServiceSyncBlocker",
+  UpdateServiceSyncBlocker$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

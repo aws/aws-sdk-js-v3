@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateFirewallPolicyChangeProtectionRequest,
   UpdateFirewallPolicyChangeProtectionResponse,
 } from "../models/models_0";
-import type {
-  NetworkFirewallClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFirewallClient";
 import { UpdateFirewallPolicyChangeProtection$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface UpdateFirewallPolicyChangeProtectionCommandOutput extends Updat
  *
  * @public
  */
-export class UpdateFirewallPolicyChangeProtectionCommand extends $Command
-  .classBuilder<
-    UpdateFirewallPolicyChangeProtectionCommandInput,
-    UpdateFirewallPolicyChangeProtectionCommandOutput,
-    NetworkFirewallClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFirewall_20201112", "UpdateFirewallPolicyChangeProtection", {})
-  .n("NetworkFirewallClient", "UpdateFirewallPolicyChangeProtectionCommand")
-  .sc(UpdateFirewallPolicyChangeProtection$)
-  .build() {
+export class UpdateFirewallPolicyChangeProtectionCommand extends command<UpdateFirewallPolicyChangeProtectionCommandInput, UpdateFirewallPolicyChangeProtectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateFirewallPolicyChangeProtection",
+  UpdateFirewallPolicyChangeProtection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSessionEndpointRequest, GetSessionEndpointResponse } from "../models/models_2";
 import { GetSessionEndpoint$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetSessionEndpoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface GetSessionEndpointCommandOutput extends GetSessionEndpointRespo
  *
  * @public
  */
-export class GetSessionEndpointCommand extends $Command
-  .classBuilder<
-    GetSessionEndpointCommandInput,
-    GetSessionEndpointCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "GetSessionEndpoint", {})
-  .n("GlueClient", "GetSessionEndpointCommand")
-  .sc(GetSessionEndpoint$)
-  .build() {
+export class GetSessionEndpointCommand extends command<GetSessionEndpointCommandInput, GetSessionEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSessionEndpoint",
+  GetSessionEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

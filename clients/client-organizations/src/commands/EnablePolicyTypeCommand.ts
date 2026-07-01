@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EnablePolicyTypeRequest, EnablePolicyTypeResponse } from "../models/models_0";
-import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { EnablePolicyType$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -546,22 +542,12 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  *
  * @public
  */
-export class EnablePolicyTypeCommand extends $Command
-  .classBuilder<
-    EnablePolicyTypeCommandInput,
-    EnablePolicyTypeCommandOutput,
-    OrganizationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrganizationsV20161128", "EnablePolicyType", {})
-  .n("OrganizationsClient", "EnablePolicyTypeCommand")
-  .sc(EnablePolicyType$)
-  .build() {
+export class EnablePolicyTypeCommand extends command<EnablePolicyTypeCommandInput, EnablePolicyTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnablePolicyType",
+  EnablePolicyType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

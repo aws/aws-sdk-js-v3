@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteNodegroupRequest, DeleteNodegroupResponse } from "../models/models_0";
 import { DeleteNodegroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteNodegroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -176,22 +172,12 @@ export interface DeleteNodegroupCommandOutput extends DeleteNodegroupResponse, _
  *
  * @public
  */
-export class DeleteNodegroupCommand extends $Command
-  .classBuilder<
-    DeleteNodegroupCommandInput,
-    DeleteNodegroupCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "DeleteNodegroup", {})
-  .n("EKSClient", "DeleteNodegroupCommand")
-  .sc(DeleteNodegroup$)
-  .build() {
+export class DeleteNodegroupCommand extends command<DeleteNodegroupCommandInput, DeleteNodegroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteNodegroup",
+  DeleteNodegroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

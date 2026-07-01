@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateStorediSCSIVolumeInput, CreateStorediSCSIVolumeOutput } from "../models/models_0";
 import { CreateStorediSCSIVolume$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +109,12 @@ export interface CreateStorediSCSIVolumeCommandOutput extends CreateStorediSCSIV
  *
  * @public
  */
-export class CreateStorediSCSIVolumeCommand extends $Command
-  .classBuilder<
-    CreateStorediSCSIVolumeCommandInput,
-    CreateStorediSCSIVolumeCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "CreateStorediSCSIVolume", {})
-  .n("StorageGatewayClient", "CreateStorediSCSIVolumeCommand")
-  .sc(CreateStorediSCSIVolume$)
-  .build() {
+export class CreateStorediSCSIVolumeCommand extends command<CreateStorediSCSIVolumeCommandInput, CreateStorediSCSIVolumeCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateStorediSCSIVolume",
+  CreateStorediSCSIVolume$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

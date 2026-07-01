@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetServiceNetworkVpcAssociationRequest,
   GetServiceNetworkVpcAssociationResponse,
 } from "../models/models_0";
 import { GetServiceNetworkVpcAssociation$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface GetServiceNetworkVpcAssociationCommandOutput extends GetService
  *
  * @public
  */
-export class GetServiceNetworkVpcAssociationCommand extends $Command
-  .classBuilder<
-    GetServiceNetworkVpcAssociationCommandInput,
-    GetServiceNetworkVpcAssociationCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "GetServiceNetworkVpcAssociation", {})
-  .n("VPCLatticeClient", "GetServiceNetworkVpcAssociationCommand")
-  .sc(GetServiceNetworkVpcAssociation$)
-  .build() {
+export class GetServiceNetworkVpcAssociationCommand extends command<GetServiceNetworkVpcAssociationCommandInput, GetServiceNetworkVpcAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetServiceNetworkVpcAssociation",
+  GetServiceNetworkVpcAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

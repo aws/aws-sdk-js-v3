@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BCMPricingCalculatorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BCMPricingCalculatorClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListWorkloadEstimatesRequest, ListWorkloadEstimatesResponse } from "../models/models_0";
 import { ListWorkloadEstimates$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListWorkloadEstimates$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +102,12 @@ export interface ListWorkloadEstimatesCommandOutput extends ListWorkloadEstimate
  *
  * @public
  */
-export class ListWorkloadEstimatesCommand extends $Command
-  .classBuilder<
-    ListWorkloadEstimatesCommandInput,
-    ListWorkloadEstimatesCommandOutput,
-    BCMPricingCalculatorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BCMPricingCalculatorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBCMPricingCalculator", "ListWorkloadEstimates", {})
-  .n("BCMPricingCalculatorClient", "ListWorkloadEstimatesCommand")
-  .sc(ListWorkloadEstimates$)
-  .build() {
+export class ListWorkloadEstimatesCommand extends command<ListWorkloadEstimatesCommandInput, ListWorkloadEstimatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListWorkloadEstimates",
+  ListWorkloadEstimates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

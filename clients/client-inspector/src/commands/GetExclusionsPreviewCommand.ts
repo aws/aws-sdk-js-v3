@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetExclusionsPreviewRequest, GetExclusionsPreviewResponse } from "../models/models_0";
 import { GetExclusionsPreview$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetExclusionsPreview$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewR
  *
  * @public
  */
-export class GetExclusionsPreviewCommand extends $Command
-  .classBuilder<
-    GetExclusionsPreviewCommandInput,
-    GetExclusionsPreviewCommandOutput,
-    InspectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("InspectorService", "GetExclusionsPreview", {})
-  .n("InspectorClient", "GetExclusionsPreviewCommand")
-  .sc(GetExclusionsPreview$)
-  .build() {
+export class GetExclusionsPreviewCommand extends command<GetExclusionsPreviewCommandInput, GetExclusionsPreviewCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetExclusionsPreview",
+  GetExclusionsPreview$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMLModelTransformJobInput, GetMLModelTransformJobOutput } from "../models/models_0";
-import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
 import { GetMLModelTransformJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface GetMLModelTransformJobCommandOutput extends GetMLModelTransform
  *
  * @public
  */
-export class GetMLModelTransformJobCommand extends $Command
-  .classBuilder<
-    GetMLModelTransformJobCommandInput,
-    GetMLModelTransformJobCommandOutput,
-    NeptunedataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneDataplane", "GetMLModelTransformJob", {})
-  .n("NeptunedataClient", "GetMLModelTransformJobCommand")
-  .sc(GetMLModelTransformJob$)
-  .build() {
+export class GetMLModelTransformJobCommand extends command<GetMLModelTransformJobCommandInput, GetMLModelTransformJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMLModelTransformJob",
+  GetMLModelTransformJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetNetworkSettingsRequest, GetNetworkSettingsResponse } from "../models/models_0";
 import { GetNetworkSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -151,22 +147,12 @@ export interface GetNetworkSettingsCommandOutput extends GetNetworkSettingsRespo
  *
  * @public
  */
-export class GetNetworkSettingsCommand extends $Command
-  .classBuilder<
-    GetNetworkSettingsCommandInput,
-    GetNetworkSettingsCommandOutput,
-    WickrClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WickrAdminApi", "GetNetworkSettings", {})
-  .n("WickrClient", "GetNetworkSettingsCommand")
-  .sc(GetNetworkSettings$)
-  .build() {
+export class GetNetworkSettingsCommand extends command<GetNetworkSettingsCommandInput, GetNetworkSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetNetworkSettings",
+  GetNetworkSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

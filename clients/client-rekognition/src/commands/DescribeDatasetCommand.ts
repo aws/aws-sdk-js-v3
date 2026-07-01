@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeDatasetRequest, DescribeDatasetResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { DescribeDataset$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  *
  * @public
  */
-export class DescribeDatasetCommand extends $Command
-  .classBuilder<
-    DescribeDatasetCommandInput,
-    DescribeDatasetCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "DescribeDataset", {})
-  .n("RekognitionClient", "DescribeDatasetCommand")
-  .sc(DescribeDataset$)
-  .build() {
+export class DescribeDatasetCommand extends command<DescribeDatasetCommandInput, DescribeDatasetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDataset",
+  DescribeDataset$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

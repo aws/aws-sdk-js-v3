@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticsearchServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticsearchServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDomainsForPackageRequest, ListDomainsForPackageResponse } from "../models/models_0";
 import { ListDomainsForPackage$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListDomainsForPackage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface ListDomainsForPackageCommandOutput extends ListDomainsForPackag
  *
  * @public
  */
-export class ListDomainsForPackageCommand extends $Command
-  .classBuilder<
-    ListDomainsForPackageCommandInput,
-    ListDomainsForPackageCommandOutput,
-    ElasticsearchServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticsearchService2015", "ListDomainsForPackage", {})
-  .n("ElasticsearchServiceClient", "ListDomainsForPackageCommand")
-  .sc(ListDomainsForPackage$)
-  .build() {
+export class ListDomainsForPackageCommand extends command<ListDomainsForPackageCommandInput, ListDomainsForPackageCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDomainsForPackage",
+  ListDomainsForPackage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

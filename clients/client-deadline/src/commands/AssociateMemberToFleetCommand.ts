@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateMemberToFleetRequest, AssociateMemberToFleetResponse } from "../models/models_0";
 import { AssociateMemberToFleet$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateMemberToFleet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface AssociateMemberToFleetCommandOutput extends AssociateMemberToFl
  *
  * @public
  */
-export class AssociateMemberToFleetCommand extends $Command
-  .classBuilder<
-    AssociateMemberToFleetCommandInput,
-    AssociateMemberToFleetCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "AssociateMemberToFleet", {})
-  .n("DeadlineClient", "AssociateMemberToFleetCommand")
-  .sc(AssociateMemberToFleet$)
-  .build() {
+export class AssociateMemberToFleetCommand extends command<AssociateMemberToFleetCommandInput, AssociateMemberToFleetCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateMemberToFleet",
+  AssociateMemberToFleet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

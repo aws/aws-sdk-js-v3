@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep3, _mw4, command } from "../commandBuilder";
 import type { PutBucketMetricsConfigurationRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { PutBucketMetricsConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -161,26 +157,12 @@ export interface PutBucketMetricsConfigurationCommandOutput extends __MetadataBe
  *
  * @public
  */
-export class PutBucketMetricsConfigurationCommand extends $Command
-  .classBuilder<
-    PutBucketMetricsConfigurationCommandInput,
-    PutBucketMetricsConfigurationCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonS3", "PutBucketMetricsConfiguration", {})
-  .n("S3Client", "PutBucketMetricsConfigurationCommand")
-  .sc(PutBucketMetricsConfiguration$)
-  .build() {
+export class PutBucketMetricsConfigurationCommand extends command<PutBucketMetricsConfigurationCommandInput, PutBucketMetricsConfigurationCommandOutput>(
+  _ep3,
+  _mw4,
+  "PutBucketMetricsConfiguration",
+  PutBucketMetricsConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

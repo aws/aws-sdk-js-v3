@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRecommenderRequest, DescribeRecommenderResponse } from "../models/models_0";
-import type { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { DescribeRecommender$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -138,22 +134,12 @@ export interface DescribeRecommenderCommandOutput extends DescribeRecommenderRes
  *
  * @public
  */
-export class DescribeRecommenderCommand extends $Command
-  .classBuilder<
-    DescribeRecommenderCommandInput,
-    DescribeRecommenderCommandOutput,
-    PersonalizeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPersonalize", "DescribeRecommender", {})
-  .n("PersonalizeClient", "DescribeRecommenderCommand")
-  .sc(DescribeRecommender$)
-  .build() {
+export class DescribeRecommenderCommand extends command<DescribeRecommenderCommandInput, DescribeRecommenderCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRecommender",
+  DescribeRecommender$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

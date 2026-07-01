@@ -6,6 +6,7 @@ export type { ClientInputEndpointParameters } from "./endpoint/EndpointParameter
 export type { RuntimeExtension } from "./runtimeExtensions";
 export type { JsonProtocolExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
+export { Command as $Command } from "@smithy/core/client";
 
 export * from "./models/enums";
 export * from "./models/errors";

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   RegisterPullTimeUpdateExclusionRequest,
   RegisterPullTimeUpdateExclusionResponse,
@@ -15,7 +12,6 @@ import { RegisterPullTimeUpdateExclusion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface RegisterPullTimeUpdateExclusionCommandOutput extends RegisterPu
  *
  * @public
  */
-export class RegisterPullTimeUpdateExclusionCommand extends $Command
-  .classBuilder<
-    RegisterPullTimeUpdateExclusionCommandInput,
-    RegisterPullTimeUpdateExclusionCommandOutput,
-    ECRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerRegistry_V20150921", "RegisterPullTimeUpdateExclusion", {})
-  .n("ECRClient", "RegisterPullTimeUpdateExclusionCommand")
-  .sc(RegisterPullTimeUpdateExclusion$)
-  .build() {
+export class RegisterPullTimeUpdateExclusionCommand extends command<RegisterPullTimeUpdateExclusionCommandInput, RegisterPullTimeUpdateExclusionCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterPullTimeUpdateExclusion",
+  RegisterPullTimeUpdateExclusion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

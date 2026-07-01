@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartCanaryDryRunRequest, StartCanaryDryRunResponse } from "../models/models_0";
 import { StartCanaryDryRun$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -154,22 +150,12 @@ export interface StartCanaryDryRunCommandOutput extends StartCanaryDryRunRespons
  *
  * @public
  */
-export class StartCanaryDryRunCommand extends $Command
-  .classBuilder<
-    StartCanaryDryRunCommandInput,
-    StartCanaryDryRunCommandOutput,
-    SyntheticsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Synthetics", "StartCanaryDryRun", {})
-  .n("SyntheticsClient", "StartCanaryDryRunCommand")
-  .sc(StartCanaryDryRun$)
-  .build() {
+export class StartCanaryDryRunCommand extends command<StartCanaryDryRunCommandInput, StartCanaryDryRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartCanaryDryRun",
+  StartCanaryDryRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

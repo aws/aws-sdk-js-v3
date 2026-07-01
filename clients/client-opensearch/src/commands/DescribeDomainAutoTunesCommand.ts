@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeDomainAutoTunesRequest, DescribeDomainAutoTunesResponse } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { DescribeDomainAutoTunes$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  *
  * @public
  */
-export class DescribeDomainAutoTunesCommand extends $Command
-  .classBuilder<
-    DescribeDomainAutoTunesCommandInput,
-    DescribeDomainAutoTunesCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "DescribeDomainAutoTunes", {})
-  .n("OpenSearchClient", "DescribeDomainAutoTunesCommand")
-  .sc(DescribeDomainAutoTunes$)
-  .build() {
+export class DescribeDomainAutoTunesCommand extends command<DescribeDomainAutoTunesCommandInput, DescribeDomainAutoTunesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDomainAutoTunes",
+  DescribeDomainAutoTunes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRetentionPolicyRequest, DeleteRetentionPolicyResponse } from "../models/models_0";
 import { DeleteRetentionPolicy$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteRetentionPolicyCommandOutput extends DeleteRetentionPolic
  *
  * @public
  */
-export class DeleteRetentionPolicyCommand extends $Command
-  .classBuilder<
-    DeleteRetentionPolicyCommandInput,
-    DeleteRetentionPolicyCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "DeleteRetentionPolicy", {})
-  .n("WorkMailClient", "DeleteRetentionPolicyCommand")
-  .sc(DeleteRetentionPolicy$)
-  .build() {
+export class DeleteRetentionPolicyCommand extends command<DeleteRetentionPolicyCommandInput, DeleteRetentionPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRetentionPolicy",
+  DeleteRetentionPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KendraRankingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraRankingClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRescoreExecutionPlanRequest } from "../models/models_0";
 import { DeleteRescoreExecutionPlan$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteRescoreExecutionPlan$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface DeleteRescoreExecutionPlanCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class DeleteRescoreExecutionPlanCommand extends $Command
-  .classBuilder<
-    DeleteRescoreExecutionPlanCommandInput,
-    DeleteRescoreExecutionPlanCommandOutput,
-    KendraRankingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KendraRankingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSKendraRerankingFrontendService", "DeleteRescoreExecutionPlan", {})
-  .n("KendraRankingClient", "DeleteRescoreExecutionPlanCommand")
-  .sc(DeleteRescoreExecutionPlan$)
-  .build() {
+export class DeleteRescoreExecutionPlanCommand extends command<DeleteRescoreExecutionPlanCommandInput, DeleteRescoreExecutionPlanCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRescoreExecutionPlan",
+  DeleteRescoreExecutionPlan$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

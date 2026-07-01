@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeStandardsRequest, DescribeStandardsResponse } from "../models/models_2";
 import { DescribeStandards$ } from "../schemas/schemas_0";
-import type { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  *
  * @public
  */
-export class DescribeStandardsCommand extends $Command
-  .classBuilder<
-    DescribeStandardsCommandInput,
-    DescribeStandardsCommandOutput,
-    SecurityHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityHubAPIService", "DescribeStandards", {})
-  .n("SecurityHubClient", "DescribeStandardsCommand")
-  .sc(DescribeStandards$)
-  .build() {
+export class DescribeStandardsCommand extends command<DescribeStandardsCommandInput, DescribeStandardsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeStandards",
+  DescribeStandards$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeUserStackAssociationsRequest, DescribeUserStackAssociationsResult } from "../models/models_0";
 import { DescribeUserStackAssociations$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeUserStackAssociations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface DescribeUserStackAssociationsCommandOutput extends DescribeUser
  *
  * @public
  */
-export class DescribeUserStackAssociationsCommand extends $Command
-  .classBuilder<
-    DescribeUserStackAssociationsCommandInput,
-    DescribeUserStackAssociationsCommandOutput,
-    AppStreamClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PhotonAdminProxyService", "DescribeUserStackAssociations", {})
-  .n("AppStreamClient", "DescribeUserStackAssociationsCommand")
-  .sc(DescribeUserStackAssociations$)
-  .build() {
+export class DescribeUserStackAssociationsCommand extends command<DescribeUserStackAssociationsCommandInput, DescribeUserStackAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeUserStackAssociations",
+  DescribeUserStackAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

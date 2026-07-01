@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateMulticastGroupRequest, UpdateMulticastGroupResponse } from "../models/models_1";
 import { UpdateMulticastGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateMulticastGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface UpdateMulticastGroupCommandOutput extends UpdateMulticastGroupR
  *
  * @public
  */
-export class UpdateMulticastGroupCommand extends $Command
-  .classBuilder<
-    UpdateMulticastGroupCommandInput,
-    UpdateMulticastGroupCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "UpdateMulticastGroup", {})
-  .n("IoTWirelessClient", "UpdateMulticastGroupCommand")
-  .sc(UpdateMulticastGroup$)
-  .build() {
+export class UpdateMulticastGroupCommand extends command<UpdateMulticastGroupCommandInput, UpdateMulticastGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateMulticastGroup",
+  UpdateMulticastGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateOnlineEvaluationConfigRequest, CreateOnlineEvaluationConfigResponse } from "../models/models_1";
 import { CreateOnlineEvaluationConfig$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateOnlineEvaluationConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -142,22 +134,12 @@ export interface CreateOnlineEvaluationConfigCommandOutput extends CreateOnlineE
  *
  * @public
  */
-export class CreateOnlineEvaluationConfigCommand extends $Command
-  .classBuilder<
-    CreateOnlineEvaluationConfigCommandInput,
-    CreateOnlineEvaluationConfigCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "CreateOnlineEvaluationConfig", {})
-  .n("BedrockAgentCoreControlClient", "CreateOnlineEvaluationConfigCommand")
-  .sc(CreateOnlineEvaluationConfig$)
-  .build() {
+export class CreateOnlineEvaluationConfigCommand extends command<CreateOnlineEvaluationConfigCommandInput, CreateOnlineEvaluationConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateOnlineEvaluationConfig",
+  CreateOnlineEvaluationConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

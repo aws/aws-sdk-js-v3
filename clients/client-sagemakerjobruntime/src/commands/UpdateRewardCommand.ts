@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRewardRequest, UpdateRewardResponse } from "../models/models_0";
-import type {
-  SagemakerJobRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SagemakerJobRuntimeClient";
 import { UpdateReward$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +100,12 @@ export interface UpdateRewardCommandOutput extends UpdateRewardResponse, __Metad
  *
  * @public
  */
-export class UpdateRewardCommand extends $Command
-  .classBuilder<
-    UpdateRewardCommandInput,
-    UpdateRewardCommandOutput,
-    SagemakerJobRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SagemakerJobRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AgenticRFTRuntimeService", "UpdateReward", {})
-  .n("SagemakerJobRuntimeClient", "UpdateRewardCommand")
-  .sc(UpdateReward$)
-  .build() {
+export class UpdateRewardCommand extends command<UpdateRewardCommandInput, UpdateRewardCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateReward",
+  UpdateReward$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateWorkspaceImagePermissionRequest, UpdateWorkspaceImagePermissionResult } from "../models/models_0";
 import { UpdateWorkspaceImagePermission$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface UpdateWorkspaceImagePermissionCommandOutput extends UpdateWorks
  *
  * @public
  */
-export class UpdateWorkspaceImagePermissionCommand extends $Command
-  .classBuilder<
-    UpdateWorkspaceImagePermissionCommandInput,
-    UpdateWorkspaceImagePermissionCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "UpdateWorkspaceImagePermission", {})
-  .n("WorkSpacesClient", "UpdateWorkspaceImagePermissionCommand")
-  .sc(UpdateWorkspaceImagePermission$)
-  .build() {
+export class UpdateWorkspaceImagePermissionCommand extends command<UpdateWorkspaceImagePermissionCommandInput, UpdateWorkspaceImagePermissionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateWorkspaceImagePermission",
+  UpdateWorkspaceImagePermission$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

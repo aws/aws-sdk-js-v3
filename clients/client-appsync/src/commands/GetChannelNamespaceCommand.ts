@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetChannelNamespaceRequest, GetChannelNamespaceResponse } from "../models/models_0";
 import { GetChannelNamespace$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetChannelNamespace$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface GetChannelNamespaceCommandOutput extends GetChannelNamespaceRes
  *
  * @public
  */
-export class GetChannelNamespaceCommand extends $Command
-  .classBuilder<
-    GetChannelNamespaceCommandInput,
-    GetChannelNamespaceCommandOutput,
-    AppSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepdishControlPlaneService", "GetChannelNamespace", {})
-  .n("AppSyncClient", "GetChannelNamespaceCommand")
-  .sc(GetChannelNamespace$)
-  .build() {
+export class GetChannelNamespaceCommand extends command<GetChannelNamespaceCommandInput, GetChannelNamespaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetChannelNamespace",
+  GetChannelNamespace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LookoutEquipmentClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LookoutEquipmentClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteInferenceSchedulerRequest } from "../models/models_0";
 import { DeleteInferenceScheduler$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteInferenceScheduler$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface DeleteInferenceSchedulerCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class DeleteInferenceSchedulerCommand extends $Command
-  .classBuilder<
-    DeleteInferenceSchedulerCommandInput,
-    DeleteInferenceSchedulerCommandOutput,
-    LookoutEquipmentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLookoutEquipmentFrontendService", "DeleteInferenceScheduler", {})
-  .n("LookoutEquipmentClient", "DeleteInferenceSchedulerCommand")
-  .sc(DeleteInferenceScheduler$)
-  .build() {
+export class DeleteInferenceSchedulerCommand extends command<DeleteInferenceSchedulerCommandInput, DeleteInferenceSchedulerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteInferenceScheduler",
+  DeleteInferenceScheduler$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

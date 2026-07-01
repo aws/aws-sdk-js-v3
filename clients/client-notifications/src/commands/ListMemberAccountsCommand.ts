@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListMemberAccountsRequest, ListMemberAccountsResponse } from "../models/models_0";
-import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
 import { ListMemberAccounts$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface ListMemberAccountsCommandOutput extends ListMemberAccountsRespo
  *
  * @public
  */
-export class ListMemberAccountsCommand extends $Command
-  .classBuilder<
-    ListMemberAccountsCommandInput,
-    ListMemberAccountsCommandOutput,
-    NotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Notifications", "ListMemberAccounts", {})
-  .n("NotificationsClient", "ListMemberAccountsCommand")
-  .sc(ListMemberAccounts$)
-  .build() {
+export class ListMemberAccountsCommand extends command<ListMemberAccountsCommandInput, ListMemberAccountsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMemberAccounts",
+  ListMemberAccounts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

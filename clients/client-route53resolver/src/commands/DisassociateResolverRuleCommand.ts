@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateResolverRuleRequest, DisassociateResolverRuleResponse } from "../models/models_0";
-import type {
-  Route53ResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ResolverClient";
 import { DisassociateResolverRule$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface DisassociateResolverRuleCommandOutput extends DisassociateResol
  *
  * @public
  */
-export class DisassociateResolverRuleCommand extends $Command
-  .classBuilder<
-    DisassociateResolverRuleCommandInput,
-    DisassociateResolverRuleCommandOutput,
-    Route53ResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Resolver", "DisassociateResolverRule", {})
-  .n("Route53ResolverClient", "DisassociateResolverRuleCommand")
-  .sc(DisassociateResolverRule$)
-  .build() {
+export class DisassociateResolverRuleCommand extends command<DisassociateResolverRuleCommandInput, DisassociateResolverRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateResolverRule",
+  DisassociateResolverRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

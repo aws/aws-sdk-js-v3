@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListReadSetActivationJobsRequest, ListReadSetActivationJobsResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { ListReadSetActivationJobs$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface ListReadSetActivationJobsCommandOutput extends ListReadSetActiv
  *
  * @public
  */
-export class ListReadSetActivationJobsCommand extends $Command
-  .classBuilder<
-    ListReadSetActivationJobsCommandInput,
-    ListReadSetActivationJobsCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "ListReadSetActivationJobs", {})
-  .n("OmicsClient", "ListReadSetActivationJobsCommand")
-  .sc(ListReadSetActivationJobs$)
-  .build() {
+export class ListReadSetActivationJobsCommand extends command<ListReadSetActivationJobsCommandInput, ListReadSetActivationJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListReadSetActivationJobs",
+  ListReadSetActivationJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTokenVaultRequest, GetTokenVaultResponse } from "../models/models_0";
 import { GetTokenVault$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetTokenVault$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface GetTokenVaultCommandOutput extends GetTokenVaultResponse, __Met
  *
  * @public
  */
-export class GetTokenVaultCommand extends $Command
-  .classBuilder<
-    GetTokenVaultCommandInput,
-    GetTokenVaultCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "GetTokenVault", {})
-  .n("BedrockAgentCoreControlClient", "GetTokenVaultCommand")
-  .sc(GetTokenVault$)
-  .build() {
+export class GetTokenVaultCommand extends command<GetTokenVaultCommandInput, GetTokenVaultCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTokenVault",
+  GetTokenVault$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

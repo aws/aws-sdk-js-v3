@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAnomalySubscriptionsRequest, GetAnomalySubscriptionsResponse } from "../models/models_0";
 import { GetAnomalySubscriptions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetAnomalySubscriptions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -160,22 +156,12 @@ export interface GetAnomalySubscriptionsCommandOutput extends GetAnomalySubscrip
  *
  * @public
  */
-export class GetAnomalySubscriptionsCommand extends $Command
-  .classBuilder<
-    GetAnomalySubscriptionsCommandInput,
-    GetAnomalySubscriptionsCommandOutput,
-    CostExplorerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSInsightsIndexService", "GetAnomalySubscriptions", {})
-  .n("CostExplorerClient", "GetAnomalySubscriptionsCommand")
-  .sc(GetAnomalySubscriptions$)
-  .build() {
+export class GetAnomalySubscriptionsCommand extends command<GetAnomalySubscriptionsCommandInput, GetAnomalySubscriptionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAnomalySubscriptions",
+  GetAnomalySubscriptions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

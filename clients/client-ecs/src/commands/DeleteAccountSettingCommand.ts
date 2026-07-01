@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAccountSettingRequest, DeleteAccountSettingResponse } from "../models/models_0";
 import { DeleteAccountSetting$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAccountSetting$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface DeleteAccountSettingCommandOutput extends DeleteAccountSettingR
  *
  * @public
  */
-export class DeleteAccountSettingCommand extends $Command
-  .classBuilder<
-    DeleteAccountSettingCommandInput,
-    DeleteAccountSettingCommandOutput,
-    ECSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerServiceV20141113", "DeleteAccountSetting", {})
-  .n("ECSClient", "DeleteAccountSettingCommand")
-  .sc(DeleteAccountSetting$)
-  .build() {
+export class DeleteAccountSettingCommand extends command<DeleteAccountSettingCommandInput, DeleteAccountSettingCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAccountSetting",
+  DeleteAccountSetting$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

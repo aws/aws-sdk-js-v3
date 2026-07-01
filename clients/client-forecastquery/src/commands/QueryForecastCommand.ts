@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ForecastqueryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastqueryClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { QueryForecastRequest, QueryForecastResponse } from "../models/models_0";
 import { QueryForecast$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { QueryForecast$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface QueryForecastCommandOutput extends QueryForecastResponse, __Met
  *
  * @public
  */
-export class QueryForecastCommand extends $Command
-  .classBuilder<
-    QueryForecastCommandInput,
-    QueryForecastCommandOutput,
-    ForecastqueryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ForecastqueryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonForecastRuntime", "QueryForecast", {})
-  .n("ForecastqueryClient", "QueryForecastCommand")
-  .sc(QueryForecast$)
-  .build() {
+export class QueryForecastCommand extends command<QueryForecastCommandInput, QueryForecastCommandOutput>(
+  _ep0,
+  _mw0,
+  "QueryForecast",
+  QueryForecast$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

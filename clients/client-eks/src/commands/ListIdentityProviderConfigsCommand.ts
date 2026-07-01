@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListIdentityProviderConfigsRequest, ListIdentityProviderConfigsResponse } from "../models/models_0";
 import { ListIdentityProviderConfigs$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListIdentityProviderConfigs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface ListIdentityProviderConfigsCommandOutput extends ListIdentityPr
  *
  * @public
  */
-export class ListIdentityProviderConfigsCommand extends $Command
-  .classBuilder<
-    ListIdentityProviderConfigsCommandInput,
-    ListIdentityProviderConfigsCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "ListIdentityProviderConfigs", {})
-  .n("EKSClient", "ListIdentityProviderConfigsCommand")
-  .sc(ListIdentityProviderConfigs$)
-  .build() {
+export class ListIdentityProviderConfigsCommand extends command<ListIdentityProviderConfigsCommandInput, ListIdentityProviderConfigsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListIdentityProviderConfigs",
+  ListIdentityProviderConfigs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

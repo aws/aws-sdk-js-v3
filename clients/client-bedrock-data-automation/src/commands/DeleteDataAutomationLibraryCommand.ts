@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockDataAutomationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockDataAutomationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDataAutomationLibraryRequest, DeleteDataAutomationLibraryResponse } from "../models/models_0";
 import { DeleteDataAutomationLibrary$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteDataAutomationLibrary$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface DeleteDataAutomationLibraryCommandOutput extends DeleteDataAuto
  *
  * @public
  */
-export class DeleteDataAutomationLibraryCommand extends $Command
-  .classBuilder<
-    DeleteDataAutomationLibraryCommandInput,
-    DeleteDataAutomationLibraryCommandOutput,
-    BedrockDataAutomationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockDataAutomationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockKeystoneBuildTimeService", "DeleteDataAutomationLibrary", {})
-  .n("BedrockDataAutomationClient", "DeleteDataAutomationLibraryCommand")
-  .sc(DeleteDataAutomationLibrary$)
-  .build() {
+export class DeleteDataAutomationLibraryCommand extends command<DeleteDataAutomationLibraryCommandInput, DeleteDataAutomationLibraryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDataAutomationLibrary",
+  DeleteDataAutomationLibrary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

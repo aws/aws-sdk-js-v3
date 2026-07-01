@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAccountAuthorizationDetailsRequest, GetAccountAuthorizationDetailsResponse } from "../models/models_0";
 import { GetAccountAuthorizationDetails$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetAccountAuthorizationDetails$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -227,22 +223,12 @@ export interface GetAccountAuthorizationDetailsCommandOutput extends GetAccountA
  *
  * @public
  */
-export class GetAccountAuthorizationDetailsCommand extends $Command
-  .classBuilder<
-    GetAccountAuthorizationDetailsCommandInput,
-    GetAccountAuthorizationDetailsCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "GetAccountAuthorizationDetails", {})
-  .n("IAMClient", "GetAccountAuthorizationDetailsCommand")
-  .sc(GetAccountAuthorizationDetails$)
-  .build() {
+export class GetAccountAuthorizationDetailsCommand extends command<GetAccountAuthorizationDetailsCommandInput, GetAccountAuthorizationDetailsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAccountAuthorizationDetails",
+  GetAccountAuthorizationDetails$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

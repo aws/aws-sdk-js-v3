@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteServiceNetworkResourceAssociationRequest,
   DeleteServiceNetworkResourceAssociationResponse,
 } from "../models/models_0";
 import { DeleteServiceNetworkResourceAssociation$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface DeleteServiceNetworkResourceAssociationCommandOutput extends De
  *
  * @public
  */
-export class DeleteServiceNetworkResourceAssociationCommand extends $Command
-  .classBuilder<
-    DeleteServiceNetworkResourceAssociationCommandInput,
-    DeleteServiceNetworkResourceAssociationCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "DeleteServiceNetworkResourceAssociation", {})
-  .n("VPCLatticeClient", "DeleteServiceNetworkResourceAssociationCommand")
-  .sc(DeleteServiceNetworkResourceAssociation$)
-  .build() {
+export class DeleteServiceNetworkResourceAssociationCommand extends command<DeleteServiceNetworkResourceAssociationCommandInput, DeleteServiceNetworkResourceAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteServiceNetworkResourceAssociation",
+  DeleteServiceNetworkResourceAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

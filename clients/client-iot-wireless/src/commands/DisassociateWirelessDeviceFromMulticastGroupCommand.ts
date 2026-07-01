@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateWirelessDeviceFromMulticastGroupRequest,
   DisassociateWirelessDeviceFromMulticastGroupResponse,
@@ -15,7 +12,6 @@ import { DisassociateWirelessDeviceFromMulticastGroup$ } from "../schemas/schema
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DisassociateWirelessDeviceFromMulticastGroupCommandOutput exten
  *
  * @public
  */
-export class DisassociateWirelessDeviceFromMulticastGroupCommand extends $Command
-  .classBuilder<
-    DisassociateWirelessDeviceFromMulticastGroupCommandInput,
-    DisassociateWirelessDeviceFromMulticastGroupCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "DisassociateWirelessDeviceFromMulticastGroup", {})
-  .n("IoTWirelessClient", "DisassociateWirelessDeviceFromMulticastGroupCommand")
-  .sc(DisassociateWirelessDeviceFromMulticastGroup$)
-  .build() {
+export class DisassociateWirelessDeviceFromMulticastGroupCommand extends command<DisassociateWirelessDeviceFromMulticastGroupCommandInput, DisassociateWirelessDeviceFromMulticastGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateWirelessDeviceFromMulticastGroup",
+  DisassociateWirelessDeviceFromMulticastGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

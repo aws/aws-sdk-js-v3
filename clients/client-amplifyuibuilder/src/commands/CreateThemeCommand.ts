@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyUIBuilderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyUIBuilderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateThemeRequest, CreateThemeResponse } from "../models/models_0";
 import { CreateTheme$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateTheme$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +122,12 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
  *
  * @public
  */
-export class CreateThemeCommand extends $Command
-  .classBuilder<
-    CreateThemeCommandInput,
-    CreateThemeCommandOutput,
-    AmplifyUIBuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyUIBuilder", "CreateTheme", {})
-  .n("AmplifyUIBuilderClient", "CreateThemeCommand")
-  .sc(CreateTheme$)
-  .build() {
+export class CreateThemeCommand extends command<CreateThemeCommandInput, CreateThemeCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTheme",
+  CreateTheme$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

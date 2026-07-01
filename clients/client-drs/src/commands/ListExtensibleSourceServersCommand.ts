@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListExtensibleSourceServersRequest, ListExtensibleSourceServersResponse } from "../models/models_0";
 import { ListExtensibleSourceServers$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListExtensibleSourceServers$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface ListExtensibleSourceServersCommandOutput extends ListExtensible
  *
  * @public
  */
-export class ListExtensibleSourceServersCommand extends $Command
-  .classBuilder<
-    ListExtensibleSourceServersCommandInput,
-    ListExtensibleSourceServersCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "ListExtensibleSourceServers", {})
-  .n("DrsClient", "ListExtensibleSourceServersCommand")
-  .sc(ListExtensibleSourceServers$)
-  .build() {
+export class ListExtensibleSourceServersCommand extends command<ListExtensibleSourceServersCommandInput, ListExtensibleSourceServersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListExtensibleSourceServers",
+  ListExtensibleSourceServers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

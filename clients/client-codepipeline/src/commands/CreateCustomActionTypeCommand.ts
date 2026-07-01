@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCustomActionTypeInput, CreateCustomActionTypeOutput } from "../models/models_0";
 import { CreateCustomActionType$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateCustomActionType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -147,22 +143,12 @@ export interface CreateCustomActionTypeCommandOutput extends CreateCustomActionT
  *
  * @public
  */
-export class CreateCustomActionTypeCommand extends $Command
-  .classBuilder<
-    CreateCustomActionTypeCommandInput,
-    CreateCustomActionTypeCommandOutput,
-    CodePipelineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodePipeline_20150709", "CreateCustomActionType", {})
-  .n("CodePipelineClient", "CreateCustomActionTypeCommand")
-  .sc(CreateCustomActionType$)
-  .build() {
+export class CreateCustomActionTypeCommand extends command<CreateCustomActionTypeCommandInput, CreateCustomActionTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCustomActionType",
+  CreateCustomActionType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

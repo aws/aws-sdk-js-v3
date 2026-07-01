@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTypesByAssociationRequest, ListTypesByAssociationResponse } from "../models/models_0";
 import { ListTypesByAssociation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListTypesByAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface ListTypesByAssociationCommandOutput extends ListTypesByAssociat
  *
  * @public
  */
-export class ListTypesByAssociationCommand extends $Command
-  .classBuilder<
-    ListTypesByAssociationCommandInput,
-    ListTypesByAssociationCommandOutput,
-    AppSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepdishControlPlaneService", "ListTypesByAssociation", {})
-  .n("AppSyncClient", "ListTypesByAssociationCommand")
-  .sc(ListTypesByAssociation$)
-  .build() {
+export class ListTypesByAssociationCommand extends command<ListTypesByAssociationCommandInput, ListTypesByAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTypesByAssociation",
+  ListTypesByAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

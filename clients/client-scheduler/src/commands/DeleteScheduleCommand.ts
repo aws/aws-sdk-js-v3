@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteScheduleInput, DeleteScheduleOutput } from "../models/models_0";
-import type { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 import { DeleteSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DeleteScheduleCommandOutput extends DeleteScheduleOutput, __Met
  *
  * @public
  */
-export class DeleteScheduleCommand extends $Command
-  .classBuilder<
-    DeleteScheduleCommandInput,
-    DeleteScheduleCommandOutput,
-    SchedulerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SchedulerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSChronosService", "DeleteSchedule", {})
-  .n("SchedulerClient", "DeleteScheduleCommand")
-  .sc(DeleteSchedule$)
-  .build() {
+export class DeleteScheduleCommand extends command<DeleteScheduleCommandInput, DeleteScheduleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSchedule",
+  DeleteSchedule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

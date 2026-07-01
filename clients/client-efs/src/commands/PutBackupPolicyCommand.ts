@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BackupPolicyDescription, PutBackupPolicyRequest } from "../models/models_0";
 import { PutBackupPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutBackupPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, _
  *
  * @public
  */
-export class PutBackupPolicyCommand extends $Command
-  .classBuilder<
-    PutBackupPolicyCommandInput,
-    PutBackupPolicyCommandOutput,
-    EFSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MagnolioAPIService_v20150201", "PutBackupPolicy", {})
-  .n("EFSClient", "PutBackupPolicyCommand")
-  .sc(PutBackupPolicy$)
-  .build() {
+export class PutBackupPolicyCommand extends command<PutBackupPolicyCommandInput, PutBackupPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutBackupPolicy",
+  PutBackupPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

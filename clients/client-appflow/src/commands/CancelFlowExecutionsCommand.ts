@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelFlowExecutionsRequest, CancelFlowExecutionsResponse } from "../models/models_0";
 import { CancelFlowExecutions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CancelFlowExecutions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface CancelFlowExecutionsCommandOutput extends CancelFlowExecutionsR
  *
  * @public
  */
-export class CancelFlowExecutionsCommand extends $Command
-  .classBuilder<
-    CancelFlowExecutionsCommandInput,
-    CancelFlowExecutionsCommandOutput,
-    AppflowClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SandstoneConfigurationServiceLambda", "CancelFlowExecutions", {})
-  .n("AppflowClient", "CancelFlowExecutionsCommand")
-  .sc(CancelFlowExecutions$)
-  .build() {
+export class CancelFlowExecutionsCommand extends command<CancelFlowExecutionsCommandInput, CancelFlowExecutionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelFlowExecutions",
+  CancelFlowExecutions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

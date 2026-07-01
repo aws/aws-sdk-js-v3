@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RestoreDBInstanceFromS3Message, RestoreDBInstanceFromS3Result } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { RestoreDBInstanceFromS3$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -455,22 +451,12 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *
  * @public
  */
-export class RestoreDBInstanceFromS3Command extends $Command
-  .classBuilder<
-    RestoreDBInstanceFromS3CommandInput,
-    RestoreDBInstanceFromS3CommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "RestoreDBInstanceFromS3", {})
-  .n("RDSClient", "RestoreDBInstanceFromS3Command")
-  .sc(RestoreDBInstanceFromS3$)
-  .build() {
+export class RestoreDBInstanceFromS3Command extends command<RestoreDBInstanceFromS3CommandInput, RestoreDBInstanceFromS3CommandOutput>(
+  _ep0,
+  _mw0,
+  "RestoreDBInstanceFromS3",
+  RestoreDBInstanceFromS3$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

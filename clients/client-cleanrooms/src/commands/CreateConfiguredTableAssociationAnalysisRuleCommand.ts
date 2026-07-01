@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateConfiguredTableAssociationAnalysisRuleInput,
   CreateConfiguredTableAssociationAnalysisRuleOutput,
@@ -15,7 +12,6 @@ import { CreateConfiguredTableAssociationAnalysisRule$ } from "../schemas/schema
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -145,22 +141,12 @@ export interface CreateConfiguredTableAssociationAnalysisRuleCommandOutput exten
  *
  * @public
  */
-export class CreateConfiguredTableAssociationAnalysisRuleCommand extends $Command
-  .classBuilder<
-    CreateConfiguredTableAssociationAnalysisRuleCommandInput,
-    CreateConfiguredTableAssociationAnalysisRuleCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "CreateConfiguredTableAssociationAnalysisRule", {})
-  .n("CleanRoomsClient", "CreateConfiguredTableAssociationAnalysisRuleCommand")
-  .sc(CreateConfiguredTableAssociationAnalysisRule$)
-  .build() {
+export class CreateConfiguredTableAssociationAnalysisRuleCommand extends command<CreateConfiguredTableAssociationAnalysisRuleCommandInput, CreateConfiguredTableAssociationAnalysisRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateConfiguredTableAssociationAnalysisRule",
+  CreateConfiguredTableAssociationAnalysisRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePrefetchScheduleRequest, DeletePrefetchScheduleResponse } from "../models/models_0";
 import { DeletePrefetchSchedule$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeletePrefetchSchedule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -58,22 +54,12 @@ export interface DeletePrefetchScheduleCommandOutput extends DeletePrefetchSched
  *
  * @public
  */
-export class DeletePrefetchScheduleCommand extends $Command
-  .classBuilder<
-    DeletePrefetchScheduleCommandInput,
-    DeletePrefetchScheduleCommandOutput,
-    MediaTailorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaTailor", "DeletePrefetchSchedule", {})
-  .n("MediaTailorClient", "DeletePrefetchScheduleCommand")
-  .sc(DeletePrefetchSchedule$)
-  .build() {
+export class DeletePrefetchScheduleCommand extends command<DeletePrefetchScheduleCommandInput, DeletePrefetchScheduleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePrefetchSchedule",
+  DeletePrefetchSchedule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

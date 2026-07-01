@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceDataClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceDataClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateGroupRequest, UpdateGroupResult } from "../models/models_0";
 import { UpdateGroup$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -136,22 +128,12 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResult, __MetadataB
  *
  * @public
  */
-export class UpdateGroupCommand extends $Command
-  .classBuilder<
-    UpdateGroupCommandInput,
-    UpdateGroupCommandOutput,
-    DirectoryServiceDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryServiceData", "UpdateGroup", {})
-  .n("DirectoryServiceDataClient", "UpdateGroupCommand")
-  .sc(UpdateGroup$)
-  .build() {
+export class UpdateGroupCommand extends command<UpdateGroupCommandInput, UpdateGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateGroup",
+  UpdateGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

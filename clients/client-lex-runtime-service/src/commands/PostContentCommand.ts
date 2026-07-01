@@ -1,18 +1,11 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type {
   MetadataBearer as __MetadataBearer,
   StreamingBlobPayloadInputTypes,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LexRuntimeServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LexRuntimeServiceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PostContentRequest, PostContentResponse } from "../models/models_0";
 import { PostContent$ } from "../schemas/schemas_0";
 
@@ -20,7 +13,6 @@ import { PostContent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -233,22 +225,12 @@ export interface PostContentCommandOutput extends Omit<PostContentResponse, "aud
  *
  * @public
  */
-export class PostContentCommand extends $Command
-  .classBuilder<
-    PostContentCommandInput,
-    PostContentCommandOutput,
-    LexRuntimeServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexRuntimeServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepSenseRunTimeService", "PostContent", {})
-  .n("LexRuntimeServiceClient", "PostContentCommand")
-  .sc(PostContent$)
-  .build() {
+export class PostContentCommand extends command<PostContentCommandInput, PostContentCommandOutput>(
+  _ep0,
+  _mw0,
+  "PostContent",
+  PostContent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

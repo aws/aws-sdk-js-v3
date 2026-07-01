@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateVolumeRequest, CreateVolumeResponse } from "../models/models_0";
 import { CreateVolume$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkspacesInstancesClientResolvedConfig,
-} from "../WorkspacesInstancesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +92,12 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  *
  * @public
  */
-export class CreateVolumeCommand extends $Command
-  .classBuilder<
-    CreateVolumeCommandInput,
-    CreateVolumeCommandOutput,
-    WorkspacesInstancesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkspacesInstancesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("EUCMIFrontendAPIService", "CreateVolume", {})
-  .n("WorkspacesInstancesClient", "CreateVolumeCommand")
-  .sc(CreateVolume$)
-  .build() {
+export class CreateVolumeCommand extends command<CreateVolumeCommandInput, CreateVolumeCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateVolume",
+  CreateVolume$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

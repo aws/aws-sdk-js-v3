@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeBrokerRequest, DescribeBrokerResponse } from "../models/models_0";
-import type { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient";
 import { DescribeBroker$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -192,22 +188,12 @@ export interface DescribeBrokerCommandOutput extends DescribeBrokerResponse, __M
  *
  * @public
  */
-export class DescribeBrokerCommand extends $Command
-  .classBuilder<
-    DescribeBrokerCommandInput,
-    DescribeBrokerCommandOutput,
-    MqClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MqClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("mq", "DescribeBroker", {})
-  .n("MqClient", "DescribeBrokerCommand")
-  .sc(DescribeBroker$)
-  .build() {
+export class DescribeBrokerCommand extends command<DescribeBrokerCommandInput, DescribeBrokerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeBroker",
+  DescribeBroker$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

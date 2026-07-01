@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAccessPointsRequest, DescribeAccessPointsResponse } from "../models/models_0";
 import { DescribeAccessPoints$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeAccessPoints$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsR
  *
  * @public
  */
-export class DescribeAccessPointsCommand extends $Command
-  .classBuilder<
-    DescribeAccessPointsCommandInput,
-    DescribeAccessPointsCommandOutput,
-    EFSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MagnolioAPIService_v20150201", "DescribeAccessPoints", {})
-  .n("EFSClient", "DescribeAccessPointsCommand")
-  .sc(DescribeAccessPoints$)
-  .build() {
+export class DescribeAccessPointsCommand extends command<DescribeAccessPointsCommandInput, DescribeAccessPointsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAccessPoints",
+  DescribeAccessPoints$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

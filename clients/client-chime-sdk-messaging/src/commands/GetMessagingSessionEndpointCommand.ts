@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKMessagingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKMessagingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMessagingSessionEndpointRequest, GetMessagingSessionEndpointResponse } from "../models/models_0";
 import { GetMessagingSessionEndpoint$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetMessagingSessionEndpoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface GetMessagingSessionEndpointCommandOutput extends GetMessagingSe
  *
  * @public
  */
-export class GetMessagingSessionEndpointCommand extends $Command
-  .classBuilder<
-    GetMessagingSessionEndpointCommandInput,
-    GetMessagingSessionEndpointCommandOutput,
-    ChimeSDKMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeMessagingService", "GetMessagingSessionEndpoint", {})
-  .n("ChimeSDKMessagingClient", "GetMessagingSessionEndpointCommand")
-  .sc(GetMessagingSessionEndpoint$)
-  .build() {
+export class GetMessagingSessionEndpointCommand extends command<GetMessagingSessionEndpointCommandInput, GetMessagingSessionEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMessagingSessionEndpoint",
+  GetMessagingSessionEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

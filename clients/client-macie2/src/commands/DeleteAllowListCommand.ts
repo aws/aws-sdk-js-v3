@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAllowListRequest, DeleteAllowListResponse } from "../models/models_0";
 import { DeleteAllowList$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAllowList$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteAllowListCommandOutput extends DeleteAllowListResponse, _
  *
  * @public
  */
-export class DeleteAllowListCommand extends $Command
-  .classBuilder<
-    DeleteAllowListCommandInput,
-    DeleteAllowListCommandOutput,
-    Macie2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Macie2", "DeleteAllowList", {})
-  .n("Macie2Client", "DeleteAllowListCommand")
-  .sc(DeleteAllowList$)
-  .build() {
+export class DeleteAllowListCommand extends command<DeleteAllowListCommandInput, DeleteAllowListCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAllowList",
+  DeleteAllowList$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

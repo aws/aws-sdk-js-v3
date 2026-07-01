@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListStackSetAutoDeploymentTargetsInput,
   ListStackSetAutoDeploymentTargetsOutput,
@@ -19,7 +12,6 @@ import { ListStackSetAutoDeploymentTargets$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +72,12 @@ export interface ListStackSetAutoDeploymentTargetsCommandOutput extends ListStac
  *
  * @public
  */
-export class ListStackSetAutoDeploymentTargetsCommand extends $Command
-  .classBuilder<
-    ListStackSetAutoDeploymentTargetsCommandInput,
-    ListStackSetAutoDeploymentTargetsCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "ListStackSetAutoDeploymentTargets", {})
-  .n("CloudFormationClient", "ListStackSetAutoDeploymentTargetsCommand")
-  .sc(ListStackSetAutoDeploymentTargets$)
-  .build() {
+export class ListStackSetAutoDeploymentTargetsCommand extends command<ListStackSetAutoDeploymentTargetsCommandInput, ListStackSetAutoDeploymentTargetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListStackSetAutoDeploymentTargets",
+  ListStackSetAutoDeploymentTargets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

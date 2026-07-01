@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelTaskExecutionRequest, CancelTaskExecutionResponse } from "../models/models_0";
 import { CancelTaskExecution$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CancelTaskExecution$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface CancelTaskExecutionCommandOutput extends CancelTaskExecutionRes
  *
  * @public
  */
-export class CancelTaskExecutionCommand extends $Command
-  .classBuilder<
-    CancelTaskExecutionCommandInput,
-    CancelTaskExecutionCommandOutput,
-    DataSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FmrsService", "CancelTaskExecution", {})
-  .n("DataSyncClient", "CancelTaskExecutionCommand")
-  .sc(CancelTaskExecution$)
-  .build() {
+export class CancelTaskExecutionCommand extends command<CancelTaskExecutionCommandInput, CancelTaskExecutionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelTaskExecution",
+  CancelTaskExecution$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPermissionsRequest, ListPermissionsResponse } from "../models/models_0";
 import { ListPermissions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListPermissions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -226,22 +222,12 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  *
  * @public
  */
-export class ListPermissionsCommand extends $Command
-  .classBuilder<
-    ListPermissionsCommandInput,
-    ListPermissionsCommandOutput,
-    LakeFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLakeFormation", "ListPermissions", {})
-  .n("LakeFormationClient", "ListPermissionsCommand")
-  .sc(ListPermissions$)
-  .build() {
+export class ListPermissionsCommand extends command<ListPermissionsCommandInput, ListPermissionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPermissions",
+  ListPermissions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListEnabledControlsInput, ListEnabledControlsOutput } from "../models/models_0";
 import { ListEnabledControls$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListEnabledControls$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +116,12 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
  *
  * @public
  */
-export class ListEnabledControlsCommand extends $Command
-  .classBuilder<
-    ListEnabledControlsCommandInput,
-    ListEnabledControlsCommandOutput,
-    ControlTowerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSControlTowerApis", "ListEnabledControls", {})
-  .n("ControlTowerClient", "ListEnabledControlsCommand")
-  .sc(ListEnabledControls$)
-  .build() {
+export class ListEnabledControlsCommand extends command<ListEnabledControlsCommandInput, ListEnabledControlsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEnabledControls",
+  ListEnabledControls$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

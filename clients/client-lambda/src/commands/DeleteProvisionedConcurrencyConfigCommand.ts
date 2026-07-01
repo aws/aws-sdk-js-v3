@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteProvisionedConcurrencyConfigRequest } from "../models/models_0";
 import { DeleteProvisionedConcurrencyConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteProvisionedConcurrencyConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface DeleteProvisionedConcurrencyConfigCommandOutput extends __Metad
  *
  * @public
  */
-export class DeleteProvisionedConcurrencyConfigCommand extends $Command
-  .classBuilder<
-    DeleteProvisionedConcurrencyConfigCommandInput,
-    DeleteProvisionedConcurrencyConfigCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "DeleteProvisionedConcurrencyConfig", {})
-  .n("LambdaClient", "DeleteProvisionedConcurrencyConfigCommand")
-  .sc(DeleteProvisionedConcurrencyConfig$)
-  .build() {
+export class DeleteProvisionedConcurrencyConfigCommand extends command<DeleteProvisionedConcurrencyConfigCommandInput, DeleteProvisionedConcurrencyConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteProvisionedConcurrencyConfig",
+  DeleteProvisionedConcurrencyConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

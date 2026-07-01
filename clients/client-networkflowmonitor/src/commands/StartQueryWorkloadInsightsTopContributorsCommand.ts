@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StartQueryWorkloadInsightsTopContributorsInput,
   StartQueryWorkloadInsightsTopContributorsOutput,
 } from "../models/models_0";
-import type {
-  NetworkFlowMonitorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFlowMonitorClient";
 import { StartQueryWorkloadInsightsTopContributors$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface StartQueryWorkloadInsightsTopContributorsCommandOutput extends 
  *
  * @public
  */
-export class StartQueryWorkloadInsightsTopContributorsCommand extends $Command
-  .classBuilder<
-    StartQueryWorkloadInsightsTopContributorsCommandInput,
-    StartQueryWorkloadInsightsTopContributorsCommandOutput,
-    NetworkFlowMonitorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFlowMonitorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFlowMonitor", "StartQueryWorkloadInsightsTopContributors", {})
-  .n("NetworkFlowMonitorClient", "StartQueryWorkloadInsightsTopContributorsCommand")
-  .sc(StartQueryWorkloadInsightsTopContributors$)
-  .build() {
+export class StartQueryWorkloadInsightsTopContributorsCommand extends command<StartQueryWorkloadInsightsTopContributorsCommandInput, StartQueryWorkloadInsightsTopContributorsCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartQueryWorkloadInsightsTopContributors",
+  StartQueryWorkloadInsightsTopContributors$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

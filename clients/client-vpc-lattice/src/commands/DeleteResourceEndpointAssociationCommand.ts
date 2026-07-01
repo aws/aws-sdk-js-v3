@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteResourceEndpointAssociationRequest,
   DeleteResourceEndpointAssociationResponse,
 } from "../models/models_0";
 import { DeleteResourceEndpointAssociation$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface DeleteResourceEndpointAssociationCommandOutput extends DeleteRe
  *
  * @public
  */
-export class DeleteResourceEndpointAssociationCommand extends $Command
-  .classBuilder<
-    DeleteResourceEndpointAssociationCommandInput,
-    DeleteResourceEndpointAssociationCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "DeleteResourceEndpointAssociation", {})
-  .n("VPCLatticeClient", "DeleteResourceEndpointAssociationCommand")
-  .sc(DeleteResourceEndpointAssociation$)
-  .build() {
+export class DeleteResourceEndpointAssociationCommand extends command<DeleteResourceEndpointAssociationCommandInput, DeleteResourceEndpointAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteResourceEndpointAssociation",
+  DeleteResourceEndpointAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

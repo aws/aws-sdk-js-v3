@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePolicyType } from "../models/models_0";
 import { DeletePolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeletePolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeletePolicyCommand extends $Command
-  .classBuilder<
-    DeletePolicyCommandInput,
-    DeletePolicyCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "DeletePolicy", {})
-  .n("AutoScalingClient", "DeletePolicyCommand")
-  .sc(DeletePolicy$)
-  .build() {
+export class DeletePolicyCommand extends command<DeletePolicyCommandInput, DeletePolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePolicy",
+  DeletePolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

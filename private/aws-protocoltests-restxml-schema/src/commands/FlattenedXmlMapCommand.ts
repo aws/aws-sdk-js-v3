@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { FlattenedXmlMapRequest, FlattenedXmlMapResponse } from "../models/models_0";
-import type {
-  RestXmlProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestXmlProtocolClient";
 import { FlattenedXmlMap$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +59,12 @@ export interface FlattenedXmlMapCommandOutput extends FlattenedXmlMapResponse, _
  *
  * @public
  */
-export class FlattenedXmlMapCommand extends $Command
-  .classBuilder<
-    FlattenedXmlMapCommandInput,
-    FlattenedXmlMapCommandOutput,
-    RestXmlProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestXml", "FlattenedXmlMap", {})
-  .n("RestXmlProtocolClient", "FlattenedXmlMapCommand")
-  .sc(FlattenedXmlMap$)
-  .build() {
+export class FlattenedXmlMapCommand extends command<FlattenedXmlMapCommandInput, FlattenedXmlMapCommandOutput>(
+  _ep0,
+  _mw0,
+  "FlattenedXmlMap",
+  FlattenedXmlMap$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

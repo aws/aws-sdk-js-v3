@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep9, _mw4, command } from "../commandBuilder";
 import type { WriteGetObjectResponseRequest } from "../models/models_1";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { WriteGetObjectResponse$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -142,25 +138,12 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class WriteGetObjectResponseCommand extends $Command
-  .classBuilder<
-    WriteGetObjectResponseCommandInput,
-    WriteGetObjectResponseCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    UseObjectLambdaEndpoint: { type: "staticContextParams", value: true },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonS3", "WriteGetObjectResponse", {})
-  .n("S3Client", "WriteGetObjectResponseCommand")
-  .sc(WriteGetObjectResponse$)
-  .build() {
+export class WriteGetObjectResponseCommand extends command<WriteGetObjectResponseCommandInput, WriteGetObjectResponseCommandOutput>(
+  _ep9,
+  _mw4,
+  "WriteGetObjectResponse",
+  WriteGetObjectResponse$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

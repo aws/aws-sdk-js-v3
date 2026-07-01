@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateNotificationConfigurationRequest,
   UpdateNotificationConfigurationResponse,
 } from "../models/models_0";
-import type { NotificationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NotificationsClient";
 import { UpdateNotificationConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface UpdateNotificationConfigurationCommandOutput extends UpdateNoti
  *
  * @public
  */
-export class UpdateNotificationConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateNotificationConfigurationCommandInput,
-    UpdateNotificationConfigurationCommandOutput,
-    NotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Notifications", "UpdateNotificationConfiguration", {})
-  .n("NotificationsClient", "UpdateNotificationConfigurationCommand")
-  .sc(UpdateNotificationConfiguration$)
-  .build() {
+export class UpdateNotificationConfigurationCommand extends command<UpdateNotificationConfigurationCommandInput, UpdateNotificationConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateNotificationConfiguration",
+  UpdateNotificationConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

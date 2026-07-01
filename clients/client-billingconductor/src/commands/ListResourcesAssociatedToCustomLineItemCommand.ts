@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BillingconductorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BillingconductorClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListResourcesAssociatedToCustomLineItemInput,
   ListResourcesAssociatedToCustomLineItemOutput,
@@ -19,7 +12,6 @@ import { ListResourcesAssociatedToCustomLineItem$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface ListResourcesAssociatedToCustomLineItemCommandOutput extends Li
  *
  * @public
  */
-export class ListResourcesAssociatedToCustomLineItemCommand extends $Command
-  .classBuilder<
-    ListResourcesAssociatedToCustomLineItemCommandInput,
-    ListResourcesAssociatedToCustomLineItemCommandOutput,
-    BillingconductorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBillingConductor", "ListResourcesAssociatedToCustomLineItem", {})
-  .n("BillingconductorClient", "ListResourcesAssociatedToCustomLineItemCommand")
-  .sc(ListResourcesAssociatedToCustomLineItem$)
-  .build() {
+export class ListResourcesAssociatedToCustomLineItemCommand extends command<ListResourcesAssociatedToCustomLineItemCommandInput, ListResourcesAssociatedToCustomLineItemCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListResourcesAssociatedToCustomLineItem",
+  ListResourcesAssociatedToCustomLineItem$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

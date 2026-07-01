@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartConfigurationRecorderRequest } from "../models/models_0";
 import { StartConfigurationRecorder$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartConfigurationRecorder$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface StartConfigurationRecorderCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class StartConfigurationRecorderCommand extends $Command
-  .classBuilder<
-    StartConfigurationRecorderCommandInput,
-    StartConfigurationRecorderCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "StartConfigurationRecorder", {})
-  .n("ConfigServiceClient", "StartConfigurationRecorderCommand")
-  .sc(StartConfigurationRecorder$)
-  .build() {
+export class StartConfigurationRecorderCommand extends command<StartConfigurationRecorderCommandInput, StartConfigurationRecorderCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartConfigurationRecorder",
+  StartConfigurationRecorder$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

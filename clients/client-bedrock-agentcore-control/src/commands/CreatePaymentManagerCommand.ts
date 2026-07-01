@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreatePaymentManagerRequest, CreatePaymentManagerResponse } from "../models/models_1";
 import { CreatePaymentManager$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreatePaymentManager$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -260,22 +252,12 @@ export interface CreatePaymentManagerCommandOutput extends CreatePaymentManagerR
  *
  * @public
  */
-export class CreatePaymentManagerCommand extends $Command
-  .classBuilder<
-    CreatePaymentManagerCommandInput,
-    CreatePaymentManagerCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "CreatePaymentManager", {})
-  .n("BedrockAgentCoreControlClient", "CreatePaymentManagerCommand")
-  .sc(CreatePaymentManager$)
-  .build() {
+export class CreatePaymentManagerCommand extends command<CreatePaymentManagerCommandInput, CreatePaymentManagerCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreatePaymentManager",
+  CreatePaymentManager$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

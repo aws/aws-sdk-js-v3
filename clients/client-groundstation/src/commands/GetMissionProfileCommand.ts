@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMissionProfileRequest, GetMissionProfileResponse } from "../models/models_0";
 import { GetMissionProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetMissionProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface GetMissionProfileCommandOutput extends GetMissionProfileRespons
  *
  * @public
  */
-export class GetMissionProfileCommand extends $Command
-  .classBuilder<
-    GetMissionProfileCommandInput,
-    GetMissionProfileCommandOutput,
-    GroundStationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GroundStation", "GetMissionProfile", {})
-  .n("GroundStationClient", "GetMissionProfileCommand")
-  .sc(GetMissionProfile$)
-  .build() {
+export class GetMissionProfileCommand extends command<GetMissionProfileCommandInput, GetMissionProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMissionProfile",
+  GetMissionProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RevokeRestoreAccessBackupVaultInput } from "../models/models_0";
 import { RevokeRestoreAccessBackupVault$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RevokeRestoreAccessBackupVault$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface RevokeRestoreAccessBackupVaultCommandOutput extends __MetadataB
  *
  * @public
  */
-export class RevokeRestoreAccessBackupVaultCommand extends $Command
-  .classBuilder<
-    RevokeRestoreAccessBackupVaultCommandInput,
-    RevokeRestoreAccessBackupVaultCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "RevokeRestoreAccessBackupVault", {})
-  .n("BackupClient", "RevokeRestoreAccessBackupVaultCommand")
-  .sc(RevokeRestoreAccessBackupVault$)
-  .build() {
+export class RevokeRestoreAccessBackupVaultCommand extends command<RevokeRestoreAccessBackupVaultCommandInput, RevokeRestoreAccessBackupVaultCommandOutput>(
+  _ep0,
+  _mw0,
+  "RevokeRestoreAccessBackupVault",
+  RevokeRestoreAccessBackupVault$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

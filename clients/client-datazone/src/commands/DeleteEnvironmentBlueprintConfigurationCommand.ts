@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteEnvironmentBlueprintConfigurationInput,
   DeleteEnvironmentBlueprintConfigurationOutput,
@@ -15,7 +12,6 @@ import { DeleteEnvironmentBlueprintConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DeleteEnvironmentBlueprintConfigurationCommandOutput extends De
  *
  * @public
  */
-export class DeleteEnvironmentBlueprintConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteEnvironmentBlueprintConfigurationCommandInput,
-    DeleteEnvironmentBlueprintConfigurationCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "DeleteEnvironmentBlueprintConfiguration", {})
-  .n("DataZoneClient", "DeleteEnvironmentBlueprintConfigurationCommand")
-  .sc(DeleteEnvironmentBlueprintConfiguration$)
-  .build() {
+export class DeleteEnvironmentBlueprintConfigurationCommand extends command<DeleteEnvironmentBlueprintConfigurationCommandInput, DeleteEnvironmentBlueprintConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEnvironmentBlueprintConfiguration",
+  DeleteEnvironmentBlueprintConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

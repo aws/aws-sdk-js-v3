@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAuthPolicyRequest, GetAuthPolicyResponse } from "../models/models_0";
 import { GetAuthPolicy$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface GetAuthPolicyCommandOutput extends GetAuthPolicyResponse, __Met
  *
  * @public
  */
-export class GetAuthPolicyCommand extends $Command
-  .classBuilder<
-    GetAuthPolicyCommandInput,
-    GetAuthPolicyCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "GetAuthPolicy", {})
-  .n("VPCLatticeClient", "GetAuthPolicyCommand")
-  .sc(GetAuthPolicy$)
-  .build() {
+export class GetAuthPolicyCommand extends command<GetAuthPolicyCommandInput, GetAuthPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAuthPolicy",
+  GetAuthPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

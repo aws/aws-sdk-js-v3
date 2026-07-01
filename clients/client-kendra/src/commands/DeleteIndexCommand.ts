@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteIndexRequest } from "../models/models_0";
 import { DeleteIndex$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteIndex$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DeleteIndexCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteIndexCommand extends $Command
-  .classBuilder<
-    DeleteIndexCommandInput,
-    DeleteIndexCommandOutput,
-    KendraClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSKendraFrontendService", "DeleteIndex", {})
-  .n("KendraClient", "DeleteIndexCommand")
-  .sc(DeleteIndex$)
-  .build() {
+export class DeleteIndexCommand extends command<DeleteIndexCommandInput, DeleteIndexCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteIndex",
+  DeleteIndex$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

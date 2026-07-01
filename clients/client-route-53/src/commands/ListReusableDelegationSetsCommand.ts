@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw2, command } from "../commandBuilder";
 import type { ListReusableDelegationSetsRequest, ListReusableDelegationSetsResponse } from "../models/models_0";
-import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 import { ListReusableDelegationSets$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface ListReusableDelegationSetsCommandOutput extends ListReusableDel
  *
  * @public
  */
-export class ListReusableDelegationSetsCommand extends $Command
-  .classBuilder<
-    ListReusableDelegationSetsCommandInput,
-    ListReusableDelegationSetsCommandOutput,
-    Route53ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDnsV20130401", "ListReusableDelegationSets", {})
-  .n("Route53Client", "ListReusableDelegationSetsCommand")
-  .sc(ListReusableDelegationSets$)
-  .build() {
+export class ListReusableDelegationSetsCommand extends command<ListReusableDelegationSetsCommandInput, ListReusableDelegationSetsCommandOutput>(
+  _ep0,
+  _mw2,
+  "ListReusableDelegationSets",
+  ListReusableDelegationSets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

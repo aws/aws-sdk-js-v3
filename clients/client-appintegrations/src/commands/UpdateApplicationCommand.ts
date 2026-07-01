@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AppIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AppIntegrationsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateApplicationRequest, UpdateApplicationResponse } from "../models/models_0";
 import { UpdateApplication$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateApplication$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -135,22 +127,12 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *
  * @public
  */
-export class UpdateApplicationCommand extends $Command
-  .classBuilder<
-    UpdateApplicationCommandInput,
-    UpdateApplicationCommandOutput,
-    AppIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAppIntegrationService", "UpdateApplication", {})
-  .n("AppIntegrationsClient", "UpdateApplicationCommand")
-  .sc(UpdateApplication$)
-  .build() {
+export class UpdateApplicationCommand extends command<UpdateApplicationCommandInput, UpdateApplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateApplication",
+  UpdateApplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

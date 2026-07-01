@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateTokenWithIAMRequest, CreateTokenWithIAMResponse } from "../models/models_0";
 import { CreateTokenWithIAM$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -257,22 +253,12 @@ export interface CreateTokenWithIAMCommandOutput extends CreateTokenWithIAMRespo
  *
  * @public
  */
-export class CreateTokenWithIAMCommand extends $Command
-  .classBuilder<
-    CreateTokenWithIAMCommandInput,
-    CreateTokenWithIAMCommandOutput,
-    SSOOIDCClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOOIDCClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSSOOIDCService", "CreateTokenWithIAM", {})
-  .n("SSOOIDCClient", "CreateTokenWithIAMCommand")
-  .sc(CreateTokenWithIAM$)
-  .build() {
+export class CreateTokenWithIAMCommand extends command<CreateTokenWithIAMCommandInput, CreateTokenWithIAMCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTokenWithIAM",
+  CreateTokenWithIAM$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

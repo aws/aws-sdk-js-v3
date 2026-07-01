@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveNotificationChannelRequest, RemoveNotificationChannelResponse } from "../models/models_0";
 import { RemoveNotificationChannel$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RemoveNotificationChannel$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface RemoveNotificationChannelCommandOutput extends RemoveNotificati
  *
  * @public
  */
-export class RemoveNotificationChannelCommand extends $Command
-  .classBuilder<
-    RemoveNotificationChannelCommandInput,
-    RemoveNotificationChannelCommandOutput,
-    DevOpsGuruClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CapstoneControlPlaneService", "RemoveNotificationChannel", {})
-  .n("DevOpsGuruClient", "RemoveNotificationChannelCommand")
-  .sc(RemoveNotificationChannel$)
-  .build() {
+export class RemoveNotificationChannelCommand extends command<RemoveNotificationChannelCommandInput, RemoveNotificationChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveNotificationChannel",
+  RemoveNotificationChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

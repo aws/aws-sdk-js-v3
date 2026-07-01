@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTransformerRequest, GetTransformerResponse } from "../models/models_0";
 import { GetTransformer$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetTransformer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -230,22 +222,12 @@ export interface GetTransformerCommandOutput extends GetTransformerResponse, __M
  *
  * @public
  */
-export class GetTransformerCommand extends $Command
-  .classBuilder<
-    GetTransformerCommandInput,
-    GetTransformerCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "GetTransformer", {})
-  .n("CloudWatchLogsClient", "GetTransformerCommand")
-  .sc(GetTransformer$)
-  .build() {
+export class GetTransformerCommand extends command<GetTransformerCommandInput, GetTransformerCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTransformer",
+  GetTransformer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

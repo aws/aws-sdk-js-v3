@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartJobRunRequest, StartJobRunResponse } from "../models/models_3";
 import { StartJobRun$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartJobRun$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  *
  * @public
  */
-export class StartJobRunCommand extends $Command
-  .classBuilder<
-    StartJobRunCommandInput,
-    StartJobRunCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "StartJobRun", {})
-  .n("GlueClient", "StartJobRunCommand")
-  .sc(StartJobRun$)
-  .build() {
+export class StartJobRunCommand extends command<StartJobRunCommandInput, StartJobRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartJobRun",
+  StartJobRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

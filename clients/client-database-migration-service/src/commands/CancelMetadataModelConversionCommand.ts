@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelMetadataModelConversionMessage, CancelMetadataModelConversionResponse } from "../models/models_0";
 import { CancelMetadataModelConversion$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CancelMetadataModelConversion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +89,12 @@ export interface CancelMetadataModelConversionCommandOutput extends CancelMetada
  *
  * @public
  */
-export class CancelMetadataModelConversionCommand extends $Command
-  .classBuilder<
-    CancelMetadataModelConversionCommandInput,
-    CancelMetadataModelConversionCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "CancelMetadataModelConversion", {})
-  .n("DatabaseMigrationServiceClient", "CancelMetadataModelConversionCommand")
-  .sc(CancelMetadataModelConversion$)
-  .build() {
+export class CancelMetadataModelConversionCommand extends command<CancelMetadataModelConversionCommandInput, CancelMetadataModelConversionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelMetadataModelConversion",
+  CancelMetadataModelConversion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

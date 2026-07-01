@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationDiscoveryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationDiscoveryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopDataCollectionByAgentIdsRequest, StopDataCollectionByAgentIdsResponse } from "../models/models_0";
 import { StopDataCollectionByAgentIds$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StopDataCollectionByAgentIds$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface StopDataCollectionByAgentIdsCommandOutput extends StopDataColle
  *
  * @public
  */
-export class StopDataCollectionByAgentIdsCommand extends $Command
-  .classBuilder<
-    StopDataCollectionByAgentIdsCommandInput,
-    StopDataCollectionByAgentIdsCommandOutput,
-    ApplicationDiscoveryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationDiscoveryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPoseidonService_V2015_11_01", "StopDataCollectionByAgentIds", {})
-  .n("ApplicationDiscoveryServiceClient", "StopDataCollectionByAgentIdsCommand")
-  .sc(StopDataCollectionByAgentIds$)
-  .build() {
+export class StopDataCollectionByAgentIdsCommand extends command<StopDataCollectionByAgentIdsCommandInput, StopDataCollectionByAgentIdsCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopDataCollectionByAgentIds",
+  StopDataCollectionByAgentIds$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

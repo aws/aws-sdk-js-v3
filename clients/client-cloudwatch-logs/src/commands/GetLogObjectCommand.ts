@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetLogObjectRequest, GetLogObjectResponse } from "../models/models_0";
 import { GetLogObject$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetLogObject$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,29 +94,12 @@ export interface GetLogObjectCommandOutput extends GetLogObjectResponse, __Metad
  *
  * @public
  */
-export class GetLogObjectCommand extends $Command
-  .classBuilder<
-    GetLogObjectCommandInput,
-    GetLogObjectCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "GetLogObject", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      output: true,
-    },
-  })
-  .n("CloudWatchLogsClient", "GetLogObjectCommand")
-  .sc(GetLogObject$)
-  .build() {
+export class GetLogObjectCommand extends command<GetLogObjectCommandInput, GetLogObjectCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetLogObject",
+  GetLogObject$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

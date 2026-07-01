@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeMaintenanceStartTimeInput, DescribeMaintenanceStartTimeOutput } from "../models/models_0";
 import { DescribeMaintenanceStartTime$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +92,12 @@ export interface DescribeMaintenanceStartTimeCommandOutput extends DescribeMaint
  *
  * @public
  */
-export class DescribeMaintenanceStartTimeCommand extends $Command
-  .classBuilder<
-    DescribeMaintenanceStartTimeCommandInput,
-    DescribeMaintenanceStartTimeCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "DescribeMaintenanceStartTime", {})
-  .n("StorageGatewayClient", "DescribeMaintenanceStartTimeCommand")
-  .sc(DescribeMaintenanceStartTime$)
-  .build() {
+export class DescribeMaintenanceStartTimeCommand extends command<DescribeMaintenanceStartTimeCommandInput, DescribeMaintenanceStartTimeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeMaintenanceStartTime",
+  DescribeMaintenanceStartTime$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

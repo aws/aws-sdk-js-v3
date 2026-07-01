@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetInvestigationRequest, GetInvestigationResponse } from "../models/models_0";
 import { GetInvestigation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetInvestigation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface GetInvestigationCommandOutput extends GetInvestigationResponse,
  *
  * @public
  */
-export class GetInvestigationCommand extends $Command
-  .classBuilder<
-    GetInvestigationCommandInput,
-    GetInvestigationCommandOutput,
-    DetectiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDetective", "GetInvestigation", {})
-  .n("DetectiveClient", "GetInvestigationCommand")
-  .sc(GetInvestigation$)
-  .build() {
+export class GetInvestigationCommand extends command<GetInvestigationCommandInput, GetInvestigationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetInvestigation",
+  GetInvestigation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

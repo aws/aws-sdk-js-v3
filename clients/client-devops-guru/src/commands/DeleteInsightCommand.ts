@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteInsightRequest, DeleteInsightResponse } from "../models/models_0";
 import { DeleteInsight$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteInsight$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DeleteInsightCommandOutput extends DeleteInsightResponse, __Met
  *
  * @public
  */
-export class DeleteInsightCommand extends $Command
-  .classBuilder<
-    DeleteInsightCommandInput,
-    DeleteInsightCommandOutput,
-    DevOpsGuruClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CapstoneControlPlaneService", "DeleteInsight", {})
-  .n("DevOpsGuruClient", "DeleteInsightCommand")
-  .sc(DeleteInsight$)
-  .build() {
+export class DeleteInsightCommand extends command<DeleteInsightCommandInput, DeleteInsightCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteInsight",
+  DeleteInsight$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

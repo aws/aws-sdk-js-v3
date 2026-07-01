@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeEventSourcesConfigRequest, DescribeEventSourcesConfigResponse } from "../models/models_0";
 import { DescribeEventSourcesConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeEventSourcesConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface DescribeEventSourcesConfigCommandOutput extends DescribeEventSo
  *
  * @public
  */
-export class DescribeEventSourcesConfigCommand extends $Command
-  .classBuilder<
-    DescribeEventSourcesConfigCommandInput,
-    DescribeEventSourcesConfigCommandOutput,
-    DevOpsGuruClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CapstoneControlPlaneService", "DescribeEventSourcesConfig", {})
-  .n("DevOpsGuruClient", "DescribeEventSourcesConfigCommand")
-  .sc(DescribeEventSourcesConfig$)
-  .build() {
+export class DescribeEventSourcesConfigCommand extends command<DescribeEventSourcesConfigCommandInput, DescribeEventSourcesConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEventSourcesConfig",
+  DescribeEventSourcesConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

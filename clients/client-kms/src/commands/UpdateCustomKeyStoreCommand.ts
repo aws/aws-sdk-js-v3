@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateCustomKeyStoreRequest, UpdateCustomKeyStoreResponse } from "../models/models_0";
 import { UpdateCustomKeyStore$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateCustomKeyStore$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -396,22 +392,12 @@ export interface UpdateCustomKeyStoreCommandOutput extends UpdateCustomKeyStoreR
  *
  * @public
  */
-export class UpdateCustomKeyStoreCommand extends $Command
-  .classBuilder<
-    UpdateCustomKeyStoreCommandInput,
-    UpdateCustomKeyStoreCommandOutput,
-    KMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrentService", "UpdateCustomKeyStore", {})
-  .n("KMSClient", "UpdateCustomKeyStoreCommand")
-  .sc(UpdateCustomKeyStore$)
-  .build() {
+export class UpdateCustomKeyStoreCommand extends command<UpdateCustomKeyStoreCommandInput, UpdateCustomKeyStoreCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateCustomKeyStore",
+  UpdateCustomKeyStore$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

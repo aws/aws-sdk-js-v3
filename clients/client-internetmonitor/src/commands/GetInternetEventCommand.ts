@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  InternetMonitorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../InternetMonitorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetInternetEventInput, GetInternetEventOutput } from "../models/models_0";
 import { GetInternetEvent$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetInternetEvent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface GetInternetEventCommandOutput extends GetInternetEventOutput, _
  *
  * @public
  */
-export class GetInternetEventCommand extends $Command
-  .classBuilder<
-    GetInternetEventCommandInput,
-    GetInternetEventCommandOutput,
-    InternetMonitorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InternetMonitorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("InternetMonitor20210603", "GetInternetEvent", {})
-  .n("InternetMonitorClient", "GetInternetEventCommand")
-  .sc(GetInternetEvent$)
-  .build() {
+export class GetInternetEventCommand extends command<GetInternetEventCommandInput, GetInternetEventCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetInternetEvent",
+  GetInternetEvent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

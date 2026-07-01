@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateMetadataTransferJobRequest, CreateMetadataTransferJobResponse } from "../models/models_0";
 import { CreateMetadataTransferJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateMetadataTransferJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -139,22 +135,12 @@ export interface CreateMetadataTransferJobCommandOutput extends CreateMetadataTr
  *
  * @public
  */
-export class CreateMetadataTransferJobCommand extends $Command
-  .classBuilder<
-    CreateMetadataTransferJobCommandInput,
-    CreateMetadataTransferJobCommandOutput,
-    IoTTwinMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTTwinMaker", "CreateMetadataTransferJob", {})
-  .n("IoTTwinMakerClient", "CreateMetadataTransferJobCommand")
-  .sc(CreateMetadataTransferJob$)
-  .build() {
+export class CreateMetadataTransferJobCommand extends command<CreateMetadataTransferJobCommandInput, CreateMetadataTransferJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateMetadataTransferJob",
+  CreateMetadataTransferJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

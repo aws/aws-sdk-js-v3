@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchUpdateMemberEc2DeepInspectionStatusRequest,
   BatchUpdateMemberEc2DeepInspectionStatusResponse,
@@ -15,7 +12,6 @@ import { BatchUpdateMemberEc2DeepInspectionStatus$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface BatchUpdateMemberEc2DeepInspectionStatusCommandOutput extends B
  *
  * @public
  */
-export class BatchUpdateMemberEc2DeepInspectionStatusCommand extends $Command
-  .classBuilder<
-    BatchUpdateMemberEc2DeepInspectionStatusCommandInput,
-    BatchUpdateMemberEc2DeepInspectionStatusCommandOutput,
-    Inspector2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Inspector2", "BatchUpdateMemberEc2DeepInspectionStatus", {})
-  .n("Inspector2Client", "BatchUpdateMemberEc2DeepInspectionStatusCommand")
-  .sc(BatchUpdateMemberEc2DeepInspectionStatus$)
-  .build() {
+export class BatchUpdateMemberEc2DeepInspectionStatusCommand extends command<BatchUpdateMemberEc2DeepInspectionStatusCommandInput, BatchUpdateMemberEc2DeepInspectionStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchUpdateMemberEc2DeepInspectionStatus",
+  BatchUpdateMemberEc2DeepInspectionStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

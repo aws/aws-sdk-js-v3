@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateAnalyticsDataSetRequest } from "../models/models_1";
 import { DisassociateAnalyticsDataSet$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateAnalyticsDataSet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DisassociateAnalyticsDataSetCommandOutput extends __MetadataBea
  *
  * @public
  */
-export class DisassociateAnalyticsDataSetCommand extends $Command
-  .classBuilder<
-    DisassociateAnalyticsDataSetCommandInput,
-    DisassociateAnalyticsDataSetCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DisassociateAnalyticsDataSet", {})
-  .n("ConnectClient", "DisassociateAnalyticsDataSetCommand")
-  .sc(DisassociateAnalyticsDataSet$)
-  .build() {
+export class DisassociateAnalyticsDataSetCommand extends command<DisassociateAnalyticsDataSetCommandInput, DisassociateAnalyticsDataSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateAnalyticsDataSet",
+  DisassociateAnalyticsDataSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

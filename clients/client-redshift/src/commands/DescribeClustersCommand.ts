@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ClustersMessage, DescribeClustersMessage } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { DescribeClusters$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -280,22 +276,12 @@ export interface DescribeClustersCommandOutput extends ClustersMessage, __Metada
  *
  * @public
  */
-export class DescribeClustersCommand extends $Command
-  .classBuilder<
-    DescribeClustersCommandInput,
-    DescribeClustersCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "DescribeClusters", {})
-  .n("RedshiftClient", "DescribeClustersCommand")
-  .sc(DescribeClusters$)
-  .build() {
+export class DescribeClustersCommand extends command<DescribeClustersCommandInput, DescribeClustersCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeClusters",
+  DescribeClusters$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

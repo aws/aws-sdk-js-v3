@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListImagePipelineImagesRequest, ListImagePipelineImagesResponse } from "../models/models_0";
 import { ListImagePipelineImages$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListImagePipelineImages$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -146,22 +142,12 @@ export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineI
  *
  * @public
  */
-export class ListImagePipelineImagesCommand extends $Command
-  .classBuilder<
-    ListImagePipelineImagesCommandInput,
-    ListImagePipelineImagesCommandOutput,
-    ImagebuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("imagebuilder", "ListImagePipelineImages", {})
-  .n("ImagebuilderClient", "ListImagePipelineImagesCommand")
-  .sc(ListImagePipelineImages$)
-  .build() {
+export class ListImagePipelineImagesCommand extends command<ListImagePipelineImagesCommandInput, ListImagePipelineImagesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListImagePipelineImages",
+  ListImagePipelineImages$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

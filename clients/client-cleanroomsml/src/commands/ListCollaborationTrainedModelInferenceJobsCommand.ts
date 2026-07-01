@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListCollaborationTrainedModelInferenceJobsRequest,
   ListCollaborationTrainedModelInferenceJobsResponse,
@@ -15,7 +12,6 @@ import { ListCollaborationTrainedModelInferenceJobs$ } from "../schemas/schemas_
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface ListCollaborationTrainedModelInferenceJobsCommandOutput extends
  *
  * @public
  */
-export class ListCollaborationTrainedModelInferenceJobsCommand extends $Command
-  .classBuilder<
-    ListCollaborationTrainedModelInferenceJobsCommandInput,
-    ListCollaborationTrainedModelInferenceJobsCommandOutput,
-    CleanRoomsMLClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStarkControlService", "ListCollaborationTrainedModelInferenceJobs", {})
-  .n("CleanRoomsMLClient", "ListCollaborationTrainedModelInferenceJobsCommand")
-  .sc(ListCollaborationTrainedModelInferenceJobs$)
-  .build() {
+export class ListCollaborationTrainedModelInferenceJobsCommand extends command<ListCollaborationTrainedModelInferenceJobsCommandInput, ListCollaborationTrainedModelInferenceJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCollaborationTrainedModelInferenceJobs",
+  ListCollaborationTrainedModelInferenceJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTopicRequest, DeleteTopicResponse } from "../models/models_0";
 import { DeleteTopic$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteTopic$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface DeleteTopicCommandOutput extends DeleteTopicResponse, __Metadat
  *
  * @public
  */
-export class DeleteTopicCommand extends $Command
-  .classBuilder<
-    DeleteTopicCommandInput,
-    DeleteTopicCommandOutput,
-    KafkaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kafka", "DeleteTopic", {})
-  .n("KafkaClient", "DeleteTopicCommand")
-  .sc(DeleteTopic$)
-  .build() {
+export class DeleteTopicCommand extends command<DeleteTopicCommandInput, DeleteTopicCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTopic",
+  DeleteTopic$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateImageVersionRequest, CreateImageVersionResponse } from "../models/models_1";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreateImageVersion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface CreateImageVersionCommandOutput extends CreateImageVersionRespo
  *
  * @public
  */
-export class CreateImageVersionCommand extends $Command
-  .classBuilder<
-    CreateImageVersionCommandInput,
-    CreateImageVersionCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "CreateImageVersion", {})
-  .n("SageMakerClient", "CreateImageVersionCommand")
-  .sc(CreateImageVersion$)
-  .build() {
+export class CreateImageVersionCommand extends command<CreateImageVersionCommandInput, CreateImageVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateImageVersion",
+  CreateImageVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep3, _mw0, command } from "../commandBuilder";
 import type { UpdateGlobalTableInput, UpdateGlobalTableOutput } from "../models/models_0";
 import { UpdateGlobalTable$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateGlobalTable$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -165,25 +161,12 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  *
  * @public
  */
-export class UpdateGlobalTableCommand extends $Command
-  .classBuilder<
-    UpdateGlobalTableCommandInput,
-    UpdateGlobalTableCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "contextParams", name: "GlobalTableName" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "UpdateGlobalTable", {})
-  .n("DynamoDBClient", "UpdateGlobalTableCommand")
-  .sc(UpdateGlobalTable$)
-  .build() {
+export class UpdateGlobalTableCommand extends command<UpdateGlobalTableCommandInput, UpdateGlobalTableCommandOutput>(
+  _ep3,
+  _mw0,
+  "UpdateGlobalTable",
+  UpdateGlobalTable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

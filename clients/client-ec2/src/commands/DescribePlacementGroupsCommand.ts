@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribePlacementGroupsRequest, DescribePlacementGroupsResult } from "../models/models_4";
 import { DescribePlacementGroups$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribePlacementGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface DescribePlacementGroupsCommandOutput extends DescribePlacementG
  *
  * @public
  */
-export class DescribePlacementGroupsCommand extends $Command
-  .classBuilder<
-    DescribePlacementGroupsCommandInput,
-    DescribePlacementGroupsCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribePlacementGroups", {})
-  .n("EC2Client", "DescribePlacementGroupsCommand")
-  .sc(DescribePlacementGroups$)
-  .build() {
+export class DescribePlacementGroupsCommand extends command<DescribePlacementGroupsCommandInput, DescribePlacementGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribePlacementGroups",
+  DescribePlacementGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

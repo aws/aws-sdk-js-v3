@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListWorkspacesRequest, ListWorkspacesResponse } from "../models/models_0";
 import { ListWorkspaces$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListWorkspaces$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  *
  * @public
  */
-export class ListWorkspacesCommand extends $Command
-  .classBuilder<
-    ListWorkspacesCommandInput,
-    ListWorkspacesCommandOutput,
-    IoTTwinMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTTwinMaker", "ListWorkspaces", {})
-  .n("IoTTwinMakerClient", "ListWorkspacesCommand")
-  .sc(ListWorkspaces$)
-  .build() {
+export class ListWorkspacesCommand extends command<ListWorkspacesCommandInput, ListWorkspacesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListWorkspaces",
+  ListWorkspaces$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

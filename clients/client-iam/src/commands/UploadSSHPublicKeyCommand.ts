@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UploadSSHPublicKeyRequest, UploadSSHPublicKeyResponse } from "../models/models_1";
 import { UploadSSHPublicKey$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UploadSSHPublicKey$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface UploadSSHPublicKeyCommandOutput extends UploadSSHPublicKeyRespo
  *
  * @public
  */
-export class UploadSSHPublicKeyCommand extends $Command
-  .classBuilder<
-    UploadSSHPublicKeyCommandInput,
-    UploadSSHPublicKeyCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "UploadSSHPublicKey", {})
-  .n("IAMClient", "UploadSSHPublicKeyCommand")
-  .sc(UploadSSHPublicKey$)
-  .build() {
+export class UploadSSHPublicKeyCommand extends command<UploadSSHPublicKeyCommandInput, UploadSSHPublicKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "UploadSSHPublicKey",
+  UploadSSHPublicKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

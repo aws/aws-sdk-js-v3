@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticLoadBalancingV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticLoadBalancingV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyListenerInput, ModifyListenerOutput } from "../models/models_0";
 import { ModifyListener$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ModifyListener$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -392,22 +384,12 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  *
  * @public
  */
-export class ModifyListenerCommand extends $Command
-  .classBuilder<
-    ModifyListenerCommandInput,
-    ModifyListenerCommandOutput,
-    ElasticLoadBalancingV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticLoadBalancing_v10", "ModifyListener", {})
-  .n("ElasticLoadBalancingV2Client", "ModifyListenerCommand")
-  .sc(ModifyListener$)
-  .build() {
+export class ModifyListenerCommand extends command<ModifyListenerCommandInput, ModifyListenerCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyListener",
+  ModifyListener$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

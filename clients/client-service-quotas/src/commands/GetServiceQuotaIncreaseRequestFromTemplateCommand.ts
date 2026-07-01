@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetServiceQuotaIncreaseRequestFromTemplateRequest,
   GetServiceQuotaIncreaseRequestFromTemplateResponse,
 } from "../models/models_0";
 import { GetServiceQuotaIncreaseRequestFromTemplate$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateCommandOutput extends
  *
  * @public
  */
-export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends $Command
-  .classBuilder<
-    GetServiceQuotaIncreaseRequestFromTemplateCommandInput,
-    GetServiceQuotaIncreaseRequestFromTemplateCommandOutput,
-    ServiceQuotasClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ServiceQuotasV20190624", "GetServiceQuotaIncreaseRequestFromTemplate", {})
-  .n("ServiceQuotasClient", "GetServiceQuotaIncreaseRequestFromTemplateCommand")
-  .sc(GetServiceQuotaIncreaseRequestFromTemplate$)
-  .build() {
+export class GetServiceQuotaIncreaseRequestFromTemplateCommand extends command<GetServiceQuotaIncreaseRequestFromTemplateCommandInput, GetServiceQuotaIncreaseRequestFromTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetServiceQuotaIncreaseRequestFromTemplate",
+  GetServiceQuotaIncreaseRequestFromTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

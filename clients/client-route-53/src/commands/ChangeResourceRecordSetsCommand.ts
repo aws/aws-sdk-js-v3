@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getChangeResourceRecordSetsPlugin, getIdNormalizerPlugin } from "@aws-sdk/middleware-sdk-route53";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { ChangeResourceRecordSetsRequest, ChangeResourceRecordSetsResponse } from "../models/models_0";
-import type { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client";
 import { ChangeResourceRecordSets$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -809,26 +804,12 @@ export interface ChangeResourceRecordSetsCommandOutput extends ChangeResourceRec
  *
  * @public
  */
-export class ChangeResourceRecordSetsCommand extends $Command
-  .classBuilder<
-    ChangeResourceRecordSetsCommandInput,
-    ChangeResourceRecordSetsCommandOutput,
-    Route53ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getChangeResourceRecordSetsPlugin(config),
-      getIdNormalizerPlugin(config),
-    ];
-  })
-  .s("AWSDnsV20130401", "ChangeResourceRecordSets", {})
-  .n("Route53Client", "ChangeResourceRecordSetsCommand")
-  .sc(ChangeResourceRecordSets$)
-  .build() {
+export class ChangeResourceRecordSetsCommand extends command<ChangeResourceRecordSetsCommandInput, ChangeResourceRecordSetsCommandOutput>(
+  _ep0,
+  _mw1,
+  "ChangeResourceRecordSets",
+  ChangeResourceRecordSets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

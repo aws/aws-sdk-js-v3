@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteContactMethodRequest, DeleteContactMethodResult } from "../models/models_0";
 import { DeleteContactMethod$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteContactMethod$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface DeleteContactMethodCommandOutput extends DeleteContactMethodRes
  *
  * @public
  */
-export class DeleteContactMethodCommand extends $Command
-  .classBuilder<
-    DeleteContactMethodCommandInput,
-    DeleteContactMethodCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "DeleteContactMethod", {})
-  .n("LightsailClient", "DeleteContactMethodCommand")
-  .sc(DeleteContactMethod$)
-  .build() {
+export class DeleteContactMethodCommand extends command<DeleteContactMethodCommandInput, DeleteContactMethodCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteContactMethod",
+  DeleteContactMethod$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MigrationHubOrchestratorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MigrationHubOrchestratorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTemplateStepGroupsRequest, ListTemplateStepGroupsResponse } from "../models/models_0";
 import { ListTemplateStepGroups$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListTemplateStepGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface ListTemplateStepGroupsCommandOutput extends ListTemplateStepGro
  *
  * @public
  */
-export class ListTemplateStepGroupsCommand extends $Command
-  .classBuilder<
-    ListTemplateStepGroupsCommandInput,
-    ListTemplateStepGroupsCommandOutput,
-    MigrationHubOrchestratorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubOrchestratorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHubOrchestrator", "ListTemplateStepGroups", {})
-  .n("MigrationHubOrchestratorClient", "ListTemplateStepGroupsCommand")
-  .sc(ListTemplateStepGroups$)
-  .build() {
+export class ListTemplateStepGroupsCommand extends command<ListTemplateStepGroupsCommandInput, ListTemplateStepGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTemplateStepGroups",
+  ListTemplateStepGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

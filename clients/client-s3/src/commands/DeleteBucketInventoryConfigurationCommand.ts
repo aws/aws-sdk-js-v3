@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep3, _mw4, command } from "../commandBuilder";
 import type { DeleteBucketInventoryConfigurationRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { DeleteBucketInventoryConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,26 +119,12 @@ export interface DeleteBucketInventoryConfigurationCommandOutput extends __Metad
  *
  * @public
  */
-export class DeleteBucketInventoryConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteBucketInventoryConfigurationCommandInput,
-    DeleteBucketInventoryConfigurationCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonS3", "DeleteBucketInventoryConfiguration", {})
-  .n("S3Client", "DeleteBucketInventoryConfigurationCommand")
-  .sc(DeleteBucketInventoryConfiguration$)
-  .build() {
+export class DeleteBucketInventoryConfigurationCommand extends command<DeleteBucketInventoryConfigurationCommandInput, DeleteBucketInventoryConfigurationCommandOutput>(
+  _ep3,
+  _mw4,
+  "DeleteBucketInventoryConfiguration",
+  DeleteBucketInventoryConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

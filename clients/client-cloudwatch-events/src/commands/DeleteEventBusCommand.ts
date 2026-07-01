@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchEventsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEventBusRequest } from "../models/models_0";
 import { DeleteEventBus$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteEventBus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +60,12 @@ export interface DeleteEventBusCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteEventBusCommand extends $Command
-  .classBuilder<
-    DeleteEventBusCommandInput,
-    DeleteEventBusCommandOutput,
-    CloudWatchEventsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSEvents", "DeleteEventBus", {})
-  .n("CloudWatchEventsClient", "DeleteEventBusCommand")
-  .sc(DeleteEventBus$)
-  .build() {
+export class DeleteEventBusCommand extends command<DeleteEventBusCommandInput, DeleteEventBusCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEventBus",
+  DeleteEventBus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

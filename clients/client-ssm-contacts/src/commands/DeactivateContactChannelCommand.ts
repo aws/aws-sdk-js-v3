@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeactivateContactChannelRequest, DeactivateContactChannelResult } from "../models/models_0";
 import { DeactivateContactChannel$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DeactivateContactChannelCommandOutput extends DeactivateContact
  *
  * @public
  */
-export class DeactivateContactChannelCommand extends $Command
-  .classBuilder<
-    DeactivateContactChannelCommandInput,
-    DeactivateContactChannelCommandOutput,
-    SSMContactsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMContacts", "DeactivateContactChannel", {})
-  .n("SSMContactsClient", "DeactivateContactChannelCommand")
-  .sc(DeactivateContactChannel$)
-  .build() {
+export class DeactivateContactChannelCommand extends command<DeactivateContactChannelCommandInput, DeactivateContactChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeactivateContactChannel",
+  DeactivateContactChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

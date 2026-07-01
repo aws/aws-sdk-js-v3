@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCoreDevicesRequest, ListCoreDevicesResponse } from "../models/models_0";
 import { ListCoreDevices$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListCoreDevices$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +115,12 @@ export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, _
  *
  * @public
  */
-export class ListCoreDevicesCommand extends $Command
-  .classBuilder<
-    ListCoreDevicesCommandInput,
-    ListCoreDevicesCommandOutput,
-    GreengrassV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GreengrassV2", "ListCoreDevices", {})
-  .n("GreengrassV2Client", "ListCoreDevicesCommand")
-  .sc(ListCoreDevices$)
-  .build() {
+export class ListCoreDevicesCommand extends command<ListCoreDevicesCommandInput, ListCoreDevicesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCoreDevices",
+  ListCoreDevices$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

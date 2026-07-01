@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetECSServiceRecommendationProjectedMetricsRequest,
   GetECSServiceRecommendationProjectedMetricsResponse,
@@ -19,7 +12,6 @@ import { GetECSServiceRecommendationProjectedMetrics$ } from "../schemas/schemas
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +108,12 @@ export interface GetECSServiceRecommendationProjectedMetricsCommandOutput extend
  *
  * @public
  */
-export class GetECSServiceRecommendationProjectedMetricsCommand extends $Command
-  .classBuilder<
-    GetECSServiceRecommendationProjectedMetricsCommandInput,
-    GetECSServiceRecommendationProjectedMetricsCommandOutput,
-    ComputeOptimizerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerService", "GetECSServiceRecommendationProjectedMetrics", {})
-  .n("ComputeOptimizerClient", "GetECSServiceRecommendationProjectedMetricsCommand")
-  .sc(GetECSServiceRecommendationProjectedMetrics$)
-  .build() {
+export class GetECSServiceRecommendationProjectedMetricsCommand extends command<GetECSServiceRecommendationProjectedMetricsCommandInput, GetECSServiceRecommendationProjectedMetricsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetECSServiceRecommendationProjectedMetrics",
+  GetECSServiceRecommendationProjectedMetrics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

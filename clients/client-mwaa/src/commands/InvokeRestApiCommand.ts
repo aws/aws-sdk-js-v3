@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { InvokeRestApiRequest, InvokeRestApiResponse } from "../models/models_0";
-import type { MWAAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MWAAClient";
 import { InvokeRestApi$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface InvokeRestApiCommandOutput extends InvokeRestApiResponse, __Met
  *
  * @public
  */
-export class InvokeRestApiCommand extends $Command
-  .classBuilder<
-    InvokeRestApiCommandInput,
-    InvokeRestApiCommandOutput,
-    MWAAClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MWAAClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMWAA", "InvokeRestApi", {})
-  .n("MWAAClient", "InvokeRestApiCommand")
-  .sc(InvokeRestApi$)
-  .build() {
+export class InvokeRestApiCommand extends command<InvokeRestApiCommandInput, InvokeRestApiCommandOutput>(
+  _ep0,
+  _mw0,
+  "InvokeRestApi",
+  InvokeRestApi$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

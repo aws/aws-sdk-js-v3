@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FinspaceDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceDataClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisableUserRequest, DisableUserResponse } from "../models/models_0";
 import { DisableUser$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisableUser$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface DisableUserCommandOutput extends DisableUserResponse, __Metadat
  *
  * @public
  */
-export class DisableUserCommand extends $Command
-  .classBuilder<
-    DisableUserCommandInput,
-    DisableUserCommandOutput,
-    FinspaceDataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHabaneroPublicAPI", "DisableUser", {})
-  .n("FinspaceDataClient", "DisableUserCommand")
-  .sc(DisableUser$)
-  .build() {
+export class DisableUserCommand extends command<DisableUserCommandInput, DisableUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableUser",
+  DisableUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

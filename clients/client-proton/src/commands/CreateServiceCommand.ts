@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateServiceInput, CreateServiceOutput } from "../models/models_0";
-import type { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ProtonClient";
 import { CreateService$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -127,22 +123,12 @@ export interface CreateServiceCommandOutput extends CreateServiceOutput, __Metad
  *
  * @public
  */
-export class CreateServiceCommand extends $Command
-  .classBuilder<
-    CreateServiceCommandInput,
-    CreateServiceCommandOutput,
-    ProtonClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsProton20200720", "CreateService", {})
-  .n("ProtonClient", "CreateServiceCommand")
-  .sc(CreateService$)
-  .build() {
+export class CreateServiceCommand extends command<CreateServiceCommandInput, CreateServiceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateService",
+  CreateService$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

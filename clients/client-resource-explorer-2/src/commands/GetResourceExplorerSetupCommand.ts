@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetResourceExplorerSetupInput, GetResourceExplorerSetupOutput } from "../models/models_0";
-import type {
-  ResourceExplorer2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceExplorer2Client";
 import { GetResourceExplorerSetup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +111,12 @@ export interface GetResourceExplorerSetupCommandOutput extends GetResourceExplor
  *
  * @public
  */
-export class GetResourceExplorerSetupCommand extends $Command
-  .classBuilder<
-    GetResourceExplorerSetupCommandInput,
-    GetResourceExplorerSetupCommandOutput,
-    ResourceExplorer2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ResourceExplorer", "GetResourceExplorerSetup", {})
-  .n("ResourceExplorer2Client", "GetResourceExplorerSetupCommand")
-  .sc(GetResourceExplorerSetup$)
-  .build() {
+export class GetResourceExplorerSetupCommand extends command<GetResourceExplorerSetupCommandInput, GetResourceExplorerSetupCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetResourceExplorerSetup",
+  GetResourceExplorerSetup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

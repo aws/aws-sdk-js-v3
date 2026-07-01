@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateApiMappingRequest, CreateApiMappingResponse } from "../models/models_0";
 import { CreateApiMapping$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateApiMapping$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface CreateApiMappingCommandOutput extends CreateApiMappingResponse,
  *
  * @public
  */
-export class CreateApiMappingCommand extends $Command
-  .classBuilder<
-    CreateApiMappingCommandInput,
-    CreateApiMappingCommandOutput,
-    ApiGatewayV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApiGatewayV2", "CreateApiMapping", {})
-  .n("ApiGatewayV2Client", "CreateApiMappingCommand")
-  .sc(CreateApiMapping$)
-  .build() {
+export class CreateApiMappingCommand extends command<CreateApiMappingCommandInput, CreateApiMappingCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateApiMapping",
+  CreateApiMapping$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

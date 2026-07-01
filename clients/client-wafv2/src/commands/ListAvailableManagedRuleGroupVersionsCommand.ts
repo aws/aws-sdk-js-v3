@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListAvailableManagedRuleGroupVersionsRequest,
   ListAvailableManagedRuleGroupVersionsResponse,
 } from "../models/models_0";
 import { ListAvailableManagedRuleGroupVersions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface ListAvailableManagedRuleGroupVersionsCommandOutput extends List
  *
  * @public
  */
-export class ListAvailableManagedRuleGroupVersionsCommand extends $Command
-  .classBuilder<
-    ListAvailableManagedRuleGroupVersionsCommandInput,
-    ListAvailableManagedRuleGroupVersionsCommandOutput,
-    WAFV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20190729", "ListAvailableManagedRuleGroupVersions", {})
-  .n("WAFV2Client", "ListAvailableManagedRuleGroupVersionsCommand")
-  .sc(ListAvailableManagedRuleGroupVersions$)
-  .build() {
+export class ListAvailableManagedRuleGroupVersionsCommand extends command<ListAvailableManagedRuleGroupVersionsCommandInput, ListAvailableManagedRuleGroupVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAvailableManagedRuleGroupVersions",
+  ListAvailableManagedRuleGroupVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

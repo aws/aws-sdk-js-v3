@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep3, _mw0, command } from "../commandBuilder";
 import type { GetBucketLoggingOutput, GetBucketLoggingRequest } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { GetBucketLogging$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,29 +97,12 @@ export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, _
  *
  * @public
  */
-export class GetBucketLoggingCommand extends $Command
-  .classBuilder<
-    GetBucketLoggingCommandInput,
-    GetBucketLoggingCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "GetBucketLogging", {})
-  .n("S3Client", "GetBucketLoggingCommand")
-  .sc(GetBucketLogging$)
-  .build() {
+export class GetBucketLoggingCommand extends command<GetBucketLoggingCommandInput, GetBucketLoggingCommandOutput>(
+  _ep3,
+  _mw0,
+  "GetBucketLogging",
+  GetBucketLogging$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

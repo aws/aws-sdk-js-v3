@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateFirewallRuleGroupRequest, DisassociateFirewallRuleGroupResponse } from "../models/models_0";
-import type {
-  Route53ResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ResolverClient";
 import { DisassociateFirewallRuleGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +92,12 @@ export interface DisassociateFirewallRuleGroupCommandOutput extends Disassociate
  *
  * @public
  */
-export class DisassociateFirewallRuleGroupCommand extends $Command
-  .classBuilder<
-    DisassociateFirewallRuleGroupCommandInput,
-    DisassociateFirewallRuleGroupCommandOutput,
-    Route53ResolverClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Resolver", "DisassociateFirewallRuleGroup", {})
-  .n("Route53ResolverClient", "DisassociateFirewallRuleGroupCommand")
-  .sc(DisassociateFirewallRuleGroup$)
-  .build() {
+export class DisassociateFirewallRuleGroupCommand extends command<DisassociateFirewallRuleGroupCommandInput, DisassociateFirewallRuleGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateFirewallRuleGroup",
+  DisassociateFirewallRuleGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

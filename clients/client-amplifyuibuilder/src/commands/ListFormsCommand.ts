@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyUIBuilderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyUIBuilderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListFormsRequest, ListFormsResponse } from "../models/models_0";
 import { ListForms$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListForms$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface ListFormsCommandOutput extends ListFormsResponse, __MetadataBea
  *
  * @public
  */
-export class ListFormsCommand extends $Command
-  .classBuilder<
-    ListFormsCommandInput,
-    ListFormsCommandOutput,
-    AmplifyUIBuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyUIBuilder", "ListForms", {})
-  .n("AmplifyUIBuilderClient", "ListFormsCommand")
-  .sc(ListForms$)
-  .build() {
+export class ListFormsCommand extends command<ListFormsCommandInput, ListFormsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListForms",
+  ListForms$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

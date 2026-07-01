@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateFieldRequest, UpdateFieldResponse } from "../models/models_0";
 import { UpdateField$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateField$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface UpdateFieldCommandOutput extends UpdateFieldResponse, __Metadat
  *
  * @public
  */
-export class UpdateFieldCommand extends $Command
-  .classBuilder<
-    UpdateFieldCommandInput,
-    UpdateFieldCommandOutput,
-    ConnectCasesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCases", "UpdateField", {})
-  .n("ConnectCasesClient", "UpdateFieldCommand")
-  .sc(UpdateField$)
-  .build() {
+export class UpdateFieldCommand extends command<UpdateFieldCommandInput, UpdateFieldCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateField",
+  UpdateField$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

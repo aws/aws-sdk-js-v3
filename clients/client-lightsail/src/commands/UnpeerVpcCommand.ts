@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UnpeerVpcRequest, UnpeerVpcResult } from "../models/models_1";
 import { UnpeerVpc$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UnpeerVpc$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface UnpeerVpcCommandOutput extends UnpeerVpcResult, __MetadataBeare
  *
  * @public
  */
-export class UnpeerVpcCommand extends $Command
-  .classBuilder<
-    UnpeerVpcCommandInput,
-    UnpeerVpcCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "UnpeerVpc", {})
-  .n("LightsailClient", "UnpeerVpcCommand")
-  .sc(UnpeerVpc$)
-  .build() {
+export class UnpeerVpcCommand extends command<UnpeerVpcCommandInput, UnpeerVpcCommandOutput>(
+  _ep0,
+  _mw0,
+  "UnpeerVpc",
+  UnpeerVpc$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

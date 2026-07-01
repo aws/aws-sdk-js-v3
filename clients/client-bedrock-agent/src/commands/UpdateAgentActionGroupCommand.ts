@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAgentActionGroupRequest, UpdateAgentActionGroupResponse } from "../models/models_0";
 import { UpdateAgentActionGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateAgentActionGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -157,22 +153,12 @@ export interface UpdateAgentActionGroupCommandOutput extends UpdateAgentActionGr
  *
  * @public
  */
-export class UpdateAgentActionGroupCommand extends $Command
-  .classBuilder<
-    UpdateAgentActionGroupCommandInput,
-    UpdateAgentActionGroupCommandOutput,
-    BedrockAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentBuildTimeLambda", "UpdateAgentActionGroup", {})
-  .n("BedrockAgentClient", "UpdateAgentActionGroupCommand")
-  .sc(UpdateAgentActionGroup$)
-  .build() {
+export class UpdateAgentActionGroupCommand extends command<UpdateAgentActionGroupCommandInput, UpdateAgentActionGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAgentActionGroup",
+  UpdateAgentActionGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

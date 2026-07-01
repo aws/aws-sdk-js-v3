@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteNotebookInstanceInput } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DeleteNotebookInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -57,22 +53,12 @@ export interface DeleteNotebookInstanceCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteNotebookInstanceCommand extends $Command
-  .classBuilder<
-    DeleteNotebookInstanceCommandInput,
-    DeleteNotebookInstanceCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DeleteNotebookInstance", {})
-  .n("SageMakerClient", "DeleteNotebookInstanceCommand")
-  .sc(DeleteNotebookInstance$)
-  .build() {
+export class DeleteNotebookInstanceCommand extends command<DeleteNotebookInstanceCommandInput, DeleteNotebookInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteNotebookInstance",
+  DeleteNotebookInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

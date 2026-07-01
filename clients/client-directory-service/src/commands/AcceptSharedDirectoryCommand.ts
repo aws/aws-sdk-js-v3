@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AcceptSharedDirectoryRequest, AcceptSharedDirectoryResult } from "../models/models_0";
 import { AcceptSharedDirectory$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AcceptSharedDirectory$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface AcceptSharedDirectoryCommandOutput extends AcceptSharedDirector
  *
  * @public
  */
-export class AcceptSharedDirectoryCommand extends $Command
-  .classBuilder<
-    AcceptSharedDirectoryCommandInput,
-    AcceptSharedDirectoryCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "AcceptSharedDirectory", {})
-  .n("DirectoryServiceClient", "AcceptSharedDirectoryCommand")
-  .sc(AcceptSharedDirectory$)
-  .build() {
+export class AcceptSharedDirectoryCommand extends command<AcceptSharedDirectoryCommandInput, AcceptSharedDirectoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "AcceptSharedDirectory",
+  AcceptSharedDirectory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

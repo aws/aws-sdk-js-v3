@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelRotateSecretRequest, CancelRotateSecretResponse } from "../models/models_0";
 import { CancelRotateSecret$ } from "../schemas/schemas_0";
-import type {
-  SecretsManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SecretsManagerClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +116,12 @@ export interface CancelRotateSecretCommandOutput extends CancelRotateSecretRespo
  *
  * @public
  */
-export class CancelRotateSecretCommand extends $Command
-  .classBuilder<
-    CancelRotateSecretCommandInput,
-    CancelRotateSecretCommandOutput,
-    SecretsManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("secretsmanager", "CancelRotateSecret", {})
-  .n("SecretsManagerClient", "CancelRotateSecretCommand")
-  .sc(CancelRotateSecret$)
-  .build() {
+export class CancelRotateSecretCommand extends command<CancelRotateSecretCommandInput, CancelRotateSecretCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelRotateSecret",
+  CancelRotateSecret$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

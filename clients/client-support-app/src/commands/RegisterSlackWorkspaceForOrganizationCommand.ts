@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   RegisterSlackWorkspaceForOrganizationRequest,
   RegisterSlackWorkspaceForOrganizationResult,
 } from "../models/models_0";
 import { RegisterSlackWorkspaceForOrganization$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -135,22 +131,12 @@ export interface RegisterSlackWorkspaceForOrganizationCommandOutput extends Regi
  *
  * @public
  */
-export class RegisterSlackWorkspaceForOrganizationCommand extends $Command
-  .classBuilder<
-    RegisterSlackWorkspaceForOrganizationCommandInput,
-    RegisterSlackWorkspaceForOrganizationCommandOutput,
-    SupportAppClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupportAppClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SupportApp", "RegisterSlackWorkspaceForOrganization", {})
-  .n("SupportAppClient", "RegisterSlackWorkspaceForOrganizationCommand")
-  .sc(RegisterSlackWorkspaceForOrganization$)
-  .build() {
+export class RegisterSlackWorkspaceForOrganizationCommand extends command<RegisterSlackWorkspaceForOrganizationCommandInput, RegisterSlackWorkspaceForOrganizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterSlackWorkspaceForOrganization",
+  RegisterSlackWorkspaceForOrganization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetPreparedStatementInput, BatchGetPreparedStatementOutput } from "../models/models_0";
 import { BatchGetPreparedStatement$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetPreparedStatement$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface BatchGetPreparedStatementCommandOutput extends BatchGetPrepared
  *
  * @public
  */
-export class BatchGetPreparedStatementCommand extends $Command
-  .classBuilder<
-    BatchGetPreparedStatementCommandInput,
-    BatchGetPreparedStatementCommandOutput,
-    AthenaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAthena", "BatchGetPreparedStatement", {})
-  .n("AthenaClient", "BatchGetPreparedStatementCommand")
-  .sc(BatchGetPreparedStatement$)
-  .build() {
+export class BatchGetPreparedStatementCommand extends command<BatchGetPreparedStatementCommandInput, BatchGetPreparedStatementCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetPreparedStatement",
+  BatchGetPreparedStatement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

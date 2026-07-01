@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticsearchServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticsearchServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateElasticsearchDomainRequest, CreateElasticsearchDomainResponse } from "../models/models_0";
 import { CreateElasticsearchDomain$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateElasticsearchDomain$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -338,22 +330,12 @@ export interface CreateElasticsearchDomainCommandOutput extends CreateElasticsea
  *
  * @public
  */
-export class CreateElasticsearchDomainCommand extends $Command
-  .classBuilder<
-    CreateElasticsearchDomainCommandInput,
-    CreateElasticsearchDomainCommandOutput,
-    ElasticsearchServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticsearchService2015", "CreateElasticsearchDomain", {})
-  .n("ElasticsearchServiceClient", "CreateElasticsearchDomainCommand")
-  .sc(CreateElasticsearchDomain$)
-  .build() {
+export class CreateElasticsearchDomainCommand extends command<CreateElasticsearchDomainCommandInput, CreateElasticsearchDomainCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateElasticsearchDomain",
+  CreateElasticsearchDomain$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

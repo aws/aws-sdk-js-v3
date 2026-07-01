@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPolicyTemplatesInput, ListPolicyTemplatesOutput } from "../models/models_0";
 import { ListPolicyTemplates$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  VerifiedPermissionsClientResolvedConfig,
-} from "../VerifiedPermissionsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +114,12 @@ export interface ListPolicyTemplatesCommandOutput extends ListPolicyTemplatesOut
  *
  * @public
  */
-export class ListPolicyTemplatesCommand extends $Command
-  .classBuilder<
-    ListPolicyTemplatesCommandInput,
-    ListPolicyTemplatesCommandOutput,
-    VerifiedPermissionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("VerifiedPermissions", "ListPolicyTemplates", {})
-  .n("VerifiedPermissionsClient", "ListPolicyTemplatesCommand")
-  .sc(ListPolicyTemplates$)
-  .build() {
+export class ListPolicyTemplatesCommand extends command<ListPolicyTemplatesCommandInput, ListPolicyTemplatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPolicyTemplates",
+  ListPolicyTemplates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

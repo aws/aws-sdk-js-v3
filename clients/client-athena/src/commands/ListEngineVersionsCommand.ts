@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListEngineVersionsInput, ListEngineVersionsOutput } from "../models/models_0";
 import { ListEngineVersions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListEngineVersions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface ListEngineVersionsCommandOutput extends ListEngineVersionsOutpu
  *
  * @public
  */
-export class ListEngineVersionsCommand extends $Command
-  .classBuilder<
-    ListEngineVersionsCommandInput,
-    ListEngineVersionsCommandOutput,
-    AthenaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAthena", "ListEngineVersions", {})
-  .n("AthenaClient", "ListEngineVersionsCommand")
-  .sc(ListEngineVersions$)
-  .build() {
+export class ListEngineVersionsCommand extends command<ListEngineVersionsCommandInput, ListEngineVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEngineVersions",
+  ListEngineVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

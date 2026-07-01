@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MigrationHubConfigClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MigrationHubConfigClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteHomeRegionControlRequest, DeleteHomeRegionControlResult } from "../models/models_0";
 import { DeleteHomeRegionControl$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteHomeRegionControl$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeleteHomeRegionControlCommandOutput extends DeleteHomeRegionCo
  *
  * @public
  */
-export class DeleteHomeRegionControlCommand extends $Command
-  .classBuilder<
-    DeleteHomeRegionControlCommandInput,
-    DeleteHomeRegionControlCommandOutput,
-    MigrationHubConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHubMultiAccountService", "DeleteHomeRegionControl", {})
-  .n("MigrationHubConfigClient", "DeleteHomeRegionControlCommand")
-  .sc(DeleteHomeRegionControl$)
-  .build() {
+export class DeleteHomeRegionControlCommand extends command<DeleteHomeRegionControlCommandInput, DeleteHomeRegionControlCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteHomeRegionControl",
+  DeleteHomeRegionControl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

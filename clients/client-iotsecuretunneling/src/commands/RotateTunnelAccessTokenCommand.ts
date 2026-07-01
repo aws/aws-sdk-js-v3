@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTSecureTunnelingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTSecureTunnelingClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RotateTunnelAccessTokenRequest, RotateTunnelAccessTokenResponse } from "../models/models_0";
 import { RotateTunnelAccessToken$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { RotateTunnelAccessToken$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface RotateTunnelAccessTokenCommandOutput extends RotateTunnelAccess
  *
  * @public
  */
-export class RotateTunnelAccessTokenCommand extends $Command
-  .classBuilder<
-    RotateTunnelAccessTokenCommandInput,
-    RotateTunnelAccessTokenCommandOutput,
-    IoTSecureTunnelingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSecureTunnelingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IoTSecuredTunneling", "RotateTunnelAccessToken", {})
-  .n("IoTSecureTunnelingClient", "RotateTunnelAccessTokenCommand")
-  .sc(RotateTunnelAccessToken$)
-  .build() {
+export class RotateTunnelAccessTokenCommand extends command<RotateTunnelAccessTokenCommandInput, RotateTunnelAccessTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "RotateTunnelAccessToken",
+  RotateTunnelAccessToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

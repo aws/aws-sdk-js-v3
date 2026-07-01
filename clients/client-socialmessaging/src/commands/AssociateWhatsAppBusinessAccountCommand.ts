@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateWhatsAppBusinessAccountInput, AssociateWhatsAppBusinessAccountOutput } from "../models/models_0";
 import { AssociateWhatsAppBusinessAccount$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SocialMessagingClientResolvedConfig,
-} from "../SocialMessagingClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -139,22 +131,12 @@ export interface AssociateWhatsAppBusinessAccountCommandOutput extends Associate
  *
  * @public
  */
-export class AssociateWhatsAppBusinessAccountCommand extends $Command
-  .classBuilder<
-    AssociateWhatsAppBusinessAccountCommandInput,
-    AssociateWhatsAppBusinessAccountCommandOutput,
-    SocialMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SocialMessaging", "AssociateWhatsAppBusinessAccount", {})
-  .n("SocialMessagingClient", "AssociateWhatsAppBusinessAccountCommand")
-  .sc(AssociateWhatsAppBusinessAccount$)
-  .build() {
+export class AssociateWhatsAppBusinessAccountCommand extends command<AssociateWhatsAppBusinessAccountCommandInput, AssociateWhatsAppBusinessAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateWhatsAppBusinessAccount",
+  AssociateWhatsAppBusinessAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

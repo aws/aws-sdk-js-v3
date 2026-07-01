@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeGroupsRequest, DescribeGroupsResponse } from "../models/models_0";
 import { DescribeGroups$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DescribeGroupsCommandOutput extends DescribeGroupsResponse, __M
  *
  * @public
  */
-export class DescribeGroupsCommand extends $Command
-  .classBuilder<
-    DescribeGroupsCommandInput,
-    DescribeGroupsCommandOutput,
-    WorkDocsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGorillaBoyService", "DescribeGroups", {})
-  .n("WorkDocsClient", "DescribeGroupsCommand")
-  .sc(DescribeGroups$)
-  .build() {
+export class DescribeGroupsCommand extends command<DescribeGroupsCommandInput, DescribeGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeGroups",
+  DescribeGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

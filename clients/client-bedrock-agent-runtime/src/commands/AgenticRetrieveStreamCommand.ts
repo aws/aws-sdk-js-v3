@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentRuntimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AgenticRetrieveStreamResponse } from "../models/models_0";
 import type { AgenticRetrieveStreamRequest } from "../models/models_1";
 import { AgenticRetrieveStream$ } from "../schemas/schemas_0";
@@ -17,7 +10,6 @@ import { AgenticRetrieveStream$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -325,29 +317,12 @@ export interface AgenticRetrieveStreamCommandOutput extends AgenticRetrieveStrea
  *
  * @public
  */
-export class AgenticRetrieveStreamCommand extends $Command
-  .classBuilder<
-    AgenticRetrieveStreamCommandInput,
-    AgenticRetrieveStreamCommandOutput,
-    BedrockAgentRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentRunTimeService", "AgenticRetrieveStream", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      output: true,
-    },
-  })
-  .n("BedrockAgentRuntimeClient", "AgenticRetrieveStreamCommand")
-  .sc(AgenticRetrieveStream$)
-  .build() {
+export class AgenticRetrieveStreamCommand extends command<AgenticRetrieveStreamCommandInput, AgenticRetrieveStreamCommandOutput>(
+  _ep0,
+  _mw0,
+  "AgenticRetrieveStream",
+  AgenticRetrieveStream$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

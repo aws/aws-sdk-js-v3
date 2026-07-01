@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListDataQualityRulesetEvaluationRunsRequest,
   ListDataQualityRulesetEvaluationRunsResponse,
@@ -15,7 +12,6 @@ import { ListDataQualityRulesetEvaluationRuns$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -126,22 +122,12 @@ export interface ListDataQualityRulesetEvaluationRunsCommandOutput extends ListD
  *
  * @public
  */
-export class ListDataQualityRulesetEvaluationRunsCommand extends $Command
-  .classBuilder<
-    ListDataQualityRulesetEvaluationRunsCommandInput,
-    ListDataQualityRulesetEvaluationRunsCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "ListDataQualityRulesetEvaluationRuns", {})
-  .n("GlueClient", "ListDataQualityRulesetEvaluationRunsCommand")
-  .sc(ListDataQualityRulesetEvaluationRuns$)
-  .build() {
+export class ListDataQualityRulesetEvaluationRunsCommand extends command<ListDataQualityRulesetEvaluationRunsCommandInput, ListDataQualityRulesetEvaluationRunsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDataQualityRulesetEvaluationRuns",
+  ListDataQualityRulesetEvaluationRuns$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

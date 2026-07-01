@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ResetConnectorMetadataCacheRequest, ResetConnectorMetadataCacheResponse } from "../models/models_0";
 import { ResetConnectorMetadataCache$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ResetConnectorMetadataCache$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface ResetConnectorMetadataCacheCommandOutput extends ResetConnector
  *
  * @public
  */
-export class ResetConnectorMetadataCacheCommand extends $Command
-  .classBuilder<
-    ResetConnectorMetadataCacheCommandInput,
-    ResetConnectorMetadataCacheCommandOutput,
-    AppflowClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SandstoneConfigurationServiceLambda", "ResetConnectorMetadataCache", {})
-  .n("AppflowClient", "ResetConnectorMetadataCacheCommand")
-  .sc(ResetConnectorMetadataCache$)
-  .build() {
+export class ResetConnectorMetadataCacheCommand extends command<ResetConnectorMetadataCacheCommandInput, ResetConnectorMetadataCacheCommandOutput>(
+  _ep0,
+  _mw0,
+  "ResetConnectorMetadataCache",
+  ResetConnectorMetadataCache$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

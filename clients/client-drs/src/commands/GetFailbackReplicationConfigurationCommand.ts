@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetFailbackReplicationConfigurationRequest,
   GetFailbackReplicationConfigurationResponse,
@@ -15,7 +12,6 @@ import { GetFailbackReplicationConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface GetFailbackReplicationConfigurationCommandOutput extends GetFai
  *
  * @public
  */
-export class GetFailbackReplicationConfigurationCommand extends $Command
-  .classBuilder<
-    GetFailbackReplicationConfigurationCommandInput,
-    GetFailbackReplicationConfigurationCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "GetFailbackReplicationConfiguration", {})
-  .n("DrsClient", "GetFailbackReplicationConfigurationCommand")
-  .sc(GetFailbackReplicationConfiguration$)
-  .build() {
+export class GetFailbackReplicationConfigurationCommand extends command<GetFailbackReplicationConfigurationCommandInput, GetFailbackReplicationConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFailbackReplicationConfiguration",
+  GetFailbackReplicationConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

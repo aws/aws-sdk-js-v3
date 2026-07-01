@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateAllowListRequest, UpdateAllowListResponse } from "../models/models_0";
 import { UpdateAllowList$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateAllowList$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface UpdateAllowListCommandOutput extends UpdateAllowListResponse, _
  *
  * @public
  */
-export class UpdateAllowListCommand extends $Command
-  .classBuilder<
-    UpdateAllowListCommandInput,
-    UpdateAllowListCommandOutput,
-    Macie2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Macie2", "UpdateAllowList", {})
-  .n("Macie2Client", "UpdateAllowListCommand")
-  .sc(UpdateAllowList$)
-  .build() {
+export class UpdateAllowListCommand extends command<UpdateAllowListCommandInput, UpdateAllowListCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateAllowList",
+  UpdateAllowList$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

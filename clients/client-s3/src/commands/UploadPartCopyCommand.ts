@@ -1,19 +1,14 @@
 // smithy-typescript generated code
-import { getSsecPlugin, getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep4, _mw1, command } from "../commandBuilder";
 import type { UploadPartCopyOutput, UploadPartCopyRequest } from "../models/models_1";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { UploadPartCopy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -359,30 +354,12 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *
  * @public
  */
-export class UploadPartCopyCommand extends $Command
-  .classBuilder<
-    UploadPartCopyCommandInput,
-    UploadPartCopyCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    DisableS3ExpressSessionAuth: { type: "staticContextParams", value: true },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-      getSsecPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "UploadPartCopy", {})
-  .n("S3Client", "UploadPartCopyCommand")
-  .sc(UploadPartCopy$)
-  .build() {
+export class UploadPartCopyCommand extends command<UploadPartCopyCommandInput, UploadPartCopyCommandOutput>(
+  _ep4,
+  _mw1,
+  "UploadPartCopy",
+  UploadPartCopy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

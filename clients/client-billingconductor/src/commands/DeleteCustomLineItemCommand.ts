@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BillingconductorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BillingconductorClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCustomLineItemInput, DeleteCustomLineItemOutput } from "../models/models_0";
 import { DeleteCustomLineItem$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteCustomLineItem$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface DeleteCustomLineItemCommandOutput extends DeleteCustomLineItemO
  *
  * @public
  */
-export class DeleteCustomLineItemCommand extends $Command
-  .classBuilder<
-    DeleteCustomLineItemCommandInput,
-    DeleteCustomLineItemCommandOutput,
-    BillingconductorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBillingConductor", "DeleteCustomLineItem", {})
-  .n("BillingconductorClient", "DeleteCustomLineItemCommand")
-  .sc(DeleteCustomLineItem$)
-  .build() {
+export class DeleteCustomLineItemCommand extends command<DeleteCustomLineItemCommandInput, DeleteCustomLineItemCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCustomLineItem",
+  DeleteCustomLineItem$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

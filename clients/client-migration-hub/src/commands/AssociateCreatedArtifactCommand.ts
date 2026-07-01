@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateCreatedArtifactRequest, AssociateCreatedArtifactResult } from "../models/models_0";
 import { AssociateCreatedArtifact$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AssociateCreatedArtifact$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface AssociateCreatedArtifactCommandOutput extends AssociateCreatedA
  *
  * @public
  */
-export class AssociateCreatedArtifactCommand extends $Command
-  .classBuilder<
-    AssociateCreatedArtifactCommandInput,
-    AssociateCreatedArtifactCommandOutput,
-    MigrationHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHub", "AssociateCreatedArtifact", {})
-  .n("MigrationHubClient", "AssociateCreatedArtifactCommand")
-  .sc(AssociateCreatedArtifact$)
-  .build() {
+export class AssociateCreatedArtifactCommand extends command<AssociateCreatedArtifactCommandInput, AssociateCreatedArtifactCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateCreatedArtifact",
+  AssociateCreatedArtifact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import { Uint8ArrayBlobAdapter } from "@smithy/core/serde";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExecuteOpenCypherExplainQueryInput, ExecuteOpenCypherExplainQueryOutput } from "../models/models_0";
-import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
 import { ExecuteOpenCypherExplainQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +128,12 @@ export interface ExecuteOpenCypherExplainQueryCommandOutput extends ExecuteOpenC
  *
  * @public
  */
-export class ExecuteOpenCypherExplainQueryCommand extends $Command
-  .classBuilder<
-    ExecuteOpenCypherExplainQueryCommandInput,
-    ExecuteOpenCypherExplainQueryCommandOutput,
-    NeptunedataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneDataplane", "ExecuteOpenCypherExplainQuery", {})
-  .n("NeptunedataClient", "ExecuteOpenCypherExplainQueryCommand")
-  .sc(ExecuteOpenCypherExplainQuery$)
-  .build() {
+export class ExecuteOpenCypherExplainQueryCommand extends command<ExecuteOpenCypherExplainQueryCommandInput, ExecuteOpenCypherExplainQueryCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExecuteOpenCypherExplainQuery",
+  ExecuteOpenCypherExplainQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

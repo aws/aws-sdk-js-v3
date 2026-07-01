@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAffectedEntitiesRequest, DescribeAffectedEntitiesResponse } from "../models/models_0";
 import { DescribeAffectedEntities$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeAffectedEntities$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +121,12 @@ export interface DescribeAffectedEntitiesCommandOutput extends DescribeAffectedE
  *
  * @public
  */
-export class DescribeAffectedEntitiesCommand extends $Command
-  .classBuilder<
-    DescribeAffectedEntitiesCommandInput,
-    DescribeAffectedEntitiesCommandOutput,
-    HealthClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: HealthClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHealth_20160804", "DescribeAffectedEntities", {})
-  .n("HealthClient", "DescribeAffectedEntitiesCommand")
-  .sc(DescribeAffectedEntities$)
-  .build() {
+export class DescribeAffectedEntitiesCommand extends command<DescribeAffectedEntitiesCommandInput, DescribeAffectedEntitiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAffectedEntities",
+  DescribeAffectedEntities$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

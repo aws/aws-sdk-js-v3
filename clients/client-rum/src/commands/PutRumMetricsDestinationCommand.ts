@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutRumMetricsDestinationRequest, PutRumMetricsDestinationResponse } from "../models/models_0";
-import type { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 import { PutRumMetricsDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface PutRumMetricsDestinationCommandOutput extends PutRumMetricsDest
  *
  * @public
  */
-export class PutRumMetricsDestinationCommand extends $Command
-  .classBuilder<
-    PutRumMetricsDestinationCommandInput,
-    PutRumMetricsDestinationCommandOutput,
-    RUMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RUMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RUM", "PutRumMetricsDestination", {})
-  .n("RUMClient", "PutRumMetricsDestinationCommand")
-  .sc(PutRumMetricsDestination$)
-  .build() {
+export class PutRumMetricsDestinationCommand extends command<PutRumMetricsDestinationCommandInput, PutRumMetricsDestinationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutRumMetricsDestination",
+  PutRumMetricsDestination$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

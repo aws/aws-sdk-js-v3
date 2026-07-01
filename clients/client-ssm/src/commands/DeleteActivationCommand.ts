@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteActivationRequest, DeleteActivationResult } from "../models/models_0";
 import { DeleteActivation$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteActivationCommandOutput extends DeleteActivationResult, _
  *
  * @public
  */
-export class DeleteActivationCommand extends $Command
-  .classBuilder<
-    DeleteActivationCommandInput,
-    DeleteActivationCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "DeleteActivation", {})
-  .n("SSMClient", "DeleteActivationCommand")
-  .sc(DeleteActivation$)
-  .build() {
+export class DeleteActivationCommand extends command<DeleteActivationCommandInput, DeleteActivationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteActivation",
+  DeleteActivation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

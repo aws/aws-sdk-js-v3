@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisableVpcClassicLinkDnsSupportRequest, DisableVpcClassicLinkDnsSupportResult } from "../models/models_5";
 import { DisableVpcClassicLinkDnsSupport$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisableVpcClassicLinkDnsSupport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -65,22 +61,12 @@ export interface DisableVpcClassicLinkDnsSupportCommandOutput extends DisableVpc
  *
  * @public
  */
-export class DisableVpcClassicLinkDnsSupportCommand extends $Command
-  .classBuilder<
-    DisableVpcClassicLinkDnsSupportCommandInput,
-    DisableVpcClassicLinkDnsSupportCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DisableVpcClassicLinkDnsSupport", {})
-  .n("EC2Client", "DisableVpcClassicLinkDnsSupportCommand")
-  .sc(DisableVpcClassicLinkDnsSupport$)
-  .build() {
+export class DisableVpcClassicLinkDnsSupportCommand extends command<DisableVpcClassicLinkDnsSupportCommandInput, DisableVpcClassicLinkDnsSupportCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableVpcClassicLinkDnsSupport",
+  DisableVpcClassicLinkDnsSupport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchDetectEntitiesRequest, BatchDetectEntitiesResponse } from "../models/models_0";
 import { BatchDetectEntities$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchDetectEntities$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface BatchDetectEntitiesCommandOutput extends BatchDetectEntitiesRes
  *
  * @public
  */
-export class BatchDetectEntitiesCommand extends $Command
-  .classBuilder<
-    BatchDetectEntitiesCommandInput,
-    BatchDetectEntitiesCommandOutput,
-    ComprehendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Comprehend_20171127", "BatchDetectEntities", {})
-  .n("ComprehendClient", "BatchDetectEntitiesCommand")
-  .sc(BatchDetectEntities$)
-  .build() {
+export class BatchDetectEntitiesCommand extends command<BatchDetectEntitiesCommandInput, BatchDetectEntitiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDetectEntities",
+  BatchDetectEntities$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

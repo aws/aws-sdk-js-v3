@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRuleGroupRequest, GetRuleGroupResponse } from "../models/models_0";
 import { GetRuleGroup$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -1192,22 +1188,12 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  *
  * @public
  */
-export class GetRuleGroupCommand extends $Command
-  .classBuilder<
-    GetRuleGroupCommandInput,
-    GetRuleGroupCommandOutput,
-    WAFV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20190729", "GetRuleGroup", {})
-  .n("WAFV2Client", "GetRuleGroupCommand")
-  .sc(GetRuleGroup$)
-  .build() {
+export class GetRuleGroupCommand extends command<GetRuleGroupCommandInput, GetRuleGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRuleGroup",
+  GetRuleGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

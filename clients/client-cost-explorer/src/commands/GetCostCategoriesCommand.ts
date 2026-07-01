@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCostCategoriesRequest, GetCostCategoriesResponse } from "../models/models_0";
 import { GetCostCategories$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetCostCategories$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -176,22 +172,12 @@ export interface GetCostCategoriesCommandOutput extends GetCostCategoriesRespons
  *
  * @public
  */
-export class GetCostCategoriesCommand extends $Command
-  .classBuilder<
-    GetCostCategoriesCommandInput,
-    GetCostCategoriesCommandOutput,
-    CostExplorerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSInsightsIndexService", "GetCostCategories", {})
-  .n("CostExplorerClient", "GetCostCategoriesCommand")
-  .sc(GetCostCategories$)
-  .build() {
+export class GetCostCategoriesCommand extends command<GetCostCategoriesCommandInput, GetCostCategoriesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCostCategories",
+  GetCostCategories$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

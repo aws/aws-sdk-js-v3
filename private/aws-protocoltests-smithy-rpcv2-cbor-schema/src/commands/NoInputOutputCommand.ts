@@ -1,17 +1,13 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RpcV2ProtocolClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import { NoInputOutput$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -54,22 +50,12 @@ export interface NoInputOutputCommandOutput extends __MetadataBearer {}
  *
  *
  */
-export class NoInputOutputCommand extends $Command
-  .classBuilder<
-    NoInputOutputCommandInput,
-    NoInputOutputCommandOutput,
-    RpcV2ProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RpcV2ProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RpcV2Protocol", "NoInputOutput", {})
-  .n("RpcV2ProtocolClient", "NoInputOutputCommand")
-  .sc(NoInputOutput$)
-  .build() {
+export class NoInputOutputCommand extends command<NoInputOutputCommandInput, NoInputOutputCommandOutput>(
+  _ep0,
+  _mw0,
+  "NoInputOutput",
+  NoInputOutput$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

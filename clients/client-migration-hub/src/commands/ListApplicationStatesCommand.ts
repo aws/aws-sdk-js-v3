@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListApplicationStatesRequest, ListApplicationStatesResult } from "../models/models_0";
 import { ListApplicationStates$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListApplicationStates$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface ListApplicationStatesCommandOutput extends ListApplicationState
  *
  * @public
  */
-export class ListApplicationStatesCommand extends $Command
-  .classBuilder<
-    ListApplicationStatesCommandInput,
-    ListApplicationStatesCommandOutput,
-    MigrationHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHub", "ListApplicationStates", {})
-  .n("MigrationHubClient", "ListApplicationStatesCommand")
-  .sc(ListApplicationStates$)
-  .build() {
+export class ListApplicationStatesCommand extends command<ListApplicationStatesCommandInput, ListApplicationStatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListApplicationStates",
+  ListApplicationStates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

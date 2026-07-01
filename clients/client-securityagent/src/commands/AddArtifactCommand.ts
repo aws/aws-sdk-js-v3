@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddArtifactInput, AddArtifactOutput } from "../models/models_0";
 import { AddArtifact$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface AddArtifactCommandOutput extends AddArtifactOutput, __MetadataB
  *
  * @public
  */
-export class AddArtifactCommand extends $Command
-  .classBuilder<
-    AddArtifactCommandInput,
-    AddArtifactCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "AddArtifact", {})
-  .n("SecurityAgentClient", "AddArtifactCommand")
-  .sc(AddArtifact$)
-  .build() {
+export class AddArtifactCommand extends command<AddArtifactCommandInput, AddArtifactCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddArtifact",
+  AddArtifact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

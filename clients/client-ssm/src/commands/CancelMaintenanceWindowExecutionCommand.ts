@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CancelMaintenanceWindowExecutionRequest,
   CancelMaintenanceWindowExecutionResult,
 } from "../models/models_0";
 import { CancelMaintenanceWindowExecution$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface CancelMaintenanceWindowExecutionCommandOutput extends CancelMai
  *
  * @public
  */
-export class CancelMaintenanceWindowExecutionCommand extends $Command
-  .classBuilder<
-    CancelMaintenanceWindowExecutionCommandInput,
-    CancelMaintenanceWindowExecutionCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "CancelMaintenanceWindowExecution", {})
-  .n("SSMClient", "CancelMaintenanceWindowExecutionCommand")
-  .sc(CancelMaintenanceWindowExecution$)
-  .build() {
+export class CancelMaintenanceWindowExecutionCommand extends command<CancelMaintenanceWindowExecutionCommandInput, CancelMaintenanceWindowExecutionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelMaintenanceWindowExecution",
+  CancelMaintenanceWindowExecution$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListClusterSnapshotsInput, ListClusterSnapshotsOutput } from "../models/models_0";
 import { ListClusterSnapshots$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListClusterSnapshots$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface ListClusterSnapshotsCommandOutput extends ListClusterSnapshotsO
  *
  * @public
  */
-export class ListClusterSnapshotsCommand extends $Command
-  .classBuilder<
-    ListClusterSnapshotsCommandInput,
-    ListClusterSnapshotsCommandOutput,
-    DocDBElasticClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DocDBElasticClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeraDbLionfishServiceLambda", "ListClusterSnapshots", {})
-  .n("DocDBElasticClient", "ListClusterSnapshotsCommand")
-  .sc(ListClusterSnapshots$)
-  .build() {
+export class ListClusterSnapshotsCommand extends command<ListClusterSnapshotsCommandInput, ListClusterSnapshotsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListClusterSnapshots",
+  ListClusterSnapshots$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

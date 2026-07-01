@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeLifecycleConfigurationRequest, LifecycleConfigurationDescription } from "../models/models_0";
 import { DescribeLifecycleConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeLifecycleConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface DescribeLifecycleConfigurationCommandOutput extends LifecycleCo
  *
  * @public
  */
-export class DescribeLifecycleConfigurationCommand extends $Command
-  .classBuilder<
-    DescribeLifecycleConfigurationCommandInput,
-    DescribeLifecycleConfigurationCommandOutput,
-    EFSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MagnolioAPIService_v20150201", "DescribeLifecycleConfiguration", {})
-  .n("EFSClient", "DescribeLifecycleConfigurationCommand")
-  .sc(DescribeLifecycleConfiguration$)
-  .build() {
+export class DescribeLifecycleConfigurationCommand extends command<DescribeLifecycleConfigurationCommandInput, DescribeLifecycleConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeLifecycleConfiguration",
+  DescribeLifecycleConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

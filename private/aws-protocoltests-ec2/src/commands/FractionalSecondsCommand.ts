@@ -13,7 +13,6 @@ import { de_FractionalSecondsCommand, se_FractionalSecondsCommand } from "../pro
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

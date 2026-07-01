@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EndpointAccess, ModifyEndpointAccessMessage } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { ModifyEndpointAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface ModifyEndpointAccessCommandOutput extends EndpointAccess, __Met
  *
  * @public
  */
-export class ModifyEndpointAccessCommand extends $Command
-  .classBuilder<
-    ModifyEndpointAccessCommandInput,
-    ModifyEndpointAccessCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "ModifyEndpointAccess", {})
-  .n("RedshiftClient", "ModifyEndpointAccessCommand")
-  .sc(ModifyEndpointAccess$)
-  .build() {
+export class ModifyEndpointAccessCommand extends command<ModifyEndpointAccessCommandInput, ModifyEndpointAccessCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyEndpointAccess",
+  ModifyEndpointAccess$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartRouterInputRequest, StartRouterInputResponse } from "../models/models_1";
 import { StartRouterInput$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartRouterInput$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface StartRouterInputCommandOutput extends StartRouterInputResponse,
  *
  * @public
  */
-export class StartRouterInputCommand extends $Command
-  .classBuilder<
-    StartRouterInputCommandInput,
-    StartRouterInputCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "StartRouterInput", {})
-  .n("MediaConnectClient", "StartRouterInputCommand")
-  .sc(StartRouterInput$)
-  .build() {
+export class StartRouterInputCommand extends command<StartRouterInputCommandInput, StartRouterInputCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartRouterInput",
+  StartRouterInput$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

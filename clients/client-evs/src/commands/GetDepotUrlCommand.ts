@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { EvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDepotUrlRequest, GetDepotUrlResponse } from "../models/models_0";
 import { GetDepotUrl$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDepotUrl$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface GetDepotUrlCommandOutput extends GetDepotUrlResponse, __Metadat
  *
  * @public
  */
-export class GetDepotUrlCommand extends $Command
-  .classBuilder<
-    GetDepotUrlCommandInput,
-    GetDepotUrlCommandOutput,
-    EvsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EvsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticVMwareService", "GetDepotUrl", {})
-  .n("EvsClient", "GetDepotUrlCommand")
-  .sc(GetDepotUrl$)
-  .build() {
+export class GetDepotUrlCommand extends command<GetDepotUrlCommandInput, GetDepotUrlCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDepotUrl",
+  GetDepotUrl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartSourceNetworkReplicationRequest, StartSourceNetworkReplicationResponse } from "../models/models_0";
 import { StartSourceNetworkReplication$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartSourceNetworkReplication$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface StartSourceNetworkReplicationCommandOutput extends StartSourceN
  *
  * @public
  */
-export class StartSourceNetworkReplicationCommand extends $Command
-  .classBuilder<
-    StartSourceNetworkReplicationCommandInput,
-    StartSourceNetworkReplicationCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "StartSourceNetworkReplication", {})
-  .n("DrsClient", "StartSourceNetworkReplicationCommand")
-  .sc(StartSourceNetworkReplication$)
-  .build() {
+export class StartSourceNetworkReplicationCommand extends command<StartSourceNetworkReplicationCommandInput, StartSourceNetworkReplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartSourceNetworkReplication",
+  StartSourceNetworkReplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

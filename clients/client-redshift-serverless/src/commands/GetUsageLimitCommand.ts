@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetUsageLimitRequest, GetUsageLimitResponse } from "../models/models_0";
-import type {
-  RedshiftServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RedshiftServerlessClient";
 import { GetUsageLimit$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface GetUsageLimitCommandOutput extends GetUsageLimitResponse, __Met
  *
  * @public
  */
-export class GetUsageLimitCommand extends $Command
-  .classBuilder<
-    GetUsageLimitCommandInput,
-    GetUsageLimitCommandOutput,
-    RedshiftServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServerless", "GetUsageLimit", {})
-  .n("RedshiftServerlessClient", "GetUsageLimitCommand")
-  .sc(GetUsageLimit$)
-  .build() {
+export class GetUsageLimitCommand extends command<GetUsageLimitCommandInput, GetUsageLimitCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetUsageLimit",
+  GetUsageLimit$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

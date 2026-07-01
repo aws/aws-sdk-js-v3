@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteVirtualServiceInput, DeleteVirtualServiceOutput } from "../models/models_0";
 import { DeleteVirtualService$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteVirtualService$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface DeleteVirtualServiceCommandOutput extends DeleteVirtualServiceO
  *
  * @public
  */
-export class DeleteVirtualServiceCommand extends $Command
-  .classBuilder<
-    DeleteVirtualServiceCommandInput,
-    DeleteVirtualServiceCommandOutput,
-    AppMeshClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppMeshClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppMesh", "DeleteVirtualService", {})
-  .n("AppMeshClient", "DeleteVirtualServiceCommand")
-  .sc(DeleteVirtualService$)
-  .build() {
+export class DeleteVirtualServiceCommand extends command<DeleteVirtualServiceCommandInput, DeleteVirtualServiceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteVirtualService",
+  DeleteVirtualService$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateRouterNetworkInterfaceRequest, UpdateRouterNetworkInterfaceResponse } from "../models/models_1";
 import { UpdateRouterNetworkInterface$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateRouterNetworkInterface$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface UpdateRouterNetworkInterfaceCommandOutput extends UpdateRouterN
  *
  * @public
  */
-export class UpdateRouterNetworkInterfaceCommand extends $Command
-  .classBuilder<
-    UpdateRouterNetworkInterfaceCommandInput,
-    UpdateRouterNetworkInterfaceCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "UpdateRouterNetworkInterface", {})
-  .n("MediaConnectClient", "UpdateRouterNetworkInterfaceCommand")
-  .sc(UpdateRouterNetworkInterface$)
-  .build() {
+export class UpdateRouterNetworkInterfaceCommand extends command<UpdateRouterNetworkInterfaceCommandInput, UpdateRouterNetworkInterfaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateRouterNetworkInterface",
+  UpdateRouterNetworkInterface$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

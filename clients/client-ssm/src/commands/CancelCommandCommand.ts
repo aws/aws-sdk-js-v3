@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelCommandRequest, CancelCommandResult } from "../models/models_0";
 import { CancelCommand$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface CancelCommandCommandOutput extends CancelCommandResult, __Metad
  *
  * @public
  */
-export class CancelCommandCommand extends $Command
-  .classBuilder<
-    CancelCommandCommandInput,
-    CancelCommandCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "CancelCommand", {})
-  .n("SSMClient", "CancelCommandCommand")
-  .sc(CancelCommand$)
-  .build() {
+export class CancelCommandCommand extends command<CancelCommandCommandInput, CancelCommandCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelCommand",
+  CancelCommand$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

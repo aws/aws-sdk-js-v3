@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartIngestionJobRequest, StartIngestionJobResponse } from "../models/models_0";
 import { StartIngestionJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartIngestionJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface StartIngestionJobCommandOutput extends StartIngestionJobRespons
  *
  * @public
  */
-export class StartIngestionJobCommand extends $Command
-  .classBuilder<
-    StartIngestionJobCommandInput,
-    StartIngestionJobCommandOutput,
-    BedrockAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentBuildTimeLambda", "StartIngestionJob", {})
-  .n("BedrockAgentClient", "StartIngestionJobCommand")
-  .sc(StartIngestionJob$)
-  .build() {
+export class StartIngestionJobCommand extends command<StartIngestionJobCommandInput, StartIngestionJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartIngestionJob",
+  StartIngestionJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

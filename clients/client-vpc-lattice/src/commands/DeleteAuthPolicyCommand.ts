@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAuthPolicyRequest, DeleteAuthPolicyResponse } from "../models/models_0";
 import { DeleteAuthPolicy$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteAuthPolicyCommandOutput extends DeleteAuthPolicyResponse,
  *
  * @public
  */
-export class DeleteAuthPolicyCommand extends $Command
-  .classBuilder<
-    DeleteAuthPolicyCommandInput,
-    DeleteAuthPolicyCommandOutput,
-    VPCLatticeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MercuryControlPlane", "DeleteAuthPolicy", {})
-  .n("VPCLatticeClient", "DeleteAuthPolicyCommand")
-  .sc(DeleteAuthPolicy$)
-  .build() {
+export class DeleteAuthPolicyCommand extends command<DeleteAuthPolicyCommandInput, DeleteAuthPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAuthPolicy",
+  DeleteAuthPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

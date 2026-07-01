@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ResetNotificationSettingsRequest, ResetNotificationSettingsResponse } from "../models/models_0";
-import type { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RolesAnywhereClient";
 import { ResetNotificationSettings$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -146,22 +142,12 @@ export interface ResetNotificationSettingsCommandOutput extends ResetNotificatio
  *
  * @public
  */
-export class ResetNotificationSettingsCommand extends $Command
-  .classBuilder<
-    ResetNotificationSettingsCommandInput,
-    ResetNotificationSettingsCommandOutput,
-    RolesAnywhereClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RolesAnywhereClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RolesAnywhere", "ResetNotificationSettings", {})
-  .n("RolesAnywhereClient", "ResetNotificationSettingsCommand")
-  .sc(ResetNotificationSettings$)
-  .build() {
+export class ResetNotificationSettingsCommand extends command<ResetNotificationSettingsCommandInput, ResetNotificationSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ResetNotificationSettings",
+  ResetNotificationSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetProfileVisibilityRequest, GetProfileVisibilityResponse } from "../models/models_0";
-import type {
-  PartnerCentralAccountClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralAccountClient";
 import { GetProfileVisibility$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface GetProfileVisibilityCommandOutput extends GetProfileVisibilityR
  *
  * @public
  */
-export class GetProfileVisibilityCommand extends $Command
-  .classBuilder<
-    GetProfileVisibilityCommandInput,
-    GetProfileVisibilityCommandOutput,
-    PartnerCentralAccountClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralAccountClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralAccount", "GetProfileVisibility", {})
-  .n("PartnerCentralAccountClient", "GetProfileVisibilityCommand")
-  .sc(GetProfileVisibility$)
-  .build() {
+export class GetProfileVisibilityCommand extends command<GetProfileVisibilityCommandInput, GetProfileVisibilityCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetProfileVisibility",
+  GetProfileVisibility$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

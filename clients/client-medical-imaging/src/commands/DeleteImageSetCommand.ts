@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MedicalImagingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MedicalImagingClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteImageSetRequest, DeleteImageSetResponse } from "../models/models_0";
 import { DeleteImageSet$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteImageSet$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface DeleteImageSetCommandOutput extends DeleteImageSetResponse, __M
  *
  * @public
  */
-export class DeleteImageSetCommand extends $Command
-  .classBuilder<
-    DeleteImageSetCommandInput,
-    DeleteImageSetCommandOutput,
-    MedicalImagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AHIGatewayService", "DeleteImageSet", {})
-  .n("MedicalImagingClient", "DeleteImageSetCommand")
-  .sc(DeleteImageSet$)
-  .build() {
+export class DeleteImageSetCommand extends command<DeleteImageSetCommandInput, DeleteImageSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteImageSet",
+  DeleteImageSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

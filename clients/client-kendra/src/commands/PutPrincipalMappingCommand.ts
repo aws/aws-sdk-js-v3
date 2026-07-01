@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutPrincipalMappingRequest } from "../models/models_0";
 import { PutPrincipalMapping$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutPrincipalMapping$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +115,12 @@ export interface PutPrincipalMappingCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutPrincipalMappingCommand extends $Command
-  .classBuilder<
-    PutPrincipalMappingCommandInput,
-    PutPrincipalMappingCommandOutput,
-    KendraClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSKendraFrontendService", "PutPrincipalMapping", {})
-  .n("KendraClient", "PutPrincipalMappingCommand")
-  .sc(PutPrincipalMapping$)
-  .build() {
+export class PutPrincipalMappingCommand extends command<PutPrincipalMappingCommandInput, PutPrincipalMappingCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutPrincipalMapping",
+  PutPrincipalMapping$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

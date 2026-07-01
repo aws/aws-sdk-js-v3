@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFileSystemFromBackupRequest, CreateFileSystemFromBackupResponse } from "../models/models_0";
 import { CreateFileSystemFromBackup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateFileSystemFromBackup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -870,22 +866,12 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  *
  * @public
  */
-export class CreateFileSystemFromBackupCommand extends $Command
-  .classBuilder<
-    CreateFileSystemFromBackupCommandInput,
-    CreateFileSystemFromBackupCommandOutput,
-    FSxClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSimbaAPIService_v20180301", "CreateFileSystemFromBackup", {})
-  .n("FSxClient", "CreateFileSystemFromBackupCommand")
-  .sc(CreateFileSystemFromBackup$)
-  .build() {
+export class CreateFileSystemFromBackupCommand extends command<CreateFileSystemFromBackupCommandInput, CreateFileSystemFromBackupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateFileSystemFromBackup",
+  CreateFileSystemFromBackup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

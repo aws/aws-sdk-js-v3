@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteVariableRequest, DeleteVariableResult } from "../models/models_0";
 import { DeleteVariable$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteVariable$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteVariableCommandOutput extends DeleteVariableResult, __Met
  *
  * @public
  */
-export class DeleteVariableCommand extends $Command
-  .classBuilder<
-    DeleteVariableCommandInput,
-    DeleteVariableCommandOutput,
-    FraudDetectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHawksNestServiceFacade", "DeleteVariable", {})
-  .n("FraudDetectorClient", "DeleteVariableCommand")
-  .sc(DeleteVariable$)
-  .build() {
+export class DeleteVariableCommand extends command<DeleteVariableCommandInput, DeleteVariableCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteVariable",
+  DeleteVariable$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

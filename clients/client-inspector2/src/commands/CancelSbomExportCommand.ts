@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelSbomExportRequest, CancelSbomExportResponse } from "../models/models_0";
 import { CancelSbomExport$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CancelSbomExport$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface CancelSbomExportCommandOutput extends CancelSbomExportResponse,
  *
  * @public
  */
-export class CancelSbomExportCommand extends $Command
-  .classBuilder<
-    CancelSbomExportCommandInput,
-    CancelSbomExportCommandOutput,
-    Inspector2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Inspector2", "CancelSbomExport", {})
-  .n("Inspector2Client", "CancelSbomExportCommand")
-  .sc(CancelSbomExport$)
-  .build() {
+export class CancelSbomExportCommand extends command<CancelSbomExportCommandInput, CancelSbomExportCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelSbomExport",
+  CancelSbomExport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

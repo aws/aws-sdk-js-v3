@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeBrandAssignmentRequest, DescribeBrandAssignmentResponse } from "../models/models_3";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { DescribeBrandAssignment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface DescribeBrandAssignmentCommandOutput extends DescribeBrandAssig
  *
  * @public
  */
-export class DescribeBrandAssignmentCommand extends $Command
-  .classBuilder<
-    DescribeBrandAssignmentCommandInput,
-    DescribeBrandAssignmentCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "DescribeBrandAssignment", {})
-  .n("QuickSightClient", "DescribeBrandAssignmentCommand")
-  .sc(DescribeBrandAssignment$)
-  .build() {
+export class DescribeBrandAssignmentCommand extends command<DescribeBrandAssignmentCommandInput, DescribeBrandAssignmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeBrandAssignment",
+  DescribeBrandAssignment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteIpamPrefixListResolverRequest, DeleteIpamPrefixListResolverResult } from "../models/models_2";
 import { DeleteIpamPrefixListResolver$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteIpamPrefixListResolver$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DeleteIpamPrefixListResolverCommandOutput extends DeleteIpamPre
  *
  * @public
  */
-export class DeleteIpamPrefixListResolverCommand extends $Command
-  .classBuilder<
-    DeleteIpamPrefixListResolverCommandInput,
-    DeleteIpamPrefixListResolverCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeleteIpamPrefixListResolver", {})
-  .n("EC2Client", "DeleteIpamPrefixListResolverCommand")
-  .sc(DeleteIpamPrefixListResolver$)
-  .build() {
+export class DeleteIpamPrefixListResolverCommand extends command<DeleteIpamPrefixListResolverCommandInput, DeleteIpamPrefixListResolverCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteIpamPrefixListResolver",
+  DeleteIpamPrefixListResolver$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

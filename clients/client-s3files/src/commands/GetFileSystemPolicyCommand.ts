@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetFileSystemPolicyRequest, GetFileSystemPolicyResponse } from "../models/models_0";
-import type { S3FilesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3FilesClient";
 import { GetFileSystemPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface GetFileSystemPolicyCommandOutput extends GetFileSystemPolicyRes
  *
  * @public
  */
-export class GetFileSystemPolicyCommand extends $Command
-  .classBuilder<
-    GetFileSystemPolicyCommandInput,
-    GetFileSystemPolicyCommandOutput,
-    S3FilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: S3FilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("S3Files", "GetFileSystemPolicy", {})
-  .n("S3FilesClient", "GetFileSystemPolicyCommand")
-  .sc(GetFileSystemPolicy$)
-  .build() {
+export class GetFileSystemPolicyCommand extends command<GetFileSystemPolicyCommandInput, GetFileSystemPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetFileSystemPolicy",
+  GetFileSystemPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

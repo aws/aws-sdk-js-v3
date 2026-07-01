@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EnableEnhancedMonitoringInput, EnhancedMonitoringOutput } from "../models/models_0";
 import { EnableEnhancedMonitoring$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { EnableEnhancedMonitoring$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,27 +92,12 @@ export interface EnableEnhancedMonitoringCommandOutput extends EnhancedMonitorin
  *
  * @public
  */
-export class EnableEnhancedMonitoringCommand extends $Command
-  .classBuilder<
-    EnableEnhancedMonitoringCommandInput,
-    EnableEnhancedMonitoringCommandOutput,
-    KinesisClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    OperationType: { type: "staticContextParams", value: `control` },
-    StreamId: { type: "contextParams", name: "StreamId" },
-    StreamARN: { type: "contextParams", name: "StreamARN" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Kinesis_20131202", "EnableEnhancedMonitoring", {})
-  .n("KinesisClient", "EnableEnhancedMonitoringCommand")
-  .sc(EnableEnhancedMonitoring$)
-  .build() {
+export class EnableEnhancedMonitoringCommand extends command<EnableEnhancedMonitoringCommandInput, EnableEnhancedMonitoringCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableEnhancedMonitoring",
+  EnableEnhancedMonitoring$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

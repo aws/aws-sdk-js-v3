@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeGuruProfilerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeGuruProfilerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteProfilingGroupRequest, DeleteProfilingGroupResponse } from "../models/models_0";
 import { DeleteProfilingGroup$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteProfilingGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeleteProfilingGroupCommandOutput extends DeleteProfilingGroupR
  *
  * @public
  */
-export class DeleteProfilingGroupCommand extends $Command
-  .classBuilder<
-    DeleteProfilingGroupCommandInput,
-    DeleteProfilingGroupCommandOutput,
-    CodeGuruProfilerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeGuruProfilerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeGuruProfiler", "DeleteProfilingGroup", {})
-  .n("CodeGuruProfilerClient", "DeleteProfilingGroupCommand")
-  .sc(DeleteProfilingGroup$)
-  .build() {
+export class DeleteProfilingGroupCommand extends command<DeleteProfilingGroupCommandInput, DeleteProfilingGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteProfilingGroup",
+  DeleteProfilingGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

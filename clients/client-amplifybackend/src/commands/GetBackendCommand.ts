@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyBackendClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyBackendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetBackendRequest, GetBackendResponse } from "../models/models_0";
 import { GetBackend$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetBackend$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface GetBackendCommandOutput extends GetBackendResponse, __MetadataB
  *
  * @public
  */
-export class GetBackendCommand extends $Command
-  .classBuilder<
-    GetBackendCommandInput,
-    GetBackendCommandOutput,
-    AmplifyBackendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyBackendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyBackend", "GetBackend", {})
-  .n("AmplifyBackendClient", "GetBackendCommand")
-  .sc(GetBackend$)
-  .build() {
+export class GetBackendCommand extends command<GetBackendCommandInput, GetBackendCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetBackend",
+  GetBackend$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

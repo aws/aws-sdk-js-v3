@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListEffectiveDeploymentsRequest, ListEffectiveDeploymentsResponse } from "../models/models_0";
 import { ListEffectiveDeployments$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListEffectiveDeployments$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +96,12 @@ export interface ListEffectiveDeploymentsCommandOutput extends ListEffectiveDepl
  *
  * @public
  */
-export class ListEffectiveDeploymentsCommand extends $Command
-  .classBuilder<
-    ListEffectiveDeploymentsCommandInput,
-    ListEffectiveDeploymentsCommandOutput,
-    GreengrassV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GreengrassV2", "ListEffectiveDeployments", {})
-  .n("GreengrassV2Client", "ListEffectiveDeploymentsCommand")
-  .sc(ListEffectiveDeployments$)
-  .build() {
+export class ListEffectiveDeploymentsCommand extends command<ListEffectiveDeploymentsCommandInput, ListEffectiveDeploymentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEffectiveDeployments",
+  ListEffectiveDeployments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

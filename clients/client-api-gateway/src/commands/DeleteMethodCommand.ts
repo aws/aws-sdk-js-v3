@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMethodRequest } from "../models/models_0";
 import { DeleteMethod$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteMethod$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface DeleteMethodCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteMethodCommand extends $Command
-  .classBuilder<
-    DeleteMethodCommandInput,
-    DeleteMethodCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "DeleteMethod", {})
-  .n("APIGatewayClient", "DeleteMethodCommand")
-  .sc(DeleteMethod$)
-  .build() {
+export class DeleteMethodCommand extends command<DeleteMethodCommandInput, DeleteMethodCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMethod",
+  DeleteMethod$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

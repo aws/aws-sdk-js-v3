@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelTransactionRequest, CancelTransactionResponse } from "../models/models_0";
 import { CancelTransaction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CancelTransaction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface CancelTransactionCommandOutput extends CancelTransactionRespons
  *
  * @public
  */
-export class CancelTransactionCommand extends $Command
-  .classBuilder<
-    CancelTransactionCommandInput,
-    CancelTransactionCommandOutput,
-    LakeFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLakeFormation", "CancelTransaction", {})
-  .n("LakeFormationClient", "CancelTransactionCommand")
-  .sc(CancelTransaction$)
-  .build() {
+export class CancelTransactionCommand extends command<CancelTransactionCommandInput, CancelTransactionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelTransaction",
+  CancelTransaction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

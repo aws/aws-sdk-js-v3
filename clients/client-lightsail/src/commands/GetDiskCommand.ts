@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDiskRequest, GetDiskResult } from "../models/models_0";
 import { GetDisk$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDisk$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -129,22 +125,12 @@ export interface GetDiskCommandOutput extends GetDiskResult, __MetadataBearer {}
  *
  * @public
  */
-export class GetDiskCommand extends $Command
-  .classBuilder<
-    GetDiskCommandInput,
-    GetDiskCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "GetDisk", {})
-  .n("LightsailClient", "GetDiskCommand")
-  .sc(GetDisk$)
-  .build() {
+export class GetDiskCommand extends command<GetDiskCommandInput, GetDiskCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDisk",
+  GetDisk$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

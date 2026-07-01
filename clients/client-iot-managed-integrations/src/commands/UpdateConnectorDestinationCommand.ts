@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateConnectorDestinationRequest } from "../models/models_0";
 import { UpdateConnectorDestination$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateConnectorDestination$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +104,12 @@ export interface UpdateConnectorDestinationCommandOutput extends __MetadataBeare
  *
  * @public
  */
-export class UpdateConnectorDestinationCommand extends $Command
-  .classBuilder<
-    UpdateConnectorDestinationCommandInput,
-    UpdateConnectorDestinationCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "UpdateConnectorDestination", {})
-  .n("IoTManagedIntegrationsClient", "UpdateConnectorDestinationCommand")
-  .sc(UpdateConnectorDestination$)
-  .build() {
+export class UpdateConnectorDestinationCommand extends command<UpdateConnectorDestinationCommandInput, UpdateConnectorDestinationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateConnectorDestination",
+  UpdateConnectorDestination$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

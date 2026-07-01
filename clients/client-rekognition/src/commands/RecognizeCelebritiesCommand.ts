@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RecognizeCelebritiesRequest, RecognizeCelebritiesResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { RecognizeCelebrities$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -206,22 +202,12 @@ export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesR
  *
  * @public
  */
-export class RecognizeCelebritiesCommand extends $Command
-  .classBuilder<
-    RecognizeCelebritiesCommandInput,
-    RecognizeCelebritiesCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "RecognizeCelebrities", {})
-  .n("RekognitionClient", "RecognizeCelebritiesCommand")
-  .sc(RecognizeCelebrities$)
-  .build() {
+export class RecognizeCelebritiesCommand extends command<RecognizeCelebritiesCommandInput, RecognizeCelebritiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "RecognizeCelebrities",
+  RecognizeCelebrities$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

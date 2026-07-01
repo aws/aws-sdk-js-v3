@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListServicesForAutoScalingConfigurationRequest,
   ListServicesForAutoScalingConfigurationResponse,
@@ -15,7 +12,6 @@ import { ListServicesForAutoScalingConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface ListServicesForAutoScalingConfigurationCommandOutput extends Li
  *
  * @public
  */
-export class ListServicesForAutoScalingConfigurationCommand extends $Command
-  .classBuilder<
-    ListServicesForAutoScalingConfigurationCommandInput,
-    ListServicesForAutoScalingConfigurationCommandOutput,
-    AppRunnerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppRunner", "ListServicesForAutoScalingConfiguration", {})
-  .n("AppRunnerClient", "ListServicesForAutoScalingConfigurationCommand")
-  .sc(ListServicesForAutoScalingConfiguration$)
-  .build() {
+export class ListServicesForAutoScalingConfigurationCommand extends command<ListServicesForAutoScalingConfigurationCommandInput, ListServicesForAutoScalingConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListServicesForAutoScalingConfiguration",
+  ListServicesForAutoScalingConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

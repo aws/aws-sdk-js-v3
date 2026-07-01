@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateChimeWebhookConfigurationRequest, UpdateChimeWebhookConfigurationResult } from "../models/models_0";
 import { UpdateChimeWebhookConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateChimeWebhookConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface UpdateChimeWebhookConfigurationCommandOutput extends UpdateChim
  *
  * @public
  */
-export class UpdateChimeWebhookConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateChimeWebhookConfigurationCommandInput,
-    UpdateChimeWebhookConfigurationCommandOutput,
-    ChatbotClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WheatleyOrchestration_20171011", "UpdateChimeWebhookConfiguration", {})
-  .n("ChatbotClient", "UpdateChimeWebhookConfigurationCommand")
-  .sc(UpdateChimeWebhookConfiguration$)
-  .build() {
+export class UpdateChimeWebhookConfigurationCommand extends command<UpdateChimeWebhookConfigurationCommandInput, UpdateChimeWebhookConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateChimeWebhookConfiguration",
+  UpdateChimeWebhookConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   RegisterComputeNodeGroupInstanceRequest,
   RegisterComputeNodeGroupInstanceResponse,
 } from "../models/models_0";
-import type { PCSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PCSClient";
 import { RegisterComputeNodeGroupInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface RegisterComputeNodeGroupInstanceCommandOutput extends RegisterC
  *
  * @public
  */
-export class RegisterComputeNodeGroupInstanceCommand extends $Command
-  .classBuilder<
-    RegisterComputeNodeGroupInstanceCommandInput,
-    RegisterComputeNodeGroupInstanceCommandOutput,
-    PCSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PCSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSParallelComputingService", "RegisterComputeNodeGroupInstance", {})
-  .n("PCSClient", "RegisterComputeNodeGroupInstanceCommand")
-  .sc(RegisterComputeNodeGroupInstance$)
-  .build() {
+export class RegisterComputeNodeGroupInstanceCommand extends command<RegisterComputeNodeGroupInstanceCommandInput, RegisterComputeNodeGroupInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterComputeNodeGroupInstance",
+  RegisterComputeNodeGroupInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

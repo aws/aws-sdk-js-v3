@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMobileDeviceAccessOverrideRequest, GetMobileDeviceAccessOverrideResponse } from "../models/models_0";
 import { GetMobileDeviceAccessOverride$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface GetMobileDeviceAccessOverrideCommandOutput extends GetMobileDev
  *
  * @public
  */
-export class GetMobileDeviceAccessOverrideCommand extends $Command
-  .classBuilder<
-    GetMobileDeviceAccessOverrideCommandInput,
-    GetMobileDeviceAccessOverrideCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "GetMobileDeviceAccessOverride", {})
-  .n("WorkMailClient", "GetMobileDeviceAccessOverrideCommand")
-  .sc(GetMobileDeviceAccessOverride$)
-  .build() {
+export class GetMobileDeviceAccessOverrideCommand extends command<GetMobileDeviceAccessOverrideCommandInput, GetMobileDeviceAccessOverrideCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMobileDeviceAccessOverride",
+  GetMobileDeviceAccessOverride$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

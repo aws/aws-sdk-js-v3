@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SetDefaultSenderIdRequest, SetDefaultSenderIdResult } from "../models/models_0";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { SetDefaultSenderId$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +73,12 @@ export interface SetDefaultSenderIdCommandOutput extends SetDefaultSenderIdResul
  *
  * @public
  */
-export class SetDefaultSenderIdCommand extends $Command
-  .classBuilder<
-    SetDefaultSenderIdCommandInput,
-    SetDefaultSenderIdCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "SetDefaultSenderId", {})
-  .n("PinpointSMSVoiceV2Client", "SetDefaultSenderIdCommand")
-  .sc(SetDefaultSenderId$)
-  .build() {
+export class SetDefaultSenderIdCommand extends command<SetDefaultSenderIdCommandInput, SetDefaultSenderIdCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetDefaultSenderId",
+  SetDefaultSenderId$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

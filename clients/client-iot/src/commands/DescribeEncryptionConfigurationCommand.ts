@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeEncryptionConfigurationRequest,
   DescribeEncryptionConfigurationResponse,
@@ -15,7 +12,6 @@ import { DescribeEncryptionConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface DescribeEncryptionConfigurationCommandOutput extends DescribeEn
  *
  * @public
  */
-export class DescribeEncryptionConfigurationCommand extends $Command
-  .classBuilder<
-    DescribeEncryptionConfigurationCommandInput,
-    DescribeEncryptionConfigurationCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "DescribeEncryptionConfiguration", {})
-  .n("IoTClient", "DescribeEncryptionConfigurationCommand")
-  .sc(DescribeEncryptionConfiguration$)
-  .build() {
+export class DescribeEncryptionConfigurationCommand extends command<DescribeEncryptionConfigurationCommandInput, DescribeEncryptionConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEncryptionConfiguration",
+  DescribeEncryptionConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

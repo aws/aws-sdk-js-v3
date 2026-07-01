@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFpgaImageRequest, DeleteFpgaImageResult } from "../models/models_2";
 import { DeleteFpgaImage$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteFpgaImage$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -60,22 +56,12 @@ export interface DeleteFpgaImageCommandOutput extends DeleteFpgaImageResult, __M
  *
  * @public
  */
-export class DeleteFpgaImageCommand extends $Command
-  .classBuilder<
-    DeleteFpgaImageCommandInput,
-    DeleteFpgaImageCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeleteFpgaImage", {})
-  .n("EC2Client", "DeleteFpgaImageCommand")
-  .sc(DeleteFpgaImage$)
-  .build() {
+export class DeleteFpgaImageCommand extends command<DeleteFpgaImageCommandInput, DeleteFpgaImageCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFpgaImage",
+  DeleteFpgaImage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

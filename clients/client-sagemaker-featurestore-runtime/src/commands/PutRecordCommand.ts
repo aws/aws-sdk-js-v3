@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutRecordRequest } from "../models/models_0";
-import type {
-  SageMakerFeatureStoreRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SageMakerFeatureStoreRuntimeClient";
 import { PutRecord$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +97,12 @@ export interface PutRecordCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutRecordCommand extends $Command
-  .classBuilder<
-    PutRecordCommandInput,
-    PutRecordCommandOutput,
-    SageMakerFeatureStoreRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerFeatureStoreRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSageMakerFeatureStoreRuntime", "PutRecord", {})
-  .n("SageMakerFeatureStoreRuntimeClient", "PutRecordCommand")
-  .sc(PutRecord$)
-  .build() {
+export class PutRecordCommand extends command<PutRecordCommandInput, PutRecordCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutRecord",
+  PutRecord$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

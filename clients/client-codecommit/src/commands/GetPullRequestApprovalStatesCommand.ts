@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPullRequestApprovalStatesInput, GetPullRequestApprovalStatesOutput } from "../models/models_0";
 import { GetPullRequestApprovalStates$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetPullRequestApprovalStates$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +92,12 @@ export interface GetPullRequestApprovalStatesCommandOutput extends GetPullReques
  *
  * @public
  */
-export class GetPullRequestApprovalStatesCommand extends $Command
-  .classBuilder<
-    GetPullRequestApprovalStatesCommandInput,
-    GetPullRequestApprovalStatesCommandOutput,
-    CodeCommitClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCommit_20150413", "GetPullRequestApprovalStates", {})
-  .n("CodeCommitClient", "GetPullRequestApprovalStatesCommand")
-  .sc(GetPullRequestApprovalStates$)
-  .build() {
+export class GetPullRequestApprovalStatesCommand extends command<GetPullRequestApprovalStatesCommandInput, GetPullRequestApprovalStatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPullRequestApprovalStates",
+  GetPullRequestApprovalStates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

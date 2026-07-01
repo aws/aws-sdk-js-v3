@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteModelInvocationLoggingConfigurationRequest,
   DeleteModelInvocationLoggingConfigurationResponse,
@@ -15,7 +12,6 @@ import { DeleteModelInvocationLoggingConfiguration$ } from "../schemas/schemas_0
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface DeleteModelInvocationLoggingConfigurationCommandOutput extends 
  *
  * @public
  */
-export class DeleteModelInvocationLoggingConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteModelInvocationLoggingConfigurationCommandInput,
-    DeleteModelInvocationLoggingConfigurationCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "DeleteModelInvocationLoggingConfiguration", {})
-  .n("BedrockClient", "DeleteModelInvocationLoggingConfigurationCommand")
-  .sc(DeleteModelInvocationLoggingConfiguration$)
-  .build() {
+export class DeleteModelInvocationLoggingConfigurationCommand extends command<DeleteModelInvocationLoggingConfigurationCommandInput, DeleteModelInvocationLoggingConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteModelInvocationLoggingConfiguration",
+  DeleteModelInvocationLoggingConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

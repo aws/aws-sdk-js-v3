@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateEventActionRequest, UpdateEventActionResponse } from "../models/models_0";
 import { UpdateEventAction$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateEventAction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface UpdateEventActionCommandOutput extends UpdateEventActionRespons
  *
  * @public
  */
-export class UpdateEventActionCommand extends $Command
-  .classBuilder<
-    UpdateEventActionCommandInput,
-    UpdateEventActionCommandOutput,
-    DataExchangeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataExchange", "UpdateEventAction", {})
-  .n("DataExchangeClient", "UpdateEventActionCommand")
-  .sc(UpdateEventAction$)
-  .build() {
+export class UpdateEventActionCommand extends command<UpdateEventActionCommandInput, UpdateEventActionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateEventAction",
+  UpdateEventAction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

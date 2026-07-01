@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDefaultCreditSpecificationRequest, GetDefaultCreditSpecificationResult } from "../models/models_6";
 import { GetDefaultCreditSpecification$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDefaultCreditSpecification$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +62,12 @@ export interface GetDefaultCreditSpecificationCommandOutput extends GetDefaultCr
  *
  * @public
  */
-export class GetDefaultCreditSpecificationCommand extends $Command
-  .classBuilder<
-    GetDefaultCreditSpecificationCommandInput,
-    GetDefaultCreditSpecificationCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "GetDefaultCreditSpecification", {})
-  .n("EC2Client", "GetDefaultCreditSpecificationCommand")
-  .sc(GetDefaultCreditSpecification$)
-  .build() {
+export class GetDefaultCreditSpecificationCommand extends command<GetDefaultCreditSpecificationCommandInput, GetDefaultCreditSpecificationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDefaultCreditSpecification",
+  GetDefaultCreditSpecification$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeEntityAggregatesForOrganizationRequest,
   DescribeEntityAggregatesForOrganizationResponse,
@@ -15,7 +12,6 @@ import { DescribeEntityAggregatesForOrganization$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DescribeEntityAggregatesForOrganizationCommandOutput extends De
  *
  * @public
  */
-export class DescribeEntityAggregatesForOrganizationCommand extends $Command
-  .classBuilder<
-    DescribeEntityAggregatesForOrganizationCommandInput,
-    DescribeEntityAggregatesForOrganizationCommandOutput,
-    HealthClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: HealthClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHealth_20160804", "DescribeEntityAggregatesForOrganization", {})
-  .n("HealthClient", "DescribeEntityAggregatesForOrganizationCommand")
-  .sc(DescribeEntityAggregatesForOrganization$)
-  .build() {
+export class DescribeEntityAggregatesForOrganizationCommand extends command<DescribeEntityAggregatesForOrganizationCommandInput, DescribeEntityAggregatesForOrganizationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEntityAggregatesForOrganization",
+  DescribeEntityAggregatesForOrganization$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

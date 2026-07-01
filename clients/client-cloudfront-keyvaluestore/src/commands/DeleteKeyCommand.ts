@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFrontKeyValueStoreClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFrontKeyValueStoreClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteKeyRequest, DeleteKeyResponse } from "../models/models_0";
 import { DeleteKey$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteKey$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,25 +96,12 @@ export interface DeleteKeyCommandOutput extends DeleteKeyResponse, __MetadataBea
  *
  * @public
  */
-export class DeleteKeyCommand extends $Command
-  .classBuilder<
-    DeleteKeyCommandInput,
-    DeleteKeyCommandOutput,
-    CloudFrontKeyValueStoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    KvsARN: { type: "contextParams", name: "KvsARN" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontKeyValueStoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFrontKeyValueStore", "DeleteKey", {})
-  .n("CloudFrontKeyValueStoreClient", "DeleteKeyCommand")
-  .sc(DeleteKey$)
-  .build() {
+export class DeleteKeyCommand extends command<DeleteKeyCommandInput, DeleteKeyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteKey",
+  DeleteKey$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateBulkImportJobRequest, CreateBulkImportJobResponse } from "../models/models_0";
 import { CreateBulkImportJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateBulkImportJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +128,12 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  *
  * @public
  */
-export class CreateBulkImportJobCommand extends $Command
-  .classBuilder<
-    CreateBulkImportJobCommandInput,
-    CreateBulkImportJobCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "CreateBulkImportJob", {})
-  .n("IoTSiteWiseClient", "CreateBulkImportJobCommand")
-  .sc(CreateBulkImportJob$)
-  .build() {
+export class CreateBulkImportJobCommand extends command<CreateBulkImportJobCommandInput, CreateBulkImportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateBulkImportJob",
+  CreateBulkImportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { FileSystemPolicyDescription, PutFileSystemPolicyRequest } from "../models/models_0";
 import { PutFileSystemPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutFileSystemPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface PutFileSystemPolicyCommandOutput extends FileSystemPolicyDescri
  *
  * @public
  */
-export class PutFileSystemPolicyCommand extends $Command
-  .classBuilder<
-    PutFileSystemPolicyCommandInput,
-    PutFileSystemPolicyCommandOutput,
-    EFSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MagnolioAPIService_v20150201", "PutFileSystemPolicy", {})
-  .n("EFSClient", "PutFileSystemPolicyCommand")
-  .sc(PutFileSystemPolicy$)
-  .build() {
+export class PutFileSystemPolicyCommand extends command<PutFileSystemPolicyCommandInput, PutFileSystemPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutFileSystemPolicy",
+  PutFileSystemPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

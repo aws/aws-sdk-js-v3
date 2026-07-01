@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListAvailableResourceDimensionsRequest,
   ListAvailableResourceDimensionsResponse,
 } from "../models/models_0";
-import type { PIClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PIClient";
 import { ListAvailableResourceDimensions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface ListAvailableResourceDimensionsCommandOutput extends ListAvaila
  *
  * @public
  */
-export class ListAvailableResourceDimensionsCommand extends $Command
-  .classBuilder<
-    ListAvailableResourceDimensionsCommandInput,
-    ListAvailableResourceDimensionsCommandOutput,
-    PIClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PIClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PerformanceInsightsv20180227", "ListAvailableResourceDimensions", {})
-  .n("PIClient", "ListAvailableResourceDimensionsCommand")
-  .sc(ListAvailableResourceDimensions$)
-  .build() {
+export class ListAvailableResourceDimensionsCommand extends command<ListAvailableResourceDimensionsCommandInput, ListAvailableResourceDimensionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAvailableResourceDimensions",
+  ListAvailableResourceDimensions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

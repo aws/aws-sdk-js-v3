@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AcceptMatchInput, AcceptMatchOutput } from "../models/models_0";
 import { AcceptMatch$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AcceptMatch$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  *
  * @public
  */
-export class AcceptMatchCommand extends $Command
-  .classBuilder<
-    AcceptMatchCommandInput,
-    AcceptMatchCommandOutput,
-    GameLiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GameLift", "AcceptMatch", {})
-  .n("GameLiftClient", "AcceptMatchCommand")
-  .sc(AcceptMatch$)
-  .build() {
+export class AcceptMatchCommand extends command<AcceptMatchCommandInput, AcceptMatchCommandOutput>(
+  _ep0,
+  _mw0,
+  "AcceptMatch",
+  AcceptMatch$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

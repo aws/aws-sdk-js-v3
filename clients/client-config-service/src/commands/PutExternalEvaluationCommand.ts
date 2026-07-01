@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutExternalEvaluationRequest, PutExternalEvaluationResponse } from "../models/models_0";
 import { PutExternalEvaluation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutExternalEvaluation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface PutExternalEvaluationCommandOutput extends PutExternalEvaluatio
  *
  * @public
  */
-export class PutExternalEvaluationCommand extends $Command
-  .classBuilder<
-    PutExternalEvaluationCommandInput,
-    PutExternalEvaluationCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "PutExternalEvaluation", {})
-  .n("ConfigServiceClient", "PutExternalEvaluationCommand")
-  .sc(PutExternalEvaluation$)
-  .build() {
+export class PutExternalEvaluationCommand extends command<PutExternalEvaluationCommandInput, PutExternalEvaluationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutExternalEvaluation",
+  PutExternalEvaluation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

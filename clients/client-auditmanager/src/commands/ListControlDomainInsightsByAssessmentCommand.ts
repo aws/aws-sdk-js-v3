@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AuditManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AuditManagerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListControlDomainInsightsByAssessmentRequest,
   ListControlDomainInsightsByAssessmentResponse,
@@ -15,7 +12,6 @@ import { ListControlDomainInsightsByAssessment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface ListControlDomainInsightsByAssessmentCommandOutput extends List
  *
  * @public
  */
-export class ListControlDomainInsightsByAssessmentCommand extends $Command
-  .classBuilder<
-    ListControlDomainInsightsByAssessmentCommandInput,
-    ListControlDomainInsightsByAssessmentCommandOutput,
-    AuditManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BedrockAssessmentManagerLambda", "ListControlDomainInsightsByAssessment", {})
-  .n("AuditManagerClient", "ListControlDomainInsightsByAssessmentCommand")
-  .sc(ListControlDomainInsightsByAssessment$)
-  .build() {
+export class ListControlDomainInsightsByAssessmentCommand extends command<ListControlDomainInsightsByAssessmentCommandInput, ListControlDomainInsightsByAssessmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListControlDomainInsightsByAssessment",
+  ListControlDomainInsightsByAssessment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

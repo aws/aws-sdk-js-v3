@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListChangedBlocksRequest, ListChangedBlocksResponse } from "../models/models_0";
 import { ListChangedBlocks$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListChangedBlocks$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface ListChangedBlocksCommandOutput extends ListChangedBlocksRespons
  *
  * @public
  */
-export class ListChangedBlocksCommand extends $Command
-  .classBuilder<
-    ListChangedBlocksCommandInput,
-    ListChangedBlocksCommandOutput,
-    EBSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EBSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Ebs", "ListChangedBlocks", {})
-  .n("EBSClient", "ListChangedBlocksCommand")
-  .sc(ListChangedBlocks$)
-  .build() {
+export class ListChangedBlocksCommand extends command<ListChangedBlocksCommandInput, ListChangedBlocksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListChangedBlocks",
+  ListChangedBlocks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

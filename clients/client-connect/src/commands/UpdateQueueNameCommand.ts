@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateQueueNameRequest } from "../models/models_3";
 import { UpdateQueueName$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateQueueName$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface UpdateQueueNameCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdateQueueNameCommand extends $Command
-  .classBuilder<
-    UpdateQueueNameCommandInput,
-    UpdateQueueNameCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "UpdateQueueName", {})
-  .n("ConnectClient", "UpdateQueueNameCommand")
-  .sc(UpdateQueueName$)
-  .build() {
+export class UpdateQueueNameCommand extends command<UpdateQueueNameCommandInput, UpdateQueueNameCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateQueueName",
+  UpdateQueueName$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

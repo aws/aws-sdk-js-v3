@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteIndexPolicyRequest, DeleteIndexPolicyResponse } from "../models/models_0";
 import { DeleteIndexPolicy$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteIndexPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface DeleteIndexPolicyCommandOutput extends DeleteIndexPolicyRespons
  *
  * @public
  */
-export class DeleteIndexPolicyCommand extends $Command
-  .classBuilder<
-    DeleteIndexPolicyCommandInput,
-    DeleteIndexPolicyCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "DeleteIndexPolicy", {})
-  .n("CloudWatchLogsClient", "DeleteIndexPolicyCommand")
-  .sc(DeleteIndexPolicy$)
-  .build() {
+export class DeleteIndexPolicyCommand extends command<DeleteIndexPolicyCommandInput, DeleteIndexPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteIndexPolicy",
+  DeleteIndexPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

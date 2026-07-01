@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateScheduleInput, CreateScheduleOutput } from "../models/models_0";
-import type { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 import { CreateSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -167,22 +163,12 @@ export interface CreateScheduleCommandOutput extends CreateScheduleOutput, __Met
  *
  * @public
  */
-export class CreateScheduleCommand extends $Command
-  .classBuilder<
-    CreateScheduleCommandInput,
-    CreateScheduleCommandOutput,
-    SchedulerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SchedulerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSChronosService", "CreateSchedule", {})
-  .n("SchedulerClient", "CreateScheduleCommand")
-  .sc(CreateSchedule$)
-  .build() {
+export class CreateScheduleCommand extends command<CreateScheduleCommandInput, CreateScheduleCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSchedule",
+  CreateSchedule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateFileSystemInput, AssociateFileSystemOutput } from "../models/models_0";
 import { AssociateFileSystem$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface AssociateFileSystemCommandOutput extends AssociateFileSystemOut
  *
  * @public
  */
-export class AssociateFileSystemCommand extends $Command
-  .classBuilder<
-    AssociateFileSystemCommandInput,
-    AssociateFileSystemCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "AssociateFileSystem", {})
-  .n("StorageGatewayClient", "AssociateFileSystemCommand")
-  .sc(AssociateFileSystem$)
-  .build() {
+export class AssociateFileSystemCommand extends command<AssociateFileSystemCommandInput, AssociateFileSystemCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateFileSystem",
+  AssociateFileSystem$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

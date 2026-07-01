@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAppBundleRequest, DeleteAppBundleResponse } from "../models/models_0";
 import { DeleteAppBundle$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAppBundle$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DeleteAppBundleCommandOutput extends DeleteAppBundleResponse, _
  *
  * @public
  */
-export class DeleteAppBundleCommand extends $Command
-  .classBuilder<
-    DeleteAppBundleCommandInput,
-    DeleteAppBundleCommandOutput,
-    AppFabricClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppFabricClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FabricFrontEndService", "DeleteAppBundle", {})
-  .n("AppFabricClient", "DeleteAppBundleCommand")
-  .sc(DeleteAppBundle$)
-  .build() {
+export class DeleteAppBundleCommand extends command<DeleteAppBundleCommandInput, DeleteAppBundleCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAppBundle",
+  DeleteAppBundle$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

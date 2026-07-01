@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RestoreClusterFromSnapshotInput, RestoreClusterFromSnapshotOutput } from "../models/models_0";
 import { RestoreClusterFromSnapshot$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RestoreClusterFromSnapshot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface RestoreClusterFromSnapshotCommandOutput extends RestoreClusterF
  *
  * @public
  */
-export class RestoreClusterFromSnapshotCommand extends $Command
-  .classBuilder<
-    RestoreClusterFromSnapshotCommandInput,
-    RestoreClusterFromSnapshotCommandOutput,
-    DocDBElasticClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DocDBElasticClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeraDbLionfishServiceLambda", "RestoreClusterFromSnapshot", {})
-  .n("DocDBElasticClient", "RestoreClusterFromSnapshotCommand")
-  .sc(RestoreClusterFromSnapshot$)
-  .build() {
+export class RestoreClusterFromSnapshotCommand extends command<RestoreClusterFromSnapshotCommandInput, RestoreClusterFromSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "RestoreClusterFromSnapshot",
+  RestoreClusterFromSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

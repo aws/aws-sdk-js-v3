@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AcceptAccountLinkInvitationRequest, AcceptAccountLinkInvitationResult } from "../models/models_0";
 import { AcceptAccountLinkInvitation$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface AcceptAccountLinkInvitationCommandOutput extends AcceptAccountL
  *
  * @public
  */
-export class AcceptAccountLinkInvitationCommand extends $Command
-  .classBuilder<
-    AcceptAccountLinkInvitationCommandInput,
-    AcceptAccountLinkInvitationCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "AcceptAccountLinkInvitation", {})
-  .n("WorkSpacesClient", "AcceptAccountLinkInvitationCommand")
-  .sc(AcceptAccountLinkInvitation$)
-  .build() {
+export class AcceptAccountLinkInvitationCommand extends command<AcceptAccountLinkInvitationCommandInput, AcceptAccountLinkInvitationCommandOutput>(
+  _ep0,
+  _mw0,
+  "AcceptAccountLinkInvitation",
+  AcceptAccountLinkInvitation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

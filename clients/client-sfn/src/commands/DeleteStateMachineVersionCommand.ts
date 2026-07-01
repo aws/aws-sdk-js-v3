@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteStateMachineVersionInput, DeleteStateMachineVersionOutput } from "../models/models_0";
 import { DeleteStateMachineVersion$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface DeleteStateMachineVersionCommandOutput extends DeleteStateMachi
  *
  * @public
  */
-export class DeleteStateMachineVersionCommand extends $Command
-  .classBuilder<
-    DeleteStateMachineVersionCommandInput,
-    DeleteStateMachineVersionCommandOutput,
-    SFNClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSStepFunctions", "DeleteStateMachineVersion", {})
-  .n("SFNClient", "DeleteStateMachineVersionCommand")
-  .sc(DeleteStateMachineVersion$)
-  .build() {
+export class DeleteStateMachineVersionCommand extends command<DeleteStateMachineVersionCommandInput, DeleteStateMachineVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteStateMachineVersion",
+  DeleteStateMachineVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateLocationFsxOntapRequest, UpdateLocationFsxOntapResponse } from "../models/models_0";
 import { UpdateLocationFsxOntap$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateLocationFsxOntap$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface UpdateLocationFsxOntapCommandOutput extends UpdateLocationFsxOn
  *
  * @public
  */
-export class UpdateLocationFsxOntapCommand extends $Command
-  .classBuilder<
-    UpdateLocationFsxOntapCommandInput,
-    UpdateLocationFsxOntapCommandOutput,
-    DataSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FmrsService", "UpdateLocationFsxOntap", {})
-  .n("DataSyncClient", "UpdateLocationFsxOntapCommand")
-  .sc(UpdateLocationFsxOntap$)
-  .build() {
+export class UpdateLocationFsxOntapCommand extends command<UpdateLocationFsxOntapCommandInput, UpdateLocationFsxOntapCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateLocationFsxOntap",
+  UpdateLocationFsxOntap$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

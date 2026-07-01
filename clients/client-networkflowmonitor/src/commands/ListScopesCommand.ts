@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListScopesInput, ListScopesOutput } from "../models/models_0";
-import type {
-  NetworkFlowMonitorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFlowMonitorClient";
 import { ListScopes$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface ListScopesCommandOutput extends ListScopesOutput, __MetadataBea
  *
  * @public
  */
-export class ListScopesCommand extends $Command
-  .classBuilder<
-    ListScopesCommandInput,
-    ListScopesCommandOutput,
-    NetworkFlowMonitorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFlowMonitorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFlowMonitor", "ListScopes", {})
-  .n("NetworkFlowMonitorClient", "ListScopesCommand")
-  .sc(ListScopes$)
-  .build() {
+export class ListScopesCommand extends command<ListScopesCommandInput, ListScopesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListScopes",
+  ListScopes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

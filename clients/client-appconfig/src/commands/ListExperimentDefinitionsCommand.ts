@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExperimentDefinitions, ListExperimentDefinitionsRequest } from "../models/models_0";
 import { ListExperimentDefinitions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListExperimentDefinitions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +110,12 @@ export interface ListExperimentDefinitionsCommandOutput extends ExperimentDefini
  *
  * @public
  */
-export class ListExperimentDefinitionsCommand extends $Command
-  .classBuilder<
-    ListExperimentDefinitionsCommandInput,
-    ListExperimentDefinitionsCommandOutput,
-    AppConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAppConfig", "ListExperimentDefinitions", {})
-  .n("AppConfigClient", "ListExperimentDefinitionsCommand")
-  .sc(ListExperimentDefinitions$)
-  .build() {
+export class ListExperimentDefinitionsCommand extends command<ListExperimentDefinitionsCommandInput, ListExperimentDefinitionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListExperimentDefinitions",
+  ListExperimentDefinitions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

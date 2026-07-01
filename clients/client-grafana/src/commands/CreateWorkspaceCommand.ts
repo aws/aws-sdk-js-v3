@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateWorkspaceRequest, CreateWorkspaceResponse } from "../models/models_0";
 import { CreateWorkspace$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateWorkspace$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -175,22 +171,12 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  *
  * @public
  */
-export class CreateWorkspaceCommand extends $Command
-  .classBuilder<
-    CreateWorkspaceCommandInput,
-    CreateWorkspaceCommandOutput,
-    GrafanaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GrafanaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGrafanaControlPlane", "CreateWorkspace", {})
-  .n("GrafanaClient", "CreateWorkspaceCommand")
-  .sc(CreateWorkspace$)
-  .build() {
+export class CreateWorkspaceCommand extends command<CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateWorkspace",
+  CreateWorkspace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

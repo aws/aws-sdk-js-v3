@@ -1,22 +1,17 @@
 // smithy-typescript generated code
-import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep3, _mw0, command } from "../commandBuilder";
 import type {
   GetBucketAccelerateConfigurationOutput,
   GetBucketAccelerateConfigurationRequest,
 } from "../models/models_0";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { GetBucketAccelerateConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,29 +89,12 @@ export interface GetBucketAccelerateConfigurationCommandOutput extends GetBucket
  *
  * @public
  */
-export class GetBucketAccelerateConfigurationCommand extends $Command
-  .classBuilder<
-    GetBucketAccelerateConfigurationCommandInput,
-    GetBucketAccelerateConfigurationCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
-    Bucket: { type: "contextParams", name: "Bucket" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getThrow200ExceptionsPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "GetBucketAccelerateConfiguration", {})
-  .n("S3Client", "GetBucketAccelerateConfigurationCommand")
-  .sc(GetBucketAccelerateConfiguration$)
-  .build() {
+export class GetBucketAccelerateConfigurationCommand extends command<GetBucketAccelerateConfigurationCommandInput, GetBucketAccelerateConfigurationCommandOutput>(
+  _ep3,
+  _mw0,
+  "GetBucketAccelerateConfiguration",
+  GetBucketAccelerateConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

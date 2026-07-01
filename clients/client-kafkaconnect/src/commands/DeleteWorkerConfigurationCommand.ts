@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteWorkerConfigurationRequest, DeleteWorkerConfigurationResponse } from "../models/models_0";
 import { DeleteWorkerConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteWorkerConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface DeleteWorkerConfigurationCommandOutput extends DeleteWorkerConf
  *
  * @public
  */
-export class DeleteWorkerConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteWorkerConfigurationCommandInput,
-    DeleteWorkerConfigurationCommandOutput,
-    KafkaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KafkaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KafkaConnect", "DeleteWorkerConfiguration", {})
-  .n("KafkaConnectClient", "DeleteWorkerConfigurationCommand")
-  .sc(DeleteWorkerConfiguration$)
-  .build() {
+export class DeleteWorkerConfigurationCommand extends command<DeleteWorkerConfigurationCommandInput, DeleteWorkerConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteWorkerConfiguration",
+  DeleteWorkerConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

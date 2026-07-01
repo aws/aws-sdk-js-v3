@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeRecommendationLimitationsRequest,
   DescribeRecommendationLimitationsResponse,
@@ -19,7 +12,6 @@ import { DescribeRecommendationLimitations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +90,12 @@ export interface DescribeRecommendationLimitationsCommandOutput extends Describe
  *
  * @public
  */
-export class DescribeRecommendationLimitationsCommand extends $Command
-  .classBuilder<
-    DescribeRecommendationLimitationsCommandInput,
-    DescribeRecommendationLimitationsCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "DescribeRecommendationLimitations", {})
-  .n("DatabaseMigrationServiceClient", "DescribeRecommendationLimitationsCommand")
-  .sc(DescribeRecommendationLimitations$)
-  .build() {
+export class DescribeRecommendationLimitationsCommand extends command<DescribeRecommendationLimitationsCommandInput, DescribeRecommendationLimitationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRecommendationLimitations",
+  DescribeRecommendationLimitations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

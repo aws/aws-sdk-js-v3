@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyUIBuilderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyUIBuilderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateThemeRequest, UpdateThemeResponse } from "../models/models_0";
 import { UpdateTheme$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateTheme$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +117,12 @@ export interface UpdateThemeCommandOutput extends UpdateThemeResponse, __Metadat
  *
  * @public
  */
-export class UpdateThemeCommand extends $Command
-  .classBuilder<
-    UpdateThemeCommandInput,
-    UpdateThemeCommandOutput,
-    AmplifyUIBuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyUIBuilder", "UpdateTheme", {})
-  .n("AmplifyUIBuilderClient", "UpdateThemeCommand")
-  .sc(UpdateTheme$)
-  .build() {
+export class UpdateThemeCommand extends command<UpdateThemeCommandInput, UpdateThemeCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateTheme",
+  UpdateTheme$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

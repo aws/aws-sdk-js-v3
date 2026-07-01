@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AcceptConnectionInvitationRequest, AcceptConnectionInvitationResponse } from "../models/models_0";
-import type {
-  PartnerCentralAccountClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PartnerCentralAccountClient";
 import { AcceptConnectionInvitation$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +107,12 @@ export interface AcceptConnectionInvitationCommandOutput extends AcceptConnectio
  *
  * @public
  */
-export class AcceptConnectionInvitationCommand extends $Command
-  .classBuilder<
-    AcceptConnectionInvitationCommandInput,
-    AcceptConnectionInvitationCommandOutput,
-    PartnerCentralAccountClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PartnerCentralAccountClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PartnerCentralAccount", "AcceptConnectionInvitation", {})
-  .n("PartnerCentralAccountClient", "AcceptConnectionInvitationCommand")
-  .sc(AcceptConnectionInvitation$)
-  .build() {
+export class AcceptConnectionInvitationCommand extends command<AcceptConnectionInvitationCommandInput, AcceptConnectionInvitationCommandOutput>(
+  _ep0,
+  _mw0,
+  "AcceptConnectionInvitation",
+  AcceptConnectionInvitation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

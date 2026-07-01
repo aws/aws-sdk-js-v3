@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { EvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EvsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEnvironmentHostRequest, DeleteEnvironmentHostResponse } from "../models/models_0";
 import { DeleteEnvironmentHost$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteEnvironmentHost$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface DeleteEnvironmentHostCommandOutput extends DeleteEnvironmentHos
  *
  * @public
  */
-export class DeleteEnvironmentHostCommand extends $Command
-  .classBuilder<
-    DeleteEnvironmentHostCommandInput,
-    DeleteEnvironmentHostCommandOutput,
-    EvsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EvsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElasticVMwareService", "DeleteEnvironmentHost", {})
-  .n("EvsClient", "DeleteEnvironmentHostCommand")
-  .sc(DeleteEnvironmentHost$)
-  .build() {
+export class DeleteEnvironmentHostCommand extends command<DeleteEnvironmentHostCommandInput, DeleteEnvironmentHostCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEnvironmentHost",
+  DeleteEnvironmentHost$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

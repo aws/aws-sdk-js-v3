@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCapacityTaskInput, GetCapacityTaskOutput } from "../models/models_0";
-import type { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient";
 import { GetCapacityTask$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface GetCapacityTaskCommandOutput extends GetCapacityTaskOutput, __M
  *
  * @public
  */
-export class GetCapacityTaskCommand extends $Command
-  .classBuilder<
-    GetCapacityTaskCommandInput,
-    GetCapacityTaskCommandOutput,
-    OutpostsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OutpostsOlafService", "GetCapacityTask", {})
-  .n("OutpostsClient", "GetCapacityTaskCommand")
-  .sc(GetCapacityTask$)
-  .build() {
+export class GetCapacityTaskCommand extends command<GetCapacityTaskCommandInput, GetCapacityTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCapacityTask",
+  GetCapacityTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

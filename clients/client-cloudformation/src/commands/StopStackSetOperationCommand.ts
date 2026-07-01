@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopStackSetOperationInput, StopStackSetOperationOutput } from "../models/models_0";
 import { StopStackSetOperation$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StopStackSetOperation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +66,12 @@ export interface StopStackSetOperationCommandOutput extends StopStackSetOperatio
  *
  * @public
  */
-export class StopStackSetOperationCommand extends $Command
-  .classBuilder<
-    StopStackSetOperationCommandInput,
-    StopStackSetOperationCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "StopStackSetOperation", {})
-  .n("CloudFormationClient", "StopStackSetOperationCommand")
-  .sc(StopStackSetOperation$)
-  .build() {
+export class StopStackSetOperationCommand extends command<StopStackSetOperationCommandInput, StopStackSetOperationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopStackSetOperation",
+  StopStackSetOperation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

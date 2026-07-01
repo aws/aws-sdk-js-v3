@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RejectPortfolioShareInput, RejectPortfolioShareOutput } from "../models/models_0";
 import { RejectPortfolioShare$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +58,12 @@ export interface RejectPortfolioShareCommandOutput extends RejectPortfolioShareO
  *
  * @public
  */
-export class RejectPortfolioShareCommand extends $Command
-  .classBuilder<
-    RejectPortfolioShareCommandInput,
-    RejectPortfolioShareCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "RejectPortfolioShare", {})
-  .n("ServiceCatalogClient", "RejectPortfolioShareCommand")
-  .sc(RejectPortfolioShare$)
-  .build() {
+export class RejectPortfolioShareCommand extends command<RejectPortfolioShareCommandInput, RejectPortfolioShareCommandOutput>(
+  _ep0,
+  _mw0,
+  "RejectPortfolioShare",
+  RejectPortfolioShare$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

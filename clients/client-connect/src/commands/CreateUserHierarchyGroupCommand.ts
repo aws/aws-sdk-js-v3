@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateUserHierarchyGroupRequest, CreateUserHierarchyGroupResponse } from "../models/models_0";
 import { CreateUserHierarchyGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateUserHierarchyGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface CreateUserHierarchyGroupCommandOutput extends CreateUserHierarc
  *
  * @public
  */
-export class CreateUserHierarchyGroupCommand extends $Command
-  .classBuilder<
-    CreateUserHierarchyGroupCommandInput,
-    CreateUserHierarchyGroupCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "CreateUserHierarchyGroup", {})
-  .n("ConnectClient", "CreateUserHierarchyGroupCommand")
-  .sc(CreateUserHierarchyGroup$)
-  .build() {
+export class CreateUserHierarchyGroupCommand extends command<CreateUserHierarchyGroupCommandInput, CreateUserHierarchyGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateUserHierarchyGroup",
+  CreateUserHierarchyGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

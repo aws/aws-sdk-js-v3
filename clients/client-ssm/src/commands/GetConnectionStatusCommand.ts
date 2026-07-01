@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetConnectionStatusRequest, GetConnectionStatusResponse } from "../models/models_0";
 import { GetConnectionStatus$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -64,22 +60,12 @@ export interface GetConnectionStatusCommandOutput extends GetConnectionStatusRes
  *
  * @public
  */
-export class GetConnectionStatusCommand extends $Command
-  .classBuilder<
-    GetConnectionStatusCommandInput,
-    GetConnectionStatusCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "GetConnectionStatus", {})
-  .n("SSMClient", "GetConnectionStatusCommand")
-  .sc(GetConnectionStatus$)
-  .build() {
+export class GetConnectionStatusCommand extends command<GetConnectionStatusCommandInput, GetConnectionStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetConnectionStatus",
+  GetConnectionStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

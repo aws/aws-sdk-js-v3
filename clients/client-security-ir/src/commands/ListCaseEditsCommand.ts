@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListCaseEditsRequest, ListCaseEditsResponse } from "../models/models_0";
 import { ListCaseEdits$ } from "../schemas/schemas_0";
-import type { SecurityIRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityIRClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +116,12 @@ export interface ListCaseEditsCommandOutput extends ListCaseEditsResponse, __Met
  *
  * @public
  */
-export class ListCaseEditsCommand extends $Command
-  .classBuilder<
-    ListCaseEditsCommandInput,
-    ListCaseEditsCommandOutput,
-    SecurityIRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityIRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityIncidentResponse", "ListCaseEdits", {})
-  .n("SecurityIRClient", "ListCaseEditsCommand")
-  .sc(ListCaseEdits$)
-  .build() {
+export class ListCaseEditsCommand extends command<ListCaseEditsCommandInput, ListCaseEditsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCaseEdits",
+  ListCaseEdits$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

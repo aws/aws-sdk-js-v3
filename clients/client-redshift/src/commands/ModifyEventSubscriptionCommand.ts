@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ModifyEventSubscriptionMessage, ModifyEventSubscriptionResult } from "../models/models_0";
-import type { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 import { ModifyEventSubscription$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +121,12 @@ export interface ModifyEventSubscriptionCommandOutput extends ModifyEventSubscri
  *
  * @public
  */
-export class ModifyEventSubscriptionCommand extends $Command
-  .classBuilder<
-    ModifyEventSubscriptionCommandInput,
-    ModifyEventSubscriptionCommandOutput,
-    RedshiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServiceVersion20121201", "ModifyEventSubscription", {})
-  .n("RedshiftClient", "ModifyEventSubscriptionCommand")
-  .sc(ModifyEventSubscription$)
-  .build() {
+export class ModifyEventSubscriptionCommand extends command<ModifyEventSubscriptionCommandInput, ModifyEventSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyEventSubscription",
+  ModifyEventSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

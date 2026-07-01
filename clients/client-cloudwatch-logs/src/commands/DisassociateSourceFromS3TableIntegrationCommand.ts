@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchLogsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchLogsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateSourceFromS3TableIntegrationRequest,
   DisassociateSourceFromS3TableIntegrationResponse,
@@ -19,7 +12,6 @@ import { DisassociateSourceFromS3TableIntegration$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface DisassociateSourceFromS3TableIntegrationCommandOutput extends D
  *
  * @public
  */
-export class DisassociateSourceFromS3TableIntegrationCommand extends $Command
-  .classBuilder<
-    DisassociateSourceFromS3TableIntegrationCommandInput,
-    DisassociateSourceFromS3TableIntegrationCommandOutput,
-    CloudWatchLogsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Logs_20140328", "DisassociateSourceFromS3TableIntegration", {})
-  .n("CloudWatchLogsClient", "DisassociateSourceFromS3TableIntegrationCommand")
-  .sc(DisassociateSourceFromS3TableIntegration$)
-  .build() {
+export class DisassociateSourceFromS3TableIntegrationCommand extends command<DisassociateSourceFromS3TableIntegrationCommandInput, DisassociateSourceFromS3TableIntegrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateSourceFromS3TableIntegration",
+  DisassociateSourceFromS3TableIntegration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

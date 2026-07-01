@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTManagedIntegrationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTManagedIntegrationsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAccountAssociationRequest } from "../models/models_0";
 import { DeleteAccountAssociation$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteAccountAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeleteAccountAssociationCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class DeleteAccountAssociationCommand extends $Command
-  .classBuilder<
-    DeleteAccountAssociationCommandInput,
-    DeleteAccountAssociationCommandOutput,
-    IoTManagedIntegrationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTManagedIntegrationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotManagedIntegrations", "DeleteAccountAssociation", {})
-  .n("IoTManagedIntegrationsClient", "DeleteAccountAssociationCommand")
-  .sc(DeleteAccountAssociation$)
-  .build() {
+export class DeleteAccountAssociationCommand extends command<DeleteAccountAssociationCommandInput, DeleteAccountAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAccountAssociation",
+  DeleteAccountAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

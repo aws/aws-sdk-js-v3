@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CertificateMessage, DescribeCertificatesMessage } from "../models/models_0";
 import { DescribeCertificates$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeCertificates$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
  *
  * @public
  */
-export class DescribeCertificatesCommand extends $Command
-  .classBuilder<
-    DescribeCertificatesCommandInput,
-    DescribeCertificatesCommandOutput,
-    DocDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "DescribeCertificates", {})
-  .n("DocDBClient", "DescribeCertificatesCommand")
-  .sc(DescribeCertificates$)
-  .build() {
+export class DescribeCertificatesCommand extends command<DescribeCertificatesCommandInput, DescribeCertificatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCertificates",
+  DescribeCertificates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

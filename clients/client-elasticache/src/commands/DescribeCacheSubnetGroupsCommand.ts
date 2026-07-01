@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CacheSubnetGroupMessage, DescribeCacheSubnetGroupsMessage } from "../models/models_0";
 import { DescribeCacheSubnetGroups$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeCacheSubnetGroups$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -141,22 +137,12 @@ export interface DescribeCacheSubnetGroupsCommandOutput extends CacheSubnetGroup
  *
  * @public
  */
-export class DescribeCacheSubnetGroupsCommand extends $Command
-  .classBuilder<
-    DescribeCacheSubnetGroupsCommandInput,
-    DescribeCacheSubnetGroupsCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "DescribeCacheSubnetGroups", {})
-  .n("ElastiCacheClient", "DescribeCacheSubnetGroupsCommand")
-  .sc(DescribeCacheSubnetGroups$)
-  .build() {
+export class DescribeCacheSubnetGroupsCommand extends command<DescribeCacheSubnetGroupsCommandInput, DescribeCacheSubnetGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeCacheSubnetGroups",
+  DescribeCacheSubnetGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

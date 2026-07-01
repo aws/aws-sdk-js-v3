@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListExportsInput, ListExportsOutput } from "../models/models_0";
 import { ListExports$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListExports$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +66,12 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  *
  * @public
  */
-export class ListExportsCommand extends $Command
-  .classBuilder<
-    ListExportsCommandInput,
-    ListExportsCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "ListExports", {})
-  .n("CloudFormationClient", "ListExportsCommand")
-  .sc(ListExports$)
-  .build() {
+export class ListExportsCommand extends command<ListExportsCommandInput, ListExportsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListExports",
+  ListExports$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

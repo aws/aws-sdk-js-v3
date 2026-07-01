@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateGroupProfileInput, CreateGroupProfileOutput } from "../models/models_0";
 import { CreateGroupProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateGroupProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface CreateGroupProfileCommandOutput extends CreateGroupProfileOutpu
  *
  * @public
  */
-export class CreateGroupProfileCommand extends $Command
-  .classBuilder<
-    CreateGroupProfileCommandInput,
-    CreateGroupProfileCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "CreateGroupProfile", {})
-  .n("DataZoneClient", "CreateGroupProfileCommand")
-  .sc(CreateGroupProfile$)
-  .build() {
+export class CreateGroupProfileCommand extends command<CreateGroupProfileCommandInput, CreateGroupProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateGroupProfile",
+  CreateGroupProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

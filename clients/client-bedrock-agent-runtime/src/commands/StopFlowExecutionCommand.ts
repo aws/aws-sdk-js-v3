@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentRuntimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StopFlowExecutionRequest, StopFlowExecutionResponse } from "../models/models_0";
 import { StopFlowExecution$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StopFlowExecution$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +82,12 @@ export interface StopFlowExecutionCommandOutput extends StopFlowExecutionRespons
  *
  * @public
  */
-export class StopFlowExecutionCommand extends $Command
-  .classBuilder<
-    StopFlowExecutionCommandInput,
-    StopFlowExecutionCommandOutput,
-    BedrockAgentRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentRunTimeService", "StopFlowExecution", {})
-  .n("BedrockAgentRuntimeClient", "StopFlowExecutionCommand")
-  .sc(StopFlowExecution$)
-  .build() {
+export class StopFlowExecutionCommand extends command<StopFlowExecutionCommandInput, StopFlowExecutionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopFlowExecution",
+  StopFlowExecution$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

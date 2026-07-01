@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAppBundleRequest, CreateAppBundleResponse } from "../models/models_0";
 import { CreateAppBundle$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateAppBundle$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface CreateAppBundleCommandOutput extends CreateAppBundleResponse, _
  *
  * @public
  */
-export class CreateAppBundleCommand extends $Command
-  .classBuilder<
-    CreateAppBundleCommandInput,
-    CreateAppBundleCommandOutput,
-    AppFabricClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppFabricClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("FabricFrontEndService", "CreateAppBundle", {})
-  .n("AppFabricClient", "CreateAppBundleCommand")
-  .sc(CreateAppBundle$)
-  .build() {
+export class CreateAppBundleCommand extends command<CreateAppBundleCommandInput, CreateAppBundleCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAppBundle",
+  CreateAppBundle$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

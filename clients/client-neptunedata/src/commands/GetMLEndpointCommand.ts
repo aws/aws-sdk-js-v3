@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMLEndpointInput, GetMLEndpointOutput } from "../models/models_0";
-import type { NeptunedataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptunedataClient";
 import { GetMLEndpoint$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface GetMLEndpointCommandOutput extends GetMLEndpointOutput, __Metad
  *
  * @public
  */
-export class GetMLEndpointCommand extends $Command
-  .classBuilder<
-    GetMLEndpointCommandInput,
-    GetMLEndpointCommandOutput,
-    NeptunedataClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneDataplane", "GetMLEndpoint", {})
-  .n("NeptunedataClient", "GetMLEndpointCommand")
-  .sc(GetMLEndpoint$)
-  .build() {
+export class GetMLEndpointCommand extends command<GetMLEndpointCommandInput, GetMLEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMLEndpoint",
+  GetMLEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

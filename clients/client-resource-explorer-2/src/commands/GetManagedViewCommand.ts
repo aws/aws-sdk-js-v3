@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetManagedViewInput, GetManagedViewOutput } from "../models/models_0";
-import type {
-  ResourceExplorer2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceExplorer2Client";
 import { GetManagedView$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +90,12 @@ export interface GetManagedViewCommandOutput extends GetManagedViewOutput, __Met
  *
  * @public
  */
-export class GetManagedViewCommand extends $Command
-  .classBuilder<
-    GetManagedViewCommandInput,
-    GetManagedViewCommandOutput,
-    ResourceExplorer2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ResourceExplorer", "GetManagedView", {})
-  .n("ResourceExplorer2Client", "GetManagedViewCommand")
-  .sc(GetManagedView$)
-  .build() {
+export class GetManagedViewCommand extends command<GetManagedViewCommandInput, GetManagedViewCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetManagedView",
+  GetManagedView$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

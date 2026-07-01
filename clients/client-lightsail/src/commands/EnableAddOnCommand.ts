@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { EnableAddOnRequest, EnableAddOnResult } from "../models/models_0";
 import { EnableAddOn$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { EnableAddOn$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +114,12 @@ export interface EnableAddOnCommandOutput extends EnableAddOnResult, __MetadataB
  *
  * @public
  */
-export class EnableAddOnCommand extends $Command
-  .classBuilder<
-    EnableAddOnCommandInput,
-    EnableAddOnCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "EnableAddOn", {})
-  .n("LightsailClient", "EnableAddOnCommand")
-  .sc(EnableAddOn$)
-  .build() {
+export class EnableAddOnCommand extends command<EnableAddOnCommandInput, EnableAddOnCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableAddOn",
+  EnableAddOn$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

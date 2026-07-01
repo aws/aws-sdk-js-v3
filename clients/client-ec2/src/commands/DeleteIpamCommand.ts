@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteIpamRequest, DeleteIpamResult } from "../models/models_2";
 import { DeleteIpam$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteIpam$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface DeleteIpamCommandOutput extends DeleteIpamResult, __MetadataBea
  *
  * @public
  */
-export class DeleteIpamCommand extends $Command
-  .classBuilder<
-    DeleteIpamCommandInput,
-    DeleteIpamCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeleteIpam", {})
-  .n("EC2Client", "DeleteIpamCommand")
-  .sc(DeleteIpam$)
-  .build() {
+export class DeleteIpamCommand extends command<DeleteIpamCommandInput, DeleteIpamCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteIpam",
+  DeleteIpam$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

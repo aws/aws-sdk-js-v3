@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPipelineEndpointsRequest, ListPipelineEndpointsResponse } from "../models/models_0";
-import type { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
 import { ListPipelineEndpoints$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface ListPipelineEndpointsCommandOutput extends ListPipelineEndpoint
  *
  * @public
  */
-export class ListPipelineEndpointsCommand extends $Command
-  .classBuilder<
-    ListPipelineEndpointsCommandInput,
-    ListPipelineEndpointsCommandOutput,
-    OSISClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OSISClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchIngestionService", "ListPipelineEndpoints", {})
-  .n("OSISClient", "ListPipelineEndpointsCommand")
-  .sc(ListPipelineEndpoints$)
-  .build() {
+export class ListPipelineEndpointsCommand extends command<ListPipelineEndpointsCommandInput, ListPipelineEndpointsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPipelineEndpoints",
+  ListPipelineEndpoints$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

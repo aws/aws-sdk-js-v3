@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCustomDataIdentifierRequest, GetCustomDataIdentifierResponse } from "../models/models_0";
 import { GetCustomDataIdentifier$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetCustomDataIdentifier$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface GetCustomDataIdentifierCommandOutput extends GetCustomDataIdent
  *
  * @public
  */
-export class GetCustomDataIdentifierCommand extends $Command
-  .classBuilder<
-    GetCustomDataIdentifierCommandInput,
-    GetCustomDataIdentifierCommandOutput,
-    Macie2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Macie2", "GetCustomDataIdentifier", {})
-  .n("Macie2Client", "GetCustomDataIdentifierCommand")
-  .sc(GetCustomDataIdentifier$)
-  .build() {
+export class GetCustomDataIdentifierCommand extends command<GetCustomDataIdentifierCommandInput, GetCustomDataIdentifierCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCustomDataIdentifier",
+  GetCustomDataIdentifier$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

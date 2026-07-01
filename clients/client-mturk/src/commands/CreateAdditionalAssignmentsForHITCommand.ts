@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateAdditionalAssignmentsForHITRequest,
   CreateAdditionalAssignmentsForHITResponse,
 } from "../models/models_0";
-import type { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient";
 import { CreateAdditionalAssignmentsForHIT$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface CreateAdditionalAssignmentsForHITCommandOutput extends CreateAd
  *
  * @public
  */
-export class CreateAdditionalAssignmentsForHITCommand extends $Command
-  .classBuilder<
-    CreateAdditionalAssignmentsForHITCommandInput,
-    CreateAdditionalAssignmentsForHITCommandOutput,
-    MTurkClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MTurkRequesterServiceV20170117", "CreateAdditionalAssignmentsForHIT", {})
-  .n("MTurkClient", "CreateAdditionalAssignmentsForHITCommand")
-  .sc(CreateAdditionalAssignmentsForHIT$)
-  .build() {
+export class CreateAdditionalAssignmentsForHITCommand extends command<CreateAdditionalAssignmentsForHITCommandInput, CreateAdditionalAssignmentsForHITCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAdditionalAssignmentsForHIT",
+  CreateAdditionalAssignmentsForHIT$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

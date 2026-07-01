@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetConnectionRecordingPreferencesResponse } from "../models/models_0";
 import { GetConnectionRecordingPreferences$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMGuiConnectClientResolvedConfig } from "../SSMGuiConnectClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface GetConnectionRecordingPreferencesCommandOutput extends GetConne
  *
  * @public
  */
-export class GetConnectionRecordingPreferencesCommand extends $Command
-  .classBuilder<
-    GetConnectionRecordingPreferencesCommandInput,
-    GetConnectionRecordingPreferencesCommandOutput,
-    SSMGuiConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMGuiConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMGuiConnect", "GetConnectionRecordingPreferences", {})
-  .n("SSMGuiConnectClient", "GetConnectionRecordingPreferencesCommand")
-  .sc(GetConnectionRecordingPreferences$)
-  .build() {
+export class GetConnectionRecordingPreferencesCommand extends command<GetConnectionRecordingPreferencesCommandInput, GetConnectionRecordingPreferencesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetConnectionRecordingPreferences",
+  GetConnectionRecordingPreferences$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

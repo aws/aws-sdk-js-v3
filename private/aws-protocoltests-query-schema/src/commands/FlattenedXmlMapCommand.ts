@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { FlattenedXmlMapOutput } from "../models/models_0";
-import type { QueryProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QueryProtocolClient";
 import { FlattenedXmlMap$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -59,22 +55,12 @@ export interface FlattenedXmlMapCommandOutput extends FlattenedXmlMapOutput, __M
  *
  * @public
  */
-export class FlattenedXmlMapCommand extends $Command
-  .classBuilder<
-    FlattenedXmlMapCommandInput,
-    FlattenedXmlMapCommandOutput,
-    QueryProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QueryProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsQuery", "FlattenedXmlMap", {})
-  .n("QueryProtocolClient", "FlattenedXmlMapCommand")
-  .sc(FlattenedXmlMap$)
-  .build() {
+export class FlattenedXmlMapCommand extends command<FlattenedXmlMapCommandInput, FlattenedXmlMapCommandOutput>(
+  _ep0,
+  _mw0,
+  "FlattenedXmlMap",
+  FlattenedXmlMap$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

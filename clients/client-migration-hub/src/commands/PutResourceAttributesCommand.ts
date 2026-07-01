@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutResourceAttributesRequest, PutResourceAttributesResult } from "../models/models_0";
 import { PutResourceAttributes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutResourceAttributes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface PutResourceAttributesCommandOutput extends PutResourceAttribute
  *
  * @public
  */
-export class PutResourceAttributesCommand extends $Command
-  .classBuilder<
-    PutResourceAttributesCommandInput,
-    PutResourceAttributesCommandOutput,
-    MigrationHubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHub", "PutResourceAttributes", {})
-  .n("MigrationHubClient", "PutResourceAttributesCommand")
-  .sc(PutResourceAttributes$)
-  .build() {
+export class PutResourceAttributesCommand extends command<PutResourceAttributesCommandInput, PutResourceAttributesCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutResourceAttributes",
+  PutResourceAttributes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateUserPoolDomainRequest, CreateUserPoolDomainResponse } from "../models/models_0";
 import { CreateUserPoolDomain$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateUserPoolDomain$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +132,12 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  *
  * @public
  */
-export class CreateUserPoolDomainCommand extends $Command
-  .classBuilder<
-    CreateUserPoolDomainCommandInput,
-    CreateUserPoolDomainCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "CreateUserPoolDomain", {})
-  .n("CognitoIdentityProviderClient", "CreateUserPoolDomainCommand")
-  .sc(CreateUserPoolDomain$)
-  .build() {
+export class CreateUserPoolDomainCommand extends command<CreateUserPoolDomainCommandInput, CreateUserPoolDomainCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateUserPoolDomain",
+  CreateUserPoolDomain$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

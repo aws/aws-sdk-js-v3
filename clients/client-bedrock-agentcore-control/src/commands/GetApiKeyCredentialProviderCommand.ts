@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetApiKeyCredentialProviderRequest, GetApiKeyCredentialProviderResponse } from "../models/models_0";
 import { GetApiKeyCredentialProvider$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetApiKeyCredentialProvider$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +84,12 @@ export interface GetApiKeyCredentialProviderCommandOutput extends GetApiKeyCrede
  *
  * @public
  */
-export class GetApiKeyCredentialProviderCommand extends $Command
-  .classBuilder<
-    GetApiKeyCredentialProviderCommandInput,
-    GetApiKeyCredentialProviderCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "GetApiKeyCredentialProvider", {})
-  .n("BedrockAgentCoreControlClient", "GetApiKeyCredentialProviderCommand")
-  .sc(GetApiKeyCredentialProvider$)
-  .build() {
+export class GetApiKeyCredentialProviderCommand extends command<GetApiKeyCredentialProviderCommandInput, GetApiKeyCredentialProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetApiKeyCredentialProvider",
+  GetApiKeyCredentialProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateIamRoleFromResourceInput, DisassociateIamRoleFromResourceOutput } from "../models/models_0";
-import type { OdbClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OdbClient";
 import { DisassociateIamRoleFromResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DisassociateIamRoleFromResourceCommandOutput extends Disassocia
  *
  * @public
  */
-export class DisassociateIamRoleFromResourceCommand extends $Command
-  .classBuilder<
-    DisassociateIamRoleFromResourceCommandInput,
-    DisassociateIamRoleFromResourceCommandOutput,
-    OdbClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OdbClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Odb", "DisassociateIamRoleFromResource", {})
-  .n("OdbClient", "DisassociateIamRoleFromResourceCommand")
-  .sc(DisassociateIamRoleFromResource$)
-  .build() {
+export class DisassociateIamRoleFromResourceCommand extends command<DisassociateIamRoleFromResourceCommandInput, DisassociateIamRoleFromResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateIamRoleFromResource",
+  DisassociateIamRoleFromResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

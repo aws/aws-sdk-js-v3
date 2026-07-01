@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeAutomationStepExecutionsRequest,
   DescribeAutomationStepExecutionsResult,
 } from "../models/models_0";
 import { DescribeAutomationStepExecutions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -188,22 +184,12 @@ export interface DescribeAutomationStepExecutionsCommandOutput extends DescribeA
  *
  * @public
  */
-export class DescribeAutomationStepExecutionsCommand extends $Command
-  .classBuilder<
-    DescribeAutomationStepExecutionsCommandInput,
-    DescribeAutomationStepExecutionsCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "DescribeAutomationStepExecutions", {})
-  .n("SSMClient", "DescribeAutomationStepExecutionsCommand")
-  .sc(DescribeAutomationStepExecutions$)
-  .build() {
+export class DescribeAutomationStepExecutionsCommand extends command<DescribeAutomationStepExecutionsCommandInput, DescribeAutomationStepExecutionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAutomationStepExecutions",
+  DescribeAutomationStepExecutions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

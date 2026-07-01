@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AssociateSigninDelegateGroupsWithAccountRequest,
   AssociateSigninDelegateGroupsWithAccountResponse,
@@ -15,7 +12,6 @@ import { AssociateSigninDelegateGroupsWithAccount$ } from "../schemas/schemas_0"
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface AssociateSigninDelegateGroupsWithAccountCommandOutput extends A
  *
  * @public
  */
-export class AssociateSigninDelegateGroupsWithAccountCommand extends $Command
-  .classBuilder<
-    AssociateSigninDelegateGroupsWithAccountCommandInput,
-    AssociateSigninDelegateGroupsWithAccountCommandOutput,
-    ChimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("UCBuzzConsoleService", "AssociateSigninDelegateGroupsWithAccount", {})
-  .n("ChimeClient", "AssociateSigninDelegateGroupsWithAccountCommand")
-  .sc(AssociateSigninDelegateGroupsWithAccount$)
-  .build() {
+export class AssociateSigninDelegateGroupsWithAccountCommand extends command<AssociateSigninDelegateGroupsWithAccountCommandInput, AssociateSigninDelegateGroupsWithAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateSigninDelegateGroupsWithAccount",
+  AssociateSigninDelegateGroupsWithAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

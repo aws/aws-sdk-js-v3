@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDomainRequest, GetDomainResponse } from "../models/models_0";
 import { GetDomain$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetDomain$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface GetDomainCommandOutput extends GetDomainResponse, __MetadataBea
  *
  * @public
  */
-export class GetDomainCommand extends $Command
-  .classBuilder<
-    GetDomainCommandInput,
-    GetDomainCommandOutput,
-    ConnectCasesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCases", "GetDomain", {})
-  .n("ConnectCasesClient", "GetDomainCommand")
-  .sc(GetDomain$)
-  .build() {
+export class GetDomainCommand extends command<GetDomainCommandInput, GetDomainCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDomain",
+  GetDomain$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

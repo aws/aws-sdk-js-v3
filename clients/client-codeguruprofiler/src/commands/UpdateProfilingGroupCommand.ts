@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeGuruProfilerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeGuruProfilerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateProfilingGroupRequest, UpdateProfilingGroupResponse } from "../models/models_0";
 import { UpdateProfilingGroup$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateProfilingGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface UpdateProfilingGroupCommandOutput extends UpdateProfilingGroupR
  *
  * @public
  */
-export class UpdateProfilingGroupCommand extends $Command
-  .classBuilder<
-    UpdateProfilingGroupCommandInput,
-    UpdateProfilingGroupCommandOutput,
-    CodeGuruProfilerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeGuruProfilerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeGuruProfiler", "UpdateProfilingGroup", {})
-  .n("CodeGuruProfilerClient", "UpdateProfilingGroupCommand")
-  .sc(UpdateProfilingGroup$)
-  .build() {
+export class UpdateProfilingGroupCommand extends command<UpdateProfilingGroupCommandInput, UpdateProfilingGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateProfilingGroup",
+  UpdateProfilingGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPlaybackKeyPairsRequest, ListPlaybackKeyPairsResponse } from "../models/models_0";
 import { ListPlaybackKeyPairs$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListPlaybackKeyPairs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface ListPlaybackKeyPairsCommandOutput extends ListPlaybackKeyPairsR
  *
  * @public
  */
-export class ListPlaybackKeyPairsCommand extends $Command
-  .classBuilder<
-    ListPlaybackKeyPairsCommandInput,
-    ListPlaybackKeyPairsCommandOutput,
-    IvsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoService", "ListPlaybackKeyPairs", {})
-  .n("IvsClient", "ListPlaybackKeyPairsCommand")
-  .sc(ListPlaybackKeyPairs$)
-  .build() {
+export class ListPlaybackKeyPairsCommand extends command<ListPlaybackKeyPairsCommandInput, ListPlaybackKeyPairsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPlaybackKeyPairs",
+  ListPlaybackKeyPairs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

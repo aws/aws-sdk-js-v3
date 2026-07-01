@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCatalogRequest, CreateCatalogResponse } from "../models/models_0";
 import { CreateCatalog$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateCatalog$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -150,22 +146,12 @@ export interface CreateCatalogCommandOutput extends CreateCatalogResponse, __Met
  *
  * @public
  */
-export class CreateCatalogCommand extends $Command
-  .classBuilder<
-    CreateCatalogCommandInput,
-    CreateCatalogCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "CreateCatalog", {})
-  .n("GlueClient", "CreateCatalogCommand")
-  .sc(CreateCatalog$)
-  .build() {
+export class CreateCatalogCommand extends command<CreateCatalogCommandInput, CreateCatalogCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCatalog",
+  CreateCatalog$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

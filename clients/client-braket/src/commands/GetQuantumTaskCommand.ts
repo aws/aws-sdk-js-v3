@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetQuantumTaskRequest, GetQuantumTaskResponse } from "../models/models_0";
 import { GetQuantumTask$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetQuantumTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface GetQuantumTaskCommandOutput extends GetQuantumTaskResponse, __M
  *
  * @public
  */
-export class GetQuantumTaskCommand extends $Command
-  .classBuilder<
-    GetQuantumTaskCommandInput,
-    GetQuantumTaskCommandOutput,
-    BraketClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BraketClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Braket", "GetQuantumTask", {})
-  .n("BraketClient", "GetQuantumTaskCommand")
-  .sc(GetQuantumTask$)
-  .build() {
+export class GetQuantumTaskCommand extends command<GetQuantumTaskCommandInput, GetQuantumTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetQuantumTask",
+  GetQuantumTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

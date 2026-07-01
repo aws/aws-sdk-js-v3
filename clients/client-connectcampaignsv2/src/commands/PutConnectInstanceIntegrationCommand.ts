@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ConnectCampaignsV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ConnectCampaignsV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutConnectInstanceIntegrationRequest } from "../models/models_0";
 import { PutConnectInstanceIntegration$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { PutConnectInstanceIntegration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +85,12 @@ export interface PutConnectInstanceIntegrationCommandOutput extends __MetadataBe
  *
  * @public
  */
-export class PutConnectInstanceIntegrationCommand extends $Command
-  .classBuilder<
-    PutConnectInstanceIntegrationCommandInput,
-    PutConnectInstanceIntegrationCommandOutput,
-    ConnectCampaignsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCampaignServiceV2", "PutConnectInstanceIntegration", {})
-  .n("ConnectCampaignsV2Client", "PutConnectInstanceIntegrationCommand")
-  .sc(PutConnectInstanceIntegration$)
-  .build() {
+export class PutConnectInstanceIntegrationCommand extends command<PutConnectInstanceIntegrationCommandInput, PutConnectInstanceIntegrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutConnectInstanceIntegration",
+  PutConnectInstanceIntegration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

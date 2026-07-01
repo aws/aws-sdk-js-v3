@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListRelatedResourcesForAuditFindingRequest,
   ListRelatedResourcesForAuditFindingResponse,
@@ -15,7 +12,6 @@ import { ListRelatedResourcesForAuditFinding$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -139,22 +135,12 @@ export interface ListRelatedResourcesForAuditFindingCommandOutput extends ListRe
  *
  * @public
  */
-export class ListRelatedResourcesForAuditFindingCommand extends $Command
-  .classBuilder<
-    ListRelatedResourcesForAuditFindingCommandInput,
-    ListRelatedResourcesForAuditFindingCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "ListRelatedResourcesForAuditFinding", {})
-  .n("IoTClient", "ListRelatedResourcesForAuditFindingCommand")
-  .sc(ListRelatedResourcesForAuditFinding$)
-  .build() {
+export class ListRelatedResourcesForAuditFindingCommand extends command<ListRelatedResourcesForAuditFindingCommandInput, ListRelatedResourcesForAuditFindingCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRelatedResourcesForAuditFinding",
+  ListRelatedResourcesForAuditFinding$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

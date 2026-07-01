@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateExperienceRequest, CreateExperienceResponse } from "../models/models_0";
 import { CreateExperience$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateExperience$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface CreateExperienceCommandOutput extends CreateExperienceResponse,
  *
  * @public
  */
-export class CreateExperienceCommand extends $Command
-  .classBuilder<
-    CreateExperienceCommandInput,
-    CreateExperienceCommandOutput,
-    KendraClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSKendraFrontendService", "CreateExperience", {})
-  .n("KendraClient", "CreateExperienceCommand")
-  .sc(CreateExperience$)
-  .build() {
+export class CreateExperienceCommand extends command<CreateExperienceCommandInput, CreateExperienceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateExperience",
+  CreateExperience$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

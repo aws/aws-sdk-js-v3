@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LexModelBuildingServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LexModelBuildingServiceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteBotChannelAssociationRequest } from "../models/models_0";
 import { DeleteBotChannelAssociation$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteBotChannelAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface DeleteBotChannelAssociationCommandOutput extends __MetadataBear
  *
  * @public
  */
-export class DeleteBotChannelAssociationCommand extends $Command
-  .classBuilder<
-    DeleteBotChannelAssociationCommandInput,
-    DeleteBotChannelAssociationCommandOutput,
-    LexModelBuildingServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepSenseModelBuildingService", "DeleteBotChannelAssociation", {})
-  .n("LexModelBuildingServiceClient", "DeleteBotChannelAssociationCommand")
-  .sc(DeleteBotChannelAssociation$)
-  .build() {
+export class DeleteBotChannelAssociationCommand extends command<DeleteBotChannelAssociationCommandInput, DeleteBotChannelAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteBotChannelAssociation",
+  DeleteBotChannelAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

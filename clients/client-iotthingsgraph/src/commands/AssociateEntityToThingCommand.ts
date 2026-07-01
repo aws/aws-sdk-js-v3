@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  IoTThingsGraphClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../IoTThingsGraphClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateEntityToThingRequest, AssociateEntityToThingResponse } from "../models/models_0";
 import { AssociateEntityToThing$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AssociateEntityToThing$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +70,12 @@ export interface AssociateEntityToThingCommandOutput extends AssociateEntityToTh
  *
  * @public
  */
-export class AssociateEntityToThingCommand extends $Command
-  .classBuilder<
-    AssociateEntityToThingCommandInput,
-    AssociateEntityToThingCommandOutput,
-    IoTThingsGraphClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IotThingsGraphFrontEndService", "AssociateEntityToThing", {})
-  .n("IoTThingsGraphClient", "AssociateEntityToThingCommand")
-  .sc(AssociateEntityToThing$)
-  .build() {
+export class AssociateEntityToThingCommand extends command<AssociateEntityToThingCommandInput, AssociateEntityToThingCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateEntityToThing",
+  AssociateEntityToThing$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

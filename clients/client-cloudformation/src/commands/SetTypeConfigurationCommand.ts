@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudFormationClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudFormationClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SetTypeConfigurationInput, SetTypeConfigurationOutput } from "../models/models_0";
 import { SetTypeConfiguration$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { SetTypeConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface SetTypeConfigurationCommandOutput extends SetTypeConfigurationO
  *
  * @public
  */
-export class SetTypeConfigurationCommand extends $Command
-  .classBuilder<
-    SetTypeConfigurationCommandInput,
-    SetTypeConfigurationCommandOutput,
-    CloudFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudFormation", "SetTypeConfiguration", {})
-  .n("CloudFormationClient", "SetTypeConfigurationCommand")
-  .sc(SetTypeConfiguration$)
-  .build() {
+export class SetTypeConfigurationCommand extends command<SetTypeConfigurationCommandInput, SetTypeConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetTypeConfiguration",
+  SetTypeConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

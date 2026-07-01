@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetIpamPrefixListResolverRulesRequest, GetIpamPrefixListResolverRulesResult } from "../models/models_6";
 import { GetIpamPrefixListResolverRules$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetIpamPrefixListResolverRules$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface GetIpamPrefixListResolverRulesCommandOutput extends GetIpamPref
  *
  * @public
  */
-export class GetIpamPrefixListResolverRulesCommand extends $Command
-  .classBuilder<
-    GetIpamPrefixListResolverRulesCommandInput,
-    GetIpamPrefixListResolverRulesCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "GetIpamPrefixListResolverRules", {})
-  .n("EC2Client", "GetIpamPrefixListResolverRulesCommand")
-  .sc(GetIpamPrefixListResolverRules$)
-  .build() {
+export class GetIpamPrefixListResolverRulesCommand extends command<GetIpamPrefixListResolverRulesCommandInput, GetIpamPrefixListResolverRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIpamPrefixListResolverRules",
+  GetIpamPrefixListResolverRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

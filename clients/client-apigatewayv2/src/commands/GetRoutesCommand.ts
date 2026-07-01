@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRoutesRequest, GetRoutesResponse } from "../models/models_0";
 import { GetRoutes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetRoutes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +91,12 @@ export interface GetRoutesCommandOutput extends GetRoutesResponse, __MetadataBea
  *
  * @public
  */
-export class GetRoutesCommand extends $Command
-  .classBuilder<
-    GetRoutesCommandInput,
-    GetRoutesCommandOutput,
-    ApiGatewayV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApiGatewayV2", "GetRoutes", {})
-  .n("ApiGatewayV2Client", "GetRoutesCommand")
-  .sc(GetRoutes$)
-  .build() {
+export class GetRoutesCommand extends command<GetRoutesCommandInput, GetRoutesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRoutes",
+  GetRoutes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

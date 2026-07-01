@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTagsForGlobalResourceRequest } from "../models/models_0";
 import type { ListTagsForGlobalResourceResponse } from "../models/models_1";
 import { ListTagsForGlobalResource$ } from "../schemas/schemas_0";
@@ -13,7 +10,6 @@ import { ListTagsForGlobalResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface ListTagsForGlobalResourceCommandOutput extends ListTagsForGloba
  *
  * @public
  */
-export class ListTagsForGlobalResourceCommand extends $Command
-  .classBuilder<
-    ListTagsForGlobalResourceCommandInput,
-    ListTagsForGlobalResourceCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "ListTagsForGlobalResource", {})
-  .n("MediaConnectClient", "ListTagsForGlobalResourceCommand")
-  .sc(ListTagsForGlobalResource$)
-  .build() {
+export class ListTagsForGlobalResourceCommand extends command<ListTagsForGlobalResourceCommandInput, ListTagsForGlobalResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTagsForGlobalResource",
+  ListTagsForGlobalResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

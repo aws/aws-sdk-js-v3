@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { InvalidateProjectCacheInput, InvalidateProjectCacheOutput } from "../models/models_0";
 import { InvalidateProjectCache$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { InvalidateProjectCache$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface InvalidateProjectCacheCommandOutput extends InvalidateProjectCa
  *
  * @public
  */
-export class InvalidateProjectCacheCommand extends $Command
-  .classBuilder<
-    InvalidateProjectCacheCommandInput,
-    InvalidateProjectCacheCommandOutput,
-    CodeBuildClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeBuild_20161006", "InvalidateProjectCache", {})
-  .n("CodeBuildClient", "InvalidateProjectCacheCommand")
-  .sc(InvalidateProjectCache$)
-  .build() {
+export class InvalidateProjectCacheCommand extends command<InvalidateProjectCacheCommandInput, InvalidateProjectCacheCommandOutput>(
+  _ep0,
+  _mw0,
+  "InvalidateProjectCache",
+  InvalidateProjectCache$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

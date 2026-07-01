@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCodeSigningConfigRequest, GetCodeSigningConfigResponse } from "../models/models_0";
 import { GetCodeSigningConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetCodeSigningConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface GetCodeSigningConfigCommandOutput extends GetCodeSigningConfigR
  *
  * @public
  */
-export class GetCodeSigningConfigCommand extends $Command
-  .classBuilder<
-    GetCodeSigningConfigCommandInput,
-    GetCodeSigningConfigCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "GetCodeSigningConfig", {})
-  .n("LambdaClient", "GetCodeSigningConfigCommand")
-  .sc(GetCodeSigningConfig$)
-  .build() {
+export class GetCodeSigningConfigCommand extends command<GetCodeSigningConfigCommandInput, GetCodeSigningConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCodeSigningConfig",
+  GetCodeSigningConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

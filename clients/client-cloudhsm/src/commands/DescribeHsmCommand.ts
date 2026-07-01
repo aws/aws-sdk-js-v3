@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeHsmRequest, DescribeHsmResponse } from "../models/models_0";
 import { DescribeHsm$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeHsm$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface DescribeHsmCommandOutput extends DescribeHsmResponse, __Metadat
  *
  * @public
  */
-export class DescribeHsmCommand extends $Command
-  .classBuilder<
-    DescribeHsmCommandInput,
-    DescribeHsmCommandOutput,
-    CloudHSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudHSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudHsmFrontendService", "DescribeHsm", {})
-  .n("CloudHSMClient", "DescribeHsmCommand")
-  .sc(DescribeHsm$)
-  .build() {
+export class DescribeHsmCommand extends command<DescribeHsmCommandInput, DescribeHsmCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeHsm",
+  DescribeHsm$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

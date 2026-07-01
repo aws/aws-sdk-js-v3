@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateWhatsAppBusinessAccountInput,
   DisassociateWhatsAppBusinessAccountOutput,
 } from "../models/models_0";
 import { DisassociateWhatsAppBusinessAccount$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SocialMessagingClientResolvedConfig,
-} from "../SocialMessagingClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface DisassociateWhatsAppBusinessAccountCommandOutput extends Disass
  *
  * @public
  */
-export class DisassociateWhatsAppBusinessAccountCommand extends $Command
-  .classBuilder<
-    DisassociateWhatsAppBusinessAccountCommandInput,
-    DisassociateWhatsAppBusinessAccountCommandOutput,
-    SocialMessagingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SocialMessagingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SocialMessaging", "DisassociateWhatsAppBusinessAccount", {})
-  .n("SocialMessagingClient", "DisassociateWhatsAppBusinessAccountCommand")
-  .sc(DisassociateWhatsAppBusinessAccount$)
-  .build() {
+export class DisassociateWhatsAppBusinessAccountCommand extends command<DisassociateWhatsAppBusinessAccountCommandInput, DisassociateWhatsAppBusinessAccountCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateWhatsAppBusinessAccount",
+  DisassociateWhatsAppBusinessAccount$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

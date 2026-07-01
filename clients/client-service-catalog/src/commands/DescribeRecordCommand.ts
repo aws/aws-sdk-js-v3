@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRecordInput, DescribeRecordOutput } from "../models/models_0";
 import { DescribeRecord$ } from "../schemas/schemas_0";
-import type {
-  ServiceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceCatalogClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +102,12 @@ export interface DescribeRecordCommandOutput extends DescribeRecordOutput, __Met
  *
  * @public
  */
-export class DescribeRecordCommand extends $Command
-  .classBuilder<
-    DescribeRecordCommandInput,
-    DescribeRecordCommandOutput,
-    ServiceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWS242ServiceCatalogService", "DescribeRecord", {})
-  .n("ServiceCatalogClient", "DescribeRecordCommand")
-  .sc(DescribeRecord$)
-  .build() {
+export class DescribeRecordCommand extends command<DescribeRecordCommandInput, DescribeRecordCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRecord",
+  DescribeRecord$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

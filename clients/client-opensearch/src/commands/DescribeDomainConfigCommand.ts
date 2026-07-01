@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeDomainConfigRequest, DescribeDomainConfigResponse } from "../models/models_0";
-import type { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { DescribeDomainConfig$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -357,22 +353,12 @@ export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigR
  *
  * @public
  */
-export class DescribeDomainConfigCommand extends $Command
-  .classBuilder<
-    DescribeDomainConfigCommandInput,
-    DescribeDomainConfigCommandOutput,
-    OpenSearchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonOpenSearchService", "DescribeDomainConfig", {})
-  .n("OpenSearchClient", "DescribeDomainConfigCommand")
-  .sc(DescribeDomainConfig$)
-  .build() {
+export class DescribeDomainConfigCommand extends command<DescribeDomainConfigCommandInput, DescribeDomainConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDomainConfig",
+  DescribeDomainConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

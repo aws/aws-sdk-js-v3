@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAccessControlRulesRequest, ListAccessControlRulesResponse } from "../models/models_0";
 import { ListAccessControlRules$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface ListAccessControlRulesCommandOutput extends ListAccessControlRu
  *
  * @public
  */
-export class ListAccessControlRulesCommand extends $Command
-  .classBuilder<
-    ListAccessControlRulesCommandInput,
-    ListAccessControlRulesCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "ListAccessControlRules", {})
-  .n("WorkMailClient", "ListAccessControlRulesCommand")
-  .sc(ListAccessControlRules$)
-  .build() {
+export class ListAccessControlRulesCommand extends command<ListAccessControlRulesCommandInput, ListAccessControlRulesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAccessControlRules",
+  ListAccessControlRules$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

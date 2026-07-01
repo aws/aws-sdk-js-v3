@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { FailoverShardRequest, FailoverShardResponse } from "../models/models_0";
 import { FailoverShard$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { FailoverShard$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -158,22 +154,12 @@ export interface FailoverShardCommandOutput extends FailoverShardResponse, __Met
  *
  * @public
  */
-export class FailoverShardCommand extends $Command
-  .classBuilder<
-    FailoverShardCommandInput,
-    FailoverShardCommandOutput,
-    MemoryDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMemoryDB", "FailoverShard", {})
-  .n("MemoryDBClient", "FailoverShardCommand")
-  .sc(FailoverShard$)
-  .build() {
+export class FailoverShardCommand extends command<FailoverShardCommandInput, FailoverShardCommandOutput>(
+  _ep0,
+  _mw0,
+  "FailoverShard",
+  FailoverShard$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

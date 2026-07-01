@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateServiceEnvironmentRequest, UpdateServiceEnvironmentResponse } from "../models/models_0";
 import { UpdateServiceEnvironment$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateServiceEnvironment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface UpdateServiceEnvironmentCommandOutput extends UpdateServiceEnvi
  *
  * @public
  */
-export class UpdateServiceEnvironmentCommand extends $Command
-  .classBuilder<
-    UpdateServiceEnvironmentCommandInput,
-    UpdateServiceEnvironmentCommandOutput,
-    BatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBatchV20160810", "UpdateServiceEnvironment", {})
-  .n("BatchClient", "UpdateServiceEnvironmentCommand")
-  .sc(UpdateServiceEnvironment$)
-  .build() {
+export class UpdateServiceEnvironmentCommand extends command<UpdateServiceEnvironmentCommandInput, UpdateServiceEnvironmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateServiceEnvironment",
+  UpdateServiceEnvironment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

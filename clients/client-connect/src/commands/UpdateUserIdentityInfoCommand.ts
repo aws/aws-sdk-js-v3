@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateUserIdentityInfoRequest } from "../models/models_3";
 import { UpdateUserIdentityInfo$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateUserIdentityInfo$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface UpdateUserIdentityInfoCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UpdateUserIdentityInfoCommand extends $Command
-  .classBuilder<
-    UpdateUserIdentityInfoCommandInput,
-    UpdateUserIdentityInfoCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "UpdateUserIdentityInfo", {})
-  .n("ConnectClient", "UpdateUserIdentityInfoCommand")
-  .sc(UpdateUserIdentityInfo$)
-  .build() {
+export class UpdateUserIdentityInfoCommand extends command<UpdateUserIdentityInfoCommandInput, UpdateUserIdentityInfoCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateUserIdentityInfo",
+  UpdateUserIdentityInfo$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

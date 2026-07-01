@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutContactPolicyRequest, PutContactPolicyResult } from "../models/models_0";
 import { PutContactPolicy$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface PutContactPolicyCommandOutput extends PutContactPolicyResult, _
  *
  * @public
  */
-export class PutContactPolicyCommand extends $Command
-  .classBuilder<
-    PutContactPolicyCommandInput,
-    PutContactPolicyCommandOutput,
-    SSMContactsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMContacts", "PutContactPolicy", {})
-  .n("SSMContactsClient", "PutContactPolicyCommand")
-  .sc(PutContactPolicy$)
-  .build() {
+export class PutContactPolicyCommand extends command<PutContactPolicyCommandInput, PutContactPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutContactPolicy",
+  PutContactPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListReservationOfferingsRequest, ListReservationOfferingsResponse } from "../models/models_0";
-import type {
-  RedshiftServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RedshiftServerlessClient";
 import { ListReservationOfferings$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface ListReservationOfferingsCommandOutput extends ListReservationOf
  *
  * @public
  */
-export class ListReservationOfferingsCommand extends $Command
-  .classBuilder<
-    ListReservationOfferingsCommandInput,
-    ListReservationOfferingsCommandOutput,
-    RedshiftServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServerless", "ListReservationOfferings", {})
-  .n("RedshiftServerlessClient", "ListReservationOfferingsCommand")
-  .sc(ListReservationOfferings$)
-  .build() {
+export class ListReservationOfferingsCommand extends command<ListReservationOfferingsCommandInput, ListReservationOfferingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListReservationOfferings",
+  ListReservationOfferings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

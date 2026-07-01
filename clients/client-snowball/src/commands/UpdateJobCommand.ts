@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateJobRequest, UpdateJobResult } from "../models/models_0";
 import { UpdateJob$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -176,22 +172,12 @@ export interface UpdateJobCommandOutput extends UpdateJobResult, __MetadataBeare
  *
  * @public
  */
-export class UpdateJobCommand extends $Command
-  .classBuilder<
-    UpdateJobCommandInput,
-    UpdateJobCommandOutput,
-    SnowballClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIESnowballJobManagementService", "UpdateJob", {})
-  .n("SnowballClient", "UpdateJobCommand")
-  .sc(UpdateJob$)
-  .build() {
+export class UpdateJobCommand extends command<UpdateJobCommandInput, UpdateJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateJob",
+  UpdateJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetApplicationRequest, GetApplicationResponse } from "../models/models_0";
 import { GetApplication$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  *
  * @public
  */
-export class GetApplicationCommand extends $Command
-  .classBuilder<
-    GetApplicationCommandInput,
-    GetApplicationCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "GetApplication", {})
-  .n("SecurityAgentClient", "GetApplicationCommand")
-  .sc(GetApplication$)
-  .build() {
+export class GetApplicationCommand extends command<GetApplicationCommandInput, GetApplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetApplication",
+  GetApplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeProtectedResourceInput, DescribeProtectedResourceOutput } from "../models/models_0";
 import { DescribeProtectedResource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeProtectedResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface DescribeProtectedResourceCommandOutput extends DescribeProtecte
  *
  * @public
  */
-export class DescribeProtectedResourceCommand extends $Command
-  .classBuilder<
-    DescribeProtectedResourceCommandInput,
-    DescribeProtectedResourceCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "DescribeProtectedResource", {})
-  .n("BackupClient", "DescribeProtectedResourceCommand")
-  .sc(DescribeProtectedResource$)
-  .build() {
+export class DescribeProtectedResourceCommand extends command<DescribeProtectedResourceCommandInput, DescribeProtectedResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeProtectedResource",
+  DescribeProtectedResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

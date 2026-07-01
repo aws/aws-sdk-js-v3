@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeEngagementRequest, DescribeEngagementResult } from "../models/models_0";
 import { DescribeEngagement$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig } from "../SSMContactsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface DescribeEngagementCommandOutput extends DescribeEngagementResul
  *
  * @public
  */
-export class DescribeEngagementCommand extends $Command
-  .classBuilder<
-    DescribeEngagementCommandInput,
-    DescribeEngagementCommandOutput,
-    SSMContactsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SSMContacts", "DescribeEngagement", {})
-  .n("SSMContactsClient", "DescribeEngagementCommand")
-  .sc(DescribeEngagement$)
-  .build() {
+export class DescribeEngagementCommand extends command<DescribeEngagementCommandInput, DescribeEngagementCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEngagement",
+  DescribeEngagement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

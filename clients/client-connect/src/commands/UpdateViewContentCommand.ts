@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateViewContentRequest, UpdateViewContentResponse } from "../models/models_3";
 import { UpdateViewContent$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateViewContent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface UpdateViewContentCommandOutput extends UpdateViewContentRespons
  *
  * @public
  */
-export class UpdateViewContentCommand extends $Command
-  .classBuilder<
-    UpdateViewContentCommandInput,
-    UpdateViewContentCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "UpdateViewContent", {})
-  .n("ConnectClient", "UpdateViewContentCommand")
-  .sc(UpdateViewContent$)
-  .build() {
+export class UpdateViewContentCommand extends command<UpdateViewContentCommandInput, UpdateViewContentCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateViewContent",
+  UpdateViewContent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

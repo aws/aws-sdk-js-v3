@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDeviceRequest, CreateDeviceResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { CreateDevice$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -134,22 +126,12 @@ export interface CreateDeviceCommandOutput extends CreateDeviceResponse, __Metad
  *
  * @public
  */
-export class CreateDeviceCommand extends $Command
-  .classBuilder<
-    CreateDeviceCommandInput,
-    CreateDeviceCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "CreateDevice", {})
-  .n("NetworkManagerClient", "CreateDeviceCommand")
-  .sc(CreateDevice$)
-  .build() {
+export class CreateDeviceCommand extends command<CreateDeviceCommandInput, CreateDeviceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDevice",
+  CreateDevice$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

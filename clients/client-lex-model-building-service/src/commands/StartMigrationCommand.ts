@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LexModelBuildingServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LexModelBuildingServiceClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartMigrationRequest, StartMigrationResponse } from "../models/models_0";
 import { StartMigration$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartMigration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +90,12 @@ export interface StartMigrationCommandOutput extends StartMigrationResponse, __M
  *
  * @public
  */
-export class StartMigrationCommand extends $Command
-  .classBuilder<
-    StartMigrationCommandInput,
-    StartMigrationCommandOutput,
-    LexModelBuildingServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepSenseModelBuildingService", "StartMigration", {})
-  .n("LexModelBuildingServiceClient", "StartMigrationCommand")
-  .sc(StartMigration$)
-  .build() {
+export class StartMigrationCommand extends command<StartMigrationCommandInput, StartMigrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartMigration",
+  StartMigration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

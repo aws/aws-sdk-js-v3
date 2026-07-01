@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentRuntimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RetrieveResponse } from "../models/models_0";
 import type { RetrieveRequest } from "../models/models_1";
 import { Retrieve$ } from "../schemas/schemas_0";
@@ -17,7 +10,6 @@ import { Retrieve$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -297,22 +289,12 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  *
  * @public
  */
-export class RetrieveCommand extends $Command
-  .classBuilder<
-    RetrieveCommandInput,
-    RetrieveCommandOutput,
-    BedrockAgentRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentRunTimeService", "Retrieve", {})
-  .n("BedrockAgentRuntimeClient", "RetrieveCommand")
-  .sc(Retrieve$)
-  .build() {
+export class RetrieveCommand extends command<RetrieveCommandInput, RetrieveCommandOutput>(
+  _ep0,
+  _mw0,
+  "Retrieve",
+  Retrieve$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

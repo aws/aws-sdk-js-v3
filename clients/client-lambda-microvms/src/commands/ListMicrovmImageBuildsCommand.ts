@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LambdaMicrovmsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LambdaMicrovmsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListMicrovmImageBuildsInput, ListMicrovmImageBuildsOutput } from "../models/models_0";
 import { ListMicrovmImageBuilds$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListMicrovmImageBuilds$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +89,12 @@ export interface ListMicrovmImageBuildsCommandOutput extends ListMicrovmImageBui
  *
  * @public
  */
-export class ListMicrovmImageBuildsCommand extends $Command
-  .classBuilder<
-    ListMicrovmImageBuildsCommandInput,
-    ListMicrovmImageBuildsCommandOutput,
-    LambdaMicrovmsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaMicrovmsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LambdaMicrovms", "ListMicrovmImageBuilds", {})
-  .n("LambdaMicrovmsClient", "ListMicrovmImageBuildsCommand")
-  .sc(ListMicrovmImageBuilds$)
-  .build() {
+export class ListMicrovmImageBuildsCommand extends command<ListMicrovmImageBuildsCommandInput, ListMicrovmImageBuildsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMicrovmImageBuilds",
+  ListMicrovmImageBuilds$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

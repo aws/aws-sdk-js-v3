@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisableAddOnRequest, DisableAddOnResult } from "../models/models_0";
 import { DisableAddOn$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisableAddOn$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface DisableAddOnCommandOutput extends DisableAddOnResult, __Metadat
  *
  * @public
  */
-export class DisableAddOnCommand extends $Command
-  .classBuilder<
-    DisableAddOnCommandInput,
-    DisableAddOnCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "DisableAddOn", {})
-  .n("LightsailClient", "DisableAddOnCommand")
-  .sc(DisableAddOn$)
-  .build() {
+export class DisableAddOnCommand extends command<DisableAddOnCommandInput, DisableAddOnCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisableAddOn",
+  DisableAddOn$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

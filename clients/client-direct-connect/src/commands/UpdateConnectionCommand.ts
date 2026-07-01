@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { Connection, UpdateConnectionRequest } from "../models/models_0";
 import { UpdateConnection$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateConnection$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface UpdateConnectionCommandOutput extends Connection, __MetadataBea
  *
  * @public
  */
-export class UpdateConnectionCommand extends $Command
-  .classBuilder<
-    UpdateConnectionCommandInput,
-    UpdateConnectionCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "UpdateConnection", {})
-  .n("DirectConnectClient", "UpdateConnectionCommand")
-  .sc(UpdateConnection$)
-  .build() {
+export class UpdateConnectionCommand extends command<UpdateConnectionCommandInput, UpdateConnectionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateConnection",
+  UpdateConnection$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

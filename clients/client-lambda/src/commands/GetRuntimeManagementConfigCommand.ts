@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRuntimeManagementConfigRequest, GetRuntimeManagementConfigResponse } from "../models/models_0";
 import { GetRuntimeManagementConfig$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetRuntimeManagementConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface GetRuntimeManagementConfigCommandOutput extends GetRuntimeManag
  *
  * @public
  */
-export class GetRuntimeManagementConfigCommand extends $Command
-  .classBuilder<
-    GetRuntimeManagementConfigCommandInput,
-    GetRuntimeManagementConfigCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "GetRuntimeManagementConfig", {})
-  .n("LambdaClient", "GetRuntimeManagementConfigCommand")
-  .sc(GetRuntimeManagementConfig$)
-  .build() {
+export class GetRuntimeManagementConfigCommand extends command<GetRuntimeManagementConfigCommandInput, GetRuntimeManagementConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRuntimeManagementConfig",
+  GetRuntimeManagementConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerUserSubscriptionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerUserSubscriptionsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RegisterIdentityProviderRequest, RegisterIdentityProviderResponse } from "../models/models_0";
 import { RegisterIdentityProvider$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { RegisterIdentityProvider$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -157,22 +149,12 @@ export interface RegisterIdentityProviderCommandOutput extends RegisterIdentityP
  *
  * @public
  */
-export class RegisterIdentityProviderCommand extends $Command
-  .classBuilder<
-    RegisterIdentityProviderCommandInput,
-    RegisterIdentityProviderCommandOutput,
-    LicenseManagerUserSubscriptionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerUserSubscriptionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LicenseManagerUserSubscriptions", "RegisterIdentityProvider", {})
-  .n("LicenseManagerUserSubscriptionsClient", "RegisterIdentityProviderCommand")
-  .sc(RegisterIdentityProvider$)
-  .build() {
+export class RegisterIdentityProviderCommand extends command<RegisterIdentityProviderCommandInput, RegisterIdentityProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterIdentityProvider",
+  RegisterIdentityProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

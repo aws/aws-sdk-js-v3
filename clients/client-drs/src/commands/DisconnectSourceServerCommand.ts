@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisconnectSourceServerRequest, SourceServer } from "../models/models_0";
 import { DisconnectSourceServer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisconnectSourceServer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -177,22 +173,12 @@ export interface DisconnectSourceServerCommandOutput extends SourceServer, __Met
  *
  * @public
  */
-export class DisconnectSourceServerCommand extends $Command
-  .classBuilder<
-    DisconnectSourceServerCommandInput,
-    DisconnectSourceServerCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "DisconnectSourceServer", {})
-  .n("DrsClient", "DisconnectSourceServerCommand")
-  .sc(DisconnectSourceServer$)
-  .build() {
+export class DisconnectSourceServerCommand extends command<DisconnectSourceServerCommandInput, DisconnectSourceServerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisconnectSourceServer",
+  DisconnectSourceServer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

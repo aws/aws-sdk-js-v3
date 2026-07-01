@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MigrationHubStrategyClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MigrationHubStrategyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartAssessmentRequest, StartAssessmentResponse } from "../models/models_0";
 import { StartAssessment$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartAssessment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +80,12 @@ export interface StartAssessmentCommandOutput extends StartAssessmentResponse, _
  *
  * @public
  */
-export class StartAssessmentCommand extends $Command
-  .classBuilder<
-    StartAssessmentCommandInput,
-    StartAssessmentCommandOutput,
-    MigrationHubStrategyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubStrategyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHubStrategyRecommendation", "StartAssessment", {})
-  .n("MigrationHubStrategyClient", "StartAssessmentCommand")
-  .sc(StartAssessment$)
-  .build() {
+export class StartAssessmentCommand extends command<StartAssessmentCommandInput, StartAssessmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartAssessment",
+  StartAssessment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

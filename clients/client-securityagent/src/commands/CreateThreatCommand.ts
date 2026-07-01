@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateThreatInput, CreateThreatOutput } from "../models/models_0";
 import { CreateThreat$ } from "../schemas/schemas_0";
-import type { SecurityAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityAgentClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface CreateThreatCommandOutput extends CreateThreatOutput, __Metadat
  *
  * @public
  */
-export class CreateThreatCommand extends $Command
-  .classBuilder<
-    CreateThreatCommandInput,
-    CreateThreatCommandOutput,
-    SecurityAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityAgent", "CreateThreat", {})
-  .n("SecurityAgentClient", "CreateThreatCommand")
-  .sc(CreateThreat$)
-  .build() {
+export class CreateThreatCommand extends command<CreateThreatCommandInput, CreateThreatCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateThreat",
+  CreateThreat$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

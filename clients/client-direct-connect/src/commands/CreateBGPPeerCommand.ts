@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateBGPPeerRequest, CreateBGPPeerResponse } from "../models/models_0";
 import { CreateBGPPeer$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateBGPPeer$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +136,12 @@ export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __Met
  *
  * @public
  */
-export class CreateBGPPeerCommand extends $Command
-  .classBuilder<
-    CreateBGPPeerCommandInput,
-    CreateBGPPeerCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "CreateBGPPeer", {})
-  .n("DirectConnectClient", "CreateBGPPeerCommand")
-  .sc(CreateBGPPeer$)
-  .build() {
+export class CreateBGPPeerCommand extends command<CreateBGPPeerCommandInput, CreateBGPPeerCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateBGPPeer",
+  CreateBGPPeer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

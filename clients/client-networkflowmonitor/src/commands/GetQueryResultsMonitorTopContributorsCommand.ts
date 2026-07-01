@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetQueryResultsMonitorTopContributorsInput,
   GetQueryResultsMonitorTopContributorsOutput,
 } from "../models/models_0";
-import type {
-  NetworkFlowMonitorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFlowMonitorClient";
 import { GetQueryResultsMonitorTopContributors$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -131,22 +123,12 @@ export interface GetQueryResultsMonitorTopContributorsCommandOutput extends GetQ
  *
  * @public
  */
-export class GetQueryResultsMonitorTopContributorsCommand extends $Command
-  .classBuilder<
-    GetQueryResultsMonitorTopContributorsCommandInput,
-    GetQueryResultsMonitorTopContributorsCommandOutput,
-    NetworkFlowMonitorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFlowMonitorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFlowMonitor", "GetQueryResultsMonitorTopContributors", {})
-  .n("NetworkFlowMonitorClient", "GetQueryResultsMonitorTopContributorsCommand")
-  .sc(GetQueryResultsMonitorTopContributors$)
-  .build() {
+export class GetQueryResultsMonitorTopContributorsCommand extends command<GetQueryResultsMonitorTopContributorsCommandInput, GetQueryResultsMonitorTopContributorsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetQueryResultsMonitorTopContributors",
+  GetQueryResultsMonitorTopContributors$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

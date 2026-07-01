@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteIpAccessSettingsRequest, DeleteIpAccessSettingsResponse } from "../models/models_0";
 import { DeleteIpAccessSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DeleteIpAccessSettingsCommandOutput extends DeleteIpAccessSetti
  *
  * @public
  */
-export class DeleteIpAccessSettingsCommand extends $Command
-  .classBuilder<
-    DeleteIpAccessSettingsCommandInput,
-    DeleteIpAccessSettingsCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "DeleteIpAccessSettings", {})
-  .n("WorkSpacesWebClient", "DeleteIpAccessSettingsCommand")
-  .sc(DeleteIpAccessSettings$)
-  .build() {
+export class DeleteIpAccessSettingsCommand extends command<DeleteIpAccessSettingsCommandInput, DeleteIpAccessSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteIpAccessSettings",
+  DeleteIpAccessSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

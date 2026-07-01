@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceDiscoveryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceDiscoveryClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListPurchaseOptionsInput, ListPurchaseOptionsOutput } from "../models/models_0";
 import { ListPurchaseOptions$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListPurchaseOptions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -274,22 +266,12 @@ export interface ListPurchaseOptionsCommandOutput extends ListPurchaseOptionsOut
  *
  * @public
  */
-export class ListPurchaseOptionsCommand extends $Command
-  .classBuilder<
-    ListPurchaseOptionsCommandInput,
-    ListPurchaseOptionsCommandOutput,
-    MarketplaceDiscoveryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceDiscoveryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMarketplaceDiscovery", "ListPurchaseOptions", {})
-  .n("MarketplaceDiscoveryClient", "ListPurchaseOptionsCommand")
-  .sc(ListPurchaseOptions$)
-  .build() {
+export class ListPurchaseOptionsCommand extends command<ListPurchaseOptionsCommandInput, ListPurchaseOptionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListPurchaseOptions",
+  ListPurchaseOptions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

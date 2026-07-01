@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MigrationHubRefactorSpacesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MigrationHubRefactorSpacesClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateServiceRequest, CreateServiceResponse } from "../models/models_0";
 import { CreateService$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateService$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -132,22 +124,12 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *
  * @public
  */
-export class CreateServiceCommand extends $Command
-  .classBuilder<
-    CreateServiceCommandInput,
-    CreateServiceCommandOutput,
-    MigrationHubRefactorSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubRefactorSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RefactorSpaces", "CreateService", {})
-  .n("MigrationHubRefactorSpacesClient", "CreateServiceCommand")
-  .sc(CreateService$)
-  .build() {
+export class CreateServiceCommand extends command<CreateServiceCommandInput, CreateServiceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateService",
+  CreateService$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeNotificationsForBudgetRequest, DescribeNotificationsForBudgetResponse } from "../models/models_0";
 import { DescribeNotificationsForBudget$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeNotificationsForBudget$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface DescribeNotificationsForBudgetCommandOutput extends DescribeNot
  *
  * @public
  */
-export class DescribeNotificationsForBudgetCommand extends $Command
-  .classBuilder<
-    DescribeNotificationsForBudgetCommandInput,
-    DescribeNotificationsForBudgetCommandOutput,
-    BudgetsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BudgetsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBudgetServiceGateway", "DescribeNotificationsForBudget", {})
-  .n("BudgetsClient", "DescribeNotificationsForBudgetCommand")
-  .sc(DescribeNotificationsForBudget$)
-  .build() {
+export class DescribeNotificationsForBudgetCommand extends command<DescribeNotificationsForBudgetCommandInput, DescribeNotificationsForBudgetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeNotificationsForBudget",
+  DescribeNotificationsForBudget$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

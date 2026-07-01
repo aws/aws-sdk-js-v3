@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchWorkspaceAssociationsRequest, SearchWorkspaceAssociationsResponse } from "../models/models_3";
 import { SearchWorkspaceAssociations$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SearchWorkspaceAssociations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -138,22 +134,12 @@ export interface SearchWorkspaceAssociationsCommandOutput extends SearchWorkspac
  *
  * @public
  */
-export class SearchWorkspaceAssociationsCommand extends $Command
-  .classBuilder<
-    SearchWorkspaceAssociationsCommandInput,
-    SearchWorkspaceAssociationsCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "SearchWorkspaceAssociations", {})
-  .n("ConnectClient", "SearchWorkspaceAssociationsCommand")
-  .sc(SearchWorkspaceAssociations$)
-  .build() {
+export class SearchWorkspaceAssociationsCommand extends command<SearchWorkspaceAssociationsCommandInput, SearchWorkspaceAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchWorkspaceAssociations",
+  SearchWorkspaceAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

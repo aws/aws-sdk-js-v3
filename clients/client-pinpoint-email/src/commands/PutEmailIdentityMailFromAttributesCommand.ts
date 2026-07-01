@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutEmailIdentityMailFromAttributesRequest,
   PutEmailIdentityMailFromAttributesResponse,
 } from "../models/models_0";
-import type { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient";
 import { PutEmailIdentityMailFromAttributes$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface PutEmailIdentityMailFromAttributesCommandOutput extends PutEmai
  *
  * @public
  */
-export class PutEmailIdentityMailFromAttributesCommand extends $Command
-  .classBuilder<
-    PutEmailIdentityMailFromAttributesCommandInput,
-    PutEmailIdentityMailFromAttributesCommandOutput,
-    PinpointEmailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPinpointEmailService", "PutEmailIdentityMailFromAttributes", {})
-  .n("PinpointEmailClient", "PutEmailIdentityMailFromAttributesCommand")
-  .sc(PutEmailIdentityMailFromAttributes$)
-  .build() {
+export class PutEmailIdentityMailFromAttributesCommand extends command<PutEmailIdentityMailFromAttributesCommandInput, PutEmailIdentityMailFromAttributesCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutEmailIdentityMailFromAttributes",
+  PutEmailIdentityMailFromAttributes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

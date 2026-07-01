@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TransferDomainRequest, TransferDomainResponse } from "../models/models_0";
-import type {
-  Route53DomainsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53DomainsClient";
 import { TransferDomain$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -222,22 +214,12 @@ export interface TransferDomainCommandOutput extends TransferDomainResponse, __M
  *
  * @public
  */
-export class TransferDomainCommand extends $Command
-  .classBuilder<
-    TransferDomainCommandInput,
-    TransferDomainCommandOutput,
-    Route53DomainsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Route53Domains_v20140515", "TransferDomain", {})
-  .n("Route53DomainsClient", "TransferDomainCommand")
-  .sc(TransferDomain$)
-  .build() {
+export class TransferDomainCommand extends command<TransferDomainCommandInput, TransferDomainCommandOutput>(
+  _ep0,
+  _mw0,
+  "TransferDomain",
+  TransferDomain$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

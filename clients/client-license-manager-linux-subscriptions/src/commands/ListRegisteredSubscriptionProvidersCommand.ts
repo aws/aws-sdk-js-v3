@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerLinuxSubscriptionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerLinuxSubscriptionsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListRegisteredSubscriptionProvidersRequest,
   ListRegisteredSubscriptionProvidersResponse,
@@ -19,7 +12,6 @@ import { ListRegisteredSubscriptionProviders$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface ListRegisteredSubscriptionProvidersCommandOutput extends ListRe
  *
  * @public
  */
-export class ListRegisteredSubscriptionProvidersCommand extends $Command
-  .classBuilder<
-    ListRegisteredSubscriptionProvidersCommandInput,
-    ListRegisteredSubscriptionProvidersCommandOutput,
-    LicenseManagerLinuxSubscriptionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerLinuxSubscriptionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LicenseManagerLinuxSubscriptions", "ListRegisteredSubscriptionProviders", {})
-  .n("LicenseManagerLinuxSubscriptionsClient", "ListRegisteredSubscriptionProvidersCommand")
-  .sc(ListRegisteredSubscriptionProviders$)
-  .build() {
+export class ListRegisteredSubscriptionProvidersCommand extends command<ListRegisteredSubscriptionProvidersCommandInput, ListRegisteredSubscriptionProvidersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRegisteredSubscriptionProviders",
+  ListRegisteredSubscriptionProviders$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

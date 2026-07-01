@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAccountAliasRequest, DeleteAccountAliasResult } from "../models/models_0";
 import { DeleteAccountAlias$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig } from "../SupportAppClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +62,12 @@ export interface DeleteAccountAliasCommandOutput extends DeleteAccountAliasResul
  *
  * @public
  */
-export class DeleteAccountAliasCommand extends $Command
-  .classBuilder<
-    DeleteAccountAliasCommandInput,
-    DeleteAccountAliasCommandOutput,
-    SupportAppClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SupportAppClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SupportApp", "DeleteAccountAlias", {})
-  .n("SupportAppClient", "DeleteAccountAliasCommand")
-  .sc(DeleteAccountAlias$)
-  .build() {
+export class DeleteAccountAliasCommand extends command<DeleteAccountAliasCommandInput, DeleteAccountAliasCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAccountAlias",
+  DeleteAccountAlias$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

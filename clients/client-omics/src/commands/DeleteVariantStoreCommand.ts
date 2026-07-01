@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteVariantStoreRequest, DeleteVariantStoreResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { DeleteVariantStore$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DeleteVariantStoreCommandOutput extends DeleteVariantStoreRespo
  *
  * @public
  */
-export class DeleteVariantStoreCommand extends $Command
-  .classBuilder<
-    DeleteVariantStoreCommandInput,
-    DeleteVariantStoreCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "DeleteVariantStore", {})
-  .n("OmicsClient", "DeleteVariantStoreCommand")
-  .sc(DeleteVariantStore$)
-  .build() {
+export class DeleteVariantStoreCommand extends command<DeleteVariantStoreCommandInput, DeleteVariantStoreCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteVariantStore",
+  DeleteVariantStore$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

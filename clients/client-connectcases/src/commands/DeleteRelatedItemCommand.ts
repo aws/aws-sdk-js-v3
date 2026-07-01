@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRelatedItemRequest, DeleteRelatedItemResponse } from "../models/models_0";
 import { DeleteRelatedItem$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteRelatedItem$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DeleteRelatedItemCommandOutput extends DeleteRelatedItemRespons
  *
  * @public
  */
-export class DeleteRelatedItemCommand extends $Command
-  .classBuilder<
-    DeleteRelatedItemCommandInput,
-    DeleteRelatedItemCommandOutput,
-    ConnectCasesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCases", "DeleteRelatedItem", {})
-  .n("ConnectCasesClient", "DeleteRelatedItemCommand")
-  .sc(DeleteRelatedItem$)
-  .build() {
+export class DeleteRelatedItemCommand extends command<DeleteRelatedItemCommandInput, DeleteRelatedItemCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRelatedItem",
+  DeleteRelatedItem$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

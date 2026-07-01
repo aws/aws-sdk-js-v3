@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListComplianceSummariesRequest, ListComplianceSummariesResult } from "../models/models_1";
 import { ListComplianceSummaries$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface ListComplianceSummariesCommandOutput extends ListComplianceSumm
  *
  * @public
  */
-export class ListComplianceSummariesCommand extends $Command
-  .classBuilder<
-    ListComplianceSummariesCommandInput,
-    ListComplianceSummariesCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "ListComplianceSummaries", {})
-  .n("SSMClient", "ListComplianceSummariesCommand")
-  .sc(ListComplianceSummaries$)
-  .build() {
+export class ListComplianceSummariesCommand extends command<ListComplianceSummariesCommandInput, ListComplianceSummariesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListComplianceSummaries",
+  ListComplianceSummaries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

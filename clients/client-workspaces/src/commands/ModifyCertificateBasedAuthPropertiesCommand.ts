@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ModifyCertificateBasedAuthPropertiesRequest,
   ModifyCertificateBasedAuthPropertiesResult,
 } from "../models/models_0";
 import { ModifyCertificateBasedAuthProperties$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface ModifyCertificateBasedAuthPropertiesCommandOutput extends Modif
  *
  * @public
  */
-export class ModifyCertificateBasedAuthPropertiesCommand extends $Command
-  .classBuilder<
-    ModifyCertificateBasedAuthPropertiesCommandInput,
-    ModifyCertificateBasedAuthPropertiesCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "ModifyCertificateBasedAuthProperties", {})
-  .n("WorkSpacesClient", "ModifyCertificateBasedAuthPropertiesCommand")
-  .sc(ModifyCertificateBasedAuthProperties$)
-  .build() {
+export class ModifyCertificateBasedAuthPropertiesCommand extends command<ModifyCertificateBasedAuthPropertiesCommandInput, ModifyCertificateBasedAuthPropertiesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ModifyCertificateBasedAuthProperties",
+  ModifyCertificateBasedAuthProperties$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

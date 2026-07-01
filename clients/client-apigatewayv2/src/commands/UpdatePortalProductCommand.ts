@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdatePortalProductRequest, UpdatePortalProductResponse } from "../models/models_0";
 import { UpdatePortalProduct$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdatePortalProduct$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface UpdatePortalProductCommandOutput extends UpdatePortalProductRes
  *
  * @public
  */
-export class UpdatePortalProductCommand extends $Command
-  .classBuilder<
-    UpdatePortalProductCommandInput,
-    UpdatePortalProductCommandOutput,
-    ApiGatewayV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApiGatewayV2", "UpdatePortalProduct", {})
-  .n("ApiGatewayV2Client", "UpdatePortalProductCommand")
-  .sc(UpdatePortalProduct$)
-  .build() {
+export class UpdatePortalProductCommand extends command<UpdatePortalProductCommandInput, UpdatePortalProductCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdatePortalProduct",
+  UpdatePortalProduct$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

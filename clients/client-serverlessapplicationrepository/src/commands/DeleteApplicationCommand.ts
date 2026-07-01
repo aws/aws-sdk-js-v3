@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteApplicationRequest } from "../models/models_0";
 import { DeleteApplication$ } from "../schemas/schemas_0";
-import type {
-  ServerlessApplicationRepositoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServerlessApplicationRepositoryClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeleteApplicationCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteApplicationCommand extends $Command
-  .classBuilder<
-    DeleteApplicationCommandInput,
-    DeleteApplicationCommandOutput,
-    ServerlessApplicationRepositoryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServerlessApplicationRepositoryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ServerlessApplicationRepository", "DeleteApplication", {})
-  .n("ServerlessApplicationRepositoryClient", "DeleteApplicationCommand")
-  .sc(DeleteApplication$)
-  .build() {
+export class DeleteApplicationCommand extends command<DeleteApplicationCommandInput, DeleteApplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteApplication",
+  DeleteApplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

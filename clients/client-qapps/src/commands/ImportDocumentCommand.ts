@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ImportDocumentInput, ImportDocumentOutput } from "../models/models_0";
-import type { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
 import { ImportDocument$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface ImportDocumentCommandOutput extends ImportDocumentOutput, __Met
  *
  * @public
  */
-export class ImportDocumentCommand extends $Command
-  .classBuilder<
-    ImportDocumentCommandInput,
-    ImportDocumentCommandOutput,
-    QAppsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QAppsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QAppsService", "ImportDocument", {})
-  .n("QAppsClient", "ImportDocumentCommand")
-  .sc(ImportDocument$)
-  .build() {
+export class ImportDocumentCommand extends command<ImportDocumentCommandInput, ImportDocumentCommandOutput>(
+  _ep0,
+  _mw0,
+  "ImportDocument",
+  ImportDocument$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

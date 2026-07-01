@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetAutoScalingGroupRecommendationsRequest,
   GetAutoScalingGroupRecommendationsResponse,
@@ -19,7 +12,6 @@ import { GetAutoScalingGroupRecommendations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -248,22 +240,12 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput extends GetAuto
  *
  * @public
  */
-export class GetAutoScalingGroupRecommendationsCommand extends $Command
-  .classBuilder<
-    GetAutoScalingGroupRecommendationsCommandInput,
-    GetAutoScalingGroupRecommendationsCommandOutput,
-    ComputeOptimizerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerService", "GetAutoScalingGroupRecommendations", {})
-  .n("ComputeOptimizerClient", "GetAutoScalingGroupRecommendationsCommand")
-  .sc(GetAutoScalingGroupRecommendations$)
-  .build() {
+export class GetAutoScalingGroupRecommendationsCommand extends command<GetAutoScalingGroupRecommendationsCommandInput, GetAutoScalingGroupRecommendationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAutoScalingGroupRecommendations",
+  GetAutoScalingGroupRecommendations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

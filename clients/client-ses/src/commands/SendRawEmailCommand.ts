@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendRawEmailRequest, SendRawEmailResponse } from "../models/models_0";
 import { SendRawEmail$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "../SESClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -218,22 +214,12 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  *
  * @public
  */
-export class SendRawEmailCommand extends $Command
-  .classBuilder<
-    SendRawEmailCommandInput,
-    SendRawEmailCommandOutput,
-    SESClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService", "SendRawEmail", {})
-  .n("SESClient", "SendRawEmailCommand")
-  .sc(SendRawEmail$)
-  .build() {
+export class SendRawEmailCommand extends command<SendRawEmailCommandInput, SendRawEmailCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendRawEmail",
+  SendRawEmail$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

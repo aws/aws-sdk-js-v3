@@ -1,11 +1,8 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import { Uint8ArrayBlobAdapter } from "@smithy/core/serde";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPositionEstimateRequest, GetPositionEstimateResponse } from "../models/models_0";
 import { GetPositionEstimate$ } from "../schemas/schemas_0";
 
@@ -13,7 +10,6 @@ import { GetPositionEstimate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -230,22 +226,12 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateCom
  *
  * @public
  */
-export class GetPositionEstimateCommand extends $Command
-  .classBuilder<
-    GetPositionEstimateCommandInput,
-    GetPositionEstimateCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "GetPositionEstimate", {})
-  .n("IoTWirelessClient", "GetPositionEstimateCommand")
-  .sc(GetPositionEstimate$)
-  .build() {
+export class GetPositionEstimateCommand extends command<GetPositionEstimateCommandInput, GetPositionEstimateCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPositionEstimate",
+  GetPositionEstimate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

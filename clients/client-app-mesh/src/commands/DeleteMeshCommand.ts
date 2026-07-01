@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMeshInput, DeleteMeshOutput } from "../models/models_0";
 import { DeleteMesh$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteMesh$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +104,12 @@ export interface DeleteMeshCommandOutput extends DeleteMeshOutput, __MetadataBea
  *
  * @public
  */
-export class DeleteMeshCommand extends $Command
-  .classBuilder<
-    DeleteMeshCommandInput,
-    DeleteMeshCommandOutput,
-    AppMeshClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppMeshClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AppMesh", "DeleteMesh", {})
-  .n("AppMeshClient", "DeleteMeshCommand")
-  .sc(DeleteMesh$)
-  .build() {
+export class DeleteMeshCommand extends command<DeleteMeshCommandInput, DeleteMeshCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMesh",
+  DeleteMesh$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

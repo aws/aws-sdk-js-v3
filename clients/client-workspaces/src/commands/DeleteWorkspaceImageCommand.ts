@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteWorkspaceImageRequest, DeleteWorkspaceImageResult } from "../models/models_0";
 import { DeleteWorkspaceImage$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface DeleteWorkspaceImageCommandOutput extends DeleteWorkspaceImageR
  *
  * @public
  */
-export class DeleteWorkspaceImageCommand extends $Command
-  .classBuilder<
-    DeleteWorkspaceImageCommandInput,
-    DeleteWorkspaceImageCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "DeleteWorkspaceImage", {})
-  .n("WorkSpacesClient", "DeleteWorkspaceImageCommand")
-  .sc(DeleteWorkspaceImage$)
-  .build() {
+export class DeleteWorkspaceImageCommand extends command<DeleteWorkspaceImageCommandInput, DeleteWorkspaceImageCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteWorkspaceImage",
+  DeleteWorkspaceImage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

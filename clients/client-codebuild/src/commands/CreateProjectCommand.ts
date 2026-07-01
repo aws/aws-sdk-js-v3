@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateProjectInput, CreateProjectOutput } from "../models/models_0";
 import { CreateProject$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateProject$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -477,22 +473,12 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *
  * @public
  */
-export class CreateProjectCommand extends $Command
-  .classBuilder<
-    CreateProjectCommandInput,
-    CreateProjectCommandOutput,
-    CodeBuildClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeBuild_20161006", "CreateProject", {})
-  .n("CodeBuildClient", "CreateProjectCommand")
-  .sc(CreateProject$)
-  .build() {
+export class CreateProjectCommand extends command<CreateProjectCommandInput, CreateProjectCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateProject",
+  CreateProject$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

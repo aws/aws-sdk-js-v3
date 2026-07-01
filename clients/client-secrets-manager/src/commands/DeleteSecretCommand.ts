@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSecretRequest, DeleteSecretResponse } from "../models/models_0";
 import { DeleteSecret$ } from "../schemas/schemas_0";
-import type {
-  SecretsManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SecretsManagerClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +116,12 @@ export interface DeleteSecretCommandOutput extends DeleteSecretResponse, __Metad
  *
  * @public
  */
-export class DeleteSecretCommand extends $Command
-  .classBuilder<
-    DeleteSecretCommandInput,
-    DeleteSecretCommandOutput,
-    SecretsManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("secretsmanager", "DeleteSecret", {})
-  .n("SecretsManagerClient", "DeleteSecretCommand")
-  .sc(DeleteSecret$)
-  .build() {
+export class DeleteSecretCommand extends command<DeleteSecretCommandInput, DeleteSecretCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSecret",
+  DeleteSecret$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

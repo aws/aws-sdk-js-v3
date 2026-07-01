@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEventsConfigurationRequest, GetEventsConfigurationResponse } from "../models/models_0";
 import { GetEventsConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetEventsConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface GetEventsConfigurationCommandOutput extends GetEventsConfigurat
  *
  * @public
  */
-export class GetEventsConfigurationCommand extends $Command
-  .classBuilder<
-    GetEventsConfigurationCommandInput,
-    GetEventsConfigurationCommandOutput,
-    ChimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("UCBuzzConsoleService", "GetEventsConfiguration", {})
-  .n("ChimeClient", "GetEventsConfigurationCommand")
-  .sc(GetEventsConfiguration$)
-  .build() {
+export class GetEventsConfigurationCommand extends command<GetEventsConfigurationCommandInput, GetEventsConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEventsConfiguration",
+  GetEventsConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

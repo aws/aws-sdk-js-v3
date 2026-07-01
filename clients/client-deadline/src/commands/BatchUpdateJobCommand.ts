@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchUpdateJobRequest, BatchUpdateJobResponse } from "../models/models_0";
 import { BatchUpdateJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchUpdateJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -120,22 +116,12 @@ export interface BatchUpdateJobCommandOutput extends BatchUpdateJobResponse, __M
  *
  * @public
  */
-export class BatchUpdateJobCommand extends $Command
-  .classBuilder<
-    BatchUpdateJobCommandInput,
-    BatchUpdateJobCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "BatchUpdateJob", {})
-  .n("DeadlineClient", "BatchUpdateJobCommand")
-  .sc(BatchUpdateJob$)
-  .build() {
+export class BatchUpdateJobCommand extends command<BatchUpdateJobCommandInput, BatchUpdateJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchUpdateJob",
+  BatchUpdateJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteConfigurationSetEventDestinationRequest,
   DeleteConfigurationSetEventDestinationResponse,
 } from "../models/models_0";
-import type {
-  PinpointSMSVoiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceClient";
 import { DeleteConfigurationSetEventDestination$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +69,12 @@ export interface DeleteConfigurationSetEventDestinationCommandOutput extends Del
  *
  * @public
  */
-export class DeleteConfigurationSetEventDestinationCommand extends $Command
-  .classBuilder<
-    DeleteConfigurationSetEventDestinationCommandInput,
-    DeleteConfigurationSetEventDestinationCommandOutput,
-    PinpointSMSVoiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoice", "DeleteConfigurationSetEventDestination", {})
-  .n("PinpointSMSVoiceClient", "DeleteConfigurationSetEventDestinationCommand")
-  .sc(DeleteConfigurationSetEventDestination$)
-  .build() {
+export class DeleteConfigurationSetEventDestinationCommand extends command<DeleteConfigurationSetEventDestinationCommandInput, DeleteConfigurationSetEventDestinationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteConfigurationSetEventDestination",
+  DeleteConfigurationSetEventDestination$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

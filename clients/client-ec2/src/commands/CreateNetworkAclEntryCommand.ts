@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateNetworkAclEntryRequest } from "../models/models_1";
 import { CreateNetworkAclEntry$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateNetworkAclEntry$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface CreateNetworkAclEntryCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class CreateNetworkAclEntryCommand extends $Command
-  .classBuilder<
-    CreateNetworkAclEntryCommandInput,
-    CreateNetworkAclEntryCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "CreateNetworkAclEntry", {})
-  .n("EC2Client", "CreateNetworkAclEntryCommand")
-  .sc(CreateNetworkAclEntry$)
-  .build() {
+export class CreateNetworkAclEntryCommand extends command<CreateNetworkAclEntryCommandInput, CreateNetworkAclEntryCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateNetworkAclEntry",
+  CreateNetworkAclEntry$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

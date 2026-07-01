@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSizeConstraintSetRequest, DeleteSizeConstraintSetResponse } from "../models/models_0";
 import { DeleteSizeConstraintSet$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +136,12 @@ export interface DeleteSizeConstraintSetCommandOutput extends DeleteSizeConstrai
  *
  * @public
  */
-export class DeleteSizeConstraintSetCommand extends $Command
-  .classBuilder<
-    DeleteSizeConstraintSetCommandInput,
-    DeleteSizeConstraintSetCommandOutput,
-    WAFClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20150824", "DeleteSizeConstraintSet", {})
-  .n("WAFClient", "DeleteSizeConstraintSetCommand")
-  .sc(DeleteSizeConstraintSet$)
-  .build() {
+export class DeleteSizeConstraintSetCommand extends command<DeleteSizeConstraintSetCommandInput, DeleteSizeConstraintSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSizeConstraintSet",
+  DeleteSizeConstraintSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

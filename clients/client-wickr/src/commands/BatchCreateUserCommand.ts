@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchCreateUserRequest, BatchCreateUserResponse } from "../models/models_0";
 import { BatchCreateUser$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -236,22 +232,12 @@ export interface BatchCreateUserCommandOutput extends BatchCreateUserResponse, _
  *
  * @public
  */
-export class BatchCreateUserCommand extends $Command
-  .classBuilder<
-    BatchCreateUserCommandInput,
-    BatchCreateUserCommandOutput,
-    WickrClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WickrAdminApi", "BatchCreateUser", {})
-  .n("WickrClient", "BatchCreateUserCommand")
-  .sc(BatchCreateUser$)
-  .build() {
+export class BatchCreateUserCommand extends command<BatchCreateUserCommandInput, BatchCreateUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchCreateUser",
+  BatchCreateUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

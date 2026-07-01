@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetApnsSandboxChannelRequest, GetApnsSandboxChannelResponse } from "../models/models_0";
-import type { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient";
 import { GetApnsSandboxChannel$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface GetApnsSandboxChannelCommandOutput extends GetApnsSandboxChanne
  *
  * @public
  */
-export class GetApnsSandboxChannelCommand extends $Command
-  .classBuilder<
-    GetApnsSandboxChannelCommandInput,
-    GetApnsSandboxChannelCommandOutput,
-    PinpointClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pinpoint", "GetApnsSandboxChannel", {})
-  .n("PinpointClient", "GetApnsSandboxChannelCommand")
-  .sc(GetApnsSandboxChannel$)
-  .build() {
+export class GetApnsSandboxChannelCommand extends command<GetApnsSandboxChannelCommandInput, GetApnsSandboxChannelCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetApnsSandboxChannel",
+  GetApnsSandboxChannel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

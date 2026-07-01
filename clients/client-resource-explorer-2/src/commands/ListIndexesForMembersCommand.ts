@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListIndexesForMembersInput, ListIndexesForMembersOutput } from "../models/models_0";
-import type {
-  ResourceExplorer2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ResourceExplorer2Client";
 import { ListIndexesForMembers$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +79,12 @@ export interface ListIndexesForMembersCommandOutput extends ListIndexesForMember
  *
  * @public
  */
-export class ListIndexesForMembersCommand extends $Command
-  .classBuilder<
-    ListIndexesForMembersCommandInput,
-    ListIndexesForMembersCommandOutput,
-    ResourceExplorer2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ResourceExplorer", "ListIndexesForMembers", {})
-  .n("ResourceExplorer2Client", "ListIndexesForMembersCommand")
-  .sc(ListIndexesForMembers$)
-  .build() {
+export class ListIndexesForMembersCommand extends command<ListIndexesForMembersCommandInput, ListIndexesForMembersCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListIndexesForMembers",
+  ListIndexesForMembers$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

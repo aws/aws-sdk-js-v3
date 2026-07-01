@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateCarrierGatewayRequest, CreateCarrierGatewayResult } from "../models/models_0";
 import { CreateCarrierGateway$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateCarrierGateway$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface CreateCarrierGatewayCommandOutput extends CreateCarrierGatewayR
  *
  * @public
  */
-export class CreateCarrierGatewayCommand extends $Command
-  .classBuilder<
-    CreateCarrierGatewayCommandInput,
-    CreateCarrierGatewayCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "CreateCarrierGateway", {})
-  .n("EC2Client", "CreateCarrierGatewayCommand")
-  .sc(CreateCarrierGateway$)
-  .build() {
+export class CreateCarrierGatewayCommand extends command<CreateCarrierGatewayCommandInput, CreateCarrierGatewayCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateCarrierGateway",
+  CreateCarrierGateway$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { MalformedUnionInput } from "../models/models_0";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
 import { MalformedUnion$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -64,22 +56,12 @@ export interface MalformedUnionCommandOutput extends __MetadataBearer {}
  *
  *
  */
-export class MalformedUnionCommand extends $Command
-  .classBuilder<
-    MalformedUnionCommandInput,
-    MalformedUnionCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestJson", "MalformedUnion", {})
-  .n("RestJsonProtocolClient", "MalformedUnionCommand")
-  .sc(MalformedUnion$)
-  .build() {
+export class MalformedUnionCommand extends command<MalformedUnionCommandInput, MalformedUnionCommandOutput>(
+  _ep0,
+  _mw0,
+  "MalformedUnion",
+  MalformedUnion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

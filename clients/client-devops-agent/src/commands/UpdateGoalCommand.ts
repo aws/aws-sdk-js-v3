@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsAgentClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateGoalRequest, UpdateGoalResponse } from "../models/models_0";
 import { UpdateGoal$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateGoal$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface UpdateGoalCommandOutput extends UpdateGoalResponse, __MetadataB
  *
  * @public
  */
-export class UpdateGoalCommand extends $Command
-  .classBuilder<
-    UpdateGoalCommandInput,
-    UpdateGoalCommandOutput,
-    DevOpsAgentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsAgentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DevOpsAgent", "UpdateGoal", {})
-  .n("DevOpsAgentClient", "UpdateGoalCommand")
-  .sc(UpdateGoal$)
-  .build() {
+export class UpdateGoalCommand extends command<UpdateGoalCommandInput, UpdateGoalCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateGoal",
+  UpdateGoal$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

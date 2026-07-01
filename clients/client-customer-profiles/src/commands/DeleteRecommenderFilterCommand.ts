@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteRecommenderFilterRequest, DeleteRecommenderFilterResponse } from "../models/models_0";
 import { DeleteRecommenderFilter$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteRecommenderFilter$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeleteRecommenderFilterCommandOutput extends DeleteRecommenderF
  *
  * @public
  */
-export class DeleteRecommenderFilterCommand extends $Command
-  .classBuilder<
-    DeleteRecommenderFilterCommandInput,
-    DeleteRecommenderFilterCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "DeleteRecommenderFilter", {})
-  .n("CustomerProfilesClient", "DeleteRecommenderFilterCommand")
-  .sc(DeleteRecommenderFilter$)
-  .build() {
+export class DeleteRecommenderFilterCommand extends command<DeleteRecommenderFilterCommandInput, DeleteRecommenderFilterCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteRecommenderFilter",
+  DeleteRecommenderFilter$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

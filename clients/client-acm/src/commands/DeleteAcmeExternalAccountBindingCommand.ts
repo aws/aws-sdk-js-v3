@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { DeleteAcmeExternalAccountBindingRequest } from "../models/models_0";
 import { DeleteAcmeExternalAccountBinding$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAcmeExternalAccountBinding$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,25 +65,12 @@ export interface DeleteAcmeExternalAccountBindingCommandOutput extends __Metadat
  *
  * @public
  */
-export class DeleteAcmeExternalAccountBindingCommand extends $Command
-  .classBuilder<
-    DeleteAcmeExternalAccountBindingCommandInput,
-    DeleteAcmeExternalAccountBindingCommandOutput,
-    ACMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ServiceType: { type: "staticContextParams", value: `ACM-ACME` },
-  })
-  .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CertificateManager", "DeleteAcmeExternalAccountBinding", {})
-  .n("ACMClient", "DeleteAcmeExternalAccountBindingCommand")
-  .sc(DeleteAcmeExternalAccountBinding$)
-  .build() {
+export class DeleteAcmeExternalAccountBindingCommand extends command<DeleteAcmeExternalAccountBindingCommandInput, DeleteAcmeExternalAccountBindingCommandOutput>(
+  _ep1,
+  _mw0,
+  "DeleteAcmeExternalAccountBinding",
+  DeleteAcmeExternalAccountBinding$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

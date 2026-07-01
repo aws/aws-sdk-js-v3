@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchDescribeModelPackageInput, BatchDescribeModelPackageOutput } from "../models/models_0";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { BatchDescribeModelPackage$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -158,22 +154,12 @@ export interface BatchDescribeModelPackageCommandOutput extends BatchDescribeMod
  *
  * @public
  */
-export class BatchDescribeModelPackageCommand extends $Command
-  .classBuilder<
-    BatchDescribeModelPackageCommandInput,
-    BatchDescribeModelPackageCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "BatchDescribeModelPackage", {})
-  .n("SageMakerClient", "BatchDescribeModelPackageCommand")
-  .sc(BatchDescribeModelPackage$)
-  .build() {
+export class BatchDescribeModelPackageCommand extends command<BatchDescribeModelPackageCommandInput, BatchDescribeModelPackageCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDescribeModelPackage",
+  BatchDescribeModelPackage$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

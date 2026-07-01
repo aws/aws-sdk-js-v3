@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ElasticLoadBalancingV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticLoadBalancingV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddListenerCertificatesInput, AddListenerCertificatesOutput } from "../models/models_0";
 import { AddListenerCertificates$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AddListenerCertificates$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +81,12 @@ export interface AddListenerCertificatesCommandOutput extends AddListenerCertifi
  *
  * @public
  */
-export class AddListenerCertificatesCommand extends $Command
-  .classBuilder<
-    AddListenerCertificatesCommandInput,
-    AddListenerCertificatesCommandOutput,
-    ElasticLoadBalancingV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticLoadBalancing_v10", "AddListenerCertificates", {})
-  .n("ElasticLoadBalancingV2Client", "AddListenerCertificatesCommand")
-  .sc(AddListenerCertificates$)
-  .build() {
+export class AddListenerCertificatesCommand extends command<AddListenerCertificatesCommandInput, AddListenerCertificatesCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddListenerCertificates",
+  AddListenerCertificates$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

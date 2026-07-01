@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateOpsItemRequest, UpdateOpsItemResponse } from "../models/models_1";
 import { UpdateOpsItem$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -116,22 +112,12 @@ export interface UpdateOpsItemCommandOutput extends UpdateOpsItemResponse, __Met
  *
  * @public
  */
-export class UpdateOpsItemCommand extends $Command
-  .classBuilder<
-    UpdateOpsItemCommandInput,
-    UpdateOpsItemCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "UpdateOpsItem", {})
-  .n("SSMClient", "UpdateOpsItemCommand")
-  .sc(UpdateOpsItem$)
-  .build() {
+export class UpdateOpsItemCommand extends command<UpdateOpsItemCommandInput, UpdateOpsItemCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateOpsItem",
+  UpdateOpsItem$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

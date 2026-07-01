@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BillingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateSourceViewsRequest, DisassociateSourceViewsResponse } from "../models/models_0";
 import { DisassociateSourceViews$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateSourceViews$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface DisassociateSourceViewsCommandOutput extends DisassociateSource
  *
  * @public
  */
-export class DisassociateSourceViewsCommand extends $Command
-  .classBuilder<
-    DisassociateSourceViewsCommandInput,
-    DisassociateSourceViewsCommandOutput,
-    BillingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BillingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBilling", "DisassociateSourceViews", {})
-  .n("BillingClient", "DisassociateSourceViewsCommand")
-  .sc(DisassociateSourceViews$)
-  .build() {
+export class DisassociateSourceViewsCommand extends command<DisassociateSourceViewsCommandInput, DisassociateSourceViewsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateSourceViews",
+  DisassociateSourceViews$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

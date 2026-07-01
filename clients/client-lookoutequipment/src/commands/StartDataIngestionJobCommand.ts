@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LookoutEquipmentClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LookoutEquipmentClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartDataIngestionJobRequest, StartDataIngestionJobResponse } from "../models/models_0";
 import { StartDataIngestionJob$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartDataIngestionJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +91,12 @@ export interface StartDataIngestionJobCommandOutput extends StartDataIngestionJo
  *
  * @public
  */
-export class StartDataIngestionJobCommand extends $Command
-  .classBuilder<
-    StartDataIngestionJobCommandInput,
-    StartDataIngestionJobCommandOutput,
-    LookoutEquipmentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLookoutEquipmentFrontendService", "StartDataIngestionJob", {})
-  .n("LookoutEquipmentClient", "StartDataIngestionJobCommand")
-  .sc(StartDataIngestionJob$)
-  .build() {
+export class StartDataIngestionJobCommand extends command<StartDataIngestionJobCommandInput, StartDataIngestionJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartDataIngestionJob",
+  StartDataIngestionJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

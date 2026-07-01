@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetGatewayInput, GetGatewayOutput } from "../models/models_0";
 import { GetGateway$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetGateway$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface GetGatewayCommandOutput extends GetGatewayOutput, __MetadataBea
  *
  * @public
  */
-export class GetGatewayCommand extends $Command
-  .classBuilder<
-    GetGatewayCommandInput,
-    GetGatewayCommandOutput,
-    BackupGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackupOnPremises_v20210101", "GetGateway", {})
-  .n("BackupGatewayClient", "GetGatewayCommand")
-  .sc(GetGateway$)
-  .build() {
+export class GetGatewayCommand extends command<GetGatewayCommandInput, GetGatewayCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetGateway",
+  GetGateway$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

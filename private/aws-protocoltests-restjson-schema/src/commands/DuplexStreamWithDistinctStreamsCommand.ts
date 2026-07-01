@@ -1,23 +1,14 @@
 // smithy-typescript generated code
-import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { DuplexStreamWithDistinctStreamsInput, DuplexStreamWithDistinctStreamsOutput } from "../models/models_0";
-import type {
-  RestJsonProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestJsonProtocolClient";
 import { DuplexStreamWithDistinctStreams$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,32 +99,12 @@ export interface DuplexStreamWithDistinctStreamsCommandOutput extends DuplexStre
  *
  *
  */
-export class DuplexStreamWithDistinctStreamsCommand extends $Command
-  .classBuilder<
-    DuplexStreamWithDistinctStreamsCommandInput,
-    DuplexStreamWithDistinctStreamsCommandOutput,
-    RestJsonProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEventStreamPlugin(config),
-    ];
-  })
-  .s("RestJson", "DuplexStreamWithDistinctStreams", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      input: true,
-    },
-  })
-  .n("RestJsonProtocolClient", "DuplexStreamWithDistinctStreamsCommand")
-  .sc(DuplexStreamWithDistinctStreams$)
-  .build() {
+export class DuplexStreamWithDistinctStreamsCommand extends command<DuplexStreamWithDistinctStreamsCommandInput, DuplexStreamWithDistinctStreamsCommandOutput>(
+  _ep0,
+  _mw1,
+  "DuplexStreamWithDistinctStreams",
+  DuplexStreamWithDistinctStreams$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

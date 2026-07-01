@@ -1,20 +1,14 @@
 // smithy-typescript generated code
-import { getFlexibleChecksumsPlugin } from "@aws-sdk/checksums/flexible-checksums";
-import { getSsecPlugin, getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3/s3";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw13, command } from "../commandBuilder";
 import type { UploadPartOutput, UploadPartRequest } from "../models/models_1";
-import type { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 import { UploadPart$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -306,34 +300,12 @@ export interface UploadPartCommandOutput extends UploadPartOutput, __MetadataBea
  *
  * @public
  */
-export class UploadPartCommand extends $Command
-  .classBuilder<
-    UploadPartCommandInput,
-    UploadPartCommandOutput,
-    S3ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    Bucket: { type: "contextParams", name: "Bucket" },
-    Key: { type: "contextParams", name: "Key" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getFlexibleChecksumsPlugin(config, {
-        requestAlgorithmMember: {'httpHeader': 'x-amz-sdk-checksum-algorithm', 'name': 'ChecksumAlgorithm'},
-        requestChecksumRequired: false,
-      }),
-      getThrow200ExceptionsPlugin(config),
-      getSsecPlugin(config),
-    ];
-  })
-  .s("AmazonS3", "UploadPart", {})
-  .n("S3Client", "UploadPartCommand")
-  .sc(UploadPart$)
-  .build() {
+export class UploadPartCommand extends command<UploadPartCommandInput, UploadPartCommandOutput>(
+  _ep0,
+  _mw13,
+  "UploadPart",
+  UploadPart$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

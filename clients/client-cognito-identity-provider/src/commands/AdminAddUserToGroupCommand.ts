@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CognitoIdentityProviderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityProviderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AdminAddUserToGroupRequest } from "../models/models_0";
 import { AdminAddUserToGroup$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AdminAddUserToGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +101,12 @@ export interface AdminAddUserToGroupCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class AdminAddUserToGroupCommand extends $Command
-  .classBuilder<
-    AdminAddUserToGroupCommandInput,
-    AdminAddUserToGroupCommandOutput,
-    CognitoIdentityProviderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSCognitoIdentityProviderService", "AdminAddUserToGroup", {})
-  .n("CognitoIdentityProviderClient", "AdminAddUserToGroupCommand")
-  .sc(AdminAddUserToGroup$)
-  .build() {
+export class AdminAddUserToGroupCommand extends command<AdminAddUserToGroupCommandInput, AdminAddUserToGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "AdminAddUserToGroup",
+  AdminAddUserToGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

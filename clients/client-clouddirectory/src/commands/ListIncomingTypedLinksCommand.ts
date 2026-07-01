@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudDirectoryClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListIncomingTypedLinksRequest, ListIncomingTypedLinksResponse } from "../models/models_0";
 import { ListIncomingTypedLinks$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListIncomingTypedLinks$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -236,22 +228,12 @@ export interface ListIncomingTypedLinksCommandOutput extends ListIncomingTypedLi
  *
  * @public
  */
-export class ListIncomingTypedLinksCommand extends $Command
-  .classBuilder<
-    ListIncomingTypedLinksCommandInput,
-    ListIncomingTypedLinksCommandOutput,
-    CloudDirectoryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonCloudDirectory_20170111", "ListIncomingTypedLinks", {})
-  .n("CloudDirectoryClient", "ListIncomingTypedLinksCommand")
-  .sc(ListIncomingTypedLinks$)
-  .build() {
+export class ListIncomingTypedLinksCommand extends command<ListIncomingTypedLinksCommandInput, ListIncomingTypedLinksCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListIncomingTypedLinks",
+  ListIncomingTypedLinks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateIntegrationWorkflowRequest, CreateIntegrationWorkflowResponse } from "../models/models_0";
 import { CreateIntegrationWorkflow$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateIntegrationWorkflow$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -161,22 +153,12 @@ export interface CreateIntegrationWorkflowCommandOutput extends CreateIntegratio
  *
  * @public
  */
-export class CreateIntegrationWorkflowCommand extends $Command
-  .classBuilder<
-    CreateIntegrationWorkflowCommandInput,
-    CreateIntegrationWorkflowCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "CreateIntegrationWorkflow", {})
-  .n("CustomerProfilesClient", "CreateIntegrationWorkflowCommand")
-  .sc(CreateIntegrationWorkflow$)
-  .build() {
+export class CreateIntegrationWorkflowCommand extends command<CreateIntegrationWorkflowCommandInput, CreateIntegrationWorkflowCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateIntegrationWorkflow",
+  CreateIntegrationWorkflow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

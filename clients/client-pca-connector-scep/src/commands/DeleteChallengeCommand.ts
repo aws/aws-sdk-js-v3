@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteChallengeRequest } from "../models/models_0";
-import type {
-  PcaConnectorScepClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PcaConnectorScepClient";
 import { DeleteChallenge$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +71,12 @@ export interface DeleteChallengeCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteChallengeCommand extends $Command
-  .classBuilder<
-    DeleteChallengeCommandInput,
-    DeleteChallengeCommandOutput,
-    PcaConnectorScepClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PcaConnectorScepClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PcaConnectorScep", "DeleteChallenge", {})
-  .n("PcaConnectorScepClient", "DeleteChallengeCommand")
-  .sc(DeleteChallenge$)
-  .build() {
+export class DeleteChallengeCommand extends command<DeleteChallengeCommandInput, DeleteChallengeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteChallenge",
+  DeleteChallenge$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

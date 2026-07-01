@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeRegionsRequest, DescribeRegionsResult } from "../models/models_0";
 import { DescribeRegions$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeRegions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +97,12 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  *
  * @public
  */
-export class DescribeRegionsCommand extends $Command
-  .classBuilder<
-    DescribeRegionsCommandInput,
-    DescribeRegionsCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "DescribeRegions", {})
-  .n("DirectoryServiceClient", "DescribeRegionsCommand")
-  .sc(DescribeRegions$)
-  .build() {
+export class DescribeRegionsCommand extends command<DescribeRegionsCommandInput, DescribeRegionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeRegions",
+  DescribeRegions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

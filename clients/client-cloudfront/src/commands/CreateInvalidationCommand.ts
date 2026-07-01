@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateInvalidationRequest, CreateInvalidationResult } from "../models/models_0";
 import { CreateInvalidation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateInvalidation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface CreateInvalidationCommandOutput extends CreateInvalidationResul
  *
  * @public
  */
-export class CreateInvalidationCommand extends $Command
-  .classBuilder<
-    CreateInvalidationCommandInput,
-    CreateInvalidationCommandOutput,
-    CloudFrontClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Cloudfront2020_05_31", "CreateInvalidation", {})
-  .n("CloudFrontClient", "CreateInvalidationCommand")
-  .sc(CreateInvalidation$)
-  .build() {
+export class CreateInvalidationCommand extends command<CreateInvalidationCommandInput, CreateInvalidationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateInvalidation",
+  CreateInvalidation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

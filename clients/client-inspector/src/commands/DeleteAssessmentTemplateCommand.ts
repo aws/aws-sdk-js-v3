@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAssessmentTemplateRequest } from "../models/models_0";
 import { DeleteAssessmentTemplate$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAssessmentTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface DeleteAssessmentTemplateCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class DeleteAssessmentTemplateCommand extends $Command
-  .classBuilder<
-    DeleteAssessmentTemplateCommandInput,
-    DeleteAssessmentTemplateCommandOutput,
-    InspectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("InspectorService", "DeleteAssessmentTemplate", {})
-  .n("InspectorClient", "DeleteAssessmentTemplateCommand")
-  .sc(DeleteAssessmentTemplate$)
-  .build() {
+export class DeleteAssessmentTemplateCommand extends command<DeleteAssessmentTemplateCommandInput, DeleteAssessmentTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAssessmentTemplate",
+  DeleteAssessmentTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

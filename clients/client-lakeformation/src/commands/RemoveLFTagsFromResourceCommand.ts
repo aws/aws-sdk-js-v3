@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveLFTagsFromResourceRequest, RemoveLFTagsFromResourceResponse } from "../models/models_0";
 import { RemoveLFTagsFromResource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RemoveLFTagsFromResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -165,22 +161,12 @@ export interface RemoveLFTagsFromResourceCommandOutput extends RemoveLFTagsFromR
  *
  * @public
  */
-export class RemoveLFTagsFromResourceCommand extends $Command
-  .classBuilder<
-    RemoveLFTagsFromResourceCommandInput,
-    RemoveLFTagsFromResourceCommandOutput,
-    LakeFormationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLakeFormation", "RemoveLFTagsFromResource", {})
-  .n("LakeFormationClient", "RemoveLFTagsFromResourceCommand")
-  .sc(RemoveLFTagsFromResource$)
-  .build() {
+export class RemoveLFTagsFromResourceCommand extends command<RemoveLFTagsFromResourceCommandInput, RemoveLFTagsFromResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveLFTagsFromResource",
+  RemoveLFTagsFromResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

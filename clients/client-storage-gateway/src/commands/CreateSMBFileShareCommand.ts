@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSMBFileShareInput, CreateSMBFileShareOutput } from "../models/models_0";
 import { CreateSMBFileShare$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
-} from "../StorageGatewayClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +116,12 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  *
  * @public
  */
-export class CreateSMBFileShareCommand extends $Command
-  .classBuilder<
-    CreateSMBFileShareCommandInput,
-    CreateSMBFileShareCommandOutput,
-    StorageGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StorageGateway_20130630", "CreateSMBFileShare", {})
-  .n("StorageGatewayClient", "CreateSMBFileShareCommand")
-  .sc(CreateSMBFileShare$)
-  .build() {
+export class CreateSMBFileShareCommand extends command<CreateSMBFileShareCommandInput, CreateSMBFileShareCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSMBFileShare",
+  CreateSMBFileShare$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

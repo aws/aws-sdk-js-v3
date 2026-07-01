@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAddonInstanceRequest, DeleteAddonInstanceResponse } from "../models/models_0";
 import { DeleteAddonInstance$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAddonInstance$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface DeleteAddonInstanceCommandOutput extends DeleteAddonInstanceRes
  *
  * @public
  */
-export class DeleteAddonInstanceCommand extends $Command
-  .classBuilder<
-    DeleteAddonInstanceCommandInput,
-    DeleteAddonInstanceCommandOutput,
-    MailManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MailManagerSvc", "DeleteAddonInstance", {})
-  .n("MailManagerClient", "DeleteAddonInstanceCommand")
-  .sc(DeleteAddonInstance$)
-  .build() {
+export class DeleteAddonInstanceCommand extends command<DeleteAddonInstanceCommandInput, DeleteAddonInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAddonInstance",
+  DeleteAddonInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

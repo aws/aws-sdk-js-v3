@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StartDataQualityRuleRecommendationRunRequest,
   StartDataQualityRuleRecommendationRunResponse,
@@ -15,7 +12,6 @@ import { StartDataQualityRuleRecommendationRun$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface StartDataQualityRuleRecommendationRunCommandOutput extends Star
  *
  * @public
  */
-export class StartDataQualityRuleRecommendationRunCommand extends $Command
-  .classBuilder<
-    StartDataQualityRuleRecommendationRunCommandInput,
-    StartDataQualityRuleRecommendationRunCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "StartDataQualityRuleRecommendationRun", {})
-  .n("GlueClient", "StartDataQualityRuleRecommendationRunCommand")
-  .sc(StartDataQualityRuleRecommendationRun$)
-  .build() {
+export class StartDataQualityRuleRecommendationRunCommand extends command<StartDataQualityRuleRecommendationRunCommandInput, StartDataQualityRuleRecommendationRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartDataQualityRuleRecommendationRun",
+  StartDataQualityRuleRecommendationRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

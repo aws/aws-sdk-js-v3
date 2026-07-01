@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartMetadataModelAssessmentMessage, StartMetadataModelAssessmentResponse } from "../models/models_1";
 import { StartMetadataModelAssessment$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartMetadataModelAssessment$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +102,12 @@ export interface StartMetadataModelAssessmentCommandOutput extends StartMetadata
  *
  * @public
  */
-export class StartMetadataModelAssessmentCommand extends $Command
-  .classBuilder<
-    StartMetadataModelAssessmentCommandInput,
-    StartMetadataModelAssessmentCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "StartMetadataModelAssessment", {})
-  .n("DatabaseMigrationServiceClient", "StartMetadataModelAssessmentCommand")
-  .sc(StartMetadataModelAssessment$)
-  .build() {
+export class StartMetadataModelAssessmentCommand extends command<StartMetadataModelAssessmentCommandInput, StartMetadataModelAssessmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartMetadataModelAssessment",
+  StartMetadataModelAssessment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

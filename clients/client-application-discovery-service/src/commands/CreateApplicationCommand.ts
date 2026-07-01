@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationDiscoveryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationDiscoveryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateApplicationRequest, CreateApplicationResponse } from "../models/models_0";
 import { CreateApplication$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateApplication$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +74,12 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *
  * @public
  */
-export class CreateApplicationCommand extends $Command
-  .classBuilder<
-    CreateApplicationCommandInput,
-    CreateApplicationCommandOutput,
-    ApplicationDiscoveryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationDiscoveryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPoseidonService_V2015_11_01", "CreateApplication", {})
-  .n("ApplicationDiscoveryServiceClient", "CreateApplicationCommand")
-  .sc(CreateApplication$)
-  .build() {
+export class CreateApplicationCommand extends command<CreateApplicationCommandInput, CreateApplicationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateApplication",
+  CreateApplication$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateLoginProfileRequest, CreateLoginProfileResponse } from "../models/models_0";
 import { CreateLoginProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateLoginProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface CreateLoginProfileCommandOutput extends CreateLoginProfileRespo
  *
  * @public
  */
-export class CreateLoginProfileCommand extends $Command
-  .classBuilder<
-    CreateLoginProfileCommandInput,
-    CreateLoginProfileCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "CreateLoginProfile", {})
-  .n("IAMClient", "CreateLoginProfileCommand")
-  .sc(CreateLoginProfile$)
-  .build() {
+export class CreateLoginProfileCommand extends command<CreateLoginProfileCommandInput, CreateLoginProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateLoginProfile",
+  CreateLoginProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

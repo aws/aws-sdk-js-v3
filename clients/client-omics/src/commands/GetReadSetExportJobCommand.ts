@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetReadSetExportJobRequest, GetReadSetExportJobResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { GetReadSetExportJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface GetReadSetExportJobCommandOutput extends GetReadSetExportJobRes
  *
  * @public
  */
-export class GetReadSetExportJobCommand extends $Command
-  .classBuilder<
-    GetReadSetExportJobCommandInput,
-    GetReadSetExportJobCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "GetReadSetExportJob", {})
-  .n("OmicsClient", "GetReadSetExportJobCommand")
-  .sc(GetReadSetExportJob$)
-  .build() {
+export class GetReadSetExportJobCommand extends command<GetReadSetExportJobCommandInput, GetReadSetExportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetReadSetExportJob",
+  GetReadSetExportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

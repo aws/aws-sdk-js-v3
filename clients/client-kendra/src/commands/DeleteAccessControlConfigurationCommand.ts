@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteAccessControlConfigurationRequest,
   DeleteAccessControlConfigurationResponse,
@@ -15,7 +12,6 @@ import { DeleteAccessControlConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface DeleteAccessControlConfigurationCommandOutput extends DeleteAcc
  *
  * @public
  */
-export class DeleteAccessControlConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteAccessControlConfigurationCommandInput,
-    DeleteAccessControlConfigurationCommandOutput,
-    KendraClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSKendraFrontendService", "DeleteAccessControlConfiguration", {})
-  .n("KendraClient", "DeleteAccessControlConfigurationCommand")
-  .sc(DeleteAccessControlConfiguration$)
-  .build() {
+export class DeleteAccessControlConfigurationCommand extends command<DeleteAccessControlConfigurationCommandInput, DeleteAccessControlConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAccessControlConfiguration",
+  DeleteAccessControlConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

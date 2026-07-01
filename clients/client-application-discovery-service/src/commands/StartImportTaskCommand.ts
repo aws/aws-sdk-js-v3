@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationDiscoveryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationDiscoveryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartImportTaskRequest, StartImportTaskResponse } from "../models/models_0";
 import { StartImportTask$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { StartImportTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -136,22 +128,12 @@ export interface StartImportTaskCommandOutput extends StartImportTaskResponse, _
  *
  * @public
  */
-export class StartImportTaskCommand extends $Command
-  .classBuilder<
-    StartImportTaskCommandInput,
-    StartImportTaskCommandOutput,
-    ApplicationDiscoveryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationDiscoveryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPoseidonService_V2015_11_01", "StartImportTask", {})
-  .n("ApplicationDiscoveryServiceClient", "StartImportTaskCommand")
-  .sc(StartImportTask$)
-  .build() {
+export class StartImportTaskCommand extends command<StartImportTaskCommandInput, StartImportTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartImportTask",
+  StartImportTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

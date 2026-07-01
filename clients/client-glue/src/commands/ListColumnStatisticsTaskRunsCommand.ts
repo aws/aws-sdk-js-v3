@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListColumnStatisticsTaskRunsRequest, ListColumnStatisticsTaskRunsResponse } from "../models/models_2";
 import { ListColumnStatisticsTaskRuns$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListColumnStatisticsTaskRuns$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +62,12 @@ export interface ListColumnStatisticsTaskRunsCommandOutput extends ListColumnSta
  *
  * @public
  */
-export class ListColumnStatisticsTaskRunsCommand extends $Command
-  .classBuilder<
-    ListColumnStatisticsTaskRunsCommandInput,
-    ListColumnStatisticsTaskRunsCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "ListColumnStatisticsTaskRuns", {})
-  .n("GlueClient", "ListColumnStatisticsTaskRunsCommand")
-  .sc(ListColumnStatisticsTaskRuns$)
-  .build() {
+export class ListColumnStatisticsTaskRunsCommand extends command<ListColumnStatisticsTaskRunsCommandInput, ListColumnStatisticsTaskRunsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListColumnStatisticsTaskRuns",
+  ListColumnStatisticsTaskRuns$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

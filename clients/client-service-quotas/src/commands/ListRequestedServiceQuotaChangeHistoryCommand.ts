@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListRequestedServiceQuotaChangeHistoryRequest,
   ListRequestedServiceQuotaChangeHistoryResponse,
 } from "../models/models_0";
 import { ListRequestedServiceQuotaChangeHistory$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface ListRequestedServiceQuotaChangeHistoryCommandOutput extends Lis
  *
  * @public
  */
-export class ListRequestedServiceQuotaChangeHistoryCommand extends $Command
-  .classBuilder<
-    ListRequestedServiceQuotaChangeHistoryCommandInput,
-    ListRequestedServiceQuotaChangeHistoryCommandOutput,
-    ServiceQuotasClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ServiceQuotasV20190624", "ListRequestedServiceQuotaChangeHistory", {})
-  .n("ServiceQuotasClient", "ListRequestedServiceQuotaChangeHistoryCommand")
-  .sc(ListRequestedServiceQuotaChangeHistory$)
-  .build() {
+export class ListRequestedServiceQuotaChangeHistoryCommand extends command<ListRequestedServiceQuotaChangeHistoryCommandInput, ListRequestedServiceQuotaChangeHistoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRequestedServiceQuotaChangeHistory",
+  ListRequestedServiceQuotaChangeHistory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

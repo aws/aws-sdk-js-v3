@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteTimeSeriesRequest } from "../models/models_0";
 import { DeleteTimeSeries$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteTimeSeries$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface DeleteTimeSeriesCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteTimeSeriesCommand extends $Command
-  .classBuilder<
-    DeleteTimeSeriesCommandInput,
-    DeleteTimeSeriesCommandOutput,
-    IoTSiteWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIoTSiteWise", "DeleteTimeSeries", {})
-  .n("IoTSiteWiseClient", "DeleteTimeSeriesCommand")
-  .sc(DeleteTimeSeries$)
-  .build() {
+export class DeleteTimeSeriesCommand extends command<DeleteTimeSeriesCommandInput, DeleteTimeSeriesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteTimeSeries",
+  DeleteTimeSeries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SetSecurityTokenServicePreferencesRequest } from "../models/models_0";
 import { SetSecurityTokenServicePreferences$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SetSecurityTokenServicePreferences$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +88,12 @@ export interface SetSecurityTokenServicePreferencesCommandOutput extends __Metad
  *
  * @public
  */
-export class SetSecurityTokenServicePreferencesCommand extends $Command
-  .classBuilder<
-    SetSecurityTokenServicePreferencesCommandInput,
-    SetSecurityTokenServicePreferencesCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "SetSecurityTokenServicePreferences", {})
-  .n("IAMClient", "SetSecurityTokenServicePreferencesCommand")
-  .sc(SetSecurityTokenServicePreferences$)
-  .build() {
+export class SetSecurityTokenServicePreferencesCommand extends command<SetSecurityTokenServicePreferencesCommandInput, SetSecurityTokenServicePreferencesCommandOutput>(
+  _ep0,
+  _mw0,
+  "SetSecurityTokenServicePreferences",
+  SetSecurityTokenServicePreferences$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

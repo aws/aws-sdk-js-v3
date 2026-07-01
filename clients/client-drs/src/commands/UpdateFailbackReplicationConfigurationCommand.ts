@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateFailbackReplicationConfigurationRequest } from "../models/models_0";
 import { UpdateFailbackReplicationConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateFailbackReplicationConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface UpdateFailbackReplicationConfigurationCommandOutput extends __M
  *
  * @public
  */
-export class UpdateFailbackReplicationConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateFailbackReplicationConfigurationCommandInput,
-    UpdateFailbackReplicationConfigurationCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "UpdateFailbackReplicationConfiguration", {})
-  .n("DrsClient", "UpdateFailbackReplicationConfigurationCommand")
-  .sc(UpdateFailbackReplicationConfiguration$)
-  .build() {
+export class UpdateFailbackReplicationConfigurationCommand extends command<UpdateFailbackReplicationConfigurationCommandInput, UpdateFailbackReplicationConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateFailbackReplicationConfiguration",
+  UpdateFailbackReplicationConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

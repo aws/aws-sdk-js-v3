@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationAutoScalingClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationAutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeregisterScalableTargetRequest, DeregisterScalableTargetResponse } from "../models/models_0";
 import { DeregisterScalableTarget$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeregisterScalableTarget$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +93,12 @@ export interface DeregisterScalableTargetCommandOutput extends DeregisterScalabl
  *
  * @public
  */
-export class DeregisterScalableTargetCommand extends $Command
-  .classBuilder<
-    DeregisterScalableTargetCommandInput,
-    DeregisterScalableTargetCommandOutput,
-    ApplicationAutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationAutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AnyScaleFrontendService", "DeregisterScalableTarget", {})
-  .n("ApplicationAutoScalingClient", "DeregisterScalableTargetCommand")
-  .sc(DeregisterScalableTarget$)
-  .build() {
+export class DeregisterScalableTargetCommand extends command<DeregisterScalableTargetCommandInput, DeregisterScalableTargetCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeregisterScalableTarget",
+  DeregisterScalableTarget$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

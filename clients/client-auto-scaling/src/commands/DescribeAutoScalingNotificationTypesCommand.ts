@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeAutoScalingNotificationTypesAnswer } from "../models/models_0";
 import { DescribeAutoScalingNotificationTypes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeAutoScalingNotificationTypes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface DescribeAutoScalingNotificationTypesCommandOutput extends Descr
  *
  * @public
  */
-export class DescribeAutoScalingNotificationTypesCommand extends $Command
-  .classBuilder<
-    DescribeAutoScalingNotificationTypesCommandInput,
-    DescribeAutoScalingNotificationTypesCommandOutput,
-    AutoScalingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AutoScaling_2011_01_01", "DescribeAutoScalingNotificationTypes", {})
-  .n("AutoScalingClient", "DescribeAutoScalingNotificationTypesCommand")
-  .sc(DescribeAutoScalingNotificationTypes$)
-  .build() {
+export class DescribeAutoScalingNotificationTypesCommand extends command<DescribeAutoScalingNotificationTypesCommandInput, DescribeAutoScalingNotificationTypesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeAutoScalingNotificationTypes",
+  DescribeAutoScalingNotificationTypes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

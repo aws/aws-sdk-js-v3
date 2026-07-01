@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep2, _mw0, command } from "../commandBuilder";
 import type { DescribeTableReplicaAutoScalingInput, DescribeTableReplicaAutoScalingOutput } from "../models/models_0";
 import { DescribeTableReplicaAutoScaling$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeTableReplicaAutoScaling$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -149,25 +145,12 @@ export interface DescribeTableReplicaAutoScalingCommandOutput extends DescribeTa
  *
  * @public
  */
-export class DescribeTableReplicaAutoScalingCommand extends $Command
-  .classBuilder<
-    DescribeTableReplicaAutoScalingCommandInput,
-    DescribeTableReplicaAutoScalingCommandOutput,
-    DynamoDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ResourceArn: { type: "contextParams", name: "TableName" },
-  })
-  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DynamoDB_20120810", "DescribeTableReplicaAutoScaling", {})
-  .n("DynamoDBClient", "DescribeTableReplicaAutoScalingCommand")
-  .sc(DescribeTableReplicaAutoScaling$)
-  .build() {
+export class DescribeTableReplicaAutoScalingCommand extends command<DescribeTableReplicaAutoScalingCommandInput, DescribeTableReplicaAutoScalingCommandOutput>(
+  _ep2,
+  _mw0,
+  "DescribeTableReplicaAutoScaling",
+  DescribeTableReplicaAutoScaling$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

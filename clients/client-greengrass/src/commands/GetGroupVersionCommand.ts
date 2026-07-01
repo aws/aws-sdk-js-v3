@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetGroupVersionRequest, GetGroupVersionResponse } from "../models/models_0";
 import { GetGroupVersion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetGroupVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface GetGroupVersionCommandOutput extends GetGroupVersionResponse, _
  *
  * @public
  */
-export class GetGroupVersionCommand extends $Command
-  .classBuilder<
-    GetGroupVersionCommandInput,
-    GetGroupVersionCommandOutput,
-    GreengrassClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Greengrass", "GetGroupVersion", {})
-  .n("GreengrassClient", "GetGroupVersionCommand")
-  .sc(GetGroupVersion$)
-  .build() {
+export class GetGroupVersionCommand extends command<GetGroupVersionCommandInput, GetGroupVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetGroupVersion",
+  GetGroupVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

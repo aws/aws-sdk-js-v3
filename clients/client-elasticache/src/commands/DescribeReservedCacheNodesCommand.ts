@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeReservedCacheNodesMessage, ReservedCacheNodeMessage } from "../models/models_0";
 import { DescribeReservedCacheNodes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeReservedCacheNodes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNo
  *
  * @public
  */
-export class DescribeReservedCacheNodesCommand extends $Command
-  .classBuilder<
-    DescribeReservedCacheNodesCommandInput,
-    DescribeReservedCacheNodesCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "DescribeReservedCacheNodes", {})
-  .n("ElastiCacheClient", "DescribeReservedCacheNodesCommand")
-  .sc(DescribeReservedCacheNodes$)
-  .build() {
+export class DescribeReservedCacheNodesCommand extends command<DescribeReservedCacheNodesCommandInput, DescribeReservedCacheNodesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeReservedCacheNodes",
+  DescribeReservedCacheNodes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

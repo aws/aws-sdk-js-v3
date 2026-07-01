@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GreengrassV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateConnectivityInfoRequest, UpdateConnectivityInfoResponse } from "../models/models_0";
 import { UpdateConnectivityInfo$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateConnectivityInfo$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface UpdateConnectivityInfoCommandOutput extends UpdateConnectivityI
  *
  * @public
  */
-export class UpdateConnectivityInfoCommand extends $Command
-  .classBuilder<
-    UpdateConnectivityInfoCommandInput,
-    UpdateConnectivityInfoCommandOutput,
-    GreengrassV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GreengrassV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GreengrassV2", "UpdateConnectivityInfo", {})
-  .n("GreengrassV2Client", "UpdateConnectivityInfoCommand")
-  .sc(UpdateConnectivityInfo$)
-  .build() {
+export class UpdateConnectivityInfoCommand extends command<UpdateConnectivityInfoCommandInput, UpdateConnectivityInfoCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateConnectivityInfo",
+  UpdateConnectivityInfo$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

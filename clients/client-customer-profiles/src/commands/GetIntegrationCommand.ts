@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CustomerProfilesClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CustomerProfilesClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetIntegrationRequest, GetIntegrationResponse } from "../models/models_0";
 import { GetIntegration$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetIntegration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface GetIntegrationCommandOutput extends GetIntegrationResponse, __M
  *
  * @public
  */
-export class GetIntegrationCommand extends $Command
-  .classBuilder<
-    GetIntegrationCommandInput,
-    GetIntegrationCommandOutput,
-    CustomerProfilesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CustomerProfiles_20200815", "GetIntegration", {})
-  .n("CustomerProfilesClient", "GetIntegrationCommand")
-  .sc(GetIntegration$)
-  .build() {
+export class GetIntegrationCommand extends command<GetIntegrationCommandInput, GetIntegrationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetIntegration",
+  GetIntegration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MigrationHubOrchestratorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MigrationHubOrchestratorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMigrationWorkflowRequest, GetMigrationWorkflowResponse } from "../models/models_0";
 import { GetWorkflow$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetWorkflow$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +107,12 @@ export interface GetWorkflowCommandOutput extends GetMigrationWorkflowResponse, 
  *
  * @public
  */
-export class GetWorkflowCommand extends $Command
-  .classBuilder<
-    GetWorkflowCommandInput,
-    GetWorkflowCommandOutput,
-    MigrationHubOrchestratorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubOrchestratorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHubOrchestrator", "GetWorkflow", {})
-  .n("MigrationHubOrchestratorClient", "GetWorkflowCommand")
-  .sc(GetWorkflow$)
-  .build() {
+export class GetWorkflowCommand extends command<GetWorkflowCommandInput, GetWorkflowCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetWorkflow",
+  GetWorkflow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

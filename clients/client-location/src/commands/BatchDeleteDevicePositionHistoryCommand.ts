@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LocationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LocationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchDeleteDevicePositionHistoryRequest,
   BatchDeleteDevicePositionHistoryResponse,
@@ -15,7 +12,6 @@ import { BatchDeleteDevicePositionHistory$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface BatchDeleteDevicePositionHistoryCommandOutput extends BatchDele
  *
  * @public
  */
-export class BatchDeleteDevicePositionHistoryCommand extends $Command
-  .classBuilder<
-    BatchDeleteDevicePositionHistoryCommandInput,
-    BatchDeleteDevicePositionHistoryCommandOutput,
-    LocationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LocationService", "BatchDeleteDevicePositionHistory", {})
-  .n("LocationClient", "BatchDeleteDevicePositionHistoryCommand")
-  .sc(BatchDeleteDevicePositionHistory$)
-  .build() {
+export class BatchDeleteDevicePositionHistoryCommand extends command<BatchDeleteDevicePositionHistoryCommandInput, BatchDeleteDevicePositionHistoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchDeleteDevicePositionHistory",
+  BatchDeleteDevicePositionHistory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

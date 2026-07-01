@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociatePhoneNumberContactFlowRequest } from "../models/models_1";
 import { DisassociatePhoneNumberContactFlow$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociatePhoneNumberContactFlow$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface DisassociatePhoneNumberContactFlowCommandOutput extends __Metad
  *
  * @public
  */
-export class DisassociatePhoneNumberContactFlowCommand extends $Command
-  .classBuilder<
-    DisassociatePhoneNumberContactFlowCommandInput,
-    DisassociatePhoneNumberContactFlowCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "DisassociatePhoneNumberContactFlow", {})
-  .n("ConnectClient", "DisassociatePhoneNumberContactFlowCommand")
-  .sc(DisassociatePhoneNumberContactFlow$)
-  .build() {
+export class DisassociatePhoneNumberContactFlowCommand extends command<DisassociatePhoneNumberContactFlowCommandInput, DisassociatePhoneNumberContactFlowCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociatePhoneNumberContactFlow",
+  DisassociatePhoneNumberContactFlow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

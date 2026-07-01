@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AssociateIpGroupsRequest, AssociateIpGroupsResult } from "../models/models_0";
 import { AssociateIpGroups$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface AssociateIpGroupsCommandOutput extends AssociateIpGroupsResult,
  *
  * @public
  */
-export class AssociateIpGroupsCommand extends $Command
-  .classBuilder<
-    AssociateIpGroupsCommandInput,
-    AssociateIpGroupsCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "AssociateIpGroups", {})
-  .n("WorkSpacesClient", "AssociateIpGroupsCommand")
-  .sc(AssociateIpGroups$)
-  .build() {
+export class AssociateIpGroupsCommand extends command<AssociateIpGroupsCommandInput, AssociateIpGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateIpGroups",
+  AssociateIpGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

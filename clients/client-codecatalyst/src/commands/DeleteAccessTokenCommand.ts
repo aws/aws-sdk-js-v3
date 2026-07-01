@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAccessTokenRequest, DeleteAccessTokenResponse } from "../models/models_0";
 import { DeleteAccessToken$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAccessToken$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface DeleteAccessTokenCommandOutput extends DeleteAccessTokenRespons
  *
  * @public
  */
-export class DeleteAccessTokenCommand extends $Command
-  .classBuilder<
-    DeleteAccessTokenCommandInput,
-    DeleteAccessTokenCommandOutput,
-    CodeCatalystClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeCatalyst", "DeleteAccessToken", {})
-  .n("CodeCatalystClient", "DeleteAccessTokenCommand")
-  .sc(DeleteAccessToken$)
-  .build() {
+export class DeleteAccessTokenCommand extends command<DeleteAccessTokenCommandInput, DeleteAccessTokenCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAccessToken",
+  DeleteAccessToken$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

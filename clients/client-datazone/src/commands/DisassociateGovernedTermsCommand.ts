@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateGovernedTermsInput, DisassociateGovernedTermsOutput } from "../models/models_1";
 import { DisassociateGovernedTerms$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateGovernedTerms$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface DisassociateGovernedTermsCommandOutput extends DisassociateGove
  *
  * @public
  */
-export class DisassociateGovernedTermsCommand extends $Command
-  .classBuilder<
-    DisassociateGovernedTermsCommandInput,
-    DisassociateGovernedTermsCommandOutput,
-    DataZoneClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DataZone", "DisassociateGovernedTerms", {})
-  .n("DataZoneClient", "DisassociateGovernedTermsCommand")
-  .sc(DisassociateGovernedTerms$)
-  .build() {
+export class DisassociateGovernedTermsCommand extends command<DisassociateGovernedTermsCommandInput, DisassociateGovernedTermsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateGovernedTerms",
+  DisassociateGovernedTerms$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

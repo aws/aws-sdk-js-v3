@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateServiceSpecificCredentialRequest } from "../models/models_1";
 import { UpdateServiceSpecificCredential$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateServiceSpecificCredential$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +62,12 @@ export interface UpdateServiceSpecificCredentialCommandOutput extends __Metadata
  *
  * @public
  */
-export class UpdateServiceSpecificCredentialCommand extends $Command
-  .classBuilder<
-    UpdateServiceSpecificCredentialCommandInput,
-    UpdateServiceSpecificCredentialCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "UpdateServiceSpecificCredential", {})
-  .n("IAMClient", "UpdateServiceSpecificCredentialCommand")
-  .sc(UpdateServiceSpecificCredential$)
-  .build() {
+export class UpdateServiceSpecificCredentialCommand extends command<UpdateServiceSpecificCredentialCommandInput, UpdateServiceSpecificCredentialCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateServiceSpecificCredential",
+  UpdateServiceSpecificCredential$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

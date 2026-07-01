@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListVirtualMFADevicesRequest, ListVirtualMFADevicesResponse } from "../models/models_0";
 import { ListVirtualMFADevices$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListVirtualMFADevices$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +119,12 @@ export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevice
  *
  * @public
  */
-export class ListVirtualMFADevicesCommand extends $Command
-  .classBuilder<
-    ListVirtualMFADevicesCommandInput,
-    ListVirtualMFADevicesCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "ListVirtualMFADevices", {})
-  .n("IAMClient", "ListVirtualMFADevicesCommand")
-  .sc(ListVirtualMFADevices$)
-  .build() {
+export class ListVirtualMFADevicesCommand extends command<ListVirtualMFADevicesCommandInput, ListVirtualMFADevicesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListVirtualMFADevices",
+  ListVirtualMFADevices$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

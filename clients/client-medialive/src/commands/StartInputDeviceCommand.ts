@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartInputDeviceRequest, StartInputDeviceResponse } from "../models/models_1";
 import { StartInputDevice$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartInputDevice$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface StartInputDeviceCommandOutput extends StartInputDeviceResponse,
  *
  * @public
  */
-export class StartInputDeviceCommand extends $Command
-  .classBuilder<
-    StartInputDeviceCommandInput,
-    StartInputDeviceCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "StartInputDevice", {})
-  .n("MediaLiveClient", "StartInputDeviceCommand")
-  .sc(StartInputDevice$)
-  .build() {
+export class StartInputDeviceCommand extends command<StartInputDeviceCommandInput, StartInputDeviceCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartInputDevice",
+  StartInputDevice$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

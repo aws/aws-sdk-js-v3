@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteResiliencyPolicyRequest, DeleteResiliencyPolicyResponse } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { DeleteResiliencyPolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface DeleteResiliencyPolicyCommandOutput extends DeleteResiliencyPol
  *
  * @public
  */
-export class DeleteResiliencyPolicyCommand extends $Command
-  .classBuilder<
-    DeleteResiliencyPolicyCommandInput,
-    DeleteResiliencyPolicyCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "DeleteResiliencyPolicy", {})
-  .n("ResiliencehubClient", "DeleteResiliencyPolicyCommand")
-  .sc(DeleteResiliencyPolicy$)
-  .build() {
+export class DeleteResiliencyPolicyCommand extends command<DeleteResiliencyPolicyCommandInput, DeleteResiliencyPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteResiliencyPolicy",
+  DeleteResiliencyPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

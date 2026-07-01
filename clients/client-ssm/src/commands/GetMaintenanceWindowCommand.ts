@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetMaintenanceWindowRequest, GetMaintenanceWindowResult } from "../models/models_0";
 import { GetMaintenanceWindow$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface GetMaintenanceWindowCommandOutput extends GetMaintenanceWindowR
  *
  * @public
  */
-export class GetMaintenanceWindowCommand extends $Command
-  .classBuilder<
-    GetMaintenanceWindowCommandInput,
-    GetMaintenanceWindowCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "GetMaintenanceWindow", {})
-  .n("SSMClient", "GetMaintenanceWindowCommand")
-  .sc(GetMaintenanceWindow$)
-  .build() {
+export class GetMaintenanceWindowCommand extends command<GetMaintenanceWindowCommandInput, GetMaintenanceWindowCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetMaintenanceWindow",
+  GetMaintenanceWindow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

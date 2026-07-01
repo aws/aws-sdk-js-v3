@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AllowedNodeTypeModificationsMessage, ListAllowedNodeTypeModificationsMessage } from "../models/models_0";
 import { ListAllowedNodeTypeModifications$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAllowedNodeTypeModifications$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +117,12 @@ export interface ListAllowedNodeTypeModificationsCommandOutput extends AllowedNo
  *
  * @public
  */
-export class ListAllowedNodeTypeModificationsCommand extends $Command
-  .classBuilder<
-    ListAllowedNodeTypeModificationsCommandInput,
-    ListAllowedNodeTypeModificationsCommandOutput,
-    ElastiCacheClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonElastiCacheV9", "ListAllowedNodeTypeModifications", {})
-  .n("ElastiCacheClient", "ListAllowedNodeTypeModificationsCommand")
-  .sc(ListAllowedNodeTypeModifications$)
-  .build() {
+export class ListAllowedNodeTypeModificationsCommand extends command<ListAllowedNodeTypeModificationsCommandInput, ListAllowedNodeTypeModificationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAllowedNodeTypeModifications",
+  ListAllowedNodeTypeModifications$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

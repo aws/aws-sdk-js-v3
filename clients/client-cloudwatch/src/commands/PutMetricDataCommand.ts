@@ -1,11 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
-import { getCompressionPlugin } from "@smithy/middleware-compression";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { PutMetricDataInput } from "../models/models_0";
 import { PutMetricData$ } from "../schemas/schemas_0";
 
@@ -13,7 +9,6 @@ import { PutMetricData$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -186,27 +181,12 @@ export interface PutMetricDataCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutMetricDataCommand extends $Command
-  .classBuilder<
-    PutMetricDataCommandInput,
-    PutMetricDataCommandOutput,
-    CloudWatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getCompressionPlugin(config, {
-        'encodings': ['gzip'],
-      }),
-    ];
-  })
-  .s("GraniteServiceVersion20100801", "PutMetricData", {})
-  .n("CloudWatchClient", "PutMetricDataCommand")
-  .sc(PutMetricData$)
-  .build() {
+export class PutMetricDataCommand extends command<PutMetricDataCommandInput, PutMetricDataCommandOutput>(
+  _ep0,
+  _mw1,
+  "PutMetricData",
+  PutMetricData$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

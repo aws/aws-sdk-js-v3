@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListQueueQuickConnectsRequest, ListQueueQuickConnectsResponse } from "../models/models_2";
 import { ListQueueQuickConnects$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListQueueQuickConnects$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ListQueueQuickConnectsCommandOutput extends ListQueueQuickConne
  *
  * @public
  */
-export class ListQueueQuickConnectsCommand extends $Command
-  .classBuilder<
-    ListQueueQuickConnectsCommandInput,
-    ListQueueQuickConnectsCommandOutput,
-    ConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectService", "ListQueueQuickConnects", {})
-  .n("ConnectClient", "ListQueueQuickConnectsCommand")
-  .sc(ListQueueQuickConnects$)
-  .build() {
+export class ListQueueQuickConnectsCommand extends command<ListQueueQuickConnectsCommandInput, ListQueueQuickConnectsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListQueueQuickConnects",
+  ListQueueQuickConnects$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

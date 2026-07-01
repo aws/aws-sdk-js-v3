@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ExportEC2InstanceRecommendationsRequest,
   ExportEC2InstanceRecommendationsResponse,
@@ -19,7 +12,6 @@ import { ExportEC2InstanceRecommendations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +117,12 @@ export interface ExportEC2InstanceRecommendationsCommandOutput extends ExportEC2
  *
  * @public
  */
-export class ExportEC2InstanceRecommendationsCommand extends $Command
-  .classBuilder<
-    ExportEC2InstanceRecommendationsCommandInput,
-    ExportEC2InstanceRecommendationsCommandOutput,
-    ComputeOptimizerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerService", "ExportEC2InstanceRecommendations", {})
-  .n("ComputeOptimizerClient", "ExportEC2InstanceRecommendationsCommand")
-  .sc(ExportEC2InstanceRecommendations$)
-  .build() {
+export class ExportEC2InstanceRecommendationsCommand extends command<ExportEC2InstanceRecommendationsCommandInput, ExportEC2InstanceRecommendationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExportEC2InstanceRecommendations",
+  ExportEC2InstanceRecommendations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

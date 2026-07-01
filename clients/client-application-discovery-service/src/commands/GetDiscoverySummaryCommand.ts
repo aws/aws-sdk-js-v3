@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationDiscoveryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationDiscoveryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetDiscoverySummaryRequest, GetDiscoverySummaryResponse } from "../models/models_0";
 import { GetDiscoverySummary$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetDiscoverySummary$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +111,12 @@ export interface GetDiscoverySummaryCommandOutput extends GetDiscoverySummaryRes
  *
  * @public
  */
-export class GetDiscoverySummaryCommand extends $Command
-  .classBuilder<
-    GetDiscoverySummaryCommandInput,
-    GetDiscoverySummaryCommandOutput,
-    ApplicationDiscoveryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationDiscoveryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPoseidonService_V2015_11_01", "GetDiscoverySummary", {})
-  .n("ApplicationDiscoveryServiceClient", "GetDiscoverySummaryCommand")
-  .sc(GetDiscoverySummary$)
-  .build() {
+export class GetDiscoverySummaryCommand extends command<GetDiscoverySummaryCommandInput, GetDiscoverySummaryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetDiscoverySummary",
+  GetDiscoverySummary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

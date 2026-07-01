@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MarketplaceCatalogClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MarketplaceCatalogClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListChangeSetsRequest, ListChangeSetsResponse } from "../models/models_0";
 import { ListChangeSets$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListChangeSets$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +104,12 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __M
  *
  * @public
  */
-export class ListChangeSetsCommand extends $Command
-  .classBuilder<
-    ListChangeSetsCommandInput,
-    ListChangeSetsCommandOutput,
-    MarketplaceCatalogClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MarketplaceCatalogClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMPSeymour", "ListChangeSets", {})
-  .n("MarketplaceCatalogClient", "ListChangeSetsCommand")
-  .sc(ListChangeSets$)
-  .build() {
+export class ListChangeSetsCommand extends command<ListChangeSetsCommandInput, ListChangeSetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListChangeSets",
+  ListChangeSets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

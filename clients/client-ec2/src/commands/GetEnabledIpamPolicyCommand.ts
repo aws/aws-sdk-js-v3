@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEnabledIpamPolicyRequest, GetEnabledIpamPolicyResult } from "../models/models_6";
 import { GetEnabledIpamPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetEnabledIpamPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -62,22 +58,12 @@ export interface GetEnabledIpamPolicyCommandOutput extends GetEnabledIpamPolicyR
  *
  * @public
  */
-export class GetEnabledIpamPolicyCommand extends $Command
-  .classBuilder<
-    GetEnabledIpamPolicyCommandInput,
-    GetEnabledIpamPolicyCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "GetEnabledIpamPolicy", {})
-  .n("EC2Client", "GetEnabledIpamPolicyCommand")
-  .sc(GetEnabledIpamPolicy$)
-  .build() {
+export class GetEnabledIpamPolicyCommand extends command<GetEnabledIpamPolicyCommandInput, GetEnabledIpamPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEnabledIpamPolicy",
+  GetEnabledIpamPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

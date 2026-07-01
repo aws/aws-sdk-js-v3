@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteFirewallManagerRuleGroupsRequest,
   DeleteFirewallManagerRuleGroupsResponse,
 } from "../models/models_0";
 import { DeleteFirewallManagerRuleGroups$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface DeleteFirewallManagerRuleGroupsCommandOutput extends DeleteFire
  *
  * @public
  */
-export class DeleteFirewallManagerRuleGroupsCommand extends $Command
-  .classBuilder<
-    DeleteFirewallManagerRuleGroupsCommandInput,
-    DeleteFirewallManagerRuleGroupsCommandOutput,
-    WAFV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWAF_20190729", "DeleteFirewallManagerRuleGroups", {})
-  .n("WAFV2Client", "DeleteFirewallManagerRuleGroupsCommand")
-  .sc(DeleteFirewallManagerRuleGroups$)
-  .build() {
+export class DeleteFirewallManagerRuleGroupsCommand extends command<DeleteFirewallManagerRuleGroupsCommandInput, DeleteFirewallManagerRuleGroupsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFirewallManagerRuleGroups",
+  DeleteFirewallManagerRuleGroups$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

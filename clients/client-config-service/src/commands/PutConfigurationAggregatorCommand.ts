@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutConfigurationAggregatorRequest, PutConfigurationAggregatorResponse } from "../models/models_0";
 import { PutConfigurationAggregator$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutConfigurationAggregator$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -201,22 +197,12 @@ export interface PutConfigurationAggregatorCommandOutput extends PutConfiguratio
  *
  * @public
  */
-export class PutConfigurationAggregatorCommand extends $Command
-  .classBuilder<
-    PutConfigurationAggregatorCommandInput,
-    PutConfigurationAggregatorCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "PutConfigurationAggregator", {})
-  .n("ConfigServiceClient", "PutConfigurationAggregatorCommand")
-  .sc(PutConfigurationAggregator$)
-  .build() {
+export class PutConfigurationAggregatorCommand extends command<PutConfigurationAggregatorCommandInput, PutConfigurationAggregatorCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutConfigurationAggregator",
+  PutConfigurationAggregator$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

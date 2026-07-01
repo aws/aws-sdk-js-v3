@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateProbeInput, CreateProbeOutput } from "../models/models_0";
-import type {
-  NetworkMonitorClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkMonitorClient";
 import { CreateProbe$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +105,12 @@ export interface CreateProbeCommandOutput extends CreateProbeOutput, __MetadataB
  *
  * @public
  */
-export class CreateProbeCommand extends $Command
-  .classBuilder<
-    CreateProbeCommandInput,
-    CreateProbeCommandOutput,
-    NetworkMonitorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkMonitorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkMonitor", "CreateProbe", {})
-  .n("NetworkMonitorClient", "CreateProbeCommand")
-  .sc(CreateProbe$)
-  .build() {
+export class CreateProbeCommand extends command<CreateProbeCommandInput, CreateProbeCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateProbe",
+  CreateProbe$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

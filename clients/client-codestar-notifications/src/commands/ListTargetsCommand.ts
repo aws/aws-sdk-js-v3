@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodestarNotificationsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodestarNotificationsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListTargetsRequest, ListTargetsResult } from "../models/models_0";
 import { ListTargets$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListTargets$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +75,12 @@ export interface ListTargetsCommandOutput extends ListTargetsResult, __MetadataB
  *
  * @public
  */
-export class ListTargetsCommand extends $Command
-  .classBuilder<
-    ListTargetsCommandInput,
-    ListTargetsCommandOutput,
-    CodestarNotificationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodestarNotificationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeStarNotifications_20191015", "ListTargets", {})
-  .n("CodestarNotificationsClient", "ListTargetsCommand")
-  .sc(ListTargets$)
-  .build() {
+export class ListTargetsCommand extends command<ListTargetsCommandInput, ListTargetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTargets",
+  ListTargets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

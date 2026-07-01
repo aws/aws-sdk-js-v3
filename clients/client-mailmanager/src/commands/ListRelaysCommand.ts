@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRelaysRequest, ListRelaysResponse } from "../models/models_0";
 import { ListRelays$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListRelays$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface ListRelaysCommandOutput extends ListRelaysResponse, __MetadataB
  *
  * @public
  */
-export class ListRelaysCommand extends $Command
-  .classBuilder<
-    ListRelaysCommandInput,
-    ListRelaysCommandOutput,
-    MailManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MailManagerSvc", "ListRelays", {})
-  .n("MailManagerClient", "ListRelaysCommand")
-  .sc(ListRelays$)
-  .build() {
+export class ListRelaysCommand extends command<ListRelaysCommandInput, ListRelaysCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRelays",
+  ListRelays$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SendHeartbeatRequest } from "../models/models_0";
-import type { SagemakerEdgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SagemakerEdgeClient";
 import { SendHeartbeat$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface SendHeartbeatCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class SendHeartbeatCommand extends $Command
-  .classBuilder<
-    SendHeartbeatCommandInput,
-    SendHeartbeatCommandOutput,
-    SagemakerEdgeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SagemakerEdgeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSageMakerEdge", "SendHeartbeat", {})
-  .n("SagemakerEdgeClient", "SendHeartbeatCommand")
-  .sc(SendHeartbeat$)
-  .build() {
+export class SendHeartbeatCommand extends command<SendHeartbeatCommandInput, SendHeartbeatCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendHeartbeat",
+  SendHeartbeat$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

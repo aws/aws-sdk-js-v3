@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetApplicationsInput, BatchGetApplicationsOutput } from "../models/models_0";
 import { BatchGetApplications$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetApplications$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface BatchGetApplicationsCommandOutput extends BatchGetApplicationsO
  *
  * @public
  */
-export class BatchGetApplicationsCommand extends $Command
-  .classBuilder<
-    BatchGetApplicationsCommandInput,
-    BatchGetApplicationsCommandOutput,
-    CodeDeployClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeDeploy_20141006", "BatchGetApplications", {})
-  .n("CodeDeployClient", "BatchGetApplicationsCommand")
-  .sc(BatchGetApplications$)
-  .build() {
+export class BatchGetApplicationsCommand extends command<BatchGetApplicationsCommandInput, BatchGetApplicationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetApplications",
+  BatchGetApplications$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

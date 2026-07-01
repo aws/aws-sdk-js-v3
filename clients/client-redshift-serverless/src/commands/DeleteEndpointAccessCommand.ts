@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEndpointAccessRequest, DeleteEndpointAccessResponse } from "../models/models_0";
-import type {
-  RedshiftServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RedshiftServerlessClient";
 import { DeleteEndpointAccess$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +97,12 @@ export interface DeleteEndpointAccessCommandOutput extends DeleteEndpointAccessR
  *
  * @public
  */
-export class DeleteEndpointAccessCommand extends $Command
-  .classBuilder<
-    DeleteEndpointAccessCommandInput,
-    DeleteEndpointAccessCommandOutput,
-    RedshiftServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServerless", "DeleteEndpointAccess", {})
-  .n("RedshiftServerlessClient", "DeleteEndpointAccessCommand")
-  .sc(DeleteEndpointAccess$)
-  .build() {
+export class DeleteEndpointAccessCommand extends command<DeleteEndpointAccessCommandInput, DeleteEndpointAccessCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEndpointAccess",
+  DeleteEndpointAccess$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

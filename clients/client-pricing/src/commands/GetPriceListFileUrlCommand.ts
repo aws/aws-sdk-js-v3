@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetPriceListFileUrlRequest, GetPriceListFileUrlResponse } from "../models/models_0";
-import type { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
 import { GetPriceListFileUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface GetPriceListFileUrlCommandOutput extends GetPriceListFileUrlRes
  *
  * @public
  */
-export class GetPriceListFileUrlCommand extends $Command
-  .classBuilder<
-    GetPriceListFileUrlCommandInput,
-    GetPriceListFileUrlCommandOutput,
-    PricingClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PricingClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSPriceListService", "GetPriceListFileUrl", {})
-  .n("PricingClient", "GetPriceListFileUrlCommand")
-  .sc(GetPriceListFileUrl$)
-  .build() {
+export class GetPriceListFileUrlCommand extends command<GetPriceListFileUrlCommandInput, GetPriceListFileUrlCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetPriceListFileUrl",
+  GetPriceListFileUrl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

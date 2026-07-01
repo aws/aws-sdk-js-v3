@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateAdConfigurationRequest, CreateAdConfigurationResponse } from "../models/models_0";
 import { CreateAdConfiguration$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateAdConfiguration$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface CreateAdConfigurationCommandOutput extends CreateAdConfiguratio
  *
  * @public
  */
-export class CreateAdConfigurationCommand extends $Command
-  .classBuilder<
-    CreateAdConfigurationCommandInput,
-    CreateAdConfigurationCommandOutput,
-    IvsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonInteractiveVideoService", "CreateAdConfiguration", {})
-  .n("IvsClient", "CreateAdConfigurationCommand")
-  .sc(CreateAdConfiguration$)
-  .build() {
+export class CreateAdConfigurationCommand extends command<CreateAdConfigurationCommandInput, CreateAdConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateAdConfiguration",
+  CreateAdConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

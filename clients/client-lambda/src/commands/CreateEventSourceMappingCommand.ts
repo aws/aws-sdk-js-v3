@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateEventSourceMappingRequest, EventSourceMappingConfiguration } from "../models/models_0";
 import { CreateEventSourceMapping$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateEventSourceMapping$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -321,22 +317,12 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *
  * @public
  */
-export class CreateEventSourceMappingCommand extends $Command
-  .classBuilder<
-    CreateEventSourceMappingCommandInput,
-    CreateEventSourceMappingCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "CreateEventSourceMapping", {})
-  .n("LambdaClient", "CreateEventSourceMappingCommand")
-  .sc(CreateEventSourceMapping$)
-  .build() {
+export class CreateEventSourceMappingCommand extends command<CreateEventSourceMappingCommandInput, CreateEventSourceMappingCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateEventSourceMapping",
+  CreateEventSourceMapping$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

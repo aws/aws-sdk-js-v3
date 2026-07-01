@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { HttpPayloadWithXmlNamespaceInputOutput } from "../models/models_0";
-import type {
-  RestXmlProtocolClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RestXmlProtocolClient";
 import { HttpPayloadWithXmlNamespace$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +59,12 @@ export interface HttpPayloadWithXmlNamespaceCommandOutput extends HttpPayloadWit
  *
  * @public
  */
-export class HttpPayloadWithXmlNamespaceCommand extends $Command
-  .classBuilder<
-    HttpPayloadWithXmlNamespaceCommandInput,
-    HttpPayloadWithXmlNamespaceCommandOutput,
-    RestXmlProtocolClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RestXml", "HttpPayloadWithXmlNamespace", {})
-  .n("RestXmlProtocolClient", "HttpPayloadWithXmlNamespaceCommand")
-  .sc(HttpPayloadWithXmlNamespace$)
-  .build() {
+export class HttpPayloadWithXmlNamespaceCommand extends command<HttpPayloadWithXmlNamespaceCommandInput, HttpPayloadWithXmlNamespaceCommandOutput>(
+  _ep0,
+  _mw0,
+  "HttpPayloadWithXmlNamespace",
+  HttpPayloadWithXmlNamespace$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

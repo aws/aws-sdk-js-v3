@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAppsListRequest } from "../models/models_0";
 import { DeleteAppsList$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteAppsList$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface DeleteAppsListCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteAppsListCommand extends $Command
-  .classBuilder<
-    DeleteAppsListCommandInput,
-    DeleteAppsListCommandOutput,
-    FMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSFMS_20180101", "DeleteAppsList", {})
-  .n("FMSClient", "DeleteAppsListCommand")
-  .sc(DeleteAppsList$)
-  .build() {
+export class DeleteAppsListCommand extends command<DeleteAppsListCommandInput, DeleteAppsListCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAppsList",
+  DeleteAppsList$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

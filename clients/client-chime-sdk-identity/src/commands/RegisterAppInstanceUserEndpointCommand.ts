@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ChimeSDKIdentityClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ChimeSDKIdentityClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   RegisterAppInstanceUserEndpointRequest,
   RegisterAppInstanceUserEndpointResponse,
@@ -19,7 +12,6 @@ import { RegisterAppInstanceUserEndpoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +93,12 @@ export interface RegisterAppInstanceUserEndpointCommandOutput extends RegisterAp
  *
  * @public
  */
-export class RegisterAppInstanceUserEndpointCommand extends $Command
-  .classBuilder<
-    RegisterAppInstanceUserEndpointCommandInput,
-    RegisterAppInstanceUserEndpointCommandOutput,
-    ChimeSDKIdentityClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChimeSDKIdentityClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ChimeIdentityService", "RegisterAppInstanceUserEndpoint", {})
-  .n("ChimeSDKIdentityClient", "RegisterAppInstanceUserEndpointCommand")
-  .sc(RegisterAppInstanceUserEndpoint$)
-  .build() {
+export class RegisterAppInstanceUserEndpointCommand extends command<RegisterAppInstanceUserEndpointCommandInput, RegisterAppInstanceUserEndpointCommandOutput>(
+  _ep0,
+  _mw0,
+  "RegisterAppInstanceUserEndpoint",
+  RegisterAppInstanceUserEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

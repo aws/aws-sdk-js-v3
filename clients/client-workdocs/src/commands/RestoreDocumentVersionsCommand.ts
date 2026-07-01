@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RestoreDocumentVersionsRequest } from "../models/models_0";
 import { RestoreDocumentVersions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +80,12 @@ export interface RestoreDocumentVersionsCommandOutput extends __MetadataBearer {
  *
  * @public
  */
-export class RestoreDocumentVersionsCommand extends $Command
-  .classBuilder<
-    RestoreDocumentVersionsCommandInput,
-    RestoreDocumentVersionsCommandOutput,
-    WorkDocsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGorillaBoyService", "RestoreDocumentVersions", {})
-  .n("WorkDocsClient", "RestoreDocumentVersionsCommand")
-  .sc(RestoreDocumentVersions$)
-  .build() {
+export class RestoreDocumentVersionsCommand extends command<RestoreDocumentVersionsCommandInput, RestoreDocumentVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "RestoreDocumentVersions",
+  RestoreDocumentVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

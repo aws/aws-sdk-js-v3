@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePipeRequest, DeletePipeResponse } from "../models/models_0";
-import type { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
 import { DeletePipe$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DeletePipeCommandOutput extends DeletePipeResponse, __MetadataB
  *
  * @public
  */
-export class DeletePipeCommand extends $Command
-  .classBuilder<
-    DeletePipeCommandInput,
-    DeletePipeCommandOutput,
-    PipesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PipesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Pipes", "DeletePipe", {})
-  .n("PipesClient", "DeletePipeCommand")
-  .sc(DeletePipe$)
-  .build() {
+export class DeletePipeCommand extends command<DeletePipeCommandInput, DeletePipeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePipe",
+  DeletePipe$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

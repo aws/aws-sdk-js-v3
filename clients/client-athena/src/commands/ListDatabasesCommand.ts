@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDatabasesInput, ListDatabasesOutput } from "../models/models_0";
 import { ListDatabases$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDatabases$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  *
  * @public
  */
-export class ListDatabasesCommand extends $Command
-  .classBuilder<
-    ListDatabasesCommandInput,
-    ListDatabasesCommandOutput,
-    AthenaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAthena", "ListDatabases", {})
-  .n("AthenaClient", "ListDatabasesCommand")
-  .sc(ListDatabases$)
-  .build() {
+export class ListDatabasesCommand extends command<ListDatabasesCommandInput, ListDatabasesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDatabases",
+  ListDatabases$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteConsumableResourceRequest, DeleteConsumableResourceResponse } from "../models/models_0";
 import { DeleteConsumableResource$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteConsumableResource$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DeleteConsumableResourceCommandOutput extends DeleteConsumableR
  *
  * @public
  */
-export class DeleteConsumableResourceCommand extends $Command
-  .classBuilder<
-    DeleteConsumableResourceCommandInput,
-    DeleteConsumableResourceCommandOutput,
-    BatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBatchV20160810", "DeleteConsumableResource", {})
-  .n("BatchClient", "DeleteConsumableResourceCommand")
-  .sc(DeleteConsumableResource$)
-  .build() {
+export class DeleteConsumableResourceCommand extends command<DeleteConsumableResourceCommandInput, DeleteConsumableResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteConsumableResource",
+  DeleteConsumableResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

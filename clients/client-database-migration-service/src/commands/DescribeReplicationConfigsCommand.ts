@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DatabaseMigrationServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DatabaseMigrationServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeReplicationConfigsMessage, DescribeReplicationConfigsResponse } from "../models/models_0";
 import { DescribeReplicationConfigs$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeReplicationConfigs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface DescribeReplicationConfigsCommandOutput extends DescribeReplica
  *
  * @public
  */
-export class DescribeReplicationConfigsCommand extends $Command
-  .classBuilder<
-    DescribeReplicationConfigsCommandInput,
-    DescribeReplicationConfigsCommandOutput,
-    DatabaseMigrationServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonDMSv20160101", "DescribeReplicationConfigs", {})
-  .n("DatabaseMigrationServiceClient", "DescribeReplicationConfigsCommand")
-  .sc(DescribeReplicationConfigs$)
-  .build() {
+export class DescribeReplicationConfigsCommand extends command<DescribeReplicationConfigsCommandInput, DescribeReplicationConfigsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeReplicationConfigs",
+  DescribeReplicationConfigs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DevOpsGuruClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DevOpsGuruClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchOrganizationInsightsRequest, SearchOrganizationInsightsResponse } from "../models/models_0";
 import { SearchOrganizationInsights$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { SearchOrganizationInsights$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -193,22 +189,12 @@ export interface SearchOrganizationInsightsCommandOutput extends SearchOrganizat
  *
  * @public
  */
-export class SearchOrganizationInsightsCommand extends $Command
-  .classBuilder<
-    SearchOrganizationInsightsCommandInput,
-    SearchOrganizationInsightsCommandOutput,
-    DevOpsGuruClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CapstoneControlPlaneService", "SearchOrganizationInsights", {})
-  .n("DevOpsGuruClient", "SearchOrganizationInsightsCommand")
-  .sc(SearchOrganizationInsights$)
-  .build() {
+export class SearchOrganizationInsightsCommand extends command<SearchOrganizationInsightsCommandInput, SearchOrganizationInsightsCommandOutput>(
+  _ep0,
+  _mw0,
+  "SearchOrganizationInsights",
+  SearchOrganizationInsights$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

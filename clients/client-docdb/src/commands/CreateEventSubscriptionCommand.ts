@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateEventSubscriptionMessage, CreateEventSubscriptionResult } from "../models/models_0";
 import { CreateEventSubscription$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateEventSubscription$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -112,22 +108,12 @@ export interface CreateEventSubscriptionCommandOutput extends CreateEventSubscri
  *
  * @public
  */
-export class CreateEventSubscriptionCommand extends $Command
-  .classBuilder<
-    CreateEventSubscriptionCommandInput,
-    CreateEventSubscriptionCommandOutput,
-    DocDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "CreateEventSubscription", {})
-  .n("DocDBClient", "CreateEventSubscriptionCommand")
-  .sc(CreateEventSubscription$)
-  .build() {
+export class CreateEventSubscriptionCommand extends command<CreateEventSubscriptionCommandInput, CreateEventSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateEventSubscription",
+  CreateEventSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

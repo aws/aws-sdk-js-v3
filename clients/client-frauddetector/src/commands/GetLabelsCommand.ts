@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetLabelsRequest, GetLabelsResult } from "../models/models_0";
 import { GetLabels$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetLabels$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -90,22 +86,12 @@ export interface GetLabelsCommandOutput extends GetLabelsResult, __MetadataBeare
  *
  * @public
  */
-export class GetLabelsCommand extends $Command
-  .classBuilder<
-    GetLabelsCommandInput,
-    GetLabelsCommandOutput,
-    FraudDetectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHawksNestServiceFacade", "GetLabels", {})
-  .n("FraudDetectorClient", "GetLabelsCommand")
-  .sc(GetLabels$)
-  .build() {
+export class GetLabelsCommand extends command<GetLabelsCommandInput, GetLabelsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetLabels",
+  GetLabels$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

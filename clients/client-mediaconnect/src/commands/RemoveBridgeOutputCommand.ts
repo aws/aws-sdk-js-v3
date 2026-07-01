@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RemoveBridgeOutputRequest, RemoveBridgeOutputResponse } from "../models/models_0";
 import { RemoveBridgeOutput$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RemoveBridgeOutput$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface RemoveBridgeOutputCommandOutput extends RemoveBridgeOutputRespo
  *
  * @public
  */
-export class RemoveBridgeOutputCommand extends $Command
-  .classBuilder<
-    RemoveBridgeOutputCommandInput,
-    RemoveBridgeOutputCommandOutput,
-    MediaConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConnect", "RemoveBridgeOutput", {})
-  .n("MediaConnectClient", "RemoveBridgeOutputCommand")
-  .sc(RemoveBridgeOutput$)
-  .build() {
+export class RemoveBridgeOutputCommand extends command<RemoveBridgeOutputCommandInput, RemoveBridgeOutputCommandOutput>(
+  _ep0,
+  _mw0,
+  "RemoveBridgeOutput",
+  RemoveBridgeOutput$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

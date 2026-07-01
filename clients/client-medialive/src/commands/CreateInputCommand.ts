@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateInputRequest, CreateInputResponse } from "../models/models_1";
 import { CreateInput$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateInput$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -315,22 +311,12 @@ export interface CreateInputCommandOutput extends CreateInputResponse, __Metadat
  *
  * @public
  */
-export class CreateInputCommand extends $Command
-  .classBuilder<
-    CreateInputCommandInput,
-    CreateInputCommandOutput,
-    MediaLiveClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaLive", "CreateInput", {})
-  .n("MediaLiveClient", "CreateInputCommand")
-  .sc(CreateInput$)
-  .build() {
+export class CreateInputCommand extends command<CreateInputCommandInput, CreateInputCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateInput",
+  CreateInput$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

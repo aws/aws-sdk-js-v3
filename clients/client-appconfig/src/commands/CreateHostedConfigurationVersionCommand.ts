@@ -1,11 +1,8 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import { Uint8ArrayBlobAdapter } from "@smithy/core/serde";
 import type { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateHostedConfigurationVersionRequest, HostedConfigurationVersion } from "../models/models_0";
 import { CreateHostedConfigurationVersion$ } from "../schemas/schemas_0";
 
@@ -13,7 +10,6 @@ import { CreateHostedConfigurationVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  */
@@ -136,22 +132,12 @@ export interface CreateHostedConfigurationVersionCommandOutput extends CreateHos
  *
  * @public
  */
-export class CreateHostedConfigurationVersionCommand extends $Command
-  .classBuilder<
-    CreateHostedConfigurationVersionCommandInput,
-    CreateHostedConfigurationVersionCommandOutput,
-    AppConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAppConfig", "CreateHostedConfigurationVersion", {})
-  .n("AppConfigClient", "CreateHostedConfigurationVersionCommand")
-  .sc(CreateHostedConfigurationVersion$)
-  .build() {
+export class CreateHostedConfigurationVersionCommand extends command<CreateHostedConfigurationVersionCommandInput, CreateHostedConfigurationVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateHostedConfigurationVersion",
+  CreateHostedConfigurationVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

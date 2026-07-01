@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateImageStorageClassRequest, UpdateImageStorageClassResponse } from "../models/models_0";
 import { UpdateImageStorageClass$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateImageStorageClass$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -141,22 +137,12 @@ export interface UpdateImageStorageClassCommandOutput extends UpdateImageStorage
  *
  * @public
  */
-export class UpdateImageStorageClassCommand extends $Command
-  .classBuilder<
-    UpdateImageStorageClassCommandInput,
-    UpdateImageStorageClassCommandOutput,
-    ECRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerRegistry_V20150921", "UpdateImageStorageClass", {})
-  .n("ECRClient", "UpdateImageStorageClassCommand")
-  .sc(UpdateImageStorageClass$)
-  .build() {
+export class UpdateImageStorageClassCommand extends command<UpdateImageStorageClassCommandInput, UpdateImageStorageClassCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateImageStorageClass",
+  UpdateImageStorageClass$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMedicalTranscriptionJobRequest } from "../models/models_0";
 import { DeleteMedicalTranscriptionJob$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteMedicalTranscriptionJobCommandOutput extends __MetadataBe
  *
  * @public
  */
-export class DeleteMedicalTranscriptionJobCommand extends $Command
-  .classBuilder<
-    DeleteMedicalTranscriptionJobCommandInput,
-    DeleteMedicalTranscriptionJobCommandOutput,
-    TranscribeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Transcribe", "DeleteMedicalTranscriptionJob", {})
-  .n("TranscribeClient", "DeleteMedicalTranscriptionJobCommand")
-  .sc(DeleteMedicalTranscriptionJob$)
-  .build() {
+export class DeleteMedicalTranscriptionJobCommand extends command<DeleteMedicalTranscriptionJobCommandInput, DeleteMedicalTranscriptionJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMedicalTranscriptionJob",
+  DeleteMedicalTranscriptionJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

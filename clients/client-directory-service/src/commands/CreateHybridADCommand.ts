@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateHybridADRequest, CreateHybridADResult } from "../models/models_0";
 import { CreateHybridAD$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { CreateHybridAD$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface CreateHybridADCommandOutput extends CreateHybridADResult, __Met
  *
  * @public
  */
-export class CreateHybridADCommand extends $Command
-  .classBuilder<
-    CreateHybridADCommandInput,
-    CreateHybridADCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "CreateHybridAD", {})
-  .n("DirectoryServiceClient", "CreateHybridADCommand")
-  .sc(CreateHybridAD$)
-  .build() {
+export class CreateHybridADCommand extends command<CreateHybridADCommandInput, CreateHybridADCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateHybridAD",
+  CreateHybridAD$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

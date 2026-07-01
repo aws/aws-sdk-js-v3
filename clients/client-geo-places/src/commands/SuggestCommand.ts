@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GeoPlacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoPlacesClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SuggestRequest, SuggestResponse } from "../models/models_0";
 import { Suggest$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { Suggest$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -281,22 +277,12 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  *
  * @public
  */
-export class SuggestCommand extends $Command
-  .classBuilder<
-    SuggestCommandInput,
-    SuggestCommandOutput,
-    GeoPlacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GeoPlacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PlacesService", "Suggest", {})
-  .n("GeoPlacesClient", "SuggestCommand")
-  .sc(Suggest$)
-  .build() {
+export class SuggestCommand extends command<SuggestCommandInput, SuggestCommandOutput>(
+  _ep0,
+  _mw0,
+  "Suggest",
+  Suggest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

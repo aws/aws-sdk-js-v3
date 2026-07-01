@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeInstanceAssociationsStatusRequest,
   DescribeInstanceAssociationsStatusResult,
 } from "../models/models_0";
 import { DescribeInstanceAssociationsStatus$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface DescribeInstanceAssociationsStatusCommandOutput extends Describ
  *
  * @public
  */
-export class DescribeInstanceAssociationsStatusCommand extends $Command
-  .classBuilder<
-    DescribeInstanceAssociationsStatusCommandInput,
-    DescribeInstanceAssociationsStatusCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "DescribeInstanceAssociationsStatus", {})
-  .n("SSMClient", "DescribeInstanceAssociationsStatusCommand")
-  .sc(DescribeInstanceAssociationsStatus$)
-  .build() {
+export class DescribeInstanceAssociationsStatusCommand extends command<DescribeInstanceAssociationsStatusCommandInput, DescribeInstanceAssociationsStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeInstanceAssociationsStatus",
+  DescribeInstanceAssociationsStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

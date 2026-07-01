@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudWatchEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchEventsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteArchiveRequest, DeleteArchiveResponse } from "../models/models_0";
 import { DeleteArchive$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeleteArchive$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +62,12 @@ export interface DeleteArchiveCommandOutput extends DeleteArchiveResponse, __Met
  *
  * @public
  */
-export class DeleteArchiveCommand extends $Command
-  .classBuilder<
-    DeleteArchiveCommandInput,
-    DeleteArchiveCommandOutput,
-    CloudWatchEventsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSEvents", "DeleteArchive", {})
-  .n("CloudWatchEventsClient", "DeleteArchiveCommand")
-  .sc(DeleteArchive$)
-  .build() {
+export class DeleteArchiveCommand extends command<DeleteArchiveCommandInput, DeleteArchiveCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteArchive",
+  DeleteArchive$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

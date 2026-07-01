@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListProjectPoliciesRequest, ListProjectPoliciesResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { ListProjectPolicies$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface ListProjectPoliciesCommandOutput extends ListProjectPoliciesRes
  *
  * @public
  */
-export class ListProjectPoliciesCommand extends $Command
-  .classBuilder<
-    ListProjectPoliciesCommandInput,
-    ListProjectPoliciesCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "ListProjectPolicies", {})
-  .n("RekognitionClient", "ListProjectPoliciesCommand")
-  .sc(ListProjectPolicies$)
-  .build() {
+export class ListProjectPoliciesCommand extends command<ListProjectPoliciesCommandInput, ListProjectPoliciesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListProjectPolicies",
+  ListProjectPolicies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

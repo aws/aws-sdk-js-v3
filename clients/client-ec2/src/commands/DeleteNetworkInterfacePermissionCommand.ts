@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteNetworkInterfacePermissionRequest,
   DeleteNetworkInterfacePermissionResult,
@@ -15,7 +12,6 @@ import { DeleteNetworkInterfacePermission$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -67,22 +63,12 @@ export interface DeleteNetworkInterfacePermissionCommandOutput extends DeleteNet
  *
  * @public
  */
-export class DeleteNetworkInterfacePermissionCommand extends $Command
-  .classBuilder<
-    DeleteNetworkInterfacePermissionCommandInput,
-    DeleteNetworkInterfacePermissionCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DeleteNetworkInterfacePermission", {})
-  .n("EC2Client", "DeleteNetworkInterfacePermissionCommand")
-  .sc(DeleteNetworkInterfacePermission$)
-  .build() {
+export class DeleteNetworkInterfacePermissionCommand extends command<DeleteNetworkInterfacePermissionCommandInput, DeleteNetworkInterfacePermissionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteNetworkInterfacePermission",
+  DeleteNetworkInterfacePermission$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

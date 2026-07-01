@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteFormTypeRequest, DeleteFormTypeResponse } from "../models/models_1";
 import { DeleteFormType$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteFormType$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteFormTypeCommandOutput extends DeleteFormTypeResponse, __M
  *
  * @public
  */
-export class DeleteFormTypeCommand extends $Command
-  .classBuilder<
-    DeleteFormTypeCommandInput,
-    DeleteFormTypeCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "DeleteFormType", {})
-  .n("GlueClient", "DeleteFormTypeCommand")
-  .sc(DeleteFormType$)
-  .build() {
+export class DeleteFormTypeCommand extends command<DeleteFormTypeCommandInput, DeleteFormTypeCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteFormType",
+  DeleteFormType$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

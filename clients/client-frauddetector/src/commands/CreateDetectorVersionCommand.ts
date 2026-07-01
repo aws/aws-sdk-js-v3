@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDetectorVersionRequest, CreateDetectorVersionResult } from "../models/models_0";
 import { CreateDetectorVersion$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateDetectorVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface CreateDetectorVersionCommandOutput extends CreateDetectorVersio
  *
  * @public
  */
-export class CreateDetectorVersionCommand extends $Command
-  .classBuilder<
-    CreateDetectorVersionCommandInput,
-    CreateDetectorVersionCommandOutput,
-    FraudDetectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHawksNestServiceFacade", "CreateDetectorVersion", {})
-  .n("FraudDetectorClient", "CreateDetectorVersionCommand")
-  .sc(CreateDetectorVersion$)
-  .build() {
+export class CreateDetectorVersionCommand extends command<CreateDetectorVersionCommandInput, CreateDetectorVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDetectorVersion",
+  CreateDetectorVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

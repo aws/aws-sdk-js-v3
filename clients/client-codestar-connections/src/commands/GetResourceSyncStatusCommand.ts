@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CodeStarConnectionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeStarConnectionsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetResourceSyncStatusInput, GetResourceSyncStatusOutput } from "../models/models_0";
 import { GetResourceSyncStatus$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetResourceSyncStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -145,22 +137,12 @@ export interface GetResourceSyncStatusCommandOutput extends GetResourceSyncStatu
  *
  * @public
  */
-export class GetResourceSyncStatusCommand extends $Command
-  .classBuilder<
-    GetResourceSyncStatusCommandInput,
-    GetResourceSyncStatusCommandOutput,
-    CodeStarConnectionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeStarConnectionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeStar_connections_20191201", "GetResourceSyncStatus", {})
-  .n("CodeStarConnectionsClient", "GetResourceSyncStatusCommand")
-  .sc(GetResourceSyncStatus$)
-  .build() {
+export class GetResourceSyncStatusCommand extends command<GetResourceSyncStatusCommandInput, GetResourceSyncStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetResourceSyncStatus",
+  GetResourceSyncStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

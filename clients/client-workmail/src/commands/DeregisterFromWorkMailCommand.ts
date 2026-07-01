@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeregisterFromWorkMailRequest, DeregisterFromWorkMailResponse } from "../models/models_0";
 import { DeregisterFromWorkMail$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface DeregisterFromWorkMailCommandOutput extends DeregisterFromWorkM
  *
  * @public
  */
-export class DeregisterFromWorkMailCommand extends $Command
-  .classBuilder<
-    DeregisterFromWorkMailCommandInput,
-    DeregisterFromWorkMailCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "DeregisterFromWorkMail", {})
-  .n("WorkMailClient", "DeregisterFromWorkMailCommand")
-  .sc(DeregisterFromWorkMail$)
-  .build() {
+export class DeregisterFromWorkMailCommand extends command<DeregisterFromWorkMailCommandInput, DeregisterFromWorkMailCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeregisterFromWorkMail",
+  DeregisterFromWorkMail$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

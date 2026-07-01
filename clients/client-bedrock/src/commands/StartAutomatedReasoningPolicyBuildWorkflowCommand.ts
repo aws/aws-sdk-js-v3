@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StartAutomatedReasoningPolicyBuildWorkflowRequest,
   StartAutomatedReasoningPolicyBuildWorkflowResponse,
@@ -15,7 +12,6 @@ import { StartAutomatedReasoningPolicyBuildWorkflow$ } from "../schemas/schemas_
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -233,22 +229,12 @@ export interface StartAutomatedReasoningPolicyBuildWorkflowCommandOutput extends
  *
  * @public
  */
-export class StartAutomatedReasoningPolicyBuildWorkflowCommand extends $Command
-  .classBuilder<
-    StartAutomatedReasoningPolicyBuildWorkflowCommandInput,
-    StartAutomatedReasoningPolicyBuildWorkflowCommandOutput,
-    BedrockClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockControlPlaneService", "StartAutomatedReasoningPolicyBuildWorkflow", {})
-  .n("BedrockClient", "StartAutomatedReasoningPolicyBuildWorkflowCommand")
-  .sc(StartAutomatedReasoningPolicyBuildWorkflow$)
-  .build() {
+export class StartAutomatedReasoningPolicyBuildWorkflowCommand extends command<StartAutomatedReasoningPolicyBuildWorkflowCommandInput, StartAutomatedReasoningPolicyBuildWorkflowCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartAutomatedReasoningPolicyBuildWorkflow",
+  StartAutomatedReasoningPolicyBuildWorkflow$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

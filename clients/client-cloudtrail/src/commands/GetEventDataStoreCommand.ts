@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetEventDataStoreRequest, GetEventDataStoreResponse } from "../models/models_0";
 import { GetEventDataStore$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetEventDataStore$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface GetEventDataStoreCommandOutput extends GetEventDataStoreRespons
  *
  * @public
  */
-export class GetEventDataStoreCommand extends $Command
-  .classBuilder<
-    GetEventDataStoreCommandInput,
-    GetEventDataStoreCommandOutput,
-    CloudTrailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CloudTrail_20131101", "GetEventDataStore", {})
-  .n("CloudTrailClient", "GetEventDataStoreCommand")
-  .sc(GetEventDataStore$)
-  .build() {
+export class GetEventDataStoreCommand extends command<GetEventDataStoreCommandInput, GetEventDataStoreCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetEventDataStore",
+  GetEventDataStore$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

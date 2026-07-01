@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MemoryDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MemoryDBClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteACLRequest, DeleteACLResponse } from "../models/models_0";
 import { DeleteACL$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteACL$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface DeleteACLCommandOutput extends DeleteACLResponse, __MetadataBea
  *
  * @public
  */
-export class DeleteACLCommand extends $Command
-  .classBuilder<
-    DeleteACLCommandInput,
-    DeleteACLCommandOutput,
-    MemoryDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonMemoryDB", "DeleteACL", {})
-  .n("MemoryDBClient", "DeleteACLCommand")
-  .sc(DeleteACL$)
-  .build() {
+export class DeleteACLCommand extends command<DeleteACLCommandInput, DeleteACLCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteACL",
+  DeleteACL$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

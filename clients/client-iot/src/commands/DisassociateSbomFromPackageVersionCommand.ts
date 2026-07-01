@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DisassociateSbomFromPackageVersionRequest,
   DisassociateSbomFromPackageVersionResponse,
@@ -15,7 +12,6 @@ import { DisassociateSbomFromPackageVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DisassociateSbomFromPackageVersionCommandOutput extends Disasso
  *
  * @public
  */
-export class DisassociateSbomFromPackageVersionCommand extends $Command
-  .classBuilder<
-    DisassociateSbomFromPackageVersionCommandInput,
-    DisassociateSbomFromPackageVersionCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "DisassociateSbomFromPackageVersion", {})
-  .n("IoTClient", "DisassociateSbomFromPackageVersionCommand")
-  .sc(DisassociateSbomFromPackageVersion$)
-  .build() {
+export class DisassociateSbomFromPackageVersionCommand extends command<DisassociateSbomFromPackageVersionCommandInput, DisassociateSbomFromPackageVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateSbomFromPackageVersion",
+  DisassociateSbomFromPackageVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

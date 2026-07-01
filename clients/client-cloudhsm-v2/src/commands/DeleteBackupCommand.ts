@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteBackupRequest, DeleteBackupResponse } from "../models/models_0";
 import { DeleteBackup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteBackup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  *
  * @public
  */
-export class DeleteBackupCommand extends $Command
-  .classBuilder<
-    DeleteBackupCommandInput,
-    DeleteBackupCommandOutput,
-    CloudHSMV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BaldrApiService", "DeleteBackup", {})
-  .n("CloudHSMV2Client", "DeleteBackupCommand")
-  .sc(DeleteBackup$)
-  .build() {
+export class DeleteBackupCommand extends command<DeleteBackupCommandInput, DeleteBackupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteBackup",
+  DeleteBackup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

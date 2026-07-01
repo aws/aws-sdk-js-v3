@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateKnowledgeBaseRequest, CreateKnowledgeBaseResponse } from "../models/models_0";
 import { CreateKnowledgeBase$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } from "../WisdomClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -143,22 +139,12 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  *
  * @public
  */
-export class CreateKnowledgeBaseCommand extends $Command
-  .classBuilder<
-    CreateKnowledgeBaseCommandInput,
-    CreateKnowledgeBaseCommandOutput,
-    WisdomClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WisdomService", "CreateKnowledgeBase", {})
-  .n("WisdomClient", "CreateKnowledgeBaseCommand")
-  .sc(CreateKnowledgeBase$)
-  .build() {
+export class CreateKnowledgeBaseCommand extends command<CreateKnowledgeBaseCommandInput, CreateKnowledgeBaseCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateKnowledgeBase",
+  CreateKnowledgeBase$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

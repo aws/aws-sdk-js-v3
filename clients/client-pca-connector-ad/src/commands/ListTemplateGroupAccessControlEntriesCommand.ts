@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListTemplateGroupAccessControlEntriesRequest,
   ListTemplateGroupAccessControlEntriesResponse,
 } from "../models/models_0";
-import type {
-  PcaConnectorAdClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PcaConnectorAdClient";
 import { ListTemplateGroupAccessControlEntries$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +95,12 @@ export interface ListTemplateGroupAccessControlEntriesCommandOutput extends List
  *
  * @public
  */
-export class ListTemplateGroupAccessControlEntriesCommand extends $Command
-  .classBuilder<
-    ListTemplateGroupAccessControlEntriesCommandInput,
-    ListTemplateGroupAccessControlEntriesCommandOutput,
-    PcaConnectorAdClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PcaConnectorAdClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PcaConnectorAd", "ListTemplateGroupAccessControlEntries", {})
-  .n("PcaConnectorAdClient", "ListTemplateGroupAccessControlEntriesCommand")
-  .sc(ListTemplateGroupAccessControlEntries$)
-  .build() {
+export class ListTemplateGroupAccessControlEntriesCommand extends command<ListTemplateGroupAccessControlEntriesCommandInput, ListTemplateGroupAccessControlEntriesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListTemplateGroupAccessControlEntries",
+  ListTemplateGroupAccessControlEntries$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

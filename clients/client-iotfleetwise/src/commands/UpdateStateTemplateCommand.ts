@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateStateTemplateRequest, UpdateStateTemplateResponse } from "../models/models_0";
 import { UpdateStateTemplate$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateStateTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface UpdateStateTemplateCommandOutput extends UpdateStateTemplateRes
  *
  * @public
  */
-export class UpdateStateTemplateCommand extends $Command
-  .classBuilder<
-    UpdateStateTemplateCommandInput,
-    UpdateStateTemplateCommandOutput,
-    IoTFleetWiseClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("IoTAutobahnControlPlane", "UpdateStateTemplate", {})
-  .n("IoTFleetWiseClient", "UpdateStateTemplateCommand")
-  .sc(UpdateStateTemplate$)
-  .build() {
+export class UpdateStateTemplateCommand extends command<UpdateStateTemplateCommandInput, UpdateStateTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateStateTemplate",
+  UpdateStateTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

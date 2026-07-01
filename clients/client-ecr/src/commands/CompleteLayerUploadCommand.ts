@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CompleteLayerUploadRequest, CompleteLayerUploadResponse } from "../models/models_0";
 import { CompleteLayerUpload$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CompleteLayerUpload$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +102,12 @@ export interface CompleteLayerUploadCommandOutput extends CompleteLayerUploadRes
  *
  * @public
  */
-export class CompleteLayerUploadCommand extends $Command
-  .classBuilder<
-    CompleteLayerUploadCommandInput,
-    CompleteLayerUploadCommandOutput,
-    ECRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerRegistry_V20150921", "CompleteLayerUpload", {})
-  .n("ECRClient", "CompleteLayerUploadCommand")
-  .sc(CompleteLayerUpload$)
-  .build() {
+export class CompleteLayerUploadCommand extends command<CompleteLayerUploadCommandInput, CompleteLayerUploadCommandOutput>(
+  _ep0,
+  _mw0,
+  "CompleteLayerUpload",
+  CompleteLayerUpload$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

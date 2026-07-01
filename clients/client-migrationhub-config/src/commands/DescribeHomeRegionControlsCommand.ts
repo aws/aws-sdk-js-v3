@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MigrationHubConfigClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MigrationHubConfigClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeHomeRegionControlsRequest, DescribeHomeRegionControlsResult } from "../models/models_0";
 import { DescribeHomeRegionControls$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DescribeHomeRegionControls$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -100,22 +92,12 @@ export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeReg
  *
  * @public
  */
-export class DescribeHomeRegionControlsCommand extends $Command
-  .classBuilder<
-    DescribeHomeRegionControlsCommandInput,
-    DescribeHomeRegionControlsCommandOutput,
-    MigrationHubConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MigrationHubConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSMigrationHubMultiAccountService", "DescribeHomeRegionControls", {})
-  .n("MigrationHubConfigClient", "DescribeHomeRegionControlsCommand")
-  .sc(DescribeHomeRegionControls$)
-  .build() {
+export class DescribeHomeRegionControlsCommand extends command<DescribeHomeRegionControlsCommandInput, DescribeHomeRegionControlsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeHomeRegionControls",
+  DescribeHomeRegionControls$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

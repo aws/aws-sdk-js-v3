@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { BatchGetTaskRequest, BatchGetTaskResponse } from "../models/models_0";
 import { BatchGetTask$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { BatchGetTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -145,22 +141,12 @@ export interface BatchGetTaskCommandOutput extends BatchGetTaskResponse, __Metad
  *
  * @public
  */
-export class BatchGetTaskCommand extends $Command
-  .classBuilder<
-    BatchGetTaskCommandInput,
-    BatchGetTaskCommandOutput,
-    DeadlineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Deadline", "BatchGetTask", {})
-  .n("DeadlineClient", "BatchGetTaskCommand")
-  .sc(BatchGetTask$)
-  .build() {
+export class BatchGetTaskCommand extends command<BatchGetTaskCommandInput, BatchGetTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetTask",
+  BatchGetTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

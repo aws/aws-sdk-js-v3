@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetConfigurationBundleRequest, GetConfigurationBundleResponse } from "../models/models_0";
 import { GetConfigurationBundle$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetConfigurationBundle$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +94,12 @@ export interface GetConfigurationBundleCommandOutput extends GetConfigurationBun
  *
  * @public
  */
-export class GetConfigurationBundleCommand extends $Command
-  .classBuilder<
-    GetConfigurationBundleCommandInput,
-    GetConfigurationBundleCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "GetConfigurationBundle", {})
-  .n("BedrockAgentCoreControlClient", "GetConfigurationBundleCommand")
-  .sc(GetConfigurationBundle$)
-  .build() {
+export class GetConfigurationBundleCommand extends command<GetConfigurationBundleCommandInput, GetConfigurationBundleCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetConfigurationBundle",
+  GetConfigurationBundle$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

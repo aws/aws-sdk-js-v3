@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteKeyPairRequest, DeleteKeyPairResult } from "../models/models_0";
 import { DeleteKeyPair$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteKeyPair$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -117,22 +113,12 @@ export interface DeleteKeyPairCommandOutput extends DeleteKeyPairResult, __Metad
  *
  * @public
  */
-export class DeleteKeyPairCommand extends $Command
-  .classBuilder<
-    DeleteKeyPairCommandInput,
-    DeleteKeyPairCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "DeleteKeyPair", {})
-  .n("LightsailClient", "DeleteKeyPairCommand")
-  .sc(DeleteKeyPair$)
-  .build() {
+export class DeleteKeyPairCommand extends command<DeleteKeyPairCommandInput, DeleteKeyPairCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteKeyPair",
+  DeleteKeyPair$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

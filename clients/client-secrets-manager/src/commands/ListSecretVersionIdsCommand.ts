@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSecretVersionIdsRequest, ListSecretVersionIdsResponse } from "../models/models_0";
 import { ListSecretVersionIds$ } from "../schemas/schemas_0";
-import type {
-  SecretsManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SecretsManagerClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +132,12 @@ export interface ListSecretVersionIdsCommandOutput extends ListSecretVersionIdsR
  *
  * @public
  */
-export class ListSecretVersionIdsCommand extends $Command
-  .classBuilder<
-    ListSecretVersionIdsCommandInput,
-    ListSecretVersionIdsCommandOutput,
-    SecretsManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("secretsmanager", "ListSecretVersionIds", {})
-  .n("SecretsManagerClient", "ListSecretVersionIdsCommand")
-  .sc(ListSecretVersionIds$)
-  .build() {
+export class ListSecretVersionIdsCommand extends command<ListSecretVersionIdsCommandInput, ListSecretVersionIdsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSecretVersionIds",
+  ListSecretVersionIds$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

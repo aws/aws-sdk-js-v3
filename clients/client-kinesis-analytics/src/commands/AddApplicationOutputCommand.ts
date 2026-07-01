@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  KinesisAnalyticsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../KinesisAnalyticsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddApplicationOutputRequest, AddApplicationOutputResponse } from "../models/models_0";
 import { AddApplicationOutput$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { AddApplicationOutput$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -114,22 +106,12 @@ export interface AddApplicationOutputCommandOutput extends AddApplicationOutputR
  *
  * @public
  */
-export class AddApplicationOutputCommand extends $Command
-  .classBuilder<
-    AddApplicationOutputCommandInput,
-    AddApplicationOutputCommandOutput,
-    KinesisAnalyticsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("KinesisAnalytics_20150814", "AddApplicationOutput", {})
-  .n("KinesisAnalyticsClient", "AddApplicationOutputCommand")
-  .sc(AddApplicationOutput$)
-  .build() {
+export class AddApplicationOutputCommand extends command<AddApplicationOutputCommandInput, AddApplicationOutputCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddApplicationOutput",
+  AddApplicationOutput$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

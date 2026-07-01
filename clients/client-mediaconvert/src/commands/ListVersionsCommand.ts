@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListVersionsRequest, ListVersionsResponse } from "../models/models_0";
 import { ListVersions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListVersions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface ListVersionsCommandOutput extends ListVersionsResponse, __Metad
  *
  * @public
  */
-export class ListVersionsCommand extends $Command
-  .classBuilder<
-    ListVersionsCommandInput,
-    ListVersionsCommandOutput,
-    MediaConvertClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConvert", "ListVersions", {})
-  .n("MediaConvertClient", "ListVersionsCommand")
-  .sc(ListVersions$)
-  .build() {
+export class ListVersionsCommand extends command<ListVersionsCommandInput, ListVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListVersions",
+  ListVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

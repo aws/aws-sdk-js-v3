@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListAccountsWithInvalidEffectivePolicyRequest,
   ListAccountsWithInvalidEffectivePolicyResponse,
 } from "../models/models_0";
-import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { ListAccountsWithInvalidEffectivePolicy$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -546,22 +542,12 @@ export interface ListAccountsWithInvalidEffectivePolicyCommandOutput extends Lis
  *
  * @public
  */
-export class ListAccountsWithInvalidEffectivePolicyCommand extends $Command
-  .classBuilder<
-    ListAccountsWithInvalidEffectivePolicyCommandInput,
-    ListAccountsWithInvalidEffectivePolicyCommandOutput,
-    OrganizationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrganizationsV20161128", "ListAccountsWithInvalidEffectivePolicy", {})
-  .n("OrganizationsClient", "ListAccountsWithInvalidEffectivePolicyCommand")
-  .sc(ListAccountsWithInvalidEffectivePolicy$)
-  .build() {
+export class ListAccountsWithInvalidEffectivePolicyCommand extends command<ListAccountsWithInvalidEffectivePolicyCommandInput, ListAccountsWithInvalidEffectivePolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAccountsWithInvalidEffectivePolicy",
+  ListAccountsWithInvalidEffectivePolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteCodeRepositoryInput } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DeleteCodeRepository$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -57,22 +53,12 @@ export interface DeleteCodeRepositoryCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteCodeRepositoryCommand extends $Command
-  .classBuilder<
-    DeleteCodeRepositoryCommandInput,
-    DeleteCodeRepositoryCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DeleteCodeRepository", {})
-  .n("SageMakerClient", "DeleteCodeRepositoryCommand")
-  .sc(DeleteCodeRepository$)
-  .build() {
+export class DeleteCodeRepositoryCommand extends command<DeleteCodeRepositoryCommandInput, DeleteCodeRepositoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteCodeRepository",
+  DeleteCodeRepository$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

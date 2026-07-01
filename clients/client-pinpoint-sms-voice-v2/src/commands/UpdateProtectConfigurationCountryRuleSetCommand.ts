@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   UpdateProtectConfigurationCountryRuleSetRequest,
   UpdateProtectConfigurationCountryRuleSetResult,
 } from "../models/models_0";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { UpdateProtectConfigurationCountryRuleSet$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +86,12 @@ export interface UpdateProtectConfigurationCountryRuleSetCommandOutput extends U
  *
  * @public
  */
-export class UpdateProtectConfigurationCountryRuleSetCommand extends $Command
-  .classBuilder<
-    UpdateProtectConfigurationCountryRuleSetCommandInput,
-    UpdateProtectConfigurationCountryRuleSetCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "UpdateProtectConfigurationCountryRuleSet", {})
-  .n("PinpointSMSVoiceV2Client", "UpdateProtectConfigurationCountryRuleSetCommand")
-  .sc(UpdateProtectConfigurationCountryRuleSet$)
-  .build() {
+export class UpdateProtectConfigurationCountryRuleSetCommand extends command<UpdateProtectConfigurationCountryRuleSetCommandInput, UpdateProtectConfigurationCountryRuleSetCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateProtectConfigurationCountryRuleSet",
+  UpdateProtectConfigurationCountryRuleSet$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

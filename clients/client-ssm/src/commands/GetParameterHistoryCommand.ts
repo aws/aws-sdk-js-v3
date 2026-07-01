@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetParameterHistoryRequest, GetParameterHistoryResult } from "../models/models_0";
 import { GetParameterHistory$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface GetParameterHistoryCommandOutput extends GetParameterHistoryRes
  *
  * @public
  */
-export class GetParameterHistoryCommand extends $Command
-  .classBuilder<
-    GetParameterHistoryCommandInput,
-    GetParameterHistoryCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "GetParameterHistory", {})
-  .n("SSMClient", "GetParameterHistoryCommand")
-  .sc(GetParameterHistory$)
-  .build() {
+export class GetParameterHistoryCommand extends command<GetParameterHistoryCommandInput, GetParameterHistoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetParameterHistory",
+  GetParameterHistory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

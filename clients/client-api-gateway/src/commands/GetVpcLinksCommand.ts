@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetVpcLinksRequest, VpcLinks } from "../models/models_0";
 import { GetVpcLinks$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetVpcLinks$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface GetVpcLinksCommandOutput extends VpcLinks, __MetadataBearer {}
  *
  * @public
  */
-export class GetVpcLinksCommand extends $Command
-  .classBuilder<
-    GetVpcLinksCommandInput,
-    GetVpcLinksCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "GetVpcLinks", {})
-  .n("APIGatewayClient", "GetVpcLinksCommand")
-  .sc(GetVpcLinks$)
-  .build() {
+export class GetVpcLinksCommand extends command<GetVpcLinksCommandInput, GetVpcLinksCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetVpcLinks",
+  GetVpcLinks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchCreateRumMetricDefinitionsRequest,
   BatchCreateRumMetricDefinitionsResponse,
 } from "../models/models_0";
-import type { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RUMClient";
 import { BatchCreateRumMetricDefinitions$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +121,12 @@ export interface BatchCreateRumMetricDefinitionsCommandOutput extends BatchCreat
  *
  * @public
  */
-export class BatchCreateRumMetricDefinitionsCommand extends $Command
-  .classBuilder<
-    BatchCreateRumMetricDefinitionsCommandInput,
-    BatchCreateRumMetricDefinitionsCommandOutput,
-    RUMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RUMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RUM", "BatchCreateRumMetricDefinitions", {})
-  .n("RUMClient", "BatchCreateRumMetricDefinitionsCommand")
-  .sc(BatchCreateRumMetricDefinitions$)
-  .build() {
+export class BatchCreateRumMetricDefinitionsCommand extends command<BatchCreateRumMetricDefinitionsCommandInput, BatchCreateRumMetricDefinitionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchCreateRumMetricDefinitions",
+  BatchCreateRumMetricDefinitions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

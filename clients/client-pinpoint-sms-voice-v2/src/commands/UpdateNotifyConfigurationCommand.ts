@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateNotifyConfigurationRequest, UpdateNotifyConfigurationResult } from "../models/models_0";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { UpdateNotifyConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -149,22 +141,12 @@ export interface UpdateNotifyConfigurationCommandOutput extends UpdateNotifyConf
  *
  * @public
  */
-export class UpdateNotifyConfigurationCommand extends $Command
-  .classBuilder<
-    UpdateNotifyConfigurationCommandInput,
-    UpdateNotifyConfigurationCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "UpdateNotifyConfiguration", {})
-  .n("PinpointSMSVoiceV2Client", "UpdateNotifyConfigurationCommand")
-  .sc(UpdateNotifyConfiguration$)
-  .build() {
+export class UpdateNotifyConfigurationCommand extends command<UpdateNotifyConfigurationCommandInput, UpdateNotifyConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateNotifyConfiguration",
+  UpdateNotifyConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

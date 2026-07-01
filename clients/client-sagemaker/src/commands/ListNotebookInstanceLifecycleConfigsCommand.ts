@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListNotebookInstanceLifecycleConfigsInput,
   ListNotebookInstanceLifecycleConfigsOutput,
 } from "../models/models_4";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { ListNotebookInstanceLifecycleConfigs$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface ListNotebookInstanceLifecycleConfigsCommandOutput extends ListN
  *
  * @public
  */
-export class ListNotebookInstanceLifecycleConfigsCommand extends $Command
-  .classBuilder<
-    ListNotebookInstanceLifecycleConfigsCommandInput,
-    ListNotebookInstanceLifecycleConfigsCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "ListNotebookInstanceLifecycleConfigs", {})
-  .n("SageMakerClient", "ListNotebookInstanceLifecycleConfigsCommand")
-  .sc(ListNotebookInstanceLifecycleConfigs$)
-  .build() {
+export class ListNotebookInstanceLifecycleConfigsCommand extends command<ListNotebookInstanceLifecycleConfigsCommandInput, ListNotebookInstanceLifecycleConfigsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListNotebookInstanceLifecycleConfigs",
+  ListNotebookInstanceLifecycleConfigs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

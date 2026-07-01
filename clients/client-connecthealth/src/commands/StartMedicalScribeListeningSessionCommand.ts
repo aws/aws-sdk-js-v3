@@ -1,11 +1,7 @@
 // smithy-typescript generated code
-import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectHealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectHealthClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type {
   StartMedicalScribeListeningSessionInput,
   StartMedicalScribeListeningSessionOutput,
@@ -16,7 +12,6 @@ import { StartMedicalScribeListeningSession$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -151,33 +146,12 @@ export interface StartMedicalScribeListeningSessionCommandOutput extends StartMe
  *
  * @public
  */
-export class StartMedicalScribeListeningSessionCommand extends $Command
-  .classBuilder<
-    StartMedicalScribeListeningSessionCommandInput,
-    StartMedicalScribeListeningSessionCommandOutput,
-    ConnectHealthClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectHealthClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEventStreamPlugin(config),
-    ];
-  })
-  .s("ConnectHealth", "StartMedicalScribeListeningSession", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      input: true,
-      output: true,
-    },
-  })
-  .n("ConnectHealthClient", "StartMedicalScribeListeningSessionCommand")
-  .sc(StartMedicalScribeListeningSession$)
-  .build() {
+export class StartMedicalScribeListeningSessionCommand extends command<StartMedicalScribeListeningSessionCommandInput, StartMedicalScribeListeningSessionCommandOutput>(
+  _ep0,
+  _mw1,
+  "StartMedicalScribeListeningSession",
+  StartMedicalScribeListeningSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

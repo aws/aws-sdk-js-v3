@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeBundleTasksRequest, DescribeBundleTasksResult } from "../models/models_3";
 import { DescribeBundleTasks$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeBundleTasks$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -102,22 +98,12 @@ export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksRes
  *
  * @public
  */
-export class DescribeBundleTasksCommand extends $Command
-  .classBuilder<
-    DescribeBundleTasksCommandInput,
-    DescribeBundleTasksCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeBundleTasks", {})
-  .n("EC2Client", "DescribeBundleTasksCommand")
-  .sc(DescribeBundleTasks$)
-  .build() {
+export class DescribeBundleTasksCommand extends command<DescribeBundleTasksCommandInput, DescribeBundleTasksCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeBundleTasks",
+  DescribeBundleTasks$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

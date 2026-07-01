@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  CloudDirectoryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudDirectoryClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DetachFromIndexRequest, DetachFromIndexResponse } from "../models/models_0";
 import { DetachFromIndex$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DetachFromIndex$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -121,22 +113,12 @@ export interface DetachFromIndexCommandOutput extends DetachFromIndexResponse, _
  *
  * @public
  */
-export class DetachFromIndexCommand extends $Command
-  .classBuilder<
-    DetachFromIndexCommandInput,
-    DetachFromIndexCommandOutput,
-    CloudDirectoryClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonCloudDirectory_20170111", "DetachFromIndex", {})
-  .n("CloudDirectoryClient", "DetachFromIndexCommand")
-  .sc(DetachFromIndex$)
-  .build() {
+export class DetachFromIndexCommand extends command<DetachFromIndexCommandInput, DetachFromIndexCommandOutput>(
+  _ep0,
+  _mw0,
+  "DetachFromIndex",
+  DetachFromIndex$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ApplicationSignalsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ApplicationSignalsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchGetServiceLevelObjectiveBudgetReportInput,
   BatchGetServiceLevelObjectiveBudgetReportOutput,
@@ -19,7 +12,6 @@ import { BatchGetServiceLevelObjectiveBudgetReport$ } from "../schemas/schemas_0
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -279,22 +271,12 @@ export interface BatchGetServiceLevelObjectiveBudgetReportCommandOutput extends 
  *
  * @public
  */
-export class BatchGetServiceLevelObjectiveBudgetReportCommand extends $Command
-  .classBuilder<
-    BatchGetServiceLevelObjectiveBudgetReportCommandInput,
-    BatchGetServiceLevelObjectiveBudgetReportCommandOutput,
-    ApplicationSignalsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ApplicationSignalsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationSignals", "BatchGetServiceLevelObjectiveBudgetReport", {})
-  .n("ApplicationSignalsClient", "BatchGetServiceLevelObjectiveBudgetReportCommand")
-  .sc(BatchGetServiceLevelObjectiveBudgetReport$)
-  .build() {
+export class BatchGetServiceLevelObjectiveBudgetReportCommand extends command<BatchGetServiceLevelObjectiveBudgetReportCommandInput, BatchGetServiceLevelObjectiveBudgetReportCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchGetServiceLevelObjectiveBudgetReport",
+  BatchGetServiceLevelObjectiveBudgetReport$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

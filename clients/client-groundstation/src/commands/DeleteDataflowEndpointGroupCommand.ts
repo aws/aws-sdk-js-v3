@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DataflowEndpointGroupIdResponse, DeleteDataflowEndpointGroupRequest } from "../models/models_0";
 import { DeleteDataflowEndpointGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteDataflowEndpointGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -68,22 +64,12 @@ export interface DeleteDataflowEndpointGroupCommandOutput extends DataflowEndpoi
  *
  * @public
  */
-export class DeleteDataflowEndpointGroupCommand extends $Command
-  .classBuilder<
-    DeleteDataflowEndpointGroupCommandInput,
-    DeleteDataflowEndpointGroupCommandOutput,
-    GroundStationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GroundStation", "DeleteDataflowEndpointGroup", {})
-  .n("GroundStationClient", "DeleteDataflowEndpointGroupCommand")
-  .sc(DeleteDataflowEndpointGroup$)
-  .build() {
+export class DeleteDataflowEndpointGroupCommand extends command<DeleteDataflowEndpointGroupCommandInput, DeleteDataflowEndpointGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDataflowEndpointGroup",
+  DeleteDataflowEndpointGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

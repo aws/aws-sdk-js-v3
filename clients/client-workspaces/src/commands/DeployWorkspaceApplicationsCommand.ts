@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeployWorkspaceApplicationsRequest, DeployWorkspaceApplicationsResult } from "../models/models_0";
 import { DeployWorkspaceApplications$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -93,22 +89,12 @@ export interface DeployWorkspaceApplicationsCommandOutput extends DeployWorkspac
  *
  * @public
  */
-export class DeployWorkspaceApplicationsCommand extends $Command
-  .classBuilder<
-    DeployWorkspaceApplicationsCommandInput,
-    DeployWorkspaceApplicationsCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "DeployWorkspaceApplications", {})
-  .n("WorkSpacesClient", "DeployWorkspaceApplicationsCommand")
-  .sc(DeployWorkspaceApplications$)
-  .build() {
+export class DeployWorkspaceApplicationsCommand extends command<DeployWorkspaceApplicationsCommandInput, DeployWorkspaceApplicationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeployWorkspaceApplications",
+  DeployWorkspaceApplications$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

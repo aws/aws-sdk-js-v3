@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteEvaluationResultsRequest, DeleteEvaluationResultsResponse } from "../models/models_0";
 import { DeleteEvaluationResults$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteEvaluationResults$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface DeleteEvaluationResultsCommandOutput extends DeleteEvaluationRe
  *
  * @public
  */
-export class DeleteEvaluationResultsCommand extends $Command
-  .classBuilder<
-    DeleteEvaluationResultsCommandInput,
-    DeleteEvaluationResultsCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "DeleteEvaluationResults", {})
-  .n("ConfigServiceClient", "DeleteEvaluationResultsCommand")
-  .sc(DeleteEvaluationResults$)
-  .build() {
+export class DeleteEvaluationResultsCommand extends command<DeleteEvaluationResultsCommandInput, DeleteEvaluationResultsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteEvaluationResults",
+  DeleteEvaluationResults$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSchedulingPoliciesRequest, ListSchedulingPoliciesResponse } from "../models/models_0";
 import { ListSchedulingPolicies$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListSchedulingPolicies$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface ListSchedulingPoliciesCommandOutput extends ListSchedulingPolic
  *
  * @public
  */
-export class ListSchedulingPoliciesCommand extends $Command
-  .classBuilder<
-    ListSchedulingPoliciesCommandInput,
-    ListSchedulingPoliciesCommandOutput,
-    BatchClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBatchV20160810", "ListSchedulingPolicies", {})
-  .n("BatchClient", "ListSchedulingPoliciesCommand")
-  .sc(ListSchedulingPolicies$)
-  .build() {
+export class ListSchedulingPoliciesCommand extends command<ListSchedulingPoliciesCommandInput, ListSchedulingPoliciesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSchedulingPolicies",
+  ListSchedulingPolicies$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

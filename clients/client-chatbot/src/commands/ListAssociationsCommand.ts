@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ChatbotClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChatbotClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAssociationsRequest, ListAssociationsResult } from "../models/models_0";
 import { ListAssociations$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAssociations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  *
  * @public
  */
-export class ListAssociationsCommand extends $Command
-  .classBuilder<
-    ListAssociationsCommandInput,
-    ListAssociationsCommandOutput,
-    ChatbotClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WheatleyOrchestration_20171011", "ListAssociations", {})
-  .n("ChatbotClient", "ListAssociationsCommand")
-  .sc(ListAssociations$)
-  .build() {
+export class ListAssociationsCommand extends command<ListAssociationsCommandInput, ListAssociationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAssociations",
+  ListAssociations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

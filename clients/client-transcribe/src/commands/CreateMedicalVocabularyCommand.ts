@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateMedicalVocabularyRequest, CreateMedicalVocabularyResponse } from "../models/models_0";
 import { CreateMedicalVocabulary$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface CreateMedicalVocabularyCommandOutput extends CreateMedicalVocab
  *
  * @public
  */
-export class CreateMedicalVocabularyCommand extends $Command
-  .classBuilder<
-    CreateMedicalVocabularyCommandInput,
-    CreateMedicalVocabularyCommandOutput,
-    TranscribeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Transcribe", "CreateMedicalVocabulary", {})
-  .n("TranscribeClient", "CreateMedicalVocabularyCommand")
-  .sc(CreateMedicalVocabulary$)
-  .build() {
+export class CreateMedicalVocabularyCommand extends command<CreateMedicalVocabularyCommandInput, CreateMedicalVocabularyCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateMedicalVocabulary",
+  CreateMedicalVocabulary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

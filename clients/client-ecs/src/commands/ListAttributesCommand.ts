@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAttributesRequest, ListAttributesResponse } from "../models/models_0";
 import { ListAttributes$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListAttributes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -111,22 +107,12 @@ export interface ListAttributesCommandOutput extends ListAttributesResponse, __M
  *
  * @public
  */
-export class ListAttributesCommand extends $Command
-  .classBuilder<
-    ListAttributesCommandInput,
-    ListAttributesCommandOutput,
-    ECSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2ContainerServiceV20141113", "ListAttributes", {})
-  .n("ECSClient", "ListAttributesCommand")
-  .sc(ListAttributes$)
-  .build() {
+export class ListAttributesCommand extends command<ListAttributesCommandInput, ListAttributesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAttributes",
+  ListAttributes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

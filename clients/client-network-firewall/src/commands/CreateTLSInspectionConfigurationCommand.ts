@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateTLSInspectionConfigurationRequest,
   CreateTLSInspectionConfigurationResponse,
 } from "../models/models_0";
-import type {
-  NetworkFirewallClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkFirewallClient";
 import { CreateTLSInspectionConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -192,22 +184,12 @@ export interface CreateTLSInspectionConfigurationCommandOutput extends CreateTLS
  *
  * @public
  */
-export class CreateTLSInspectionConfigurationCommand extends $Command
-  .classBuilder<
-    CreateTLSInspectionConfigurationCommandInput,
-    CreateTLSInspectionConfigurationCommandOutput,
-    NetworkFirewallClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkFirewall_20201112", "CreateTLSInspectionConfiguration", {})
-  .n("NetworkFirewallClient", "CreateTLSInspectionConfigurationCommand")
-  .sc(CreateTLSInspectionConfiguration$)
-  .build() {
+export class CreateTLSInspectionConfigurationCommand extends command<CreateTLSInspectionConfigurationCommandInput, CreateTLSInspectionConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateTLSInspectionConfiguration",
+  CreateTLSInspectionConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

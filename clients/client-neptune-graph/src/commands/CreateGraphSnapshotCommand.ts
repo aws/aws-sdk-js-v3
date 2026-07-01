@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateGraphSnapshotInput, CreateGraphSnapshotOutput } from "../models/models_0";
-import type { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
 import { CreateGraphSnapshot$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,25 +83,12 @@ export interface CreateGraphSnapshotCommandOutput extends CreateGraphSnapshotOut
  *
  * @public
  */
-export class CreateGraphSnapshotCommand extends $Command
-  .classBuilder<
-    CreateGraphSnapshotCommandInput,
-    CreateGraphSnapshotCommandOutput,
-    NeptuneGraphClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ApiType: { type: "staticContextParams", value: `ControlPlane` },
-  })
-  .m(function (this: any, Command: any, cs: any, config: NeptuneGraphClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneGraph", "CreateGraphSnapshot", {})
-  .n("NeptuneGraphClient", "CreateGraphSnapshotCommand")
-  .sc(CreateGraphSnapshot$)
-  .build() {
+export class CreateGraphSnapshotCommand extends command<CreateGraphSnapshotCommandInput, CreateGraphSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateGraphSnapshot",
+  CreateGraphSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

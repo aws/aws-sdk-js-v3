@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateRepositoryRequest, CreateRepositoryResult } from "../models/models_0";
 import { CreateRepository$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateRepository$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -128,22 +124,12 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryResult, _
  *
  * @public
  */
-export class CreateRepositoryCommand extends $Command
-  .classBuilder<
-    CreateRepositoryCommandInput,
-    CreateRepositoryCommandOutput,
-    CodeartifactClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeArtifactControlPlaneService", "CreateRepository", {})
-  .n("CodeartifactClient", "CreateRepositoryCommand")
-  .sc(CreateRepository$)
-  .build() {
+export class CreateRepositoryCommand extends command<CreateRepositoryCommandInput, CreateRepositoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateRepository",
+  CreateRepository$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

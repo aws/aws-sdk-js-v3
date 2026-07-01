@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ContainerServicesListResult, GetContainerServicesRequest } from "../models/models_0";
 import { GetContainerServices$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetContainerServices$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -188,22 +184,12 @@ export interface GetContainerServicesCommandOutput extends ContainerServicesList
  *
  * @public
  */
-export class GetContainerServicesCommand extends $Command
-  .classBuilder<
-    GetContainerServicesCommandInput,
-    GetContainerServicesCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "GetContainerServices", {})
-  .n("LightsailClient", "GetContainerServicesCommand")
-  .sc(GetContainerServices$)
-  .build() {
+export class GetContainerServicesCommand extends command<GetContainerServicesCommandInput, GetContainerServicesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetContainerServices",
+  GetContainerServices$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   SendDestinationNumberVerificationCodeRequest,
   SendDestinationNumberVerificationCodeResult,
 } from "../models/models_0";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { SendDestinationNumberVerificationCode$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +89,12 @@ export interface SendDestinationNumberVerificationCodeCommandOutput extends Send
  *
  * @public
  */
-export class SendDestinationNumberVerificationCodeCommand extends $Command
-  .classBuilder<
-    SendDestinationNumberVerificationCodeCommandInput,
-    SendDestinationNumberVerificationCodeCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "SendDestinationNumberVerificationCode", {})
-  .n("PinpointSMSVoiceV2Client", "SendDestinationNumberVerificationCodeCommand")
-  .sc(SendDestinationNumberVerificationCode$)
-  .build() {
+export class SendDestinationNumberVerificationCodeCommand extends command<SendDestinationNumberVerificationCodeCommandInput, SendDestinationNumberVerificationCodeCommandOutput>(
+  _ep0,
+  _mw0,
+  "SendDestinationNumberVerificationCode",
+  SendDestinationNumberVerificationCode$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

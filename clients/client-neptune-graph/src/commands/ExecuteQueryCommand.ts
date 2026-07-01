@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { ExecuteQueryInput, ExecuteQueryOutput } from "../models/models_0";
-import type { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
 import { ExecuteQuery$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,25 +88,12 @@ export interface ExecuteQueryCommandOutput extends Omit<ExecuteQueryOutput, "pay
  *
  * @public
  */
-export class ExecuteQueryCommand extends $Command
-  .classBuilder<
-    ExecuteQueryCommandInput,
-    ExecuteQueryCommandOutput,
-    NeptuneGraphClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ApiType: { type: "staticContextParams", value: `DataPlane` },
-  })
-  .m(function (this: any, Command: any, cs: any, config: NeptuneGraphClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonNeptuneGraph", "ExecuteQuery", {})
-  .n("NeptuneGraphClient", "ExecuteQueryCommand")
-  .sc(ExecuteQuery$)
-  .build() {
+export class ExecuteQueryCommand extends command<ExecuteQueryCommandInput, ExecuteQueryCommandOutput>(
+  _ep1,
+  _mw0,
+  "ExecuteQuery",
+  ExecuteQuery$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

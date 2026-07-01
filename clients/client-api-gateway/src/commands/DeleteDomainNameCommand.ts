@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDomainNameRequest } from "../models/models_0";
 import { DeleteDomainName$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteDomainName$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteDomainNameCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteDomainNameCommand extends $Command
-  .classBuilder<
-    DeleteDomainNameCommandInput,
-    DeleteDomainNameCommandOutput,
-    APIGatewayClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("BackplaneControlService", "DeleteDomainName", {})
-  .n("APIGatewayClient", "DeleteDomainNameCommand")
-  .sc(DeleteDomainName$)
-  .build() {
+export class DeleteDomainNameCommand extends command<DeleteDomainNameCommandInput, DeleteDomainNameCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDomainName",
+  DeleteDomainName$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

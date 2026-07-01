@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateSnapshotRequest, CreateSnapshotResponse } from "../models/models_0";
 import { CreateSnapshot$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateSnapshot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -717,22 +713,12 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResponse, __M
  *
  * @public
  */
-export class CreateSnapshotCommand extends $Command
-  .classBuilder<
-    CreateSnapshotCommandInput,
-    CreateSnapshotCommandOutput,
-    FSxClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSSimbaAPIService_v20180301", "CreateSnapshot", {})
-  .n("FSxClient", "CreateSnapshotCommand")
-  .sc(CreateSnapshot$)
-  .build() {
+export class CreateSnapshotCommand extends command<CreateSnapshotCommandInput, CreateSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateSnapshot",
+  CreateSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

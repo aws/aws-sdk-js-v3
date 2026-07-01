@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRetrieverRequest, GetRetrieverResponse } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { GetRetriever$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -113,22 +109,12 @@ export interface GetRetrieverCommandOutput extends GetRetrieverResponse, __Metad
  *
  * @public
  */
-export class GetRetrieverCommand extends $Command
-  .classBuilder<
-    GetRetrieverCommandInput,
-    GetRetrieverCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "GetRetriever", {})
-  .n("QBusinessClient", "GetRetrieverCommand")
-  .sc(GetRetriever$)
-  .build() {
+export class GetRetrieverCommand extends command<GetRetrieverCommandInput, GetRetrieverCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRetriever",
+  GetRetriever$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

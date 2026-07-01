@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartCutoverRequest, StartCutoverResponse } from "../models/models_0";
 import { StartCutover$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartCutover$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +118,12 @@ export interface StartCutoverCommandOutput extends StartCutoverResponse, __Metad
  *
  * @public
  */
-export class StartCutoverCommand extends $Command
-  .classBuilder<
-    StartCutoverCommandInput,
-    StartCutoverCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "StartCutover", {})
-  .n("MgnClient", "StartCutoverCommand")
-  .sc(StartCutover$)
-  .build() {
+export class StartCutoverCommand extends command<StartCutoverCommandInput, StartCutoverCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartCutover",
+  StartCutover$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

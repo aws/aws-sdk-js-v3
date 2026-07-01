@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSessionEmbedUrlRequest, GetSessionEmbedUrlResponse } from "../models/models_4";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { GetSessionEmbedUrl$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -125,22 +121,12 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  *
  * @public
  */
-export class GetSessionEmbedUrlCommand extends $Command
-  .classBuilder<
-    GetSessionEmbedUrlCommandInput,
-    GetSessionEmbedUrlCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "GetSessionEmbedUrl", {})
-  .n("QuickSightClient", "GetSessionEmbedUrlCommand")
-  .sc(GetSessionEmbedUrl$)
-  .build() {
+export class GetSessionEmbedUrlCommand extends command<GetSessionEmbedUrlCommandInput, GetSessionEmbedUrlCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSessionEmbedUrl",
+  GetSessionEmbedUrl$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

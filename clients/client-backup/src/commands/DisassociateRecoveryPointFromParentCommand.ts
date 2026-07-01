@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DisassociateRecoveryPointFromParentInput } from "../models/models_0";
 import { DisassociateRecoveryPointFromParent$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DisassociateRecoveryPointFromParent$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface DisassociateRecoveryPointFromParentCommandOutput extends __Meta
  *
  * @public
  */
-export class DisassociateRecoveryPointFromParentCommand extends $Command
-  .classBuilder<
-    DisassociateRecoveryPointFromParentCommandInput,
-    DisassociateRecoveryPointFromParentCommandOutput,
-    BackupClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CryoControllerUserManager", "DisassociateRecoveryPointFromParent", {})
-  .n("BackupClient", "DisassociateRecoveryPointFromParentCommand")
-  .sc(DisassociateRecoveryPointFromParent$)
-  .build() {
+export class DisassociateRecoveryPointFromParentCommand extends command<DisassociateRecoveryPointFromParentCommandInput, DisassociateRecoveryPointFromParentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DisassociateRecoveryPointFromParent",
+  DisassociateRecoveryPointFromParent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

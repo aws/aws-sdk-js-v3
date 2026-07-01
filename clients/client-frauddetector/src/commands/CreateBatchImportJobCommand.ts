@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateBatchImportJobRequest, CreateBatchImportJobResult } from "../models/models_0";
 import { CreateBatchImportJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateBatchImportJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface CreateBatchImportJobCommandOutput extends CreateBatchImportJobR
  *
  * @public
  */
-export class CreateBatchImportJobCommand extends $Command
-  .classBuilder<
-    CreateBatchImportJobCommandInput,
-    CreateBatchImportJobCommandOutput,
-    FraudDetectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHawksNestServiceFacade", "CreateBatchImportJob", {})
-  .n("FraudDetectorClient", "CreateBatchImportJobCommand")
-  .sc(CreateBatchImportJob$)
-  .build() {
+export class CreateBatchImportJobCommand extends command<CreateBatchImportJobCommandInput, CreateBatchImportJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateBatchImportJob",
+  CreateBatchImportJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

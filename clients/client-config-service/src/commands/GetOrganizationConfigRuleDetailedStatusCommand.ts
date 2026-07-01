@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetOrganizationConfigRuleDetailedStatusRequest,
   GetOrganizationConfigRuleDetailedStatusResponse,
@@ -15,7 +12,6 @@ import { GetOrganizationConfigRuleDetailedStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface GetOrganizationConfigRuleDetailedStatusCommandOutput extends Ge
  *
  * @public
  */
-export class GetOrganizationConfigRuleDetailedStatusCommand extends $Command
-  .classBuilder<
-    GetOrganizationConfigRuleDetailedStatusCommandInput,
-    GetOrganizationConfigRuleDetailedStatusCommandOutput,
-    ConfigServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("StarlingDoveService", "GetOrganizationConfigRuleDetailedStatus", {})
-  .n("ConfigServiceClient", "GetOrganizationConfigRuleDetailedStatusCommand")
-  .sc(GetOrganizationConfigRuleDetailedStatus$)
-  .build() {
+export class GetOrganizationConfigRuleDetailedStatusCommand extends command<GetOrganizationConfigRuleDetailedStatusCommandInput, GetOrganizationConfigRuleDetailedStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetOrganizationConfigRuleDetailedStatus",
+  GetOrganizationConfigRuleDetailedStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

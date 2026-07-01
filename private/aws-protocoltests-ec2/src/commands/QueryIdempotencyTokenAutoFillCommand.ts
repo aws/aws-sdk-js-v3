@@ -13,7 +13,6 @@ import { de_QueryIdempotencyTokenAutoFillCommand, se_QueryIdempotencyTokenAutoFi
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

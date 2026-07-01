@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UntagSAMLProviderRequest } from "../models/models_0";
 import { UntagSAMLProvider$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UntagSAMLProvider$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface UntagSAMLProviderCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class UntagSAMLProviderCommand extends $Command
-  .classBuilder<
-    UntagSAMLProviderCommandInput,
-    UntagSAMLProviderCommandOutput,
-    IAMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIdentityManagementV20100508", "UntagSAMLProvider", {})
-  .n("IAMClient", "UntagSAMLProviderCommand")
-  .sc(UntagSAMLProvider$)
-  .build() {
+export class UntagSAMLProviderCommand extends command<UntagSAMLProviderCommandInput, UntagSAMLProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "UntagSAMLProvider",
+  UntagSAMLProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

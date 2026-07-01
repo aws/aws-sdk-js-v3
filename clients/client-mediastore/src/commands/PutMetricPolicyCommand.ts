@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutMetricPolicyInput, PutMetricPolicyOutput } from "../models/models_0";
 import { PutMetricPolicy$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutMetricPolicy$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -76,22 +72,12 @@ export interface PutMetricPolicyCommandOutput extends PutMetricPolicyOutput, __M
  *
  * @public
  */
-export class PutMetricPolicyCommand extends $Command
-  .classBuilder<
-    PutMetricPolicyCommandInput,
-    PutMetricPolicyCommandOutput,
-    MediaStoreClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaStoreClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaStore_20170901", "PutMetricPolicy", {})
-  .n("MediaStoreClient", "PutMetricPolicyCommand")
-  .sc(PutMetricPolicy$)
-  .build() {
+export class PutMetricPolicyCommand extends command<PutMetricPolicyCommandInput, PutMetricPolicyCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutMetricPolicy",
+  PutMetricPolicy$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

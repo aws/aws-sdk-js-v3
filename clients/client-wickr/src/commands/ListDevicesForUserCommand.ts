@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDevicesForUserRequest, ListDevicesForUserResponse } from "../models/models_0";
 import { ListDevicesForUser$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WickrClientResolvedConfig } from "../WickrClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -182,22 +178,12 @@ export interface ListDevicesForUserCommandOutput extends ListDevicesForUserRespo
  *
  * @public
  */
-export class ListDevicesForUserCommand extends $Command
-  .classBuilder<
-    ListDevicesForUserCommandInput,
-    ListDevicesForUserCommandOutput,
-    WickrClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WickrClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WickrAdminApi", "ListDevicesForUser", {})
-  .n("WickrClient", "ListDevicesForUserCommand")
-  .sc(ListDevicesForUser$)
-  .build() {
+export class ListDevicesForUserCommand extends command<ListDevicesForUserCommandInput, ListDevicesForUserCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDevicesForUser",
+  ListDevicesForUser$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

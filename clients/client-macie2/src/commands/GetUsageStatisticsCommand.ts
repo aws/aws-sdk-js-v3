@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetUsageStatisticsRequest, GetUsageStatisticsResponse } from "../models/models_0";
 import { GetUsageStatistics$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetUsageStatistics$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -115,22 +111,12 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  *
  * @public
  */
-export class GetUsageStatisticsCommand extends $Command
-  .classBuilder<
-    GetUsageStatisticsCommandInput,
-    GetUsageStatisticsCommandOutput,
-    Macie2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Macie2", "GetUsageStatistics", {})
-  .n("Macie2Client", "GetUsageStatisticsCommand")
-  .sc(GetUsageStatistics$)
-  .build() {
+export class GetUsageStatisticsCommand extends command<GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetUsageStatistics",
+  GetUsageStatistics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

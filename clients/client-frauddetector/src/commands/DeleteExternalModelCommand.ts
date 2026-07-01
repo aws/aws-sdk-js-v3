@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteExternalModelRequest, DeleteExternalModelResult } from "../models/models_0";
 import { DeleteExternalModel$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteExternalModel$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -73,22 +69,12 @@ export interface DeleteExternalModelCommandOutput extends DeleteExternalModelRes
  *
  * @public
  */
-export class DeleteExternalModelCommand extends $Command
-  .classBuilder<
-    DeleteExternalModelCommandInput,
-    DeleteExternalModelCommandOutput,
-    FraudDetectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSHawksNestServiceFacade", "DeleteExternalModel", {})
-  .n("FraudDetectorClient", "DeleteExternalModelCommand")
-  .sc(DeleteExternalModel$)
-  .build() {
+export class DeleteExternalModelCommand extends command<DeleteExternalModelCommandInput, DeleteExternalModelCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteExternalModel",
+  DeleteExternalModel$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

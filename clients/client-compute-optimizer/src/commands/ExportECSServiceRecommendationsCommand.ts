@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ExportECSServiceRecommendationsRequest,
   ExportECSServiceRecommendationsResponse,
@@ -19,7 +12,6 @@ import { ExportECSServiceRecommendations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -122,22 +114,12 @@ export interface ExportECSServiceRecommendationsCommandOutput extends ExportECSS
  *
  * @public
  */
-export class ExportECSServiceRecommendationsCommand extends $Command
-  .classBuilder<
-    ExportECSServiceRecommendationsCommandInput,
-    ExportECSServiceRecommendationsCommandOutput,
-    ComputeOptimizerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerService", "ExportECSServiceRecommendations", {})
-  .n("ComputeOptimizerClient", "ExportECSServiceRecommendationsCommand")
-  .sc(ExportECSServiceRecommendations$)
-  .build() {
+export class ExportECSServiceRecommendationsCommand extends command<ExportECSServiceRecommendationsCommandInput, ExportECSServiceRecommendationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExportECSServiceRecommendations",
+  ExportECSServiceRecommendations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  AmplifyUIBuilderClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AmplifyUIBuilderClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetCodegenJobRequest, GetCodegenJobResponse } from "../models/models_0";
 import { GetCodegenJob$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetCodegenJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -197,22 +189,12 @@ export interface GetCodegenJobCommandOutput extends GetCodegenJobResponse, __Met
  *
  * @public
  */
-export class GetCodegenJobCommand extends $Command
-  .classBuilder<
-    GetCodegenJobCommandInput,
-    GetCodegenJobCommandOutput,
-    AmplifyUIBuilderClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmplifyUIBuilder", "GetCodegenJob", {})
-  .n("AmplifyUIBuilderClient", "GetCodegenJobCommand")
-  .sc(GetCodegenJob$)
-  .build() {
+export class GetCodegenJobCommand extends command<GetCodegenJobCommandInput, GetCodegenJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetCodegenJob",
+  GetCodegenJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

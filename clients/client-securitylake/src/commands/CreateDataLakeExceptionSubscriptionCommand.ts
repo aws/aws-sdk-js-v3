@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateDataLakeExceptionSubscriptionRequest,
   CreateDataLakeExceptionSubscriptionResponse,
 } from "../models/models_0";
 import { CreateDataLakeExceptionSubscription$ } from "../schemas/schemas_0";
-import type { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityLakeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface CreateDataLakeExceptionSubscriptionCommandOutput extends Create
  *
  * @public
  */
-export class CreateDataLakeExceptionSubscriptionCommand extends $Command
-  .classBuilder<
-    CreateDataLakeExceptionSubscriptionCommandInput,
-    CreateDataLakeExceptionSubscriptionCommandOutput,
-    SecurityLakeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SecurityLake", "CreateDataLakeExceptionSubscription", {})
-  .n("SecurityLakeClient", "CreateDataLakeExceptionSubscriptionCommand")
-  .sc(CreateDataLakeExceptionSubscription$)
-  .build() {
+export class CreateDataLakeExceptionSubscriptionCommand extends command<CreateDataLakeExceptionSubscriptionCommandInput, CreateDataLakeExceptionSubscriptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDataLakeExceptionSubscription",
+  CreateDataLakeExceptionSubscription$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

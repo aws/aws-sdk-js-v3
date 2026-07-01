@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutJobSuccessResultInput } from "../models/models_0";
 import { PutJobSuccessResult$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutJobSuccessResult$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface PutJobSuccessResultCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class PutJobSuccessResultCommand extends $Command
-  .classBuilder<
-    PutJobSuccessResultCommandInput,
-    PutJobSuccessResultCommandOutput,
-    CodePipelineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodePipeline_20150709", "PutJobSuccessResult", {})
-  .n("CodePipelineClient", "PutJobSuccessResultCommand")
-  .sc(PutJobSuccessResult$)
-  .build() {
+export class PutJobSuccessResultCommand extends command<PutJobSuccessResultCommandInput, PutJobSuccessResultCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutJobSuccessResult",
+  PutJobSuccessResult$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

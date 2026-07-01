@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetTableEncryptionRequest, GetTableEncryptionResponse } from "../models/models_0";
-import type { S3TablesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3TablesClient";
 import { GetTableEncryption$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface GetTableEncryptionCommandOutput extends GetTableEncryptionRespo
  *
  * @public
  */
-export class GetTableEncryptionCommand extends $Command
-  .classBuilder<
-    GetTableEncryptionCommandInput,
-    GetTableEncryptionCommandOutput,
-    S3TablesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: S3TablesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("S3TableBuckets", "GetTableEncryption", {})
-  .n("S3TablesClient", "GetTableEncryptionCommand")
-  .sc(GetTableEncryption$)
-  .build() {
+export class GetTableEncryptionCommand extends command<GetTableEncryptionCommandInput, GetTableEncryptionCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetTableEncryption",
+  GetTableEncryption$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateIpAccessSettingsRequest, UpdateIpAccessSettingsResponse } from "../models/models_0";
 import { UpdateIpAccessSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface UpdateIpAccessSettingsCommandOutput extends UpdateIpAccessSetti
  *
  * @public
  */
-export class UpdateIpAccessSettingsCommand extends $Command
-  .classBuilder<
-    UpdateIpAccessSettingsCommandInput,
-    UpdateIpAccessSettingsCommandOutput,
-    WorkSpacesWebClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSErmineControlPlaneService", "UpdateIpAccessSettings", {})
-  .n("WorkSpacesWebClient", "UpdateIpAccessSettingsCommand")
-  .sc(UpdateIpAccessSettings$)
-  .build() {
+export class UpdateIpAccessSettingsCommand extends command<UpdateIpAccessSettingsCommandInput, UpdateIpAccessSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateIpAccessSettings",
+  UpdateIpAccessSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

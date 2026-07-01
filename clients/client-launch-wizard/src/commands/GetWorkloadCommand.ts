@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LaunchWizardClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LaunchWizardClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetWorkloadInput, GetWorkloadOutput } from "../models/models_0";
 import { GetWorkload$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetWorkload$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,22 +94,12 @@ export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataB
  *
  * @public
  */
-export class GetWorkloadCommand extends $Command
-  .classBuilder<
-    GetWorkloadCommandInput,
-    GetWorkloadCommandOutput,
-    LaunchWizardClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LaunchWizardClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LaunchWizard", "GetWorkload", {})
-  .n("LaunchWizardClient", "GetWorkloadCommand")
-  .sc(GetWorkload$)
-  .build() {
+export class GetWorkloadCommand extends command<GetWorkloadCommandInput, GetWorkloadCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetWorkload",
+  GetWorkload$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

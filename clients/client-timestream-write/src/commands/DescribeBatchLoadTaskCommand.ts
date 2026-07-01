@@ -1,23 +1,14 @@
 // smithy-typescript generated code
-import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeBatchLoadTaskRequest, DescribeBatchLoadTaskResponse } from "../models/models_0";
 import { DescribeBatchLoadTask$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TimestreamWriteClientResolvedConfig,
-} from "../TimestreamWriteClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -168,29 +159,12 @@ export interface DescribeBatchLoadTaskCommandOutput extends DescribeBatchLoadTas
  *
  * @public
  */
-export class DescribeBatchLoadTaskCommand extends $Command
-  .classBuilder<
-    DescribeBatchLoadTaskCommandInput,
-    DescribeBatchLoadTaskCommandOutput,
-    TimestreamWriteClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TimestreamWriteClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEndpointDiscoveryPlugin(config, {
-        clientStack: cs,
-        isDiscoveredEndpointRequired: true,
-        options: o,
-      }),
-    ];
-  })
-  .s("Timestream_20181101", "DescribeBatchLoadTask", {})
-  .n("TimestreamWriteClient", "DescribeBatchLoadTaskCommand")
-  .sc(DescribeBatchLoadTask$)
-  .build() {
+export class DescribeBatchLoadTaskCommand extends command<DescribeBatchLoadTaskCommandInput, DescribeBatchLoadTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeBatchLoadTask",
+  DescribeBatchLoadTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

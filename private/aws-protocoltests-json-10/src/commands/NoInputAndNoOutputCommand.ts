@@ -12,7 +12,6 @@ import { de_NoInputAndNoOutputCommand, se_NoInputAndNoOutputCommand } from "../p
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

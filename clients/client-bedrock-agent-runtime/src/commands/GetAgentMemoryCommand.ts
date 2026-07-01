@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentRuntimeClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentRuntimeClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetAgentMemoryRequest, GetAgentMemoryResponse } from "../models/models_0";
 import { GetAgentMemory$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { GetAgentMemory$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -106,22 +98,12 @@ export interface GetAgentMemoryCommandOutput extends GetAgentMemoryResponse, __M
  *
  * @public
  */
-export class GetAgentMemoryCommand extends $Command
-  .classBuilder<
-    GetAgentMemoryCommandInput,
-    GetAgentMemoryCommandOutput,
-    BedrockAgentRuntimeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentRunTimeService", "GetAgentMemory", {})
-  .n("BedrockAgentRuntimeClient", "GetAgentMemoryCommand")
-  .sc(GetAgentMemory$)
-  .build() {
+export class GetAgentMemoryCommand extends command<GetAgentMemoryCommandInput, GetAgentMemoryCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetAgentMemory",
+  GetAgentMemory$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

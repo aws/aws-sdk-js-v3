@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExportEarthObservationJobInput, ExportEarthObservationJobOutput } from "../models/models_0";
-import type {
-  SageMakerGeospatialClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../SageMakerGeospatialClient";
 import { ExportEarthObservationJob$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +95,12 @@ export interface ExportEarthObservationJobCommandOutput extends ExportEarthObser
  *
  * @public
  */
-export class ExportEarthObservationJobCommand extends $Command
-  .classBuilder<
-    ExportEarthObservationJobCommandInput,
-    ExportEarthObservationJobCommandOutput,
-    SageMakerGeospatialClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerGeospatialClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMakerGeospatial", "ExportEarthObservationJob", {})
-  .n("SageMakerGeospatialClient", "ExportEarthObservationJobCommand")
-  .sc(ExportEarthObservationJob$)
-  .build() {
+export class ExportEarthObservationJobCommand extends command<ExportEarthObservationJobCommandInput, ExportEarthObservationJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "ExportEarthObservationJob",
+  ExportEarthObservationJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

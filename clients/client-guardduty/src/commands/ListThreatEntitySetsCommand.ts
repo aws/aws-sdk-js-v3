@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListThreatEntitySetsRequest, ListThreatEntitySetsResponse } from "../models/models_1";
 import { ListThreatEntitySets$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListThreatEntitySets$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface ListThreatEntitySetsCommandOutput extends ListThreatEntitySetsR
  *
  * @public
  */
-export class ListThreatEntitySetsCommand extends $Command
-  .classBuilder<
-    ListThreatEntitySetsCommandInput,
-    ListThreatEntitySetsCommandOutput,
-    GuardDutyClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GuardDutyAPIService", "ListThreatEntitySets", {})
-  .n("GuardDutyClient", "ListThreatEntitySetsCommand")
-  .sc(ListThreatEntitySets$)
-  .build() {
+export class ListThreatEntitySetsCommand extends command<ListThreatEntitySetsCommandInput, ListThreatEntitySetsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListThreatEntitySets",
+  ListThreatEntitySets$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

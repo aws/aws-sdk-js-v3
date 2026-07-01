@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListDurableExecutionsByFunctionRequest,
   ListDurableExecutionsByFunctionResponse,
@@ -15,7 +12,6 @@ import { ListDurableExecutionsByFunction$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface ListDurableExecutionsByFunctionCommandOutput extends ListDurabl
  *
  * @public
  */
-export class ListDurableExecutionsByFunctionCommand extends $Command
-  .classBuilder<
-    ListDurableExecutionsByFunctionCommandInput,
-    ListDurableExecutionsByFunctionCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "ListDurableExecutionsByFunction", {})
-  .n("LambdaClient", "ListDurableExecutionsByFunctionCommand")
-  .sc(ListDurableExecutionsByFunction$)
-  .build() {
+export class ListDurableExecutionsByFunctionCommand extends command<ListDurableExecutionsByFunctionCommandInput, ListDurableExecutionsByFunctionCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDurableExecutionsByFunction",
+  ListDurableExecutionsByFunction$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

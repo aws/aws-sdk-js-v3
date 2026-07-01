@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteConnectorProfileRequest, DeleteConnectorProfileResponse } from "../models/models_0";
 import { DeleteConnectorProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteConnectorProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -70,22 +66,12 @@ export interface DeleteConnectorProfileCommandOutput extends DeleteConnectorProf
  *
  * @public
  */
-export class DeleteConnectorProfileCommand extends $Command
-  .classBuilder<
-    DeleteConnectorProfileCommandInput,
-    DeleteConnectorProfileCommandOutput,
-    AppflowClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SandstoneConfigurationServiceLambda", "DeleteConnectorProfile", {})
-  .n("AppflowClient", "DeleteConnectorProfileCommand")
-  .sc(DeleteConnectorProfile$)
-  .build() {
+export class DeleteConnectorProfileCommand extends command<DeleteConnectorProfileCommandInput, DeleteConnectorProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteConnectorProfile",
+  DeleteConnectorProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

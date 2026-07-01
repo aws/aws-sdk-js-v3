@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeNotificationSubscriptionsRequest,
   DescribeNotificationSubscriptionsResponse,
 } from "../models/models_0";
 import { DescribeNotificationSubscriptions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface DescribeNotificationSubscriptionsCommandOutput extends Describe
  *
  * @public
  */
-export class DescribeNotificationSubscriptionsCommand extends $Command
-  .classBuilder<
-    DescribeNotificationSubscriptionsCommandInput,
-    DescribeNotificationSubscriptionsCommandOutput,
-    WorkDocsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGorillaBoyService", "DescribeNotificationSubscriptions", {})
-  .n("WorkDocsClient", "DescribeNotificationSubscriptionsCommand")
-  .sc(DescribeNotificationSubscriptions$)
-  .build() {
+export class DescribeNotificationSubscriptionsCommand extends command<DescribeNotificationSubscriptionsCommandInput, DescribeNotificationSubscriptionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeNotificationSubscriptions",
+  DescribeNotificationSubscriptions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

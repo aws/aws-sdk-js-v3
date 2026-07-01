@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetRunRequest, GetRunResult } from "../models/models_0";
 import { GetRun$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetRun$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -178,22 +174,12 @@ export interface GetRunCommandOutput extends GetRunResult, __MetadataBearer {}
  *
  * @public
  */
-export class GetRunCommand extends $Command
-  .classBuilder<
-    GetRunCommandInput,
-    GetRunCommandOutput,
-    DeviceFarmClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DeviceFarm_20150623", "GetRun", {})
-  .n("DeviceFarmClient", "GetRunCommand")
-  .sc(GetRun$)
-  .build() {
+export class GetRunCommand extends command<GetRunCommandInput, GetRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRun",
+  GetRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

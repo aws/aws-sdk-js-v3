@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelPracticeRunRequest, CancelPracticeRunResponse } from "../models/models_0";
 import { CancelPracticeRun$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CancelPracticeRun$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface CancelPracticeRunCommandOutput extends CancelPracticeRunRespons
  *
  * @public
  */
-export class CancelPracticeRunCommand extends $Command
-  .classBuilder<
-    CancelPracticeRunCommandInput,
-    CancelPracticeRunCommandOutput,
-    ARCZonalShiftClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PercDataPlane", "CancelPracticeRun", {})
-  .n("ARCZonalShiftClient", "CancelPracticeRunCommand")
-  .sc(CancelPracticeRun$)
-  .build() {
+export class CancelPracticeRunCommand extends command<CancelPracticeRunCommandInput, CancelPracticeRunCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelPracticeRun",
+  CancelPracticeRun$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartCisSessionRequest, StartCisSessionResponse } from "../models/models_1";
 import { StartCisSession$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartCisSession$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface StartCisSessionCommandOutput extends StartCisSessionResponse, _
  *
  * @public
  */
-export class StartCisSessionCommand extends $Command
-  .classBuilder<
-    StartCisSessionCommandInput,
-    StartCisSessionCommandOutput,
-    Inspector2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Inspector2", "StartCisSession", {})
-  .n("Inspector2Client", "StartCisSessionCommand")
-  .sc(StartCisSession$)
-  .build() {
+export class StartCisSessionCommand extends command<StartCisSessionCommandInput, StartCisSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartCisSession",
+  StartCisSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

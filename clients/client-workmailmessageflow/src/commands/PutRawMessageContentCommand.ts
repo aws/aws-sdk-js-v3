@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutRawMessageContentRequest, PutRawMessageContentResponse } from "../models/models_0";
 import { PutRawMessageContent$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WorkMailMessageFlowClientResolvedConfig,
-} from "../WorkMailMessageFlowClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +100,12 @@ export interface PutRawMessageContentCommandOutput extends PutRawMessageContentR
  *
  * @public
  */
-export class PutRawMessageContentCommand extends $Command
-  .classBuilder<
-    PutRawMessageContentCommandInput,
-    PutRawMessageContentCommandOutput,
-    WorkMailMessageFlowClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailMessageFlowClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GiraffeMessageInTransitService", "PutRawMessageContent", {})
-  .n("WorkMailMessageFlowClient", "PutRawMessageContentCommand")
-  .sc(PutRawMessageContent$)
-  .build() {
+export class PutRawMessageContentCommand extends command<PutRawMessageContentCommandInput, PutRawMessageContentCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutRawMessageContent",
+  PutRawMessageContent$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

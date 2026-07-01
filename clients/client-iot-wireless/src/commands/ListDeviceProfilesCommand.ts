@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDeviceProfilesRequest, ListDeviceProfilesResponse } from "../models/models_0";
 import { ListDeviceProfiles$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListDeviceProfiles$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface ListDeviceProfilesCommandOutput extends ListDeviceProfilesRespo
  *
  * @public
  */
-export class ListDeviceProfilesCommand extends $Command
-  .classBuilder<
-    ListDeviceProfilesCommandInput,
-    ListDeviceProfilesCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "ListDeviceProfiles", {})
-  .n("IoTWirelessClient", "ListDeviceProfilesCommand")
-  .sc(ListDeviceProfiles$)
-  .build() {
+export class ListDeviceProfilesCommand extends command<ListDeviceProfilesCommandInput, ListDeviceProfilesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDeviceProfiles",
+  ListDeviceProfiles$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

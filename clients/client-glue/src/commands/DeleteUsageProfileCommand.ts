@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteUsageProfileRequest, DeleteUsageProfileResponse } from "../models/models_1";
 import { DeleteUsageProfile$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteUsageProfile$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteUsageProfileCommandOutput extends DeleteUsageProfileRespo
  *
  * @public
  */
-export class DeleteUsageProfileCommand extends $Command
-  .classBuilder<
-    DeleteUsageProfileCommandInput,
-    DeleteUsageProfileCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "DeleteUsageProfile", {})
-  .n("GlueClient", "DeleteUsageProfileCommand")
-  .sc(DeleteUsageProfile$)
-  .build() {
+export class DeleteUsageProfileCommand extends command<DeleteUsageProfileCommandInput, DeleteUsageProfileCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteUsageProfile",
+  DeleteUsageProfile$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

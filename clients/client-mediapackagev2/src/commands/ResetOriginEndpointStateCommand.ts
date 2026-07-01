@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  MediaPackageV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MediaPackageV2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ResetOriginEndpointStateRequest, ResetOriginEndpointStateResponse } from "../models/models_0";
 import { ResetOriginEndpointState$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ResetOriginEndpointState$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -108,22 +100,12 @@ export interface ResetOriginEndpointStateCommandOutput extends ResetOriginEndpoi
  *
  * @public
  */
-export class ResetOriginEndpointStateCommand extends $Command
-  .classBuilder<
-    ResetOriginEndpointStateCommandInput,
-    ResetOriginEndpointStateCommandOutput,
-    MediaPackageV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("mediapackagev2", "ResetOriginEndpointState", {})
-  .n("MediaPackageV2Client", "ResetOriginEndpointStateCommand")
-  .sc(ResetOriginEndpointState$)
-  .build() {
+export class ResetOriginEndpointStateCommand extends command<ResetOriginEndpointStateCommandInput, ResetOriginEndpointStateCommandOutput>(
+  _ep0,
+  _mw0,
+  "ResetOriginEndpointState",
+  ResetOriginEndpointState$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutApprovalResultInput, PutApprovalResultOutput } from "../models/models_0";
 import { PutApprovalResult$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutApprovalResult$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface PutApprovalResultCommandOutput extends PutApprovalResultOutput,
  *
  * @public
  */
-export class PutApprovalResultCommand extends $Command
-  .classBuilder<
-    PutApprovalResultCommandInput,
-    PutApprovalResultCommandOutput,
-    CodePipelineClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodePipeline_20150709", "PutApprovalResult", {})
-  .n("CodePipelineClient", "PutApprovalResultCommand")
-  .sc(PutApprovalResult$)
-  .build() {
+export class PutApprovalResultCommand extends command<PutApprovalResultCommandInput, PutApprovalResultCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutApprovalResult",
+  PutApprovalResult$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { RunStatementRequest, RunStatementResponse } from "../models/models_2";
 import { RunStatement$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { RunStatement$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +87,12 @@ export interface RunStatementCommandOutput extends RunStatementResponse, __Metad
  *
  * @public
  */
-export class RunStatementCommand extends $Command
-  .classBuilder<
-    RunStatementCommandInput,
-    RunStatementCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "RunStatement", {})
-  .n("GlueClient", "RunStatementCommand")
-  .sc(RunStatement$)
-  .build() {
+export class RunStatementCommand extends command<RunStatementCommandInput, RunStatementCommandOutput>(
+  _ep0,
+  _mw0,
+  "RunStatement",
+  RunStatement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListAccountAssignmentsRequest, ListAccountAssignmentsResponse } from "../models/models_0";
 import { ListAccountAssignments$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +82,12 @@ export interface ListAccountAssignmentsCommandOutput extends ListAccountAssignme
  *
  * @public
  */
-export class ListAccountAssignmentsCommand extends $Command
-  .classBuilder<
-    ListAccountAssignmentsCommandInput,
-    ListAccountAssignmentsCommandOutput,
-    SSOAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBExternalService", "ListAccountAssignments", {})
-  .n("SSOAdminClient", "ListAccountAssignmentsCommand")
-  .sc(ListAccountAssignments$)
-  .build() {
+export class ListAccountAssignmentsCommand extends command<ListAccountAssignmentsCommandInput, ListAccountAssignmentsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListAccountAssignments",
+  ListAccountAssignments$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

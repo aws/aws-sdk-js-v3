@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { AddJobFlowStepsInput, AddJobFlowStepsOutput } from "../models/models_0";
 import { AddJobFlowSteps$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { AddJobFlowSteps$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -109,22 +105,12 @@ export interface AddJobFlowStepsCommandOutput extends AddJobFlowStepsOutput, __M
  *
  * @public
  */
-export class AddJobFlowStepsCommand extends $Command
-  .classBuilder<
-    AddJobFlowStepsCommandInput,
-    AddJobFlowStepsCommandOutput,
-    EMRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticMapReduce", "AddJobFlowSteps", {})
-  .n("EMRClient", "AddJobFlowStepsCommand")
-  .sc(AddJobFlowSteps$)
-  .build() {
+export class AddJobFlowStepsCommand extends command<AddJobFlowStepsCommandInput, AddJobFlowStepsCommandOutput>(
+  _ep0,
+  _mw0,
+  "AddJobFlowSteps",
+  AddJobFlowSteps$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

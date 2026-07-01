@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListApiKeysRequest, ListApiKeysResponse } from "../models/models_0";
 import { ListApiKeys$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListApiKeys$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __Metadat
  *
  * @public
  */
-export class ListApiKeysCommand extends $Command
-  .classBuilder<
-    ListApiKeysCommandInput,
-    ListApiKeysCommandOutput,
-    AppSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepdishControlPlaneService", "ListApiKeys", {})
-  .n("AppSyncClient", "ListApiKeysCommand")
-  .sc(ListApiKeys$)
-  .build() {
+export class ListApiKeysCommand extends command<ListApiKeysCommandInput, ListApiKeysCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListApiKeys",
+  ListApiKeys$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

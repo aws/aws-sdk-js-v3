@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetSchemaCreationStatusRequest, GetSchemaCreationStatusResponse } from "../models/models_0";
 import { GetSchemaCreationStatus$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { GetSchemaCreationStatus$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface GetSchemaCreationStatusCommandOutput extends GetSchemaCreationS
  *
  * @public
  */
-export class GetSchemaCreationStatusCommand extends $Command
-  .classBuilder<
-    GetSchemaCreationStatusCommandInput,
-    GetSchemaCreationStatusCommandOutput,
-    AppSyncClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSDeepdishControlPlaneService", "GetSchemaCreationStatus", {})
-  .n("AppSyncClient", "GetSchemaCreationStatusCommand")
-  .sc(GetSchemaCreationStatus$)
-  .build() {
+export class GetSchemaCreationStatusCommand extends command<GetSchemaCreationStatusCommandInput, GetSchemaCreationStatusCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetSchemaCreationStatus",
+  GetSchemaCreationStatus$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

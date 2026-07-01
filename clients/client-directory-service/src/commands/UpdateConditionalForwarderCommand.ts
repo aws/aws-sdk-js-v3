@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateConditionalForwarderRequest, UpdateConditionalForwarderResult } from "../models/models_0";
 import { UpdateConditionalForwarder$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateConditionalForwarder$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +96,12 @@ export interface UpdateConditionalForwarderCommandOutput extends UpdateCondition
  *
  * @public
  */
-export class UpdateConditionalForwarderCommand extends $Command
-  .classBuilder<
-    UpdateConditionalForwarderCommandInput,
-    UpdateConditionalForwarderCommandOutput,
-    DirectoryServiceClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("DirectoryService_20150416", "UpdateConditionalForwarder", {})
-  .n("DirectoryServiceClient", "UpdateConditionalForwarderCommand")
-  .sc(UpdateConditionalForwarder$)
-  .build() {
+export class UpdateConditionalForwarderCommand extends command<UpdateConditionalForwarderCommandInput, UpdateConditionalForwarderCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateConditionalForwarder",
+  UpdateConditionalForwarder$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

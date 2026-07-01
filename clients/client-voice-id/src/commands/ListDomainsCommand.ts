@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListDomainsRequest, ListDomainsResponse } from "../models/models_0";
 import { ListDomains$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } from "../VoiceIDClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  *
  * @public
  */
-export class ListDomainsCommand extends $Command
-  .classBuilder<
-    ListDomainsCommandInput,
-    ListDomainsCommandOutput,
-    VoiceIDClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("VoiceID", "ListDomains", {})
-  .n("VoiceIDClient", "ListDomainsCommand")
-  .sc(ListDomains$)
-  .build() {
+export class ListDomainsCommand extends command<ListDomainsCommandInput, ListDomainsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListDomains",
+  ListDomains$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutInstancePublicPortsRequest, PutInstancePublicPortsResult } from "../models/models_1";
 import { PutInstancePublicPorts$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutInstancePublicPorts$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -133,22 +129,12 @@ export interface PutInstancePublicPortsCommandOutput extends PutInstancePublicPo
  *
  * @public
  */
-export class PutInstancePublicPortsCommand extends $Command
-  .classBuilder<
-    PutInstancePublicPortsCommandInput,
-    PutInstancePublicPortsCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "PutInstancePublicPorts", {})
-  .n("LightsailClient", "PutInstancePublicPortsCommand")
-  .sc(PutInstancePublicPorts$)
-  .build() {
+export class PutInstancePublicPortsCommand extends command<PutInstancePublicPortsCommandInput, PutInstancePublicPortsCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutInstancePublicPorts",
+  PutInstancePublicPorts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

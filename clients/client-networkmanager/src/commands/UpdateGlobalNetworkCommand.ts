@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateGlobalNetworkRequest, UpdateGlobalNetworkResponse } from "../models/models_0";
-import type {
-  NetworkManagerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../NetworkManagerClient";
 import { UpdateGlobalNetwork$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -96,22 +88,12 @@ export interface UpdateGlobalNetworkCommandOutput extends UpdateGlobalNetworkRes
  *
  * @public
  */
-export class UpdateGlobalNetworkCommand extends $Command
-  .classBuilder<
-    UpdateGlobalNetworkCommandInput,
-    UpdateGlobalNetworkCommandOutput,
-    NetworkManagerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("NetworkManager", "UpdateGlobalNetwork", {})
-  .n("NetworkManagerClient", "UpdateGlobalNetworkCommand")
-  .sc(UpdateGlobalNetwork$)
-  .build() {
+export class UpdateGlobalNetworkCommand extends command<UpdateGlobalNetworkCommandInput, UpdateGlobalNetworkCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateGlobalNetwork",
+  UpdateGlobalNetwork$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

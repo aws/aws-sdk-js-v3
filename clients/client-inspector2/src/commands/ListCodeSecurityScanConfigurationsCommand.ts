@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListCodeSecurityScanConfigurationsRequest,
   ListCodeSecurityScanConfigurationsResponse,
@@ -15,7 +12,6 @@ import { ListCodeSecurityScanConfigurations$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface ListCodeSecurityScanConfigurationsCommandOutput extends ListCod
  *
  * @public
  */
-export class ListCodeSecurityScanConfigurationsCommand extends $Command
-  .classBuilder<
-    ListCodeSecurityScanConfigurationsCommandInput,
-    ListCodeSecurityScanConfigurationsCommandOutput,
-    Inspector2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Inspector2", "ListCodeSecurityScanConfigurations", {})
-  .n("Inspector2Client", "ListCodeSecurityScanConfigurationsCommand")
-  .sc(ListCodeSecurityScanConfigurations$)
-  .build() {
+export class ListCodeSecurityScanConfigurationsCommand extends command<ListCodeSecurityScanConfigurationsCommandInput, ListCodeSecurityScanConfigurationsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListCodeSecurityScanConfigurations",
+  ListCodeSecurityScanConfigurations$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

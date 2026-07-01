@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ComputeOptimizerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ComputeOptimizerClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetRDSDatabaseRecommendationProjectedMetricsRequest,
   GetRDSDatabaseRecommendationProjectedMetricsResponse,
@@ -19,7 +12,6 @@ import { GetRDSDatabaseRecommendationProjectedMetrics$ } from "../schemas/schema
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +110,12 @@ export interface GetRDSDatabaseRecommendationProjectedMetricsCommandOutput exten
  *
  * @public
  */
-export class GetRDSDatabaseRecommendationProjectedMetricsCommand extends $Command
-  .classBuilder<
-    GetRDSDatabaseRecommendationProjectedMetricsCommandInput,
-    GetRDSDatabaseRecommendationProjectedMetricsCommandOutput,
-    ComputeOptimizerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ComputeOptimizerService", "GetRDSDatabaseRecommendationProjectedMetrics", {})
-  .n("ComputeOptimizerClient", "GetRDSDatabaseRecommendationProjectedMetricsCommand")
-  .sc(GetRDSDatabaseRecommendationProjectedMetrics$)
-  .build() {
+export class GetRDSDatabaseRecommendationProjectedMetricsCommand extends command<GetRDSDatabaseRecommendationProjectedMetricsCommandInput, GetRDSDatabaseRecommendationProjectedMetricsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetRDSDatabaseRecommendationProjectedMetrics",
+  GetRDSDatabaseRecommendationProjectedMetrics$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

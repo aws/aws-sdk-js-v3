@@ -13,7 +13,6 @@ import { de_XmlEmptyBlobsCommand, se_XmlEmptyBlobsCommand } from "../protocols/A
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

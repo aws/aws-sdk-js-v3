@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetResourcesRequest, GetResourcesResponse } from "../models/models_0";
 import { GetResources$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface GetResourcesCommandOutput extends GetResourcesResponse, __Metad
  *
  * @public
  */
-export class GetResourcesCommand extends $Command
-  .classBuilder<
-    GetResourcesCommandInput,
-    GetResourcesCommandOutput,
-    WorkDocsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGorillaBoyService", "GetResources", {})
-  .n("WorkDocsClient", "GetResourcesCommand")
-  .sc(GetResources$)
-  .build() {
+export class GetResourcesCommand extends command<GetResourcesCommandInput, GetResourcesCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetResources",
+  GetResources$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

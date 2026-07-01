@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeMlflowTrackingServerRequest, DescribeMlflowTrackingServerResponse } from "../models/models_3";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DescribeMlflowTrackingServer$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface DescribeMlflowTrackingServerCommandOutput extends DescribeMlflo
  *
  * @public
  */
-export class DescribeMlflowTrackingServerCommand extends $Command
-  .classBuilder<
-    DescribeMlflowTrackingServerCommandInput,
-    DescribeMlflowTrackingServerCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DescribeMlflowTrackingServer", {})
-  .n("SageMakerClient", "DescribeMlflowTrackingServerCommand")
-  .sc(DescribeMlflowTrackingServer$)
-  .build() {
+export class DescribeMlflowTrackingServerCommand extends command<DescribeMlflowTrackingServerCommandInput, DescribeMlflowTrackingServerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeMlflowTrackingServer",
+  DescribeMlflowTrackingServer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PutAlertManagerDefinitionRequest, PutAlertManagerDefinitionResponse } from "../models/models_0";
 import { PutAlertManagerDefinition$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PutAlertManagerDefinition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerD
  *
  * @public
  */
-export class PutAlertManagerDefinitionCommand extends $Command
-  .classBuilder<
-    PutAlertManagerDefinitionCommandInput,
-    PutAlertManagerDefinitionCommandOutput,
-    AmpClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonPrometheusService", "PutAlertManagerDefinition", {})
-  .n("AmpClient", "PutAlertManagerDefinitionCommand")
-  .sc(PutAlertManagerDefinition$)
-  .build() {
+export class PutAlertManagerDefinitionCommand extends command<PutAlertManagerDefinitionCommandInput, PutAlertManagerDefinitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "PutAlertManagerDefinition",
+  PutAlertManagerDefinition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

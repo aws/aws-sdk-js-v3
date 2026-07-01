@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeEmergencyContactSettingsRequest,
   DescribeEmergencyContactSettingsResponse,
 } from "../models/models_0";
 import { DescribeEmergencyContactSettings$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface DescribeEmergencyContactSettingsCommandOutput extends DescribeE
  *
  * @public
  */
-export class DescribeEmergencyContactSettingsCommand extends $Command
-  .classBuilder<
-    DescribeEmergencyContactSettingsCommandInput,
-    DescribeEmergencyContactSettingsCommandOutput,
-    ShieldClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSShield_20160616", "DescribeEmergencyContactSettings", {})
-  .n("ShieldClient", "DescribeEmergencyContactSettingsCommand")
-  .sc(DescribeEmergencyContactSettings$)
-  .build() {
+export class DescribeEmergencyContactSettingsCommand extends command<DescribeEmergencyContactSettingsCommandInput, DescribeEmergencyContactSettingsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeEmergencyContactSettings",
+  DescribeEmergencyContactSettings$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeDeviceEc2Input, DescribeDeviceEc2Output } from "../models/models_0";
 import { DescribeDeviceEc2Instances$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  SnowDeviceManagementClientResolvedConfig,
-} from "../SnowDeviceManagementClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -123,22 +115,12 @@ export interface DescribeDeviceEc2InstancesCommandOutput extends DescribeDeviceE
  *
  * @public
  */
-export class DescribeDeviceEc2InstancesCommand extends $Command
-  .classBuilder<
-    DescribeDeviceEc2InstancesCommandInput,
-    DescribeDeviceEc2InstancesCommandOutput,
-    SnowDeviceManagementClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SnowDeviceManagementClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SnowDeviceManagement", "DescribeDeviceEc2Instances", {})
-  .n("SnowDeviceManagementClient", "DescribeDeviceEc2InstancesCommand")
-  .sc(DescribeDeviceEc2Instances$)
-  .build() {
+export class DescribeDeviceEc2InstancesCommand extends command<DescribeDeviceEc2InstancesCommandInput, DescribeDeviceEc2InstancesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeDeviceEc2Instances",
+  DescribeDeviceEc2Instances$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

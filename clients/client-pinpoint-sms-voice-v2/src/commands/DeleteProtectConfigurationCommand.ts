@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteProtectConfigurationRequest, DeleteProtectConfigurationResult } from "../models/models_0";
-import type {
-  PinpointSMSVoiceV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../PinpointSMSVoiceV2Client";
 import { DeleteProtectConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +77,12 @@ export interface DeleteProtectConfigurationCommandOutput extends DeleteProtectCo
  *
  * @public
  */
-export class DeleteProtectConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteProtectConfigurationCommandInput,
-    DeleteProtectConfigurationCommandOutput,
-    PinpointSMSVoiceV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("PinpointSMSVoiceV2", "DeleteProtectConfiguration", {})
-  .n("PinpointSMSVoiceV2Client", "DeleteProtectConfigurationCommand")
-  .sc(DeleteProtectConfiguration$)
-  .build() {
+export class DeleteProtectConfigurationCommand extends command<DeleteProtectConfigurationCommandInput, DeleteProtectConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteProtectConfiguration",
+  DeleteProtectConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

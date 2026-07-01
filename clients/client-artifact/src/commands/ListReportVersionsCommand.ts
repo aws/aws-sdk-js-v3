@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ArtifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ArtifactClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListReportVersionsRequest, ListReportVersionsResponse } from "../models/models_0";
 import { ListReportVersions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListReportVersions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -130,22 +126,12 @@ export interface ListReportVersionsCommandOutput extends ListReportVersionsRespo
  *
  * @public
  */
-export class ListReportVersionsCommand extends $Command
-  .classBuilder<
-    ListReportVersionsCommandInput,
-    ListReportVersionsCommandOutput,
-    ArtifactClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ArtifactClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Artifact", "ListReportVersions", {})
-  .n("ArtifactClient", "ListReportVersionsCommand")
-  .sc(ListReportVersions$)
-  .build() {
+export class ListReportVersionsCommand extends command<ListReportVersionsCommandInput, ListReportVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListReportVersions",
+  ListReportVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

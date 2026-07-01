@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateMobileDeviceAccessRuleRequest, CreateMobileDeviceAccessRuleResponse } from "../models/models_0";
 import { CreateMobileDeviceAccessRule$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -101,22 +97,12 @@ export interface CreateMobileDeviceAccessRuleCommandOutput extends CreateMobileD
  *
  * @public
  */
-export class CreateMobileDeviceAccessRuleCommand extends $Command
-  .classBuilder<
-    CreateMobileDeviceAccessRuleCommandInput,
-    CreateMobileDeviceAccessRuleCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "CreateMobileDeviceAccessRule", {})
-  .n("WorkMailClient", "CreateMobileDeviceAccessRuleCommand")
-  .sc(CreateMobileDeviceAccessRule$)
-  .build() {
+export class CreateMobileDeviceAccessRuleCommand extends command<CreateMobileDeviceAccessRuleCommandInput, CreateMobileDeviceAccessRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateMobileDeviceAccessRule",
+  CreateMobileDeviceAccessRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateDBSubnetGroupMessage, CreateDBSubnetGroupResult } from "../models/models_0";
 import { CreateDBSubnetGroup$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateDBSubnetGroup$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -105,22 +101,12 @@ export interface CreateDBSubnetGroupCommandOutput extends CreateDBSubnetGroupRes
  *
  * @public
  */
-export class CreateDBSubnetGroupCommand extends $Command
-  .classBuilder<
-    CreateDBSubnetGroupCommandInput,
-    CreateDBSubnetGroupCommandOutput,
-    DocDBClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "CreateDBSubnetGroup", {})
-  .n("DocDBClient", "CreateDBSubnetGroupCommand")
-  .sc(CreateDBSubnetGroup$)
-  .build() {
+export class CreateDBSubnetGroupCommand extends command<CreateDBSubnetGroupCommandInput, CreateDBSubnetGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateDBSubnetGroup",
+  CreateDBSubnetGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

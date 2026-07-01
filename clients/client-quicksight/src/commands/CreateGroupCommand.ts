@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateGroupRequest, CreateGroupResponse } from "../models/models_3";
-import type { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 import { CreateGroup$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -103,22 +99,12 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  *
  * @public
  */
-export class CreateGroupCommand extends $Command
-  .classBuilder<
-    CreateGroupCommandInput,
-    CreateGroupCommandOutput,
-    QuickSightClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("QuickSight_20180401", "CreateGroup", {})
-  .n("QuickSightClient", "CreateGroupCommand")
-  .sc(CreateGroup$)
-  .build() {
+export class CreateGroupCommand extends command<CreateGroupCommandInput, CreateGroupCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateGroup",
+  CreateGroup$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

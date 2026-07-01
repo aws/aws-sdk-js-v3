@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { PreviewPrivacyImpactInput, PreviewPrivacyImpactOutput } from "../models/models_1";
 import { PreviewPrivacyImpact$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { PreviewPrivacyImpact$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface PreviewPrivacyImpactCommandOutput extends PreviewPrivacyImpactO
  *
  * @public
  */
-export class PreviewPrivacyImpactCommand extends $Command
-  .classBuilder<
-    PreviewPrivacyImpactCommandInput,
-    PreviewPrivacyImpactCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "PreviewPrivacyImpact", {})
-  .n("CleanRoomsClient", "PreviewPrivacyImpactCommand")
-  .sc(PreviewPrivacyImpact$)
-  .build() {
+export class PreviewPrivacyImpactCommand extends command<PreviewPrivacyImpactCommandInput, PreviewPrivacyImpactCommandOutput>(
+  _ep0,
+  _mw0,
+  "PreviewPrivacyImpact",
+  PreviewPrivacyImpact$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TerminateSessionInput, TerminateSessionOutput } from "../models/models_0";
 import { TerminateSession$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { TerminateSession$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface TerminateSessionCommandOutput extends TerminateSessionOutput, _
  *
  * @public
  */
-export class TerminateSessionCommand extends $Command
-  .classBuilder<
-    TerminateSessionCommandInput,
-    TerminateSessionCommandOutput,
-    EMRClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticMapReduce", "TerminateSession", {})
-  .n("EMRClient", "TerminateSessionCommand")
-  .sc(TerminateSession$)
-  .build() {
+export class TerminateSessionCommand extends command<TerminateSessionCommandInput, TerminateSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "TerminateSession",
+  TerminateSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   EnableReachabilityAnalyzerOrganizationSharingRequest,
   EnableReachabilityAnalyzerOrganizationSharingResult,
@@ -15,7 +12,6 @@ import { EnableReachabilityAnalyzerOrganizationSharing$ } from "../schemas/schem
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -66,22 +62,12 @@ export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput exte
  *
  * @public
  */
-export class EnableReachabilityAnalyzerOrganizationSharingCommand extends $Command
-  .classBuilder<
-    EnableReachabilityAnalyzerOrganizationSharingCommandInput,
-    EnableReachabilityAnalyzerOrganizationSharingCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "EnableReachabilityAnalyzerOrganizationSharing", {})
-  .n("EC2Client", "EnableReachabilityAnalyzerOrganizationSharingCommand")
-  .sc(EnableReachabilityAnalyzerOrganizationSharing$)
-  .build() {
+export class EnableReachabilityAnalyzerOrganizationSharingCommand extends command<EnableReachabilityAnalyzerOrganizationSharingCommandInput, EnableReachabilityAnalyzerOrganizationSharingCommandOutput>(
+  _ep0,
+  _mw0,
+  "EnableReachabilityAnalyzerOrganizationSharing",
+  EnableReachabilityAnalyzerOrganizationSharing$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

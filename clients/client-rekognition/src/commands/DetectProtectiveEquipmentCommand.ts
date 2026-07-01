@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DetectProtectiveEquipmentRequest, DetectProtectiveEquipmentResponse } from "../models/models_0";
-import type { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 import { DetectProtectiveEquipment$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -182,22 +178,12 @@ export interface DetectProtectiveEquipmentCommandOutput extends DetectProtective
  *
  * @public
  */
-export class DetectProtectiveEquipmentCommand extends $Command
-  .classBuilder<
-    DetectProtectiveEquipmentCommandInput,
-    DetectProtectiveEquipmentCommandOutput,
-    RekognitionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RekognitionService", "DetectProtectiveEquipment", {})
-  .n("RekognitionClient", "DetectProtectiveEquipmentCommand")
-  .sc(DetectProtectiveEquipment$)
-  .build() {
+export class DetectProtectiveEquipmentCommand extends command<DetectProtectiveEquipmentCommandInput, DetectProtectiveEquipmentCommandOutput>(
+  _ep0,
+  _mw0,
+  "DetectProtectiveEquipment",
+  DetectProtectiveEquipment$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

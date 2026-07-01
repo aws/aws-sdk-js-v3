@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LicenseManagerUserSubscriptionsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LicenseManagerUserSubscriptionsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeregisterIdentityProviderRequest, DeregisterIdentityProviderResponse } from "../models/models_0";
 import { DeregisterIdentityProvider$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeregisterIdentityProvider$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -149,22 +141,12 @@ export interface DeregisterIdentityProviderCommandOutput extends DeregisterIdent
  *
  * @public
  */
-export class DeregisterIdentityProviderCommand extends $Command
-  .classBuilder<
-    DeregisterIdentityProviderCommandInput,
-    DeregisterIdentityProviderCommandOutput,
-    LicenseManagerUserSubscriptionsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LicenseManagerUserSubscriptionsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("LicenseManagerUserSubscriptions", "DeregisterIdentityProvider", {})
-  .n("LicenseManagerUserSubscriptionsClient", "DeregisterIdentityProviderCommand")
-  .sc(DeregisterIdentityProvider$)
-  .build() {
+export class DeregisterIdentityProviderCommand extends command<DeregisterIdentityProviderCommandInput, DeregisterIdentityProviderCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeregisterIdentityProvider",
+  DeregisterIdentityProvider$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListStagingAccountsRequest, ListStagingAccountsResponse } from "../models/models_0";
 import { ListStagingAccounts$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListStagingAccounts$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -80,22 +76,12 @@ export interface ListStagingAccountsCommandOutput extends ListStagingAccountsRes
  *
  * @public
  */
-export class ListStagingAccountsCommand extends $Command
-  .classBuilder<
-    ListStagingAccountsCommandInput,
-    ListStagingAccountsCommandOutput,
-    DrsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ElasticDisasterRecoveryService", "ListStagingAccounts", {})
-  .n("DrsClient", "ListStagingAccountsCommand")
-  .sc(ListStagingAccounts$)
-  .build() {
+export class ListStagingAccountsCommand extends command<ListStagingAccountsCommandInput, ListStagingAccountsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListStagingAccounts",
+  ListStagingAccounts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

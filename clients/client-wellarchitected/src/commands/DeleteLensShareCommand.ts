@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteLensShareInput } from "../models/models_0";
 import { DeleteLensShare$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  WellArchitectedClientResolvedConfig,
-} from "../WellArchitectedClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -95,22 +87,12 @@ export interface DeleteLensShareCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteLensShareCommand extends $Command
-  .classBuilder<
-    DeleteLensShareCommandInput,
-    DeleteLensShareCommandOutput,
-    WellArchitectedClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WellArchitectedApiServiceLambda", "DeleteLensShare", {})
-  .n("WellArchitectedClient", "DeleteLensShareCommand")
-  .sc(DeleteLensShare$)
-  .build() {
+export class DeleteLensShareCommand extends command<DeleteLensShareCommandInput, DeleteLensShareCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteLensShare",
+  DeleteLensShare$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

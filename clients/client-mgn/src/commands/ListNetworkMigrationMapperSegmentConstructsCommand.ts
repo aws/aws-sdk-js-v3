@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListNetworkMigrationMapperSegmentConstructsRequest,
   ListNetworkMigrationMapperSegmentConstructsResponse,
@@ -15,7 +12,6 @@ import { ListNetworkMigrationMapperSegmentConstructs$ } from "../schemas/schemas
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -162,22 +158,12 @@ export interface ListNetworkMigrationMapperSegmentConstructsCommandOutput extend
  *
  * @public
  */
-export class ListNetworkMigrationMapperSegmentConstructsCommand extends $Command
-  .classBuilder<
-    ListNetworkMigrationMapperSegmentConstructsCommandInput,
-    ListNetworkMigrationMapperSegmentConstructsCommandOutput,
-    MgnClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ApplicationMigrationService", "ListNetworkMigrationMapperSegmentConstructs", {})
-  .n("MgnClient", "ListNetworkMigrationMapperSegmentConstructsCommand")
-  .sc(ListNetworkMigrationMapperSegmentConstructs$)
-  .build() {
+export class ListNetworkMigrationMapperSegmentConstructsCommand extends command<ListNetworkMigrationMapperSegmentConstructsCommandInput, ListNetworkMigrationMapperSegmentConstructsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListNetworkMigrationMapperSegmentConstructs",
+  ListNetworkMigrationMapperSegmentConstructs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

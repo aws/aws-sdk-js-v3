@@ -1,17 +1,13 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import { OnlySigv4Auth$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -54,22 +50,12 @@ export interface OnlySigv4AuthCommandOutput extends __MetadataBearer {}
  *
  *
  */
-export class OnlySigv4AuthCommand extends $Command
-  .classBuilder<
-    OnlySigv4AuthCommandInput,
-    OnlySigv4AuthCommandOutput,
-    WeatherClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Weather", "OnlySigv4Auth", {})
-  .n("WeatherClient", "OnlySigv4AuthCommand")
-  .sc(OnlySigv4Auth$)
-  .build() {
+export class OnlySigv4AuthCommand extends command<OnlySigv4AuthCommandInput, OnlySigv4AuthCommandOutput>(
+  _ep0,
+  _mw0,
+  "OnlySigv4Auth",
+  OnlySigv4Auth$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

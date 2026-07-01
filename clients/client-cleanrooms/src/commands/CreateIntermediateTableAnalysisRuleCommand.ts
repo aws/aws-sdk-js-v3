@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateIntermediateTableAnalysisRuleInput,
   CreateIntermediateTableAnalysisRuleOutput,
@@ -15,7 +12,6 @@ import { CreateIntermediateTableAnalysisRule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -149,22 +145,12 @@ export interface CreateIntermediateTableAnalysisRuleCommandOutput extends Create
  *
  * @public
  */
-export class CreateIntermediateTableAnalysisRuleCommand extends $Command
-  .classBuilder<
-    CreateIntermediateTableAnalysisRuleCommandInput,
-    CreateIntermediateTableAnalysisRuleCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "CreateIntermediateTableAnalysisRule", {})
-  .n("CleanRoomsClient", "CreateIntermediateTableAnalysisRuleCommand")
-  .sc(CreateIntermediateTableAnalysisRule$)
-  .build() {
+export class CreateIntermediateTableAnalysisRuleCommand extends command<CreateIntermediateTableAnalysisRuleCommandInput, CreateIntermediateTableAnalysisRuleCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateIntermediateTableAnalysisRule",
+  CreateIntermediateTableAnalysisRule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

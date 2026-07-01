@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateContainerServiceRequest, CreateContainerServiceResult } from "../models/models_0";
 import { CreateContainerService$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateContainerService$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -235,22 +231,12 @@ export interface CreateContainerServiceCommandOutput extends CreateContainerServ
  *
  * @public
  */
-export class CreateContainerServiceCommand extends $Command
-  .classBuilder<
-    CreateContainerServiceCommandInput,
-    CreateContainerServiceCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "CreateContainerService", {})
-  .n("LightsailClient", "CreateContainerServiceCommand")
-  .sc(CreateContainerService$)
-  .build() {
+export class CreateContainerServiceCommand extends command<CreateContainerServiceCommandInput, CreateContainerServiceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateContainerService",
+  CreateContainerService$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

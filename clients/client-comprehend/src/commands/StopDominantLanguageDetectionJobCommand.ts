@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   StopDominantLanguageDetectionJobRequest,
   StopDominantLanguageDetectionJobResponse,
@@ -15,7 +12,6 @@ import { StopDominantLanguageDetectionJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface StopDominantLanguageDetectionJobCommandOutput extends StopDomin
  *
  * @public
  */
-export class StopDominantLanguageDetectionJobCommand extends $Command
-  .classBuilder<
-    StopDominantLanguageDetectionJobCommandInput,
-    StopDominantLanguageDetectionJobCommandOutput,
-    ComprehendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Comprehend_20171127", "StopDominantLanguageDetectionJob", {})
-  .n("ComprehendClient", "StopDominantLanguageDetectionJobCommand")
-  .sc(StopDominantLanguageDetectionJob$)
-  .build() {
+export class StopDominantLanguageDetectionJobCommand extends command<StopDominantLanguageDetectionJobCommandInput, StopDominantLanguageDetectionJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StopDominantLanguageDetectionJob",
+  StopDominantLanguageDetectionJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

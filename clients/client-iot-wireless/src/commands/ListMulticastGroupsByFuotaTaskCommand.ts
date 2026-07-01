@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListMulticastGroupsByFuotaTaskRequest, ListMulticastGroupsByFuotaTaskResponse } from "../models/models_0";
 import { ListMulticastGroupsByFuotaTask$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListMulticastGroupsByFuotaTask$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -81,22 +77,12 @@ export interface ListMulticastGroupsByFuotaTaskCommandOutput extends ListMultica
  *
  * @public
  */
-export class ListMulticastGroupsByFuotaTaskCommand extends $Command
-  .classBuilder<
-    ListMulticastGroupsByFuotaTaskCommandInput,
-    ListMulticastGroupsByFuotaTaskCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "ListMulticastGroupsByFuotaTask", {})
-  .n("IoTWirelessClient", "ListMulticastGroupsByFuotaTaskCommand")
-  .sc(ListMulticastGroupsByFuotaTask$)
-  .build() {
+export class ListMulticastGroupsByFuotaTaskCommand extends command<ListMulticastGroupsByFuotaTaskCommandInput, ListMulticastGroupsByFuotaTaskCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMulticastGroupsByFuotaTask",
+  ListMulticastGroupsByFuotaTask$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

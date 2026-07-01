@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   AssociateWirelessDeviceWithThingRequest,
   AssociateWirelessDeviceWithThingResponse,
@@ -15,7 +12,6 @@ import { AssociateWirelessDeviceWithThing$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface AssociateWirelessDeviceWithThingCommandOutput extends Associate
  *
  * @public
  */
-export class AssociateWirelessDeviceWithThingCommand extends $Command
-  .classBuilder<
-    AssociateWirelessDeviceWithThingCommandInput,
-    AssociateWirelessDeviceWithThingCommandOutput,
-    IoTWirelessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("iotwireless", "AssociateWirelessDeviceWithThing", {})
-  .n("IoTWirelessClient", "AssociateWirelessDeviceWithThingCommand")
-  .sc(AssociateWirelessDeviceWithThing$)
-  .build() {
+export class AssociateWirelessDeviceWithThingCommand extends command<AssociateWirelessDeviceWithThingCommandInput, AssociateWirelessDeviceWithThingCommandOutput>(
+  _ep0,
+  _mw0,
+  "AssociateWirelessDeviceWithThing",
+  AssociateWirelessDeviceWithThing$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

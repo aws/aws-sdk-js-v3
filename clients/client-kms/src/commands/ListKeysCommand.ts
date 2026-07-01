@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListKeysRequest, ListKeysResponse } from "../models/models_0";
 import { ListKeys$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListKeys$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -154,22 +150,12 @@ export interface ListKeysCommandOutput extends ListKeysResponse, __MetadataBeare
  *
  * @public
  */
-export class ListKeysCommand extends $Command
-  .classBuilder<
-    ListKeysCommandInput,
-    ListKeysCommandOutput,
-    KMSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrentService", "ListKeys", {})
-  .n("KMSClient", "ListKeysCommand")
-  .sc(ListKeys$)
-  .build() {
+export class ListKeysCommand extends command<ListKeysCommandInput, ListKeysCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListKeys",
+  ListKeys$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

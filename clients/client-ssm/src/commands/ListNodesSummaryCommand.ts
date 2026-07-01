@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListNodesSummaryRequest, ListNodesSummaryResult } from "../models/models_1";
 import { ListNodesSummary$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -152,22 +148,12 @@ export interface ListNodesSummaryCommandOutput extends ListNodesSummaryResult, _
  *
  * @public
  */
-export class ListNodesSummaryCommand extends $Command
-  .classBuilder<
-    ListNodesSummaryCommandInput,
-    ListNodesSummaryCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "ListNodesSummary", {})
-  .n("SSMClient", "ListNodesSummaryCommand")
-  .sc(ListNodesSummary$)
-  .build() {
+export class ListNodesSummaryCommand extends command<ListNodesSummaryCommandInput, ListNodesSummaryCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListNodesSummary",
+  ListNodesSummary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

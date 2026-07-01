@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeIpamExternalResourceVerificationTokensRequest,
   DescribeIpamExternalResourceVerificationTokensResult,
@@ -15,7 +12,6 @@ import { DescribeIpamExternalResourceVerificationTokens$ } from "../schemas/sche
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -97,22 +93,12 @@ export interface DescribeIpamExternalResourceVerificationTokensCommandOutput ext
  *
  * @public
  */
-export class DescribeIpamExternalResourceVerificationTokensCommand extends $Command
-  .classBuilder<
-    DescribeIpamExternalResourceVerificationTokensCommandInput,
-    DescribeIpamExternalResourceVerificationTokensCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeIpamExternalResourceVerificationTokens", {})
-  .n("EC2Client", "DescribeIpamExternalResourceVerificationTokensCommand")
-  .sc(DescribeIpamExternalResourceVerificationTokens$)
-  .build() {
+export class DescribeIpamExternalResourceVerificationTokensCommand extends command<DescribeIpamExternalResourceVerificationTokensCommandInput, DescribeIpamExternalResourceVerificationTokensCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeIpamExternalResourceVerificationTokens",
+  DescribeIpamExternalResourceVerificationTokens$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

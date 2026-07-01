@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelStatementRequest, CancelStatementResponse } from "../models/models_0";
 import { CancelStatement$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CancelStatement$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -77,22 +73,12 @@ export interface CancelStatementCommandOutput extends CancelStatementResponse, _
  *
  * @public
  */
-export class CancelStatementCommand extends $Command
-  .classBuilder<
-    CancelStatementCommandInput,
-    CancelStatementCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "CancelStatement", {})
-  .n("GlueClient", "CancelStatementCommand")
-  .sc(CancelStatement$)
-  .build() {
+export class CancelStatementCommand extends command<CancelStatementCommandInput, CancelStatementCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelStatement",
+  CancelStatement$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

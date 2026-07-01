@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateJobTemplateRequest, CreateJobTemplateResponse } from "../models/models_0";
 import { CreateJobTemplate$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateJobTemplate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -3381,22 +3377,12 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  *
  * @public
  */
-export class CreateJobTemplateCommand extends $Command
-  .classBuilder<
-    CreateJobTemplateCommandInput,
-    CreateJobTemplateCommandOutput,
-    MediaConvertClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MediaConvert", "CreateJobTemplate", {})
-  .n("MediaConvertClient", "CreateJobTemplateCommand")
-  .sc(CreateJobTemplate$)
-  .build() {
+export class CreateJobTemplateCommand extends command<CreateJobTemplateCommandInput, CreateJobTemplateCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateJobTemplate",
+  CreateJobTemplate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

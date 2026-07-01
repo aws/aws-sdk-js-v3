@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteSourceCredentialsInput, DeleteSourceCredentialsOutput } from "../models/models_0";
 import { DeleteSourceCredentials$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeleteSourceCredentials$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -65,22 +61,12 @@ export interface DeleteSourceCredentialsCommandOutput extends DeleteSourceCreden
  *
  * @public
  */
-export class DeleteSourceCredentialsCommand extends $Command
-  .classBuilder<
-    DeleteSourceCredentialsCommandInput,
-    DeleteSourceCredentialsCommandOutput,
-    CodeBuildClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CodeBuild_20161006", "DeleteSourceCredentials", {})
-  .n("CodeBuildClient", "DeleteSourceCredentialsCommand")
-  .sc(DeleteSourceCredentials$)
-  .build() {
+export class DeleteSourceCredentialsCommand extends command<DeleteSourceCredentialsCommandInput, DeleteSourceCredentialsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteSourceCredentials",
+  DeleteSourceCredentials$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

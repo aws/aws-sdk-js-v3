@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListWorkspaceServiceAccountsRequest, ListWorkspaceServiceAccountsResponse } from "../models/models_0";
 import { ListWorkspaceServiceAccounts$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListWorkspaceServiceAccounts$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface ListWorkspaceServiceAccountsCommandOutput extends ListWorkspace
  *
  * @public
  */
-export class ListWorkspaceServiceAccountsCommand extends $Command
-  .classBuilder<
-    ListWorkspaceServiceAccountsCommandInput,
-    ListWorkspaceServiceAccountsCommandOutput,
-    GrafanaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GrafanaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGrafanaControlPlane", "ListWorkspaceServiceAccounts", {})
-  .n("GrafanaClient", "ListWorkspaceServiceAccountsCommand")
-  .sc(ListWorkspaceServiceAccounts$)
-  .build() {
+export class ListWorkspaceServiceAccountsCommand extends command<ListWorkspaceServiceAccountsCommandInput, ListWorkspaceServiceAccountsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListWorkspaceServiceAccounts",
+  ListWorkspaceServiceAccounts$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

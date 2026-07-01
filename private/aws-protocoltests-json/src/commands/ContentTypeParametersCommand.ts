@@ -13,7 +13,6 @@ import { de_ContentTypeParametersCommand, se_ContentTypeParametersCommand } from
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

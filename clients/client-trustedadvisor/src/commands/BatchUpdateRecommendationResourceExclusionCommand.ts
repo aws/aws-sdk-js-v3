@@ -1,25 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   BatchUpdateRecommendationResourceExclusionRequest,
   BatchUpdateRecommendationResourceExclusionResponse,
 } from "../models/models_0";
 import { BatchUpdateRecommendationResourceExclusion$ } from "../schemas/schemas_0";
-import type {
-  ServiceInputTypes,
-  ServiceOutputTypes,
-  TrustedAdvisorClientResolvedConfig,
-} from "../TrustedAdvisorClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +110,12 @@ export interface BatchUpdateRecommendationResourceExclusionCommandOutput extends
  *
  * @public
  */
-export class BatchUpdateRecommendationResourceExclusionCommand extends $Command
-  .classBuilder<
-    BatchUpdateRecommendationResourceExclusionCommandInput,
-    BatchUpdateRecommendationResourceExclusionCommandOutput,
-    TrustedAdvisorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TrustedAdvisorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("TrustedAdvisor", "BatchUpdateRecommendationResourceExclusion", {})
-  .n("TrustedAdvisorClient", "BatchUpdateRecommendationResourceExclusionCommand")
-  .sc(BatchUpdateRecommendationResourceExclusion$)
-  .build() {
+export class BatchUpdateRecommendationResourceExclusionCommand extends command<BatchUpdateRecommendationResourceExclusionCommandInput, BatchUpdateRecommendationResourceExclusionCommandOutput>(
+  _ep0,
+  _mw0,
+  "BatchUpdateRecommendationResourceExclusion",
+  BatchUpdateRecommendationResourceExclusion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

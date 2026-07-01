@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  ConnectCampaignsV2ClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ConnectCampaignsV2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateCampaignChannelSubtypeConfigRequest } from "../models/models_0";
 import { UpdateCampaignChannelSubtypeConfig$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateCampaignChannelSubtypeConfig$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -140,22 +132,12 @@ export interface UpdateCampaignChannelSubtypeConfigCommandOutput extends __Metad
  *
  * @public
  */
-export class UpdateCampaignChannelSubtypeConfigCommand extends $Command
-  .classBuilder<
-    UpdateCampaignChannelSubtypeConfigCommandInput,
-    UpdateCampaignChannelSubtypeConfigCommandOutput,
-    ConnectCampaignsV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsV2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonConnectCampaignServiceV2", "UpdateCampaignChannelSubtypeConfig", {})
-  .n("ConnectCampaignsV2Client", "UpdateCampaignChannelSubtypeConfigCommand")
-  .sc(UpdateCampaignChannelSubtypeConfig$)
-  .build() {
+export class UpdateCampaignChannelSubtypeConfigCommand extends command<UpdateCampaignChannelSubtypeConfigCommandInput, UpdateCampaignChannelSubtypeConfigCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateCampaignChannelSubtypeConfig",
+  UpdateCampaignChannelSubtypeConfig$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

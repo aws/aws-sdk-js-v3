@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteAppVersionResourceRequest, DeleteAppVersionResourceResponse } from "../models/models_0";
-import type { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResiliencehubClient";
 import { DeleteAppVersionResource$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -149,22 +145,12 @@ export interface DeleteAppVersionResourceCommandOutput extends DeleteAppVersionR
  *
  * @public
  */
-export class DeleteAppVersionResourceCommand extends $Command
-  .classBuilder<
-    DeleteAppVersionResourceCommandInput,
-    DeleteAppVersionResourceCommandOutput,
-    ResiliencehubClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AwsResilienceHub", "DeleteAppVersionResource", {})
-  .n("ResiliencehubClient", "DeleteAppVersionResourceCommand")
-  .sc(DeleteAppVersionResource$)
-  .build() {
+export class DeleteAppVersionResourceCommand extends command<DeleteAppVersionResourceCommandInput, DeleteAppVersionResourceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteAppVersionResource",
+  DeleteAppVersionResource$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

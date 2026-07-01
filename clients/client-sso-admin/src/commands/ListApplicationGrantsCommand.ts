@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListApplicationGrantsRequest, ListApplicationGrantsResponse } from "../models/models_0";
 import { ListApplicationGrants$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } from "../SSOAdminClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -99,22 +95,12 @@ export interface ListApplicationGrantsCommandOutput extends ListApplicationGrant
  *
  * @public
  */
-export class ListApplicationGrantsCommand extends $Command
-  .classBuilder<
-    ListApplicationGrantsCommandInput,
-    ListApplicationGrantsCommandOutput,
-    SSOAdminClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SWBExternalService", "ListApplicationGrants", {})
-  .n("SSOAdminClient", "ListApplicationGrantsCommand")
-  .sc(ListApplicationGrants$)
-  .build() {
+export class ListApplicationGrantsCommand extends command<ListApplicationGrantsCommandInput, ListApplicationGrantsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListApplicationGrants",
+  ListApplicationGrants$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

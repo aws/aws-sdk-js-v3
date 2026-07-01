@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteOrganizationalUnitRequest } from "../models/models_0";
-import type { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient";
 import { DeleteOrganizationalUnit$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -256,22 +252,12 @@ export interface DeleteOrganizationalUnitCommandOutput extends __MetadataBearer 
  *
  * @public
  */
-export class DeleteOrganizationalUnitCommand extends $Command
-  .classBuilder<
-    DeleteOrganizationalUnitCommandInput,
-    DeleteOrganizationalUnitCommandOutput,
-    OrganizationsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSOrganizationsV20161128", "DeleteOrganizationalUnit", {})
-  .n("OrganizationsClient", "DeleteOrganizationalUnitCommand")
-  .sc(DeleteOrganizationalUnit$)
-  .build() {
+export class DeleteOrganizationalUnitCommand extends command<DeleteOrganizationalUnitCommandInput, DeleteOrganizationalUnitCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteOrganizationalUnit",
+  DeleteOrganizationalUnit$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

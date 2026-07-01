@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CancelUpdateRequest, CancelUpdateResponse } from "../models/models_0";
 import { CancelUpdate$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CancelUpdate$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -129,22 +125,12 @@ export interface CancelUpdateCommandOutput extends CancelUpdateResponse, __Metad
  *
  * @public
  */
-export class CancelUpdateCommand extends $Command
-  .classBuilder<
-    CancelUpdateCommandInput,
-    CancelUpdateCommandOutput,
-    EKSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSWesleyFrontend", "CancelUpdate", {})
-  .n("EKSClient", "CancelUpdateCommand")
-  .sc(CancelUpdate$)
-  .build() {
+export class CancelUpdateCommand extends command<CancelUpdateCommandInput, CancelUpdateCommandOutput>(
+  _ep0,
+  _mw0,
+  "CancelUpdate",
+  CancelUpdate$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

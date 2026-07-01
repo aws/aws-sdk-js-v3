@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListV2LoggingLevelsRequest, ListV2LoggingLevelsResponse } from "../models/models_2";
 import { ListV2LoggingLevels$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListV2LoggingLevels$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -83,22 +79,12 @@ export interface ListV2LoggingLevelsCommandOutput extends ListV2LoggingLevelsRes
  *
  * @public
  */
-export class ListV2LoggingLevelsCommand extends $Command
-  .classBuilder<
-    ListV2LoggingLevelsCommandInput,
-    ListV2LoggingLevelsCommandOutput,
-    IoTClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSIotService", "ListV2LoggingLevels", {})
-  .n("IoTClient", "ListV2LoggingLevelsCommand")
-  .sc(ListV2LoggingLevels$)
-  .build() {
+export class ListV2LoggingLevelsCommand extends command<ListV2LoggingLevelsCommandInput, ListV2LoggingLevelsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListV2LoggingLevels",
+  ListV2LoggingLevels$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

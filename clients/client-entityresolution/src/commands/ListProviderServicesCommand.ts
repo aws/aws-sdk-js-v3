@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  EntityResolutionClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../EntityResolutionClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListProviderServicesInput, ListProviderServicesOutput } from "../models/models_0";
 import { ListProviderServices$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { ListProviderServices$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -86,22 +78,12 @@ export interface ListProviderServicesCommandOutput extends ListProviderServicesO
  *
  * @public
  */
-export class ListProviderServicesCommand extends $Command
-  .classBuilder<
-    ListProviderServicesCommandInput,
-    ListProviderServicesCommandOutput,
-    EntityResolutionClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EntityResolutionClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSVeniceService", "ListProviderServices", {})
-  .n("EntityResolutionClient", "ListProviderServicesCommand")
-  .sc(ListProviderServices$)
-  .build() {
+export class ListProviderServicesCommand extends command<ListProviderServicesCommandInput, ListProviderServicesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListProviderServices",
+  ListProviderServices$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

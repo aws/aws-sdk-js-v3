@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteDedicatedIpPoolRequest, DeleteDedicatedIpPoolResponse } from "../models/models_0";
 import { DeleteDedicatedIpPool$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from "../SESv2Client";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -69,22 +65,12 @@ export interface DeleteDedicatedIpPoolCommandOutput extends DeleteDedicatedIpPoo
  *
  * @public
  */
-export class DeleteDedicatedIpPoolCommand extends $Command
-  .classBuilder<
-    DeleteDedicatedIpPoolCommandInput,
-    DeleteDedicatedIpPoolCommandOutput,
-    SESv2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SimpleEmailService_v2", "DeleteDedicatedIpPool", {})
-  .n("SESv2Client", "DeleteDedicatedIpPoolCommand")
-  .sc(DeleteDedicatedIpPool$)
-  .build() {
+export class DeleteDedicatedIpPoolCommand extends command<DeleteDedicatedIpPoolCommandInput, DeleteDedicatedIpPoolCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteDedicatedIpPool",
+  DeleteDedicatedIpPool$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

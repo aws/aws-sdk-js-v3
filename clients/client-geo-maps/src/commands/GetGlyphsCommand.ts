@@ -1,11 +1,8 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import { Uint8ArrayBlobAdapter } from "@smithy/core/serde";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GeoMapsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GeoMapsClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetGlyphsRequest, GetGlyphsResponse } from "../models/models_0";
 import { GetGlyphs$ } from "../schemas/schemas_0";
 
@@ -13,7 +10,6 @@ import { GetGlyphs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -71,22 +67,12 @@ export interface GetGlyphsCommandOutput extends GetGlyphsCommandOutputType, __Me
  *
  * @public
  */
-export class GetGlyphsCommand extends $Command
-  .classBuilder<
-    GetGlyphsCommandInput,
-    GetGlyphsCommandOutput,
-    GeoMapsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GeoMapsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("MapsService", "GetGlyphs", {})
-  .n("GeoMapsClient", "GetGlyphsCommand")
-  .sc(GetGlyphs$)
-  .build() {
+export class GetGlyphsCommand extends command<GetGlyphsCommandInput, GetGlyphsCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetGlyphs",
+  GetGlyphs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

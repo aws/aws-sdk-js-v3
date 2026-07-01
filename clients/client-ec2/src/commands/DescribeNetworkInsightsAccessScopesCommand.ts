@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeNetworkInsightsAccessScopesRequest,
   DescribeNetworkInsightsAccessScopesResult,
@@ -15,7 +12,6 @@ import { DescribeNetworkInsightsAccessScopes$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -89,22 +85,12 @@ export interface DescribeNetworkInsightsAccessScopesCommandOutput extends Descri
  *
  * @public
  */
-export class DescribeNetworkInsightsAccessScopesCommand extends $Command
-  .classBuilder<
-    DescribeNetworkInsightsAccessScopesCommandInput,
-    DescribeNetworkInsightsAccessScopesCommandOutput,
-    EC2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonEC2", "DescribeNetworkInsightsAccessScopes", {})
-  .n("EC2Client", "DescribeNetworkInsightsAccessScopesCommand")
-  .sc(DescribeNetworkInsightsAccessScopes$)
-  .build() {
+export class DescribeNetworkInsightsAccessScopesCommand extends command<DescribeNetworkInsightsAccessScopesCommandInput, DescribeNetworkInsightsAccessScopesCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeNetworkInsightsAccessScopes",
+  DescribeNetworkInsightsAccessScopes$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

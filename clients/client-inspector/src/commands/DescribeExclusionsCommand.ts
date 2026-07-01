@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DescribeExclusionsRequest, DescribeExclusionsResponse } from "../models/models_0";
 import { DescribeExclusions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeExclusions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface DescribeExclusionsCommandOutput extends DescribeExclusionsRespo
  *
  * @public
  */
-export class DescribeExclusionsCommand extends $Command
-  .classBuilder<
-    DescribeExclusionsCommandInput,
-    DescribeExclusionsCommandOutput,
-    InspectorClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("InspectorService", "DescribeExclusions", {})
-  .n("InspectorClient", "DescribeExclusionsCommand")
-  .sc(DescribeExclusions$)
-  .build() {
+export class DescribeExclusionsCommand extends command<DescribeExclusionsCommandInput, DescribeExclusionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeExclusions",
+  DescribeExclusions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

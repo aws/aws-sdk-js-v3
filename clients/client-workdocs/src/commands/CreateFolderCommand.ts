@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateFolderRequest, CreateFolderResponse } from "../models/models_0";
 import { CreateFolder$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -107,22 +103,12 @@ export interface CreateFolderCommandOutput extends CreateFolderResponse, __Metad
  *
  * @public
  */
-export class CreateFolderCommand extends $Command
-  .classBuilder<
-    CreateFolderCommandInput,
-    CreateFolderCommandOutput,
-    WorkDocsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGorillaBoyService", "CreateFolder", {})
-  .n("WorkDocsClient", "CreateFolderCommand")
-  .sc(CreateFolder$)
-  .build() {
+export class CreateFolderCommand extends command<CreateFolderCommandInput, CreateFolderCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateFolder",
+  CreateFolder$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

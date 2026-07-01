@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type {
-  BedrockAgentCoreControlClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../BedrockAgentCoreControlClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePolicyEngineRequest, DeletePolicyEngineResponse } from "../models/models_1";
 import { DeletePolicyEngine$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { DeletePolicyEngine$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -91,22 +83,12 @@ export interface DeletePolicyEngineCommandOutput extends DeletePolicyEngineRespo
  *
  * @public
  */
-export class DeletePolicyEngineCommand extends $Command
-  .classBuilder<
-    DeletePolicyEngineCommandInput,
-    DeletePolicyEngineCommandOutput,
-    BedrockAgentCoreControlClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: BedrockAgentCoreControlClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonBedrockAgentCoreControl", "DeletePolicyEngine", {})
-  .n("BedrockAgentCoreControlClient", "DeletePolicyEngineCommand")
-  .sc(DeletePolicyEngine$)
-  .build() {
+export class DeletePolicyEngineCommand extends command<DeletePolicyEngineCommandInput, DeletePolicyEngineCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePolicyEngine",
+  DeletePolicyEngine$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

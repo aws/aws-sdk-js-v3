@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TerminateSessionRequest, TerminateSessionResponse } from "../models/models_1";
 import { TerminateSession$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -63,22 +59,12 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  *
  * @public
  */
-export class TerminateSessionCommand extends $Command
-  .classBuilder<
-    TerminateSessionCommandInput,
-    TerminateSessionCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "TerminateSession", {})
-  .n("SSMClient", "TerminateSessionCommand")
-  .sc(TerminateSession$)
-  .build() {
+export class TerminateSessionCommand extends command<TerminateSessionCommandInput, TerminateSessionCommandOutput>(
+  _ep0,
+  _mw0,
+  "TerminateSession",
+  TerminateSession$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateScheduleInput, UpdateScheduleOutput } from "../models/models_0";
-import type { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchedulerClient";
 import { UpdateSchedule$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -172,22 +168,12 @@ export interface UpdateScheduleCommandOutput extends UpdateScheduleOutput, __Met
  *
  * @public
  */
-export class UpdateScheduleCommand extends $Command
-  .classBuilder<
-    UpdateScheduleCommandInput,
-    UpdateScheduleCommandOutput,
-    SchedulerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SchedulerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSChronosService", "UpdateSchedule", {})
-  .n("SchedulerClient", "UpdateScheduleCommand")
-  .sc(UpdateSchedule$)
-  .build() {
+export class UpdateScheduleCommand extends command<UpdateScheduleCommandInput, UpdateScheduleCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateSchedule",
+  UpdateSchedule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

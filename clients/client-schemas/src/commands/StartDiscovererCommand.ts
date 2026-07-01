@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartDiscovererRequest, StartDiscovererResponse } from "../models/models_0";
 import { StartDiscoverer$ } from "../schemas/schemas_0";
-import type { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface StartDiscovererCommandOutput extends StartDiscovererResponse, _
  *
  * @public
  */
-export class StartDiscovererCommand extends $Command
-  .classBuilder<
-    StartDiscovererCommandInput,
-    StartDiscovererCommandOutput,
-    SchemasClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SchemasClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("schemas", "StartDiscoverer", {})
-  .n("SchemasClient", "StartDiscovererCommand")
-  .sc(StartDiscoverer$)
-  .build() {
+export class StartDiscovererCommand extends command<StartDiscovererCommandInput, StartDiscovererCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartDiscoverer",
+  StartDiscoverer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

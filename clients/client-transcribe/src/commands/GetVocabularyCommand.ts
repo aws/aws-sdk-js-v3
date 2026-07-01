@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetVocabularyRequest, GetVocabularyResponse } from "../models/models_0";
 import { GetVocabulary$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -88,22 +84,12 @@ export interface GetVocabularyCommandOutput extends GetVocabularyResponse, __Met
  *
  * @public
  */
-export class GetVocabularyCommand extends $Command
-  .classBuilder<
-    GetVocabularyCommandInput,
-    GetVocabularyCommandOutput,
-    TranscribeClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Transcribe", "GetVocabulary", {})
-  .n("TranscribeClient", "GetVocabularyCommand")
-  .sc(GetVocabulary$)
-  .build() {
+export class GetVocabularyCommand extends command<GetVocabularyCommandInput, GetVocabularyCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetVocabulary",
+  GetVocabulary$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

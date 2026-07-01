@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ExperimentRunEvents, ListExperimentRunEventsRequest } from "../models/models_0";
 import { ListExperimentRunEvents$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListExperimentRunEvents$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -119,22 +115,12 @@ export interface ListExperimentRunEventsCommandOutput extends ExperimentRunEvent
  *
  * @public
  */
-export class ListExperimentRunEventsCommand extends $Command
-  .classBuilder<
-    ListExperimentRunEventsCommandInput,
-    ListExperimentRunEventsCommandOutput,
-    AppConfigClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonAppConfig", "ListExperimentRunEvents", {})
-  .n("AppConfigClient", "ListExperimentRunEventsCommand")
-  .sc(ListExperimentRunEvents$)
-  .build() {
+export class ListExperimentRunEventsCommand extends command<ListExperimentRunEventsCommandInput, ListExperimentRunEventsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListExperimentRunEvents",
+  ListExperimentRunEvents$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

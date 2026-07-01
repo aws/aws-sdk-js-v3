@@ -13,7 +13,6 @@ import type { RpcV2ProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutpu
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *

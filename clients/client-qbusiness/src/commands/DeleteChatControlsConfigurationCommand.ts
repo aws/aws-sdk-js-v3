@@ -1,21 +1,17 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteChatControlsConfigurationRequest,
   DeleteChatControlsConfigurationResponse,
 } from "../models/models_0";
-import type { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 import { DeleteChatControlsConfiguration$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -75,22 +71,12 @@ export interface DeleteChatControlsConfigurationCommandOutput extends DeleteChat
  *
  * @public
  */
-export class DeleteChatControlsConfigurationCommand extends $Command
-  .classBuilder<
-    DeleteChatControlsConfigurationCommandInput,
-    DeleteChatControlsConfigurationCommandOutput,
-    QBusinessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ExpertQ", "DeleteChatControlsConfiguration", {})
-  .n("QBusinessClient", "DeleteChatControlsConfigurationCommand")
-  .sc(DeleteChatControlsConfiguration$)
-  .build() {
+export class DeleteChatControlsConfigurationCommand extends command<DeleteChatControlsConfigurationCommandInput, DeleteChatControlsConfigurationCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteChatControlsConfiguration",
+  DeleteChatControlsConfiguration$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

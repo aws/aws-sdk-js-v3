@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartCrawlerScheduleRequest, StartCrawlerScheduleResponse } from "../models/models_3";
 import { StartCrawlerSchedule$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartCrawlerSchedule$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface StartCrawlerScheduleCommandOutput extends StartCrawlerScheduleR
  *
  * @public
  */
-export class StartCrawlerScheduleCommand extends $Command
-  .classBuilder<
-    StartCrawlerScheduleCommandInput,
-    StartCrawlerScheduleCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "StartCrawlerSchedule", {})
-  .n("GlueClient", "StartCrawlerScheduleCommand")
-  .sc(StartCrawlerSchedule$)
-  .build() {
+export class StartCrawlerScheduleCommand extends command<StartCrawlerScheduleCommandInput, StartCrawlerScheduleCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartCrawlerSchedule",
+  StartCrawlerSchedule$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

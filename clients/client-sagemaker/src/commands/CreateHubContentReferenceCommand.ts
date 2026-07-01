@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateHubContentReferenceRequest, CreateHubContentReferenceResponse } from "../models/models_1";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { CreateHubContentReference$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface CreateHubContentReferenceCommandOutput extends CreateHubContent
  *
  * @public
  */
-export class CreateHubContentReferenceCommand extends $Command
-  .classBuilder<
-    CreateHubContentReferenceCommandInput,
-    CreateHubContentReferenceCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "CreateHubContentReference", {})
-  .n("SageMakerClient", "CreateHubContentReferenceCommand")
-  .sc(CreateHubContentReference$)
-  .build() {
+export class CreateHubContentReferenceCommand extends command<CreateHubContentReferenceCommandInput, CreateHubContentReferenceCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateHubContentReference",
+  CreateHubContentReference$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

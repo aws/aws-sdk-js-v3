@@ -1,14 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type {
-  LookoutEquipmentClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../LookoutEquipmentClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateActiveModelVersionRequest, UpdateActiveModelVersionResponse } from "../models/models_0";
 import { UpdateActiveModelVersion$ } from "../schemas/schemas_0";
 
@@ -16,7 +9,6 @@ import { UpdateActiveModelVersion$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -92,22 +84,12 @@ export interface UpdateActiveModelVersionCommandOutput extends UpdateActiveModel
  *
  * @public
  */
-export class UpdateActiveModelVersionCommand extends $Command
-  .classBuilder<
-    UpdateActiveModelVersionCommandInput,
-    UpdateActiveModelVersionCommandOutput,
-    LookoutEquipmentClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSLookoutEquipmentFrontendService", "UpdateActiveModelVersion", {})
-  .n("LookoutEquipmentClient", "UpdateActiveModelVersionCommand")
-  .sc(UpdateActiveModelVersion$)
-  .build() {
+export class UpdateActiveModelVersionCommand extends command<UpdateActiveModelVersionCommandInput, UpdateActiveModelVersionCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateActiveModelVersion",
+  UpdateActiveModelVersion$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

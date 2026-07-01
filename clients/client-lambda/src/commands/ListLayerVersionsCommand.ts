@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListLayerVersionsRequest, ListLayerVersionsResponse } from "../models/models_0";
 import { ListLayerVersions$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListLayerVersions$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -124,22 +120,12 @@ export interface ListLayerVersionsCommandOutput extends ListLayerVersionsRespons
  *
  * @public
  */
-export class ListLayerVersionsCommand extends $Command
-  .classBuilder<
-    ListLayerVersionsCommandInput,
-    ListLayerVersionsCommandOutput,
-    LambdaClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGirApiService", "ListLayerVersions", {})
-  .n("LambdaClient", "ListLayerVersionsCommand")
-  .sc(ListLayerVersions$)
-  .build() {
+export class ListLayerVersionsCommand extends command<ListLayerVersionsCommandInput, ListLayerVersionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListLayerVersions",
+  ListLayerVersions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMailboxPermissionsRequest, DeleteMailboxPermissionsResponse } from "../models/models_0";
 import { DeleteMailboxPermissions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -78,22 +74,12 @@ export interface DeleteMailboxPermissionsCommandOutput extends DeleteMailboxPerm
  *
  * @public
  */
-export class DeleteMailboxPermissionsCommand extends $Command
-  .classBuilder<
-    DeleteMailboxPermissionsCommandInput,
-    DeleteMailboxPermissionsCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "DeleteMailboxPermissions", {})
-  .n("WorkMailClient", "DeleteMailboxPermissionsCommand")
-  .sc(DeleteMailboxPermissions$)
-  .build() {
+export class DeleteMailboxPermissionsCommand extends command<DeleteMailboxPermissionsCommandInput, DeleteMailboxPermissionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMailboxPermissions",
+  DeleteMailboxPermissions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

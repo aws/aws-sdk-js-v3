@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep1, _mw0, command } from "../commandBuilder";
 import type { CreateAcmeEndpointRequest, CreateAcmeEndpointResponse } from "../models/models_0";
 import { CreateAcmeEndpoint$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateAcmeEndpoint$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -98,25 +94,12 @@ export interface CreateAcmeEndpointCommandOutput extends CreateAcmeEndpointRespo
  *
  * @public
  */
-export class CreateAcmeEndpointCommand extends $Command
-  .classBuilder<
-    CreateAcmeEndpointCommandInput,
-    CreateAcmeEndpointCommandOutput,
-    ACMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep({
-    ...commonParams,
-    ServiceType: { type: "staticContextParams", value: `ACM-ACME` },
-  })
-  .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("CertificateManager", "CreateAcmeEndpoint", {})
-  .n("ACMClient", "CreateAcmeEndpointCommand")
-  .sc(CreateAcmeEndpoint$)
-  .build() {
+export class CreateAcmeEndpointCommand extends command<CreateAcmeEndpointCommandInput, CreateAcmeEndpointCommandOutput>(
+  _ep1,
+  _mw0,
+  "CreateAcmeEndpoint",
+  CreateAcmeEndpoint$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

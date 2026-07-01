@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListSatellitesRequest, ListSatellitesResponse } from "../models/models_0";
 import { ListSatellites$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListSatellites$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -85,22 +81,12 @@ export interface ListSatellitesCommandOutput extends ListSatellitesResponse, __M
  *
  * @public
  */
-export class ListSatellitesCommand extends $Command
-  .classBuilder<
-    ListSatellitesCommandInput,
-    ListSatellitesCommandOutput,
-    GroundStationClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("GroundStation", "ListSatellites", {})
-  .n("GroundStationClient", "ListSatellitesCommand")
-  .sc(ListSatellites$)
-  .build() {
+export class ListSatellitesCommand extends command<ListSatellitesCommandInput, ListSatellitesCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListSatellites",
+  ListSatellites$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

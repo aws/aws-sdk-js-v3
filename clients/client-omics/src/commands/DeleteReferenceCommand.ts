@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteReferenceRequest, DeleteReferenceResponse } from "../models/models_0";
-import type { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { DeleteReference$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -79,22 +75,12 @@ export interface DeleteReferenceCommandOutput extends DeleteReferenceResponse, _
  *
  * @public
  */
-export class DeleteReferenceCommand extends $Command
-  .classBuilder<
-    DeleteReferenceCommandInput,
-    DeleteReferenceCommandOutput,
-    OmicsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Omics", "DeleteReference", {})
-  .n("OmicsClient", "DeleteReferenceCommand")
-  .sc(DeleteReference$)
-  .build() {
+export class DeleteReferenceCommand extends command<DeleteReferenceCommandInput, DeleteReferenceCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteReference",
+  DeleteReference$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { GetConfigurationCheckOperationInput, GetConfigurationCheckOperationOutput } from "../models/models_0";
 import { GetConfigurationCheckOperation$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -82,22 +78,12 @@ export interface GetConfigurationCheckOperationCommandOutput extends GetConfigur
  *
  * @public
  */
-export class GetConfigurationCheckOperationCommand extends $Command
-  .classBuilder<
-    GetConfigurationCheckOperationCommandInput,
-    GetConfigurationCheckOperationCommandOutput,
-    SsmSapClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SsmSapClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SsmSap", "GetConfigurationCheckOperation", {})
-  .n("SsmSapClient", "GetConfigurationCheckOperationCommand")
-  .sc(GetConfigurationCheckOperation$)
-  .build() {
+export class GetConfigurationCheckOperationCommand extends command<GetConfigurationCheckOperationCommandInput, GetConfigurationCheckOperationCommandOutput>(
+  _ep0,
+  _mw0,
+  "GetConfigurationCheckOperation",
+  GetConfigurationCheckOperation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

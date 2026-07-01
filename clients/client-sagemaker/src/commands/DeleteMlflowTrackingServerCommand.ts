@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeleteMlflowTrackingServerRequest, DeleteMlflowTrackingServerResponse } from "../models/models_2";
-import type { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 import { DeleteMlflowTrackingServer$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -62,22 +58,12 @@ export interface DeleteMlflowTrackingServerCommandOutput extends DeleteMlflowTra
  *
  * @public
  */
-export class DeleteMlflowTrackingServerCommand extends $Command
-  .classBuilder<
-    DeleteMlflowTrackingServerCommandInput,
-    DeleteMlflowTrackingServerCommandOutput,
-    SageMakerClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("SageMaker", "DeleteMlflowTrackingServer", {})
-  .n("SageMakerClient", "DeleteMlflowTrackingServerCommand")
-  .sc(DeleteMlflowTrackingServer$)
-  .build() {
+export class DeleteMlflowTrackingServerCommand extends command<DeleteMlflowTrackingServerCommandInput, DeleteMlflowTrackingServerCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeleteMlflowTrackingServer",
+  DeleteMlflowTrackingServer$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

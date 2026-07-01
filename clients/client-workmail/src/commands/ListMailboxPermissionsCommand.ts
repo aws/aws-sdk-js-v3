@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListMailboxPermissionsRequest, ListMailboxPermissionsResponse } from "../models/models_0";
 import { ListMailboxPermissions$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -87,22 +83,12 @@ export interface ListMailboxPermissionsCommandOutput extends ListMailboxPermissi
  *
  * @public
  */
-export class ListMailboxPermissionsCommand extends $Command
-  .classBuilder<
-    ListMailboxPermissionsCommandInput,
-    ListMailboxPermissionsCommandOutput,
-    WorkMailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkMailService", "ListMailboxPermissions", {})
-  .n("WorkMailClient", "ListMailboxPermissionsCommand")
-  .sc(ListMailboxPermissions$)
-  .build() {
+export class ListMailboxPermissionsCommand extends command<ListMailboxPermissionsCommandInput, ListMailboxPermissionsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMailboxPermissions",
+  ListMailboxPermissions$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

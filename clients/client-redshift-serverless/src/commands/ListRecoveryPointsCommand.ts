@@ -1,22 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListRecoveryPointsRequest, ListRecoveryPointsResponse } from "../models/models_0";
-import type {
-  RedshiftServerlessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../RedshiftServerlessClient";
 import { ListRecoveryPoints$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -84,22 +76,12 @@ export interface ListRecoveryPointsCommandOutput extends ListRecoveryPointsRespo
  *
  * @public
  */
-export class ListRecoveryPointsCommand extends $Command
-  .classBuilder<
-    ListRecoveryPointsCommandInput,
-    ListRecoveryPointsCommandOutput,
-    RedshiftServerlessClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("RedshiftServerless", "ListRecoveryPoints", {})
-  .n("RedshiftServerlessClient", "ListRecoveryPointsCommand")
-  .sc(ListRecoveryPoints$)
-  .build() {
+export class ListRecoveryPointsCommand extends command<ListRecoveryPointsCommandInput, ListRecoveryPointsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListRecoveryPoints",
+  ListRecoveryPoints$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

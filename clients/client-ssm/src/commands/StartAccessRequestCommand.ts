@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartAccessRequestRequest, StartAccessRequestResponse } from "../models/models_1";
 import { StartAccessRequest$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -94,22 +90,12 @@ export interface StartAccessRequestCommandOutput extends StartAccessRequestRespo
  *
  * @public
  */
-export class StartAccessRequestCommand extends $Command
-  .classBuilder<
-    StartAccessRequestCommandInput,
-    StartAccessRequestCommandOutput,
-    SSMClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonSSM", "StartAccessRequest", {})
-  .n("SSMClient", "StartAccessRequestCommand")
-  .sc(StartAccessRequest$)
-  .build() {
+export class StartAccessRequestCommand extends command<StartAccessRequestCommandInput, StartAccessRequestCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartAccessRequest",
+  StartAccessRequest$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

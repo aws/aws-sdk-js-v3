@@ -1,11 +1,7 @@
 // smithy-typescript generated code
-import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
+import { _ep0, _mw1, command } from "../commandBuilder";
 import type { StartConversationRequest, StartConversationResponse } from "../models/models_0";
 import { StartConversation$ } from "../schemas/schemas_0";
 
@@ -13,7 +9,6 @@ import { StartConversation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -462,33 +457,12 @@ export interface StartConversationCommandOutput extends StartConversationRespons
  *
  * @public
  */
-export class StartConversationCommand extends $Command
-  .classBuilder<
-    StartConversationCommandInput,
-    StartConversationCommandOutput,
-    LexRuntimeV2ClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LexRuntimeV2ClientResolvedConfig, o: any) {
-    return [
-      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEventStreamPlugin(config),
-    ];
-  })
-  .s("AWSDeepSenseRunTimeServiceApi2_0", "StartConversation", {
-    /**
-     * @internal
-     */
-    eventStream: {
-      input: true,
-      output: true,
-    },
-  })
-  .n("LexRuntimeV2Client", "StartConversationCommand")
-  .sc(StartConversation$)
-  .build() {
+export class StartConversationCommand extends command<StartConversationCommandInput, StartConversationCommandOutput>(
+  _ep0,
+  _mw1,
+  "StartConversation",
+  StartConversation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

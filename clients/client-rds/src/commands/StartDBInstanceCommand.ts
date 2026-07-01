@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartDBInstanceMessage, StartDBInstanceResult } from "../models/models_1";
-import type { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 import { StartDBInstance$ } from "../schemas/schemas_0";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -360,22 +356,12 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
  *
  * @public
  */
-export class StartDBInstanceCommand extends $Command
-  .classBuilder<
-    StartDBInstanceCommandInput,
-    StartDBInstanceCommandOutput,
-    RDSClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AmazonRDSv19", "StartDBInstance", {})
-  .n("RDSClient", "StartDBInstanceCommand")
-  .sc(StartDBInstance$)
-  .build() {
+export class StartDBInstanceCommand extends command<StartDBInstanceCommandInput, StartDBInstanceCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartDBInstance",
+  StartDBInstance$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

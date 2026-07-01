@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { DeletePartitionRequest, DeletePartitionResponse } from "../models/models_1";
 import { DeletePartition$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DeletePartition$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -74,22 +70,12 @@ export interface DeletePartitionCommandOutput extends DeletePartitionResponse, _
  *
  * @public
  */
-export class DeletePartitionCommand extends $Command
-  .classBuilder<
-    DeletePartitionCommandInput,
-    DeletePartitionCommandOutput,
-    GlueClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSGlue", "DeletePartition", {})
-  .n("GlueClient", "DeletePartitionCommand")
-  .sc(DeletePartition$)
-  .build() {
+export class DeletePartitionCommand extends command<DeletePartitionCommandInput, DeletePartitionCommandOutput>(
+  _ep0,
+  _mw0,
+  "DeletePartition",
+  DeletePartition$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

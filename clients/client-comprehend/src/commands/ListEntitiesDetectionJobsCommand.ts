@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { ListEntitiesDetectionJobsRequest, ListEntitiesDetectionJobsResponse } from "../models/models_0";
 import { ListEntitiesDetectionJobs$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { ListEntitiesDetectionJobs$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +114,12 @@ export interface ListEntitiesDetectionJobsCommandOutput extends ListEntitiesDete
  *
  * @public
  */
-export class ListEntitiesDetectionJobsCommand extends $Command
-  .classBuilder<
-    ListEntitiesDetectionJobsCommandInput,
-    ListEntitiesDetectionJobsCommandOutput,
-    ComprehendClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Comprehend_20171127", "ListEntitiesDetectionJobs", {})
-  .n("ComprehendClient", "ListEntitiesDetectionJobsCommand")
-  .sc(ListEntitiesDetectionJobs$)
-  .build() {
+export class ListEntitiesDetectionJobsCommand extends command<ListEntitiesDetectionJobsCommandInput, ListEntitiesDetectionJobsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListEntitiesDetectionJobs",
+  ListEntitiesDetectionJobs$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

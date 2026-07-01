@@ -1,18 +1,14 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { TerminateWorkspacesPoolRequest, TerminateWorkspacesPoolResult } from "../models/models_0";
 import { TerminateWorkspacesPool$ } from "../schemas/schemas_0";
-import type { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -72,22 +68,12 @@ export interface TerminateWorkspacesPoolCommandOutput extends TerminateWorkspace
  *
  * @public
  */
-export class TerminateWorkspacesPoolCommand extends $Command
-  .classBuilder<
-    TerminateWorkspacesPoolCommandInput,
-    TerminateWorkspacesPoolCommandOutput,
-    WorkSpacesClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("WorkspacesService", "TerminateWorkspacesPool", {})
-  .n("WorkSpacesClient", "TerminateWorkspacesPoolCommand")
-  .sc(TerminateWorkspacesPool$)
-  .build() {
+export class TerminateWorkspacesPoolCommand extends command<TerminateWorkspacesPoolCommandInput, TerminateWorkspacesPoolCommandOutput>(
+  _ep0,
+  _mw0,
+  "TerminateWorkspacesPool",
+  TerminateWorkspacesPool$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

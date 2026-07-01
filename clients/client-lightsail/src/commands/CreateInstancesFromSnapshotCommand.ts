@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { commonParams } from "../endpoint/EndpointParameters";
-import type { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { CreateInstancesFromSnapshotRequest, CreateInstancesFromSnapshotResult } from "../models/models_0";
 import { CreateInstancesFromSnapshot$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { CreateInstancesFromSnapshot$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -152,22 +148,12 @@ export interface CreateInstancesFromSnapshotCommandOutput extends CreateInstance
  *
  * @public
  */
-export class CreateInstancesFromSnapshotCommand extends $Command
-  .classBuilder<
-    CreateInstancesFromSnapshotCommandInput,
-    CreateInstancesFromSnapshotCommandOutput,
-    LightsailClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("Lightsail_20161128", "CreateInstancesFromSnapshot", {})
-  .n("LightsailClient", "CreateInstancesFromSnapshotCommand")
-  .sc(CreateInstancesFromSnapshot$)
-  .build() {
+export class CreateInstancesFromSnapshotCommand extends command<CreateInstancesFromSnapshotCommandInput, CreateInstancesFromSnapshotCommandOutput>(
+  _ep0,
+  _mw0,
+  "CreateInstancesFromSnapshot",
+  CreateInstancesFromSnapshot$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

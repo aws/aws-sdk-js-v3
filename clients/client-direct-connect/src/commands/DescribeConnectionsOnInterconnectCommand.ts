@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { Connections, DescribeConnectionsOnInterconnectRequest } from "../models/models_0";
 import { DescribeConnectionsOnInterconnect$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { DescribeConnectionsOnInterconnect$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -118,22 +114,12 @@ export interface DescribeConnectionsOnInterconnectCommandOutput extends Connecti
  *
  * @public
  */
-export class DescribeConnectionsOnInterconnectCommand extends $Command
-  .classBuilder<
-    DescribeConnectionsOnInterconnectCommandInput,
-    DescribeConnectionsOnInterconnectCommandOutput,
-    DirectConnectClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("OvertureService", "DescribeConnectionsOnInterconnect", {})
-  .n("DirectConnectClient", "DescribeConnectionsOnInterconnectCommand")
-  .sc(DescribeConnectionsOnInterconnect$)
-  .build() {
+export class DescribeConnectionsOnInterconnectCommand extends command<DescribeConnectionsOnInterconnectCommandInput, DescribeConnectionsOnInterconnectCommandOutput>(
+  _ep0,
+  _mw0,
+  "DescribeConnectionsOnInterconnect",
+  DescribeConnectionsOnInterconnect$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { ConnectHealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectHealthClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { StartPatientInsightsJobRequest, StartPatientInsightsJobResponse } from "../models/models_0";
 import { StartPatientInsightsJob$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { StartPatientInsightsJob$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -110,22 +106,12 @@ export interface StartPatientInsightsJobCommandOutput extends StartPatientInsigh
  *
  * @public
  */
-export class StartPatientInsightsJobCommand extends $Command
-  .classBuilder<
-    StartPatientInsightsJobCommandInput,
-    StartPatientInsightsJobCommandOutput,
-    ConnectHealthClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: ConnectHealthClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("ConnectHealth", "StartPatientInsightsJob", {})
-  .n("ConnectHealthClient", "StartPatientInsightsJobCommand")
-  .sc(StartPatientInsightsJob$)
-  .build() {
+export class StartPatientInsightsJobCommand extends command<StartPatientInsightsJobCommandInput, StartPatientInsightsJobCommandOutput>(
+  _ep0,
+  _mw0,
+  "StartPatientInsightsJob",
+  StartPatientInsightsJob$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {

@@ -1,10 +1,7 @@
 // smithy-typescript generated code
-import { Command as $Command } from "@smithy/core/client";
-import { getEndpointPlugin } from "@smithy/core/endpoints";
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import type { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
-import { commonParams } from "../endpoint/EndpointParameters";
+import { _ep0, _mw0, command } from "../commandBuilder";
 import type { UpdateIdNamespaceAssociationInput, UpdateIdNamespaceAssociationOutput } from "../models/models_0";
 import { UpdateIdNamespaceAssociation$ } from "../schemas/schemas_0";
 
@@ -12,7 +9,6 @@ import { UpdateIdNamespaceAssociation$ } from "../schemas/schemas_0";
  * @public
  */
 export type { __MetadataBearer };
-export { $Command };
 /**
  * @public
  *
@@ -104,22 +100,12 @@ export interface UpdateIdNamespaceAssociationCommandOutput extends UpdateIdNames
  *
  * @public
  */
-export class UpdateIdNamespaceAssociationCommand extends $Command
-  .classBuilder<
-    UpdateIdNamespaceAssociationCommandInput,
-    UpdateIdNamespaceAssociationCommandOutput,
-    CleanRoomsClientResolvedConfig,
-    ServiceInputTypes,
-    ServiceOutputTypes
-  >()
-  .ep(commonParams)
-  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
-    return [getEndpointPlugin(config, Command.getEndpointParameterInstructions())];
-  })
-  .s("AWSBastionControlPlaneServiceLambda", "UpdateIdNamespaceAssociation", {})
-  .n("CleanRoomsClient", "UpdateIdNamespaceAssociationCommand")
-  .sc(UpdateIdNamespaceAssociation$)
-  .build() {
+export class UpdateIdNamespaceAssociationCommand extends command<UpdateIdNamespaceAssociationCommandInput, UpdateIdNamespaceAssociationCommandOutput>(
+  _ep0,
+  _mw0,
+  "UpdateIdNamespaceAssociation",
+  UpdateIdNamespaceAssociation$
+) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
