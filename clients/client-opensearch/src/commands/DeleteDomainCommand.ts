@@ -239,6 +239,8 @@ export interface DeleteDomainCommandOutput extends DeleteDomainResponse, __Metad
  * //       EndTime: new Date("TIMESTAMP"),
  * //       State: "Active" || "Completed" || "Scheduled" || "Disabled",
  * //     },
+ * //     UseCase: "SEARCH" || "VECTOR" || "OBSERVABILITY" || "MIXED",
+ * //     EngineMode: "GENERAL" || "OPTIMIZED",
  * //   },
  * // };
  *

@@ -6,7 +6,9 @@ import type {
   AWSServicePrincipal,
   CapabilityStatus,
   DataSourceStatus,
+  DomainUseCase,
   DryRunMode,
+  EngineMode,
   IndexStatus,
   IPAddressType,
   LogType,
@@ -53,6 +55,122 @@ import type {
   VpcEndpoint,
   VPCOptions,
 } from "./models_0";
+
+/**
+ * <p>Represents the output of a <code>PurchaseReservedInstanceOffering</code>
+ *             operation.</p>
+ * @public
+ */
+export interface PurchaseReservedInstanceOfferingResponse {
+  /**
+   * <p>The ID of the Reserved Instance offering that was purchased.</p>
+   * @public
+   */
+  ReservedInstanceId?: string | undefined;
+
+  /**
+   * <p>The customer-specified identifier used to track this reservation.</p>
+   * @public
+   */
+  ReservationName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutDefaultApplicationSettingRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in
+   *                 <i>Using Amazon Web Services Identity and Access Management</i> for
+   *             more information. </p>
+   * @public
+   */
+  applicationArn: string | undefined;
+
+  /**
+   * <p>Set to true to set the specified ARN as the default application. Set to false to clear
+   *             the default application.</p>
+   * @public
+   */
+  setAsDefault: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutDefaultApplicationSettingResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in
+   *                 <i>Using Amazon Web Services Identity and Access Management</i> for
+   *             more information. </p>
+   * @public
+   */
+  applicationArn?: string | undefined;
+}
+
+/**
+ * <p>The base configuration for registering a capability. Contains capability-specific configuration such as AI settings.</p>
+ * @public
+ */
+export type CapabilityBaseRequestConfig =
+  | CapabilityBaseRequestConfig.AiConfigMember
+  | CapabilityBaseRequestConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CapabilityBaseRequestConfig {
+  /**
+   * <p>Configuration settings for AI-powered capabilities.</p>
+   * @public
+   */
+  export interface AiConfigMember {
+    aiConfig: AIConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    aiConfig?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    aiConfig: (value: AIConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Container for the parameters to the <code>RegisterCapability</code> operation.</p>
+ * @public
+ */
+export interface RegisterCapabilityRequest {
+  /**
+   * <p>The unique identifier of the OpenSearch UI application to register the capability for.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The name of the capability to register. Must be between 3 and 30 characters and contain only alphanumeric characters and hyphens. This identifies the type of capability being enabled for the application. For registering AI Assistant capability, use <code>ai-capability</code>
+   *          </p>
+   * @public
+   */
+  capabilityName: string | undefined;
+
+  /**
+   * <p>The configuration settings for the capability being registered. This includes capability-specific settings such as AI configuration.</p>
+   * @public
+   */
+  capabilityConfig: CapabilityBaseRequestConfig | undefined;
+}
 
 /**
  * <p>The base configuration returned for a registered capability.</p>
@@ -739,6 +857,18 @@ export interface UpdateDomainConfigRequest {
    * @public
    */
   AutomatedSnapshotPauseOptions?: AutomatedSnapshotPauseRequestOptions | undefined;
+
+  /**
+   * <p>The primary use case for the domain. For valid values, see <code>DomainUseCase</code>.</p>
+   * @public
+   */
+  UseCase?: DomainUseCase | undefined;
+
+  /**
+   * <p>The engine mode for the domain. The engine mode can't be changed after the domain is created. For valid values, see <code>EngineMode</code>.</p>
+   * @public
+   */
+  EngineMode?: EngineMode | undefined;
 }
 
 /**

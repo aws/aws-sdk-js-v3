@@ -24,13 +24,18 @@ import type {
   DomainPackageStatus,
   DomainProcessingStatusType,
   DomainState,
+  DomainUseCase,
+  EngineMode,
   EngineType,
   InboundConnectionStatusCode,
   IndexStatus,
   InitiatedBy,
   InsightEntityType,
+  InsightFeedbackEntityType,
+  InsightFeedbackThumbs,
   InsightFieldType,
   InsightPriorityLevel,
+  InsightResponseStatus,
   InsightSortOrder,
   InsightStatus,
   InsightType,
@@ -2824,6 +2829,18 @@ export interface CreateDomainRequest {
    * @public
    */
   AutomatedSnapshotPauseOptions?: AutomatedSnapshotPauseRequestOptions | undefined;
+
+  /**
+   * <p>The primary use case for the domain. For valid values, see <code>DomainUseCase</code>.</p>
+   * @public
+   */
+  UseCase?: DomainUseCase | undefined;
+
+  /**
+   * <p>The engine mode for the domain. For valid values and requirements, see <code>EngineMode</code>.</p>
+   * @public
+   */
+  EngineMode?: EngineMode | undefined;
 }
 
 /**
@@ -3317,6 +3334,18 @@ export interface DomainStatus {
    * @public
    */
   AutomatedSnapshotPauseOptions?: AutomatedSnapshotPauseOptions | undefined;
+
+  /**
+   * <p>The primary use case for the domain.</p>
+   * @public
+   */
+  UseCase?: DomainUseCase | undefined;
+
+  /**
+   * <p>The engine mode for the domain.</p>
+   * @public
+   */
+  EngineMode?: EngineMode | undefined;
 }
 
 /**
@@ -4819,6 +4848,24 @@ export interface EncryptionAtRestOptionsStatus {
 }
 
 /**
+ * <p>The status of the engine mode for the domain.</p>
+ * @public
+ */
+export interface EngineModeStatus {
+  /**
+   * <p>The engine mode configured for the domain.</p>
+   * @public
+   */
+  Options: EngineMode | undefined;
+
+  /**
+   * <p>The current status of the engine mode for the domain.</p>
+   * @public
+   */
+  Status: OptionStatus | undefined;
+}
+
+/**
  * <p>The status of the the OpenSearch or Elasticsearch version options for the specified
  *             Amazon OpenSearch Service domain.</p>
  * @public
@@ -4964,6 +5011,24 @@ export interface SoftwareUpdateOptionsStatus {
    * @public
    */
   Status?: OptionStatus | undefined;
+}
+
+/**
+ * <p>The status of the use case for the domain.</p>
+ * @public
+ */
+export interface UseCaseStatus {
+  /**
+   * <p>The use case configured for the domain.</p>
+   * @public
+   */
+  Options: DomainUseCase | undefined;
+
+  /**
+   * <p>The current status of the use case for the domain.</p>
+   * @public
+   */
+  Status: OptionStatus | undefined;
 }
 
 /**
@@ -5135,6 +5200,18 @@ export interface DomainConfig {
    * @public
    */
   AutomatedSnapshotPauseOptions?: AutomatedSnapshotPauseOptionsStatus | undefined;
+
+  /**
+   * <p>The use case configured for the domain.</p>
+   * @public
+   */
+  UseCase?: UseCaseStatus | undefined;
+
+  /**
+   * <p>The engine mode configured for the domain.</p>
+   * @public
+   */
+  EngineMode?: EngineModeStatus | undefined;
 }
 
 /**
@@ -7245,6 +7322,72 @@ export interface GetUpgradeStatusResponse {
 }
 
 /**
+ * <p>Specifies the entity for which to submit insight feedback. An entity represents an
+ *             Amazon OpenSearch Service domain.</p>
+ * @public
+ */
+export interface InsightFeedbackEntity {
+  /**
+   * <p>The type of the entity. Possible values are <code>DomainName</code>.</p>
+   * @public
+   */
+  Type: InsightFeedbackEntityType | undefined;
+
+  /**
+   * <p>The value of the entity, such as a domain name.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * <p>Container for the parameters to the <code>InsightFeedback</code> operation.</p>
+ * @public
+ */
+export interface InsightFeedbackRequest {
+  /**
+   * <p>The entity for which to submit insight feedback. Specifies the type and value of the
+   *             entity, such as a domain name.</p>
+   * @public
+   */
+  Entity: InsightFeedbackEntity | undefined;
+
+  /**
+   * <p>The unique identifier of the insight for which to submit feedback.</p>
+   * @public
+   */
+  InsightId: string | undefined;
+
+  /**
+   * <p>The thumbs up or thumbs down feedback for the insight. Possible values are
+   *             <code>Up</code> and <code>Down</code>.</p>
+   * @public
+   */
+  Thumbs: InsightFeedbackThumbs | undefined;
+
+  /**
+   * <p>Optional text feedback providing additional details about the insight. Maximum length
+   *             is 1000 characters.</p>
+   * @public
+   */
+  FeedbackText?: string | undefined;
+}
+
+/**
+ * <p>The result of an <code>InsightFeedback</code> request. Contains the status of the
+ *             feedback submission.</p>
+ * @public
+ */
+export interface InsightFeedbackResponse {
+  /**
+   * <p>The status of the feedback submission. Possible values are <code>SUCCESS</code> and
+   *             <code>ERROR</code>.</p>
+   * @public
+   */
+  Status?: InsightResponseStatus | undefined;
+}
+
+/**
  * @public
  */
 export interface ListApplicationsRequest {
@@ -8382,120 +8525,4 @@ export interface PurchaseReservedInstanceOfferingRequest {
    * @public
    */
   InstanceCount?: number | undefined;
-}
-
-/**
- * <p>Represents the output of a <code>PurchaseReservedInstanceOffering</code>
- *             operation.</p>
- * @public
- */
-export interface PurchaseReservedInstanceOfferingResponse {
-  /**
-   * <p>The ID of the Reserved Instance offering that was purchased.</p>
-   * @public
-   */
-  ReservedInstanceId?: string | undefined;
-
-  /**
-   * <p>The customer-specified identifier used to track this reservation.</p>
-   * @public
-   */
-  ReservationName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutDefaultApplicationSettingRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in
-   *                 <i>Using Amazon Web Services Identity and Access Management</i> for
-   *             more information. </p>
-   * @public
-   */
-  applicationArn: string | undefined;
-
-  /**
-   * <p>Set to true to set the specified ARN as the default application. Set to false to clear
-   *             the default application.</p>
-   * @public
-   */
-  setAsDefault: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface PutDefaultApplicationSettingResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the domain. See <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/index.html">Identifiers for IAM Entities </a> in
-   *                 <i>Using Amazon Web Services Identity and Access Management</i> for
-   *             more information. </p>
-   * @public
-   */
-  applicationArn?: string | undefined;
-}
-
-/**
- * <p>The base configuration for registering a capability. Contains capability-specific configuration such as AI settings.</p>
- * @public
- */
-export type CapabilityBaseRequestConfig =
-  | CapabilityBaseRequestConfig.AiConfigMember
-  | CapabilityBaseRequestConfig.$UnknownMember;
-
-/**
- * @public
- */
-export namespace CapabilityBaseRequestConfig {
-  /**
-   * <p>Configuration settings for AI-powered capabilities.</p>
-   * @public
-   */
-  export interface AiConfigMember {
-    aiConfig: AIConfig;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    aiConfig?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    aiConfig: (value: AIConfig) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Container for the parameters to the <code>RegisterCapability</code> operation.</p>
- * @public
- */
-export interface RegisterCapabilityRequest {
-  /**
-   * <p>The unique identifier of the OpenSearch UI application to register the capability for.</p>
-   * @public
-   */
-  applicationId: string | undefined;
-
-  /**
-   * <p>The name of the capability to register. Must be between 3 and 30 characters and contain only alphanumeric characters and hyphens. This identifies the type of capability being enabled for the application. For registering AI Assistant capability, use <code>ai-capability</code>
-   *          </p>
-   * @public
-   */
-  capabilityName: string | undefined;
-
-  /**
-   * <p>The configuration settings for the capability being registered. This includes capability-specific settings such as AI configuration.</p>
-   * @public
-   */
-  capabilityConfig: CapabilityBaseRequestConfig | undefined;
 }

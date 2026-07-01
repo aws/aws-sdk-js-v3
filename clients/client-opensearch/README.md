@@ -584,6 +584,13 @@ GetUpgradeStatus
 </details>
 <details>
 <summary>
+InsightFeedback
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/InsightFeedbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/InsightFeedbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/InsightFeedbackCommandOutput/)
+</details>
+<details>
+<summary>
 ListApplications
 </summary>
 

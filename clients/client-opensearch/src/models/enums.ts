@@ -437,6 +437,19 @@ export type VolumeType = (typeof VolumeType)[keyof typeof VolumeType];
  * @public
  * @enum
  */
+export const EngineMode = {
+  GENERAL: "GENERAL",
+  OPTIMIZED: "OPTIMIZED",
+} as const;
+/**
+ * @public
+ */
+export type EngineMode = (typeof EngineMode)[keyof typeof EngineMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const RolesKeyIdCOption = {
   GroupId: "GroupId",
   GroupName: "GroupName",
@@ -487,6 +500,21 @@ export const LogType = {
  * @public
  */
 export type LogType = (typeof LogType)[keyof typeof LogType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DomainUseCase = {
+  MIXED: "MIXED",
+  OBSERVABILITY: "OBSERVABILITY",
+  SEARCH: "SEARCH",
+  VECTOR: "VECTOR",
+} as const;
+/**
+ * @public
+ */
+export type DomainUseCase = (typeof DomainUseCase)[keyof typeof DomainUseCase];
 
 /**
  * @public
@@ -1028,6 +1056,44 @@ export const UpgradeStatus = {
  * @public
  */
 export type UpgradeStatus = (typeof UpgradeStatus)[keyof typeof UpgradeStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const InsightFeedbackEntityType = {
+  DOMAIN: "DomainName",
+} as const;
+/**
+ * @public
+ */
+export type InsightFeedbackEntityType = (typeof InsightFeedbackEntityType)[keyof typeof InsightFeedbackEntityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InsightFeedbackThumbs = {
+  DOWN: "Down",
+  UP: "Up",
+} as const;
+/**
+ * @public
+ */
+export type InsightFeedbackThumbs = (typeof InsightFeedbackThumbs)[keyof typeof InsightFeedbackThumbs];
+
+/**
+ * @public
+ * @enum
+ */
+export const InsightResponseStatus = {
+  ERROR: "ERROR",
+  SUCCESS: "SUCCESS",
+} as const;
+/**
+ * @public
+ */
+export type InsightResponseStatus = (typeof InsightResponseStatus)[keyof typeof InsightResponseStatus];
 
 /**
  * @public

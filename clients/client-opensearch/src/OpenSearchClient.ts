@@ -222,6 +222,7 @@ import type {
   GetUpgradeHistoryCommandOutput,
 } from "./commands/GetUpgradeHistoryCommand";
 import type { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "./commands/GetUpgradeStatusCommand";
+import type { InsightFeedbackCommandInput, InsightFeedbackCommandOutput } from "./commands/InsightFeedbackCommand";
 import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import type {
   ListDataSourceAttachmentsCommandInput,
@@ -398,6 +399,7 @@ export type ServiceInputTypes =
   | GetPackageVersionHistoryCommandInput
   | GetUpgradeHistoryCommandInput
   | GetUpgradeStatusCommandInput
+  | InsightFeedbackCommandInput
   | ListApplicationsCommandInput
   | ListDataSourceAttachmentsCommandInput
   | ListDataSourcesCommandInput
@@ -495,6 +497,7 @@ export type ServiceOutputTypes =
   | GetPackageVersionHistoryCommandOutput
   | GetUpgradeHistoryCommandOutput
   | GetUpgradeStatusCommandOutput
+  | InsightFeedbackCommandOutput
   | ListApplicationsCommandOutput
   | ListDataSourceAttachmentsCommandOutput
   | ListDataSourcesCommandOutput

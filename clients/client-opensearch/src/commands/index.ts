@@ -56,6 +56,7 @@ export * from "./GetIndexCommand";
 export * from "./GetPackageVersionHistoryCommand";
 export * from "./GetUpgradeHistoryCommand";
 export * from "./GetUpgradeStatusCommand";
+export * from "./InsightFeedbackCommand";
 export * from "./ListApplicationsCommand";
 export * from "./ListDataSourceAttachmentsCommand";
 export * from "./ListDataSourcesCommand";

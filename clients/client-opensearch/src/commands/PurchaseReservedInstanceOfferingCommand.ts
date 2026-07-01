@@ -2,10 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type {
-  PurchaseReservedInstanceOfferingRequest,
-  PurchaseReservedInstanceOfferingResponse,
-} from "../models/models_0";
+import type { PurchaseReservedInstanceOfferingRequest } from "../models/models_0";
+import type { PurchaseReservedInstanceOfferingResponse } from "../models/models_1";
 import { PurchaseReservedInstanceOffering$ } from "../schemas/schemas_0";
 
 /**

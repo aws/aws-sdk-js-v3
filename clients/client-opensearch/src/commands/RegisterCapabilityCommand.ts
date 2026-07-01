@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { RegisterCapabilityRequest } from "../models/models_0";
-import type { RegisterCapabilityResponse } from "../models/models_1";
+import type { RegisterCapabilityRequest, RegisterCapabilityResponse } from "../models/models_1";
 import { RegisterCapability$ } from "../schemas/schemas_0";
 
 /**

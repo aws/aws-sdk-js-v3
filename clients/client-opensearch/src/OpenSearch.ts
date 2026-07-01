@@ -280,6 +280,11 @@ import {
   GetUpgradeStatusCommand,
 } from "./commands/GetUpgradeStatusCommand";
 import {
+  type InsightFeedbackCommandInput,
+  type InsightFeedbackCommandOutput,
+  InsightFeedbackCommand,
+} from "./commands/InsightFeedbackCommand";
+import {
   type ListApplicationsCommandInput,
   type ListApplicationsCommandOutput,
   ListApplicationsCommand,
@@ -525,6 +530,7 @@ const commands = {
   GetPackageVersionHistoryCommand,
   GetUpgradeHistoryCommand,
   GetUpgradeStatusCommand,
+  InsightFeedbackCommand,
   ListApplicationsCommand,
   ListDataSourceAttachmentsCommand,
   ListDataSourcesCommand,
@@ -1554,6 +1560,23 @@ export interface OpenSearch {
     args: GetUpgradeStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetUpgradeStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link InsightFeedbackCommand}
+   */
+  insightFeedback(
+    args: InsightFeedbackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InsightFeedbackCommandOutput>;
+  insightFeedback(
+    args: InsightFeedbackCommandInput,
+    cb: (err: any, data?: InsightFeedbackCommandOutput) => void
+  ): void;
+  insightFeedback(
+    args: InsightFeedbackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InsightFeedbackCommandOutput) => void
   ): void;
 
   /**

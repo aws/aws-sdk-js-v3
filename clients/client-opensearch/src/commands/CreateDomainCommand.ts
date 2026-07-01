@@ -207,6 +207,8 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *     StartTime: new Date("TIMESTAMP"),
  *     EndTime: new Date("TIMESTAMP"),
  *   },
+ *   UseCase: "SEARCH" || "VECTOR" || "OBSERVABILITY" || "MIXED",
+ *   EngineMode: "GENERAL" || "OPTIMIZED",
  * };
  * const command = new CreateDomainCommand(input);
  * const response = await client.send(command);
@@ -411,6 +413,8 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //       EndTime: new Date("TIMESTAMP"),
  * //       State: "Active" || "Completed" || "Scheduled" || "Disabled",
  * //     },
+ * //     UseCase: "SEARCH" || "VECTOR" || "OBSERVABILITY" || "MIXED",
+ * //     EngineMode: "GENERAL" || "OPTIMIZED",
  * //   },
  * // };
  *

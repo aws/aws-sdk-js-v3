@@ -274,6 +274,7 @@ import {
   DomainProcessingStatusType,
   DomainState,
   DomainStatus$,
+  DomainUseCase,
   DryRunMode,
   DryRunProgressStatus$,
   DryRunResults$,
@@ -282,6 +283,8 @@ import {
   EBSOptionsStatus$,
   EncryptionAtRestOptions$,
   EncryptionAtRestOptionsStatus$,
+  EngineMode,
+  EngineModeStatus$,
   EngineType,
   EnvironmentInfo$,
   ErrorDetails$,
@@ -345,9 +348,17 @@ import {
   Insight$,
   InsightEntity$,
   InsightEntityType,
+  InsightFeedback$,
+  InsightFeedbackCommand,
+  InsightFeedbackEntity$,
+  InsightFeedbackEntityType,
+  InsightFeedbackRequest$,
+  InsightFeedbackResponse$,
+  InsightFeedbackThumbs,
   InsightField$,
   InsightFieldType,
   InsightPriorityLevel,
+  InsightResponseStatus,
   InsightSortOrder,
   InsightStatus,
   InsightTimeRange$,
@@ -620,6 +631,7 @@ import {
   UpgradeStatus,
   UpgradeStep,
   UpgradeStepItem$,
+  UseCaseStatus$,
   ValidationException,
   ValidationException$,
   ValidationFailure$,
@@ -757,6 +769,8 @@ assert(typeof GetUpgradeHistoryCommand === "function");
 assert(typeof GetUpgradeHistory$ === "object");
 assert(typeof GetUpgradeStatusCommand === "function");
 assert(typeof GetUpgradeStatus$ === "object");
+assert(typeof InsightFeedbackCommand === "function");
+assert(typeof InsightFeedback$ === "object");
 assert(typeof ListApplicationsCommand === "function");
 assert(typeof ListApplications$ === "object");
 assert(typeof ListDataSourceAttachmentsCommand === "function");
@@ -986,6 +1000,7 @@ assert(typeof EBSOptions$ === "object");
 assert(typeof EBSOptionsStatus$ === "object");
 assert(typeof EncryptionAtRestOptions$ === "object");
 assert(typeof EncryptionAtRestOptionsStatus$ === "object");
+assert(typeof EngineModeStatus$ === "object");
 assert(typeof EnvironmentInfo$ === "object");
 assert(typeof ErrorDetails$ === "object");
 assert(typeof Filter$ === "object");
@@ -1022,6 +1037,9 @@ assert(typeof InboundConnection$ === "object");
 assert(typeof InboundConnectionStatus$ === "object");
 assert(typeof Insight$ === "object");
 assert(typeof InsightEntity$ === "object");
+assert(typeof InsightFeedbackEntity$ === "object");
+assert(typeof InsightFeedbackRequest$ === "object");
+assert(typeof InsightFeedbackResponse$ === "object");
 assert(typeof InsightField$ === "object");
 assert(typeof InsightTimeRange$ === "object");
 assert(typeof InstanceCountLimits$ === "object");
@@ -1151,6 +1169,7 @@ assert(typeof UpgradeDomainRequest$ === "object");
 assert(typeof UpgradeDomainResponse$ === "object");
 assert(typeof UpgradeHistory$ === "object");
 assert(typeof UpgradeStepItem$ === "object");
+assert(typeof UseCaseStatus$ === "object");
 assert(typeof ValidationFailure$ === "object");
 assert(typeof VersionStatus$ === "object");
 assert(typeof VPCDerivedInfo$ === "object");
@@ -1185,14 +1204,19 @@ assert(typeof DomainHealth === "object");
 assert(typeof DomainPackageStatus === "object");
 assert(typeof DomainProcessingStatusType === "object");
 assert(typeof DomainState === "object");
+assert(typeof DomainUseCase === "object");
 assert(typeof DryRunMode === "object");
+assert(typeof EngineMode === "object");
 assert(typeof EngineType === "object");
 assert(typeof InboundConnectionStatusCode === "object");
 assert(typeof IndexStatus === "object");
 assert(typeof InitiatedBy === "object");
 assert(typeof InsightEntityType === "object");
+assert(typeof InsightFeedbackEntityType === "object");
+assert(typeof InsightFeedbackThumbs === "object");
 assert(typeof InsightFieldType === "object");
 assert(typeof InsightPriorityLevel === "object");
+assert(typeof InsightResponseStatus === "object");
 assert(typeof InsightSortOrder === "object");
 assert(typeof InsightStatus === "object");
 assert(typeof InsightType === "object");
