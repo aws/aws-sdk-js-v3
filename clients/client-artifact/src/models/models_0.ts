@@ -3,8 +3,15 @@ import type {
   AcceptanceType,
   AgreementType,
   CustomerAgreementState,
+  InputSource,
+  InquiryStatus,
+  InquiryStatusMessage,
+  InquirySupportMode,
   NotificationSubscriptionStatus,
   PublishedState,
+  QueryStatus,
+  QueryStatusMessage,
+  ReviewType,
   UploadState,
 } from "./enums";
 
@@ -74,6 +81,481 @@ export interface PutAccountSettingsResponse {
    * @public
    */
   accountSettings?: AccountSettings | undefined;
+}
+
+/**
+ * <p>File content structure for compliance inquiry uploads.</p>
+ * @public
+ */
+export interface InquiryFileContent {
+  /**
+   * <p>List of file sections/sheets to process.</p>
+   * @public
+   */
+  fileSections?: string[] | undefined;
+
+  /**
+   * <p>Binary content of the uploaded file.</p>
+   * @public
+   */
+  content: Uint8Array | undefined;
+}
+
+/**
+ * <p>Content for creating a compliance inquiry - either a single query or file content.</p>
+ * @public
+ */
+export type InquiryContent =
+  | InquiryContent.FileContentMember
+  | InquiryContent.QueryMember
+  | InquiryContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InquiryContent {
+  /**
+   * <p>Single text query for AI-generated answer.</p>
+   * @public
+   */
+  export interface QueryMember {
+    query: string;
+    fileContent?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>File content with multiple questions.</p>
+   * @public
+   */
+  export interface FileContentMember {
+    query?: never;
+    fileContent: InquiryFileContent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    query?: never;
+    fileContent?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    query: (value: string) => T;
+    fileContent: (value: InquiryFileContent) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateComplianceInquiryRequest {
+  /**
+   * <p>Title of the inquiry.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Content for creating a compliance inquiry - either a single query or file content.</p>
+   * @public
+   */
+  inquiryContent: InquiryContent | undefined;
+
+  /**
+   * <p>Idempotency token for the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Support mode for inquiry processing. Only supported for file upload mode. Defaults to AI_ONLY if not specified.</p>
+   * @public
+   */
+  supportMode?: InquirySupportMode | undefined;
+
+  /**
+   * <p>Tags to associate with the compliance inquiry resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Summary information about a compliance inquiry.</p>
+ * @public
+ */
+export interface InquirySummary {
+  /**
+   * <p>ARN of the compliance inquiry resource.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>Title of the inquiry.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Unique resource ID for the compliance inquiry.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Current processing status of the inquiry.</p>
+   * @public
+   */
+  status: InquiryStatus | undefined;
+
+  /**
+   * <p>Status message providing additional context.</p>
+   * @public
+   */
+  statusMessage: InquiryStatusMessage | undefined;
+
+  /**
+   * <p>Type of inquiry content (text or file).</p>
+   * @public
+   */
+  inputSource: InputSource | undefined;
+
+  /**
+   * <p>Timestamp indicating when the resource was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateComplianceInquiryResponse {
+  /**
+   * <p>Summary information about the created compliance inquiry.</p>
+   * @public
+   */
+  complianceInquirySummary?: InquirySummary | undefined;
+
+  /**
+   * <p>Tags associated with the compliance inquiry resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportComplianceInquiryRequest {
+  /**
+   * <p>Unique resource ID for the compliance inquiry.</p>
+   * @public
+   */
+  complianceInquiryId: string | undefined;
+
+  /**
+   * <p>List of query identifiers to include in the export.</p>
+   * @public
+   */
+  queryIdentifiers?: number[] | undefined;
+
+  /**
+   * <p>When true, include citations in the exported document.</p>
+   * @public
+   */
+  includeCitations?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportComplianceInquiryResponse {
+  /**
+   * <p>Presigned S3 URL to access the exported compliance inquiry report.</p>
+   * @public
+   */
+  documentPresignedUrl?: string | undefined;
+
+  /**
+   * <p>Tags associated with the compliance inquiry resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetComplianceInquiryMetadataRequest {
+  /**
+   * <p>Unique resource ID for the compliance inquiry.</p>
+   * @public
+   */
+  complianceInquiryId: string | undefined;
+}
+
+/**
+ * <p>Detailed information about a compliance inquiry.</p>
+ * @public
+ */
+export interface InquiryDetail {
+  /**
+   * <p>ARN of the compliance inquiry resource.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>Title of the inquiry.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Unique resource ID for the compliance inquiry.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Current processing status of the inquiry.</p>
+   * @public
+   */
+  status: InquiryStatus | undefined;
+
+  /**
+   * <p>Status message providing additional context.</p>
+   * @public
+   */
+  statusMessage: InquiryStatusMessage | undefined;
+
+  /**
+   * <p>Type of inquiry content (text or file).</p>
+   * @public
+   */
+  inputSource: InputSource | undefined;
+
+  /**
+   * <p>Timestamp indicating when the resource was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>Timestamp indicating when the resource was last modified.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>Support mode for this inquiry. AI_ONLY provides AI-generated responses. FULL_SUPPORT includes human expert review.</p>
+   * @public
+   */
+  supportMode?: InquirySupportMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetComplianceInquiryMetadataResponse {
+  /**
+   * <p>Detailed information about the compliance inquiry.</p>
+   * @public
+   */
+  complianceInquiryDetail?: InquiryDetail | undefined;
+
+  /**
+   * <p>Tags associated with the compliance inquiry resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListComplianceInquiriesRequest {
+  /**
+   * <p>Maximum number of resources to return in the paginated response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token to request the next page of resources.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListComplianceInquiriesResponse {
+  /**
+   * <p>List of compliance inquiry resources.</p>
+   * @public
+   */
+  complianceInquiries?: InquirySummary[] | undefined;
+
+  /**
+   * <p>Pagination token to request the next page of resources.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListComplianceInquiryQueriesRequest {
+  /**
+   * <p>Unique resource ID for the compliance inquiry.</p>
+   * @public
+   */
+  complianceInquiryId: string | undefined;
+
+  /**
+   * <p>Maximum number of resources to return in the paginated response.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token to request the next page of resources.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Citation information for AI-generated responses.</p>
+ * @public
+ */
+export interface Citation {
+  /**
+   * <p>Label identifying the compliance source.</p>
+   * @public
+   */
+  sourceLabel?: string | undefined;
+
+  /**
+   * <p>Content text from the compliance source.</p>
+   * @public
+   */
+  sourceContent?: string | undefined;
+
+  /**
+   * <p>Link to the compliance source.</p>
+   * @public
+   */
+  sourceLink?: string | undefined;
+}
+
+/**
+ * <p>A versioned snapshot of a response edit.</p>
+ * @public
+ */
+export interface ResponseVersion {
+  /**
+   * <p>The response text for this version.</p>
+   * @public
+   */
+  responseText: string | undefined;
+
+  /**
+   * <p>ISO 8601 timestamp of when this edit was made.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+}
+
+/**
+ * <p>Summary information about a single query within a compliance inquiry.</p>
+ * @public
+ */
+export interface QuerySummary {
+  /**
+   * <p>Sequential identifier of the query within the inquiry.</p>
+   * @public
+   */
+  queryIdentifier: number | undefined;
+
+  /**
+   * <p>The actual query text.</p>
+   * @public
+   */
+  query: string | undefined;
+
+  /**
+   * <p>Generated response to the query.</p>
+   * @public
+   */
+  response?: string | undefined;
+
+  /**
+   * <p>Type of review for the response.</p>
+   * @public
+   */
+  reviewType?: ReviewType | undefined;
+
+  /**
+   * <p>Supporting citations for the response.</p>
+   * @public
+   */
+  citations?: Citation[] | undefined;
+
+  /**
+   * <p>Current processing status of the query.</p>
+   * @public
+   */
+  status: QueryStatus | undefined;
+
+  /**
+   * <p>Descriptive status message.</p>
+   * @public
+   */
+  statusMessage: QueryStatusMessage | undefined;
+
+  /**
+   * <p>Timestamp when the query was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>Ordered list of response version history entries, oldest first.</p>
+   * @public
+   */
+  updatedResponseVersions?: ResponseVersion[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListComplianceInquiryQueriesResponse {
+  /**
+   * <p>List of compliance query summaries.</p>
+   * @public
+   */
+  queries?: QuerySummary[] | undefined;
+
+  /**
+   * <p>Pagination token to request the next page of resources.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -192,6 +674,28 @@ export interface ListCustomerAgreementsResponse {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>Tags associated with the resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -585,3 +1089,47 @@ export interface ListReportVersionsResponse {
    */
   nextToken?: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>Tags to add to the resource.</p>
+   * @public
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>Tag keys to remove from the resource.</p>
+   * @public
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}

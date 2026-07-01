@@ -55,15 +55,35 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  CreateComplianceInquiryCommandInput,
+  CreateComplianceInquiryCommandOutput,
+} from "./commands/CreateComplianceInquiryCommand";
+import type {
+  ExportComplianceInquiryCommandInput,
+  ExportComplianceInquiryCommandOutput,
+} from "./commands/ExportComplianceInquiryCommand";
+import type {
   GetAccountSettingsCommandInput,
   GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand";
+import type {
+  GetComplianceInquiryMetadataCommandInput,
+  GetComplianceInquiryMetadataCommandOutput,
+} from "./commands/GetComplianceInquiryMetadataCommand";
 import type { GetReportCommandInput, GetReportCommandOutput } from "./commands/GetReportCommand";
 import type {
   GetReportMetadataCommandInput,
   GetReportMetadataCommandOutput,
 } from "./commands/GetReportMetadataCommand";
 import type { GetTermForReportCommandInput, GetTermForReportCommandOutput } from "./commands/GetTermForReportCommand";
+import type {
+  ListComplianceInquiriesCommandInput,
+  ListComplianceInquiriesCommandOutput,
+} from "./commands/ListComplianceInquiriesCommand";
+import type {
+  ListComplianceInquiryQueriesCommandInput,
+  ListComplianceInquiryQueriesCommandOutput,
+} from "./commands/ListComplianceInquiryQueriesCommand";
 import type {
   ListCustomerAgreementsCommandInput,
   ListCustomerAgreementsCommandOutput,
@@ -74,9 +94,15 @@ import type {
   ListReportVersionsCommandOutput,
 } from "./commands/ListReportVersionsCommand";
 import type {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import type {
   PutAccountSettingsCommandInput,
   PutAccountSettingsCommandOutput,
 } from "./commands/PutAccountSettingsCommand";
+import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -92,27 +118,43 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CreateComplianceInquiryCommandInput
+  | ExportComplianceInquiryCommandInput
   | GetAccountSettingsCommandInput
+  | GetComplianceInquiryMetadataCommandInput
   | GetReportCommandInput
   | GetReportMetadataCommandInput
   | GetTermForReportCommandInput
+  | ListComplianceInquiriesCommandInput
+  | ListComplianceInquiryQueriesCommandInput
   | ListCustomerAgreementsCommandInput
   | ListReportVersionsCommandInput
   | ListReportsCommandInput
-  | PutAccountSettingsCommandInput;
+  | ListTagsForResourceCommandInput
+  | PutAccountSettingsCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | CreateComplianceInquiryCommandOutput
+  | ExportComplianceInquiryCommandOutput
   | GetAccountSettingsCommandOutput
+  | GetComplianceInquiryMetadataCommandOutput
   | GetReportCommandOutput
   | GetReportMetadataCommandOutput
   | GetTermForReportCommandOutput
+  | ListComplianceInquiriesCommandOutput
+  | ListComplianceInquiryQueriesCommandOutput
   | ListCustomerAgreementsCommandOutput
   | ListReportVersionsCommandOutput
   | ListReportsCommandOutput
-  | PutAccountSettingsCommandOutput;
+  | ListTagsForResourceCommandOutput
+  | PutAccountSettingsCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput;
 
 /**
  * @public

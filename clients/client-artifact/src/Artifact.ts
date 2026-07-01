@@ -4,10 +4,25 @@ import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguratio
 
 import { ArtifactClient } from "./ArtifactClient";
 import {
+  type CreateComplianceInquiryCommandInput,
+  type CreateComplianceInquiryCommandOutput,
+  CreateComplianceInquiryCommand,
+} from "./commands/CreateComplianceInquiryCommand";
+import {
+  type ExportComplianceInquiryCommandInput,
+  type ExportComplianceInquiryCommandOutput,
+  ExportComplianceInquiryCommand,
+} from "./commands/ExportComplianceInquiryCommand";
+import {
   type GetAccountSettingsCommandInput,
   type GetAccountSettingsCommandOutput,
   GetAccountSettingsCommand,
 } from "./commands/GetAccountSettingsCommand";
+import {
+  type GetComplianceInquiryMetadataCommandInput,
+  type GetComplianceInquiryMetadataCommandOutput,
+  GetComplianceInquiryMetadataCommand,
+} from "./commands/GetComplianceInquiryMetadataCommand";
 import { type GetReportCommandInput, type GetReportCommandOutput, GetReportCommand } from "./commands/GetReportCommand";
 import {
   type GetReportMetadataCommandInput,
@@ -19,6 +34,16 @@ import {
   type GetTermForReportCommandOutput,
   GetTermForReportCommand,
 } from "./commands/GetTermForReportCommand";
+import {
+  type ListComplianceInquiriesCommandInput,
+  type ListComplianceInquiriesCommandOutput,
+  ListComplianceInquiriesCommand,
+} from "./commands/ListComplianceInquiriesCommand";
+import {
+  type ListComplianceInquiryQueriesCommandInput,
+  type ListComplianceInquiryQueriesCommandOutput,
+  ListComplianceInquiryQueriesCommand,
+} from "./commands/ListComplianceInquiryQueriesCommand";
 import {
   type ListCustomerAgreementsCommandInput,
   type ListCustomerAgreementsCommandOutput,
@@ -35,31 +60,92 @@ import {
   ListReportVersionsCommand,
 } from "./commands/ListReportVersionsCommand";
 import {
+  type ListTagsForResourceCommandInput,
+  type ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommand,
+} from "./commands/ListTagsForResourceCommand";
+import {
   type PutAccountSettingsCommandInput,
   type PutAccountSettingsCommandOutput,
   PutAccountSettingsCommand,
 } from "./commands/PutAccountSettingsCommand";
+import {
+  type TagResourceCommandInput,
+  type TagResourceCommandOutput,
+  TagResourceCommand,
+} from "./commands/TagResourceCommand";
+import {
+  type UntagResourceCommandInput,
+  type UntagResourceCommandOutput,
+  UntagResourceCommand,
+} from "./commands/UntagResourceCommand";
+import { paginateListComplianceInquiries } from "./pagination/ListComplianceInquiriesPaginator";
+import { paginateListComplianceInquiryQueries } from "./pagination/ListComplianceInquiryQueriesPaginator";
 import { paginateListCustomerAgreements } from "./pagination/ListCustomerAgreementsPaginator";
 import { paginateListReports } from "./pagination/ListReportsPaginator";
 import { paginateListReportVersions } from "./pagination/ListReportVersionsPaginator";
 
 const commands = {
+  CreateComplianceInquiryCommand,
+  ExportComplianceInquiryCommand,
   GetAccountSettingsCommand,
+  GetComplianceInquiryMetadataCommand,
   GetReportCommand,
   GetReportMetadataCommand,
   GetTermForReportCommand,
+  ListComplianceInquiriesCommand,
+  ListComplianceInquiryQueriesCommand,
   ListCustomerAgreementsCommand,
   ListReportsCommand,
   ListReportVersionsCommand,
+  ListTagsForResourceCommand,
   PutAccountSettingsCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
 };
 const paginators = {
+  paginateListComplianceInquiries,
+  paginateListComplianceInquiryQueries,
   paginateListCustomerAgreements,
   paginateListReports,
   paginateListReportVersions,
 };
 
 export interface Artifact {
+  /**
+   * @see {@link CreateComplianceInquiryCommand}
+   */
+  createComplianceInquiry(
+    args: CreateComplianceInquiryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateComplianceInquiryCommandOutput>;
+  createComplianceInquiry(
+    args: CreateComplianceInquiryCommandInput,
+    cb: (err: any, data?: CreateComplianceInquiryCommandOutput) => void
+  ): void;
+  createComplianceInquiry(
+    args: CreateComplianceInquiryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateComplianceInquiryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ExportComplianceInquiryCommand}
+   */
+  exportComplianceInquiry(
+    args: ExportComplianceInquiryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportComplianceInquiryCommandOutput>;
+  exportComplianceInquiry(
+    args: ExportComplianceInquiryCommandInput,
+    cb: (err: any, data?: ExportComplianceInquiryCommandOutput) => void
+  ): void;
+  exportComplianceInquiry(
+    args: ExportComplianceInquiryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportComplianceInquiryCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link GetAccountSettingsCommand}
    */
@@ -76,6 +162,23 @@ export interface Artifact {
     args: GetAccountSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAccountSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetComplianceInquiryMetadataCommand}
+   */
+  getComplianceInquiryMetadata(
+    args: GetComplianceInquiryMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetComplianceInquiryMetadataCommandOutput>;
+  getComplianceInquiryMetadata(
+    args: GetComplianceInquiryMetadataCommandInput,
+    cb: (err: any, data?: GetComplianceInquiryMetadataCommandOutput) => void
+  ): void;
+  getComplianceInquiryMetadata(
+    args: GetComplianceInquiryMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetComplianceInquiryMetadataCommandOutput) => void
   ): void;
 
   /**
@@ -127,6 +230,41 @@ export interface Artifact {
     args: GetTermForReportCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTermForReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListComplianceInquiriesCommand}
+   */
+  listComplianceInquiries(): Promise<ListComplianceInquiriesCommandOutput>;
+  listComplianceInquiries(
+    args: ListComplianceInquiriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComplianceInquiriesCommandOutput>;
+  listComplianceInquiries(
+    args: ListComplianceInquiriesCommandInput,
+    cb: (err: any, data?: ListComplianceInquiriesCommandOutput) => void
+  ): void;
+  listComplianceInquiries(
+    args: ListComplianceInquiriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComplianceInquiriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListComplianceInquiryQueriesCommand}
+   */
+  listComplianceInquiryQueries(
+    args: ListComplianceInquiryQueriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComplianceInquiryQueriesCommandOutput>;
+  listComplianceInquiryQueries(
+    args: ListComplianceInquiryQueriesCommandInput,
+    cb: (err: any, data?: ListComplianceInquiryQueriesCommandOutput) => void
+  ): void;
+  listComplianceInquiryQueries(
+    args: ListComplianceInquiryQueriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComplianceInquiryQueriesCommandOutput) => void
   ): void;
 
   /**
@@ -183,6 +321,23 @@ export interface Artifact {
   ): void;
 
   /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutAccountSettingsCommand}
    */
   putAccountSettings(): Promise<PutAccountSettingsCommandOutput>;
@@ -199,6 +354,62 @@ export interface Artifact {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutAccountSettingsCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(
+    args: TagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TagResourceCommandOutput>;
+  tagResource(
+    args: TagResourceCommandInput,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListComplianceInquiriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComplianceInquiriesCommandOutput}.
+   */
+  paginateListComplianceInquiries(
+    args?: ListComplianceInquiriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComplianceInquiriesCommandOutput>;
+
+  /**
+   * @see {@link ListComplianceInquiryQueriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListComplianceInquiryQueriesCommandOutput}.
+   */
+  paginateListComplianceInquiryQueries(
+    args: ListComplianceInquiryQueriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListComplianceInquiryQueriesCommandOutput>;
 
   /**
    * @see {@link ListCustomerAgreementsCommand}

@@ -68,6 +68,107 @@ export type AgreementType = (typeof AgreementType)[keyof typeof AgreementType];
  * @public
  * @enum
  */
+export const InquirySupportMode = {
+  AI_ONLY: "AI_ONLY",
+  FULL_SUPPORT: "FULL_SUPPORT",
+} as const;
+/**
+ * @public
+ */
+export type InquirySupportMode = (typeof InquirySupportMode)[keyof typeof InquirySupportMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const InputSource = {
+  FILE: "FILE",
+  TEXT: "TEXT",
+} as const;
+/**
+ * @public
+ */
+export type InputSource = (typeof InputSource)[keyof typeof InputSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const InquiryStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  HUMAN_REVIEW: "HUMAN_REVIEW",
+  PROCESSING: "PROCESSING",
+} as const;
+/**
+ * @public
+ */
+export type InquiryStatus = (typeof InquiryStatus)[keyof typeof InquiryStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const InquiryStatusMessage = {
+  COMPLETED_WITH_ERRORS: "Compliance inquiry processing is complete. One or more queries encountered errors during processing.",
+  HUMAN_REVIEW_IN_PROGRESS: "Human review is in progress.",
+  INTERNAL_ERROR: "An internal error occurred while processing the inquiry. Try again at a later time.",
+  IN_PROGRESS: "Compliance inquiry processing is in-progress.",
+  MALWARE_DETECTED_ERROR: "Malware was detected on the file. Provide a new file and try again.",
+  SUCCESS: "Compliance inquiry processing is complete.",
+} as const;
+/**
+ * @public
+ */
+export type InquiryStatusMessage = (typeof InquiryStatusMessage)[keyof typeof InquiryStatusMessage];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReviewType = {
+  AI: "AI",
+  HUMAN: "HUMAN",
+} as const;
+/**
+ * @public
+ */
+export type ReviewType = (typeof ReviewType)[keyof typeof ReviewType];
+
+/**
+ * @public
+ * @enum
+ */
+export const QueryStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  PROCESSING: "PROCESSING",
+} as const;
+/**
+ * @public
+ */
+export type QueryStatus = (typeof QueryStatus)[keyof typeof QueryStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const QueryStatusMessage = {
+  INTERNAL_ERROR: "An internal error occurred while processing the query. Try again at a later time.",
+  IN_PROGRESS: "Query processing is in-progress.",
+  PENDING_HUMAN_REVIEW: "Query is pending human review.",
+  RESTRICTED: "Query contains restricted or unsupported content.",
+  SUCCESS: "Query processing is complete.",
+} as const;
+/**
+ * @public
+ */
+export type QueryStatusMessage = (typeof QueryStatusMessage)[keyof typeof QueryStatusMessage];
+
+/**
+ * @public
+ * @enum
+ */
 export const CustomerAgreementState = {
   ACTIVE: "ACTIVE",
   AWS_TERMINATED: "AWS_TERMINATED",
