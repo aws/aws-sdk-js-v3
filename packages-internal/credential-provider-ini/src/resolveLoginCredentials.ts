@@ -1,5 +1,4 @@
 import { setCredentialFeature } from "@aws-sdk/core/client";
-import { fromLoginCredentials } from "@aws-sdk/credential-provider-login";
 import type { AwsIdentityProperties } from "@aws-sdk/types";
 import type { AwsCredentialIdentity, ParsedIniData } from "@smithy/types";
 
@@ -20,6 +19,7 @@ export const resolveLoginCredentials = async (
   options: FromIniInit,
   callerClientConfig?: AwsIdentityProperties["callerClientConfig"]
 ): Promise<AwsCredentialIdentity> => {
+  const { fromLoginCredentials } = await import("@aws-sdk/credential-provider-login");
   const credentials = await fromLoginCredentials({
     ...options,
     profile: profileName,

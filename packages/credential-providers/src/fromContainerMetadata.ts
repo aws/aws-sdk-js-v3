@@ -1,6 +1,5 @@
-import type { CredentialProviderOptions } from "@aws-sdk/types";
+import type { AwsIdentityProperties, CredentialProviderOptions } from "@aws-sdk/types";
 import type { RemoteProviderInit as _RemoteProviderInit } from "@smithy/credential-provider-imds";
-import { fromContainerMetadata as _fromContainerMetadata } from "@smithy/credential-provider-imds";
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
 
 export interface RemoteProviderInit extends _RemoteProviderInit, CredentialProviderOptions {}
@@ -27,6 +26,9 @@ export interface RemoteProviderInit extends _RemoteProviderInit, CredentialProvi
  * @public
  */
 export const fromContainerMetadata = (init?: RemoteProviderInit): AwsCredentialIdentityProvider => {
-  init?.logger?.debug("@smithy/credential-provider-imds", "fromContainerMetadata");
-  return _fromContainerMetadata(init);
+  return async (props?: AwsIdentityProperties) => {
+    init?.logger?.debug("@smithy/credential-provider-imds", "fromContainerMetadata");
+    const { fromContainerMetadata: _fromContainerMetadata } = await import("@smithy/credential-provider-imds");
+    return _fromContainerMetadata(init)();
+  };
 };
