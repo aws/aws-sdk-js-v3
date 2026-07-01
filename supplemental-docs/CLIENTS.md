@@ -98,6 +98,25 @@ new S3Client({
 });
 ```
 
+#### Region resolution chain
+
+When `region` is not passed to the client constructor, the SDK resolves it in this order:
+
+1. `AWS_REGION` environment variable.
+2. `AWS_DEFAULT_REGION` environment variable.
+3. `region` in the shared config file (`~/.aws/config`), scoped to the active profile.
+4. EC2 IMDSv2 (`/latest/meta-data/placement/region`) — available since `@smithy/core@3.28.0`.
+
+If none of these produce a region, the client throws `Region is missing` on the first request.
+
+To opt out of the IMDS step (e.g. on non-EC2 hosts where you want fast failure), set:
+
+```bash
+AWS_EC2_METADATA_DISABLED=true
+```
+
+The IMDS call has a 1s timeout and negative results are cached in-process for 60s so repeated client construction on a non-EC2 host doesn't re-pay the timeout.
+
 ### Credentials `credentials`
 
 AWS Credentials are needed by the SDK to perform requests against the correct
