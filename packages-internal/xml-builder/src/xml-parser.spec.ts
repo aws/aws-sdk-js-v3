@@ -347,6 +347,18 @@ describe("xml parsing", () => {
     });
   });
 
+  it("should resolve supplementary-plane numeric character references", () => {
+    const xml = `<Response><Hex>&#x1F600;</Hex><Dec>&#128512;</Dec><CJK>&#x20000;</CJK></Response>`;
+    const object = parseXML(xml);
+    expect(object).toEqual({
+      Response: {
+        Hex: "\u{1F600}",
+        Dec: "\u{1F600}",
+        CJK: "\u{20000}",
+      },
+    });
+  });
+
   it("should preserve control characters like \\x15 in text content despite xml 1.0 decl", () => {
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <Response><Key>prefix&#x15;suffix</Key></Response>`;
