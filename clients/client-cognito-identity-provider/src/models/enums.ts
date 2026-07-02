@@ -796,6 +796,18 @@ export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
  * @public
  * @enum
  */
+export const LimitClass = {
+  API_CATEGORY: "API_CATEGORY",
+} as const;
+/**
+ * @public
+ */
+export type LimitClass = (typeof LimitClass)[keyof typeof LimitClass];
+
+/**
+ * @public
+ * @enum
+ */
 export const WebAuthnFactorConfigurationType = {
   MULTI_FACTOR_WITH_USER_VERIFICATION: "MULTI_FACTOR_WITH_USER_VERIFICATION",
   SINGLE_FACTOR: "SINGLE_FACTOR",

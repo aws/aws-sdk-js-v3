@@ -371,6 +371,10 @@ import {
   GetLogDeliveryConfigurationCommand,
   GetLogDeliveryConfigurationRequest$,
   GetLogDeliveryConfigurationResponse$,
+  GetProvisionedLimit$,
+  GetProvisionedLimitCommand,
+  GetProvisionedLimitRequest$,
+  GetProvisionedLimitResponse$,
   GetSigningCertificate$,
   GetSigningCertificateCommand,
   GetSigningCertificateRequest$,
@@ -439,8 +443,11 @@ import {
   IssuerType,
   KeyConfigurationType$,
   LambdaConfigType$,
+  LimitClass,
+  LimitDefinitionType$,
   LimitExceededException,
   LimitExceededException$,
+  LimitType$,
   ListDevices$,
   ListDevicesCommand,
   ListDevicesRequest$,
@@ -571,6 +578,8 @@ import {
   ScopeDoesNotExistException,
   ScopeDoesNotExistException$,
   SecurityPolicyType,
+  ServiceQuotaExceededException,
+  ServiceQuotaExceededException$,
   SetLogDeliveryConfiguration$,
   SetLogDeliveryConfigurationCommand,
   SetLogDeliveryConfigurationRequest$,
@@ -676,6 +685,10 @@ import {
   UpdateManagedLoginBrandingCommand,
   UpdateManagedLoginBrandingRequest$,
   UpdateManagedLoginBrandingResponse$,
+  UpdateProvisionedLimit$,
+  UpdateProvisionedLimitCommand,
+  UpdateProvisionedLimitRequest$,
+  UpdateProvisionedLimitResponse$,
   UpdateReplicaStatusType,
   UpdateResourceServer$,
   UpdateResourceServerCommand,
@@ -920,6 +933,8 @@ assert(typeof GetIdentityProviderByIdentifierCommand === "function");
 assert(typeof GetIdentityProviderByIdentifier$ === "object");
 assert(typeof GetLogDeliveryConfigurationCommand === "function");
 assert(typeof GetLogDeliveryConfiguration$ === "object");
+assert(typeof GetProvisionedLimitCommand === "function");
+assert(typeof GetProvisionedLimit$ === "object");
 assert(typeof GetSigningCertificateCommand === "function");
 assert(typeof GetSigningCertificate$ === "object");
 assert(typeof GetTokensFromRefreshTokenCommand === "function");
@@ -1006,6 +1021,8 @@ assert(typeof UpdateIdentityProviderCommand === "function");
 assert(typeof UpdateIdentityProvider$ === "object");
 assert(typeof UpdateManagedLoginBrandingCommand === "function");
 assert(typeof UpdateManagedLoginBranding$ === "object");
+assert(typeof UpdateProvisionedLimitCommand === "function");
+assert(typeof UpdateProvisionedLimit$ === "object");
 assert(typeof UpdateResourceServerCommand === "function");
 assert(typeof UpdateResourceServer$ === "object");
 assert(typeof UpdateTermsCommand === "function");
@@ -1194,6 +1211,8 @@ assert(typeof GetIdentityProviderByIdentifierRequest$ === "object");
 assert(typeof GetIdentityProviderByIdentifierResponse$ === "object");
 assert(typeof GetLogDeliveryConfigurationRequest$ === "object");
 assert(typeof GetLogDeliveryConfigurationResponse$ === "object");
+assert(typeof GetProvisionedLimitRequest$ === "object");
+assert(typeof GetProvisionedLimitResponse$ === "object");
 assert(typeof GetSigningCertificateRequest$ === "object");
 assert(typeof GetSigningCertificateResponse$ === "object");
 assert(typeof GetTokensFromRefreshTokenRequest$ === "object");
@@ -1219,6 +1238,8 @@ assert(typeof InitiateAuthResponse$ === "object");
 assert(typeof IssuerConfigurationType$ === "object");
 assert(typeof KeyConfigurationType$ === "object");
 assert(typeof LambdaConfigType$ === "object");
+assert(typeof LimitDefinitionType$ === "object");
+assert(typeof LimitType$ === "object");
 assert(typeof ListDevicesRequest$ === "object");
 assert(typeof ListDevicesResponse$ === "object");
 assert(typeof ListGroupsRequest$ === "object");
@@ -1320,6 +1341,8 @@ assert(typeof UpdateIdentityProviderRequest$ === "object");
 assert(typeof UpdateIdentityProviderResponse$ === "object");
 assert(typeof UpdateManagedLoginBrandingRequest$ === "object");
 assert(typeof UpdateManagedLoginBrandingResponse$ === "object");
+assert(typeof UpdateProvisionedLimitRequest$ === "object");
+assert(typeof UpdateProvisionedLimitResponse$ === "object");
 assert(typeof UpdateResourceServerRequest$ === "object");
 assert(typeof UpdateResourceServerResponse$ === "object");
 assert(typeof UpdateTermsRequest$ === "object");
@@ -1388,6 +1411,7 @@ assert(typeof FeedbackValueType === "object");
 assert(typeof IdentityProviderTypeType === "object");
 assert(typeof InboundFederationLambdaVersionType === "object");
 assert(typeof IssuerType === "object");
+assert(typeof LimitClass === "object");
 assert(typeof LogLevel === "object");
 assert(typeof MessageActionType === "object");
 assert(typeof OAuthFlowType === "object");
@@ -1480,6 +1504,8 @@ assert(ResourceNotFoundException.prototype instanceof CognitoIdentityProviderSer
 assert(typeof ResourceNotFoundException$ === "object");
 assert(ScopeDoesNotExistException.prototype instanceof CognitoIdentityProviderServiceException);
 assert(typeof ScopeDoesNotExistException$ === "object");
+assert(ServiceQuotaExceededException.prototype instanceof CognitoIdentityProviderServiceException);
+assert(typeof ServiceQuotaExceededException$ === "object");
 assert(SoftwareTokenMFANotFoundException.prototype instanceof CognitoIdentityProviderServiceException);
 assert(typeof SoftwareTokenMFANotFoundException$ === "object");
 assert(TermsExistsException.prototype instanceof CognitoIdentityProviderServiceException);

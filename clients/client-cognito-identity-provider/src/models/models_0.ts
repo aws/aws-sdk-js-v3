@@ -35,6 +35,7 @@ import type {
   IdentityProviderTypeType,
   InboundFederationLambdaVersionType,
   IssuerType,
+  LimitClass,
   LogLevel,
   MessageActionType,
   OAuthFlowType,
@@ -8781,6 +8782,76 @@ export interface GetLogDeliveryConfigurationResponse {
 }
 
 /**
+ * <p>The class and attributes that identify a specific limit at the account level.</p>
+ * @public
+ */
+export interface LimitDefinitionType {
+  /**
+   * <p>The class of the limit. For API rate limits, this is
+   *             <code>API_CATEGORY</code>.</p>
+   * @public
+   */
+  LimitClass: LimitClass | undefined;
+
+  /**
+   * <p>The attributes that identify the specific limit. For API rate limits, specify the
+   *             <code>Category</code> key with a value like <code>UserAuthentication</code> or
+   *             <code>UserCreation</code>.</p>
+   * @public
+   */
+  Attributes: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProvisionedLimitRequest {
+  /**
+   * <p>The limit to retrieve. Specify the limit class and the attributes that identify the
+   *             limit.</p>
+   * @public
+   */
+  LimitDefinition: LimitDefinitionType | undefined;
+}
+
+/**
+ * <p>The limit definition and current limit values for a provisioned limit.</p>
+ * @public
+ */
+export interface LimitType {
+  /**
+   * <p>The definition that identifies this limit, including the class and attributes.</p>
+   * @public
+   */
+  LimitDefinition: LimitDefinitionType | undefined;
+
+  /**
+   * <p>The provisioned limit value, in requests per second (RPS). This is the rate that
+   *             Amazon Cognito currently enforces for your account.</p>
+   * @public
+   */
+  ProvisionedLimitValue: number | undefined;
+
+  /**
+   * <p>The default (free) limit value, in requests per second (RPS). This is the rate
+   *             included at no additional cost.</p>
+   * @public
+   */
+  FreeLimitValue: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProvisionedLimitResponse {
+  /**
+   * <p>The provisioned and default limit values for the requested limit.</p>
+   * @public
+   */
+  Limit: LimitType | undefined;
+}
+
+/**
  * <p>Request to get a signing certificate from Amazon Cognito.</p>
  * @public
  */
@@ -11930,57 +12001,4 @@ export interface StopUserImportJobRequest {
    * @public
    */
   JobId: string | undefined;
-}
-
-/**
- * <p>Represents the response from the server to the request to stop the user import
- *             job.</p>
- * @public
- */
-export interface StopUserImportJobResponse {
-  /**
-   * <p>The details of the user import job. Includes logging destination, status, and the Amazon S3
-   *             pre-signed URL for CSV upload.</p>
-   * @public
-   */
-  UserImportJob?: UserImportJobType | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user pool to assign the tags to.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>An array of tag keys and values that you want to assign to the user pool.</p>
-   * @public
-   */
-  Tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>An array of tag keys that you want to remove from the user pool.</p>
-   * @public
-   */
-  TagKeys: string[] | undefined;
 }
