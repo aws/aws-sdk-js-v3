@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "./src",
+    "noEmit": true,
+    "strict": true,
+    "paths": {
+      "@smithy/core/*": ["../../node_modules/@smithy/core/dist-types/submodules/*/index.d.ts"],
+      "@aws-sdk/core/client": ["./src/submodules/client/index.ts"],
+      "@aws-sdk/core/httpAuthSchemes": ["./src/submodules/httpAuthSchemes/index.ts"],
+      "@aws-sdk/core/protocols": ["./src/submodules/protocols/index.ts"],
+      "@aws-sdk/core/account-id-endpoint": ["./src/submodules/account-id-endpoint/index.ts"],
+      "@aws-sdk/core/util": ["./src/submodules/util/index.ts"]
+    }
+  },
+  "include": ["src/"],
+  "exclude": ["node_modules", "dist-cjs", "dist-es", "dist-types"]
+}

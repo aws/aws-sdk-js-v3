@@ -25,6 +25,11 @@ export { recursionDetectionMiddlewareOptions } from "./middleware-recursion-dete
 export { getRecursionDetectionPlugin } from "./middleware-recursion-detection/getRecursionDetectionPlugin.browser";
 export { recursionDetectionMiddleware } from "./middleware-recursion-detection/recursionDetectionMiddleware.browser";
 
+// middleware-trace-context-propagation
+export { traceContextPropagationMiddlewareOptions } from "./middleware-trace-context-propagation/configuration";
+export { getTraceContextPropagationPlugin } from "./middleware-trace-context-propagation/getTraceContextPropagationPlugin.browser";
+export { traceContextPropagationMiddleware } from "./middleware-trace-context-propagation/traceContextPropagationMiddleware.browser";
+
 // middleware-user-agent
 export { DEFAULT_UA_APP_ID, resolveUserAgentConfig } from "./middleware-user-agent/configurations";
 export type { UserAgentInputConfig, UserAgentResolvedConfig } from "./middleware-user-agent/configurations";
