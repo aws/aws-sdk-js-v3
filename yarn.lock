@@ -9812,7 +9812,7 @@ __metadata:
   dependencies:
     "@aws-sdk/types": "workspace:^3.973.15"
     "@aws-sdk/xml-builder": "workspace:^3.972.33"
-    "@aws/lambda-invoke-store": "npm:^0.2.2"
+    "@aws/lambda-invoke-store": "npm:^0.3.0"
     "@smithy/core": "npm:^3.29.0"
     "@smithy/signature-v4": "npm:^5.6.1"
     "@smithy/types": "npm:^4.15.1"
@@ -11131,10 +11131,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aws/lambda-invoke-store@npm:^0.2.2":
-  version: 0.2.2
-  resolution: "@aws/lambda-invoke-store@npm:0.2.2"
-  checksum: 10c0/0ce2f527e2ab6b07372a08a137991163b99bf646b8dbbb01dbc5370f4e578aa6ddf7f09a63ecead576f04ce54e52cb927c12683f4d97e322dcb76ddfc5843784
+"@aws/lambda-invoke-store@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@aws/lambda-invoke-store@npm:0.3.0"
+  checksum: 10c0/b4a2e6b3b5397bc606053e64270d26dc5c886336f88a98cad587b1592eec17058f8fb172f1827a9f0e591f3595cf8f01575c8c9b36cde38c06456f8a65204046
   languageName: node
   linkType: hard
 
