@@ -162,6 +162,17 @@ describe("convertToAttr", () => {
           NULL: true,
         });
       });
+
+      it("returns null for an empty ArrayBuffer or DataView when options.convertEmptyValues=true", () => {
+        expect(convertToAttr(new ArrayBuffer(0), { convertClassInstanceToMap, convertEmptyValues: true })).toEqual({
+          NULL: true,
+        });
+        expect(
+          convertToAttr(new DataView(new ArrayBuffer(0)), { convertClassInstanceToMap, convertEmptyValues: true })
+        ).toEqual({
+          NULL: true,
+        });
+      });
     });
   });
 

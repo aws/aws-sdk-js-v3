@@ -28,7 +28,7 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
   ) {
     return convertToMapAttrFromEnumerableProps(data as Record<string, NativeAttributeValue>, options);
   } else if (isBinary(data)) {
-    if (data.length === 0 && options?.convertEmptyValues) {
+    if (data.byteLength === 0 && options?.convertEmptyValues) {
       return convertToNullAttr();
     }
     // Do not alter binary data passed https://github.com/aws/aws-sdk-js-v3/issues/1530
