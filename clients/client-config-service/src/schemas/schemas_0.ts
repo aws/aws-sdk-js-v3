@@ -2328,8 +2328,8 @@ export var PutExternalEvaluationResponse$: StaticStructureSchema = [3, n0, _PEER
 ];
 export var PutOrganizationConfigRuleRequest$: StaticStructureSchema = [3, n0, _POCRR,
   0,
-  [_OCRN, _OMRM, _OCRM, _EA, _OCPRM],
-  [0, () => OrganizationManagedRuleMetadata$, () => OrganizationCustomRuleMetadata$, 64 | 0, () => OrganizationCustomPolicyRuleMetadata$], 1
+  [_OCRN, _OMRM, _OCRM, _EA, _OCPRM, _Ta],
+  [0, () => OrganizationManagedRuleMetadata$, () => OrganizationCustomRuleMetadata$, 64 | 0, () => OrganizationCustomPolicyRuleMetadata$, () => TagsList], 1
 ];
 export var PutOrganizationConfigRuleResponse$: StaticStructureSchema = [3, n0, _POCRRu,
   0,
@@ -2338,8 +2338,8 @@ export var PutOrganizationConfigRuleResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var PutOrganizationConformancePackRequest$: StaticStructureSchema = [3, n0, _POCPR,
   0,
-  [_OCPN, _TSU, _TB, _DSB, _DSKP, _CPIP, _EA],
-  [0, 0, 0, 0, 0, () => ConformancePackInputParameters, 64 | 0], 1
+  [_OCPN, _TSU, _TB, _DSB, _DSKP, _CPIP, _EA, _Ta],
+  [0, 0, 0, 0, 0, () => ConformancePackInputParameters, 64 | 0, () => TagsList], 1
 ];
 export var PutOrganizationConformancePackResponse$: StaticStructureSchema = [3, n0, _POCPRu,
   0,

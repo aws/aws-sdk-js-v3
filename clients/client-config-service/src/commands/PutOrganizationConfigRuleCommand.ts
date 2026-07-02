@@ -117,6 +117,12 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   Tags: [ // TagsList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new PutOrganizationConfigRuleCommand(input);
  * const response = await client.send(command);

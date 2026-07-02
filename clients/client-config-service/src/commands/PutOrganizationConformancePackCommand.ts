@@ -78,6 +78,12 @@ export interface PutOrganizationConformancePackCommandOutput extends PutOrganiza
  *   ExcludedAccounts: [ // ExcludedAccounts
  *     "STRING_VALUE",
  *   ],
+ *   Tags: [ // TagsList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new PutOrganizationConformancePackCommand(input);
  * const response = await client.send(command);

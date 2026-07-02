@@ -7959,6 +7959,12 @@ export interface PutOrganizationConfigRuleRequest {
    * @public
    */
   OrganizationCustomPolicyRuleMetadata?: OrganizationCustomPolicyRuleMetadata | undefined;
+
+  /**
+   * <p>The tags for the organization Config rule. Each tag consists of a key and an optional value, both of which you define.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -8029,6 +8035,12 @@ export interface PutOrganizationConformancePackRequest {
    * @public
    */
   ExcludedAccounts?: string[] | undefined;
+
+  /**
+   * <p>The tags for the organization conformance pack. Each tag consists of a key and an optional value, both of which you define.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
