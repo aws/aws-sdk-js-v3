@@ -18,7 +18,7 @@ __metadata:
     fs-extra: "npm:^10.1.0"
     handlebars: "npm:^4.7.7"
     p-map: "npm:^5.5.0"
-    rollup: "npm:^3.26.3"
+    rollup: "npm:^3.30.0"
     rollup-plugin-terser: "npm:^7.0.2"
     semver: "npm:^7.3.7"
     webpack: "npm:^5.88.2"
@@ -2070,9 +2070,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^3.26.3":
-  version: 3.26.3
-  resolution: "rollup@npm:3.26.3"
+"rollup@npm:^3.30.0":
+  version: 3.30.0
+  resolution: "rollup@npm:3.30.0"
   dependencies:
     fsevents: "npm:~2.3.2"
   dependenciesMeta:
@@ -2080,7 +2080,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 10c0/41d02540dcb125150d2dc4a136e35776290eef489ed0735814afcdcfd3e0a8944cd30875daa872360e4fe8bf75bb4adf41090913a32e636722f43a5d2caf241e
+  checksum: 10c0/38d773a81a2cde36a657fdc6f202698fe047fd65e7a08b72f0e7fa86f21e06c9a789a183dee850ed77a9e1c3cff517b960dc4a8a02c3e3f7977230480f09cc60
   languageName: node
   linkType: hard
 
