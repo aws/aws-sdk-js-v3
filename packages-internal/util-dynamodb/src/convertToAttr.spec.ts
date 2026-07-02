@@ -317,6 +317,25 @@ describe("convertToAttr", () => {
         }).toThrowError(`Only Number Set (NS), Binary Set (BS) or String Set (SS) are allowed.`);
       });
     });
+
+    describe("mixed set", () => {
+      [
+        new Set([1, "a"]),
+        new Set(["a", 1]),
+        new Set(["a", new Uint8Array([1])]),
+        new Set([1, new Uint8Array([1])]),
+      ].forEach((set) => {
+        it(`throws error for a set with values of different types`, () => {
+          expect(() => {
+            convertToAttr(set);
+          }).toThrowError(`All values in a set must be of the same type.`);
+        });
+      });
+
+      it("allows a set mixing number, bigint, and NumberValue as a number set", () => {
+        expect(convertToAttr(new Set([1, 2n, NumberValue.from("3")]))).toEqual({ NS: ["1", "2", "3"] });
+      });
+    });
   });
 
   describe("map", () => {
