@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1079.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1078.0...v3.1079.0) (2026-07-02)
+
+
+### Bug Fixes
+
+* **core:** remove turbo.json ([#8141](https://github.com/aws/aws-sdk-js-v3/issues/8141)) ([91d738d](https://github.com/aws/aws-sdk-js-v3/commit/91d738d3ab851a8809f816584aaf4169fb23638e))
+
+
+### Features
+
+* **client-cognito-identity-provider:** Add support for provisioned limit management, enabling customers to view and update their provisioned API rate limits for Amazon Cognito User Pools programmatically through the new GetProvisionedLimit and UpdateProvisionedLimit APIs. ([160778d](https://github.com/aws/aws-sdk-js-v3/commit/160778dc11e6b8e93c3a576dd9bca809498eebf2))
+* **client-config-service:** AWS Config now supports tag-on-create for organization-managed Config rules and conformance packs through the PutOrganizationConfigRule and PutOrganizationConformancePack APIs. ([2ca9232](https://github.com/aws/aws-sdk-js-v3/commit/2ca9232a8a31003d542403c0a31d5aaeada78b83))
+* **client-customer-profiles:** Amazon Connect Customer Profiles adds support for diversityConfig to recommenderConfig which can be used for diversifying the recommendations. This release also includes model versioning support which helps customer to rollback trained models. ([202ec32](https://github.com/aws/aws-sdk-js-v3/commit/202ec32a9586d6581485424c681626d49babaefe))
+* **client-elementalinference:** Adding new BDD representation of endpoint ruleset ([dd21a6e](https://github.com/aws/aws-sdk-js-v3/commit/dd21a6ecbf8dfbc6be8cc2fd8b07f81bde140978))
+* **client-mediatailor:** Added dual-stack (IPv4 and IPv6) endpoint fields to SSAI and Channel Assembly API responses. ([63a258c](https://github.com/aws/aws-sdk-js-v3/commit/63a258ce969e11cd16dbdcb3e4c994c2940fe618))
+* **client-odb:** Updated model definitions for ODB service. ([a9d3fd5](https://github.com/aws/aws-sdk-js-v3/commit/a9d3fd5e34e1fc223ce0a4c7db51306d8ebe2fb7))
+* **client-outposts:** Tighten Outpost site ContactPhoneNumber regex to perform phone number validation. ([4e2b31d](https://github.com/aws/aws-sdk-js-v3/commit/4e2b31dbebaa446b6d435756b1ccaa4807d82730))
+* **clients:** update client endpoints as of 2026-07-02 ([cc43668](https://github.com/aws/aws-sdk-js-v3/commit/cc43668e0ad4e748c61f38070cae026123fec751))
+
+
+
+
+
 # [3.1078.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1077.0...v3.1078.0) (2026-07-01)
 
 

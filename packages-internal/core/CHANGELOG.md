@@ -58,6 +58,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.27 (2026-07-02)
+### Bug Fixes
+* **core:** remove turbo.json ([#8141](https://github.com/aws/aws-sdk-js-v3/issues/8141)) ([91d738d](https://github.com/aws/aws-sdk-js-v3/commit/91d738d3ab851a8809f816584aaf4169fb23638e))
+### Chores
+* **deps:** bump @aws/lambda-invoke-store to ^0.3.0 ([#8140](https://github.com/aws/aws-sdk-js-v3/issues/8140)) ([aeb7e07](https://github.com/aws/aws-sdk-js-v3/commit/aeb7e0714a1ba7e77996d0e6f5d7ac372f20728c))
+
+
+
 # 3.974.26 (2026-07-01)
 ### Chores
 * **codegen:** sync for thinner command classes, endpoint parameter type fix ([#8136](https://github.com/aws/aws-sdk-js-v3/issues/8136)) ([c39b676](https://github.com/aws/aws-sdk-js-v3/commit/c39b6765a3b49a48a9e2f4000cc6e97e82f4ae2e))

@@ -38,6 +38,13 @@
 
 
 
+
+# 3.0.39 (2026-07-02)
+### Chores
+* **snapshot-testing:** update dependencies.
+
+
+
 # 3.0.38 (2026-07-01)
 ### Chores
 * **codegen:** sync for thinner command classes, endpoint parameter type fix ([#8136](https://github.com/aws/aws-sdk-js-v3/issues/8136)) ([c39b676](https://github.com/aws/aws-sdk-js-v3/commit/c39b6765a3b49a48a9e2f4000cc6e97e82f4ae2e))

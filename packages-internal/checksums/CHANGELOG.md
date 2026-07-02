@@ -12,6 +12,13 @@
 
 
 
+
+# 3.1000.12 (2026-07-02)
+### Chores
+* **checksums:** update dependencies.
+
+
+
 # 3.1000.11 (2026-07-01)
 ### Chores
 * **codegen:** sync for thinner command classes, endpoint parameter type fix ([#8136](https://github.com/aws/aws-sdk-js-v3/issues/8136)) ([c39b676](https://github.com/aws/aws-sdk-js-v3/commit/c39b6765a3b49a48a9e2f4000cc6e97e82f4ae2e))

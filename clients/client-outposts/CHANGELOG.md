@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1079.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1078.0...v3.1079.0) (2026-07-02)
+
+
+### Features
+
+* **client-outposts:** Tighten Outpost site ContactPhoneNumber regex to perform phone number validation. ([4e2b31d](https://github.com/aws/aws-sdk-js-v3/commit/4e2b31dbebaa446b6d435756b1ccaa4807d82730))
+
+
+
+
+
 # [3.1078.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1077.0...v3.1078.0) (2026-07-01)
 
 **Note:** Version bump only for package @aws-sdk/client-outposts
