@@ -66,6 +66,12 @@ export interface GetProfileRecommendationsCommandOutput extends GetProfileRecomm
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   DiversityConfig: { // RecommendationDiversityConfig
+ *     Enabled: true || false, // required
+ *     Values: { // DiversityValuesMap
+ *       "<keys>": Number("int"),
+ *     },
+ *   },
  * };
  * const command = new GetProfileRecommendationsCommand(input);
  * const response = await client.send(command);

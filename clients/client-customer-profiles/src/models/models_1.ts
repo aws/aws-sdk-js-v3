@@ -6,6 +6,7 @@ import type {
   PartyType,
   ProfileType,
   ReadinessStatus,
+  RecommenderSchemaStatus,
   Scope,
   SegmentType,
   Statistic,
@@ -32,9 +33,81 @@ import type {
   Profile,
   Readiness,
   RecommenderConfig,
+  RecommenderSchemaField,
   RuleBasedMatchingRequest,
   RuleBasedMatchingResponse,
 } from "./models_0";
+
+/**
+ * <p>Provides a summary of a recommender schema's configuration and current state.</p>
+ * @public
+ */
+export interface RecommenderSchemaSummary {
+  /**
+   * <p>The name of the recommender schema.</p>
+   * @public
+   */
+  RecommenderSchemaName: string | undefined;
+
+  /**
+   * <p>A map of dataset type to column definitions included in the schema.</p>
+   * @public
+   */
+  Fields: Record<string, RecommenderSchemaField[]> | undefined;
+
+  /**
+   * <p>The timestamp when the recommender schema was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The current operational status of the recommender schema.</p>
+   * @public
+   */
+  Status: RecommenderSchemaStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecommenderSchemasResponse {
+  /**
+   * <p>A token to retrieve the next page of results. Null if there are no more results to retrieve.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of recommender schemas and their properties in the specified domain.</p>
+   * @public
+   */
+  RecommenderSchemas?: RecommenderSchemaSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRuleBasedMatchesRequest {
+  /**
+   * <p>The pagination token from the previous <code>ListRuleBasedMatches</code> API
+   *          call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of <code>MatchIds</code> returned per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+}
 
 /**
  * @public
@@ -2014,6 +2087,12 @@ export interface UpdateRecommenderRequest {
    * @public
    */
   RecommenderConfig?: RecommenderConfig | undefined;
+
+  /**
+   * <p>The name of a specific recommender version to activate as part of this update (for example, to roll back to a previously trained version).</p>
+   * @public
+   */
+  RecommenderVersionName?: string | undefined;
 }
 
 /**

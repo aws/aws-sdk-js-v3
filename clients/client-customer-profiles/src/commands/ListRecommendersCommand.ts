@@ -70,6 +70,15 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * //             "STRING_VALUE",
  * //           ],
  * //         },
+ * //         DiversityConfig: { // DiversityConfig
+ * //           DiversityColumns: [ // DiversityColumnsList
+ * //             { // DiversityColumn
+ * //               Name: "STRING_VALUE", // required
+ * //               CapType: "PERCENTAGE" || "VALUE", // required
+ * //               Target: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       Description: "STRING_VALUE",
@@ -104,11 +113,21 @@ export interface ListRecommendersCommandOutput extends ListRecommendersResponse,
  * //               "STRING_VALUE",
  * //             ],
  * //           },
+ * //           DiversityConfig: {
+ * //             DiversityColumns: [
+ * //               {
+ * //                 Name: "STRING_VALUE", // required
+ * //                 CapType: "PERCENTAGE" || "VALUE", // required
+ * //                 Target: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
  * //         },
  * //         Status: "PENDING" || "IN_PROGRESS" || "ACTIVE" || "FAILED" || "STOPPING" || "INACTIVE" || "STARTING" || "DELETING",
  * //         CreatedAt: new Date("TIMESTAMP"),
  * //         LastUpdatedAt: new Date("TIMESTAMP"),
  * //         FailureReason: "STRING_VALUE",
+ * //         RecommenderVersionName: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

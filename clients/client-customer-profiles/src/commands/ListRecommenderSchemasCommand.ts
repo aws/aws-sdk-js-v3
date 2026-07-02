@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListRecommenderSchemasRequest, ListRecommenderSchemasResponse } from "../models/models_0";
+import type { ListRecommenderSchemasRequest } from "../models/models_0";
+import type { ListRecommenderSchemasResponse } from "../models/models_1";
 import { ListRecommenderSchemas$ } from "../schemas/schemas_0";
 
 /**
