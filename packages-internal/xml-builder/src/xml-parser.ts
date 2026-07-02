@@ -291,10 +291,10 @@ class AwsXmlParser {
   private decodeEntities(s: string): string {
     return s.replace(/&(?:#x([0-9a-fA-F]{1,6})|#(\d{1,7})|([a-zA-Z][a-zA-Z0-9]{0,30}));/g, (_, hex, dec, named) => {
       if (hex) {
-        return String.fromCharCode(parseInt(hex, 16));
+        return String.fromCodePoint(parseInt(hex, 16));
       }
       if (dec) {
-        return String.fromCharCode(parseInt(dec, 10));
+        return String.fromCodePoint(parseInt(dec, 10));
       }
       return AwsXmlParser.ENTITIES[named] ?? "";
     });
