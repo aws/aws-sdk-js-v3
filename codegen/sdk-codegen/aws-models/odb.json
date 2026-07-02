@@ -8197,20 +8197,6 @@
         }
       }
     },
-    "com.amazonaws.odb#ExascaleVmClusterResource": {
-      "type": "resource",
-      "identifiers": {
-        "exascaleVmClusterId": {
-          "target": "com.amazonaws.odb#ResourceIdOrArn"
-        }
-      },
-      "traits": {
-        "aws.iam#conditionKeys": ["aws:ResourceTag/${TagKey}"],
-        "aws.iam#iamResource": {
-          "name": "exascale-vm-cluster"
-        }
-      }
-    },
     "com.amazonaws.odb#ExternalIdType": {
       "type": "enum",
       "members": {
@@ -11138,12 +11124,6 @@
             "ids": {
               "exadbVmClusterId": "resourceArn"
             }
-          },
-          {
-            "resource": "com.amazonaws.odb#ExascaleVmClusterResource",
-            "ids": {
-              "exascaleVmClusterId": "resourceArn"
-            }
           }
         ]
       }
@@ -11835,9 +11815,6 @@
         },
         {
           "target": "com.amazonaws.odb#ExascaleDbStorageVaultResource"
-        },
-        {
-          "target": "com.amazonaws.odb#ExascaleVmClusterResource"
         },
         {
           "target": "com.amazonaws.odb#OdbNetworkResource"
@@ -15079,12 +15056,6 @@
             "ids": {
               "exadbVmClusterId": "resourceArn"
             }
-          },
-          {
-            "resource": "com.amazonaws.odb#ExascaleVmClusterResource",
-            "ids": {
-              "exascaleVmClusterId": "resourceArn"
-            }
           }
         ]
       }
@@ -15242,12 +15213,6 @@
             "resource": "com.amazonaws.odb#ExadbVmClusterResource",
             "ids": {
               "exadbVmClusterId": "resourceArn"
-            }
-          },
-          {
-            "resource": "com.amazonaws.odb#ExascaleVmClusterResource",
-            "ids": {
-              "exascaleVmClusterId": "resourceArn"
             }
           }
         ]
