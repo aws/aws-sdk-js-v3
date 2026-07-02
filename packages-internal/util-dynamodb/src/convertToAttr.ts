@@ -84,6 +84,13 @@ const convertToSetAttr = (
 
   const item = setToOperate.values().next().value;
 
+  const setType = getSetType(item);
+  for (const value of setToOperate) {
+    if (getSetType(value) !== setType) {
+      throw new Error(`All values in a set must be of the same type. Received a mix of ${setType} and other types.`);
+    }
+  }
+
   if (item instanceof NumberValue) {
     return {
       NS: Array.from(setToOperate).map((_) => _.toString()),
@@ -202,4 +209,15 @@ const isBinary = (data: any): boolean => {
     return binaryTypes.includes(data.constructor.name);
   }
   return false;
+};
+
+const getSetType = (data: any): "NS" | "SS" | "BS" | null => {
+  if (data instanceof NumberValue || typeof data === "number" || typeof data === "bigint") {
+    return "NS";
+  } else if (typeof data === "string") {
+    return "SS";
+  } else if (isBinary(data)) {
+    return "BS";
+  }
+  return null;
 };
