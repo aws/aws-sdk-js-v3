@@ -62,11 +62,13 @@ export interface ListPlaybackConfigurationsCommandOutput extends ListPlaybackCon
  * //       },
  * //       DashConfiguration: { // DashConfiguration
  * //         ManifestEndpointPrefix: "STRING_VALUE",
+ * //         DualStackManifestEndpointPrefix: "STRING_VALUE",
  * //         MpdLocation: "STRING_VALUE",
  * //         OriginManifestType: "SINGLE_PERIOD" || "MULTI_PERIOD",
  * //       },
  * //       HlsConfiguration: { // HlsConfiguration
  * //         ManifestEndpointPrefix: "STRING_VALUE",
+ * //         DualStackManifestEndpointPrefix: "STRING_VALUE",
  * //       },
  * //       InsertionMode: "STITCHED_ONLY" || "PLAYER_SELECT",
  * //       LivePreRollConfiguration: { // LivePreRollConfiguration
@@ -104,7 +106,9 @@ export interface ListPlaybackConfigurationsCommandOutput extends ListPlaybackCon
  * //       PersonalizationThresholdSeconds: Number("int"),
  * //       PlaybackConfigurationArn: "STRING_VALUE",
  * //       PlaybackEndpointPrefix: "STRING_VALUE",
+ * //       DualStackPlaybackEndpointPrefix: "STRING_VALUE",
  * //       SessionInitializationEndpointPrefix: "STRING_VALUE",
+ * //       DualStackSessionInitializationEndpointPrefix: "STRING_VALUE",
  * //       SlateAdUrl: "STRING_VALUE",
  * //       Tags: {
  * //         "<keys>": "STRING_VALUE",

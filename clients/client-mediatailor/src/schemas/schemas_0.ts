@@ -113,6 +113,10 @@ const _DSLRe = "DeleteSourceLocationResponse";
 const _DSLRes = "DescribeSourceLocationRequest";
 const _DSLResc = "DescribeSourceLocationResponse";
 const _DSLe = "DescribeSourceLocation";
+const _DSMEP = "DualStackManifestEndpointPrefix";
+const _DSPEP = "DualStackPlaybackEndpointPrefix";
+const _DSPU = "DualStackPlaybackUrl";
+const _DSSIEP = "DualStackSessionInitializationEndpointPrefix";
 const _DV = "DynamicVariable";
 const _DVS = "DeleteVodSource";
 const _DVSR = "DeleteVodSourceRequest";
@@ -580,8 +584,8 @@ export var CustomOutputConfiguration$: StaticStructureSchema = [3, n0, _COC,
 ];
 export var DashConfiguration$: StaticStructureSchema = [3, n0, _DC,
   0,
-  [_MEP, _ML, _OMT],
-  [0, 0, 0]
+  [_MEP, _DSMEP, _ML, _OMT],
+  [0, 0, 0, 0]
 ];
 export var DashConfigurationForPut$: StaticStructureSchema = [3, n0, _DCFP,
   0,
@@ -785,8 +789,8 @@ export var GetPlaybackConfigurationRequest$: StaticStructureSchema = [3, n0, _GP
 ];
 export var GetPlaybackConfigurationResponse$: StaticStructureSchema = [3, n0, _GPCRe,
   0,
-  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _SIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _FM],
-  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, 128 | 0]
+  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _FM],
+  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, 128 | 0]
 ];
 export var GetPrefetchScheduleRequest$: StaticStructureSchema = [3, n0, _GPSR,
   0,
@@ -800,8 +804,8 @@ export var GetPrefetchScheduleResponse$: StaticStructureSchema = [3, n0, _GPSRe,
 ];
 export var HlsConfiguration$: StaticStructureSchema = [3, n0, _HCl,
   0,
-  [_MEP],
-  [0]
+  [_MEP, _DSMEP],
+  [0, 0]
 ];
 export var HlsPlaylistSettings$: StaticStructureSchema = [3, n0, _HPS,
   0,
@@ -955,8 +959,8 @@ export var ManifestServiceInteractionLog$: StaticStructureSchema = [3, n0, _MSIL
 ];
 export var PlaybackConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
-  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _SIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _FM],
-  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, 128 | 0]
+  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _FM],
+  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, 128 | 0]
 ];
 export var PrefetchConsumption$: StaticStructureSchema = [3, n0, _PCr,
   0,
@@ -1000,8 +1004,8 @@ export var PutPlaybackConfigurationRequest$: StaticStructureSchema = [3, n0, _PP
 ];
 export var PutPlaybackConfigurationResponse$: StaticStructureSchema = [3, n0, _PPCRu,
   0,
-  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _SIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _FM],
-  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, 128 | 0]
+  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _FM],
+  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, 128 | 0]
 ];
 export var RecurringConsumption$: StaticStructureSchema = [3, n0, _RCe,
   0,
@@ -1025,8 +1029,8 @@ export var RequestOutputItem$: StaticStructureSchema = [3, n0, _ROI,
 ];
 export var ResponseOutputItem$: StaticStructureSchema = [3, n0, _ROIe,
   0,
-  [_MN, _PU, _SG, _DPS, _HPS],
-  [0, 0, 0, () => DashPlaylistSettings$, () => HlsPlaylistSettings$], 3
+  [_MN, _PU, _SG, _DPS, _HPS, _DSPU],
+  [0, 0, 0, () => DashPlaylistSettings$, () => HlsPlaylistSettings$, 0], 3
 ];
 export var ScheduleAdBreak$: StaticStructureSchema = [3, n0, _SAB,
   0,
