@@ -8,6 +8,7 @@ on:
 
 jobs:
   commitlint:
+    if: github.repository == 'aws/aws-sdk-js-v3'
     runs-on: ubuntu-latest
     permissions:
       contents: read

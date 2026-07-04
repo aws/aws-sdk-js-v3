@@ -4,6 +4,7 @@ on:
        types: [closed]
 jobs:
     auto_comment:
+        if: github.repository == 'aws/aws-sdk-js-v3'
         runs-on: ubuntu-latest
         permissions:
           issues: write

@@ -8,6 +8,7 @@ on:
 
 jobs:
   run-pre-commit-hooks:
+    if: github.repository == 'aws/aws-sdk-js-v3'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -18,7 +19,7 @@ jobs:
       - name: set up Node.js
         uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'yarn'
 
       - name: install dependencies

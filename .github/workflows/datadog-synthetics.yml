@@ -26,13 +26,24 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    # Check if Datadog secrets are configured before running tests.
+    # This allows forks to skip these tests without failing the workflow.
+    - name: Check for Datadog secrets
+      id: check-secrets
+      run: |
+        if [ -n "${{ secrets.DD_API_KEY }}" ] && [ -n "${{ secrets.DD_APP_KEY }}" ]; then
+          echo "has_secrets=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "has_secrets=false" >> "$GITHUB_OUTPUT"
+          echo "::warning::Skipping Datadog Synthetic tests — DD_API_KEY and/or DD_APP_KEY secrets are not configured."
+        fi
+
     # Run Synthetic tests within your GitHub workflow.
     # For additional configuration options visit the action within the marketplace: https://github.com/marketplace/actions/datadog-synthetics-ci
     - name: Run Datadog Synthetic tests
+      if: steps.check-secrets.outputs.has_secrets == 'true'
       uses: DataDog/synthetics-ci-github-action@87b505388a22005bb8013481e3f73a367b9a53eb # v1.4.0
       with:
-        api_key: ${{secrets.DD_API_KEY}}
-        app_key: ${{secrets.DD_APP_KEY}}
+        api_key: ${{ secrets.DD_API_KEY }}
+        app_key: ${{ secrets.DD_APP_KEY }}
         test_search_query: 'tag:e2e-tests' #Modify this tag to suit your tagging strategy
-
-

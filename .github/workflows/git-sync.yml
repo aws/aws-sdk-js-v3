@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   git-sync:
+    if: github.repository == 'aws/aws-sdk-js-v3'
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials
