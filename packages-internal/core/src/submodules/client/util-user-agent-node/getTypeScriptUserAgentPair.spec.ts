@@ -1,4 +1,3 @@
-import { booleanSelector } from "@smithy/core/config";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
@@ -7,7 +6,6 @@ import { getNodeModulesParentDirs } from "./getNodeModulesParentDirs";
 import { getSanitizedDevTypeScriptVersion } from "./getSanitizedDevTypeScriptVersion";
 import { getSanitizedTypeScriptVersion } from "./getSanitizedTypeScriptVersion";
 
-vi.mock("@smithy/core/config");
 vi.mock("node:fs/promises");
 vi.mock("./getNodeModulesParentDirs");
 vi.mock("./getSanitizedDevTypeScriptVersion");
@@ -275,16 +273,29 @@ describe("getTypeScriptUserAgentPair", () => {
     });
   });
 
-  describe("when booleanSelector is used to read env var", () => {
-    it("returns undefined without reading files when booleanSelector returns true", async () => {
-      vi.mocked(booleanSelector).mockReturnValue(true);
+  describe("when AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED env var is used to disable detection", () => {
+    const ENV_VAR = "AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED";
+
+    afterEach(() => {
+      delete process.env[ENV_VAR];
+    });
+
+    it("returns undefined without reading files when env var is 'true'", async () => {
+      process.env[ENV_VAR] = "true";
       const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
       await expect(getTypeScriptUserAgentPair()).resolves.toBeUndefined();
       expect(readFile).not.toHaveBeenCalled();
     });
 
-    it("proceeds with TypeScript detection when booleanSelector returns undefined", async () => {
-      vi.mocked(booleanSelector).mockReturnValue(undefined);
+    it("returns undefined without reading files when env var is '1'", async () => {
+      process.env[ENV_VAR] = "1";
+      const { getTypeScriptUserAgentPair } = await import("./getTypeScriptUserAgentPair");
+      await expect(getTypeScriptUserAgentPair()).resolves.toBeUndefined();
+      expect(readFile).not.toHaveBeenCalled();
+    });
+
+    it("proceeds with TypeScript detection when env var is not set", async () => {
+      delete process.env[ENV_VAR];
       vi.mocked(readFile).mockImplementation(async (path: any) => {
         if (path === mockAppPackageJson1) {
           return JSON.stringify({ devDependencies: { typescript: mockTscVersion } });
@@ -300,10 +311,8 @@ describe("getTypeScriptUserAgentPair", () => {
       expect(readFile).toHaveBeenCalledTimes(2);
     });
 
-    it("proceeds with TypeScript detection when booleanSelector throws error", async () => {
-      vi.mocked(booleanSelector).mockImplementation(() => {
-        throw new Error("Invalid value");
-      });
+    it("proceeds with TypeScript detection when env var is 'false'", async () => {
+      process.env[ENV_VAR] = "false";
       vi.mocked(readFile).mockImplementation(async (path: any) => {
         if (path === mockAppPackageJson1) {
           return JSON.stringify({ devDependencies: { typescript: mockTscVersion } });

@@ -1,4 +1,3 @@
-import { booleanSelector, SelectorType } from "@smithy/core/config";
 import type { UserAgentPair } from "@smithy/types";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -24,12 +23,10 @@ export const getTypeScriptUserAgentPair = async (): Promise<UserAgentPair | unde
   }
 
   // Disable TypeScript detection if environment variable is set.
-  let isTypeScriptDetectionDisabled = false;
-  try {
-    isTypeScriptDetectionDisabled =
-      booleanSelector(process.env, "AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED", SelectorType.ENV) || false;
-  } catch {}
-  if (isTypeScriptDetectionDisabled) {
+  // Direct property access (rather than booleanSelector) allows bundlers to statically replace
+  // process.env.AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED and tree-shake this entire function.
+  const _tsDetectionDisabledEnv = process.env.AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED;
+  if (_tsDetectionDisabledEnv === "true" || _tsDetectionDisabledEnv === "1") {
     tscVersion = null;
     return undefined;
   }
