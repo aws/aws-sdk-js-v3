@@ -288,6 +288,7 @@ import {
   EngineType,
   EnvironmentInfo$,
   ErrorDetails$,
+  ExportOptions$,
   Filter$,
   GetApplication$,
   GetApplicationCommand,
@@ -321,6 +322,10 @@ import {
   GetIndexCommand,
   GetIndexRequest$,
   GetIndexResponse$,
+  GetMigration$,
+  GetMigrationCommand,
+  GetMigrationRequest$,
+  GetMigrationResponse$,
   GetPackageVersionHistory$,
   GetPackageVersionHistoryCommand,
   GetPackageVersionHistoryRequest$,
@@ -416,6 +421,10 @@ import {
   ListInstanceTypeDetailsCommand,
   ListInstanceTypeDetailsRequest$,
   ListInstanceTypeDetailsResponse$,
+  ListMigrations$,
+  ListMigrationsCommand,
+  ListMigrationsRequest$,
+  ListMigrationsResponse$,
   ListPackagesForDomain$,
   ListPackagesForDomainCommand,
   ListPackagesForDomainRequest$,
@@ -451,6 +460,11 @@ import {
   MaintenanceType,
   MasterNodeStatus,
   MasterUserOptions$,
+  MigrationError$,
+  MigrationOptions$,
+  MigrationSource$,
+  MigrationSummary$,
+  MigrationWorkspace$,
   ModifyingProperties$,
   NaturalLanguageQueryGenerationCurrentState,
   NaturalLanguageQueryGenerationDesiredState,
@@ -552,6 +566,7 @@ import {
   SAMLIdp$,
   SAMLOptionsInput$,
   SAMLOptionsOutput$,
+  SavedObjectIdentifier$,
   ScheduleAt,
   ScheduledAction$,
   ScheduledAutoTuneActionType,
@@ -575,6 +590,10 @@ import {
   StartDomainMaintenanceCommand,
   StartDomainMaintenanceRequest$,
   StartDomainMaintenanceResponse$,
+  StartMigration$,
+  StartMigrationCommand,
+  StartMigrationRequest$,
+  StartMigrationResponse$,
   StartServiceSoftwareUpdate$,
   StartServiceSoftwareUpdateCommand,
   StartServiceSoftwareUpdateRequest$,
@@ -763,6 +782,8 @@ assert(typeof GetDomainMaintenanceStatusCommand === "function");
 assert(typeof GetDomainMaintenanceStatus$ === "object");
 assert(typeof GetIndexCommand === "function");
 assert(typeof GetIndex$ === "object");
+assert(typeof GetMigrationCommand === "function");
+assert(typeof GetMigration$ === "object");
 assert(typeof GetPackageVersionHistoryCommand === "function");
 assert(typeof GetPackageVersionHistory$ === "object");
 assert(typeof GetUpgradeHistoryCommand === "function");
@@ -789,6 +810,8 @@ assert(typeof ListInsightsCommand === "function");
 assert(typeof ListInsights$ === "object");
 assert(typeof ListInstanceTypeDetailsCommand === "function");
 assert(typeof ListInstanceTypeDetails$ === "object");
+assert(typeof ListMigrationsCommand === "function");
+assert(typeof ListMigrations$ === "object");
 assert(typeof ListPackagesForDomainCommand === "function");
 assert(typeof ListPackagesForDomain$ === "object");
 assert(typeof ListScheduledActionsCommand === "function");
@@ -819,6 +842,8 @@ assert(typeof RollbackServiceSoftwareUpdateCommand === "function");
 assert(typeof RollbackServiceSoftwareUpdate$ === "object");
 assert(typeof StartDomainMaintenanceCommand === "function");
 assert(typeof StartDomainMaintenance$ === "object");
+assert(typeof StartMigrationCommand === "function");
+assert(typeof StartMigration$ === "object");
 assert(typeof StartServiceSoftwareUpdateCommand === "function");
 assert(typeof StartServiceSoftwareUpdate$ === "object");
 assert(typeof UpdateApplicationCommand === "function");
@@ -1003,6 +1028,7 @@ assert(typeof EncryptionAtRestOptionsStatus$ === "object");
 assert(typeof EngineModeStatus$ === "object");
 assert(typeof EnvironmentInfo$ === "object");
 assert(typeof ErrorDetails$ === "object");
+assert(typeof ExportOptions$ === "object");
 assert(typeof Filter$ === "object");
 assert(typeof GetApplicationRequest$ === "object");
 assert(typeof GetApplicationResponse$ === "object");
@@ -1020,6 +1046,8 @@ assert(typeof GetDomainMaintenanceStatusRequest$ === "object");
 assert(typeof GetDomainMaintenanceStatusResponse$ === "object");
 assert(typeof GetIndexRequest$ === "object");
 assert(typeof GetIndexResponse$ === "object");
+assert(typeof GetMigrationRequest$ === "object");
+assert(typeof GetMigrationResponse$ === "object");
 assert(typeof GetPackageVersionHistoryRequest$ === "object");
 assert(typeof GetPackageVersionHistoryResponse$ === "object");
 assert(typeof GetUpgradeHistoryRequest$ === "object");
@@ -1068,6 +1096,8 @@ assert(typeof ListInsightsRequest$ === "object");
 assert(typeof ListInsightsResponse$ === "object");
 assert(typeof ListInstanceTypeDetailsRequest$ === "object");
 assert(typeof ListInstanceTypeDetailsResponse$ === "object");
+assert(typeof ListMigrationsRequest$ === "object");
+assert(typeof ListMigrationsResponse$ === "object");
 assert(typeof ListPackagesForDomainRequest$ === "object");
 assert(typeof ListPackagesForDomainResponse$ === "object");
 assert(typeof ListScheduledActionsRequest$ === "object");
@@ -1085,6 +1115,11 @@ assert(typeof ListVpcEndpointsResponse$ === "object");
 assert(typeof LogPublishingOption$ === "object");
 assert(typeof LogPublishingOptionsStatus$ === "object");
 assert(typeof MasterUserOptions$ === "object");
+assert(typeof MigrationError$ === "object");
+assert(typeof MigrationOptions$ === "object");
+assert(typeof MigrationSource$ === "object");
+assert(typeof MigrationSummary$ === "object");
+assert(typeof MigrationWorkspace$ === "object");
 assert(typeof ModifyingProperties$ === "object");
 assert(typeof NaturalLanguageQueryGenerationOptionsInput$ === "object");
 assert(typeof NaturalLanguageQueryGenerationOptionsOutput$ === "object");
@@ -1130,6 +1165,7 @@ assert(typeof S3VectorsEngine$ === "object");
 assert(typeof SAMLIdp$ === "object");
 assert(typeof SAMLOptionsInput$ === "object");
 assert(typeof SAMLOptionsOutput$ === "object");
+assert(typeof SavedObjectIdentifier$ === "object");
 assert(typeof ScheduledAction$ === "object");
 assert(typeof ScheduledAutoTuneDetails$ === "object");
 assert(typeof SecurityLakeDirectQueryDataSource$ === "object");
@@ -1142,6 +1178,8 @@ assert(typeof SoftwareUpdateOptions$ === "object");
 assert(typeof SoftwareUpdateOptionsStatus$ === "object");
 assert(typeof StartDomainMaintenanceRequest$ === "object");
 assert(typeof StartDomainMaintenanceResponse$ === "object");
+assert(typeof StartMigrationRequest$ === "object");
+assert(typeof StartMigrationResponse$ === "object");
 assert(typeof StartServiceSoftwareUpdateRequest$ === "object");
 assert(typeof StartServiceSoftwareUpdateResponse$ === "object");
 assert(typeof StorageType$ === "object");

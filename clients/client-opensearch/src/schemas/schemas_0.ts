@@ -345,6 +345,7 @@ const _EInt = "EntityId";
 const _EM = "ErrorMessage";
 const _EMS = "EngineModeStatus";
 const _EMn = "EngineMode";
+const _EO = "ExportOptions";
 const _ET = "EndTime";
 const _ETn = "EngineType";
 const _ETr = "ErrorType";
@@ -384,6 +385,9 @@ const _GDSRe = "GetDataSourceResponse";
 const _GI = "GetIndex";
 const _GIR = "GetIndexRequest";
 const _GIRe = "GetIndexResponse";
+const _GM = "GetMigration";
+const _GMR = "GetMigrationRequest";
+const _GMRe = "GetMigrationResponse";
 const _GPVH = "GetPackageVersionHistory";
 const _GPVHR = "GetPackageVersionHistoryRequest";
 const _GPVHRe = "GetPackageVersionHistoryResponse";
@@ -486,6 +490,9 @@ const _LIRi = "ListInsightsResponse";
 const _LITD = "ListInstanceTypeDetails";
 const _LITDR = "ListInstanceTypeDetailsRequest";
 const _LITDRi = "ListInstanceTypeDetailsResponse";
+const _LM = "ListMigrations";
+const _LMR = "ListMigrationsRequest";
+const _LMRi = "ListMigrationsResponse";
 const _LN = "LimitName";
 const _LPFD = "ListPackagesForDomain";
 const _LPFDR = "ListPackagesForDomainRequest";
@@ -520,19 +527,25 @@ const _M = "Message";
 const _MAZWSE = "MultiAZWithStandbyEnabled";
 const _MBR = "MasterBackendRole";
 const _MC = "MetadataContent";
+const _ME = "MigrationError";
 const _MENC = "MasterEligibleNodeCount";
 const _MI = "MaintenanceId";
 const _MIC = "MinimumInstanceCount";
 const _MICa = "MaximumInstanceCount";
 const _MN = "MasterNode";
+const _MO = "MigrationOptions";
 const _MP = "ModifyingProperties";
 const _MPL = "ModifyingPropertiesList";
 const _MR = "MaxResults";
 const _MS = "MaintenanceSchedules";
+const _MSL = "MigrationSummaryList";
+const _MSi = "MigrationSource";
+const _MSig = "MigrationSummary";
 const _MUARN = "MasterUserARN";
 const _MUN = "MasterUserName";
 const _MUO = "MasterUserOptions";
 const _MUP = "MasterUserPassword";
+const _MW = "MigrationWorkspace";
 const _Ma = "Mandatory";
 const _Mi = "Minutes";
 const _N = "Name";
@@ -673,8 +686,13 @@ const _SL = "StepsList";
 const _SLDQDS = "SecurityLakeDirectQueryDataSource";
 const _SLe = "SecurityLake";
 const _SM = "StatusMessage";
+const _SMR = "StartMigrationRequest";
+const _SMRt = "StartMigrationResponse";
+const _SMt = "StartMigration";
 const _SNAE = "SlotNotAvailableException";
 const _SO = "ServiceOptions";
+const _SOI = "SavedObjectIdentifier";
+const _SOIL = "SavedObjectIdentifierList";
 const _SOS = "SnapshotOptionsStatus";
 const _SOn = "SnapshotOptions";
 const _SOo = "SortOrder";
@@ -829,15 +847,21 @@ const _c = "client";
 const _cA = "createdAt";
 const _cC = "capabilityConfig";
 const _cN = "capabilityName";
+const _cR = "conflictResolution";
 const _cT = "clientToken";
+const _cW = "createWorkspace";
 const _ch = "changeid";
+const _co = "code";
 const _d = "details";
+const _dA = "datasourceArn";
 const _dN = "domainName";
 const _dRI = "dryRunId";
 const _dS = "dataSources";
 const _dSA = "dataSourceArn";
 const _dSD = "dataSourceDescription";
 const _e = "error";
+const _eC = "exportedCount";
+const _eO = "exportOptions";
 const _eT = "engineType";
 const _en = "endpoint";
 const _ena = "enabled";
@@ -846,9 +870,11 @@ const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _i = "id";
+const _iC = "importedCount";
 const _iICAA = "iamIdentityCenterApplicationArn";
 const _iICIA = "iamIdentityCenterInstanceArn";
 const _iICO = "iamIdentityCenterOptions";
+const _iRD = "includeReferencesDeep";
 const _iRFDSA = "iamRoleForDataSourceArn";
 const _iRFICAA = "iamRoleForIdentityCenterApplicationArn";
 const _iT = "instanceType";
@@ -858,10 +884,14 @@ const _lDRC = "loadDryRunConfig";
 const _lUA = "lastUpdatedAt";
 const _m = "message";
 const _mI = "maintenanceId";
+const _mIi = "migrationId";
+const _mO = "migrationOptions";
 const _mR = "maxResults";
+const _mi = "migrations";
 const _n = "name";
 const _nT = "nextToken";
 const _ne = "nexttoken";
+const _o = "objects";
 const _oI = "offeringId";
 const _r = "reason";
 const _rAZ = "retrieveAZs";
@@ -869,10 +899,15 @@ const _rI = "reservationId";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.opensearch";
 const _sAD = "setAsDefault";
 const _se = "server";
+const _so = "source";
 const _st = "status";
 const _sta = "statuses";
+const _t = "types";
 const _tL = "tagList";
+const _ty = "type";
+const _uA = "updatedAt";
 const _v = "value";
+const _w = "workspace";
 const _wC = "workspaceConfiguration";
 const _wI = "workspaceId";
 const _wT = "workspaceType";
@@ -1796,6 +1831,11 @@ export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED,
   [_ETr, _EM],
   [0, 0]
 ];
+export var ExportOptions$: StaticStructureSchema = [3, n0, _EO,
+  0,
+  [_t, _o, _iRD],
+  [64 | 0, () => SavedObjectIdentifierList, 2]
+];
 export var Filter$: StaticStructureSchema = [3, n0, _Fil,
   0,
   [_N, _Va],
@@ -1880,6 +1920,16 @@ export var GetIndexResponse$: StaticStructureSchema = [3, n0, _GIRe,
   0,
   [_IS],
   [15], 1
+];
+export var GetMigrationRequest$: StaticStructureSchema = [3, n0, _GMR,
+  0,
+  [_mIi],
+  [[0, 1]], 1
+];
+export var GetMigrationResponse$: StaticStructureSchema = [3, n0, _GMRe,
+  0,
+  [_mIi, _st, _aIp, _so, _eC, _iC, _e, _cA, _uA],
+  [0, 0, 0, () => MigrationSource$, 1, 1, () => MigrationError$, 4, 4]
 ];
 export var GetPackageVersionHistoryRequest$: StaticStructureSchema = [3, n0, _GPVHR,
   0,
@@ -2121,6 +2171,16 @@ export var ListInstanceTypeDetailsResponse$: StaticStructureSchema = [3, n0, _LI
   [_ITD, _NT],
   [() => InstanceTypeDetailsList, 0]
 ];
+export var ListMigrationsRequest$: StaticStructureSchema = [3, n0, _LMR,
+  0,
+  [_aIp, _st, _mR, _nT],
+  [[0, { [_hQ]: _aIp }], [0, { [_hQ]: _st }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListMigrationsResponse$: StaticStructureSchema = [3, n0, _LMRi,
+  0,
+  [_mi, _nT],
+  [() => MigrationSummaryList, 0]
+];
 export var ListPackagesForDomainRequest$: StaticStructureSchema = [3, n0, _LPFDR,
   0,
   [_DN, _MR, _NT],
@@ -2205,6 +2265,31 @@ export var MasterUserOptions$: StaticStructureSchema = [3, n0, _MUO,
   0,
   [_MUARN, _MUN, _MUP],
   [0, [() => Username, 0], [() => Password, 0]]
+];
+export var MigrationError$: StaticStructureSchema = [3, n0, _ME,
+  0,
+  [_co, _m],
+  [0, 0]
+];
+export var MigrationOptions$: StaticStructureSchema = [3, n0, _MO,
+  0,
+  [_so, _w, _eO, _cR],
+  [() => MigrationSource$, () => MigrationWorkspace$, () => ExportOptions$, 0], 2
+];
+export var MigrationSource$: StaticStructureSchema = [3, n0, _MSi,
+  0,
+  [_dA],
+  [0], 1
+];
+export var MigrationSummary$: StaticStructureSchema = [3, n0, _MSig,
+  0,
+  [_mIi, _st, _aIp, _so, _eC, _iC, _e, _cA, _uA],
+  [0, 0, 0, () => MigrationSource$, 1, 1, () => MigrationError$, 4, 4]
+];
+export var MigrationWorkspace$: StaticStructureSchema = [3, n0, _MW,
+  0,
+  [_wI, _cW, _n, _ty],
+  [0, 2, 0, 0]
 ];
 export var ModifyingProperties$: StaticStructureSchema = [3, n0, _MP,
   0,
@@ -2431,6 +2516,11 @@ export var SAMLOptionsOutput$: StaticStructureSchema = [3, n0, _SAMLOO,
   [_E, _Id, _SK, _RK, _STM],
   [2, () => SAMLIdp$, 0, 0, 1]
 ];
+export var SavedObjectIdentifier$: StaticStructureSchema = [3, n0, _SOI,
+  0,
+  [_ty, _i],
+  [0, 0], 2
+];
 export var ScheduledAction$: StaticStructureSchema = [3, n0, _SAch,
   0,
   [_Id_, _Ty, _Sev, _STc, _D, _SB, _S, _Ma, _Ca],
@@ -2490,6 +2580,16 @@ export var StartDomainMaintenanceResponse$: StaticStructureSchema = [3, n0, _SDM
   0,
   [_MI],
   [0]
+];
+export var StartMigrationRequest$: StaticStructureSchema = [3, n0, _SMR,
+  0,
+  [_aIp, _mO, _cT],
+  [0, () => MigrationOptions$, 0], 2
+];
+export var StartMigrationResponse$: StaticStructureSchema = [3, n0, _SMRt,
+  0,
+  [_mIi, _st],
+  [0, 0]
 ];
 export var StartServiceSoftwareUpdateRequest$: StaticStructureSchema = [3, n0, _SSSUR,
   0,
@@ -2777,6 +2877,9 @@ var InstanceTypeDetailsList: StaticListSchema = [1, n0, _ITDL,
 ];
 var Issues = 64 | 0;
 var LimitValueList = 64 | 0;
+var MigrationSummaryList: StaticListSchema = [1, n0, _MSL,
+  0, () => MigrationSummary$
+];
 var ModifyingPropertiesList: StaticListSchema = [1, n0, _MPL,
   0, () => ModifyingProperties$
 ];
@@ -2809,6 +2912,9 @@ var ReservedInstanceList: StaticListSchema = [1, n0, _RIL,
 var ReservedInstanceOfferingList: StaticListSchema = [1, n0, _RIOL,
   0, [() => ReservedInstanceOffering$,
     { [_xN]: _RIOe }]
+];
+var SavedObjectIdentifierList: StaticListSchema = [1, n0, _SOIL,
+  0, () => SavedObjectIdentifier$
 ];
 var ScheduledActionsList: StaticListSchema = [1, n0, _SAL,
   0, () => ScheduledAction$
@@ -3040,6 +3146,9 @@ export var GetDomainMaintenanceStatus$: StaticOperationSchema = [9, n0, _GDMS,
 export var GetIndex$: StaticOperationSchema = [9, n0, _GI,
   { [_h]: ["GET", "/2021-01-01/opensearch/domain/{DomainName}/index/{IndexName}", 200] }, () => GetIndexRequest$, () => GetIndexResponse$
 ];
+export var GetMigration$: StaticOperationSchema = [9, n0, _GM,
+  { [_h]: ["GET", "/2021-01-01/opensearch/app-migrations/{migrationId}", 200] }, () => GetMigrationRequest$, () => GetMigrationResponse$
+];
 export var GetPackageVersionHistory$: StaticOperationSchema = [9, n0, _GPVH,
   { [_h]: ["GET", "/2021-01-01/packages/{PackageID}/history", 200] }, () => GetPackageVersionHistoryRequest$, () => GetPackageVersionHistoryResponse$
 ];
@@ -3078,6 +3187,9 @@ export var ListInsights$: StaticOperationSchema = [9, n0, _LI,
 ];
 export var ListInstanceTypeDetails$: StaticOperationSchema = [9, n0, _LITD,
   { [_h]: ["GET", "/2021-01-01/opensearch/instanceTypeDetails/{EngineVersion}", 200] }, () => ListInstanceTypeDetailsRequest$, () => ListInstanceTypeDetailsResponse$
+];
+export var ListMigrations$: StaticOperationSchema = [9, n0, _LM,
+  { [_h]: ["GET", "/2021-01-01/opensearch/app-migrations", 200] }, () => ListMigrationsRequest$, () => ListMigrationsResponse$
 ];
 export var ListPackagesForDomain$: StaticOperationSchema = [9, n0, _LPFD,
   { [_h]: ["GET", "/2021-01-01/domain/{DomainName}/packages", 200] }, () => ListPackagesForDomainRequest$, () => ListPackagesForDomainResponse$
@@ -3123,6 +3235,9 @@ export var RollbackServiceSoftwareUpdate$: StaticOperationSchema = [9, n0, _RSSU
 ];
 export var StartDomainMaintenance$: StaticOperationSchema = [9, n0, _SDM,
   { [_h]: ["POST", "/2021-01-01/opensearch/domain/{DomainName}/domainMaintenance", 200] }, () => StartDomainMaintenanceRequest$, () => StartDomainMaintenanceResponse$
+];
+export var StartMigration$: StaticOperationSchema = [9, n0, _SMt,
+  { [_h]: ["POST", "/2021-01-01/opensearch/app-migrations", 200] }, () => StartMigrationRequest$, () => StartMigrationResponse$
 ];
 export var StartServiceSoftwareUpdate$: StaticOperationSchema = [9, n0, _SSSU,
   { [_h]: ["POST", "/2021-01-01/opensearch/serviceSoftwareUpdate/start", 200] }, () => StartServiceSoftwareUpdateRequest$, () => StartServiceSoftwareUpdateResponse$

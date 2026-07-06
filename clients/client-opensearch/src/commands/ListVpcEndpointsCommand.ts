@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListVpcEndpointsRequest, ListVpcEndpointsResponse } from "../models/models_0";
+import type { ListVpcEndpointsRequest, ListVpcEndpointsResponse } from "../models/models_1";
 import { ListVpcEndpoints$ } from "../schemas/schemas_0";
 
 /**

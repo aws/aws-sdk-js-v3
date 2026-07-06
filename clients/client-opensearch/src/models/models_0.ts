@@ -7042,6 +7042,106 @@ export interface GetIndexResponse {
 }
 
 /**
+ * @public
+ */
+export interface GetMigrationRequest {
+  /**
+   * <p>The unique identifier of the migration job to retrieve.</p>
+   * @public
+   */
+  migrationId: string | undefined;
+}
+
+/**
+ * <p>Contains error details for a migration that failed or completed with errors.</p>
+ * @public
+ */
+export interface MigrationError {
+  /**
+   * <p>The error code identifying the type of failure.</p>
+   * @public
+   */
+  code?: string | undefined;
+
+  /**
+   * <p>A human-readable description of the error.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * <p>The source configuration for a migration, specifying the data source from which to export saved objects.</p>
+ * @public
+ */
+export interface MigrationSource {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data source to migrate saved objects from.</p>
+   * @public
+   */
+  datasourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMigrationResponse {
+  /**
+   * <p>The unique identifier of the migration job.</p>
+   * @public
+   */
+  migrationId?: string | undefined;
+
+  /**
+   * <p>The current status of the migration job. Valid values are <code>PENDING</code>, <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, and <code>FAILED</code>.</p>
+   * @public
+   */
+  status?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the OpenSearch application associated with the migration.</p>
+   * @public
+   */
+  applicationId?: string | undefined;
+
+  /**
+   * <p>The source configuration for the migration, including the data source ARN.</p>
+   * @public
+   */
+  source?: MigrationSource | undefined;
+
+  /**
+   * <p>The number of saved objects exported from the source data source.</p>
+   * @public
+   */
+  exportedCount?: number | undefined;
+
+  /**
+   * <p>The number of saved objects successfully imported into the target workspace.</p>
+   * @public
+   */
+  importedCount?: number | undefined;
+
+  /**
+   * <p>Error details if the migration failed or completed with errors.</p>
+   * @public
+   */
+  error?: MigrationError | undefined;
+
+  /**
+   * <p>The date and time when the migration job was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the migration job was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
  * <p>Container for the request parameters to the <code>GetPackageVersionHistory</code>
  *    operation.</p>
  * @public
@@ -8162,6 +8262,112 @@ export interface ListInstanceTypeDetailsResponse {
 }
 
 /**
+ * @public
+ */
+export interface ListMigrationsRequest {
+  /**
+   * <p>The unique identifier of the OpenSearch application to list migrations for.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>Filters the results by migration status. Valid values are <code>PENDING</code>, <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, and <code>FAILED</code>.</p>
+   * @public
+   */
+  status?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token from a previous call to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A summary of a migration job, including its status and progress.</p>
+ * @public
+ */
+export interface MigrationSummary {
+  /**
+   * <p>The unique identifier of the migration job.</p>
+   * @public
+   */
+  migrationId?: string | undefined;
+
+  /**
+   * <p>The current status of the migration job.</p>
+   * @public
+   */
+  status?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the OpenSearch application associated with the migration.</p>
+   * @public
+   */
+  applicationId?: string | undefined;
+
+  /**
+   * <p>The source configuration for the migration.</p>
+   * @public
+   */
+  source?: MigrationSource | undefined;
+
+  /**
+   * <p>The number of saved objects exported from the source data source.</p>
+   * @public
+   */
+  exportedCount?: number | undefined;
+
+  /**
+   * <p>The number of saved objects successfully imported into the target workspace.</p>
+   * @public
+   */
+  importedCount?: number | undefined;
+
+  /**
+   * <p>Error details if the migration failed or completed with errors.</p>
+   * @public
+   */
+  error?: MigrationError | undefined;
+
+  /**
+   * <p>The date and time when the migration job was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the migration job was last updated.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMigrationsResponse {
+  /**
+   * <p>A list of migration job summaries for the specified application.</p>
+   * @public
+   */
+  migrations?: MigrationSummary[] | undefined;
+
+  /**
+   * <p>The pagination token to use in a subsequent call to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * <p>Container for the request parameters to the <code>ListPackagesForDomain</code>
  *             operation.</p>
  * @public
@@ -8388,141 +8594,4 @@ export interface ListVersionsResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListVpcEndpointAccessRequest {
-  /**
-   * <p>The name of the OpenSearch Service domain to retrieve access information for.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>If your initial <code>ListVpcEndpointAccess</code> operation returns a
-   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
-   *             subsequent <code>ListVpcEndpointAccess</code> operations, which returns results in the
-   *             next page.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListVpcEndpointAccessResponse {
-  /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html">IAM
-   *                 principals</a> that can currently access the domain.</p>
-   * @public
-   */
-  AuthorizedPrincipalList: AuthorizedPrincipal[] | undefined;
-
-  /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
-   * @public
-   */
-  NextToken: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListVpcEndpointsRequest {
-  /**
-   * <p>If your initial <code>ListVpcEndpoints</code> operation returns a
-   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
-   *             subsequent <code>ListVpcEndpoints</code> operations, which returns results in the next
-   *             page.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListVpcEndpointsResponse {
-  /**
-   * <p>Information about each endpoint.</p>
-   * @public
-   */
-  VpcEndpointSummaryList: VpcEndpointSummary[] | undefined;
-
-  /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
-   * @public
-   */
-  NextToken: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListVpcEndpointsForDomainRequest {
-  /**
-   * <p>The name of the domain to list associated VPC endpoints for.</p>
-   * @public
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>If your initial <code>ListEndpointsForDomain</code> operation returns a
-   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
-   *             subsequent <code>ListEndpointsForDomain</code> operations, which returns results in the
-   *             next page.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListVpcEndpointsForDomainResponse {
-  /**
-   * <p>Information about each endpoint associated with the domain.</p>
-   * @public
-   */
-  VpcEndpointSummaryList: VpcEndpointSummary[] | undefined;
-
-  /**
-   * <p>When <code>nextToken</code> is returned, there are more results available. The value
-   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
-   *             again using the returned token to retrieve the next page.</p>
-   * @public
-   */
-  NextToken: string | undefined;
-}
-
-/**
- * <p>Container for request parameters to the <code>PurchaseReservedInstanceOffering</code>
- *             operation.</p>
- * @public
- */
-export interface PurchaseReservedInstanceOfferingRequest {
-  /**
-   * <p>The ID of the Reserved Instance offering to purchase.</p>
-   * @public
-   */
-  ReservedInstanceOfferingId: string | undefined;
-
-  /**
-   * <p>A customer-specified identifier to track this reservation.</p>
-   * @public
-   */
-  ReservationName: string | undefined;
-
-  /**
-   * <p>The number of OpenSearch instances to reserve.</p>
-   * @public
-   */
-  InstanceCount?: number | undefined;
 }
