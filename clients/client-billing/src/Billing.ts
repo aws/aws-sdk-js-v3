@@ -24,10 +24,25 @@ import {
   DisassociateSourceViewsCommand,
 } from "./commands/DisassociateSourceViewsCommand";
 import {
+  type GetBillingPreferencesCommandInput,
+  type GetBillingPreferencesCommandOutput,
+  GetBillingPreferencesCommand,
+} from "./commands/GetBillingPreferencesCommand";
+import {
   type GetBillingViewCommandInput,
   type GetBillingViewCommandOutput,
   GetBillingViewCommand,
 } from "./commands/GetBillingViewCommand";
+import {
+  type GetCreditAllocationHistoryCommandInput,
+  type GetCreditAllocationHistoryCommandOutput,
+  GetCreditAllocationHistoryCommand,
+} from "./commands/GetCreditAllocationHistoryCommand";
+import {
+  type GetCreditsCommandInput,
+  type GetCreditsCommandOutput,
+  GetCreditsCommand,
+} from "./commands/GetCreditsCommand";
 import {
   type GetResourcePolicyCommandInput,
   type GetResourcePolicyCommandOutput,
@@ -49,6 +64,11 @@ import {
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type RedeemCreditsCommandInput,
+  type RedeemCreditsCommandOutput,
+  RedeemCreditsCommand,
+} from "./commands/RedeemCreditsCommand";
+import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
   TagResourceCommand,
@@ -59,10 +79,16 @@ import {
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateBillingPreferencesCommandInput,
+  type UpdateBillingPreferencesCommandOutput,
+  UpdateBillingPreferencesCommand,
+} from "./commands/UpdateBillingPreferencesCommand";
+import {
   type UpdateBillingViewCommandInput,
   type UpdateBillingViewCommandOutput,
   UpdateBillingViewCommand,
 } from "./commands/UpdateBillingViewCommand";
+import { paginateGetCreditAllocationHistory } from "./pagination/GetCreditAllocationHistoryPaginator";
 import { paginateListBillingViews } from "./pagination/ListBillingViewsPaginator";
 import { paginateListSourceViewsForBillingView } from "./pagination/ListSourceViewsForBillingViewPaginator";
 
@@ -71,16 +97,22 @@ const commands = {
   CreateBillingViewCommand,
   DeleteBillingViewCommand,
   DisassociateSourceViewsCommand,
+  GetBillingPreferencesCommand,
   GetBillingViewCommand,
+  GetCreditAllocationHistoryCommand,
+  GetCreditsCommand,
   GetResourcePolicyCommand,
   ListBillingViewsCommand,
   ListSourceViewsForBillingViewCommand,
   ListTagsForResourceCommand,
+  RedeemCreditsCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateBillingPreferencesCommand,
   UpdateBillingViewCommand,
 };
 const paginators = {
+  paginateGetCreditAllocationHistory,
   paginateListBillingViews,
   paginateListSourceViewsForBillingView,
 };
@@ -155,6 +187,23 @@ export interface Billing {
   ): void;
 
   /**
+   * @see {@link GetBillingPreferencesCommand}
+   */
+  getBillingPreferences(
+    args: GetBillingPreferencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBillingPreferencesCommandOutput>;
+  getBillingPreferences(
+    args: GetBillingPreferencesCommandInput,
+    cb: (err: any, data?: GetBillingPreferencesCommandOutput) => void
+  ): void;
+  getBillingPreferences(
+    args: GetBillingPreferencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBillingPreferencesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetBillingViewCommand}
    */
   getBillingView(
@@ -169,6 +218,40 @@ export interface Billing {
     args: GetBillingViewCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetBillingViewCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCreditAllocationHistoryCommand}
+   */
+  getCreditAllocationHistory(
+    args: GetCreditAllocationHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCreditAllocationHistoryCommandOutput>;
+  getCreditAllocationHistory(
+    args: GetCreditAllocationHistoryCommandInput,
+    cb: (err: any, data?: GetCreditAllocationHistoryCommandOutput) => void
+  ): void;
+  getCreditAllocationHistory(
+    args: GetCreditAllocationHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCreditAllocationHistoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCreditsCommand}
+   */
+  getCredits(
+    args: GetCreditsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCreditsCommandOutput>;
+  getCredits(
+    args: GetCreditsCommandInput,
+    cb: (err: any, data?: GetCreditsCommandOutput) => void
+  ): void;
+  getCredits(
+    args: GetCreditsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCreditsCommandOutput) => void
   ): void;
 
   /**
@@ -241,6 +324,23 @@ export interface Billing {
   ): void;
 
   /**
+   * @see {@link RedeemCreditsCommand}
+   */
+  redeemCredits(
+    args: RedeemCreditsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RedeemCreditsCommandOutput>;
+  redeemCredits(
+    args: RedeemCreditsCommandInput,
+    cb: (err: any, data?: RedeemCreditsCommandOutput) => void
+  ): void;
+  redeemCredits(
+    args: RedeemCreditsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RedeemCreditsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(
@@ -275,6 +375,23 @@ export interface Billing {
   ): void;
 
   /**
+   * @see {@link UpdateBillingPreferencesCommand}
+   */
+  updateBillingPreferences(
+    args: UpdateBillingPreferencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBillingPreferencesCommandOutput>;
+  updateBillingPreferences(
+    args: UpdateBillingPreferencesCommandInput,
+    cb: (err: any, data?: UpdateBillingPreferencesCommandOutput) => void
+  ): void;
+  updateBillingPreferences(
+    args: UpdateBillingPreferencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateBillingPreferencesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateBillingViewCommand}
    */
   updateBillingView(
@@ -290,6 +407,17 @@ export interface Billing {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateBillingViewCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link GetCreditAllocationHistoryCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetCreditAllocationHistoryCommandOutput}.
+   */
+  paginateGetCreditAllocationHistory(
+    args: GetCreditAllocationHistoryCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetCreditAllocationHistoryCommandOutput>;
 
   /**
    * @see {@link ListBillingViewsCommand}

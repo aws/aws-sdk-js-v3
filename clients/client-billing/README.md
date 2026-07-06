@@ -209,10 +209,31 @@ DisassociateSourceViews
 </details>
 <details>
 <summary>
+GetBillingPreferences
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billing/command/GetBillingPreferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/GetBillingPreferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/GetBillingPreferencesCommandOutput/)
+</details>
+<details>
+<summary>
 GetBillingView
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billing/command/GetBillingViewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/GetBillingViewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/GetBillingViewCommandOutput/)
+</details>
+<details>
+<summary>
+GetCreditAllocationHistory
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billing/command/GetCreditAllocationHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/GetCreditAllocationHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/GetCreditAllocationHistoryCommandOutput/)
+</details>
+<details>
+<summary>
+GetCredits
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billing/command/GetCreditsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/GetCreditsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/GetCreditsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -244,6 +265,13 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+RedeemCredits
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billing/command/RedeemCreditsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/RedeemCreditsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/RedeemCreditsCommandOutput/)
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 
@@ -255,6 +283,13 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billing/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/UntagResourceCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateBillingPreferences
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billing/command/UpdateBillingPreferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/UpdateBillingPreferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/UpdateBillingPreferencesCommandOutput/)
 </details>
 <details>
 <summary>
