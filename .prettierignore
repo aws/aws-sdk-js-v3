@@ -18,4 +18,5 @@ lib/lib-dynamodb/src/index.ts
 lib/lib-dynamodb/src/commands/*Command.ts
 lib/lib-dynamodb/src/commands/index.ts
 lib/lib-dynamodb/src/pagination/
+packages-internal/core/src/submodules/client/util-endpoints/lib/aws/partitions.ts
 **/*.java
