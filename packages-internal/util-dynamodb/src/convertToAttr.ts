@@ -28,7 +28,7 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
   ) {
     return convertToMapAttrFromEnumerableProps(data as Record<string, NativeAttributeValue>, options);
   } else if (isBinary(data)) {
-    if (data.byteLength === 0 && options?.convertEmptyValues) {
+    if (options?.convertEmptyValues && isEmptyBinary(data)) {
       return convertToNullAttr();
     }
     // Do not alter binary data passed https://github.com/aws/aws-sdk-js-v3/issues/1530
@@ -176,6 +176,19 @@ const convertToNumberAttr = (num: number | Number, options?: marshallOptions): {
     }
   }
   return { N: num.toString() };
+};
+
+const isEmptyBinary = (data: any): boolean => {
+  if (data && typeof data === "object") {
+    if (
+      (typeof data.length === "number" && data.length === 0) ||
+      (typeof data.byteLength === "number" && data.byteLength === 0) ||
+      (typeof data.size === "number" && data.size === 0)
+    ) {
+      return true;
+    }
+  }
+  return false;
 };
 
 const isBinary = (data: any): boolean => {
