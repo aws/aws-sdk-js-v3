@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-sagemaker-runtime-http2",
   "description": "AWS SDK for JavaScript Sagemaker Runtime Http2 Client for Node.js, Browser and React Native",
-  "version": "3.1079.0",
+  "version": "3.1080.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -23,8 +23,8 @@
   "module": "./dist-es/index.js",
   "sideEffects": false,
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.27",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.62",
+    "@aws-sdk/core": "workspace:^3.974.28",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.63",
     "@aws-sdk/eventstream-handler-node": "workspace:^3.972.25",
     "@aws-sdk/middleware-eventstream": "workspace:^3.972.21",
     "@aws-sdk/types": "workspace:^3.973.15",

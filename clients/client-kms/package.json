@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-kms",
   "description": "AWS SDK for JavaScript Kms Client for Node.js, Browser and React Native",
-  "version": "3.1079.0",
+  "version": "3.1080.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -21,8 +21,8 @@
   "module": "./dist-es/index.js",
   "sideEffects": false,
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.27",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.62",
+    "@aws-sdk/core": "workspace:^3.974.28",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.63",
     "@aws-sdk/types": "workspace:^3.973.15",
     "@smithy/core": "^3.29.0",
     "@smithy/fetch-http-handler": "^5.6.2",

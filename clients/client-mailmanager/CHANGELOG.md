@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1080.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1079.0...v3.1080.0) (2026-07-06)
+
+
+### Features
+
+* **client-mailmanager:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.0. The SDK will prioritize its most performant protocol. ([d929091](https://github.com/aws/aws-sdk-js-v3/commit/d929091bafbed2b5fe73fb47cf10c9797745f79b))
+
+
+
+
+
 # [3.1079.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1078.0...v3.1079.0) (2026-07-02)
 
 **Note:** Version bump only for package @aws-sdk/client-mailmanager

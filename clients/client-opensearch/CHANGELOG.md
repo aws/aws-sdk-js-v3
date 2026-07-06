@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1080.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1079.0...v3.1080.0) (2026-07-06)
+
+
+### Features
+
+* **client-opensearch:** This release introduces Saved Object Migration APIs, enabling users to migrate dashboards, visualizations, index patterns, and other saved objects from a data source into an Amazon OpenSearch Service application workspace with configurable export filters and conflict resolution strategies. ([1c8fbcf](https://github.com/aws/aws-sdk-js-v3/commit/1c8fbcf822e652bcc2ca8d4d14500f6a975b7231))
+
+
+
+
+
 # [3.1079.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1078.0...v3.1079.0) (2026-07-02)
 
 **Note:** Version bump only for package @aws-sdk/client-opensearch

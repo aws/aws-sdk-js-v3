@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1080.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1079.0...v3.1080.0) (2026-07-06)
+
+
+### Features
+
+* **client-billing:** Adds support for managing AWS account credits and billing preferences, including retrieving credit details, viewing per-month credit allocation history, redeeming promotional codes, and configuring credit sharing and billing preferences. ([f710aa7](https://github.com/aws/aws-sdk-js-v3/commit/f710aa709dde305de0e40eb488fe52f97ba323b2))
+* **client-cloudwatch-logs:** Added PutStorageTierPolicy and GetStorageTierPolicy APIs to Amazon CloudWatch Logs. Customers can now configure account-level Intelligent Tiering to automatically optimize log storage costs by moving infrequently accessed data to lower-cost storage tiers. ([f3cba29](https://github.com/aws/aws-sdk-js-v3/commit/f3cba29f50f693632d3af11f4f9115647d2d107f))
+* **client-mailmanager:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.0. The SDK will prioritize its most performant protocol. ([d929091](https://github.com/aws/aws-sdk-js-v3/commit/d929091bafbed2b5fe73fb47cf10c9797745f79b))
+* **client-opensearch:** This release introduces Saved Object Migration APIs, enabling users to migrate dashboards, visualizations, index patterns, and other saved objects from a data source into an Amazon OpenSearch Service application workspace with configurable export filters and conflict resolution strategies. ([1c8fbcf](https://github.com/aws/aws-sdk-js-v3/commit/1c8fbcf822e652bcc2ca8d4d14500f6a975b7231))
+* **clients:** update client endpoints as of 2026-07-06 ([fc19f57](https://github.com/aws/aws-sdk-js-v3/commit/fc19f57715455380d1af5f2c820639a79fd8b1d1))
+
+
+
+
+
 # [3.1079.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1078.0...v3.1079.0) (2026-07-02)
 
 

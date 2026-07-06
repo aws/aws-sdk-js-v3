@@ -59,6 +59,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.28 (2026-07-06)
+### Chores
+* **core/client:** version partitions.ts file ([#8155](https://github.com/aws/aws-sdk-js-v3/issues/8155)) ([7aa3c7a](https://github.com/aws/aws-sdk-js-v3/commit/7aa3c7a13f724018dc0417c4ba30fa63af4c879a))
+
+
+
 # 3.974.27 (2026-07-02)
 ### Bug Fixes
 * **core:** remove turbo.json ([#8141](https://github.com/aws/aws-sdk-js-v3/issues/8141)) ([91d738d](https://github.com/aws/aws-sdk-js-v3/commit/91d738d3ab851a8809f816584aaf4169fb23638e))
