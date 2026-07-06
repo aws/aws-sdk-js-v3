@@ -281,6 +281,10 @@ import type {
   GetScheduledQueryHistoryCommandInput,
   GetScheduledQueryHistoryCommandOutput,
 } from "./commands/GetScheduledQueryHistoryCommand";
+import type {
+  GetStorageTierPolicyCommandInput,
+  GetStorageTierPolicyCommandOutput,
+} from "./commands/GetStorageTierPolicyCommand";
 import type { GetTransformerCommandInput, GetTransformerCommandOutput } from "./commands/GetTransformerCommand";
 import type {
   ListAggregateLogGroupSummariesCommandInput,
@@ -360,6 +364,10 @@ import type {
   PutRetentionPolicyCommandInput,
   PutRetentionPolicyCommandOutput,
 } from "./commands/PutRetentionPolicyCommand";
+import type {
+  PutStorageTierPolicyCommandInput,
+  PutStorageTierPolicyCommandOutput,
+} from "./commands/PutStorageTierPolicyCommand";
 import type {
   PutSubscriptionFilterCommandInput,
   PutSubscriptionFilterCommandOutput,
@@ -481,6 +489,7 @@ export type ServiceInputTypes =
   | GetQueryResultsCommandInput
   | GetScheduledQueryCommandInput
   | GetScheduledQueryHistoryCommandInput
+  | GetStorageTierPolicyCommandInput
   | GetTransformerCommandInput
   | ListAggregateLogGroupSummariesCommandInput
   | ListAnomaliesCommandInput
@@ -509,6 +518,7 @@ export type ServiceInputTypes =
   | PutQueryDefinitionCommandInput
   | PutResourcePolicyCommandInput
   | PutRetentionPolicyCommandInput
+  | PutStorageTierPolicyCommandInput
   | PutSubscriptionFilterCommandInput
   | PutSyslogConfigurationCommandInput
   | PutTransformerCommandInput
@@ -602,6 +612,7 @@ export type ServiceOutputTypes =
   | GetQueryResultsCommandOutput
   | GetScheduledQueryCommandOutput
   | GetScheduledQueryHistoryCommandOutput
+  | GetStorageTierPolicyCommandOutput
   | GetTransformerCommandOutput
   | ListAggregateLogGroupSummariesCommandOutput
   | ListAnomaliesCommandOutput
@@ -630,6 +641,7 @@ export type ServiceOutputTypes =
   | PutQueryDefinitionCommandOutput
   | PutResourcePolicyCommandOutput
   | PutRetentionPolicyCommandOutput
+  | PutStorageTierPolicyCommandOutput
   | PutSubscriptionFilterCommandOutput
   | PutSyslogConfigurationCommandOutput
   | PutTransformerCommandOutput

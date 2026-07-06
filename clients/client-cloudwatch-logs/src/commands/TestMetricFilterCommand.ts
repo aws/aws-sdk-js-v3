@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { TestMetricFilterRequest, TestMetricFilterResponse } from "../models/models_0";
+import type { TestMetricFilterRequest } from "../models/models_0";
+import type { TestMetricFilterResponse } from "../models/models_1";
 import { TestMetricFilter$ } from "../schemas/schemas_0";
 
 /**

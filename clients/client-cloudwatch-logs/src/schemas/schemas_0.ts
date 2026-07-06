@@ -243,6 +243,9 @@ const _GSQHR = "GetScheduledQueryHistoryRequest";
 const _GSQHRe = "GetScheduledQueryHistoryResponse";
 const _GSQR = "GetScheduledQueryRequest";
 const _GSQRe = "GetScheduledQueryResponse";
+const _GSTP = "GetStorageTierPolicy";
+const _GSTPR = "GetStorageTierPolicyRequest";
+const _GSTPRe = "GetStorageTierPolicyResponse";
 const _GT = "GetTransformer";
 const _GTR = "GetTransformerRequest";
 const _GTRe = "GetTransformerResponse";
@@ -397,6 +400,9 @@ const _PSC = "PutSyslogConfiguration";
 const _PSCR = "PutSyslogConfigurationRequest";
 const _PSF = "PutSubscriptionFilter";
 const _PSFR = "PutSubscriptionFilterRequest";
+const _PSTP = "PutStorageTierPolicy";
+const _PSTPR = "PutStorageTierPolicyRequest";
+const _PSTPRu = "PutStorageTierPolicyResponse";
 const _PT = "PatternToken";
 const _PTOCSF = "ParseToOCSF";
 const _PTR = "PutTransformerRequest";
@@ -872,6 +878,7 @@ const _sTc = "scheduleType";
 const _sTe = "sequenceToken";
 const _sTo = "sourceType";
 const _sTt = "startTime";
+const _sTto = "storageTier";
 const _sTu = "suppressionType";
 const _sU = "suppressedUntil";
 const _sUe = "sessionUpdate";
@@ -1850,6 +1857,16 @@ export var GetScheduledQueryResponse$: StaticStructureSchema = [3, n0, _GSQRe,
   [_sQA, _n, _d, _qL, _qS, _lGI, _sE, _ti, _sTO, _eTO, _dC, _st, _sTc, _lTT, _lES, _sST, _sET, _eRA, _cT, _lUT],
   [0, 0, 0, 0, 0, 64 | 0, 0, 0, 1, 1, () => DestinationConfiguration$, 0, 0, 1, 0, 1, 1, 0, 1, 1]
 ];
+export var GetStorageTierPolicyRequest$: StaticStructureSchema = [3, n0, _GSTPR,
+  0,
+  [],
+  []
+];
+export var GetStorageTierPolicyResponse$: StaticStructureSchema = [3, n0, _GSTPRe,
+  0,
+  [_sTto, _lUT],
+  [0, 1]
+];
 export var GetTransformerRequest$: StaticStructureSchema = [3, n0, _GTR,
   0,
   [_lGIo],
@@ -2359,6 +2376,16 @@ export var PutRetentionPolicyRequest$: StaticStructureSchema = [3, n0, _PRPRut,
   0,
   [_lGN, _rID],
   [0, 1], 2
+];
+export var PutStorageTierPolicyRequest$: StaticStructureSchema = [3, n0, _PSTPR,
+  0,
+  [_sTto],
+  [0], 1
+];
+export var PutStorageTierPolicyResponse$: StaticStructureSchema = [3, n0, _PSTPRu,
+  0,
+  [_sTto, _lUT],
+  [0, 1]
 ];
 export var PutSubscriptionFilterRequest$: StaticStructureSchema = [3, n0, _PSFR,
   0,
@@ -3104,6 +3131,9 @@ export var GetScheduledQuery$: StaticOperationSchema = [9, n0, _GSQ,
 export var GetScheduledQueryHistory$: StaticOperationSchema = [9, n0, _GSQH,
   0, () => GetScheduledQueryHistoryRequest$, () => GetScheduledQueryHistoryResponse$
 ];
+export var GetStorageTierPolicy$: StaticOperationSchema = [9, n0, _GSTP,
+  0, () => GetStorageTierPolicyRequest$, () => GetStorageTierPolicyResponse$
+];
 export var GetTransformer$: StaticOperationSchema = [9, n0, _GT,
   0, () => GetTransformerRequest$, () => GetTransformerResponse$
 ];
@@ -3187,6 +3217,9 @@ export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP,
 ];
 export var PutRetentionPolicy$: StaticOperationSchema = [9, n0, _PRPu,
   0, () => PutRetentionPolicyRequest$, () => __Unit
+];
+export var PutStorageTierPolicy$: StaticOperationSchema = [9, n0, _PSTP,
+  0, () => PutStorageTierPolicyRequest$, () => PutStorageTierPolicyResponse$
 ];
 export var PutSubscriptionFilter$: StaticOperationSchema = [9, n0, _PSF,
   0, () => PutSubscriptionFilterRequest$, () => __Unit
