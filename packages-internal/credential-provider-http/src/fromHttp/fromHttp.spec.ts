@@ -1,6 +1,6 @@
 import { HttpResponse } from "@smithy/core/protocols";
 import { Readable } from "node:stream";
-import { afterAll, describe, expect, test as it, vi } from "vitest";
+import { afterAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromHttp } from "./fromHttp";
 import * as helpers from "./requestHelpers";
@@ -51,6 +51,11 @@ vi.mock("fs/promises", () => ({
 }));
 
 describe(fromHttp.name, () => {
+  beforeEach(() => {
+    mockHandle.mockClear();
+    mockDestroy.mockClear();
+  });
+
   afterAll(() => {
     vi.resetAllMocks();
   });
@@ -81,9 +86,23 @@ describe(fromHttp.name, () => {
     });
   });
 
+  it("relative uri should take precedence over full uri", async () => {
+    const provider = fromHttp({
+      awsContainerCredentialsFullUri: "https://u1.aws",
+      awsContainerCredentialsRelativeUri: "/credential-path",
+    });
+
+    await provider();
+
+    expect(mockHandle).toHaveBeenCalledWith(helpers.createGetRequest(new URL("http://169.254.170.2/credential-path")), {
+      requestTimeout: 1000,
+    });
+  });
+
   it("can use the token", async () => {
     const provider = fromHttp({
       awsContainerCredentialsFullUri: "https://t1.aws",
+      awsContainerCredentialsRelativeUri: "",
       awsContainerAuthorizationToken: mockToken,
     });
 
@@ -98,10 +117,11 @@ describe(fromHttp.name, () => {
   it("can use the token file", async () => {
     const provider = fromHttp({
       awsContainerCredentialsFullUri: "https://t2.aws",
+      awsContainerCredentialsRelativeUri: "",
       awsContainerAuthorizationTokenFile: "some-file",
     });
 
-    const request = helpers.createGetRequest(new URL("https://t1.aws"));
+    const request = helpers.createGetRequest(new URL("https://t2.aws"));
     request.headers.Authorization = mockToken;
 
     await provider();
@@ -109,9 +129,36 @@ describe(fromHttp.name, () => {
     expect(mockHandle).toHaveBeenCalledWith(request, { requestTimeout: 1000 });
   });
 
+  it("token file takes precedence over token", async () => {
+    const provider = fromHttp({
+      awsContainerCredentialsFullUri: "https://t3.aws",
+      awsContainerCredentialsRelativeUri: "",
+      awsContainerAuthorizationToken: "static-token",
+      awsContainerAuthorizationTokenFile: "some-file",
+    });
+
+    const request = helpers.createGetRequest(new URL("https://t3.aws"));
+    request.headers.Authorization = mockToken;
+
+    await provider();
+
+    expect(mockHandle).toHaveBeenCalledWith(request, { requestTimeout: 1000 });
+  });
+
+  it("rejects token containing \\r\\n", async () => {
+    const provider = fromHttp({
+      awsContainerCredentialsFullUri: "https://t4.aws",
+      awsContainerCredentialsRelativeUri: "",
+      awsContainerAuthorizationToken: "Bearer token\r\nX-Injected: header",
+    });
+
+    await expect(provider()).rejects.toThrow("Authorization token contains invalid \\r\\n sequence.");
+  });
+
   it("passes custom timeout as requestTimeout to handle()", async () => {
     const provider = fromHttp({
       awsContainerCredentialsFullUri: "https://u1.aws",
+      awsContainerCredentialsRelativeUri: "",
       timeout: 5000,
     });
 
@@ -121,10 +168,9 @@ describe(fromHttp.name, () => {
   });
 
   it("destroys the request handler after the provider resolves", async () => {
-    mockDestroy.mockClear();
-
     const provider = fromHttp({
       awsContainerCredentialsFullUri: "https://u1.aws",
+      awsContainerCredentialsRelativeUri: "",
     });
 
     await provider();
@@ -133,7 +179,6 @@ describe(fromHttp.name, () => {
   });
 
   it("destroys the request handler even when the request fails", async () => {
-    mockDestroy.mockClear();
     mockHandle.mockRejectedValueOnce(new Error("network error"));
     mockHandle.mockRejectedValueOnce(new Error("network error"));
     mockHandle.mockRejectedValueOnce(new Error("network error"));
@@ -141,6 +186,7 @@ describe(fromHttp.name, () => {
 
     const provider = fromHttp({
       awsContainerCredentialsFullUri: "https://u1.aws",
+      awsContainerCredentialsRelativeUri: "",
     });
 
     await expect(provider()).rejects.toThrow();
