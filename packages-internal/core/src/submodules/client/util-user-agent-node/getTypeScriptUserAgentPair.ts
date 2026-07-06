@@ -25,7 +25,7 @@ export const getTypeScriptUserAgentPair = async (): Promise<UserAgentPair | unde
   // Disable TypeScript detection if environment variable is set.
   // Direct property access (rather than booleanSelector) allows bundlers to statically replace
   // process.env.AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED and tree-shake this entire function.
-  const _tsDetectionDisabledEnv = process.env.AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED;
+  const _tsDetectionDisabledEnv = process.env?.AWS_SDK_JS_TYPESCRIPT_DETECTION_DISABLED;
   if (_tsDetectionDisabledEnv === "true" || _tsDetectionDisabledEnv === "1") {
     tscVersion = null;
     return undefined;
