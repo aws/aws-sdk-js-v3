@@ -288,6 +288,11 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *           BeforeValue: "STRING_VALUE",
  *         },
  *       },
+ *       ResellerRole: { // ResaleAuthorizationResellerRoleFilter
+ *         ValueList: [ // ResaleAuthorizationResellerRoleFilterValueList
+ *           "ChannelPartner" || "Distributor",
+ *         ],
+ *       },
  *     },
  *     MachineLearningProductFilters: { // MachineLearningProductFilters
  *       EntityId: { // MachineLearningProductEntityIdFilter
@@ -442,6 +447,7 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * //         OfferExtendedStatus: "STRING_VALUE",
  * //         CreatedDate: "STRING_VALUE",
  * //         AvailabilityEndDate: "STRING_VALUE",
+ * //         ResellerRole: "ChannelPartner" || "Distributor",
  * //       },
  * //       MachineLearningProductSummary: { // MachineLearningProductSummary
  * //         ProductTitle: "STRING_VALUE",
