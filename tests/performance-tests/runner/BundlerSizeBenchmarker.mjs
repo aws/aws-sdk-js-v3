@@ -1,9 +1,9 @@
-import path from "node:path";
-import fs from "node:fs";
-import webpack from "webpack";
-import { build } from "vite";
 import esbuild from "esbuild";
+import fs from "node:fs";
+import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { build } from "vite";
+import webpack from "webpack";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const APPLICATIONS_DIR = path.join(__dirname, "..", "applications");
@@ -23,7 +23,13 @@ export class BundlerSizeBenchmarker {
           entry: path.resolve(APPLICATIONS_DIR, this.application),
           target: "web",
           output: { path: DIST_DIR, filename: path.basename(outfile), library: "dist" },
-          optimization: { minimize: true, splitChunks: false, runtimeChunk: false, sideEffects: true, usedExports: true },
+          optimization: {
+            minimize: true,
+            splitChunks: false,
+            runtimeChunk: false,
+            sideEffects: true,
+            usedExports: true,
+          },
           stats: "none",
         },
         (err, stats) => {
@@ -31,7 +37,7 @@ export class BundlerSizeBenchmarker {
           if (stats?.hasErrors()) return reject(new Error(stats.toString("errors-only")));
           const totalBytes = Object.values(stats.compilation.assets).reduce((sum, a) => sum + a.size(), 0);
           resolve({ bundler: "webpack", bytes: totalBytes });
-        }
+        },
       );
     });
   }
@@ -49,11 +55,11 @@ export class BundlerSizeBenchmarker {
           entry: path.resolve(APPLICATIONS_DIR, this.application),
           name: "dist",
           fileName: () => `rollup-${this.application}.js`,
-          formats: ["umd"],
+          formats: ["es"],
         },
         minify: true,
         emptyOutDir: false,
-        rollupOptions: { external: [], output: { inlineDynamicImports: true } },
+        rollupOptions: { external: [], output: { codeSplitting: false } },
       },
     });
     return { bundler: "rollup", bytes: fs.statSync(outfile).size };
