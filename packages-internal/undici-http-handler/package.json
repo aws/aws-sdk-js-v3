@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/undici-http-handler",
-  "version": "2.1.4",
+  "version": "3.0.0",
   "description": "AWS SDK for JavaScript reqeust handler backed by modern, high performance Node.js undici client",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -18,7 +18,7 @@
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
   "dependencies": {
-    "@smithy/undici-http-handler": "^2.2.4",
+    "@smithy/undici-http-handler": "^3.0.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
