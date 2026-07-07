@@ -24,7 +24,7 @@
   "dependencies": {
     "@aws-sdk/sha256-tree-hash": "workspace:^3.972.20",
     "@aws-sdk/types": "workspace:^3.973.15",
-    "@smithy/core": "^3.29.0",
+    "@smithy/core": "^3.29.1",
     "@smithy/types": "^4.15.1",
     "tslib": "^2.6.2"
   },
