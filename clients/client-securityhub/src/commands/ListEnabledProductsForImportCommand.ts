@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListEnabledProductsForImportRequest, ListEnabledProductsForImportResponse } from "../models/models_2";
+import type { ListEnabledProductsForImportRequest, ListEnabledProductsForImportResponse } from "../models/models_3";
 import { ListEnabledProductsForImport$ } from "../schemas/schemas_0";
 
 /**

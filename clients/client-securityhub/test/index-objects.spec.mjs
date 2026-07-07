@@ -544,6 +544,10 @@ import {
   AwsWafWebAclDetails$,
   AwsWafWebAclRule$,
   AwsXrayEncryptionConfigDetails$,
+  AzureDetail$,
+  AzureProviderConfiguration$,
+  AzureScopeConfiguration$,
+  AzureUpdateConfiguration$,
   BatchDeleteAutomationRules$,
   BatchDeleteAutomationRulesCommand,
   BatchDeleteAutomationRulesRequest$,
@@ -603,6 +607,7 @@ import {
   City$,
   ClassificationResult$,
   ClassificationStatus$,
+  CloudProviderName,
   CloudWatchLogsLogGroupArnConfigDetails$,
   CodeRepositoryDetails$,
   CodeVulnerabilitiesFilePath$,
@@ -645,6 +650,10 @@ import {
   CreateConfigurationPolicyCommand,
   CreateConfigurationPolicyRequest$,
   CreateConfigurationPolicyResponse$,
+  CreateConnector$,
+  CreateConnectorCommand,
+  CreateConnectorRequest$,
+  CreateConnectorResponse$,
   CreateConnectorV2$,
   CreateConnectorV2Command,
   CreateConnectorV2Request$,
@@ -666,6 +675,15 @@ import {
   CreateTicketV2Request$,
   CreateTicketV2Response$,
   Criteria$,
+  CspmConnectorProviderName,
+  CspmConnectorStatus,
+  CspmConnectorSummary$,
+  CspmEnablementStatus,
+  CspmHealthCheck$,
+  CspmProviderConfiguration$,
+  CspmProviderDetail$,
+  CspmProviderSummary$,
+  CspmProviderUpdateConfiguration$,
   CustomDataIdentifiersDetections$,
   CustomDataIdentifiersResult$,
   Cvss$,
@@ -694,6 +712,10 @@ import {
   DeleteConfigurationPolicyCommand,
   DeleteConfigurationPolicyRequest$,
   DeleteConfigurationPolicyResponse$,
+  DeleteConnector$,
+  DeleteConnectorCommand,
+  DeleteConnectorRequest$,
+  DeleteConnectorResponse$,
   DeleteConnectorV2$,
   DeleteConnectorV2Command,
   DeleteConnectorV2Request$,
@@ -757,6 +779,10 @@ import {
   DisableOrganizationAdminAccountResponse$,
   DisableSecurityHub$,
   DisableSecurityHubCommand,
+  DisableSecurityHubFeatureV2$,
+  DisableSecurityHubFeatureV2Command,
+  DisableSecurityHubFeatureV2Request$,
+  DisableSecurityHubFeatureV2Response$,
   DisableSecurityHubRequest$,
   DisableSecurityHubResponse$,
   DisableSecurityHubV2$,
@@ -781,12 +807,17 @@ import {
   EnableImportFindingsForProductCommand,
   EnableImportFindingsForProductRequest$,
   EnableImportFindingsForProductResponse$,
+  EnablementStatus,
   EnableOrganizationAdminAccount$,
   EnableOrganizationAdminAccountCommand,
   EnableOrganizationAdminAccountRequest$,
   EnableOrganizationAdminAccountResponse$,
   EnableSecurityHub$,
   EnableSecurityHubCommand,
+  EnableSecurityHubFeatureV2$,
+  EnableSecurityHubFeatureV2Command,
+  EnableSecurityHubFeatureV2Request$,
+  EnableSecurityHubFeatureV2Response$,
   EnableSecurityHubRequest$,
   EnableSecurityHubResponse$,
   EnableSecurityHubV2$,
@@ -796,6 +827,9 @@ import {
   EnumConfigurationOptions$,
   EnumListConfigurationOptions$,
   ExternalIntegrationConfiguration$,
+  FeatureDetail$,
+  FeatureName,
+  FeatureStatus,
   FilePaths$,
   FindingAggregator$,
   FindingHistoryRecord$,
@@ -839,6 +873,10 @@ import {
   GetConfigurationPolicyCommand,
   GetConfigurationPolicyRequest$,
   GetConfigurationPolicyResponse$,
+  GetConnector$,
+  GetConnectorCommand,
+  GetConnectorRequest$,
+  GetConnectorResponse$,
   GetConnectorV2$,
   GetConnectorV2Command,
   GetConnectorV2Request$,
@@ -917,6 +955,8 @@ import {
   GroupByRule$,
   GroupByValue$,
   HealthCheck$,
+  HealthIssue$,
+  HealthIssueCode,
   IcmpTypeCode$,
   ImportFindingsError$,
   Indicator$,
@@ -969,6 +1009,10 @@ import {
   ListConfigurationPolicyAssociationsCommand,
   ListConfigurationPolicyAssociationsRequest$,
   ListConfigurationPolicyAssociationsResponse$,
+  ListConnectors$,
+  ListConnectorsCommand,
+  ListConnectorsRequest$,
+  ListConnectorsResponse$,
   ListConnectorsV2$,
   ListConnectorsV2Command,
   ListConnectorsV2Request$,
@@ -1117,6 +1161,9 @@ import {
   ResourceInUseException$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  ResourceOwner$,
+  ResourceOwnerAccount$,
+  ResourceOwnerOrg$,
   ResourceResult$,
   ResourcesCompositeFilter$,
   ResourceScopes$,
@@ -1161,12 +1208,14 @@ import {
   RuleGroupVariablesPortSetsDetails$,
   RuleStatus,
   RuleStatusV2,
+  ScopeType,
   SecurityControl$,
   SecurityControlCustomParameter$,
   SecurityControlDefinition$,
   SecurityControlParameter$,
   SecurityControlProperty,
   SecurityControlsConfiguration$,
+  SecurityControlsProvider,
   SecurityHub,
   SecurityHubClient,
   SecurityHubFeature,
@@ -1197,6 +1246,7 @@ import {
   StandardsControlAssociationUpdate$,
   StandardsControlsUpdatable,
   StandardsManagedBy$,
+  StandardsProvider,
   StandardsStatus,
   StandardsStatusReason$,
   StandardsSubscription$,
@@ -1261,6 +1311,10 @@ import {
   UpdateConfigurationPolicyCommand,
   UpdateConfigurationPolicyRequest$,
   UpdateConfigurationPolicyResponse$,
+  UpdateConnector$,
+  UpdateConnectorCommand,
+  UpdateConnectorRequest$,
+  UpdateConnectorResponse$,
   UpdateConnectorV2$,
   UpdateConnectorV2Command,
   UpdateConnectorV2Request$,
@@ -1358,6 +1412,8 @@ assert(typeof CreateAutomationRuleV2Command === "function");
 assert(typeof CreateAutomationRuleV2$ === "object");
 assert(typeof CreateConfigurationPolicyCommand === "function");
 assert(typeof CreateConfigurationPolicy$ === "object");
+assert(typeof CreateConnectorCommand === "function");
+assert(typeof CreateConnector$ === "object");
 assert(typeof CreateConnectorV2Command === "function");
 assert(typeof CreateConnectorV2$ === "object");
 assert(typeof CreateFindingAggregatorCommand === "function");
@@ -1378,6 +1434,8 @@ assert(typeof DeleteAutomationRuleV2Command === "function");
 assert(typeof DeleteAutomationRuleV2$ === "object");
 assert(typeof DeleteConfigurationPolicyCommand === "function");
 assert(typeof DeleteConfigurationPolicy$ === "object");
+assert(typeof DeleteConnectorCommand === "function");
+assert(typeof DeleteConnector$ === "object");
 assert(typeof DeleteConnectorV2Command === "function");
 assert(typeof DeleteConnectorV2$ === "object");
 assert(typeof DeleteFindingAggregatorCommand === "function");
@@ -1410,6 +1468,8 @@ assert(typeof DisableOrganizationAdminAccountCommand === "function");
 assert(typeof DisableOrganizationAdminAccount$ === "object");
 assert(typeof DisableSecurityHubCommand === "function");
 assert(typeof DisableSecurityHub$ === "object");
+assert(typeof DisableSecurityHubFeatureV2Command === "function");
+assert(typeof DisableSecurityHubFeatureV2$ === "object");
 assert(typeof DisableSecurityHubV2Command === "function");
 assert(typeof DisableSecurityHubV2$ === "object");
 assert(typeof DisassociateFromAdministratorAccountCommand === "function");
@@ -1424,6 +1484,8 @@ assert(typeof EnableOrganizationAdminAccountCommand === "function");
 assert(typeof EnableOrganizationAdminAccount$ === "object");
 assert(typeof EnableSecurityHubCommand === "function");
 assert(typeof EnableSecurityHub$ === "object");
+assert(typeof EnableSecurityHubFeatureV2Command === "function");
+assert(typeof EnableSecurityHubFeatureV2$ === "object");
 assert(typeof EnableSecurityHubV2Command === "function");
 assert(typeof EnableSecurityHubV2$ === "object");
 assert(typeof GenerateRecommendedPolicyV2Command === "function");
@@ -1438,6 +1500,8 @@ assert(typeof GetConfigurationPolicyCommand === "function");
 assert(typeof GetConfigurationPolicy$ === "object");
 assert(typeof GetConfigurationPolicyAssociationCommand === "function");
 assert(typeof GetConfigurationPolicyAssociation$ === "object");
+assert(typeof GetConnectorCommand === "function");
+assert(typeof GetConnector$ === "object");
 assert(typeof GetConnectorV2Command === "function");
 assert(typeof GetConnectorV2$ === "object");
 assert(typeof GetEnabledStandardsCommand === "function");
@@ -1486,6 +1550,8 @@ assert(typeof ListConfigurationPoliciesCommand === "function");
 assert(typeof ListConfigurationPolicies$ === "object");
 assert(typeof ListConfigurationPolicyAssociationsCommand === "function");
 assert(typeof ListConfigurationPolicyAssociations$ === "object");
+assert(typeof ListConnectorsCommand === "function");
+assert(typeof ListConnectors$ === "object");
 assert(typeof ListConnectorsV2Command === "function");
 assert(typeof ListConnectorsV2$ === "object");
 assert(typeof ListEnabledProductsForImportCommand === "function");
@@ -1522,6 +1588,8 @@ assert(typeof UpdateAutomationRuleV2Command === "function");
 assert(typeof UpdateAutomationRuleV2$ === "object");
 assert(typeof UpdateConfigurationPolicyCommand === "function");
 assert(typeof UpdateConfigurationPolicy$ === "object");
+assert(typeof UpdateConnectorCommand === "function");
+assert(typeof UpdateConnector$ === "object");
 assert(typeof UpdateConnectorV2Command === "function");
 assert(typeof UpdateConnectorV2$ === "object");
 assert(typeof UpdateFindingAggregatorCommand === "function");
@@ -2067,6 +2135,10 @@ assert(typeof AwsWafv2WebAclDetails$ === "object");
 assert(typeof AwsWafWebAclDetails$ === "object");
 assert(typeof AwsWafWebAclRule$ === "object");
 assert(typeof AwsXrayEncryptionConfigDetails$ === "object");
+assert(typeof AzureDetail$ === "object");
+assert(typeof AzureProviderConfiguration$ === "object");
+assert(typeof AzureScopeConfiguration$ === "object");
+assert(typeof AzureUpdateConfiguration$ === "object");
 assert(typeof BatchDeleteAutomationRulesRequest$ === "object");
 assert(typeof BatchDeleteAutomationRulesResponse$ === "object");
 assert(typeof BatchDisableStandardsRequest$ === "object");
@@ -2123,6 +2195,8 @@ assert(typeof CreateAutomationRuleV2Request$ === "object");
 assert(typeof CreateAutomationRuleV2Response$ === "object");
 assert(typeof CreateConfigurationPolicyRequest$ === "object");
 assert(typeof CreateConfigurationPolicyResponse$ === "object");
+assert(typeof CreateConnectorRequest$ === "object");
+assert(typeof CreateConnectorResponse$ === "object");
 assert(typeof CreateConnectorV2Request$ === "object");
 assert(typeof CreateConnectorV2Response$ === "object");
 assert(typeof CreateFindingAggregatorRequest$ === "object");
@@ -2134,6 +2208,12 @@ assert(typeof CreateMembersResponse$ === "object");
 assert(typeof CreateTicketV2Request$ === "object");
 assert(typeof CreateTicketV2Response$ === "object");
 assert(typeof Criteria$ === "object");
+assert(typeof CspmConnectorSummary$ === "object");
+assert(typeof CspmHealthCheck$ === "object");
+assert(typeof CspmProviderConfiguration$ === "object");
+assert(typeof CspmProviderDetail$ === "object");
+assert(typeof CspmProviderSummary$ === "object");
+assert(typeof CspmProviderUpdateConfiguration$ === "object");
 assert(typeof CustomDataIdentifiersDetections$ === "object");
 assert(typeof CustomDataIdentifiersResult$ === "object");
 assert(typeof Cvss$ === "object");
@@ -2150,6 +2230,8 @@ assert(typeof DeleteAutomationRuleV2Request$ === "object");
 assert(typeof DeleteAutomationRuleV2Response$ === "object");
 assert(typeof DeleteConfigurationPolicyRequest$ === "object");
 assert(typeof DeleteConfigurationPolicyResponse$ === "object");
+assert(typeof DeleteConnectorRequest$ === "object");
+assert(typeof DeleteConnectorResponse$ === "object");
 assert(typeof DeleteConnectorV2Request$ === "object");
 assert(typeof DeleteConnectorV2Response$ === "object");
 assert(typeof DeleteFindingAggregatorRequest$ === "object");
@@ -2181,6 +2263,8 @@ assert(typeof DisableImportFindingsForProductRequest$ === "object");
 assert(typeof DisableImportFindingsForProductResponse$ === "object");
 assert(typeof DisableOrganizationAdminAccountRequest$ === "object");
 assert(typeof DisableOrganizationAdminAccountResponse$ === "object");
+assert(typeof DisableSecurityHubFeatureV2Request$ === "object");
+assert(typeof DisableSecurityHubFeatureV2Response$ === "object");
 assert(typeof DisableSecurityHubRequest$ === "object");
 assert(typeof DisableSecurityHubResponse$ === "object");
 assert(typeof DisableSecurityHubV2Request$ === "object");
@@ -2197,6 +2281,8 @@ assert(typeof EnableImportFindingsForProductRequest$ === "object");
 assert(typeof EnableImportFindingsForProductResponse$ === "object");
 assert(typeof EnableOrganizationAdminAccountRequest$ === "object");
 assert(typeof EnableOrganizationAdminAccountResponse$ === "object");
+assert(typeof EnableSecurityHubFeatureV2Request$ === "object");
+assert(typeof EnableSecurityHubFeatureV2Response$ === "object");
 assert(typeof EnableSecurityHubRequest$ === "object");
 assert(typeof EnableSecurityHubResponse$ === "object");
 assert(typeof EnableSecurityHubV2Request$ === "object");
@@ -2204,6 +2290,7 @@ assert(typeof EnableSecurityHubV2Response$ === "object");
 assert(typeof EnumConfigurationOptions$ === "object");
 assert(typeof EnumListConfigurationOptions$ === "object");
 assert(typeof ExternalIntegrationConfiguration$ === "object");
+assert(typeof FeatureDetail$ === "object");
 assert(typeof FilePaths$ === "object");
 assert(typeof FindingAggregator$ === "object");
 assert(typeof FindingHistoryRecord$ === "object");
@@ -2233,6 +2320,8 @@ assert(typeof GetConfigurationPolicyAssociationRequest$ === "object");
 assert(typeof GetConfigurationPolicyAssociationResponse$ === "object");
 assert(typeof GetConfigurationPolicyRequest$ === "object");
 assert(typeof GetConfigurationPolicyResponse$ === "object");
+assert(typeof GetConnectorRequest$ === "object");
+assert(typeof GetConnectorResponse$ === "object");
 assert(typeof GetConnectorV2Request$ === "object");
 assert(typeof GetConnectorV2Response$ === "object");
 assert(typeof GetEnabledStandardsRequest$ === "object");
@@ -2273,6 +2362,7 @@ assert(typeof GroupByResult$ === "object");
 assert(typeof GroupByRule$ === "object");
 assert(typeof GroupByValue$ === "object");
 assert(typeof HealthCheck$ === "object");
+assert(typeof HealthIssue$ === "object");
 assert(typeof IcmpTypeCode$ === "object");
 assert(typeof ImportFindingsError$ === "object");
 assert(typeof Indicator$ === "object");
@@ -2301,6 +2391,8 @@ assert(typeof ListConfigurationPoliciesRequest$ === "object");
 assert(typeof ListConfigurationPoliciesResponse$ === "object");
 assert(typeof ListConfigurationPolicyAssociationsRequest$ === "object");
 assert(typeof ListConfigurationPolicyAssociationsResponse$ === "object");
+assert(typeof ListConnectorsRequest$ === "object");
+assert(typeof ListConnectorsResponse$ === "object");
 assert(typeof ListConnectorsV2Request$ === "object");
 assert(typeof ListConnectorsV2Response$ === "object");
 assert(typeof ListEnabledProductsForImportRequest$ === "object");
@@ -2376,6 +2468,9 @@ assert(typeof Resource$ === "object");
 assert(typeof ResourceDetails$ === "object");
 assert(typeof ResourceFindingsSummary$ === "object");
 assert(typeof ResourceGroupByRule$ === "object");
+assert(typeof ResourceOwner$ === "object");
+assert(typeof ResourceOwnerAccount$ === "object");
+assert(typeof ResourceOwnerOrg$ === "object");
 assert(typeof ResourceResult$ === "object");
 assert(typeof ResourcesCompositeFilter$ === "object");
 assert(typeof ResourceScopes$ === "object");
@@ -2476,6 +2571,8 @@ assert(typeof UpdateAutomationRuleV2Request$ === "object");
 assert(typeof UpdateAutomationRuleV2Response$ === "object");
 assert(typeof UpdateConfigurationPolicyRequest$ === "object");
 assert(typeof UpdateConfigurationPolicyResponse$ === "object");
+assert(typeof UpdateConnectorRequest$ === "object");
+assert(typeof UpdateConnectorResponse$ === "object");
 assert(typeof UpdateConnectorV2Request$ === "object");
 assert(typeof UpdateConnectorV2Response$ === "object");
 assert(typeof UpdateFindingAggregatorRequest$ === "object");
@@ -2517,6 +2614,7 @@ assert(typeof AutomationRulesActionTypeV2 === "object");
 assert(typeof AwsIamAccessKeyStatus === "object");
 assert(typeof AwsS3BucketNotificationConfigurationS3KeyFilterRuleName === "object");
 assert(typeof BatchUpdateFindingsV2UnprocessedFindingErrorCode === "object");
+assert(typeof CloudProviderName === "object");
 assert(typeof ComplianceStatus === "object");
 assert(typeof ConfigurationPolicyAssociationStatus === "object");
 assert(typeof ConnectionDirection === "object");
@@ -2525,12 +2623,19 @@ assert(typeof ConnectorProviderName === "object");
 assert(typeof ConnectorStatus === "object");
 assert(typeof ControlFindingGenerator === "object");
 assert(typeof ControlStatus === "object");
+assert(typeof CspmConnectorProviderName === "object");
+assert(typeof CspmConnectorStatus === "object");
+assert(typeof CspmEnablementStatus === "object");
 assert(typeof DateRangeComparison === "object");
 assert(typeof DateRangeUnit === "object");
+assert(typeof EnablementStatus === "object");
+assert(typeof FeatureName === "object");
+assert(typeof FeatureStatus === "object");
 assert(typeof FindingHistoryUpdateSourceType === "object");
 assert(typeof FindingsTrendsStringField === "object");
 assert(typeof GranularityField === "object");
 assert(typeof GroupByField === "object");
+assert(typeof HealthIssueCode === "object");
 assert(typeof IntegrationType === "object");
 assert(typeof IntegrationV2Type === "object");
 assert(typeof MalwareState === "object");
@@ -2560,12 +2665,15 @@ assert(typeof ResourcesStringField === "object");
 assert(typeof ResourcesTrendsStringField === "object");
 assert(typeof RuleStatus === "object");
 assert(typeof RuleStatusV2 === "object");
+assert(typeof ScopeType === "object");
 assert(typeof SecurityControlProperty === "object");
+assert(typeof SecurityControlsProvider === "object");
 assert(typeof SecurityHubFeature === "object");
 assert(typeof SeverityLabel === "object");
 assert(typeof SeverityRating === "object");
 assert(typeof SortOrder === "object");
 assert(typeof StandardsControlsUpdatable === "object");
+assert(typeof StandardsProvider === "object");
 assert(typeof StandardsStatus === "object");
 assert(typeof StatusReasonCode === "object");
 assert(typeof StringFilterComparison === "object");

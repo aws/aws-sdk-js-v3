@@ -38,6 +38,12 @@ export interface DescribeSecurityHubV2CommandOutput extends DescribeSecurityHubV
  * // { // DescribeSecurityHubV2Response
  * //   HubV2Arn: "STRING_VALUE",
  * //   SubscribedAt: "STRING_VALUE",
+ * //   Features: { // Features
+ * //     "<keys>": { // FeatureDetail
+ * //       FeatureStatus: "ENABLED" || "DISABLED",
+ * //       UpdatedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   },
  * // };
  *
  * ```

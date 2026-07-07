@@ -5,22 +5,48 @@ import type {
   AssociationType,
   AutoEnableStandards,
   ConfigurationPolicyAssociationStatus,
+  ConnectorProviderName,
+  ConnectorStatus,
   ControlFindingGenerator,
   ControlStatus,
+  CspmConnectorProviderName,
+  CspmConnectorStatus,
+  CspmEnablementStatus,
+  EnablementStatus,
   GroupByField,
   RecordState,
+  RegionAvailabilityStatus,
   ResourceGroupByField,
   RuleStatusV2,
+  SecurityControlProperty,
+  SecurityControlsProvider,
   SecurityHubFeature,
+  SeverityRating,
   SortOrder,
   TargetType,
 } from "./enums";
-import type { AdminAccount, AutomationRulesActionV2, NoteUpdate } from "./models_0";
+import type {
+  AdminAccount,
+  AggregatorV2,
+  AssociationFilters,
+  AutomationRulesActionV2,
+  AutomationRulesMetadata,
+  AutomationRulesMetadataV2,
+  NoteUpdate,
+} from "./models_0";
 import type {
   AwsSecurityFindingFilters,
+  AzureUpdateConfiguration,
+  ConfigurationOptions,
+  ConfigurationPolicyAssociationSummary,
+  ConfigurationPolicySummary,
+  ConnectorSummary,
+  CspmConnectorSummary,
+  CspmProviderUpdateConfiguration,
+  FindingAggregator,
   FindingScopes,
   FindingsTrendsStringFilter,
-  JiraCloudUpdateConfiguration,
+  Invitation,
   Member,
   OcsfBooleanFilter,
   OcsfDateFilter,
@@ -37,10 +63,630 @@ import type {
   ResourcesNumberFilter,
   ResourcesStringFilter,
   ResourcesTrendsStringFilter,
-  SecurityControlDefinition,
+  Result,
   SortCriterion,
   Target,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface GetSecurityControlDefinitionRequest {
+  /**
+   * <p>
+   *             The ID of the security control to retrieve the definition for. This field doesn’t accept an Amazon Resource Name (ARN).
+   *         </p>
+   * @public
+   */
+  SecurityControlId: string | undefined;
+}
+
+/**
+ * <p>
+ *             An object that describes a security control parameter and the options for customizing it.
+ *         </p>
+ * @public
+ */
+export interface ParameterDefinition {
+  /**
+   * <p>
+   *             Description of a control parameter.
+   *         </p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>
+   *             The options for customizing a control parameter. Customization options vary based on the data type of the parameter.
+   *         </p>
+   * @public
+   */
+  ConfigurationOptions: ConfigurationOptions | undefined;
+}
+
+/**
+ * <p>
+ *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
+ *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
+ *       </p>
+ * @public
+ */
+export interface SecurityControlDefinition {
+  /**
+   * <p>
+   *          The unique identifier of a security control across standards. Values for this field typically consist of an
+   *          Amazon Web Services service name and a number (for example, APIGateway.3). This parameter differs from
+   *          <code>SecurityControlArn</code>, which is a unique Amazon Resource Name (ARN) assigned to a control. The
+   *          ARN references the security control ID (for example, arn:aws:securityhub:eu-central-1:123456789012:security-control/APIGateway.3).
+   *       </p>
+   * @public
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * <p>
+   *          The title of a security control.
+   *       </p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p> The description of a security control across standards. This typically summarizes how
+   *             Security Hub CSPM evaluates the control and the conditions under which it produces a
+   *          failed finding. This parameter doesn't reference a specific standard. </p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>
+   *          A link to Security Hub CSPM documentation that explains how to remediate a failed finding for a security control.
+   *       </p>
+   * @public
+   */
+  RemediationUrl: string | undefined;
+
+  /**
+   * <p>
+   *          The severity of a security control. For more information about how Security Hub CSPM determines control severity,
+   *          see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity">Assigning severity to control findings</a> in the
+   *          <i>Security Hub CSPM User Guide</i>.
+   *       </p>
+   * @public
+   */
+  SeverityRating: SeverityRating | undefined;
+
+  /**
+   * <p>
+   *          Specifies whether a security control is available in the current Amazon Web Services Region.
+   *       </p>
+   * @public
+   */
+  CurrentRegionAvailability: RegionAvailabilityStatus | undefined;
+
+  /**
+   * <p>
+   *             Security control properties that you can customize. Currently, only parameter customization is supported for select
+   *             controls. An empty array is returned for controls that don’t support custom properties.
+   *         </p>
+   * @public
+   */
+  CustomizableProperties?: SecurityControlProperty[] | undefined;
+
+  /**
+   * <p>
+   *             An object that provides a security control parameter name, description, and the options for customizing it. This
+   * object is excluded for a control that doesn't support custom parameters.
+   *         </p>
+   * @public
+   */
+  ParameterDefinitions?: Record<string, ParameterDefinition> | undefined;
+
+  /**
+   * <p>The cloud provider whose resources the security control evaluates. For example, <code>AWS</code> or <code>Azure</code>.</p>
+   * @public
+   */
+  Provider?: SecurityControlsProvider | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSecurityControlDefinitionResponse {
+  /**
+   * <p>
+   *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
+   *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
+   *       </p>
+   * @public
+   */
+  SecurityControlDefinition: SecurityControlDefinition | undefined;
+}
+
+/**
+ * @public
+ */
+export interface InviteMembersRequest {
+  /**
+   * <p>The list of account IDs of the Amazon Web Services accounts to invite to Security Hub CSPM as members. </p>
+   * @public
+   */
+  AccountIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface InviteMembersResponse {
+  /**
+   * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
+   *          includes the account ID and the email address.</p>
+   * @public
+   */
+  UnprocessedAccounts?: Result[] | undefined;
+}
+
+/**
+ * <p>The parameters used to modify an existing Jira Cloud integration.</p>
+ * @public
+ */
+export interface JiraCloudUpdateConfiguration {
+  /**
+   * <p>The project key for a JiraCloud instance.</p>
+   * @public
+   */
+  ProjectKey?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAggregatorsV2Request {
+  /**
+   * <p>The token required for pagination.
+   *          On your first call, set the value of this parameter to <code>NULL</code>.
+   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAggregatorsV2Response {
+  /**
+   * <p>An array of aggregators.</p>
+   * @public
+   */
+  AggregatorsV2?: AggregatorV2[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.
+   *          Otherwise, this parameter is null.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutomationRulesRequest {
+  /**
+   * <p>
+   *          A token to specify where to start paginating the response. This is the <code>NextToken</code>
+   *          from a previously truncated response. On your first call to the <code>ListAutomationRules</code>
+   *          API, set the value of this parameter to <code>NULL</code>.
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p> The maximum number of rules to return in the response. This currently ranges from 1 to
+   *          100. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutomationRulesResponse {
+  /**
+   * <p>
+   *          Metadata for rules in the calling account. The response includes rules with a
+   *          <code>RuleStatus</code> of <code>ENABLED</code> and <code>DISABLED</code>.
+   *       </p>
+   * @public
+   */
+  AutomationRulesMetadata?: AutomationRulesMetadata[] | undefined;
+
+  /**
+   * <p>
+   *          A pagination token for the response.
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutomationRulesV2Request {
+  /**
+   * <p>The token required for pagination.
+   *          On your first call, set the value of this parameter to <code>NULL</code>.
+   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAutomationRulesV2Response {
+  /**
+   * <p>An array of automation rules.</p>
+   * @public
+   */
+  Rules?: AutomationRulesMetadataV2[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.
+   *          Otherwise, this parameter is null.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationPoliciesRequest {
+  /**
+   * <p>
+   *             The NextToken value that's returned from a previous paginated <code>ListConfigurationPolicies</code> request where
+   *             <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the
+   *             <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the
+   *             end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code> when
+   *             there are no more results to return.
+   *         </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>
+   *             The maximum number of results that's returned by <code>ListConfigurationPolicies</code> in each page of the response.
+   *             When this parameter is used, <code>ListConfigurationPolicies</code> returns the specified number of results in a
+   *             single page and a <code>NextToken</code> response element. You can see the remaining results of the initial request
+   *             by sending another <code>ListConfigurationPolicies</code> request with the returned <code>NextToken</code> value. A
+   *             valid range for <code>MaxResults</code> is between 1 and 100.
+   *         </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationPoliciesResponse {
+  /**
+   * <p>
+   *             Provides metadata for each of your configuration policies.
+   *         </p>
+   * @public
+   */
+  ConfigurationPolicySummaries?: ConfigurationPolicySummary[] | undefined;
+
+  /**
+   * <p>
+   *             The <code>NextToken</code> value to include in the next <code>ListConfigurationPolicies</code> request. When the
+   *             results of a <code>ListConfigurationPolicies</code> request exceed <code>MaxResults</code>, this value can be used to
+   *             retrieve the next page of results. This value is <code>null</code> when there are no more results to return.
+   *         </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationPolicyAssociationsRequest {
+  /**
+   * <p>
+   *             The <code>NextToken</code> value that's returned from a previous paginated <code>ListConfigurationPolicyAssociations</code>
+   *             request where <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination
+   *             continues from the end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code>
+   *             when there are no more results to return.
+   *         </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>
+   *             The maximum number of results that's returned by <code>ListConfigurationPolicies</code> in each page of the response.
+   *             When this parameter is used, <code>ListConfigurationPolicyAssociations</code> returns the specified number of results
+   *             in a single page and a <code>NextToken</code> response element. You can see the remaining results of the initial
+   *             request by sending another <code>ListConfigurationPolicyAssociations</code> request with the returned <code>NextToken</code>
+   *             value. A valid range for <code>MaxResults</code> is between 1 and 100.
+   *         </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>
+   *             Options for filtering the <code>ListConfigurationPolicyAssociations</code> response. You can filter by the Amazon Resource Name (ARN) or
+   *             universally unique identifier (UUID) of a configuration, <code>AssociationType</code>, or <code>AssociationStatus</code>.
+   *         </p>
+   * @public
+   */
+  Filters?: AssociationFilters | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationPolicyAssociationsResponse {
+  /**
+   * <p>
+   *             An object that contains the details of each configuration policy association that’s returned in a
+   *             <code>ListConfigurationPolicyAssociations</code> request.
+   *         </p>
+   * @public
+   */
+  ConfigurationPolicyAssociationSummaries?: ConfigurationPolicyAssociationSummary[] | undefined;
+
+  /**
+   * <p>
+   *             The <code>NextToken</code> value to include in the next <code>ListConfigurationPolicyAssociations</code> request. When
+   *             the results of a <code>ListConfigurationPolicyAssociations</code> request exceed <code>MaxResults</code>, this value
+   *             can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.
+   *         </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorsRequest {
+  /**
+   * <p>The pagination token to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The name of the cloud provider to filter connectors by.</p>
+   * @public
+   */
+  ProviderName?: CspmConnectorProviderName | undefined;
+
+  /**
+   * <p>The connectivity status to filter connectors by.</p>
+   * @public
+   */
+  ConnectorStatus?: CspmConnectorStatus | undefined;
+
+  /**
+   * <p>The enablement status to filter connectors by.</p>
+   * @public
+   */
+  EnablementStatus?: CspmEnablementStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorsResponse {
+  /**
+   * <p>The pagination token to use to request the next page of results. If there are no additional results, this value is null.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>An array of connector summaries.</p>
+   * @public
+   */
+  Connectors: CspmConnectorSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorsV2Request {
+  /**
+   * <p>The pagination token per the Amazon Web Services Pagination standard</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The name of the third-party provider.</p>
+   * @public
+   */
+  ProviderName?: ConnectorProviderName | undefined;
+
+  /**
+   * <p>The status for the connectorV2.</p>
+   * @public
+   */
+  ConnectorStatus?: ConnectorStatus | undefined;
+
+  /**
+   * <p>The enablement status to filter connectors by.</p>
+   * @public
+   */
+  EnablementStatus?: EnablementStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorsV2Response {
+  /**
+   * <p>The pagination token to use to request the next page of results.
+   *          Otherwise, this parameter is null.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>An array of connectorV2 summaries.</p>
+   * @public
+   */
+  Connectors: ConnectorSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEnabledProductsForImportRequest {
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>ListEnabledProductsForImport</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEnabledProductsForImportResponse {
+  /**
+   * <p>The list of ARNs for the resources that represent your subscriptions to products. </p>
+   * @public
+   */
+  ProductSubscriptions?: string[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingAggregatorsRequest {
+  /**
+   * <p>The token returned with the previous set of results. Identifies the next set of results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. This operation currently only returns a single result.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingAggregatorsResponse {
+  /**
+   * <p>The list of finding aggregators. This operation currently only returns a single result.</p>
+   * @public
+   */
+  FindingAggregators?: FindingAggregator[] | undefined;
+
+  /**
+   * <p>If there are more results, this is the token to provide in the next call to <code>ListFindingAggregators</code>.</p>
+   *          <p>This operation currently only returns a single result.
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInvitationsRequest {
+  /**
+   * <p>The maximum number of items to return in the response. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token that is required for pagination. On your first call to the
+   *             <code>ListInvitations</code> operation, set the value of this parameter to
+   *             <code>NULL</code>.</p>
+   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
+   *          parameter to the value returned from the previous response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListInvitationsResponse {
+  /**
+   * <p>The details of the invitations returned by the operation.</p>
+   * @public
+   */
+  Invitations?: Invitation[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -171,6 +817,12 @@ export interface ListSecurityControlDefinitionsRequest {
    * @public
    */
   MaxResults?: number | undefined;
+
+  /**
+   * <p>A list of cloud providers to filter the security control definitions by. For example, specify <code>Azure</code> to return only controls that evaluate Azure resources.</p>
+   * @public
+   */
+  Providers?: SecurityControlsProvider[] | undefined;
 }
 
 /**
@@ -362,6 +1014,7 @@ export interface ServiceNowUpdateConfiguration {
  * @public
  */
 export type ProviderUpdateConfiguration =
+  | ProviderUpdateConfiguration.AzureMember
   | ProviderUpdateConfiguration.JiraCloudMember
   | ProviderUpdateConfiguration.ServiceNowMember
   | ProviderUpdateConfiguration.$UnknownMember;
@@ -377,6 +1030,7 @@ export namespace ProviderUpdateConfiguration {
   export interface JiraCloudMember {
     JiraCloud: JiraCloudUpdateConfiguration;
     ServiceNow?: never;
+    Azure?: never;
     $unknown?: never;
   }
 
@@ -387,6 +1041,18 @@ export namespace ProviderUpdateConfiguration {
   export interface ServiceNowMember {
     JiraCloud?: never;
     ServiceNow: ServiceNowUpdateConfiguration;
+    Azure?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters required to update the configuration for a Microsoft Azure CSPM integration.</p>
+   * @public
+   */
+  export interface AzureMember {
+    JiraCloud?: never;
+    ServiceNow?: never;
+    Azure: AzureUpdateConfiguration;
     $unknown?: never;
   }
 
@@ -396,6 +1062,7 @@ export namespace ProviderUpdateConfiguration {
   export interface $UnknownMember {
     JiraCloud?: never;
     ServiceNow?: never;
+    Azure?: never;
     $unknown: [string, any];
   }
 
@@ -406,6 +1073,7 @@ export namespace ProviderUpdateConfiguration {
   export interface Visitor<T> {
     JiraCloud: (value: JiraCloudUpdateConfiguration) => T;
     ServiceNow: (value: ServiceNowUpdateConfiguration) => T;
+    Azure: (value: AzureUpdateConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -804,6 +1472,46 @@ export interface UpdateConfigurationPolicyResponse {
 /**
  * @public
  */
+export interface UpdateConnectorRequest {
+  /**
+   * <p>The unique identifier of the connector to update.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+
+  /**
+   * <p>The updated description of the connector.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The updated cloud provider configuration for the connector.</p>
+   * @public
+   */
+  Provider?: CspmProviderUpdateConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConnectorResponse {
+  /**
+   * <p>The connectivity status of the connector after the update.</p>
+   * @public
+   */
+  ConnectorStatus?: CspmConnectorStatus | undefined;
+
+  /**
+   * <p>The enablement status of the connector after the update.</p>
+   * @public
+   */
+  EnablementStatus?: CspmEnablementStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateConnectorV2Request {
   /**
    * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
@@ -827,7 +1535,19 @@ export interface UpdateConnectorV2Request {
 /**
  * @public
  */
-export interface UpdateConnectorV2Response {}
+export interface UpdateConnectorV2Response {
+  /**
+   * <p>The status of the connector after the update.</p>
+   * @public
+   */
+  ConnectorStatus?: ConnectorStatus | undefined;
+
+  /**
+   * <p>The enablement status of the connector after the update.</p>
+   * @public
+   */
+  EnablementStatus?: EnablementStatus | undefined;
+}
 
 /**
  * @public

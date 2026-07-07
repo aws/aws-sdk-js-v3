@@ -38,6 +38,9 @@ export interface ListSecurityControlDefinitionsCommandOutput extends ListSecurit
  *   StandardsArn: "STRING_VALUE",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   Providers: [ // SecurityControlsProviders
+ *     "AWS" || "Azure",
+ *   ],
  * };
  * const command = new ListSecurityControlDefinitionsCommand(input);
  * const response = await client.send(command);
@@ -109,6 +112,7 @@ export interface ListSecurityControlDefinitionsCommandOutput extends ListSecurit
  * //           },
  * //         },
  * //       },
+ * //       Provider: "AWS" || "Azure",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

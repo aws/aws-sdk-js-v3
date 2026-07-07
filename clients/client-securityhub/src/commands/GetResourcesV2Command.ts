@@ -41,7 +41,7 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  *       { // ResourcesCompositeFilter
  *         StringFilters: [ // ResourcesStringFilterList
  *           { // ResourcesStringFilter
- *             FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "Region" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName",
+ *             FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName",
  *             Filter: { // StringFilter
  *               Value: "STRING_VALUE",
  *               Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
@@ -88,7 +88,7 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  *           {
  *             StringFilters: [
  *               {
- *                 FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "Region" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName",
+ *                 FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName",
  *                 Filter: {
  *                   Value: "STRING_VALUE",
  *                   Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
@@ -165,9 +165,15 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  * //       ResourceGuid: "STRING_VALUE",
  * //       ResourceId: "STRING_VALUE", // required
  * //       AccountId: "STRING_VALUE", // required
+ * //       AccountName: "STRING_VALUE",
  * //       Region: "STRING_VALUE", // required
- * //       ResourceCategory: "Compute" || "Database" || "Storage" || "Code" || "AI/ML" || "Identity" || "Network" || "Other",
- * //       ResourceType: "STRING_VALUE",
+ * //       ResourceProvider: "STRING_VALUE",
+ * //       ResourceOwnerAccountId: "STRING_VALUE",
+ * //       ResourceOwnerOrgId: "STRING_VALUE",
+ * //       ResourceCloudPartition: "STRING_VALUE",
+ * //       ResourceRegion: "STRING_VALUE",
+ * //       ResourceCategory: "Compute" || "Database" || "Storage" || "Code" || "AI/ML" || "Identity" || "Network" || "Messaging" || "Other",
+ * //       ResourceType: "STRING_VALUE", // required
  * //       ResourceName: "STRING_VALUE",
  * //       ResourceCreationTimeDt: "STRING_VALUE",
  * //       ResourceDetailCaptureTimeDt: "STRING_VALUE", // required

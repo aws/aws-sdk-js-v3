@@ -192,6 +192,9 @@ export interface BatchUpdateAutomationRulesCommandOutput extends BatchUpdateAuto
  *         ResourceApplicationArn: "<StringFilterList>",
  *         ResourceApplicationName: "<StringFilterList>",
  *         AwsAccountName: "<StringFilterList>",
+ *         ResourceProvider: "<StringFilterList>",
+ *         ResourceOwnerAccountId: "<StringFilterList>",
+ *         ResourceOwnerOrgId: "<StringFilterList>",
  *       },
  *       Actions: [ // ActionList
  *         { // AutomationRulesAction

@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetSecurityControlDefinitionRequest, GetSecurityControlDefinitionResponse } from "../models/models_2";
+import type { GetSecurityControlDefinitionRequest, GetSecurityControlDefinitionResponse } from "../models/models_3";
 import { GetSecurityControlDefinition$ } from "../schemas/schemas_0";
 
 /**
@@ -106,6 +106,7 @@ export interface GetSecurityControlDefinitionCommandOutput extends GetSecurityCo
  * //         },
  * //       },
  * //     },
+ * //     Provider: "AWS" || "Azure",
  * //   },
  * // };
  *

@@ -42,11 +42,25 @@ export interface UpdateConnectorV2CommandOutput extends UpdateConnectorV2Respons
  *     ServiceNow: { // ServiceNowUpdateConfiguration
  *       SecretArn: "STRING_VALUE",
  *     },
+ *     Azure: { // AzureUpdateConfiguration
+ *       ScopeConfiguration: { // AzureScopeConfiguration
+ *         ScopeType: "TENANT" || "SUBSCRIPTION", // required
+ *         ScopeValues: [ // ScopeValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       AzureRegions: [ // AzureRegionList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  * };
  * const command = new UpdateConnectorV2Command(input);
  * const response = await client.send(command);
- * // {};
+ * // { // UpdateConnectorV2Response
+ * //   ConnectorStatus: "CONNECTED" || "DEGRADED" || "FAILED_TO_CONNECT" || "PENDING_AUTHORIZATION" || "PENDING_CONFIGURATION" || "UNKNOWN",
+ * //   EnablementStatus: "ENABLED" || "PENDING_ENABLEMENT" || "FAILED_TO_ENABLE" || "PENDING_UPDATE" || "FAILED_TO_UPDATE" || "PENDING_DELETION" || "FAILED_TO_DELETE",
+ * // };
  *
  * ```
  *
@@ -94,7 +108,7 @@ export class UpdateConnectorV2Command extends command<UpdateConnectorV2CommandIn
   protected declare static __types: {
     api: {
       input: UpdateConnectorV2Request;
-      output: {};
+      output: UpdateConnectorV2Response;
     };
     sdk: {
       input: UpdateConnectorV2CommandInput;

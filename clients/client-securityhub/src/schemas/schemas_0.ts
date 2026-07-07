@@ -197,6 +197,7 @@ const _ADd = "AddressDefinition";
 const _ADl = "AlarmDescription";
 const _ADt = "AttributeDefinitions";
 const _ADu = "AutoDeploy";
+const _ADz = "AzureDetail";
 const _AE = "ApiEndpoint";
 const _AEACSP = "AwsElbAppCookieStickinessPolicy";
 const _AEACSPw = "AwsElbAppCookieStickinessPolicies";
@@ -602,6 +603,7 @@ const _ANFFSML = "AwsNetworkFirewallFirewallSubnetMappingsList";
 const _ANFRG = "AwsNetworkFirewallRuleGroup";
 const _ANFRGD = "AwsNetworkFirewallRuleGroupDetails";
 const _ANc = "AcceleratorNames";
+const _ANcc = "AccountName";
 const _ANct = "ActionName";
 const _ANp = "ApplicationName";
 const _ANt = "AttributeName";
@@ -627,6 +629,7 @@ const _AOu = "AuthenticationOptions";
 const _AOw = "AwsOrganizations";
 const _AP = "AccessPolicy";
 const _APA = "AccessPointArn";
+const _APC = "AzureProviderConfiguration";
 const _API = "AssignPublicIp";
 const _APIA = "AssociatePublicIpAddress";
 const _APIc = "AccessPointId";
@@ -734,6 +737,8 @@ const _ARl = "AllResources";
 const _ARs = "AssociatedRoles";
 const _ARu = "AutoRecovery";
 const _ARw = "AwsRegion";
+const _ARz = "AzureRegions";
+const _ARzu = "AzureResource";
 const _AS = "ActorSession";
 const _ASA = "AmazonSideAsn";
 const _ASAP = "AwsS3AccessPoint";
@@ -781,6 +786,7 @@ const _ASBWCRRw = "AwsS3BucketWebsiteConfigurationRoutingRules";
 const _ASBWCRT = "AwsS3BucketWebsiteConfigurationRedirectTo";
 const _ASC = "ActiveServicesCount";
 const _ASCS = "AwsSsmComplianceSummary";
+const _ASCz = "AzureScopeConfiguration";
 const _ASD = "AssociationSetDetails";
 const _ASDs = "AssociationStateDetails";
 const _ASF = "AwsSecurityFinding";
@@ -845,6 +851,7 @@ const _ATt = "AttributeType";
 const _ATtt = "AttachTime";
 const _ATu = "AuthenticationType";
 const _AU = "ActorUser";
+const _AUC = "AzureUpdateConfiguration";
 const _AUD = "AutomatedUpdateDate";
 const _AUc = "ActivationUrl";
 const _AUu = "AuthorizerUri";
@@ -904,6 +911,7 @@ const _AWRWARLAD = "AwsWafRegionalWebAclRulesListActionDetails";
 const _AWRWARLD = "AwsWafRegionalWebAclRulesListDetails";
 const _AWRWARLOAD = "AwsWafRegionalWebAclRulesListOverrideActionDetails";
 const _AWSAI = "AWSAccountId";
+const _AWSCCA = "AWSConfigConnectorArn";
 const _AWVCD = "AwsWafv2VisibilityConfigDetails";
 const _AWWA = "AwsWafWebAcl";
 const _AWWAAD = "AwsWafv2WebAclActionDetails";
@@ -944,6 +952,7 @@ const _Att = "Attachments";
 const _Attr = "Attributes";
 const _Au = "Audit";
 const _Aut = "Autoprovision";
+const _Az = "Azure";
 const _B = "Bucket";
 const _BA = "BrokerArn";
 const _BAI = "BucketAccountId";
@@ -1085,8 +1094,12 @@ const _CCO = "ClientConnectOptions";
 const _CCP = "CreateConfigurationPolicy";
 const _CCPR = "CreateConfigurationPolicyRequest";
 const _CCPRr = "CreateConfigurationPolicyResponse";
+const _CCR = "CreateConnectorRequest";
+const _CCRr = "CreateConnectorResponse";
 const _CCS = "CacheClusterSize";
+const _CCSL = "CspmConnectorSummaryList";
 const _CCSa = "CacheClusterStatus";
+const _CCSs = "CspmConnectorSummary";
 const _CCT = "ClusterCreateTime";
 const _CCV = "CreateConnectorV2";
 const _CCVR = "CreateConnectorV2Request";
@@ -1096,6 +1109,7 @@ const _CCl = "ClusterConfig";
 const _CCo = "CoreCount";
 const _CCou = "CountryCode";
 const _CCp = "CpuCredits";
+const _CCr = "CreateConnector";
 const _CD = "CreatedDate";
 const _CDE = "CacheDataEncrypted";
 const _CDI = "CustomDataIdentifiers";
@@ -1129,6 +1143,7 @@ const _CGC = "CustomerGatewayConfiguration";
 const _CGI = "CustomerGatewayId";
 const _CGIa = "CarrierGatewayId";
 const _CHC = "CompliantHighCount";
+const _CHCs = "CspmHealthCheck";
 const _CHZI = "CanonicalHostedZoneId";
 const _CHZN = "CanonicalHostedZoneName";
 const _CHZNID = "CanonicalHostedZoneNameID";
@@ -1184,6 +1199,8 @@ const _CPAS = "ConfigurationPolicyAssociationSummary";
 const _CPASL = "ConfigurationPolicyAssociationSummaryList";
 const _CPASo = "ConfigurationPolicyAssociationSummaries";
 const _CPAo = "ConfigurationPolicyAssociation";
+const _CPC = "CspmProviderConfiguration";
+const _CPD = "CspmProviderDetail";
 const _CPG = "ClusterParameterGroups";
 const _CPI = "ConfigurationPolicyId";
 const _CPIo = "ConfigurationPolicyIdentifier";
@@ -1193,6 +1210,8 @@ const _CPSL = "ClusterParameterStatusList";
 const _CPSLo = "ConfigurationPolicySummaryList";
 const _CPSo = "ConfigurationPolicySummary";
 const _CPSon = "ConfigurationPolicySummaries";
+const _CPSs = "CspmProviderSummary";
+const _CPUC = "CspmProviderUpdateConfiguration";
 const _CPa = "CapacityProvider";
 const _CPap = "CapacityProviders";
 const _CPo = "ContainerPort";
@@ -1365,6 +1384,8 @@ const _DCPRe = "DeleteConfigurationPolicyResponse";
 const _DCPS = "DefaultCapacityProviderStrategy";
 const _DCR = "DefaultCodeRepository";
 const _DCRI = "DbClusterResourceId";
+const _DCRe = "DeleteConnectorRequest";
+const _DCRel = "DeleteConnectorResponse";
 const _DCSA = "DbClusterSnapshotAttributes";
 const _DCSI = "DbClusterSnapshotIdentifier";
 const _DCV = "DeleteConnectorV2";
@@ -1373,6 +1394,7 @@ const _DCVRe = "DeleteConnectorV2Response";
 const _DCa = "DateCreated";
 const _DCat = "DataClassification";
 const _DCe = "DeploymentController";
+const _DCel = "DeleteConnector";
 const _DCes = "DesiredCount";
 const _DD = "DomainDetails";
 const _DDe = "DestinationDomain";
@@ -1499,6 +1521,9 @@ const _DSGN = "DbSubnetGroupName";
 const _DSGNb = "DbSecurityGroupName";
 const _DSGb = "DbSecurityGroups";
 const _DSH = "DisableSecurityHub";
+const _DSHFV = "DisableSecurityHubFeatureV2";
+const _DSHFVR = "DisableSecurityHubFeatureV2Request";
+const _DSHFVRi = "DisableSecurityHubFeatureV2Response";
 const _DSHR = "DisableSecurityHubRequest";
 const _DSHRi = "DisableSecurityHubResponse";
 const _DSHV = "DescribeSecurityHubV2";
@@ -1635,12 +1660,17 @@ const _ESGI = "Ec2SecurityGroupId";
 const _ESGN = "Ec2SecurityGroupName";
 const _ESGOI = "Ec2SecurityGroupOwnerId";
 const _ESH = "EnableSecurityHub";
+const _ESHFV = "EnableSecurityHubFeatureV2";
+const _ESHFVR = "EnableSecurityHubFeatureV2Request";
+const _ESHFVRn = "EnableSecurityHubFeatureV2Response";
 const _ESHR = "EnableSecurityHubRequest";
 const _ESHRn = "EnableSecurityHubResponse";
 const _ESHV = "EnableSecurityHubV2";
 const _ESHVR = "EnableSecurityHubV2Request";
 const _ESHVRn = "EnableSecurityHubV2Response";
 const _ESI = "EnabledStandardIdentifiers";
+const _ESR = "EnablementStatusReason";
+const _ESn = "EnablementStatus";
 const _ESp = "EpssScore";
 const _ET = "EngineType";
 const _ETIS = "ElapsedTimeInSeconds";
@@ -1692,6 +1722,7 @@ const _FCa = "FailoverConfig";
 const _FCai = "FailedCount";
 const _FCi = "FirelensConfiguration";
 const _FCin = "FindingCreated";
+const _FD = "FeatureDetail";
 const _FF = "FailedFindings";
 const _FFFRA = "FirehoseFailureFeedbackRoleArn";
 const _FFU = "FindingFieldsUpdate";
@@ -1747,6 +1778,7 @@ const _FS = "FirstSeen";
 const _FSA = "FirstSeenAt";
 const _FSFRA = "FirehoseSuccessFeedbackRoleArn";
 const _FSI = "FileSystemId";
+const _FSe = "FeatureStatus";
 const _FSi = "FindingScopes";
 const _FSin = "FindingsSummary";
 const _FT = "FindingType";
@@ -1786,6 +1818,7 @@ const _GBRro = "GroupByResult";
 const _GBRrou = "GroupByRule";
 const _GBV = "GroupByValues";
 const _GBVr = "GroupByValue";
+const _GC = "GetConnector";
 const _GCD = "GitCloneDepth";
 const _GCP = "GetConfigurationPolicy";
 const _GCPA = "GetConfigurationPolicyAssociation";
@@ -1793,6 +1826,8 @@ const _GCPAR = "GetConfigurationPolicyAssociationRequest";
 const _GCPARe = "GetConfigurationPolicyAssociationResponse";
 const _GCPR = "GetConfigurationPolicyRequest";
 const _GCPRe = "GetConfigurationPolicyResponse";
+const _GCR = "GetConnectorRequest";
+const _GCRe = "GetConnectorResponse";
 const _GCV = "GetConnectorV2";
 const _GCVR = "GetConnectorV2Request";
 const _GCVRe = "GetConnectorV2Response";
@@ -1883,7 +1918,9 @@ const _HECRE = "HttpErrorCodeReturnedEquals";
 const _HEE = "HttpEndpointEnabled";
 const _HFFRA = "HttpFailureFeedbackRoleArn";
 const _HI = "HostId";
+const _HIL = "HealthIssueList";
 const _HIT = "HostInstanceType";
+const _HIe = "HealthIssue";
 const _HL = "HardLimit";
 const _HM = "HttpMethod";
 const _HO = "HibernationOptions";
@@ -2067,6 +2104,7 @@ const _Io = "Iops";
 const _Ip = "Ip";
 const _Is = "Issuer";
 const _Isp = "Isp";
+const _Iss = "Issues";
 const _It = "Items";
 const _JC = "JiraCloud";
 const _JCD = "JiraCloudDetail";
@@ -2124,10 +2162,13 @@ const _LCPAR = "ListConfigurationPolicyAssociationsRequest";
 const _LCPARi = "ListConfigurationPolicyAssociationsResponse";
 const _LCPR = "ListConfigurationPoliciesRequest";
 const _LCPRi = "ListConfigurationPoliciesResponse";
+const _LCR = "ListConnectorsRequest";
+const _LCRi = "ListConnectorsResponse";
 const _LCSP = "LbCookieStickinessPolicies";
 const _LCV = "ListConnectorsV2";
 const _LCVR = "ListConnectorsV2Request";
 const _LCVRi = "ListConnectorsV2Response";
+const _LCi = "ListConnectors";
 const _LCo = "LogsConfig";
 const _LCog = "LogConfiguration";
 const _LCogg = "LoggingConfiguration";
@@ -2629,6 +2670,7 @@ const _Produ = "Product";
 const _Prot = "Protocol";
 const _Proto = "Protocols";
 const _Prov = "Provider";
+const _Provi = "Providers";
 const _Q = "Quantity";
 const _QLC = "QueryLoggingConfig";
 const _QN = "QueueName";
@@ -2670,6 +2712,7 @@ const _RCII = "ResourceContainerImageId";
 const _RCIN = "ResourceContainerImageName";
 const _RCLA = "ResourceContainerLaunchedAt";
 const _RCN = "ResourceContainerName";
+const _RCP = "ResourceCloudPartition";
 const _RCTD = "ResourceCreationTimeDt";
 const _RCU = "ReadCapacityUnits";
 const _RCV = "RegisterConnectorV2";
@@ -2785,9 +2828,14 @@ const _RNes = "ResourceName";
 const _RNo = "RoleName";
 const _RNu = "RuleNumber";
 const _RO = "RuleOrder";
+const _ROA = "ResourceOwnerAccount";
+const _ROAI = "ResourceOwnerAccountId";
+const _ROO = "ResourceOwnerOrg";
+const _ROOI = "ResourceOwnerOrgId";
 const _ROWF = "RotationOccurredWithinFrequency";
 const _ROe = "ReadOnly";
 const _ROeb = "RebootOption";
+const _ROes = "ResourceOwner";
 const _ROu = "RuleOptions";
 const _RP = "ResourcePartition";
 const _RPA = "RecoveryPointArn";
@@ -2796,8 +2844,9 @@ const _RPD = "RemotePortDetails";
 const _RPH = "RetentionPeriodHours";
 const _RPL = "RolePolicyList";
 const _RPT = "RepositoryPolicyText";
-const _RPe = "ResourcePath";
+const _RPe = "ResourceProvider";
 const _RPec = "RecommendedPolicy";
+const _RPes = "ResourcePath";
 const _RPet = "RetentionPeriod";
 const _RR = "ResourceRegion";
 const _RRDBCI = "ReadReplicaDBClusterIdentifiers";
@@ -2957,6 +3006,7 @@ const _SCT = "SnapshotCreateTime";
 const _SCTt = "StandardsControlTitle";
 const _SCTu = "SubscriptionCreationTime";
 const _SCU = "StandardsControlsUpdatable";
+const _SCc = "ScopeConfiguration";
 const _SCe = "SessionContext";
 const _SCec = "SecurityControls";
 const _SCecu = "SecurityControl";
@@ -3122,6 +3172,7 @@ const _STAo = "SourceTableArn";
 const _STC = "SeverityTrendsCount";
 const _STH = "SessionTimeoutHours";
 const _STN = "SnsTopicName";
+const _STc = "ScopeType";
 const _STe = "ServiceType";
 const _STev = "SeverityTrends";
 const _STn = "SnapshotType";
@@ -3138,6 +3189,7 @@ const _SV = "StageVariables";
 const _SVO = "StageVariableOverrides";
 const _SVT = "StreamViewType";
 const _SVc = "SchemaVersion";
+const _SVco = "ScopeValues";
 const _SVo = "SourceVolume";
 const _SWM = "StartWindowMinutes";
 const _Sa = "Sasl";
@@ -3279,6 +3331,7 @@ const _UAp = "UpdateAvailable";
 const _UAs = "UserAccount";
 const _UB = "UserBase";
 const _UBp = "UpdatedBy";
+const _UC = "UpdateConnector";
 const _UCCHS = "UnauthorizedCacheControlHeaderStrategy";
 const _UCP = "UpdateConfigurationPolicy";
 const _UCPA = "UnprocessedConfigurationPolicyAssociations";
@@ -3286,6 +3339,8 @@ const _UCPAL = "UnprocessedConfigurationPolicyAssociationList";
 const _UCPAn = "UnprocessedConfigurationPolicyAssociation";
 const _UCPR = "UpdateConfigurationPolicyRequest";
 const _UCPRp = "UpdateConfigurationPolicyResponse";
+const _UCR = "UpdateConnectorRequest";
+const _UCRp = "UpdateConnectorResponse";
 const _UCV = "UpdateConnectorV2";
 const _UCVR = "UpdateConnectorV2Request";
 const _UCVRp = "UpdateConnectorV2Response";
@@ -3720,8 +3775,8 @@ export var AutomationRulesFindingFieldsUpdateV2$: StaticStructureSchema = [3, n0
 ];
 export var AutomationRulesFindingFilters$: StaticStructureSchema = [3, n0, _ARFF,
   0,
-  [_PA, _AAI, _I, _GIe, _T, _FOA, _LOA, _CA, _UA, _Con, _Cri, _Ti, _D, _SU, _PNr, _CN, _SL, _RT, _RI, _RP, _RR, _RTe, _RDO, _CS, _CSCI, _CASI, _VS, _WS, _RSe, _RFPA, _RFI, _NT, _NUA, _NUB, _UDF, _RAA, _RAN, _AAN],
-  [() => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => DateFilterList, () => DateFilterList, () => DateFilterList, () => NumberFilterList, () => NumberFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => MapFilterList, () => MapFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => StringFilterList, () => MapFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList]
+  [_PA, _AAI, _I, _GIe, _T, _FOA, _LOA, _CA, _UA, _Con, _Cri, _Ti, _D, _SU, _PNr, _CN, _SL, _RT, _RI, _RP, _RR, _RTe, _RDO, _CS, _CSCI, _CASI, _VS, _WS, _RSe, _RFPA, _RFI, _NT, _NUA, _NUB, _UDF, _RAA, _RAN, _AAN, _RPe, _ROAI, _ROOI],
+  [() => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => DateFilterList, () => DateFilterList, () => DateFilterList, () => NumberFilterList, () => NumberFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => MapFilterList, () => MapFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => StringFilterList, () => MapFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList]
 ];
 export var AutomationRulesMetadata$: StaticStructureSchema = [3, n0, _ARM,
   0,
@@ -3800,7 +3855,7 @@ export var AwsApiGatewayEndpointConfiguration$: StaticStructureSchema = [3, n0, 
 ];
 export var AwsApiGatewayMethodSettings$: StaticStructureSchema = [3, n0, _AAGMS,
   0,
-  [_ME, _LL, _DTE, _TBL, _TRL, _CEa, _CTIS, _CDE, _RAFCC, _UCCHS, _HM, _RPe],
+  [_ME, _LL, _DTE, _TBL, _TRL, _CEa, _CTIS, _CDE, _RAFCC, _UCCHS, _HM, _RPes],
   [2, 0, 2, 1, 1, 2, 1, 2, 2, 0, 0, 0]
 ];
 export var AwsApiGatewayRestApiDetails$: StaticStructureSchema = [3, n0, _AAGRAD,
@@ -5980,8 +6035,8 @@ export var AwsSecurityFinding$: StaticStructureSchema = [3, n0, _ASF,
 ];
 export var AwsSecurityFindingFilters$: StaticStructureSchema = [3, n0, _ASFF,
   0,
-  [_PA, _AAI, _I, _GIe, _Reg, _T, _FOA, _LOA, _CA, _UA, _SPe, _SNev, _SL, _Con, _Cri, _Ti, _D, _RTec, _SU, _PFr, _PNr, _CN, _UDF, _MNa, _MTal, _MPalw, _MSal, _NDe, _NPe, _NSIV, _NSIVe, _NSP, _NSD, _NSM, _NDIV, _NDIVe, _NDP, _NDD, _PNro, _PPr, _PPro, _PPP, _PLA, _PTA, _TIIT, _TIIV, _TIIC, _TIILOA, _TIIS, _TIISU, _RT, _RI, _RP, _RR, _RTe, _RAEIT, _RAEIII, _RAEIIVA, _RAEIIVAe, _RAEIKN, _RAEIIIPA, _RAEIVI, _RAEISI, _RAEILA, _RASBOI, _RASBON, _RAIAKUN, _RAIAKPN, _RAIAKS, _RAIAKCA, _RAIUUN, _RCN, _RCII, _RCIN, _RCLA, _RDO, _CS, _VS, _WSo, _WS, _RSe, _RFPA, _RFI, _NT, _NUA, _NUB, _Ke, _FPFC, _FPFCi, _FPFRFI, _FPFRFPA, _FPFSL, _FPFSO, _FPFT, _Sam, _CSCI, _CASI, _VEA, _VFA, _CSCPN, _CSCPV, _AAN, _RAN, _RAA],
-  [() => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => DateFilterList, () => DateFilterList, () => DateFilterList, () => NumberFilterList, () => NumberFilterList, () => StringFilterList, () => NumberFilterList, () => NumberFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => MapFilterList, () => StringFilterList, () => StringFilterList, () => MapFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => IpFilterList, () => IpFilterList, () => NumberFilterList, () => StringFilterList, () => StringFilterList, () => IpFilterList, () => IpFilterList, () => NumberFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => NumberFilterList, () => NumberFilterList, () => DateFilterList, () => DateFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => MapFilterList, () => StringFilterList, () => StringFilterList, () => IpFilterList, () => IpFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => MapFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => StringFilterList, () => KeywordFilterList, () => NumberFilterList, () => NumberFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => BooleanFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList]
+  [_PA, _AAI, _I, _GIe, _Reg, _T, _FOA, _LOA, _CA, _UA, _SPe, _SNev, _SL, _Con, _Cri, _Ti, _D, _RTec, _SU, _PFr, _PNr, _CN, _UDF, _MNa, _MTal, _MPalw, _MSal, _NDe, _NPe, _NSIV, _NSIVe, _NSP, _NSD, _NSM, _NDIV, _NDIVe, _NDP, _NDD, _PNro, _PPr, _PPro, _PPP, _PLA, _PTA, _TIIT, _TIIV, _TIIC, _TIILOA, _TIIS, _TIISU, _RT, _RI, _RP, _RR, _RTe, _RAEIT, _RAEIII, _RAEIIVA, _RAEIIVAe, _RAEIKN, _RAEIIIPA, _RAEIVI, _RAEISI, _RAEILA, _RASBOI, _RASBON, _RAIAKUN, _RAIAKPN, _RAIAKS, _RAIAKCA, _RAIUUN, _RCN, _RCII, _RCIN, _RCLA, _RDO, _CS, _VS, _WSo, _WS, _RSe, _RFPA, _RFI, _NT, _NUA, _NUB, _Ke, _FPFC, _FPFCi, _FPFRFI, _FPFRFPA, _FPFSL, _FPFSO, _FPFT, _Sam, _CSCI, _CASI, _VEA, _VFA, _CSCPN, _CSCPV, _AAN, _RAN, _RAA, _ROAI, _ROOI, _RPe],
+  [() => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => DateFilterList, () => DateFilterList, () => DateFilterList, () => NumberFilterList, () => NumberFilterList, () => StringFilterList, () => NumberFilterList, () => NumberFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => MapFilterList, () => StringFilterList, () => StringFilterList, () => MapFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => IpFilterList, () => IpFilterList, () => NumberFilterList, () => StringFilterList, () => StringFilterList, () => IpFilterList, () => IpFilterList, () => NumberFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => NumberFilterList, () => NumberFilterList, () => DateFilterList, () => DateFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => MapFilterList, () => StringFilterList, () => StringFilterList, () => IpFilterList, () => IpFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => MapFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => StringFilterList, () => KeywordFilterList, () => NumberFilterList, () => NumberFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => BooleanFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList]
 ];
 export var AwsSecurityFindingIdentifier$: StaticStructureSchema = [3, n0, _ASFI,
   0,
@@ -6223,6 +6278,26 @@ export var AwsXrayEncryptionConfigDetails$: StaticStructureSchema = [3, n0, _AXE
   [_KIe, _St, _T],
   [0, 0, 0]
 ];
+export var AzureDetail$: StaticStructureSchema = [3, n0, _ADz,
+  0,
+  [_AWSCCA, _SCc, _ARz],
+  [0, () => AzureScopeConfiguration$, 64 | 0], 3
+];
+export var AzureProviderConfiguration$: StaticStructureSchema = [3, n0, _APC,
+  0,
+  [_AWSCCA, _SCc, _ARz],
+  [0, () => AzureScopeConfiguration$, 64 | 0], 3
+];
+export var AzureScopeConfiguration$: StaticStructureSchema = [3, n0, _ASCz,
+  0,
+  [_STc, _SVco],
+  [0, 64 | 0], 1
+];
+export var AzureUpdateConfiguration$: StaticStructureSchema = [3, n0, _AUC,
+  0,
+  [_SCc, _ARz],
+  [() => AzureScopeConfiguration$, 64 | 0], 2
+];
 export var BatchDeleteAutomationRulesRequest$: StaticStructureSchema = [3, n0, _BDARR,
   0,
   [_ARAu],
@@ -6435,8 +6510,8 @@ export var ConfigurationPolicySummary$: StaticStructureSchema = [3, n0, _CPSo,
 ];
 export var ConnectorSummary$: StaticStructureSchema = [3, n0, _CSon,
   0,
-  [_CIo, _N, _PSr, _CA, _CAon, _D],
-  [0, 0, () => ProviderSummary$, 5, 0, 0], 4
+  [_CIo, _N, _PSr, _CA, _CAon, _D, _ESn, _ESR],
+  [0, 0, () => ProviderSummary$, 5, 0, 0, 0, 0], 4
 ];
 export var ContainerDetails$: StaticStructureSchema = [3, n0, _CDont,
   0,
@@ -6498,6 +6573,16 @@ export var CreateConfigurationPolicyResponse$: StaticStructureSchema = [3, n0, _
   [_Ar, _I, _N, _D, _UA, _CA, _CPonf],
   [0, 0, 0, 0, 5, 5, () => Policy$]
 ];
+export var CreateConnectorRequest$: StaticStructureSchema = [3, n0, _CCR,
+  0,
+  [_N, _Prov, _D, _Tags, _CTl],
+  [0, () => CspmProviderConfiguration$, 0, 128 | 0, [0, 4]], 2
+];
+export var CreateConnectorResponse$: StaticStructureSchema = [3, n0, _CCRr,
+  0,
+  [_CAon, _CIo, _CSonn, _ESn],
+  [0, 0, 0, 0], 2
+];
 export var CreateConnectorV2Request$: StaticStructureSchema = [3, n0, _CCVR,
   0,
   [_N, _Prov, _D, _KKA, _Tags, _CTl],
@@ -6505,8 +6590,8 @@ export var CreateConnectorV2Request$: StaticStructureSchema = [3, n0, _CCVR,
 ];
 export var CreateConnectorV2Response$: StaticStructureSchema = [3, n0, _CCVRr,
   0,
-  [_CAon, _CIo, _AUut, _CSonn],
-  [0, 0, 0, 0], 2
+  [_CAon, _CIo, _AUut, _CSonn, _ESn],
+  [0, 0, 0, 0, 0], 2
 ];
 export var CreateFindingAggregatorRequest$: StaticStructureSchema = [3, n0, _CFAR,
   0,
@@ -6547,6 +6632,21 @@ export var CreateTicketV2Response$: StaticStructureSchema = [3, n0, _CTVRr,
   0,
   [_TIi, _TSU],
   [0, 0], 1
+];
+export var CspmConnectorSummary$: StaticStructureSchema = [3, n0, _CCSs,
+  0,
+  [_CAon, _CIo, _N, _D, _PSr, _CA, _CB, _ESn],
+  [0, 0, 0, 0, () => CspmProviderSummary$, 5, 0, 0]
+];
+export var CspmHealthCheck$: StaticStructureSchema = [3, n0, _CHCs,
+  0,
+  [_CSonn, _LCAa, _M, _Iss],
+  [0, 5, 0, () => HealthIssueList], 2
+];
+export var CspmProviderSummary$: StaticStructureSchema = [3, n0, _CPSs,
+  0,
+  [_PNrov, _CSonn, _PCro],
+  [0, 0, () => CspmProviderDetail$]
 ];
 export var CustomDataIdentifiersDetections$: StaticStructureSchema = [3, n0, _CDID,
   0,
@@ -6628,6 +6728,16 @@ export var DeleteConfigurationPolicyResponse$: StaticStructureSchema = [3, n0, _
   [],
   []
 ];
+export var DeleteConnectorRequest$: StaticStructureSchema = [3, n0, _DCRe,
+  0,
+  [_CIo],
+  [[0, 1]], 1
+];
+export var DeleteConnectorResponse$: StaticStructureSchema = [3, n0, _DCRel,
+  0,
+  [_ESn],
+  [0]
+];
 export var DeleteConnectorV2Request$: StaticStructureSchema = [3, n0, _DCVR,
   0,
   [_CIo],
@@ -6635,8 +6745,8 @@ export var DeleteConnectorV2Request$: StaticStructureSchema = [3, n0, _DCVR,
 ];
 export var DeleteConnectorV2Response$: StaticStructureSchema = [3, n0, _DCVRe,
   0,
-  [],
-  []
+  [_ESn],
+  [0]
 ];
 export var DeleteFindingAggregatorRequest$: StaticStructureSchema = [3, n0, _DFAR,
   0,
@@ -6735,8 +6845,8 @@ export var DescribeSecurityHubV2Request$: StaticStructureSchema = [3, n0, _DSHVR
 ];
 export var DescribeSecurityHubV2Response$: StaticStructureSchema = [3, n0, _DSHVRe,
   0,
-  [_HVA, _SAub],
-  [0, 0]
+  [_HVA, _SAub, _Fe],
+  [0, 0, () => Features]
 ];
 export var DescribeStandardsControlsRequest$: StaticStructureSchema = [3, n0, _DSCR,
   0,
@@ -6750,8 +6860,8 @@ export var DescribeStandardsControlsResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var DescribeStandardsRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
-  [_NTe, _MRa],
-  [[0, { [_hQ]: _NTe }], [1, { [_hQ]: _MRa }]]
+  [_NTe, _MRa, _Provi],
+  [[0, { [_hQ]: _NTe }], [1, { [_hQ]: _MRa }], [64 | 0, { [_hQ]: _Provi }]]
 ];
 export var DescribeStandardsResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
@@ -6779,6 +6889,16 @@ export var DisableOrganizationAdminAccountRequest$: StaticStructureSchema = [3, 
   [0, 0], 1
 ];
 export var DisableOrganizationAdminAccountResponse$: StaticStructureSchema = [3, n0, _DOAARi,
+  0,
+  [],
+  []
+];
+export var DisableSecurityHubFeatureV2Request$: StaticStructureSchema = [3, n0, _DSHFVR,
+  0,
+  [_FNe],
+  [[0, 1]], 1
+];
+export var DisableSecurityHubFeatureV2Response$: StaticStructureSchema = [3, n0, _DSHFVRi,
   0,
   [],
   []
@@ -6863,6 +6983,16 @@ export var EnableOrganizationAdminAccountResponse$: StaticStructureSchema = [3, 
   [_AAId, _Fea],
   [0, 0]
 ];
+export var EnableSecurityHubFeatureV2Request$: StaticStructureSchema = [3, n0, _ESHFVR,
+  0,
+  [_FNe],
+  [[0, 1]], 1
+];
+export var EnableSecurityHubFeatureV2Response$: StaticStructureSchema = [3, n0, _ESHFVRn,
+  0,
+  [],
+  []
+];
 export var EnableSecurityHubRequest$: StaticStructureSchema = [3, n0, _ESHR,
   0,
   [_Tags, _EDS, _CFG],
@@ -6897,6 +7027,11 @@ export var ExternalIntegrationConfiguration$: StaticStructureSchema = [3, n0, _E
   0,
   [_CAon],
   [0]
+];
+export var FeatureDetail$: StaticStructureSchema = [3, n0, _FD,
+  0,
+  [_FSe, _UA],
+  [0, 5]
 ];
 export var FilePaths$: StaticStructureSchema = [3, n0, _FPile,
   0,
@@ -7043,6 +7178,16 @@ export var GetConfigurationPolicyResponse$: StaticStructureSchema = [3, n0, _GCP
   [_Ar, _I, _N, _D, _UA, _CA, _CPonf],
   [0, 0, 0, 0, 5, 5, () => Policy$]
 ];
+export var GetConnectorRequest$: StaticStructureSchema = [3, n0, _GCR,
+  0,
+  [_CIo],
+  [[0, 1]], 1
+];
+export var GetConnectorResponse$: StaticStructureSchema = [3, n0, _GCRe,
+  0,
+  [_CIo, _N, _CA, _LUA, _He, _PD, _CAon, _D, _CB, _ESn],
+  [0, 0, 5, 5, () => CspmHealthCheck$, () => CspmProviderDetail$, 0, 0, 0, 0], 6
+];
 export var GetConnectorV2Request$: StaticStructureSchema = [3, n0, _GCVR,
   0,
   [_CIo],
@@ -7050,13 +7195,13 @@ export var GetConnectorV2Request$: StaticStructureSchema = [3, n0, _GCVR,
 ];
 export var GetConnectorV2Response$: StaticStructureSchema = [3, n0, _GCVRe,
   0,
-  [_CIo, _N, _CA, _LUA, _He, _PD, _CAon, _D, _KKA],
-  [0, 0, 5, 5, () => HealthCheck$, () => ProviderDetail$, 0, 0, 0], 6
+  [_CIo, _N, _CA, _LUA, _He, _PD, _CAon, _D, _KKA, _ESn, _ESR],
+  [0, 0, 5, 5, () => HealthCheck$, () => ProviderDetail$, 0, 0, 0, 0, 0], 6
 ];
 export var GetEnabledStandardsRequest$: StaticStructureSchema = [3, n0, _GESR,
   0,
-  [_SSA, _NTe, _MRa],
-  [64 | 0, 0, 1]
+  [_SSA, _NTe, _MRa, _Provi],
+  [64 | 0, 0, 1, 64 | 0]
 ];
 export var GetEnabledStandardsResponse$: StaticStructureSchema = [3, n0, _GESRe,
   0,
@@ -7240,8 +7385,13 @@ export var GroupByValue$: StaticStructureSchema = [3, n0, _GBVr,
 ];
 export var HealthCheck$: StaticStructureSchema = [3, n0, _HC,
   0,
-  [_CSonn, _LCAa, _M],
-  [0, 5, 0], 2
+  [_CSonn, _LCAa, _M, _Iss],
+  [0, 5, 0, () => HealthIssueList], 2
+];
+export var HealthIssue$: StaticStructureSchema = [3, n0, _HIe,
+  0,
+  [_C, _M],
+  [0, 0], 2
 ];
 export var IcmpTypeCode$: StaticStructureSchema = [3, n0, _ITC,
   0,
@@ -7383,10 +7533,20 @@ export var ListConfigurationPolicyAssociationsResponse$: StaticStructureSchema =
   [_CPASo, _NTe],
   [() => ConfigurationPolicyAssociationSummaryList, 0]
 ];
+export var ListConnectorsRequest$: StaticStructureSchema = [3, n0, _LCR,
+  0,
+  [_NTe, _MRa, _PNrov, _CSonn, _ESn],
+  [[0, { [_hQ]: _NTe }], [1, { [_hQ]: _MRa }], [0, { [_hQ]: _PNrov }], [0, { [_hQ]: _CSonn }], [0, { [_hQ]: _ESn }]]
+];
+export var ListConnectorsResponse$: StaticStructureSchema = [3, n0, _LCRi,
+  0,
+  [_Conn, _NTe],
+  [() => CspmConnectorSummaryList, 0], 1
+];
 export var ListConnectorsV2Request$: StaticStructureSchema = [3, n0, _LCVR,
   0,
-  [_NTe, _MRa, _PNrov, _CSonn],
-  [[0, { [_hQ]: _NTe }], [1, { [_hQ]: _MRa }], [0, { [_hQ]: _PNrov }], [0, { [_hQ]: _CSonn }]]
+  [_NTe, _MRa, _PNrov, _CSonn, _ESn],
+  [[0, { [_hQ]: _NTe }], [1, { [_hQ]: _MRa }], [0, { [_hQ]: _PNrov }], [0, { [_hQ]: _CSonn }], [0, { [_hQ]: _ESn }]]
 ];
 export var ListConnectorsV2Response$: StaticStructureSchema = [3, n0, _LCVRi,
   0,
@@ -7445,8 +7605,8 @@ export var ListOrganizationAdminAccountsResponse$: StaticStructureSchema = [3, n
 ];
 export var ListSecurityControlDefinitionsRequest$: StaticStructureSchema = [3, n0, _LSCDR,
   0,
-  [_SAta, _NTe, _MRa],
-  [[0, { [_hQ]: _SAta }], [0, { [_hQ]: _NTe }], [1, { [_hQ]: _MRa }]]
+  [_SAta, _NTe, _MRa, _Provi],
+  [[0, { [_hQ]: _SAta }], [0, { [_hQ]: _NTe }], [1, { [_hQ]: _MRa }], [64 | 0, { [_hQ]: _Provi }]]
 ];
 export var ListSecurityControlDefinitionsResponse$: StaticStructureSchema = [3, n0, _LSCDRi,
   0,
@@ -7665,8 +7825,8 @@ export var PropagatingVgwSetDetails$: StaticStructureSchema = [3, n0, _PVSD,
 ];
 export var ProviderSummary$: StaticStructureSchema = [3, n0, _PSr,
   0,
-  [_PNrov, _CSonn],
-  [0, 0]
+  [_PNrov, _CSonn, _PCro],
+  [0, 0, () => ProviderDetail$]
 ];
 export var Range$: StaticStructureSchema = [3, n0, _Ra,
   0,
@@ -7710,13 +7870,13 @@ export var Remediation$: StaticStructureSchema = [3, n0, _Rem,
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _Reso,
   0,
-  [_T, _I, _Par, _Reg, _RReso, _Tags, _DCat, _Deta, _ANp, _AAp],
-  [0, 0, 0, 0, 0, 128 | 0, () => DataClassificationDetails$, () => ResourceDetails$, 0, 0], 2
+  [_T, _I, _Par, _Reg, _Prov, _Ow, _RReso, _Tags, _DCat, _Deta, _ANp, _AAp],
+  [0, 0, 0, 0, 0, () => ResourceOwner$, 0, 128 | 0, () => DataClassificationDetails$, () => ResourceDetails$, 0, 0], 2
 ];
 export var ResourceDetails$: StaticStructureSchema = [3, n0, _RDe,
   0,
-  [_AASASG, _ACBP, _ACFD, _AEI, _AENI, _AESG, _AEV, _AEVw, _AEE, _AESw, _AENA, _AELB, _AEBE, _AED, _ASB, _ASAPAB, _ASOw, _ASMS, _AIAK, _AIU, _AIP, _AAGVS, _AAGVA, _ADDT, _AAGS, _AAGRA, _ACTT, _ASPC, _ACMC, _ARCw, _AELBw, _AIG, _AIRw, _AKK, _ALF, _ALLV, _ARDI, _AST, _ASQ, _AWWA, _ARDS, _ARDCS, _ARDC, _AECw, _AECws, _AETDw, _Conta, _Ot, _ARES, _AESws, _AASLC, _AEVC, _AECI, _AOSSD, _AEVES, _AXEC, _AWRBR, _AWRRBR, _AER, _AECwsk, _ANFFP, _ANFF, _ANFRG, _ARDSGw, _AKSw, _AETG, _AEAP, _ACFS, _ACWA, _AEVPC, _AWRRG, _AWRR, _AWRWA, _AWR, _AWRG, _AET, _ABBV, _ABBP, _ABRP, _AELT, _ASMNI, _AWWAw, _AWRGw, _AERT, _AAMB, _AASGQA, _AESR, _AGDD, _ASFSM, _AAWG, _AEEw, _ADEw, _AEEws, _ADRT, _ADRI, _ARHZ, _AMC, _ASAP, _AECVE, _CRod],
-  [() => AwsAutoScalingAutoScalingGroupDetails$, () => AwsCodeBuildProjectDetails$, () => AwsCloudFrontDistributionDetails$, () => AwsEc2InstanceDetails$, () => AwsEc2NetworkInterfaceDetails$, () => AwsEc2SecurityGroupDetails$, () => AwsEc2VolumeDetails$, () => AwsEc2VpcDetails$, () => AwsEc2EipDetails$, () => AwsEc2SubnetDetails$, () => AwsEc2NetworkAclDetails$, () => AwsElbv2LoadBalancerDetails$, () => AwsElasticBeanstalkEnvironmentDetails$, () => AwsElasticsearchDomainDetails$, () => AwsS3BucketDetails$, () => AwsS3AccountPublicAccessBlockDetails$, () => AwsS3ObjectDetails$, () => AwsSecretsManagerSecretDetails$, () => AwsIamAccessKeyDetails$, () => AwsIamUserDetails$, () => AwsIamPolicyDetails$, () => AwsApiGatewayV2StageDetails$, () => AwsApiGatewayV2ApiDetails$, () => AwsDynamoDbTableDetails$, () => AwsApiGatewayStageDetails$, () => AwsApiGatewayRestApiDetails$, () => AwsCloudTrailTrailDetails$, () => AwsSsmPatchComplianceDetails$, () => AwsCertificateManagerCertificateDetails$, () => AwsRedshiftClusterDetails$, () => AwsElbLoadBalancerDetails$, () => AwsIamGroupDetails$, () => AwsIamRoleDetails$, () => AwsKmsKeyDetails$, () => AwsLambdaFunctionDetails$, () => AwsLambdaLayerVersionDetails$, () => AwsRdsDbInstanceDetails$, () => AwsSnsTopicDetails$, () => AwsSqsQueueDetails$, () => AwsWafWebAclDetails$, () => AwsRdsDbSnapshotDetails$, () => AwsRdsDbClusterSnapshotDetails$, () => AwsRdsDbClusterDetails$, () => AwsEcsClusterDetails$, () => AwsEcsContainerDetails$, () => AwsEcsTaskDefinitionDetails$, () => ContainerDetails$, 128 | 0, () => AwsRdsEventSubscriptionDetails$, () => AwsEcsServiceDetails$, () => AwsAutoScalingLaunchConfigurationDetails$, () => AwsEc2VpnConnectionDetails$, () => AwsEcrContainerImageDetails$, () => AwsOpenSearchServiceDomainDetails$, () => AwsEc2VpcEndpointServiceDetails$, () => AwsXrayEncryptionConfigDetails$, () => AwsWafRateBasedRuleDetails$, () => AwsWafRegionalRateBasedRuleDetails$, () => AwsEcrRepositoryDetails$, () => AwsEksClusterDetails$, () => AwsNetworkFirewallFirewallPolicyDetails$, () => AwsNetworkFirewallFirewallDetails$, () => AwsNetworkFirewallRuleGroupDetails$, () => AwsRdsDbSecurityGroupDetails$, () => AwsKinesisStreamDetails$, () => AwsEc2TransitGatewayDetails$, () => AwsEfsAccessPointDetails$, () => AwsCloudFormationStackDetails$, () => AwsCloudWatchAlarmDetails$, () => AwsEc2VpcPeeringConnectionDetails$, () => AwsWafRegionalRuleGroupDetails$, () => AwsWafRegionalRuleDetails$, () => AwsWafRegionalWebAclDetails$, () => AwsWafRuleDetails$, () => AwsWafRuleGroupDetails$, () => AwsEcsTaskDetails$, () => AwsBackupBackupVaultDetails$, () => AwsBackupBackupPlanDetails$, () => AwsBackupRecoveryPointDetails$, () => AwsEc2LaunchTemplateDetails$, () => AwsSageMakerNotebookInstanceDetails$, () => AwsWafv2WebAclDetails$, () => AwsWafv2RuleGroupDetails$, () => AwsEc2RouteTableDetails$, () => AwsAmazonMqBrokerDetails$, () => AwsAppSyncGraphQlApiDetails$, () => AwsEventSchemasRegistryDetails$, () => AwsGuardDutyDetectorDetails$, () => AwsStepFunctionStateMachineDetails$, () => AwsAthenaWorkGroupDetails$, () => AwsEventsEventbusDetails$, () => AwsDmsEndpointDetails$, () => AwsEventsEndpointDetails$, () => AwsDmsReplicationTaskDetails$, () => AwsDmsReplicationInstanceDetails$, () => AwsRoute53HostedZoneDetails$, () => AwsMskClusterDetails$, () => AwsS3AccessPointDetails$, () => AwsEc2ClientVpnEndpointDetails$, () => CodeRepositoryDetails$]
+  [_AASASG, _ACBP, _ACFD, _AEI, _AENI, _AESG, _AEV, _AEVw, _AEE, _AESw, _AENA, _AELB, _AEBE, _AED, _ASB, _ASAPAB, _ASOw, _ASMS, _AIAK, _AIU, _AIP, _AAGVS, _AAGVA, _ADDT, _AAGS, _AAGRA, _ACTT, _ASPC, _ACMC, _ARCw, _AELBw, _AIG, _AIRw, _AKK, _ALF, _ALLV, _ARDI, _AST, _ASQ, _AWWA, _ARDS, _ARDCS, _ARDC, _AECw, _AECws, _AETDw, _Conta, _Ot, _ARES, _AESws, _AASLC, _AEVC, _AECI, _AOSSD, _AEVES, _AXEC, _AWRBR, _AWRRBR, _AER, _AECwsk, _ANFFP, _ANFF, _ANFRG, _ARDSGw, _AKSw, _AETG, _AEAP, _ACFS, _ACWA, _AEVPC, _AWRRG, _AWRR, _AWRWA, _AWR, _AWRG, _AET, _ABBV, _ABBP, _ABRP, _AELT, _ASMNI, _AWWAw, _AWRGw, _AERT, _AAMB, _AASGQA, _AESR, _AGDD, _ASFSM, _AAWG, _AEEw, _ADEw, _AEEws, _ADRT, _ADRI, _ARHZ, _AMC, _ASAP, _AECVE, _CRod, _ARzu],
+  [() => AwsAutoScalingAutoScalingGroupDetails$, () => AwsCodeBuildProjectDetails$, () => AwsCloudFrontDistributionDetails$, () => AwsEc2InstanceDetails$, () => AwsEc2NetworkInterfaceDetails$, () => AwsEc2SecurityGroupDetails$, () => AwsEc2VolumeDetails$, () => AwsEc2VpcDetails$, () => AwsEc2EipDetails$, () => AwsEc2SubnetDetails$, () => AwsEc2NetworkAclDetails$, () => AwsElbv2LoadBalancerDetails$, () => AwsElasticBeanstalkEnvironmentDetails$, () => AwsElasticsearchDomainDetails$, () => AwsS3BucketDetails$, () => AwsS3AccountPublicAccessBlockDetails$, () => AwsS3ObjectDetails$, () => AwsSecretsManagerSecretDetails$, () => AwsIamAccessKeyDetails$, () => AwsIamUserDetails$, () => AwsIamPolicyDetails$, () => AwsApiGatewayV2StageDetails$, () => AwsApiGatewayV2ApiDetails$, () => AwsDynamoDbTableDetails$, () => AwsApiGatewayStageDetails$, () => AwsApiGatewayRestApiDetails$, () => AwsCloudTrailTrailDetails$, () => AwsSsmPatchComplianceDetails$, () => AwsCertificateManagerCertificateDetails$, () => AwsRedshiftClusterDetails$, () => AwsElbLoadBalancerDetails$, () => AwsIamGroupDetails$, () => AwsIamRoleDetails$, () => AwsKmsKeyDetails$, () => AwsLambdaFunctionDetails$, () => AwsLambdaLayerVersionDetails$, () => AwsRdsDbInstanceDetails$, () => AwsSnsTopicDetails$, () => AwsSqsQueueDetails$, () => AwsWafWebAclDetails$, () => AwsRdsDbSnapshotDetails$, () => AwsRdsDbClusterSnapshotDetails$, () => AwsRdsDbClusterDetails$, () => AwsEcsClusterDetails$, () => AwsEcsContainerDetails$, () => AwsEcsTaskDefinitionDetails$, () => ContainerDetails$, 128 | 0, () => AwsRdsEventSubscriptionDetails$, () => AwsEcsServiceDetails$, () => AwsAutoScalingLaunchConfigurationDetails$, () => AwsEc2VpnConnectionDetails$, () => AwsEcrContainerImageDetails$, () => AwsOpenSearchServiceDomainDetails$, () => AwsEc2VpcEndpointServiceDetails$, () => AwsXrayEncryptionConfigDetails$, () => AwsWafRateBasedRuleDetails$, () => AwsWafRegionalRateBasedRuleDetails$, () => AwsEcrRepositoryDetails$, () => AwsEksClusterDetails$, () => AwsNetworkFirewallFirewallPolicyDetails$, () => AwsNetworkFirewallFirewallDetails$, () => AwsNetworkFirewallRuleGroupDetails$, () => AwsRdsDbSecurityGroupDetails$, () => AwsKinesisStreamDetails$, () => AwsEc2TransitGatewayDetails$, () => AwsEfsAccessPointDetails$, () => AwsCloudFormationStackDetails$, () => AwsCloudWatchAlarmDetails$, () => AwsEc2VpcPeeringConnectionDetails$, () => AwsWafRegionalRuleGroupDetails$, () => AwsWafRegionalRuleDetails$, () => AwsWafRegionalWebAclDetails$, () => AwsWafRuleDetails$, () => AwsWafRuleGroupDetails$, () => AwsEcsTaskDetails$, () => AwsBackupBackupVaultDetails$, () => AwsBackupBackupPlanDetails$, () => AwsBackupRecoveryPointDetails$, () => AwsEc2LaunchTemplateDetails$, () => AwsSageMakerNotebookInstanceDetails$, () => AwsWafv2WebAclDetails$, () => AwsWafv2RuleGroupDetails$, () => AwsEc2RouteTableDetails$, () => AwsAmazonMqBrokerDetails$, () => AwsAppSyncGraphQlApiDetails$, () => AwsEventSchemasRegistryDetails$, () => AwsGuardDutyDetectorDetails$, () => AwsStepFunctionStateMachineDetails$, () => AwsAthenaWorkGroupDetails$, () => AwsEventsEventbusDetails$, () => AwsDmsEndpointDetails$, () => AwsEventsEndpointDetails$, () => AwsDmsReplicationTaskDetails$, () => AwsDmsReplicationInstanceDetails$, () => AwsRoute53HostedZoneDetails$, () => AwsMskClusterDetails$, () => AwsS3AccessPointDetails$, () => AwsEc2ClientVpnEndpointDetails$, () => CodeRepositoryDetails$, 15]
 ];
 export var ResourceFindingsSummary$: StaticStructureSchema = [3, n0, _RFS,
   0,
@@ -7728,10 +7888,25 @@ export var ResourceGroupByRule$: StaticStructureSchema = [3, n0, _RGBR,
   [_GBF, _Filt],
   [0, () => ResourcesFilters$], 1
 ];
+export var ResourceOwner$: StaticStructureSchema = [3, n0, _ROes,
+  0,
+  [_Acc, _Org],
+  [() => ResourceOwnerAccount$, () => ResourceOwnerOrg$]
+];
+export var ResourceOwnerAccount$: StaticStructureSchema = [3, n0, _ROA,
+  0,
+  [_I],
+  [0]
+];
+export var ResourceOwnerOrg$: StaticStructureSchema = [3, n0, _ROO,
+  0,
+  [_I],
+  [0]
+];
 export var ResourceResult$: StaticStructureSchema = [3, n0, _RResou,
   0,
-  [_RI, _AIc, _Reg, _RDCTD, _RCeso, _RGe, _RCesou, _RT, _RNes, _RCTD, _FSin, _RTe],
-  [0, 0, 0, 0, 15, 0, 0, 0, 0, 0, () => ResourceFindingsSummaryList, () => ResourceTagList], 5
+  [_RI, _AIc, _Reg, _RT, _RDCTD, _RCeso, _RGe, _ANcc, _RPe, _ROAI, _ROOI, _RCP, _RR, _RCesou, _RNes, _RCTD, _FSin, _RTe],
+  [0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => ResourceFindingsSummaryList, () => ResourceTagList], 6
 ];
 export var ResourcesCompositeFilter$: StaticStructureSchema = [3, n0, _RCF,
   0,
@@ -7915,8 +8090,8 @@ export var RuleGroupVariablesPortSetsDetails$: StaticStructureSchema = [3, n0, _
 ];
 export var SecurityControl$: StaticStructureSchema = [3, n0, _SCecu,
   0,
-  [_SCIec, _SCAe, _Ti, _D, _RU, _SRev, _SCS, _US, _Para, _LUR],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => _Parameters, 0], 7
+  [_SCIec, _SCAe, _Ti, _D, _RU, _SRev, _SCS, _US, _Para, _LUR, _Prov],
+  [0, 0, 0, 0, 0, 0, 0, 0, () => _Parameters, 0, 0], 7
 ];
 export var SecurityControlCustomParameter$: StaticStructureSchema = [3, n0, _SCCP,
   0,
@@ -7925,8 +8100,8 @@ export var SecurityControlCustomParameter$: StaticStructureSchema = [3, n0, _SCC
 ];
 export var SecurityControlDefinition$: StaticStructureSchema = [3, n0, _SCD,
   0,
-  [_SCIec, _Ti, _D, _RU, _SRev, _CRA, _CPu, _PDar],
-  [0, 0, 0, 0, 0, 0, 64 | 0, () => ParameterDefinitions], 6
+  [_SCIec, _Ti, _D, _RU, _SRev, _CRA, _CPu, _PDar, _Prov],
+  [0, 0, 0, 0, 0, 0, 64 | 0, () => ParameterDefinitions, 0], 6
 ];
 export var SecurityControlParameter$: StaticStructureSchema = [3, n0, _SCPec,
   0,
@@ -8005,8 +8180,8 @@ export var SortCriterion$: StaticStructureSchema = [3, n0, _SCort,
 ];
 export var Standard$: StaticStructureSchema = [3, n0, _Stand,
   0,
-  [_SAta, _N, _D, _EBD, _SMB],
-  [0, 0, 0, 2, () => StandardsManagedBy$]
+  [_SAta, _N, _D, _EBD, _Prov, _SMB],
+  [0, 0, 0, 2, 0, () => StandardsManagedBy$]
 ];
 export var StandardsControl$: StaticStructureSchema = [3, n0, _SCtan,
   0,
@@ -8045,8 +8220,8 @@ export var StandardsStatusReason$: StaticStructureSchema = [3, n0, _SSRta,
 ];
 export var StandardsSubscription$: StaticStructureSchema = [3, n0, _SStan,
   0,
-  [_SSAt, _SAta, _SItan, _SStand, _SCU, _SSRta],
-  [0, 0, 128 | 0, 0, 0, () => StandardsStatusReason$], 4
+  [_SSAt, _SAta, _SItan, _SStand, _SCU, _SSRta, _Prov],
+  [0, 0, 128 | 0, 0, 0, () => StandardsStatusReason$, 0], 4
 ];
 export var StandardsSubscriptionRequest$: StaticStructureSchema = [3, n0, _SSRtan,
   0,
@@ -8223,6 +8398,16 @@ export var UpdateConfigurationPolicyResponse$: StaticStructureSchema = [3, n0, _
   [_Ar, _I, _N, _D, _UA, _CA, _CPonf],
   [0, 0, 0, 0, 5, 5, () => Policy$]
 ];
+export var UpdateConnectorRequest$: StaticStructureSchema = [3, n0, _UCR,
+  0,
+  [_CIo, _D, _Prov],
+  [[0, 1], 0, () => CspmProviderUpdateConfiguration$], 1
+];
+export var UpdateConnectorResponse$: StaticStructureSchema = [3, n0, _UCRp,
+  0,
+  [_CSonn, _ESn],
+  [0, 0]
+];
 export var UpdateConnectorV2Request$: StaticStructureSchema = [3, n0, _UCVR,
   0,
   [_CIo, _D, _Prov],
@@ -8230,8 +8415,8 @@ export var UpdateConnectorV2Request$: StaticStructureSchema = [3, n0, _UCVR,
 ];
 export var UpdateConnectorV2Response$: StaticStructureSchema = [3, n0, _UCVRp,
   0,
-  [],
-  []
+  [_CSonn, _ESn],
+  [0, 0]
 ];
 export var UpdateFindingAggregatorRequest$: StaticStructureSchema = [3, n0, _UFAR,
   0,
@@ -8860,6 +9045,7 @@ var AwsWafv2RulesList: StaticListSchema = [1, n0, _AWRL,
 var AwsWafWebAclRuleList: StaticListSchema = [1, n0, _AWWARL,
   0, () => AwsWafWebAclRule$
 ];
+var AzureRegionList = 64 | 0;
 var BatchImportFindingsRequestFindingList: StaticListSchema = [1, n0, _BIFRFL,
   0, () => AwsSecurityFinding$
 ];
@@ -8899,6 +9085,9 @@ var ConfigurationPolicySummaryList: StaticListSchema = [1, n0, _CPSLo,
 ];
 var ConnectorSummaryList: StaticListSchema = [1, n0, _CSL,
   0, () => ConnectorSummary$
+];
+var CspmConnectorSummaryList: StaticListSchema = [1, n0, _CCSL,
+  0, () => CspmConnectorSummary$
 ];
 var CustomDataIdentifiersDetectionsList: StaticListSchema = [1, n0, _CDIDL,
   0, () => CustomDataIdentifiersDetections$
@@ -8948,6 +9137,9 @@ var GroupByRules: StaticListSchema = [1, n0, _GBR,
 ];
 var GroupByValues: StaticListSchema = [1, n0, _GBV,
   0, () => GroupByValue$
+];
+var HealthIssueList: StaticListSchema = [1, n0, _HIL,
+  0, () => HealthIssue$
 ];
 var ImportFindingsErrorList: StaticListSchema = [1, n0, _IFEL,
   0, () => ImportFindingsError$
@@ -9124,6 +9316,7 @@ var RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList: StaticListSchema = 
 var RuleGroupSourceStatelessRulesList: StaticListSchema = [1, n0, _RGSSRLu,
   0, () => RuleGroupSourceStatelessRulesDetails$
 ];
+var ScopeValueList = 64 | 0;
 var SecurityControlCustomParametersList: StaticListSchema = [1, n0, _SCCPL,
   0, () => SecurityControlCustomParameter$
 ];
@@ -9136,6 +9329,7 @@ var SecurityControlParametersList: StaticListSchema = [1, n0, _SCPL,
 var SecurityControls: StaticListSchema = [1, n0, _SCec,
   0, () => SecurityControl$
 ];
+var SecurityControlsProviders = 64 | 0;
 var SecurityGroups = 64 | 0;
 var SensitiveDataDetectionsList: StaticListSchema = [1, n0, _SDDL,
   0, () => SensitiveDataDetections$
@@ -9171,6 +9365,7 @@ var StandardsControlAssociationUpdates: StaticListSchema = [1, n0, _SCAU,
 var StandardsControls: StaticListSchema = [1, n0, _SCtand,
   0, () => StandardsControl$
 ];
+var StandardsProviders = 64 | 0;
 var StandardsSubscriptionArns = 64 | 0;
 var StandardsSubscriptionRequests: StaticListSchema = [1, n0, _SSRt,
   0, () => StandardsSubscriptionRequest$
@@ -9235,6 +9430,9 @@ var VulnerabilityList: StaticListSchema = [1, n0, _VLu,
 var WafExcludedRuleList: StaticListSchema = [1, n0, _WERL,
   0, () => WafExcludedRule$
 ];
+var Features: StaticMapSchema = [2, n0, _Fe,
+  0, 0, () => FeatureDetail$
+];
 var FieldMap = 128 | 0;
 var ParameterDefinitions: StaticMapSchema = [2, n0, _PDar,
   0, 0, () => ParameterDefinition$
@@ -9254,6 +9452,21 @@ export var Criteria$: StaticUnionSchema = [4, n0, _Cr,
   [_OFC],
   [() => OcsfFindingFilters$]
 ];
+export var CspmProviderConfiguration$: StaticUnionSchema = [4, n0, _CPC,
+  0,
+  [_Az],
+  [() => AzureProviderConfiguration$]
+];
+export var CspmProviderDetail$: StaticUnionSchema = [4, n0, _CPD,
+  0,
+  [_Az],
+  [() => AzureDetail$]
+];
+export var CspmProviderUpdateConfiguration$: StaticUnionSchema = [4, n0, _CPUC,
+  0,
+  [_Az],
+  [() => AzureUpdateConfiguration$]
+];
 export var ParameterValue$: StaticUnionSchema = [4, n0, _PVa,
   0,
   [_Inte, _ILnt, _Dou, _Str, _SLtr, _Bo, _Enu, _ELnu],
@@ -9266,18 +9479,18 @@ export var Policy$: StaticUnionSchema = [4, n0, _Pol,
 ];
 export var ProviderConfiguration$: StaticUnionSchema = [4, n0, _PCro,
   0,
-  [_JC, _SNer],
-  [() => JiraCloudProviderConfiguration$, () => ServiceNowProviderConfiguration$]
+  [_JC, _SNer, _Az],
+  [() => JiraCloudProviderConfiguration$, () => ServiceNowProviderConfiguration$, () => AzureProviderConfiguration$]
 ];
 export var ProviderDetail$: StaticUnionSchema = [4, n0, _PD,
   0,
-  [_JC, _SNer],
-  [() => JiraCloudDetail$, () => ServiceNowDetail$]
+  [_JC, _SNer, _Az],
+  [() => JiraCloudDetail$, () => ServiceNowDetail$, () => AzureDetail$]
 ];
 export var ProviderUpdateConfiguration$: StaticUnionSchema = [4, n0, _PUC,
   0,
-  [_JC, _SNer],
-  [() => JiraCloudUpdateConfiguration$, () => ServiceNowUpdateConfiguration$]
+  [_JC, _SNer, _Az],
+  [() => JiraCloudUpdateConfiguration$, () => ServiceNowUpdateConfiguration$, () => AzureUpdateConfiguration$]
 ];
 export var RecommendationStep$: StaticUnionSchema = [4, n0, _RSeco,
   0,
@@ -9346,6 +9559,9 @@ export var CreateAutomationRuleV2$: StaticOperationSchema = [9, n0, _CARV,
 export var CreateConfigurationPolicy$: StaticOperationSchema = [9, n0, _CCP,
   { [_h]: ["POST", "/configurationPolicy/create", 200] }, () => CreateConfigurationPolicyRequest$, () => CreateConfigurationPolicyResponse$
 ];
+export var CreateConnector$: StaticOperationSchema = [9, n0, _CCr,
+  { [_h]: ["POST", "/connectors", 200] }, () => CreateConnectorRequest$, () => CreateConnectorResponse$
+];
 export var CreateConnectorV2$: StaticOperationSchema = [9, n0, _CCV,
   { [_h]: ["POST", "/connectorsv2", 200] }, () => CreateConnectorV2Request$, () => CreateConnectorV2Response$
 ];
@@ -9375,6 +9591,9 @@ export var DeleteAutomationRuleV2$: StaticOperationSchema = [9, n0, _DARV,
 ];
 export var DeleteConfigurationPolicy$: StaticOperationSchema = [9, n0, _DCP,
   { [_h]: ["DELETE", "/configurationPolicy/{Identifier}", 200] }, () => DeleteConfigurationPolicyRequest$, () => DeleteConfigurationPolicyResponse$
+];
+export var DeleteConnector$: StaticOperationSchema = [9, n0, _DCel,
+  { [_h]: ["DELETE", "/connectors/{ConnectorId+}", 200] }, () => DeleteConnectorRequest$, () => DeleteConnectorResponse$
 ];
 export var DeleteConnectorV2$: StaticOperationSchema = [9, n0, _DCV,
   { [_h]: ["DELETE", "/connectorsv2/{ConnectorId+}", 200] }, () => DeleteConnectorV2Request$, () => DeleteConnectorV2Response$
@@ -9424,6 +9643,9 @@ export var DisableOrganizationAdminAccount$: StaticOperationSchema = [9, n0, _DO
 export var DisableSecurityHub$: StaticOperationSchema = [9, n0, _DSH,
   { [_h]: ["DELETE", "/accounts", 200] }, () => DisableSecurityHubRequest$, () => DisableSecurityHubResponse$
 ];
+export var DisableSecurityHubFeatureV2$: StaticOperationSchema = [9, n0, _DSHFV,
+  { [_h]: ["DELETE", "/hubv2/feature/{FeatureName}", 200] }, () => DisableSecurityHubFeatureV2Request$, () => DisableSecurityHubFeatureV2Response$
+];
 export var DisableSecurityHubV2$: StaticOperationSchema = [9, n0, _DSHVi,
   { [_h]: ["DELETE", "/hubv2", 200] }, () => DisableSecurityHubV2Request$, () => DisableSecurityHubV2Response$
 ];
@@ -9445,6 +9667,9 @@ export var EnableOrganizationAdminAccount$: StaticOperationSchema = [9, n0, _EOA
 export var EnableSecurityHub$: StaticOperationSchema = [9, n0, _ESH,
   { [_h]: ["POST", "/accounts", 200] }, () => EnableSecurityHubRequest$, () => EnableSecurityHubResponse$
 ];
+export var EnableSecurityHubFeatureV2$: StaticOperationSchema = [9, n0, _ESHFV,
+  { [_h]: ["POST", "/hubv2/feature/{FeatureName}", 200] }, () => EnableSecurityHubFeatureV2Request$, () => EnableSecurityHubFeatureV2Response$
+];
 export var EnableSecurityHubV2$: StaticOperationSchema = [9, n0, _ESHV,
   { [_h]: ["POST", "/hubv2", 200] }, () => EnableSecurityHubV2Request$, () => EnableSecurityHubV2Response$
 ];
@@ -9465,6 +9690,9 @@ export var GetConfigurationPolicy$: StaticOperationSchema = [9, n0, _GCP,
 ];
 export var GetConfigurationPolicyAssociation$: StaticOperationSchema = [9, n0, _GCPA,
   { [_h]: ["POST", "/configurationPolicyAssociation/get", 200] }, () => GetConfigurationPolicyAssociationRequest$, () => GetConfigurationPolicyAssociationResponse$
+];
+export var GetConnector$: StaticOperationSchema = [9, n0, _GC,
+  { [_h]: ["GET", "/connectors/{ConnectorId+}", 200] }, () => GetConnectorRequest$, () => GetConnectorResponse$
 ];
 export var GetConnectorV2$: StaticOperationSchema = [9, n0, _GCV,
   { [_h]: ["GET", "/connectorsv2/{ConnectorId+}", 200] }, () => GetConnectorV2Request$, () => GetConnectorV2Response$
@@ -9538,6 +9766,9 @@ export var ListConfigurationPolicies$: StaticOperationSchema = [9, n0, _LCP,
 export var ListConfigurationPolicyAssociations$: StaticOperationSchema = [9, n0, _LCPA,
   { [_h]: ["POST", "/configurationPolicyAssociation/list", 200] }, () => ListConfigurationPolicyAssociationsRequest$, () => ListConfigurationPolicyAssociationsResponse$
 ];
+export var ListConnectors$: StaticOperationSchema = [9, n0, _LCi,
+  { [_h]: ["GET", "/connectors", 200] }, () => ListConnectorsRequest$, () => ListConnectorsResponse$
+];
 export var ListConnectorsV2$: StaticOperationSchema = [9, n0, _LCV,
   { [_h]: ["GET", "/connectorsv2", 200] }, () => ListConnectorsV2Request$, () => ListConnectorsV2Response$
 ];
@@ -9591,6 +9822,9 @@ export var UpdateAutomationRuleV2$: StaticOperationSchema = [9, n0, _UARV,
 ];
 export var UpdateConfigurationPolicy$: StaticOperationSchema = [9, n0, _UCP,
   { [_h]: ["PATCH", "/configurationPolicy/{Identifier}", 200] }, () => UpdateConfigurationPolicyRequest$, () => UpdateConfigurationPolicyResponse$
+];
+export var UpdateConnector$: StaticOperationSchema = [9, n0, _UC,
+  { [_h]: ["PATCH", "/connectors/{ConnectorId+}", 200] }, () => UpdateConnectorRequest$, () => UpdateConnectorResponse$
 ];
 export var UpdateConnectorV2$: StaticOperationSchema = [9, n0, _UCV,
   { [_h]: ["PATCH", "/connectorsv2/{ConnectorId+}", 200] }, () => UpdateConnectorV2Request$, () => UpdateConnectorV2Response$

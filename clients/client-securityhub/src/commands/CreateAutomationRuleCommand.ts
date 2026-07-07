@@ -191,6 +191,9 @@ export interface CreateAutomationRuleCommandOutput extends CreateAutomationRuleR
  *     ResourceApplicationArn: "<StringFilterList>",
  *     ResourceApplicationName: "<StringFilterList>",
  *     AwsAccountName: "<StringFilterList>",
+ *     ResourceProvider: "<StringFilterList>",
+ *     ResourceOwnerAccountId: "<StringFilterList>",
+ *     ResourceOwnerOrgId: "<StringFilterList>",
  *   },
  *   Actions: [ // ActionList // required
  *     { // AutomationRulesAction

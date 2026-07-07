@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetConnectorV2Request, GetConnectorV2Response } from "../models/models_2";
-import { GetConnectorV2$ } from "../schemas/schemas_0";
+import type { GetConnectorRequest, GetConnectorResponse } from "../models/models_2";
+import { GetConnector$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,41 +12,40 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link GetConnectorV2Command}.
+ * The input for {@link GetConnectorCommand}.
  */
-export interface GetConnectorV2CommandInput extends GetConnectorV2Request {}
+export interface GetConnectorCommandInput extends GetConnectorRequest {}
 /**
  * @public
  *
- * The output of {@link GetConnectorV2Command}.
+ * The output of {@link GetConnectorCommand}.
  */
-export interface GetConnectorV2CommandOutput extends GetConnectorV2Response, __MetadataBearer {}
+export interface GetConnectorCommandOutput extends GetConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Grants permission to retrieve details for a connectorV2 based on connector id.</p>
+ * <p>Retrieves details for a CSPM connector based on the connector ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SecurityHubClient, GetConnectorV2Command } from "@aws-sdk/client-securityhub"; // ES Modules import
- * // const { SecurityHubClient, GetConnectorV2Command } = require("@aws-sdk/client-securityhub"); // CommonJS import
+ * import { SecurityHubClient, GetConnectorCommand } from "@aws-sdk/client-securityhub"; // ES Modules import
+ * // const { SecurityHubClient, GetConnectorCommand } = require("@aws-sdk/client-securityhub"); // CommonJS import
  * // import type { SecurityHubClientConfig } from "@aws-sdk/client-securityhub";
  * const config = {}; // type is SecurityHubClientConfig
  * const client = new SecurityHubClient(config);
- * const input = { // GetConnectorV2Request
+ * const input = { // GetConnectorRequest
  *   ConnectorId: "STRING_VALUE", // required
  * };
- * const command = new GetConnectorV2Command(input);
+ * const command = new GetConnectorCommand(input);
  * const response = await client.send(command);
- * // { // GetConnectorV2Response
+ * // { // GetConnectorResponse
  * //   ConnectorArn: "STRING_VALUE",
  * //   ConnectorId: "STRING_VALUE", // required
  * //   Name: "STRING_VALUE", // required
  * //   Description: "STRING_VALUE",
- * //   KmsKeyArn: "STRING_VALUE",
  * //   CreatedAt: new Date("TIMESTAMP"), // required
  * //   LastUpdatedAt: new Date("TIMESTAMP"), // required
- * //   Health: { // HealthCheck
- * //     ConnectorStatus: "CONNECTED" || "DEGRADED" || "FAILED_TO_CONNECT" || "PENDING_AUTHORIZATION" || "PENDING_CONFIGURATION" || "UNKNOWN", // required
+ * //   Health: { // CspmHealthCheck
+ * //     ConnectorStatus: "CONNECTED" || "DEGRADED" || "FAILED_TO_CONNECT" || "UNKNOWN", // required
  * //     Message: "STRING_VALUE",
  * //     LastCheckedAt: new Date("TIMESTAMP"), // required
  * //     Issues: [ // HealthIssueList
@@ -56,19 +55,7 @@ export interface GetConnectorV2CommandOutput extends GetConnectorV2Response, __M
  * //       },
  * //     ],
  * //   },
- * //   ProviderDetail: { // ProviderDetail Union: only one key present
- * //     JiraCloud: { // JiraCloudDetail
- * //       CloudId: "STRING_VALUE",
- * //       ProjectKey: "STRING_VALUE",
- * //       Domain: "STRING_VALUE",
- * //       AuthUrl: "STRING_VALUE",
- * //       AuthStatus: "ACTIVE" || "FAILED",
- * //     },
- * //     ServiceNow: { // ServiceNowDetail
- * //       InstanceName: "STRING_VALUE",
- * //       SecretArn: "STRING_VALUE", // required
- * //       AuthStatus: "ACTIVE" || "FAILED", // required
- * //     },
+ * //   ProviderDetail: { // CspmProviderDetail Union: only one key present
  * //     Azure: { // AzureDetail
  * //       AWSConfigConnectorArn: "STRING_VALUE", // required
  * //       ScopeConfiguration: { // AzureScopeConfiguration
@@ -82,16 +69,16 @@ export interface GetConnectorV2CommandOutput extends GetConnectorV2Response, __M
  * //       ],
  * //     },
  * //   },
- * //   EnablementStatus: "ENABLED" || "PENDING_ENABLEMENT" || "FAILED_TO_ENABLE" || "PENDING_UPDATE" || "FAILED_TO_UPDATE" || "PENDING_DELETION" || "FAILED_TO_DELETE",
- * //   EnablementStatusReason: "STRING_VALUE",
+ * //   CreatedBy: "STRING_VALUE",
+ * //   EnablementStatus: "ENABLED" || "PENDING_ENABLEMENT" || "PENDING_UPDATE" || "PENDING_DELETION",
  * // };
  *
  * ```
  *
- * @param GetConnectorV2CommandInput - {@link GetConnectorV2CommandInput}
- * @returns {@link GetConnectorV2CommandOutput}
- * @see {@link GetConnectorV2CommandInput} for command's `input` shape.
- * @see {@link GetConnectorV2CommandOutput} for command's `response` shape.
+ * @param GetConnectorCommandInput - {@link GetConnectorCommandInput}
+ * @returns {@link GetConnectorCommandOutput}
+ * @see {@link GetConnectorCommandInput} for command's `input` shape.
+ * @see {@link GetConnectorCommandOutput} for command's `response` shape.
  * @see {@link SecurityHubClientResolvedConfig | config} for SecurityHubClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -104,6 +91,9 @@ export interface GetConnectorV2CommandOutput extends GetConnectorV2Response, __M
  *  <p>
  *          The request has failed due to an internal failure of the service.
  *       </p>
+ *
+ * @throws {@link InvalidAccessException} (client fault)
+ *  <p>The account doesn't have permission to perform this action.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request was rejected because we can't find the specified resource.</p>
@@ -120,23 +110,60 @@ export interface GetConnectorV2CommandOutput extends GetConnectorV2Response, __M
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  *
+ * @example To get details of a CSPM connector
+ * ```javascript
+ * // This operation retrieves details for a CSPM connector.
+ * const input = {
+ *   ConnectorId: "cspm-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ * };
+ * const command = new GetConnectorCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ConnectorArn: "arn:aws:securityhub:us-east-1:123456789012:connector/cspm-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   ConnectorId: "cspm-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   CreatedAt: "2026-01-15T10:30:00.000Z",
+ *   CreatedBy: "securityhub.amazonaws.com",
+ *   Description: "Connector for Azure tenant monitoring",
+ *   Health: {
+ *     ConnectorStatus: "CONNECTED",
+ *     LastCheckedAt: "2026-05-20T14:00:00.000Z"
+ *   },
+ *   LastUpdatedAt: "2026-05-20T14:00:00.000Z",
+ *   Name: "MyAzureConnector",
+ *   ProviderDetail: {
+ *     Azure: {
+ *       AWSConfigConnectorArn: "arn:aws:config:us-east-1:123456789012:connector/azure-connector-1234",
+ *       AzureRegions: [
+ *         "eastus",
+ *         "westus2"
+ *       ],
+ *       ScopeConfiguration: {
+ *         ScopeType: "TENANT"
+ *       }
+ *     }
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
-export class GetConnectorV2Command extends command<GetConnectorV2CommandInput, GetConnectorV2CommandOutput>(
+export class GetConnectorCommand extends command<GetConnectorCommandInput, GetConnectorCommandOutput>(
   _ep0,
   _mw0,
-  "GetConnectorV2",
-  GetConnectorV2$
+  "GetConnector",
+  GetConnector$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetConnectorV2Request;
-      output: GetConnectorV2Response;
+      input: GetConnectorRequest;
+      output: GetConnectorResponse;
     };
     sdk: {
-      input: GetConnectorV2CommandInput;
-      output: GetConnectorV2CommandOutput;
+      input: GetConnectorCommandInput;
+      output: GetConnectorCommandOutput;
     };
   };
 }

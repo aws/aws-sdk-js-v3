@@ -53,8 +53,9 @@ export interface BatchDisableStandardsCommandOutput extends BatchDisableStandard
  * //       StandardsStatus: "PENDING" || "READY" || "FAILED" || "DELETING" || "INCOMPLETE", // required
  * //       StandardsControlsUpdatable: "READY_FOR_UPDATES" || "NOT_READY_FOR_UPDATES",
  * //       StandardsStatusReason: { // StandardsStatusReason
- * //         StatusReasonCode: "NO_AVAILABLE_CONFIGURATION_RECORDER" || "MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED" || "INTERNAL_ERROR", // required
+ * //         StatusReasonCode: "NO_AVAILABLE_CONFIGURATION_RECORDER" || "MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED" || "NO_AVAILABLE_MULTICLOUD_CONNECTOR" || "INTERNAL_ERROR", // required
  * //       },
+ * //       Provider: "AWS" || "Azure",
  * //     },
  * //   ],
  * // };

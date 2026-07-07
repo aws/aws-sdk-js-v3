@@ -36,6 +36,9 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  * const input = { // DescribeStandardsRequest
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   Providers: [ // StandardsProviders
+ *     "AWS" || "Azure",
+ *   ],
  * };
  * const command = new DescribeStandardsCommand(input);
  * const response = await client.send(command);
@@ -46,6 +49,7 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //       EnabledByDefault: true || false,
+ * //       Provider: "AWS" || "Azure",
  * //       StandardsManagedBy: { // StandardsManagedBy
  * //         Company: "STRING_VALUE",
  * //         Product: "STRING_VALUE",

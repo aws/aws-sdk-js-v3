@@ -1912,6 +1912,24 @@ export interface AutomationRulesFindingFilters {
    * @public
    */
   AwsAccountName?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud provider that the resource belongs to. Valid values are <code>AWS</code> and <code>Azure</code>.</p>
+   * @public
+   */
+  ResourceProvider?: StringFilter[] | undefined;
+
+  /**
+   * <p>The unique identifier of the account that owns the resource that the finding applies to, for example, Azure Subscription Id or Amazon Web Services Account Id</p>
+   * @public
+   */
+  ResourceOwnerAccountId?: StringFilter[] | undefined;
+
+  /**
+   * <p>The unique identifier of the organization that owns the resource that the finding applies to, for example, Azure Tenant Id</p>
+   * @public
+   */
+  ResourceOwnerOrgId?: StringFilter[] | undefined;
 }
 
 /**
