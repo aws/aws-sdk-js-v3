@@ -10926,7 +10926,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/undici-http-handler@workspace:packages-internal/undici-http-handler"
   dependencies:
-    "@smithy/undici-http-handler": "npm:^2.2.5"
+    "@smithy/undici-http-handler": "npm:^3.0.0"
     "@tsconfig/recommended": "npm:1.0.1"
     concurrently: "npm:7.0.0"
     downlevel-dts: "npm:0.10.1"
@@ -15928,9 +15928,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/undici-http-handler@npm:^2.2.5":
-  version: 2.2.5
-  resolution: "@smithy/undici-http-handler@npm:2.2.5"
+"@smithy/undici-http-handler@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@smithy/undici-http-handler@npm:3.0.0"
   dependencies:
     "@smithy/core": "npm:^3.29.1"
     "@smithy/types": "npm:^4.15.1"
@@ -15938,7 +15938,7 @@ __metadata:
     undici: "npm:^7.0.0"
   peerDependencies:
     undici: ">=7.0.0"
-  checksum: 10c0/5023f0da12cd569a23a8755421dad5c608c05cdf48ec8360001d2479e948b9d056f78b8170d05cd038f93b51c3ffb181971763c8fab195c8b7ad164548778138
+  checksum: 10c0/8e7831398bd38ef62a764cbaed57f173a3e7859869aae56b240d4dbd904818f6f81dcbbd1c7b6e30d8610101cd19b1ec3997db4c29c28fbe2e9b62d80b987c5c
   languageName: node
   linkType: hard
 
