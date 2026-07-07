@@ -28,7 +28,7 @@ import { join, relative, sep } from "node:path";
 import { type RawDataPart, byteLength, getChunk } from "./chunker";
 import { handleFailure, Semaphore, validateDirectory } from "./directory-transfer-utils";
 import type { AddEventListenerOptions, EventListener, RemoveEventListenerOptions } from "./event-listener-types";
-import { joinStreams } from "./join-streams";
+import { destroyStreams, joinStreams } from "./join-streams";
 import { LogLevel } from "./log-level";
 import type {
   CannedFailurePolicy,
@@ -374,30 +374,6 @@ export class S3TransferManager implements IS3TransferManager {
 
     let onStreamConsumed: ((index: number) => void) | undefined;
 
-    if (this.multipartDownloadType === "PART") {
-      const responseMetadata = await this.downloadByPart(
-        request,
-        transferOptions ?? {},
-        streams,
-        requests,
-        metadata,
-        checksumValidationEnabled
-      );
-      totalSize = responseMetadata.totalSize;
-      onStreamConsumed = responseMetadata.onStreamConsumed;
-    } else if (this.multipartDownloadType === "RANGE") {
-      const responseMetadata = await this.downloadByRange(
-        request,
-        transferOptions ?? {},
-        streams,
-        requests,
-        metadata,
-        checksumValidationEnabled
-      );
-      totalSize = responseMetadata.totalSize;
-      onStreamConsumed = responseMetadata.onStreamConsumed;
-    }
-
     const removeLocalEventListeners = () => {
       this.removeEventListeners(transferOptions?.eventListeners);
       if (transferOptions?.abortSignal) {
@@ -405,6 +381,40 @@ export class S3TransferManager implements IS3TransferManager {
         this.abortCleanupFunctions.delete(transferOptions.abortSignal as AbortSignal);
       }
     };
+
+    try {
+      if (this.multipartDownloadType === "PART") {
+        const responseMetadata = await this.downloadByPart(
+          request,
+          transferOptions ?? {},
+          streams,
+          requests,
+          metadata,
+          checksumValidationEnabled
+        );
+        totalSize = responseMetadata.totalSize;
+        onStreamConsumed = responseMetadata.onStreamConsumed;
+      } else if (this.multipartDownloadType === "RANGE") {
+        const responseMetadata = await this.downloadByRange(
+          request,
+          transferOptions ?? {},
+          streams,
+          requests,
+          metadata,
+          checksumValidationEnabled
+        );
+        totalSize = responseMetadata.totalSize;
+        onStreamConsumed = responseMetadata.onStreamConsumed;
+      }
+    } catch (error) {
+      // On failure or abort, response bodies that were already received but not
+      // yet handed to joinStreams are orphaned. Destroy them (attaching a no-op
+      // error handler) so their underlying sockets don't raise an uncaught
+      // "aborted"/ECONNRESET error when torn down.
+      await destroyStreams(streams);
+      removeLocalEventListeners();
+      throw error;
+    }
 
     const response = {
       ...metadata,
@@ -463,7 +473,10 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @alpha
    */
-  public async uploadDirectory(request: UploadDirectoryRequest, transferOptions?: TransferOptions): Promise<UploadDirectoryResponse> {
+  public async uploadDirectory(
+    request: UploadDirectoryRequest,
+    transferOptions?: TransferOptions
+  ): Promise<UploadDirectoryResponse> {
     const absoluteSource = await validateDirectory(request.source);
     const maxConcurrency = request.maxConcurrency ?? 100;
     const failurePolicy = request.failurePolicy ?? ("terminate" as CannedFailurePolicy);
@@ -520,9 +533,10 @@ export class S3TransferManager implements IS3TransferManager {
       discoveredFiles++;
       discoveredBytes += fileStat.size;
 
-      const count = fileStat.size >= this.multipartUploadThresholdBytes
-        ? Math.min(Math.ceil(fileStat.size / this.targetPartSizeBytes), this.maxConcurrentUploads)
-        : 1;
+      const count =
+        fileStat.size >= this.multipartUploadThresholdBytes
+          ? Math.min(Math.ceil(fileStat.size / this.targetPartSizeBytes), this.maxConcurrentUploads)
+          : 1;
 
       await semaphore.acquire(count);
 
@@ -569,7 +583,10 @@ export class S3TransferManager implements IS3TransferManager {
           }
           const context: DirectoryTransferFailureContext = {
             request,
-            objectRequest: { Bucket: request.bucket, Key: this.deriveS3Key(absoluteSource, filePath, request.s3Prefix) },
+            objectRequest: {
+              Bucket: request.bucket,
+              Key: this.deriveS3Key(absoluteSource, filePath, request.s3Prefix),
+            },
             error,
           };
           const result = await handleFailure(failurePolicy, context, abortController);
@@ -627,7 +644,10 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @alpha
    */
-  public downloadDirectory(request: DownloadDirectoryRequest, transferOptions?: TransferOptions): Promise<DownloadDirectoryResponse> {
+  public downloadDirectory(
+    request: DownloadDirectoryRequest,
+    transferOptions?: TransferOptions
+  ): Promise<DownloadDirectoryResponse> {
     throw new Error("Method not implemented.");
   }
 
