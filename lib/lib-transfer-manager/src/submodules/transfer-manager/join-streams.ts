@@ -53,7 +53,7 @@ export async function* iterateStreams(
     try {
       stream = await streamPromise;
     } catch (e) {
-      await destroy(promises);
+      await destroyStreams(promises);
       eventListeners?.onFailure?.(e, index);
       throw e;
     }
@@ -71,7 +71,7 @@ export async function* iterateStreams(
           eventListeners?.onBytes?.(bytesTransferred, index);
         }
       } catch (e) {
-        await destroy(promises);
+        await destroyStreams(promises);
         eventListeners?.onFailure?.(e, index);
         throw e;
       } finally {
@@ -86,12 +86,12 @@ export async function* iterateStreams(
           eventListeners?.onBytes?.(bytesTransferred, index);
         }
       } catch (e) {
-        await destroy(promises);
+        await destroyStreams(promises);
         eventListeners?.onFailure?.(e, index);
         throw e;
       }
     } else {
-      await destroy(promises);
+      await destroyStreams(promises);
       const failure = new Error(`unhandled stream type ${(stream as any)?.constructor?.name}`);
       eventListeners?.onFailure?.(failure, index);
       throw failure;
@@ -104,15 +104,24 @@ export async function* iterateStreams(
 }
 
 /**
+ * Destroys/cancels a set of stream promises, swallowing any errors.
+ *
+ * Used to clean up response bodies that were received but never fully consumed
+ * (for example when a transfer is aborted). A no-op "error" handler is attached
+ * to Node streams before destroying so that a socket-level error raised while
+ * tearing down an unconsumed response body (e.g. "aborted"/ECONNRESET) does not
+ * surface as an uncaught exception.
+ *
  * @internal
  */
-async function destroy(promises: Promise<StreamingBlobPayloadOutputTypes>[]): Promise<void> {
+export async function destroyStreams(promises: Promise<StreamingBlobPayloadOutputTypes>[]): Promise<void> {
   await Promise.all(
     promises.map(async (streamPromise) => {
       if (!streamPromise) return;
       return streamPromise
         .then((stream) => {
           if (stream instanceof Readable) {
+            stream.on("error", () => {});
             stream.destroy();
             return;
           } else if (isReadableStream(stream)) {
