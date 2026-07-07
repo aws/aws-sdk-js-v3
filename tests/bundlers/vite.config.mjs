@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 export default defineConfig({
   build: {
-    lib: { entry: "./web-application-sample.ts", formats: ["umd"], name: "AwsSdkCanary" },
+    lib: { entry: "./web-application-sample.ts", formats: ["es"], name: "AwsSdkCanary" },
     outDir: "./dist/vite",
     minify: false,
     sourcemap: false,
