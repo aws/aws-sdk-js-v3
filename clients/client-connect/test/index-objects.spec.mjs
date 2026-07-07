@@ -131,8 +131,10 @@ import {
   AttributeCondition$,
   AudioFeatures$,
   AudioQualityMetricsInfo$,
+  AuthCodeEntityType,
   AuthenticationProfile$,
   AuthenticationProfileSummary$,
+  AuthScope$,
   AutoAcceptConfig$,
   AutoEvaluationConfiguration$,
   AutoEvaluationDetails$,
@@ -283,6 +285,10 @@ import {
   CreateAttachedFileCommand,
   CreateAttachedFileRequest$,
   CreateAttachedFileResponse$,
+  CreateAuthCode$,
+  CreateAuthCodeCommand,
+  CreateAuthCodeRequest$,
+  CreateAuthCodeResponse$,
   CreateCaseActionDefinition$,
   CreateContact$,
   CreateContactCommand,
@@ -549,6 +555,10 @@ import {
   DeleteSecurityProfile$,
   DeleteSecurityProfileCommand,
   DeleteSecurityProfileRequest$,
+  DeleteSession$,
+  DeleteSessionCommand,
+  DeleteSessionRequest$,
+  DeleteSessionResponse$,
   DeleteTaskTemplate$,
   DeleteTaskTemplateCommand,
   DeleteTaskTemplateRequest$,
@@ -2378,6 +2388,8 @@ assert(typeof CreateAgentStatusCommand === "function");
 assert(typeof CreateAgentStatus$ === "object");
 assert(typeof CreateAttachedFileCommand === "function");
 assert(typeof CreateAttachedFile$ === "object");
+assert(typeof CreateAuthCodeCommand === "function");
+assert(typeof CreateAuthCode$ === "object");
 assert(typeof CreateContactCommand === "function");
 assert(typeof CreateContact$ === "object");
 assert(typeof CreateContactFlowCommand === "function");
@@ -2500,6 +2512,8 @@ assert(typeof DeleteRuleCommand === "function");
 assert(typeof DeleteRule$ === "object");
 assert(typeof DeleteSecurityProfileCommand === "function");
 assert(typeof DeleteSecurityProfile$ === "object");
+assert(typeof DeleteSessionCommand === "function");
+assert(typeof DeleteSession$ === "object");
 assert(typeof DeleteTaskTemplateCommand === "function");
 assert(typeof DeleteTaskTemplate$ === "object");
 assert(typeof DeleteTestCaseCommand === "function");
@@ -3137,6 +3151,7 @@ assert(typeof AudioFeatures$ === "object");
 assert(typeof AudioQualityMetricsInfo$ === "object");
 assert(typeof AuthenticationProfile$ === "object");
 assert(typeof AuthenticationProfileSummary$ === "object");
+assert(typeof AuthScope$ === "object");
 assert(typeof AutoAcceptConfig$ === "object");
 assert(typeof AutoEvaluationConfiguration$ === "object");
 assert(typeof AutoEvaluationDetails$ === "object");
@@ -3228,6 +3243,8 @@ assert(typeof CreateAgentStatusRequest$ === "object");
 assert(typeof CreateAgentStatusResponse$ === "object");
 assert(typeof CreateAttachedFileRequest$ === "object");
 assert(typeof CreateAttachedFileResponse$ === "object");
+assert(typeof CreateAuthCodeRequest$ === "object");
+assert(typeof CreateAuthCodeResponse$ === "object");
 assert(typeof CreateCaseActionDefinition$ === "object");
 assert(typeof CreateContactFlowModuleAliasRequest$ === "object");
 assert(typeof CreateContactFlowModuleAliasResponse$ === "object");
@@ -3365,6 +3382,8 @@ assert(typeof DeleteQuickConnectRequest$ === "object");
 assert(typeof DeleteRoutingProfileRequest$ === "object");
 assert(typeof DeleteRuleRequest$ === "object");
 assert(typeof DeleteSecurityProfileRequest$ === "object");
+assert(typeof DeleteSessionRequest$ === "object");
+assert(typeof DeleteSessionResponse$ === "object");
 assert(typeof DeleteTaskTemplateRequest$ === "object");
 assert(typeof DeleteTaskTemplateResponse$ === "object");
 assert(typeof DeleteTestCaseRequest$ === "object");
@@ -4303,6 +4322,7 @@ assert(typeof ArtifactStatus === "object");
 assert(typeof AttachedFileInvalidRequestExceptionReason === "object");
 assert(typeof AttachedFileServiceQuotaExceededExceptionReason === "object");
 assert(typeof AttachmentScope === "object");
+assert(typeof AuthCodeEntityType === "object");
 assert(typeof AutoEvaluationStatus === "object");
 assert(typeof Behavior === "object");
 assert(typeof BehaviorType === "object");

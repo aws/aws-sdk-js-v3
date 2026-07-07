@@ -506,6 +506,18 @@ export type FailureReasonCode = (typeof FailureReasonCode)[keyof typeof FailureR
  * @public
  * @enum
  */
+export const AuthCodeEntityType = {
+  CUSTOMER_PROFILE: "CUSTOMER_PROFILE",
+} as const;
+/**
+ * @public
+ */
+export type AuthCodeEntityType = (typeof AuthCodeEntityType)[keyof typeof AuthCodeEntityType];
+
+/**
+ * @public
+ * @enum
+ */
 export const InitiateAs = {
   COMPLETED: "COMPLETED",
   CONNECTED_TO_USER: "CONNECTED_TO_USER",

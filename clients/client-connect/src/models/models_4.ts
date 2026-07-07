@@ -42,13 +42,11 @@ import type {
   TaskTemplateInfoV2,
   WisdomInfo,
 } from "./models_1";
-import type {
-  ContactSearchSummaryAgentInfo,
-  ContactSearchSummaryAiAgentInfo,
-  ContactSearchSummaryQueueInfo,
-} from "./models_2";
+import type { ContactSearchSummaryAgentInfo } from "./models_2";
 import type {
   ChatMessage,
+  ContactSearchSummaryAiAgentInfo,
+  ContactSearchSummaryQueueInfo,
   EmailAddressInfo,
   EmailAttachment,
   EvaluationFormQuestion,
@@ -59,10 +57,20 @@ import type {
   ParticipantDetails,
   PersistentChat,
   QueueInfoInput,
+  QuickConnectSearchCriteria,
+  QuickConnectSearchFilter,
   RoutingCriteriaInputStep,
+  RoutingProfileSearchCriteria,
+  RoutingProfileSearchFilter,
+  SecurityProfileSearchCriteria,
+  SecurityProfilesSearchFilter,
   SegmentAttributeValue,
   TaskAttachment,
   TemplatedMessageConfig,
+  TestCaseSearchCriteria,
+  TestCaseSearchFilter,
+  UserHierarchyGroupSearchCriteria,
+  UserHierarchyGroupSearchFilter,
   UserSearchCriteria,
   UserSearchFilter,
   ViewSearchCriteria,
@@ -72,6 +80,200 @@ import type {
   WorkspaceSearchCriteria,
   WorkspaceSearchFilter,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface SearchQuickConnectsRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: QuickConnectSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return quick connects.</p>
+   * @public
+   */
+  SearchCriteria?: QuickConnectSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchRoutingProfilesRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: RoutingProfileSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return routing profiles.</p>
+   *          <note>
+   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
+   *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+   *     outside of this range will throw invalid results. </p>
+   *          </note>
+   * @public
+   */
+  SearchCriteria?: RoutingProfileSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchSecurityProfilesRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The search criteria to be used to return security profiles. </p>
+   *          <note>
+   *             <p>The <code>name</code> field support "contains" queries with a minimum of 2 characters and maximum of 25
+   *     characters. Any queries with character lengths outside of this range will throw invalid results.</p>
+   *          </note>
+   *          <note>
+   *             <p>The currently supported value for <code>FieldName</code>: <code>name</code>
+   *             </p>
+   *          </note>
+   * @public
+   */
+  SearchCriteria?: SecurityProfileSearchCriteria | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: SecurityProfilesSearchFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchTestCasesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: TestCaseSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return test cases.</p>
+   * @public
+   */
+  SearchCriteria?: TestCaseSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchUserHierarchyGroupsRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
+   *    instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: UserHierarchyGroupSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return UserHierarchyGroups.</p>
+   * @public
+   */
+  SearchCriteria?: UserHierarchyGroupSearchCriteria | undefined;
+}
 
 /**
  * @public

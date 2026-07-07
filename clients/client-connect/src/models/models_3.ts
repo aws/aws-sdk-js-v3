@@ -2,6 +2,7 @@
 import type {
   AgentAvailabilityTimer,
   AgentStatusState,
+  AiUseCase,
   AnalyticsMode,
   AttachmentScope,
   Behavior,
@@ -104,11 +105,11 @@ import type {
   UserPhoneConfig,
   UserProficiency,
   Validation,
-  ViewInputContent,
   VoiceEnhancementConfig,
 } from "./models_0";
 import type {
   AttributeCondition,
+  DataTable,
   EvaluationAnswerData,
   EvaluationNote,
   ExtensionConfiguration,
@@ -122,6 +123,7 @@ import type {
   RoutingProfile,
   TestCase,
   View,
+  ViewInputContent,
   WorkspaceTheme,
 } from "./models_1";
 import type {
@@ -129,15 +131,124 @@ import type {
   ContactFlowModuleSearchFilter,
   ContactFlowSearchFilter,
   ControlPlaneTagFilter,
-  DataTableSearchFilter,
   DateTimeCondition,
   DecimalCondition,
-  EmailAddressSearchFilter,
   EvaluationSearchFilter,
   NumberCondition,
   SignInConfig,
   TelephonyConfig,
 } from "./models_2";
+
+/**
+ * <p>Information of the AI agent involved in the contact.</p>
+ * @public
+ */
+export interface ContactSearchSummaryAiAgentInfo {
+  /**
+   * <p>The unique identifier that specifies both the AI agent ID and its version number that was
+   *    involved in the contact.</p>
+   * @public
+   */
+  AiAgentVersionId?: string | undefined;
+
+  /**
+   * <p>A boolean flag indicating whether the contact initially handled by this AI agent was
+   *    escalated to a human agent.</p>
+   * @public
+   */
+  AiAgentEscalated?: boolean | undefined;
+
+  /**
+   * <p>The use case or scenario for which the AI agent is involved in the contact. Valid values
+   *    are <code>AgentAssistance</code> and <code>SelfService</code>.</p>
+   * @public
+   */
+  AiUseCase?: AiUseCase | undefined;
+}
+
+/**
+ * <p>If this contact was queued, this contains information about the queue.</p>
+ * @public
+ */
+export interface ContactSearchSummaryQueueInfo {
+  /**
+   * <p>The unique identifier for the queue.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The timestamp when the contact was added to the queue.</p>
+   * @public
+   */
+  EnqueueTimestamp?: Date | undefined;
+}
+
+/**
+ * <p>A data table search filter.</p>
+ * @public
+ */
+export interface DataTableSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
+   *     <code>OR</code> or <code>AND</code> (List of List) input where:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The top level list specifies conditions that need to be applied with <code>OR</code> operator.</p>
+   *             </li>
+   *             <li>
+   *                <p>The inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AttributeFilter?: ControlPlaneAttributeFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchDataTablesResponse {
+  /**
+   * <p>An array of data tables matching the search criteria with the same structure as DescribeTable except Version,
+   *    VersionDescription, and LockVersion are omitted.</p>
+   * @public
+   */
+  DataTables?: DataTable[] | undefined;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The approximate number of data tables that matched the search criteria.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number | undefined;
+}
+
+/**
+ * <p>Filters to be applied to search results.</p>
+ * @public
+ */
+export interface EmailAddressSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
+   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagFilter?: ControlPlaneTagFilter | undefined;
+}
 
 /**
  * <p>Contains information about an email address for a contact center.</p>
@@ -8165,198 +8276,4 @@ export interface SearchQueuesRequest {
    * @public
    */
   SearchCriteria?: QueueSearchCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchQuickConnectsRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Filters to be applied to search results.</p>
-   * @public
-   */
-  SearchFilter?: QuickConnectSearchFilter | undefined;
-
-  /**
-   * <p>The search criteria to be used to return quick connects.</p>
-   * @public
-   */
-  SearchCriteria?: QuickConnectSearchCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchRoutingProfilesRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Filters to be applied to search results.</p>
-   * @public
-   */
-  SearchFilter?: RoutingProfileSearchFilter | undefined;
-
-  /**
-   * <p>The search criteria to be used to return routing profiles.</p>
-   *          <note>
-   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
-   *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
-   *     outside of this range will throw invalid results. </p>
-   *          </note>
-   * @public
-   */
-  SearchCriteria?: RoutingProfileSearchCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchSecurityProfilesRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The search criteria to be used to return security profiles. </p>
-   *          <note>
-   *             <p>The <code>name</code> field support "contains" queries with a minimum of 2 characters and maximum of 25
-   *     characters. Any queries with character lengths outside of this range will throw invalid results.</p>
-   *          </note>
-   *          <note>
-   *             <p>The currently supported value for <code>FieldName</code>: <code>name</code>
-   *             </p>
-   *          </note>
-   * @public
-   */
-  SearchCriteria?: SecurityProfileSearchCriteria | undefined;
-
-  /**
-   * <p>Filters to be applied to search results.</p>
-   * @public
-   */
-  SearchFilter?: SecurityProfilesSearchFilter | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchTestCasesRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Filters to be applied to search results.</p>
-   * @public
-   */
-  SearchFilter?: TestCaseSearchFilter | undefined;
-
-  /**
-   * <p>The search criteria to be used to return test cases.</p>
-   * @public
-   */
-  SearchCriteria?: TestCaseSearchCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchUserHierarchyGroupsRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
-   *    instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Filters to be applied to search results.</p>
-   * @public
-   */
-  SearchFilter?: UserHierarchyGroupSearchFilter | undefined;
-
-  /**
-   * <p>The search criteria to be used to return UserHierarchyGroups.</p>
-   * @public
-   */
-  SearchCriteria?: UserHierarchyGroupSearchCriteria | undefined;
 }

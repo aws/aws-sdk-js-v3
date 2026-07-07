@@ -173,6 +173,11 @@ import {
   CreateAttachedFileCommand,
 } from "./commands/CreateAttachedFileCommand";
 import {
+  type CreateAuthCodeCommandInput,
+  type CreateAuthCodeCommandOutput,
+  CreateAuthCodeCommand,
+} from "./commands/CreateAuthCodeCommand";
+import {
   type CreateContactCommandInput,
   type CreateContactCommandOutput,
   CreateContactCommand,
@@ -477,6 +482,11 @@ import {
   type DeleteSecurityProfileCommandOutput,
   DeleteSecurityProfileCommand,
 } from "./commands/DeleteSecurityProfileCommand";
+import {
+  type DeleteSessionCommandInput,
+  type DeleteSessionCommandOutput,
+  DeleteSessionCommand,
+} from "./commands/DeleteSessionCommand";
 import {
   type DeleteTaskTemplateCommandInput,
   type DeleteTaskTemplateCommandOutput,
@@ -1988,6 +1998,7 @@ const commands = {
   CompleteAttachedFileUploadCommand,
   CreateAgentStatusCommand,
   CreateAttachedFileCommand,
+  CreateAuthCodeCommand,
   CreateContactCommand,
   CreateContactFlowCommand,
   CreateContactFlowModuleCommand,
@@ -2049,6 +2060,7 @@ const commands = {
   DeleteRoutingProfileCommand,
   DeleteRuleCommand,
   DeleteSecurityProfileCommand,
+  DeleteSessionCommand,
   DeleteTaskTemplateCommand,
   DeleteTestCaseCommand,
   DeleteTrafficDistributionGroupCommand,
@@ -2996,6 +3008,23 @@ export interface Connect {
     args: CreateAttachedFileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAttachedFileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAuthCodeCommand}
+   */
+  createAuthCode(
+    args: CreateAuthCodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAuthCodeCommandOutput>;
+  createAuthCode(
+    args: CreateAuthCodeCommandInput,
+    cb: (err: any, data?: CreateAuthCodeCommandOutput) => void
+  ): void;
+  createAuthCode(
+    args: CreateAuthCodeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAuthCodeCommandOutput) => void
   ): void;
 
   /**
@@ -4033,6 +4062,23 @@ export interface Connect {
     args: DeleteSecurityProfileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSecurityProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSessionCommand}
+   */
+  deleteSession(
+    args: DeleteSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSessionCommandOutput>;
+  deleteSession(
+    args: DeleteSessionCommandInput,
+    cb: (err: any, data?: DeleteSessionCommandOutput) => void
+  ): void;
+  deleteSession(
+    args: DeleteSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSessionCommandOutput) => void
   ): void;
 
   /**

@@ -175,6 +175,7 @@ import type {
   CreateAttachedFileCommandInput,
   CreateAttachedFileCommandOutput,
 } from "./commands/CreateAttachedFileCommand";
+import type { CreateAuthCodeCommandInput, CreateAuthCodeCommandOutput } from "./commands/CreateAuthCodeCommand";
 import type { CreateContactCommandInput, CreateContactCommandOutput } from "./commands/CreateContactCommand";
 import type {
   CreateContactFlowCommandInput,
@@ -368,6 +369,7 @@ import type {
   DeleteSecurityProfileCommandInput,
   DeleteSecurityProfileCommandOutput,
 } from "./commands/DeleteSecurityProfileCommand";
+import type { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "./commands/DeleteSessionCommand";
 import type {
   DeleteTaskTemplateCommandInput,
   DeleteTaskTemplateCommandOutput,
@@ -1348,6 +1350,7 @@ export type ServiceInputTypes =
   | CompleteAttachedFileUploadCommandInput
   | CreateAgentStatusCommandInput
   | CreateAttachedFileCommandInput
+  | CreateAuthCodeCommandInput
   | CreateContactCommandInput
   | CreateContactFlowCommandInput
   | CreateContactFlowModuleAliasCommandInput
@@ -1409,6 +1412,7 @@ export type ServiceInputTypes =
   | DeleteRoutingProfileCommandInput
   | DeleteRuleCommandInput
   | DeleteSecurityProfileCommandInput
+  | DeleteSessionCommandInput
   | DeleteTaskTemplateCommandInput
   | DeleteTestCaseCommandInput
   | DeleteTrafficDistributionGroupCommandInput
@@ -1728,6 +1732,7 @@ export type ServiceOutputTypes =
   | CompleteAttachedFileUploadCommandOutput
   | CreateAgentStatusCommandOutput
   | CreateAttachedFileCommandOutput
+  | CreateAuthCodeCommandOutput
   | CreateContactCommandOutput
   | CreateContactFlowCommandOutput
   | CreateContactFlowModuleAliasCommandOutput
@@ -1789,6 +1794,7 @@ export type ServiceOutputTypes =
   | DeleteRoutingProfileCommandOutput
   | DeleteRuleCommandOutput
   | DeleteSecurityProfileCommandOutput
+  | DeleteSessionCommandOutput
   | DeleteTaskTemplateCommandOutput
   | DeleteTestCaseCommandOutput
   | DeleteTrafficDistributionGroupCommandOutput

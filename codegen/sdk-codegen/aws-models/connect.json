@@ -1387,6 +1387,9 @@
           "target": "com.amazonaws.connect#CreateAttachedFile"
         },
         {
+          "target": "com.amazonaws.connect#CreateAuthCode"
+        },
+        {
           "target": "com.amazonaws.connect#CreateContact"
         },
         {
@@ -1568,6 +1571,9 @@
         },
         {
           "target": "com.amazonaws.connect#DeleteSecurityProfile"
+        },
+        {
+          "target": "com.amazonaws.connect#DeleteSession"
         },
         {
           "target": "com.amazonaws.connect#DeleteTaskTemplate"
@@ -5890,6 +5896,59 @@
       "type": "float",
       "traits": {
         "smithy.api#default": 0
+      }
+    },
+    "com.amazonaws.connect#AuthCode": {
+      "type": "string",
+      "traits": {
+        "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.connect#AuthCodeEntityType": {
+      "type": "enum",
+      "members": {
+        "CUSTOMER_PROFILE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CUSTOMER_PROFILE"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The type of entity associated with an authorization code in Connect Customer.</p>"
+      }
+    },
+    "com.amazonaws.connect#AuthScope": {
+      "type": "structure",
+      "members": {
+        "SecurityProfileIds": {
+          "target": "com.amazonaws.connect#SecurityProfileIds",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of security profile identifiers to scope the session to. Maximum of 10 security profiles.</p>"
+          }
+        },
+        "EntityType": {
+          "target": "com.amazonaws.connect#AuthCodeEntityType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of entity to scope the session to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EntityId": {
+          "target": "com.amazonaws.connect#EntityId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the entity to scope the session to.</p>"
+          }
+        },
+        "DomainName": {
+          "target": "com.amazonaws.connect#CustomerProfilesDomainName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Customer Profiles domain to scope the session to.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains the scope configuration for an authorization code. Defines the permissions and access boundaries for\n   the session.</p>"
       }
     },
     "com.amazonaws.connect#AuthenticationError": {
@@ -10730,6 +10789,112 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.connect#CreateAuthCode": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#CreateAuthCodeRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#CreateAuthCodeResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates an authorization code for the specified Connect Customer instance. The authorization code can be used\n   to establish a session with scoped permissions defined by the specified scope parameters.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/auth/code/{InstanceId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#CreateAuthCodeRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Scope": {
+          "target": "com.amazonaws.connect#AuthScope",
+          "traits": {
+            "smithy.api#documentation": "<p>The scope for the authorization code. Defines the permissions and access boundaries for the session.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MaxSessionDurationMinutes": {
+          "target": "com.amazonaws.connect#MaxSessionDurationMinutes",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum duration of the session, in minutes. Minimum value of 1440 (24 hours). Maximum value of 43200 (30\n   days). If no value is provided, the session will expire after 400 days.</p>"
+          }
+        },
+        "SessionInactivityDurationMinutes": {
+          "target": "com.amazonaws.connect#SessionInactivityDurationMinutes",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The duration of inactivity, in minutes, after which the session expires. Minimum value of 1440 (24 hours).\n   Maximum value of 20160 (14 days).</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.connect#CreateAuthCodeResponse": {
+      "type": "structure",
+      "members": {
+        "AuthCode": {
+          "target": "com.amazonaws.connect#AuthCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The authorization code to use for establishing a session.</p>"
+          }
+        },
+        "SessionId": {
+          "target": "com.amazonaws.connect#SessionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the session created with the authorization code.</p>"
+          }
+        },
+        "EntityType": {
+          "target": "com.amazonaws.connect#AuthCodeEntityType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of entity associated with the authorization code.</p>"
+          }
+        },
+        "EntityId": {
+          "target": "com.amazonaws.connect#EntityId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the entity associated with the authorization code.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.connect#CreateCaseActionDefinition": {
       "type": "structure",
       "members": {
@@ -15315,6 +15480,16 @@
         }
       }
     },
+    "com.amazonaws.connect#CustomerProfilesDomainName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9_-]+$"
+      }
+    },
     "com.amazonaws.connect#CustomerQualityMetrics": {
       "type": "structure",
       "members": {
@@ -18061,6 +18236,74 @@
       },
       "traits": {
         "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.connect#DeleteSession": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#DeleteSessionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#DeleteSessionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes a session for the specified Connect Customer instance.</p>",
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/auth/sessions/{InstanceId}/{SessionId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#DeleteSessionRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "SessionId": {
+          "target": "com.amazonaws.connect#SessionId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the session to delete.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.connect#DeleteSessionResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.connect#DeleteTaskTemplate": {
@@ -23790,6 +24033,16 @@
         }
       }
     },
+    "com.amazonaws.connect#EntityId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": ".*"
+      }
+    },
     "com.amazonaws.connect#EntityType": {
       "type": "enum",
       "members": {
@@ -28996,6 +29249,9 @@
           "target": "com.amazonaws.connect#ResourceNotFoundException"
         },
         {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        },
+        {
           "target": "com.amazonaws.connect#UserNotFoundException"
         }
       ],
@@ -29027,6 +29283,18 @@
     "com.amazonaws.connect#GetFederationTokenResponse": {
       "type": "structure",
       "members": {
+        "UserId": {
+          "target": "com.amazonaws.connect#AgentResourceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the user. This can be the ID or the ARN of the user.</p>"
+          }
+        },
+        "UserArn": {
+          "target": "com.amazonaws.connect#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the user.</p>"
+          }
+        },
         "Credentials": {
           "target": "com.amazonaws.connect#Credentials",
           "traits": {
@@ -29037,18 +29305,6 @@
           "target": "com.amazonaws.connect#Url",
           "traits": {
             "smithy.api#documentation": "<p>The URL to sign into the user's instance. </p>"
-          }
-        },
-        "UserArn": {
-          "target": "com.amazonaws.connect#ARN",
-          "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the user.</p>"
-          }
-        },
-        "UserId": {
-          "target": "com.amazonaws.connect#AgentResourceId",
-          "traits": {
-            "smithy.api#documentation": "<p>The identifier for the user. This can be the ID or the ARN of the user.</p>"
           }
         }
       },
@@ -39727,6 +39983,15 @@
         "smithy.api#range": {
           "min": 1,
           "max": 100
+        }
+      }
+    },
+    "com.amazonaws.connect#MaxSessionDurationMinutes": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1440,
+          "max": 43200
         }
       }
     },
@@ -52836,6 +53101,25 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The reason for the exception.</p>"
+      }
+    },
+    "com.amazonaws.connect#SessionId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 36
+        }
+      }
+    },
+    "com.amazonaws.connect#SessionInactivityDurationMinutes": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 0,
+          "max": 20160
+        }
       }
     },
     "com.amazonaws.connect#SignInConfig": {
