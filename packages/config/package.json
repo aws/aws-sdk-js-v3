@@ -95,7 +95,7 @@
     "@smithy/core": "^3.29.1",
     "@smithy/fetch-http-handler": "^5.6.3",
     "@smithy/node-http-handler": "^4.9.3",
-    "@smithy/typecheck": "^1.2.5",
+    "@smithy/typecheck": "^1.2.6",
     "@smithy/types": "^4.15.1",
     "tslib": "^2.6.2"
   },
