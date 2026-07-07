@@ -126,7 +126,7 @@ async function generateChangelog(packagePath, since) {
   let newVersion;
   const minorBump = changelog.some((e) => e.type === "feat");
   const patchBump = !minorBump && changelog.length > 0;
-  if (changelog.length > 0 && isUnreleasedBaselineVersion) {
+  if (isUnreleasedBaselineVersion) {
     // Keep the current X.0.0 version as-is for its first release.
     newVersion = pkgJson.version;
   } else if (minorBump) {
