@@ -111,16 +111,30 @@ async function generateChangelog(packagePath, since) {
   const changelog = JSON.parse(`[${processedRows.slice(0, -1)}]`);
   changelog.forEach(parseMessage);
 
+  // Publish a fresh baseline version (minor === 0 && patch === 0, e.g. 2.0.0 or 3.0.0) as-is
+  // instead of applying a conventional-commit bump, as long as that exact version has not
+  // been released yet. This lets us intentionally introduce a new major/initial version
+  // without it being incremented (e.g. a "feat" commit bumping 2.0.0 -> 2.1.0). Once that
+  // baseline version has a CHANGELOG.md entry, normal minor/patch bumping resumes.
+  const isNewBaselineVersion = semver.minor(pkgJson.version) === 0 && semver.patch(pkgJson.version) === 0;
+  const escapedVersion = pkgJson.version.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const isVersionAlreadyReleased =
+    fs.existsSync(changelog_md) &&
+    new RegExp(`^#\\s+${escapedVersion}(?![\\d.])`, "m").test(fs.readFileSync(changelog_md, "utf-8"));
+  const isUnreleasedBaselineVersion = isNewBaselineVersion && !isVersionAlreadyReleased;
+
   let newVersion;
   const minorBump = changelog.some((e) => e.type === "feat");
-  if (minorBump) {
-    newVersion = writeNewVersion("minor", pkg_json);
-  }
   const patchBump = !minorBump && changelog.length > 0;
-  if (patchBump) {
+  if (changelog.length > 0 && isUnreleasedBaselineVersion) {
+    // Keep the current X.0.0 version as-is for its first release.
+    newVersion = pkgJson.version;
+  } else if (minorBump) {
+    newVersion = writeNewVersion("minor", pkg_json);
+  } else if (patchBump) {
     newVersion = writeNewVersion("patch", pkg_json);
   }
-  if (minorBump || patchBump) {
+  if (newVersion) {
     const md = createChangelogEntryMarkdown(changelog, newVersion);
     if (!fs.existsSync(changelog_md)) {
       fs.writeFileSync(changelog_md, `# Change Log\n\n`, "utf-8");
