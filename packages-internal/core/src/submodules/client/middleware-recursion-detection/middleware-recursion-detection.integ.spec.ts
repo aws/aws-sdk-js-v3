@@ -128,6 +128,91 @@ describe("middleware-recursion-detection", () => {
       expect.hasAssertions();
     });
 
+    it("should NOT overwrite existing traceparent or add tracestate/baggage from InvokeStore when traceparent is already set", async () => {
+      const existingTraceparent = "00-abcdef1234567890abcdef1234567890-1234567890abcdef-01";
+      const mockTraceparent = "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01";
+      const mockTracestate = "congo=t61rcWkgMzE";
+      const mockBaggage = "userId=alice,serverNode=DF%2028";
+      vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
+        getXRayTraceId: () => undefined,
+        getTraceparent: () => mockTraceparent,
+        getTracestate: () => mockTracestate,
+        getBaggage: () => mockBaggage,
+      } as any);
+
+      const client = new Lambda({
+        region: "us-west-2",
+      });
+
+      // Add middleware that sets traceparent before recursion detection runs.
+      // recursionDetectionMiddleware runs at build step with low priority,
+      // so we add at build step with high priority to run first.
+      client.middlewareStack.add(
+        (next) => async (args: any) => {
+          args.request.headers["traceparent"] = existingTraceparent;
+          return next(args);
+        },
+        { step: "build", priority: "high", name: "testSetTraceparent", override: true }
+      );
+
+      requireRequestsFrom(client).toMatch({
+        headers: {
+          traceparent: new RegExp(`^${existingTraceparent.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`),
+          tracestate: (value: any) => expect(value).toBeUndefined(),
+          baggage: (value: any) => expect(value).toBeUndefined(),
+        },
+      });
+
+      await client.invoke({
+        FunctionName: "my-function",
+      });
+
+      expect.hasAssertions();
+    });
+
+    it("should preserve existing traceparent, tracestate, and baggage without overwriting from InvokeStore", async () => {
+      const existingTraceparent = "00-abcdef1234567890abcdef1234567890-1234567890abcdef-01";
+      const existingTracestate = "vendor1=opaqueValue1";
+      const existingBaggage = "key1=value1";
+      const mockTraceparent = "00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01";
+      const mockTracestate = "congo=t61rcWkgMzE";
+      const mockBaggage = "userId=alice,serverNode=DF%2028";
+      vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
+        getXRayTraceId: () => undefined,
+        getTraceparent: () => mockTraceparent,
+        getTracestate: () => mockTracestate,
+        getBaggage: () => mockBaggage,
+      } as any);
+
+      const client = new Lambda({
+        region: "us-west-2",
+      });
+
+      client.middlewareStack.add(
+        (next) => async (args: any) => {
+          args.request.headers["traceparent"] = existingTraceparent;
+          args.request.headers["tracestate"] = existingTracestate;
+          args.request.headers["baggage"] = existingBaggage;
+          return next(args);
+        },
+        { step: "build", priority: "high", name: "testSetTraceHeaders", override: true }
+      );
+
+      requireRequestsFrom(client).toMatch({
+        headers: {
+          traceparent: new RegExp(`^${existingTraceparent.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`),
+          tracestate: new RegExp(`^${existingTracestate.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`),
+          baggage: new RegExp(`^${existingBaggage.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`),
+        },
+      });
+
+      await client.invoke({
+        FunctionName: "my-function",
+      });
+
+      expect.hasAssertions();
+    });
+
     it("should NOT add W3C headers when InvokeStore has no traceparent", async () => {
       vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
         getXRayTraceId: () => undefined,

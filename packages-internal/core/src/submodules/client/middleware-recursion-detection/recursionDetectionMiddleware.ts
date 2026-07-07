@@ -65,19 +65,21 @@ export const recursionDetectionMiddleware =
 
       sanitizeTraceHeaders(request.headers);
 
-      const traceparent =
-        request.headers[TRACEPARENT] ?? (invokeStore ??= await InvokeStore.getInstanceAsync())?.getTraceparent();
-      if (traceparent) {
-        // traceparent is required.
-        request.headers[TRACEPARENT] = traceparent;
+      const existingTraceparent = request.headers[TRACEPARENT];
 
-        const tracestate = invokeStore?.getTracestate?.();
-        if (tracestate) {
-          request.headers[TRACESTATE] = tracestate;
-        }
-        const baggage = invokeStore?.getBaggage?.();
-        if (baggage) {
-          request.headers[BAGGAGE] = baggage;
+      if (!existingTraceparent) {
+        const traceparent = (invokeStore ??= await InvokeStore.getInstanceAsync())?.getTraceparent?.();
+        if (traceparent) {
+          request.headers[TRACEPARENT] = traceparent;
+
+          const tracestate = invokeStore?.getTracestate?.();
+          if (tracestate) {
+            request.headers[TRACESTATE] = tracestate;
+          }
+          const baggage = invokeStore?.getBaggage?.();
+          if (baggage) {
+            request.headers[BAGGAGE] = baggage;
+          }
         }
       }
     }

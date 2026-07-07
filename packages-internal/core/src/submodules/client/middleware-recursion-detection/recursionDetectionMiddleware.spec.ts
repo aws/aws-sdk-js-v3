@@ -256,7 +256,7 @@ describe(recursionDetectionMiddleware.name, () => {
       expect(request.headers["baggage"]).toBeUndefined();
     });
 
-    it("should preserve existing traceparent header and add tracestate/baggage from InvokeStore", async () => {
+    it("should preserve existing traceparent header and NOT add tracestate/baggage from InvokeStore", async () => {
       const existingTraceparent = "00-abcdef1234567890abcdef1234567890-1234567890abcdef-01";
       vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
         getXRayTraceId: () => undefined,
@@ -277,8 +277,37 @@ describe(recursionDetectionMiddleware.name, () => {
 
       const { request } = mockNextHandler.mock.calls[0][0];
       expect(request.headers["traceparent"]).toBe(existingTraceparent);
-      expect(request.headers["tracestate"]).toBe(mockTracestate);
-      expect(request.headers["baggage"]).toBe(mockBaggage);
+      expect(request.headers["tracestate"]).toBeUndefined();
+      expect(request.headers["baggage"]).toBeUndefined();
+    });
+
+    it("should preserve existing traceparent, tracestate, and baggage headers without overwriting from InvokeStore", async () => {
+      const existingTraceparent = "00-abcdef1234567890abcdef1234567890-1234567890abcdef-01";
+      const existingTracestate = "vendor1=opaqueValue1";
+      const existingBaggage = "key1=value1";
+      vi.spyOn(InvokeStore, "getInstanceAsync").mockResolvedValue({
+        getXRayTraceId: () => undefined,
+        getTraceparent: () => mockTraceparent,
+        getTracestate: () => mockTracestate,
+        getBaggage: () => mockBaggage,
+      } as any);
+
+      const handler = recursionDetectionMiddleware()(mockNextHandler, {} as any);
+      await handler({
+        input: {},
+        request: new HttpRequest({
+          headers: {
+            traceparent: existingTraceparent,
+            tracestate: existingTracestate,
+            baggage: existingBaggage,
+          },
+        }),
+      });
+
+      const { request } = mockNextHandler.mock.calls[0][0];
+      expect(request.headers["traceparent"]).toBe(existingTraceparent);
+      expect(request.headers["tracestate"]).toBe(existingTracestate);
+      expect(request.headers["baggage"]).toBe(existingBaggage);
     });
 
     it("should not overwrite existing traceparent when InvokeStore also has one", async () => {
