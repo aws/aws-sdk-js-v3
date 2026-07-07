@@ -6855,6 +6855,28 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@aws-sdk/client-partnercentral-revenue-measurement@workspace:clients/client-partnercentral-revenue-measurement":
+  version: 0.0.0-use.local
+  resolution: "@aws-sdk/client-partnercentral-revenue-measurement@workspace:clients/client-partnercentral-revenue-measurement"
+  dependencies:
+    "@aws-sdk/core": "workspace:^3.974.28"
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.63"
+    "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.38"
+    "@aws-sdk/types": "workspace:^3.973.15"
+    "@smithy/core": "npm:^3.29.0"
+    "@smithy/fetch-http-handler": "npm:^5.6.2"
+    "@smithy/node-http-handler": "npm:^4.9.2"
+    "@smithy/types": "npm:^4.15.1"
+    "@tsconfig/node20": "npm:20.1.8"
+    "@types/node": "npm:^20.14.8"
+    concurrently: "npm:7.0.0"
+    downlevel-dts: "npm:0.10.1"
+    premove: "npm:4.0.0"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:~5.8.3"
+  languageName: unknown
+  linkType: soft
+
 "@aws-sdk/client-partnercentral-selling@workspace:clients/client-partnercentral-selling":
   version: 0.0.0-use.local
   resolution: "@aws-sdk/client-partnercentral-selling@workspace:clients/client-partnercentral-selling"
