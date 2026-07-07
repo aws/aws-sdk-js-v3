@@ -173,6 +173,10 @@ import type {
   ListManagedFirewallDomainListsCommandOutput,
 } from "./commands/ListManagedFirewallDomainListsCommand";
 import type {
+  ListSharedDNSViewsCommandInput,
+  ListSharedDNSViewsCommandOutput,
+} from "./commands/ListSharedDNSViewsCommand";
+import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -255,6 +259,7 @@ export type ServiceInputTypes =
   | ListGlobalResolversCommandInput
   | ListHostedZoneAssociationsCommandInput
   | ListManagedFirewallDomainListsCommandInput
+  | ListSharedDNSViewsCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -307,6 +312,7 @@ export type ServiceOutputTypes =
   | ListGlobalResolversCommandOutput
   | ListHostedZoneAssociationsCommandOutput
   | ListManagedFirewallDomainListsCommandOutput
+  | ListSharedDNSViewsCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

@@ -440,6 +440,13 @@ ListManagedFirewallDomainLists
 </details>
 <details>
 <summary>
+ListSharedDNSViews
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53globalresolver/command/ListSharedDNSViewsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53globalresolver/Interface/ListSharedDNSViewsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53globalresolver/Interface/ListSharedDNSViewsCommandOutput/)
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 

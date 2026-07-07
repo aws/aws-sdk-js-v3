@@ -4196,10 +4196,10 @@ export interface ListHostedZoneAssociationsInput {
   nextToken?: string | undefined;
 
   /**
-   * <p>Amazon Resource Name (ARN) of the DNS view.</p>
+   * <p>The Amazon Resource Name (ARN) of the DNS view to list hosted zone associations for. This parameter is optional; if you omit it, all hosted zone associations in your Amazon Web Services account are returned.</p>
    * @public
    */
-  resourceArn: string | undefined;
+  resourceArn?: string | undefined;
 }
 
 /**
@@ -4341,6 +4341,124 @@ export interface UpdateHostedZoneAssociationOutput {
    * @public
    */
   status: HostedZoneAssociationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSharedDNSViewsInput {
+  /**
+   * <p>The maximum number of results to retrieve in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A pagination token used for large sets of results that can't be returned in a single response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a DNS view that has been shared with your Amazon Web Services account through Amazon Web Services RAM.</p>
+ * @public
+ */
+export interface SharedDNSViewSummary {
+  /**
+   * <p>The unique identifier of the DNS view.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the DNS view.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The unique string that identifies the request and ensures idempotency.</p>
+   * @public
+   */
+  clientToken: string | undefined;
+
+  /**
+   * <p>Whether DNSSEC validation is enabled for the DNS view.</p>
+   * @public
+   */
+  dnssecValidation: DnsSecValidationType | undefined;
+
+  /**
+   * <p>Whether EDNS Client Subnet injection is enabled for the DNS view.</p>
+   * @public
+   */
+  ednsClientSubnet: EdnsClientSubnetType | undefined;
+
+  /**
+   * <p>Whether firewall rules fail open when they cannot be evaluated.</p>
+   * @public
+   */
+  firewallRulesFailOpen: FirewallRulesFailOpenType | undefined;
+
+  /**
+   * <p>The name of the DNS view.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the DNS view.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The ID of the global resolver that the DNS view is associated with.</p>
+   * @public
+   */
+  globalResolverId: string | undefined;
+
+  /**
+   * <p>The date and time when the DNS view was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time when the DNS view was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The current status of the DNS view.</p>
+   * @public
+   */
+  status: ProfileResourceStatus | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the DNS view and shared it with your Amazon Web Services account.</p>
+   * @public
+   */
+  ownerAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSharedDNSViewsOutput {
+  /**
+   * <p>A pagination token used for large sets of results that can't be returned in a single response. Provide this token in the next call to get the results not returned in this call.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An array of information about the DNS views shared with your Amazon Web Services account, including the Amazon Web Services account that owns each DNS view.</p>
+   * @public
+   */
+  dnsViews: SharedDNSViewSummary[] | undefined;
 }
 
 /**

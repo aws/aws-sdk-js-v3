@@ -23,7 +23,7 @@ export interface ListHostedZoneAssociationsCommandInput extends ListHostedZoneAs
 export interface ListHostedZoneAssociationsCommandOutput extends ListHostedZoneAssociationsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all hosted zone associations for a Route 53 Global Resolver resource with pagination support.</p> <important> <p>Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify <code>--region us-east-2</code> on Amazon Web Services CLI commands.</p> </important>
+ * <p>Lists hosted zone associations with pagination support. Specify a DNS view through the <code>resourceArn</code> parameter to list the hosted zone associations for that DNS view, or omit it to list all hosted zone associations in your Amazon Web Services account.</p> <important> <p>Route 53 Global Resolver is a global service that supports resolvers in multiple Amazon Web Services Regions but you must specify the US East (Ohio) Region to create, update, or otherwise work with Route 53 Global Resolver resources. That is, for example, specify <code>--region us-east-2</code> on Amazon Web Services CLI commands.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -35,7 +35,7 @@ export interface ListHostedZoneAssociationsCommandOutput extends ListHostedZoneA
  * const input = { // ListHostedZoneAssociationsInput
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   resourceArn: "STRING_VALUE", // required
+ *   resourceArn: "STRING_VALUE",
  * };
  * const command = new ListHostedZoneAssociationsCommand(input);
  * const response = await client.send(command);

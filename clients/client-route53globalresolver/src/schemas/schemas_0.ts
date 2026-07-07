@@ -143,6 +143,9 @@ const _LHZAO = "ListHostedZoneAssociationsOutput";
 const _LMFDL = "ListManagedFirewallDomainLists";
 const _LMFDLI = "ListManagedFirewallDomainListsInput";
 const _LMFDLO = "ListManagedFirewallDomainListsOutput";
+const _LSDNSV = "ListSharedDNSViews";
+const _LSDNSVI = "ListSharedDNSViewsInput";
+const _LSDNSVO = "ListSharedDNSViewsOutput";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -150,6 +153,8 @@ const _MFDL = "ManagedFirewallDomainLists";
 const _MFDLI = "ManagedFirewallDomainListsItem";
 const _RA = "Retry-After";
 const _RNFE = "ResourceNotFoundException";
+const _SDNSV = "SharedDNSViews";
+const _SDNSVS = "SharedDNSViewSummary";
 const _SQEE = "ServiceQuotaExceededException";
 const _TE = "ThrottlingException";
 const _TR = "TagResource";
@@ -248,6 +253,7 @@ const _n = "name";
 const _nT = "nextToken";
 const _nt = "next_token";
 const _o = "operation";
+const _oAI = "ownerAccountId";
 const _oR = "observabilityRegion";
 const _p = "protocol";
 const _pr = "priority";
@@ -783,8 +789,8 @@ export var ListGlobalResolversOutput$: StaticStructureSchema = [3, n0, _LGRO,
 ];
 export var ListHostedZoneAssociationsInput$: StaticStructureSchema = [3, n0, _LHZAI,
   0,
-  [_rA, _mR, _nT],
-  [[0, 1], [1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]], 1
+  [_mR, _nT, _rA],
+  [[1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }], [0, { [_hQ]: _rA }]]
 ];
 export var ListHostedZoneAssociationsOutput$: StaticStructureSchema = [3, n0, _LHZAO,
   0,
@@ -801,6 +807,16 @@ export var ListManagedFirewallDomainListsOutput$: StaticStructureSchema = [3, n0
   [_mFDL, _nT],
   [() => ManagedFirewallDomainLists, 0], 1
 ];
+export var ListSharedDNSViewsInput$: StaticStructureSchema = [3, n0, _LSDNSVI,
+  0,
+  [_mR, _nT],
+  [[1, { [_hQ]: _mr }], [0, { [_hQ]: _nt }]]
+];
+export var ListSharedDNSViewsOutput$: StaticStructureSchema = [3, n0, _LSDNSVO,
+  0,
+  [_dVn, _nT],
+  [() => SharedDNSViews, 0], 1
+];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
   [_rA],
@@ -815,6 +831,11 @@ export var ManagedFirewallDomainListsItem$: StaticStructureSchema = [3, n0, _MFD
   0,
   [_i, _n, _mLT, _d],
   [0, 0, 0, 0], 3
+];
+export var SharedDNSViewSummary$: StaticStructureSchema = [3, n0, _SDNSVS,
+  0,
+  [_i, _a, _cT, _dV, _eCS, _fRFO, _n, _gRI, _cA, _uA, _st, _oAI, _d],
+  [0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0], 12
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
@@ -957,6 +978,9 @@ var ManagedFirewallDomainLists: StaticListSchema = [1, n0, _MFDL,
   0, () => ManagedFirewallDomainListsItem$
 ];
 var Regions = 64 | 0;
+var SharedDNSViews: StaticListSchema = [1, n0, _SDNSV,
+  0, () => SharedDNSViewSummary$
+];
 var Strings = 64 | 0;
 var TagKeys = 64 | 0;
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
@@ -1072,10 +1096,13 @@ export var ListGlobalResolvers$: StaticOperationSchema = [9, n0, _LGR,
   { [_h]: ["GET", "/global-resolver", 200] }, () => ListGlobalResolversInput$, () => ListGlobalResolversOutput$
 ];
 export var ListHostedZoneAssociations$: StaticOperationSchema = [9, n0, _LHZA,
-  { [_h]: ["GET", "/hosted-zone-associations/resource-arn/{resourceArn+}", 200] }, () => ListHostedZoneAssociationsInput$, () => ListHostedZoneAssociationsOutput$
+  { [_h]: ["GET", "/hosted-zone-associations", 200] }, () => ListHostedZoneAssociationsInput$, () => ListHostedZoneAssociationsOutput$
 ];
 export var ListManagedFirewallDomainLists$: StaticOperationSchema = [9, n0, _LMFDL,
   { [_h]: ["GET", "/list-managed-firewall-domain-lists/{managedFirewallDomainListType}", 200] }, () => ListManagedFirewallDomainListsInput$, () => ListManagedFirewallDomainListsOutput$
+];
+export var ListSharedDNSViews$: StaticOperationSchema = [9, n0, _LSDNSV,
+  { [_h]: ["GET", "/shared-dns-views", 200] }, () => ListSharedDNSViewsInput$, () => ListSharedDNSViewsOutput$
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_h]: ["POST", "/get-all-tags", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
