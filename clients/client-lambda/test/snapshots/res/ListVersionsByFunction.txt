@@ -176,6 +176,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       "ConfigSha256": "__ConfigSha256__",
       "DurableConfig": {
+        "KMSKeyArn": "__KMSKeyArn__",
         "RetentionPeriodInDays": 0,
         "ExecutionTimeout": 0
       }
@@ -326,6 +327,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       "ConfigSha256": "__ConfigSha256__",
       "DurableConfig": {
+        "KMSKeyArn": "__KMSKeyArn__",
         "RetentionPeriodInDays": 0,
         "ExecutionTimeout": 0
       }
@@ -476,6 +478,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       "ConfigSha256": "__ConfigSha256__",
       "DurableConfig": {
+        "KMSKeyArn": "__KMSKeyArn__",
         "RetentionPeriodInDays": 0,
         "ExecutionTimeout": 0
       }
@@ -634,6 +637,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       ConfigSha256: "__ConfigSha256__",
       DurableConfig: {
+        KMSKeyArn: "__KMSKeyArn__",
         RetentionPeriodInDays: (number) 0,
         ExecutionTimeout: (number) 0
       }
@@ -784,6 +788,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       ConfigSha256: "__ConfigSha256__",
       DurableConfig: {
+        KMSKeyArn: "__KMSKeyArn__",
         RetentionPeriodInDays: (number) 0,
         ExecutionTimeout: (number) 0
       }
@@ -934,6 +939,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       },
       ConfigSha256: "__ConfigSha256__",
       DurableConfig: {
+        KMSKeyArn: "__KMSKeyArn__",
         RetentionPeriodInDays: (number) 0,
         ExecutionTimeout: (number) 0
       }

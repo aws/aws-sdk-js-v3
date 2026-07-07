@@ -100,6 +100,7 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  *     },
  *   },
  *   DurableConfig: { // DurableConfig
+ *     KMSKeyArn: "STRING_VALUE",
  *     RetentionPeriodInDays: Number("int"),
  *     ExecutionTimeout: Number("int"),
  *   },
@@ -220,6 +221,7 @@ export interface UpdateFunctionConfigurationCommandOutput extends FunctionConfig
  * //   },
  * //   ConfigSha256: "STRING_VALUE",
  * //   DurableConfig: { // DurableConfig
+ * //     KMSKeyArn: "STRING_VALUE",
  * //     RetentionPeriodInDays: Number("int"),
  * //     ExecutionTimeout: Number("int"),
  * //   },

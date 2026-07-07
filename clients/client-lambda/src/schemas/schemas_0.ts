@@ -170,6 +170,7 @@ const _ECEC = "EC2ErrorCode";
 const _ECTE = "EC2ThrottledException";
 const _ECUE = "EC2UnexpectedException";
 const _ED = "ErrorData";
+const _EDI = "ExecutionDataIncluded";
 const _EDr = "ErrorDetails";
 const _EDx = "ExecutionDetails";
 const _EE = "EnvironmentError";
@@ -1500,8 +1501,8 @@ export var DocumentDBEventSourceConfig$: StaticStructureSchema = [3, n0, _DDBESC
 ];
 export var DurableConfig$: StaticStructureSchema = [3, n0, _DCu,
   0,
-  [_RPID, _ETx],
-  [1, 1]
+  [_KMSKA, _RPID, _ETx],
+  [0, 1, 1]
 ];
 export var Environment$: StaticStructureSchema = [3, n0, _Env,
   0,
@@ -1565,8 +1566,8 @@ export var EventSourceMappingMetricsConfig$: StaticStructureSchema = [3, n0, _ES
 ];
 export var Execution$: StaticStructureSchema = [3, n0, _Ex,
   0,
-  [_DEA, _DEN, _FA, _Sta, _STt, _ETn],
-  [0, 0, 0, 0, 4, 4], 5
+  [_DEA, _DEN, _FA, _Sta, _STt, _ETn, _KMSKA],
+  [0, 0, 0, 0, 4, 4, 0], 5
 ];
 export var ExecutionDetails$: StaticStructureSchema = [3, n0, _EDx,
   0,
@@ -1705,13 +1706,13 @@ export var GetDurableExecutionHistoryResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var GetDurableExecutionRequest$: StaticStructureSchema = [3, n0, _GDER,
   0,
-  [_DEA],
-  [[0, 1]], 1
+  [_DEA, _IED],
+  [[0, 1], [2, { [_hQ]: _IED }]], 1
 ];
 export var GetDurableExecutionResponse$: StaticStructureSchema = [3, n0, _GDERe,
   0,
-  [_DEA, _DEN, _FA, _STt, _Sta, _IP, _Re, _E, _ETn, _Ve, _TH],
-  [0, 0, 0, 4, 0, [() => InputPayload, 0], [() => OutputPayload, 0], [() => ErrorObject$, 0], 4, 0, () => TraceHeader$], 5
+  [_DEA, _DEN, _FA, _STt, _Sta, _IP, _Re, _E, _ETn, _Ve, _TH, _EDI, _DCu],
+  [0, 0, 0, 4, 0, [() => InputPayload, 0], [() => OutputPayload, 0], [() => ErrorObject$, 0], 4, 0, () => TraceHeader$, 2, () => DurableConfig$], 5
 ];
 export var GetDurableExecutionStateRequest$: StaticStructureSchema = [3, n0, _GDESR,
   0,

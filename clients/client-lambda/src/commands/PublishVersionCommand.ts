@@ -155,6 +155,7 @@ export interface PublishVersionCommandOutput extends FunctionConfiguration, __Me
  * //   },
  * //   ConfigSha256: "STRING_VALUE",
  * //   DurableConfig: { // DurableConfig
+ * //     KMSKeyArn: "STRING_VALUE",
  * //     RetentionPeriodInDays: Number("int"),
  * //     ExecutionTimeout: Number("int"),
  * //   },

@@ -165,6 +165,7 @@ export interface UpdateFunctionCodeCommandOutput extends FunctionConfiguration, 
  * //   },
  * //   ConfigSha256: "STRING_VALUE",
  * //   DurableConfig: { // DurableConfig
+ * //     KMSKeyArn: "STRING_VALUE",
  * //     RetentionPeriodInDays: Number("int"),
  * //     ExecutionTimeout: Number("int"),
  * //   },

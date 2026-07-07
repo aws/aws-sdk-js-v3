@@ -2466,10 +2466,16 @@ export interface DeadLetterConfig {
 }
 
 /**
- * <p>Configuration settings for <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable functions</a>, including execution timeout and retention period for execution history.</p>
+ * <p>Configuration settings for <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable functions</a>, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
  * @public
  */
 export interface DurableConfig {
+  /**
+   * <p>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
+   * @public
+   */
+  KMSKeyArn?: string | undefined;
+
   /**
    * <p>The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.</p>
    * @public
@@ -3898,7 +3904,7 @@ export interface InvocationRequest {
   ClientContext?: string | undefined;
 
   /**
-   * <p>Optional unique name for the durable execution. When you start your special function, you can give it a unique name to identify this specific execution. It's like giving a nickname to a task.</p>
+   * <p>A unique name for the durable execution. If you invoke a durable function using a name that already exists with the same payload, Lambda returns the existing execution instead of creating a duplicate. If the payload differs, Lambda returns a <code>DurableExecutionAlreadyStartedException</code> error.</p> <p>If not specified, Lambda generates a unique identifier automatically. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-execution-idempotency.html#durable-idempotency-execution-names">Execution names</a>.</p>
    * @public
    */
   DurableExecutionName?: string | undefined;
@@ -4756,7 +4762,7 @@ export interface UpdateFunctionConfigurationRequest {
   CapacityProviderConfig?: CapacityProviderConfig | undefined;
 
   /**
-   * <p>Configuration settings for durable functions. Allows updating execution timeout and retention period for functions with durability enabled.</p>
+   * <p>Configuration settings for <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable functions</a>, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
    * @public
    */
   DurableConfig?: DurableConfig | undefined;
@@ -5106,6 +5112,12 @@ export interface GetDurableExecutionRequest {
    * @public
    */
   DurableExecutionArn: string | undefined;
+
+  /**
+   * <p>Specifies whether to include execution data such as input payload, result, and error information in the response. Set to <code>false</code> for a more compact response that includes only execution metadata. The default value is set to <code>true</code>.</p>
+   * @public
+   */
+  IncludeExecutionData?: boolean | undefined;
 }
 
 /**
@@ -5190,6 +5202,18 @@ export interface GetDurableExecutionResponse {
    * @public
    */
   TraceHeader?: TraceHeader | undefined;
+
+  /**
+   * <p>Indicates whether execution data is included in this response. Returns <code>false</code> when <code>IncludeExecutionData</code> is set to <code>false</code> in the request.</p>
+   * @public
+   */
+  ExecutionDataIncluded?: boolean | undefined;
+
+  /**
+   * <p>Configuration settings for the durable execution, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
+   * @public
+   */
+  DurableConfig?: DurableConfig | undefined;
 }
 
 /**
@@ -6576,6 +6600,12 @@ export interface Execution {
    * @public
    */
   EndTimestamp?: Date | undefined;
+
+  /**
+   * <p>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
+   * @public
+   */
+  KMSKeyArn?: string | undefined;
 }
 
 /**

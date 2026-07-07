@@ -1,5 +1,5 @@
 GET https://lambda.us-east-1.amazonaws.com 
-/2025-12-01/durable-executions/__DurableExecutionArn__
+/2025-12-01/durable-executions/__DurableExecutionArn__?IncludeExecutionData=false
 
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/lambda#_.__ m/E,e

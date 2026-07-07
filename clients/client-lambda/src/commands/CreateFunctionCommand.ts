@@ -121,6 +121,7 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *     },
  *   },
  *   DurableConfig: { // DurableConfig
+ *     KMSKeyArn: "STRING_VALUE",
  *     RetentionPeriodInDays: Number("int"),
  *     ExecutionTimeout: Number("int"),
  *   },
@@ -241,6 +242,7 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  * //   },
  * //   ConfigSha256: "STRING_VALUE",
  * //   DurableConfig: { // DurableConfig
+ * //     KMSKeyArn: "STRING_VALUE",
  * //     RetentionPeriodInDays: Number("int"),
  * //     ExecutionTimeout: Number("int"),
  * //   },
