@@ -151,7 +151,7 @@ describe("middleware-flexible-checksums", () => {
                           "content-length": body.length.toString(),
                           [checksumHeader]: checksumValue,
                         },
-                        body: Readable.from([body]),
+                        body: Readable.from([Buffer.from(body)]),
                       }),
                     };
                   }
