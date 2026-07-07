@@ -4654,6 +4654,7 @@ const _PSKE = "PublicSigningKeyEndpoint";
 const _PSKS = "PreSharedKeyStorage";
 const _PSKU = "PublicSigningKeyUrl";
 const _PSL = "PriceScheduleList";
+const _PSPN = "PublicSsmParameterName";
 const _PSR = "ProvisioningStatusReason";
 const _PSRa = "PathStatementRequest";
 const _PSS = "PriceScheduleSpecification";
@@ -7565,6 +7566,7 @@ const _pSK = "preSharedKey";
 const _pSKA = "preSharedKeyArn";
 const _pSKE = "publicSigningKeyEndpoint";
 const _pSKU = "publicSigningKeyUrl";
+const _pSPN = "publicSsmParameterName";
 const _pSR = "provisioningStatusReason";
 const _pSe = "permissionState";
 const _pSee = "peeringStatus";
@@ -17940,7 +17942,7 @@ export var IKEVersionsRequestListValue$: StaticStructureSchema = [3, n0, _IKEVRL
 ];
 export var Image$: StaticStructureSchema = [3, n0, _Ima,
   0,
-  [_PDl, _UO, _BDMl, _De, _ESna, _Hy, _IOA, _N, _RDN, _RDT, _SNS, _SRt, _T, _VTir, _BM, _TSp, _DTe, _ISmd, _SIIo, _DPer, _LLT, _IAm, _SII, _SIRo, _FTE, _IW, _IIm, _IL, _St, _OI, _CDr, _Pu, _PCro, _Arc, _ITm, _KI, _RIa, _Pl],
+  [_PDl, _UO, _BDMl, _De, _ESna, _Hy, _IOA, _N, _RDN, _RDT, _SNS, _SRt, _T, _VTir, _BM, _TSp, _DTe, _ISmd, _SIIo, _DPer, _LLT, _IAm, _SII, _SIRo, _FTE, _PSPN, _IW, _IIm, _IL, _St, _OI, _CDr, _Pu, _PCro, _Arc, _ITm, _KI, _RIa, _Pl],
   [[0, { [_eQN]: `PlatformDetails`
   , [_xN]: _pDl }], [0, { [_eQN]: `UsageOperation`
   , [_xN]: _uO }], [() => BlockDeviceMappingList, { [_eQN]: `BlockDeviceMapping`
@@ -17966,7 +17968,8 @@ export var Image$: StaticStructureSchema = [3, n0, _Ima,
   , [_xN]: _iAm }], [0, { [_eQN]: `SourceImageId`
   , [_xN]: _sIIo }], [0, { [_eQN]: `SourceImageRegion`
   , [_xN]: _sIR }], [2, { [_eQN]: `FreeTierEligible`
-  , [_xN]: _fTE }], [() => ImageWatermarkList, { [_eQN]: `ImageWatermarkSet`
+  , [_xN]: _fTE }], [0, { [_eQN]: `PublicSsmParameterName`
+  , [_xN]: _pSPN }], [() => ImageWatermarkList, { [_eQN]: `ImageWatermarkSet`
   , [_xN]: _iWS }], [0, { [_eQN]: `ImageId`
   , [_xN]: _iIma }], [0, { [_eQN]: `ImageLocation`
   , [_xN]: _iL }], [0, { [_eQN]: `ImageState`

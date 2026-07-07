@@ -291,6 +291,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <freeTierEligible>
                 false
             </freeTierEligible>
+            <publicSsmParameterName>
+                __PublicSsmParameterName__
+            </publicSsmParameterName>
             <imageWatermarkSet>
                 <item>
                     <watermarkKey>
@@ -663,6 +666,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <freeTierEligible>
                 false
             </freeTierEligible>
+            <publicSsmParameterName>
+                __PublicSsmParameterName__
+            </publicSsmParameterName>
             <imageWatermarkSet>
                 <item>
                     <watermarkKey>
@@ -1035,6 +1041,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <freeTierEligible>
                 false
             </freeTierEligible>
+            <publicSsmParameterName>
+                __PublicSsmParameterName__
+            </publicSsmParameterName>
             <imageWatermarkSet>
                 <item>
                     <watermarkKey>
@@ -1259,6 +1268,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       SourceImageId: "__SourceImageId__",
       SourceImageRegion: "__SourceImageRegion__",
       FreeTierEligible: (boolean) false,
+      PublicSsmParameterName: "__PublicSsmParameterName__",
       ImageWatermarks: [
         {
           WatermarkKey: "__WatermarkKey__",
@@ -1411,6 +1421,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       SourceImageId: "__SourceImageId__",
       SourceImageRegion: "__SourceImageRegion__",
       FreeTierEligible: (boolean) false,
+      PublicSsmParameterName: "__PublicSsmParameterName__",
       ImageWatermarks: [
         {
           WatermarkKey: "__WatermarkKey__",
@@ -1563,6 +1574,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       SourceImageId: "__SourceImageId__",
       SourceImageRegion: "__SourceImageRegion__",
       FreeTierEligible: (boolean) false,
+      PublicSsmParameterName: "__PublicSsmParameterName__",
       ImageWatermarks: [
         {
           WatermarkKey: "__WatermarkKey__",
