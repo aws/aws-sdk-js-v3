@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import { ListTagsForResource$ } from "../schemas/schemas_0";
+import type { ListConnectorsRequest, ListConnectorsResponse } from "../models/models_0";
+import { ListConnectors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,38 +12,48 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link ListConnectorsCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface ListConnectorsCommandInput extends ListConnectorsRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link ListConnectorsCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __MetadataBearer {}
 
 /**
- * <p>List the tags for Config resource.</p>
+ * <p>Returns a list of connectors depending on the filters you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, ListTagsForResourceCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, ListTagsForResourceCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, ListConnectorsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, ListConnectorsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * // import type { ConfigServiceClientConfig } from "@aws-sdk/client-config-service";
  * const config = {}; // type is ConfigServiceClientConfig
  * const client = new ConfigServiceClient(config);
- * const input = { // ListTagsForResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
- *   Limit: Number("int"),
+ * const input = { // ListConnectorsRequest
+ *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   Filters: [ // ConnectorFilterList
+ *     { // ConnectorFilter
+ *       filterName: "provider",
+ *       filterValues: [ // FilterValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new ListConnectorsCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   Tags: [ // TagList
- * //     { // Tag
- * //       Key: "STRING_VALUE",
- * //       Value: "STRING_VALUE",
+ * // { // ListConnectorsResponse
+ * //   ConnectorSummaries: [ // ConnectorSummaries // required
+ * //     { // ConnectorSummary
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       provider: "AZURE", // required
+ * //       tenantIdentifier: "STRING_VALUE", // required
+ * //       createdTime: new Date("TIMESTAMP"), // required
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -51,22 +61,11 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param ListConnectorsCommandInput - {@link ListConnectorsCommandInput}
+ * @returns {@link ListConnectorsCommandOutput}
+ * @see {@link ListConnectorsCommandInput} for command's `input` shape.
+ * @see {@link ListConnectorsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
- *
- * @throws {@link InvalidLimitException} (client fault)
- *  <p>The specified limit is outside the allowable range.</p>
- *
- * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is not valid. Specify the
- * 				<code>nextToken</code> string that was returned in the previous
- * 			response to get the next page of results.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>You have specified a resource that does not exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p>
@@ -119,21 +118,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @public
  */
-export class ListTagsForResourceCommand extends command<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput>(
+export class ListConnectorsCommand extends command<ListConnectorsCommandInput, ListConnectorsCommandOutput>(
   _ep0,
   _mw0,
-  "ListTagsForResource",
-  ListTagsForResource$
+  "ListConnectors",
+  ListConnectors$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTagsForResourceRequest;
-      output: ListTagsForResourceResponse;
+      input: ListConnectorsRequest;
+      output: ListConnectorsResponse;
     };
     sdk: {
-      input: ListTagsForResourceCommandInput;
-      output: ListTagsForResourceCommandOutput;
+      input: ListConnectorsCommandInput;
+      output: ListConnectorsCommandOutput;
     };
   };
 }

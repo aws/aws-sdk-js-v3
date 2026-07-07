@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import { ListTagsForResource$ } from "../schemas/schemas_0";
+import type { GetConnectorRequest, GetConnectorResponse } from "../models/models_0";
+import { GetConnector$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,58 +12,52 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link GetConnectorCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface GetConnectorCommandInput extends GetConnectorRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link GetConnectorCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface GetConnectorCommandOutput extends GetConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>List the tags for Config resource.</p>
+ * <p>Returns the details of the specified connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, ListTagsForResourceCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, ListTagsForResourceCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, GetConnectorCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, GetConnectorCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * // import type { ConfigServiceClientConfig } from "@aws-sdk/client-config-service";
  * const config = {}; // type is ConfigServiceClientConfig
  * const client = new ConfigServiceClient(config);
- * const input = { // ListTagsForResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ * const input = { // GetConnectorRequest
+ *   Arn: "STRING_VALUE", // required
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new GetConnectorCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   Tags: [ // TagList
- * //     { // Tag
- * //       Key: "STRING_VALUE",
- * //       Value: "STRING_VALUE",
+ * // { // GetConnectorResponse
+ * //   Connector: { // Connector
+ * //     name: "STRING_VALUE", // required
+ * //     arn: "STRING_VALUE", // required
+ * //     connectorConfiguration: { // ConnectorConfiguration
+ * //       azure: { // AzureConnectorConfiguration
+ * //         tenantIdentifier: "STRING_VALUE", // required
+ * //         clientIdentifier: "STRING_VALUE", // required
+ * //       },
  * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
+ * //     createdTime: new Date("TIMESTAMP"), // required
+ * //   },
  * // };
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param GetConnectorCommandInput - {@link GetConnectorCommandInput}
+ * @returns {@link GetConnectorCommandOutput}
+ * @see {@link GetConnectorCommandInput} for command's `input` shape.
+ * @see {@link GetConnectorCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
- *
- * @throws {@link InvalidLimitException} (client fault)
- *  <p>The specified limit is outside the allowable range.</p>
- *
- * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is not valid. Specify the
- * 				<code>nextToken</code> string that was returned in the previous
- * 			response to get the next page of results.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>You have specified a resource that does not exist.</p>
@@ -119,21 +113,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @public
  */
-export class ListTagsForResourceCommand extends command<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput>(
+export class GetConnectorCommand extends command<GetConnectorCommandInput, GetConnectorCommandOutput>(
   _ep0,
   _mw0,
-  "ListTagsForResource",
-  ListTagsForResource$
+  "GetConnector",
+  GetConnector$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTagsForResourceRequest;
-      output: ListTagsForResourceResponse;
+      input: GetConnectorRequest;
+      output: GetConnectorResponse;
     };
     sdk: {
-      input: ListTagsForResourceCommandInput;
-      output: ListTagsForResourceCommandOutput;
+      input: GetConnectorCommandInput;
+      output: GetConnectorCommandOutput;
     };
   };
 }

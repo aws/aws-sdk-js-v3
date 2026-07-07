@@ -83,6 +83,7 @@ import type {
   DeleteConformancePackCommandInput,
   DeleteConformancePackCommandOutput,
 } from "./commands/DeleteConformancePackCommand";
+import type { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "./commands/DeleteConnectorCommand";
 import type {
   DeleteDeliveryChannelCommandInput,
   DeleteDeliveryChannelCommandOutput,
@@ -279,6 +280,7 @@ import type {
   GetConformancePackComplianceSummaryCommandInput,
   GetConformancePackComplianceSummaryCommandOutput,
 } from "./commands/GetConformancePackComplianceSummaryCommand";
+import type { GetConnectorCommandInput, GetConnectorCommandOutput } from "./commands/GetConnectorCommand";
 import type {
   GetCustomRulePolicyCommandInput,
   GetCustomRulePolicyCommandOutput,
@@ -320,6 +322,7 @@ import type {
   ListConformancePackComplianceScoresCommandInput,
   ListConformancePackComplianceScoresCommandOutput,
 } from "./commands/ListConformancePackComplianceScoresCommand";
+import type { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "./commands/ListConnectorsCommand";
 import type {
   ListDiscoveredResourcesCommandInput,
   ListDiscoveredResourcesCommandOutput,
@@ -353,6 +356,7 @@ import type {
   PutConformancePackCommandInput,
   PutConformancePackCommandOutput,
 } from "./commands/PutConformancePackCommand";
+import type { PutConnectorCommandInput, PutConnectorCommandOutput } from "./commands/PutConnectorCommand";
 import type {
   PutDeliveryChannelCommandInput,
   PutDeliveryChannelCommandOutput,
@@ -391,6 +395,10 @@ import type {
   PutServiceLinkedConfigurationRecorderCommandOutput,
 } from "./commands/PutServiceLinkedConfigurationRecorderCommand";
 import type { PutStoredQueryCommandInput, PutStoredQueryCommandOutput } from "./commands/PutStoredQueryCommand";
+import type {
+  PutThirdPartyServiceLinkedConfigurationRecorderCommandInput,
+  PutThirdPartyServiceLinkedConfigurationRecorderCommandOutput,
+} from "./commands/PutThirdPartyServiceLinkedConfigurationRecorderCommand";
 import type {
   SelectAggregateResourceConfigCommandInput,
   SelectAggregateResourceConfigCommandOutput,
@@ -444,6 +452,7 @@ export type ServiceInputTypes =
   | DeleteConfigurationAggregatorCommandInput
   | DeleteConfigurationRecorderCommandInput
   | DeleteConformancePackCommandInput
+  | DeleteConnectorCommandInput
   | DeleteDeliveryChannelCommandInput
   | DeleteEvaluationResultsCommandInput
   | DeleteOrganizationConfigRuleCommandInput
@@ -493,6 +502,7 @@ export type ServiceInputTypes =
   | GetComplianceSummaryByResourceTypeCommandInput
   | GetConformancePackComplianceDetailsCommandInput
   | GetConformancePackComplianceSummaryCommandInput
+  | GetConnectorCommandInput
   | GetCustomRulePolicyCommandInput
   | GetDiscoveredResourceCountsCommandInput
   | GetOrganizationConfigRuleDetailedStatusCommandInput
@@ -504,6 +514,7 @@ export type ServiceInputTypes =
   | ListAggregateDiscoveredResourcesCommandInput
   | ListConfigurationRecordersCommandInput
   | ListConformancePackComplianceScoresCommandInput
+  | ListConnectorsCommandInput
   | ListDiscoveredResourcesCommandInput
   | ListResourceEvaluationsCommandInput
   | ListStoredQueriesCommandInput
@@ -513,6 +524,7 @@ export type ServiceInputTypes =
   | PutConfigurationAggregatorCommandInput
   | PutConfigurationRecorderCommandInput
   | PutConformancePackCommandInput
+  | PutConnectorCommandInput
   | PutDeliveryChannelCommandInput
   | PutEvaluationsCommandInput
   | PutExternalEvaluationCommandInput
@@ -524,6 +536,7 @@ export type ServiceInputTypes =
   | PutRetentionConfigurationCommandInput
   | PutServiceLinkedConfigurationRecorderCommandInput
   | PutStoredQueryCommandInput
+  | PutThirdPartyServiceLinkedConfigurationRecorderCommandInput
   | SelectAggregateResourceConfigCommandInput
   | SelectResourceConfigCommandInput
   | StartConfigRulesEvaluationCommandInput
@@ -546,6 +559,7 @@ export type ServiceOutputTypes =
   | DeleteConfigurationAggregatorCommandOutput
   | DeleteConfigurationRecorderCommandOutput
   | DeleteConformancePackCommandOutput
+  | DeleteConnectorCommandOutput
   | DeleteDeliveryChannelCommandOutput
   | DeleteEvaluationResultsCommandOutput
   | DeleteOrganizationConfigRuleCommandOutput
@@ -595,6 +609,7 @@ export type ServiceOutputTypes =
   | GetComplianceSummaryByResourceTypeCommandOutput
   | GetConformancePackComplianceDetailsCommandOutput
   | GetConformancePackComplianceSummaryCommandOutput
+  | GetConnectorCommandOutput
   | GetCustomRulePolicyCommandOutput
   | GetDiscoveredResourceCountsCommandOutput
   | GetOrganizationConfigRuleDetailedStatusCommandOutput
@@ -606,6 +621,7 @@ export type ServiceOutputTypes =
   | ListAggregateDiscoveredResourcesCommandOutput
   | ListConfigurationRecordersCommandOutput
   | ListConformancePackComplianceScoresCommandOutput
+  | ListConnectorsCommandOutput
   | ListDiscoveredResourcesCommandOutput
   | ListResourceEvaluationsCommandOutput
   | ListStoredQueriesCommandOutput
@@ -615,6 +631,7 @@ export type ServiceOutputTypes =
   | PutConfigurationAggregatorCommandOutput
   | PutConfigurationRecorderCommandOutput
   | PutConformancePackCommandOutput
+  | PutConnectorCommandOutput
   | PutDeliveryChannelCommandOutput
   | PutEvaluationsCommandOutput
   | PutExternalEvaluationCommandOutput
@@ -626,6 +643,7 @@ export type ServiceOutputTypes =
   | PutRetentionConfigurationCommandOutput
   | PutServiceLinkedConfigurationRecorderCommandOutput
   | PutStoredQueryCommandOutput
+  | PutThirdPartyServiceLinkedConfigurationRecorderCommandOutput
   | SelectAggregateResourceConfigCommandOutput
   | SelectResourceConfigCommandOutput
   | StartConfigRulesEvaluationCommandOutput

@@ -35,6 +35,7 @@ export * from "./GetResourceConfigHistoryPaginator";
 export * from "./ListAggregateDiscoveredResourcesPaginator";
 export * from "./ListConfigurationRecordersPaginator";
 export * from "./ListConformancePackComplianceScoresPaginator";
+export * from "./ListConnectorsPaginator";
 export * from "./ListDiscoveredResourcesPaginator";
 export * from "./ListResourceEvaluationsPaginator";
 export * from "./ListStoredQueriesPaginator";

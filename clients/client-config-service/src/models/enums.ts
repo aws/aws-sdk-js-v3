@@ -853,6 +853,18 @@ export type RecorderStatus = (typeof RecorderStatus)[keyof typeof RecorderStatus
  * @public
  * @enum
  */
+export const Provider = {
+  AZURE: "AZURE",
+} as const;
+/**
+ * @public
+ */
+export type Provider = (typeof Provider)[keyof typeof Provider];
+
+/**
+ * @public
+ * @enum
+ */
 export const ConformancePackState = {
   CREATE_COMPLETE: "CREATE_COMPLETE",
   CREATE_FAILED: "CREATE_FAILED",
@@ -864,6 +876,18 @@ export const ConformancePackState = {
  * @public
  */
 export type ConformancePackState = (typeof ConformancePackState)[keyof typeof ConformancePackState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorFilterName = {
+  provider: "provider",
+} as const;
+/**
+ * @public
+ */
+export type ConnectorFilterName = (typeof ConnectorFilterName)[keyof typeof ConnectorFilterName];
 
 /**
  * @public

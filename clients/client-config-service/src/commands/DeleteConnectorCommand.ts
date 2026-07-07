@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
-import { ListTagsForResource$ } from "../schemas/schemas_0";
+import type { DeleteConnectorRequest } from "../models/models_0";
+import { DeleteConnector$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,58 +12,40 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link DeleteConnectorCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface DeleteConnectorCommandInput extends DeleteConnectorRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link DeleteConnectorCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface DeleteConnectorCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>List the tags for Config resource.</p>
+ * <p>Deletes the specified connector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, ListTagsForResourceCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, ListTagsForResourceCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, DeleteConnectorCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, DeleteConnectorCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * // import type { ConfigServiceClientConfig } from "@aws-sdk/client-config-service";
  * const config = {}; // type is ConfigServiceClientConfig
  * const client = new ConfigServiceClient(config);
- * const input = { // ListTagsForResourceRequest
- *   ResourceArn: "STRING_VALUE", // required
- *   Limit: Number("int"),
- *   NextToken: "STRING_VALUE",
+ * const input = { // DeleteConnectorRequest
+ *   Arn: "STRING_VALUE", // required
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new DeleteConnectorCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   Tags: [ // TagList
- * //     { // Tag
- * //       Key: "STRING_VALUE",
- * //       Value: "STRING_VALUE",
- * //     },
- * //   ],
- * //   NextToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param DeleteConnectorCommandInput - {@link DeleteConnectorCommandInput}
+ * @returns {@link DeleteConnectorCommandOutput}
+ * @see {@link DeleteConnectorCommandInput} for command's `input` shape.
+ * @see {@link DeleteConnectorCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
- *
- * @throws {@link InvalidLimitException} (client fault)
- *  <p>The specified limit is outside the allowable range.</p>
- *
- * @throws {@link InvalidNextTokenException} (client fault)
- *  <p>The specified next token is not valid. Specify the
- * 				<code>nextToken</code> string that was returned in the previous
- * 			response to get the next page of results.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>You have specified a resource that does not exist.</p>
@@ -119,21 +101,21 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *
  * @public
  */
-export class ListTagsForResourceCommand extends command<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput>(
+export class DeleteConnectorCommand extends command<DeleteConnectorCommandInput, DeleteConnectorCommandOutput>(
   _ep0,
   _mw0,
-  "ListTagsForResource",
-  ListTagsForResource$
+  "DeleteConnector",
+  DeleteConnector$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTagsForResourceRequest;
-      output: ListTagsForResourceResponse;
+      input: DeleteConnectorRequest;
+      output: {};
     };
     sdk: {
-      input: ListTagsForResourceCommandInput;
-      output: ListTagsForResourceCommandOutput;
+      input: DeleteConnectorCommandInput;
+      output: DeleteConnectorCommandOutput;
     };
   };
 }

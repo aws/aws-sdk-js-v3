@@ -3,10 +3,10 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
-  DeleteServiceLinkedConfigurationRecorderRequest,
-  DeleteServiceLinkedConfigurationRecorderResponse,
+  PutThirdPartyServiceLinkedConfigurationRecorderRequest,
+  PutThirdPartyServiceLinkedConfigurationRecorderResponse,
 } from "../models/models_0";
-import { DeleteServiceLinkedConfigurationRecorder$ } from "../schemas/schemas_0";
+import { PutThirdPartyServiceLinkedConfigurationRecorder$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -15,54 +15,73 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link DeleteServiceLinkedConfigurationRecorderCommand}.
+ * The input for {@link PutThirdPartyServiceLinkedConfigurationRecorderCommand}.
  */
-export interface DeleteServiceLinkedConfigurationRecorderCommandInput extends DeleteServiceLinkedConfigurationRecorderRequest {}
+export interface PutThirdPartyServiceLinkedConfigurationRecorderCommandInput extends PutThirdPartyServiceLinkedConfigurationRecorderRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteServiceLinkedConfigurationRecorderCommand}.
+ * The output of {@link PutThirdPartyServiceLinkedConfigurationRecorderCommand}.
  */
-export interface DeleteServiceLinkedConfigurationRecorderCommandOutput extends DeleteServiceLinkedConfigurationRecorderResponse, __MetadataBearer {}
+export interface PutThirdPartyServiceLinkedConfigurationRecorderCommandOutput extends PutThirdPartyServiceLinkedConfigurationRecorderResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an existing service-linked configuration recorder.</p>
- *          <p>This operation does not delete the configuration information that was previously recorded. You will be able to access the previously
- * 			recorded information by using the
- * 			<a href="https://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceConfigHistory.html">GetResourceConfigHistory</a> operation, but you will not
- * 			be able to access this information in the Config console until
- * 			you have created a new service-linked configuration recorder for the same service.</p>
+ * <p>Creates or updates a service-linked configuration recorder that is linked to a third-party cloud service provider based on the <code>ConnectorArn</code> you specify.</p>
+ *          <p>The configuration recorder's <code>name</code>, <code>recordingGroup</code>, <code>recordingMode</code>, and <code>recordingScope</code> is set by the service that is linked to the configuration recorder.</p>
+ *          <p>If a service-linked configuration recorder already exists for the specified service principal and connector, calling this operation again updates the <code>ScopeConfiguration</code>.</p>
  *          <note>
  *             <p>
- *                <b>The recording scope determines if you receive configuration items</b>
+ *                <b>This operation can only be called by the Amazon Web Services service linked to the configuration recorder</b>
  *             </p>
- *             <p>The recording scope is set by the service that is linked to the configuration recorder and determines whether you receive configuration items (CIs) in the delivery channel. If the recording scope is internal, you will not receive CIs in the delivery channel.</p>
+ *             <p>Customers cannot call this operation directly. Only the linked Amazon Web Services service can create or update the service-linked configuration recorder.</p>
+ *          </note>
+ *          <note>
+ *             <p>
+ *                <b>Tags are added at creation and cannot be updated with this operation</b>
+ *             </p>
+ *             <p>Use <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html">UntagResource</a> to update tags after creation.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DeleteServiceLinkedConfigurationRecorderCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DeleteServiceLinkedConfigurationRecorderCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, PutThirdPartyServiceLinkedConfigurationRecorderCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, PutThirdPartyServiceLinkedConfigurationRecorderCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * // import type { ConfigServiceClientConfig } from "@aws-sdk/client-config-service";
  * const config = {}; // type is ConfigServiceClientConfig
  * const client = new ConfigServiceClient(config);
- * const input = { // DeleteServiceLinkedConfigurationRecorderRequest
- *   ServicePrincipal: "STRING_VALUE",
- *   Arn: "STRING_VALUE",
+ * const input = { // PutThirdPartyServiceLinkedConfigurationRecorderRequest
+ *   ServicePrincipal: "STRING_VALUE", // required
+ *   ConnectorArn: "STRING_VALUE", // required
+ *   ScopeConfiguration: { // ScopeConfiguration
+ *     scopeType: "STRING_VALUE", // required
+ *     scopeValues: [ // ScopeValues
+ *       "STRING_VALUE",
+ *     ],
+ *     allRegions: true || false, // required
+ *     includedRegions: [ // IncludedRegions
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   Tags: [ // TagsList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
- * const command = new DeleteServiceLinkedConfigurationRecorderCommand(input);
+ * const command = new PutThirdPartyServiceLinkedConfigurationRecorderCommand(input);
  * const response = await client.send(command);
- * // { // DeleteServiceLinkedConfigurationRecorderResponse
+ * // { // PutThirdPartyServiceLinkedConfigurationRecorderResponse
  * //   Arn: "STRING_VALUE", // required
  * //   Name: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param DeleteServiceLinkedConfigurationRecorderCommandInput - {@link DeleteServiceLinkedConfigurationRecorderCommandInput}
- * @returns {@link DeleteServiceLinkedConfigurationRecorderCommandOutput}
- * @see {@link DeleteServiceLinkedConfigurationRecorderCommandInput} for command's `input` shape.
- * @see {@link DeleteServiceLinkedConfigurationRecorderCommandOutput} for command's `response` shape.
+ * @param PutThirdPartyServiceLinkedConfigurationRecorderCommandInput - {@link PutThirdPartyServiceLinkedConfigurationRecorderCommandInput}
+ * @returns {@link PutThirdPartyServiceLinkedConfigurationRecorderCommandOutput}
+ * @see {@link PutThirdPartyServiceLinkedConfigurationRecorderCommandInput} for command's `input` shape.
+ * @see {@link PutThirdPartyServiceLinkedConfigurationRecorderCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
@@ -85,9 +104,36 @@ export interface DeleteServiceLinkedConfigurationRecorderCommandOutput extends D
  *             </li>
  *          </ul>
  *
- * @throws {@link NoSuchConfigurationRecorderException} (client fault)
- *  <p>You have specified a configuration recorder that does not
- * 			exist.</p>
+ * @throws {@link InsufficientPermissionsException} (client fault)
+ *  <p>Indicates one of the following errors:</p>
+ *          <ul>
+ *             <li>
+ *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html">PutConfigRule</a>, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p>
+ *             </li>
+ *             <li>
+ *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html">PutConfigRule</a>, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p>
+ *             </li>
+ *             <li>
+ *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConfigRule.html">PutOrganizationConfigRule</a>, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p>
+ *             </li>
+ *             <li>
+ *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html">PutConformancePack</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConformancePack.html">PutOrganizationConformancePack</a>, a conformance pack cannot be created because you do not have the following permissions: </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html">PutServiceLinkedConfigurationRecorder</a>, a service-linked configuration recorder cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConnector.html">PutConnector</a>, a connector cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p>
@@ -140,21 +186,21 @@ export interface DeleteServiceLinkedConfigurationRecorderCommandOutput extends D
  *
  * @public
  */
-export class DeleteServiceLinkedConfigurationRecorderCommand extends command<DeleteServiceLinkedConfigurationRecorderCommandInput, DeleteServiceLinkedConfigurationRecorderCommandOutput>(
+export class PutThirdPartyServiceLinkedConfigurationRecorderCommand extends command<PutThirdPartyServiceLinkedConfigurationRecorderCommandInput, PutThirdPartyServiceLinkedConfigurationRecorderCommandOutput>(
   _ep0,
   _mw0,
-  "DeleteServiceLinkedConfigurationRecorder",
-  DeleteServiceLinkedConfigurationRecorder$
+  "PutThirdPartyServiceLinkedConfigurationRecorder",
+  PutThirdPartyServiceLinkedConfigurationRecorder$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteServiceLinkedConfigurationRecorderRequest;
-      output: DeleteServiceLinkedConfigurationRecorderResponse;
+      input: PutThirdPartyServiceLinkedConfigurationRecorderRequest;
+      output: PutThirdPartyServiceLinkedConfigurationRecorderResponse;
     };
     sdk: {
-      input: DeleteServiceLinkedConfigurationRecorderCommandInput;
-      output: DeleteServiceLinkedConfigurationRecorderCommandOutput;
+      input: PutThirdPartyServiceLinkedConfigurationRecorderCommandInput;
+      output: PutThirdPartyServiceLinkedConfigurationRecorderCommandOutput;
     };
   };
 }
