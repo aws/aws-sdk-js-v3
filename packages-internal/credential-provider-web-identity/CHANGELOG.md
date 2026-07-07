@@ -63,6 +63,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.61 (2026-07-07)
+### Chores
+* **credential-provider-web-identity:** update dependencies.
+
+
+
 # 3.972.60 (2026-07-06)
 ### Chores
 * **credential-provider-web-identity:** update dependencies.

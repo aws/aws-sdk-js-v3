@@ -57,6 +57,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.55 (2026-07-07)
+### Chores
+* **credential-provider-env:** update dependencies.
+
+
+
 # 3.972.54 (2026-07-06)
 ### Chores
 * **credential-provider-env:** update dependencies.

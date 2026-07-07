@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1081.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1080.0...v3.1081.0) (2026-07-07)
+
+
+### Features
+
+* **client-ssm:** Adding SSM Cloud Connector to support Azure Virtual Machines onboarding to AWS Systems Manager ([6efef57](https://github.com/aws/aws-sdk-js-v3/commit/6efef57f1f2da74e5765bc1de2bc16f89cc30253))
+
+
+
+
+
 # [3.1080.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1079.0...v3.1080.0) (2026-07-06)
 
 **Note:** Version bump only for package @aws-sdk/client-ssm

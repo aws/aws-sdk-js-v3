@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1081.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1080.0...v3.1081.0) (2026-07-07)
+
+
+### Features
+
+* **client-inspector2:** This release extends vulnerability management to Azure VM, container registries and function apps. Adds support for per-member-account scan configuration settings. ([ae9b7bc](https://github.com/aws/aws-sdk-js-v3/commit/ae9b7bcfc791fa573cf258443e56ec3620e48783))
+
+
+
+
+
 # [3.1080.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1079.0...v3.1080.0) (2026-07-06)
 
 **Note:** Version bump only for package @aws-sdk/client-inspector2

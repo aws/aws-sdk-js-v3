@@ -60,6 +60,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.29 (2026-07-06)
+### Tests
+* **core/client:** delete partitions test ([#8158](https://github.com/aws/aws-sdk-js-v3/issues/8158)) ([6e80e26](https://github.com/aws/aws-sdk-js-v3/commit/6e80e26e0c7ce8038e14ccebae26d61df7262052))
+
+
+
 # 3.974.28 (2026-07-06)
 ### Chores
 * **core/client:** version partitions.ts file ([#8155](https://github.com/aws/aws-sdk-js-v3/issues/8155)) ([7aa3c7a](https://github.com/aws/aws-sdk-js-v3/commit/7aa3c7a13f724018dc0417c4ba30fa63af4c879a))

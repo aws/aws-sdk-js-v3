@@ -40,6 +40,13 @@
 
 
 
+
+# 3.0.41 (2026-07-07)
+### Chores
+* **snapshot-testing:** update dependencies.
+
+
+
 # 3.0.40 (2026-07-06)
 ### Chores
 * **snapshot-testing:** update dependencies.

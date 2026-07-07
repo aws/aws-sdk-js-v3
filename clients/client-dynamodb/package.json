@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-dynamodb",
   "description": "AWS SDK for JavaScript Dynamodb Client for Node.js, Browser and React Native",
-  "version": "3.1080.0",
+  "version": "3.1081.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -25,9 +25,9 @@
   "module": "./dist-es/index.js",
   "sideEffects": false,
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.28",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.63",
-    "@aws-sdk/dynamodb-codec": "workspace:^3.973.28",
+    "@aws-sdk/core": "workspace:^3.974.29",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.64",
+    "@aws-sdk/dynamodb-codec": "workspace:^3.973.29",
     "@aws-sdk/middleware-endpoint-discovery": "workspace:^3.972.22",
     "@aws-sdk/types": "workspace:^3.973.15",
     "@smithy/core": "^3.29.0",

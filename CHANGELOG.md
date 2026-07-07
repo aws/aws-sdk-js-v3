@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1081.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1080.0...v3.1081.0) (2026-07-07)
+
+
+### Bug Fixes
+
+* **credential-provider-http:** fix token and URI path priority resolution ([#8159](https://github.com/aws/aws-sdk-js-v3/issues/8159)) ([e9e857d](https://github.com/aws/aws-sdk-js-v3/commit/e9e857d324d216f705e5b2fe0e8f8c535e55d7fb))
+* **scripts:** publish unreleased X.0.0 baseline versions as-is ([#8160](https://github.com/aws/aws-sdk-js-v3/issues/8160)) ([ee9dc95](https://github.com/aws/aws-sdk-js-v3/commit/ee9dc9534e5979931167a39c98e330f9a6a79cee))
+* **tests:** use ES format for rollup bundle-size benchmark ([#8163](https://github.com/aws/aws-sdk-js-v3/issues/8163)) ([506e3ae](https://github.com/aws/aws-sdk-js-v3/commit/506e3aee8c6f66d91c1921b51779f76d8b4ac7b1))
+
+
+### Features
+
+* **client-config-service:** Added support for connecting AWS Config to third-party cloud service providers. New APIs include PutConnector, GetConnector, DeleteConnector, and ListConnectors for managing connectors, and PutThirdPartyServiceLinkedConfigurationRecorder for creating third-party service-linked recorders. ([df52cb1](https://github.com/aws/aws-sdk-js-v3/commit/df52cb13ddd306ff78731fc126e0b4b1b60bde4b))
+* **client-connect:** Adds support for CreateAuthCode and DeleteSession APIs. ([b84bbf6](https://github.com/aws/aws-sdk-js-v3/commit/b84bbf6f4aa3e3ed630d76029180872a5c3c99ee))
+* **client-ec2:** This launch surfaces the public SSM parameter associated with public AMIs in the AMI metadata. ([9e8f9fa](https://github.com/aws/aws-sdk-js-v3/commit/9e8f9fa870eab8f555c7caea5ca42a5e4a996533))
+* **client-inspector2:** This release extends vulnerability management to Azure VM, container registries and function apps. Adds support for per-member-account scan configuration settings. ([ae9b7bc](https://github.com/aws/aws-sdk-js-v3/commit/ae9b7bcfc791fa573cf258443e56ec3620e48783))
+* **client-lambda:** AWS Lambda Durable Functions now supports customer managed KMS keys. This allows customers to configure a KMS key in Durable Config to have all their durable execution data encrypted. ([796bc54](https://github.com/aws/aws-sdk-js-v3/commit/796bc54a27e4b180498f91c998553194a793d179))
+* **client-marketplace-catalog:** This release enhances the ListEntities API to support ResellerRole filter for ResaleAuthorization entity. ([d7b7cb7](https://github.com/aws/aws-sdk-js-v3/commit/d7b7cb79170267e6c6b7c38432a9d8ef8288d28c))
+* **client-partnercentral-revenue-measurement:** Add support for AWS Partner Central Revenue Measurement API for creating, managing, and tracking revenue attributions and marketplace revenue share allocations. ([9f3e80e](https://github.com/aws/aws-sdk-js-v3/commit/9f3e80e613d9c234ddc3dcd8a6916ee3d0653ab9))
+* **client-route53globalresolver:** Adds ListSharedDNSViews operation to list all DNS Views shared with caller using AWS Resource Access Manager. Also updates ListHostedZoneAssociations operation so that resource ARN param is optional, allowing caller to list all HostedZoneAssociations in account. ([0e11517](https://github.com/aws/aws-sdk-js-v3/commit/0e11517de3c81ff489ad83876301828ea7803a3b))
+* **client-securityhub:** release SecurityHub MultiCloud integration with Azure ([6f7d08e](https://github.com/aws/aws-sdk-js-v3/commit/6f7d08e01be650bfbc6fa76ccb87362bda1066b0))
+* **client-ssm:** Adding SSM Cloud Connector to support Azure Virtual Machines onboarding to AWS Systems Manager ([6efef57](https://github.com/aws/aws-sdk-js-v3/commit/6efef57f1f2da74e5765bc1de2bc16f89cc30253))
+* **clients:** update client endpoints as of 2026-07-07 ([fc9fb99](https://github.com/aws/aws-sdk-js-v3/commit/fc9fb9908ee490cb91e7e5b32a3875d8b54fdb5c))
+
+
+
+
+
 # [3.1080.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1079.0...v3.1080.0) (2026-07-06)
 
 
