@@ -8,7 +8,7 @@ import { fromTemporaryCredentials as fromTemporaryCredentialsBase } from "./from
 /**
  * @public
  */
-export { FromTemporaryCredentialsOptions };
+export type { FromTemporaryCredentialsOptions };
 
 /**
  * Creates a credential provider function that retrieves temporary credentials from STS AssumeRole API.

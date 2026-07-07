@@ -1,8 +1,3 @@
-/**
- * @internal
- */
-export * from "./Endpoint";
-/**
- * @internal
- */
-export * from "./EndpointCache";
+export type { Endpoint } from "./Endpoint";
+export { EndpointCache } from "./EndpointCache";
+export type { EndpointWithExpiry } from "./EndpointCache";

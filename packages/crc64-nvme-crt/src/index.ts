@@ -4,4 +4,4 @@ import { CrtCrc64Nvme } from "./CrtCrc64Nvme";
 
 crc64NvmeCrtContainer.CrtCrc64Nvme = CrtCrc64Nvme;
 
-export * from "./CrtCrc64Nvme";
+export { CrtCrc64Nvme } from "./CrtCrc64Nvme";

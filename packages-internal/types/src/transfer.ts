@@ -1,7 +1,2 @@
-export {
-  RequestContext,
-  RequestHandler,
-  RequestHandlerMetadata,
-  RequestHandlerOutput,
-  RequestHandlerProtocol,
-} from "@smithy/types";
+export { RequestHandlerProtocol } from "@smithy/types";
+export type { RequestContext, RequestHandler, RequestHandlerMetadata, RequestHandlerOutput } from "@smithy/types";

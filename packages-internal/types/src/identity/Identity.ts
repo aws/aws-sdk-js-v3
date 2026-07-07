@@ -1,1 +1,1 @@
-export { Identity, IdentityProvider } from "@smithy/types";
+export type { Identity, IdentityProvider } from "@smithy/types";

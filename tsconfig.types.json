@@ -5,6 +5,7 @@
     "emitDeclarationOnly": true,
     "removeComments": false,
     "strict": true,
+    "isolatedModules": true,
     "paths": {
       "@smithy/core/*": ["node_modules/@smithy/core/dist-types/submodules/*/index.d.ts"]
     }

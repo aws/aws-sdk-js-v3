@@ -1,1 +1,1 @@
-export { URI } from "@smithy/types";
+export type { URI } from "@smithy/types";

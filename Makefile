@@ -1,7 +1,7 @@
 # This is the public Makefile containing some build commands.
 # You can implement some additional personal commands such as login and sync in Makefile.private.mk (unversioned).
 
-.PHONY: login sync bundles test-unit test-types test-indices test-protocols test-schema test-integration test-endpoints test-e2e build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle clean-nested link-smithy unlink-smithy copy-smithy gen-auth b-auth tpk unbuilt turbo-clean server-protocols nested-clients clients static-analysis
+.PHONY: login sync bundles test-unit test-types test-indices test-protocols test-schema test-integration test-endpoints test-e2e build build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle clean-nested link-smithy unlink-smithy copy-smithy gen-auth b-auth tpk unbuilt turbo-clean server-protocols nested-clients clients static-analysis
 
 # fetch AWS testing credentials
 login:
@@ -102,6 +102,9 @@ bundles: build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle
 test-bundlers:
 	node ./tests/bundlers/bundler-canary.mjs
 	(cd ./tests/bundler-compat && npm install && node ./run.mjs)
+
+build:
+	yarn build;
 
 build-s3-browser-bundle:
 	node ./clients/client-s3/test/browser-build/esbuild
