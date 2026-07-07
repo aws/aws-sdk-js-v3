@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListFiltersRequest, ListFiltersResponse } from "../models/models_0";
+import type { ListFiltersRequest, ListFiltersResponse } from "../models/models_1";
 import { ListFilters$ } from "../schemas/schemas_0";
 
 /**
@@ -185,6 +185,30 @@ export interface ListFiltersCommandOutput extends ListFiltersResponse, __Metadat
  * //         ],
  * //         codeRepositoryProjectName: "<StringFilterList>",
  * //         codeRepositoryProviderType: "<StringFilterList>",
+ * //         cloudProvider: "<StringFilterList>",
+ * //         cloudProviderRegion: "<StringFilterList>",
+ * //         cloudProviderAccountId: "<StringFilterList>",
+ * //         cloudProviderOrgId: "<StringFilterList>",
+ * //         cloudVmImageReference: "<StringFilterList>",
+ * //         cloudVmNetworkId: "<StringFilterList>",
+ * //         cloudVmSubnetIds: "<StringFilterList>",
+ * //         cloudImageRepositoryName: "<StringFilterList>",
+ * //         cloudImageRegistry: "<StringFilterList>",
+ * //         cloudImageDigest: "<StringFilterList>",
+ * //         cloudImageTags: "<StringFilterList>",
+ * //         cloudImagePushedAt: "<DateFilterList>",
+ * //         cloudImageArchitecture: "<StringFilterList>",
+ * //         cloudImageLastInUseAt: "<DateFilterList>",
+ * //         cloudImageInUseCount: [
+ * //           {
+ * //             upperInclusive: Number("double"),
+ * //             lowerInclusive: Number("double"),
+ * //           },
+ * //         ],
+ * //         cloudServerlessFunctionName: "<StringFilterList>",
+ * //         cloudServerlessFunctionRuntime: "<StringFilterList>",
+ * //         cloudServerlessFunctionLastModifiedAt: "<DateFilterList>",
+ * //         cloudServerlessFunctionExecutionRole: "<StringFilterList>",
  * //       },
  * //       action: "STRING_VALUE", // required
  * //       createdAt: new Date("TIMESTAMP"), // required

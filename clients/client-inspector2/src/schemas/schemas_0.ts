@@ -3,6 +3,8 @@ const _AA = "AccountAggregation";
 const _AAR = "AccountAggregationResponse";
 const _AARm = "AmiAggregationResponse";
 const _AAm = "AmiAggregation";
+const _ACCAF = "AwsConfigConnectorArnFilter";
+const _ACCAFL = "AwsConfigConnectorArnFilterList";
 const _ACR = "AssociateConfigurationRequest";
 const _ACRL = "AssociateConfigurationRequestList";
 const _AD = "AtigData";
@@ -22,10 +24,14 @@ const _ALFD = "AwsLambdaFunctionDetails";
 const _AM = "AssociateMember";
 const _AMR = "AssociateMemberRequest";
 const _AMRs = "AssociateMemberResponse";
+const _APDC = "AzureProviderDetailCreate";
+const _APDU = "AzureProviderDetailUpdate";
 const _AR = "AggregationRequest";
 const _ARL = "AggregationResponseList";
 const _ARg = "AggregationResponse";
 const _AS = "AccountState";
+const _ASC = "AzureScopeConfiguration";
+const _ASCI = "AzureScopeConfigurationInput";
 const _ASL = "AccountStateList";
 const _AU = "AuthorizationUrl";
 const _BACSSC = "BatchAssociateCodeSecurityScanConfiguration";
@@ -53,9 +59,15 @@ const _BRE = "BadRequestException";
 const _BUMEDIS = "BatchUpdateMemberEc2DeepInspectionStatus";
 const _BUMEDISR = "BatchUpdateMemberEc2DeepInspectionStatusRequest";
 const _BUMEDISRa = "BatchUpdateMemberEc2DeepInspectionStatusResponse";
-const _C = "Counts";
+const _C = "Connector";
+const _CAF = "ConnectorArnFilter";
+const _CAFL = "ConnectorArnFilterList";
+const _CC = "CreateConnector";
 const _CCA = "CisCheckAggregation";
 const _CCAL = "CisCheckAggregationList";
+const _CCISC = "ConnectorContainerImageScanConfiguration";
+const _CCR = "CreateConnectorRequest";
+const _CCRr = "CreateConnectorResponse";
 const _CCSC = "CreateCisScanConfiguration";
 const _CCSCR = "CreateCisScanConfigurationRequest";
 const _CCSCRr = "CreateCisScanConfigurationResponse";
@@ -75,7 +87,8 @@ const _CDl = "ClusterDetails";
 const _CE = "ConflictException";
 const _CF = "CreateFilter";
 const _CFAFL = "CisFindingArnFilterList";
-const _CFC = "CoverageFilterCriteria";
+const _CFC = "ConnectorFilterCriteria";
+const _CFCo = "CoverageFilterCriteria";
 const _CFIFC = "ClusterForImageFilterCriteria";
 const _CFP = "CodeFilePath";
 const _CFR = "CreateFilterRequest";
@@ -89,14 +102,19 @@ const _CFRre = "CreateFindingsReport";
 const _CFSF = "CisFindingStatusFilter";
 const _CFSFL = "CisFindingStatusFilterList";
 const _CGLSMID = "CreateGitLabSelfManagedIntegrationDetail";
+const _CH = "ConnectorHealth";
 const _CI = "ClusterInformation";
+const _CIA = "ContainerImageAggregation";
+const _CIAR = "ContainerImageAggregationResponse";
 const _CID = "CreateIntegrationDetail";
 const _CIFL = "CheckIdFilterList";
 const _CIL = "ClusterInformationList";
+const _CIM = "ContainerImageMetadata";
 const _CISC = "ContinuousIntegrationScanConfiguration";
 const _CL = "CodeLine";
 const _CLL = "CodeLineList";
-const _CLo = "CountsList";
+const _CLo = "ConnectorList";
+const _CLou = "CountsList";
 const _CM = "ClusterMetadata";
 const _CMF = "CoverageMapFilter";
 const _CMFL = "CoverageMapFilterList";
@@ -104,12 +122,15 @@ const _CNF = "CisNumberFilter";
 const _CNFL = "CisNumberFilterList";
 const _CNFLo = "CoverageNumberFilterList";
 const _CNFo = "CoverageNumberFilter";
+const _CNT = "ConnectorNextToken";
 const _CP = "ComputePlatform";
 const _CR = "CoveredResource";
 const _CRA = "CodeRepositoryAggregation";
 const _CRAR = "CodeRepositoryAggregationResponse";
 const _CRD = "CodeRepositoryDetails";
 const _CRM = "CodeRepositoryMetadata";
+const _CRMo = "ContainerRegistryMetadata";
+const _CRMon = "ContainerRepositoryMetadata";
 const _CRODS = "CodeRepositoryOnDemandScan";
 const _CRSF = "CisResultStatusFilter";
 const _CRSFL = "CisResultStatusFilterList";
@@ -121,7 +142,10 @@ const _CSAL = "CvssScoreAdjustmentList";
 const _CSBFL = "CisScheduledByFilterList";
 const _CSC = "CisScanConfiguration";
 const _CSCAFL = "CisScanConfigurationArnFilterList";
+const _CSCI = "ConnectorScanConfigurationItem";
+const _CSCIL = "ConnectorScanConfigurationItemList";
 const _CSCL = "CisScanConfigurationList";
+const _CSCo = "ConnectorScanConfiguration";
 const _CSD = "CvssScoreDetails";
 const _CSDFL = "CisScanDateFilterList";
 const _CSE = "CodeSnippetError";
@@ -160,11 +184,14 @@ const _CSSF = "CisScanStatusFilter";
 const _CSSFL = "CisScanStatusFilterList";
 const _CSv = "CvssScore";
 const _CT = "CisTargets";
+const _CTF = "ConnectorTypeFilter";
+const _CTFL = "ConnectorTypeFilterList";
 const _CTRA = "CisTargetResourceAggregation";
 const _CTRAL = "CisTargetResourceAggregationList";
 const _CTSF = "CisTargetStatusFilter";
 const _CTSRF = "CisTargetStatusReasonFilter";
 const _CVD = "CodeVulnerabilityDetails";
+const _Co = "Counts";
 const _Cv = "Cvss2";
 const _Cvs = "Cvss3";
 const _Cvss = "Cvss4";
@@ -172,8 +199,11 @@ const _D = "Destination";
 const _DA = "DelegatedAdmin";
 const _DAA = "DelegatedAdminAccount";
 const _DAAL = "DelegatedAdminAccountList";
-const _DCR = "DisassociateConfigurationRequest";
+const _DC = "DeleteConnector";
+const _DCR = "DeleteConnectorRequest";
 const _DCRL = "DisassociateConfigurationRequestList";
+const _DCRe = "DeleteConnectorResponse";
+const _DCRi = "DisassociateConfigurationRequest";
 const _DCSC = "DeleteCisScanConfiguration";
 const _DCSCR = "DeleteCisScanConfigurationRequest";
 const _DCSCRe = "DeleteCisScanConfigurationResponse";
@@ -289,6 +319,7 @@ const _GMRe = "GetMemberResponse";
 const _GSE = "GetSbomExport";
 const _GSER = "GetSbomExportRequest";
 const _GSERe = "GetSbomExportResponse";
+const _I = "Image";
 const _ILA = "ImageLayerAggregation";
 const _ILAR = "ImageLayerAggregationResponse";
 const _IS = "IntegrationSummaries";
@@ -298,14 +329,19 @@ const _IU = "InstanceUrl";
 const _LAP = "ListAccountPermissions";
 const _LAPR = "ListAccountPermissionsRequest";
 const _LAPRi = "ListAccountPermissionsResponse";
-const _LC = "ListCoverage";
-const _LCR = "ListCoverageRequest";
-const _LCRi = "ListCoverageResponse";
+const _LC = "ListConnectors";
+const _LCR = "ListConnectorsRequest";
+const _LCRi = "ListConnectorsResponse";
+const _LCRis = "ListCoverageRequest";
+const _LCRist = "ListCoverageResponse";
 const _LCS = "ListCisScans";
 const _LCSC = "ListCisScanConfigurations";
 const _LCSCFC = "ListCisScanConfigurationsFilterCriteria";
 const _LCSCR = "ListCisScanConfigurationsRequest";
 const _LCSCRi = "ListCisScanConfigurationsResponse";
+const _LCSCRis = "ListConnectorScanConfigurationsRequest";
+const _LCSCRist = "ListConnectorScanConfigurationsResponse";
+const _LCSCi = "ListConnectorScanConfigurations";
 const _LCSFC = "ListCisScansFilterCriteria";
 const _LCSI = "ListCodeSecurityIntegrations";
 const _LCSIR = "ListCodeSecurityIntegrationsRequest";
@@ -327,6 +363,7 @@ const _LCSSCARi = "ListCodeSecurityScanConfigurationAssociationsResponse";
 const _LCSSCR = "ListCodeSecurityScanConfigurationsRequest";
 const _LCSSCRi = "ListCodeSecurityScanConfigurationsResponse";
 const _LCSi = "ListCoverageStatistics";
+const _LCi = "ListCoverage";
 const _LDAA = "ListDelegatedAdminAccounts";
 const _LDAAR = "ListDelegatedAdminAccountsRequest";
 const _LDAARi = "ListDelegatedAdminAccountsResponse";
@@ -375,9 +412,13 @@ const _PAR = "PackageAggregationResponse";
 const _PCISC = "ProjectContinuousIntegrationScanConfiguration";
 const _PCISCL = "ProjectContinuousIntegrationScanConfigurationList";
 const _PCSSC = "ProjectCodeSecurityScanConfiguration";
+const _PDC = "ProviderDetailCreate";
+const _PDU = "ProviderDetailUpdate";
 const _PF = "PackageFilter";
 const _PFL = "PackageFilterList";
 const _PFLl = "PlatformFilterList";
+const _PFLr = "ProviderFilterList";
+const _PFr = "ProviderFilter";
 const _PPSC = "ProjectPeriodicScanConfiguration";
 const _PPSCL = "ProjectPeriodicScanConfigurationList";
 const _PR = "PortRange";
@@ -411,7 +452,8 @@ const _Res = "Resource";
 const _S = "State";
 const _SAR = "SuccessfulAssociationResult";
 const _SARL = "SuccessfulAssociationResultList";
-const _SC = "SeverityCounts";
+const _SC = "ScopeConfiguration";
+const _SCI = "ScopeConfigurationInput";
 const _SCMP = "StopCisMessageProgress";
 const _SCS = "StartCisSession";
 const _SCSH = "SendCisSessionHealth";
@@ -430,10 +472,15 @@ const _SCST = "SendCisSessionTelemetry";
 const _SCSTR = "SendCisSessionTelemetryRequest";
 const _SCSTRe = "SendCisSessionTelemetryResponse";
 const _SCSt = "StopCisSession";
+const _SCe = "SeverityCounts";
 const _SCo = "SortCriteria";
 const _SCt = "StatusCounts";
-const _SF = "StringFilter";
+const _SF = "ServerlessFunction";
+const _SFA = "ServerlessFunctionAggregation";
+const _SFAR = "ServerlessFunctionAggregationResponse";
 const _SFL = "StringFilterList";
+const _SFM = "ServerlessFunctionMetadata";
+const _SFt = "StringFilter";
 const _SFu = "SuggestedFix";
 const _SFug = "SuggestedFixes";
 const _SL = "StepList";
@@ -460,11 +507,17 @@ const _TSFL = "TargetStatusFilterList";
 const _TSRFL = "TargetStatusReasonFilterList";
 const _U = "Url";
 const _UC = "UpdateConfiguration";
+const _UCI = "UpdateConfigurationInheritance";
 const _UCR = "UpdateConfigurationRequest";
 const _UCRp = "UpdateConfigurationResponse";
+const _UCRpd = "UpdateConnectorRequest";
+const _UCRpda = "UpdateConnectorResponse";
 const _UCSC = "UpdateCisScanConfiguration";
 const _UCSCR = "UpdateCisScanConfigurationRequest";
 const _UCSCRp = "UpdateCisScanConfigurationResponse";
+const _UCSCRpd = "UpdateConnectorScanConfigurationRequest";
+const _UCSCRpda = "UpdateConnectorScanConfigurationResponse";
+const _UCSCp = "UpdateConnectorScanConfiguration";
 const _UCSI = "UpdateCodeSecurityIntegration";
 const _UCSIR = "UpdateCodeSecurityIntegrationRequest";
 const _UCSIRp = "UpdateCodeSecurityIntegrationResponse";
@@ -472,6 +525,7 @@ const _UCSSC = "UpdateCodeSecurityScanConfiguration";
 const _UCSSCR = "UpdateCodeSecurityScanConfigurationRequest";
 const _UCSSCRp = "UpdateCodeSecurityScanConfigurationResponse";
 const _UCT = "UpdateCisTargets";
+const _UCp = "UpdateConnector";
 const _UEDIC = "UpdateEc2DeepInspectionConfiguration";
 const _UEDICR = "UpdateEc2DeepInspectionConfigurationRequest";
 const _UEDICRp = "UpdateEc2DeepInspectionConfigurationResponse";
@@ -497,14 +551,18 @@ const _URRn = "UntagResourceResponse";
 const _UT = "UsageTotal";
 const _UTL = "UsageTotalList";
 const _Us = "Usage";
-const _V = "Vulnerability";
+const _V = "Vm";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFa = "ValidationExceptionFields";
+const _VIA = "VmInstanceAggregation";
+const _VIAR = "VmInstanceAggregationResponse";
+const _VIM = "VmInstanceMetadata";
 const _VMSS = "VMScannerState";
 const _VP = "VulnerablePackage";
 const _VPL = "VulnerablePackageList";
-const _Vu = "Vulnerabilities";
+const _Vu = "Vulnerability";
+const _Vul = "Vulnerabilities";
 const _WS = "WeeklySchedule";
 const _a = "amis";
 const _aA = "activatedAt";
@@ -512,6 +570,8 @@ const _aAI = "awsAccountId";
 const _aAc = "accountAggregation";
 const _aAm = "amiAggregation";
 const _aC = "adjustedCvss";
+const _aCCA = "awsConfigConnectorArn";
+const _aCCAw = "awsConfigConnectorArns";
 const _aCR = "associateConfigurationRequests";
 const _aCu = "authCode";
 const _aD = "atigData";
@@ -524,12 +584,14 @@ const _aEMD = "awsEcsMetadataDetails";
 const _aEMDw = "awsEksMetadataDetails";
 const _aI = "accountId";
 const _aIF = "accountIdFilters";
+const _aIVMS = "autoInstallVMScanner";
 const _aIc = "accountIds";
 const _aIf = "affectedInstances";
 const _aIff = "affectedImages";
 const _aIm = "amiId";
 const _aLF = "awsLambdaFunction";
-const _aR = "aggregationRequest";
+const _aR = "azureRegions";
+const _aRg = "aggregationRequest";
 const _aT = "accessToken";
 const _aTg = "aggregationType";
 const _aU = "authorizationUrl";
@@ -547,6 +609,7 @@ const _arn = "arn";
 const _arns = "arns";
 const _as = "associations";
 const _au = "author";
+const _az = "azure";
 const _b = "begin";
 const _bI = "beginInclusive";
 const _bN = "bucketName";
@@ -555,39 +618,82 @@ const _bS = "baseScore";
 const _bV = "benchmarkVersion";
 const _c = "client";
 const _cA = "clusterArn";
+const _cAI = "cloudAccountId";
+const _cAIl = "cloudAccountIds";
 const _cAh = "checkAggregations";
-const _cAo = "componentArn";
+const _cAo = "connectorArn";
+const _cAom = "componentArn";
+const _cAon = "connectorArns";
 const _cAr = "createdAt";
 const _cBG = "countsByGroup";
+const _cCIT = "cloudContainerImageTags";
+const _cCRN = "cloudContainerRepositoryName";
+const _cCRNl = "cloudContainerRegistryName";
 const _cD = "checkDescription";
 const _cDi = "cisaData";
 const _cDl = "clusterDetails";
+const _cDo = "codeDigest";
 const _cI = "checkId";
+const _cIA = "cloudImageArchitecture";
+const _cIAo = "containerImageAggregation";
+const _cID = "cloudImageDigest";
 const _cIF = "checkIdFilters";
+const _cIIUC = "cloudImageInUseCount";
+const _cILIUA = "cloudImageLastInUseAt";
+const _cIPA = "cloudImagePushedAt";
+const _cIR = "cloudImageRegistry";
+const _cIRN = "cloudImageRepositoryName";
+const _cIS = "containerImageScanning";
 const _cISC = "continuousIntegrationScanConfiguration";
 const _cISCo = "continuousIntegrationScanConfigurations";
 const _cISSE = "continuousIntegrationScanSupportedEvents";
+const _cIT = "cloudImageTags";
 const _cIo = "componentId";
+const _cIon = "containerImage";
 const _cM = "clusterMetadata";
 const _cO = "createdOn";
-const _cP = "computePlatform";
-const _cR = "codeRepository";
+const _cOI = "cloudOrgId";
+const _cOIl = "cloudOrgIds";
+const _cP = "cloudProvider";
+const _cPAI = "cloudProviderAccountId";
+const _cPOI = "cloudProviderOrgId";
+const _cPR = "cloudProviderRegion";
+const _cPl = "cloudPartition";
+const _cPlo = "cloudProviders";
+const _cPlou = "cloudPartitions";
+const _cPo = "computePlatform";
+const _cR = "cloudRegion";
 const _cRA = "codeRepositoryAggregation";
 const _cRD = "cisRuleDetails";
 const _cRPN = "codeRepositoryProjectName";
 const _cRPT = "codeRepositoryProviderType";
 const _cRPTV = "codeRepositoryProviderTypeVisibility";
-const _cRo = "coveredResources";
+const _cRl = "cloudRegions";
+const _cRo = "codeRepository";
+const _cRon = "containerRepository";
+const _cRont = "containerRegistry";
+const _cRov = "coveredResources";
 const _cS = "codeSha256";
+const _cSFER = "cloudServerlessFunctionExecutionRole";
+const _cSFLMA = "cloudServerlessFunctionLastModifiedAt";
+const _cSFN = "cloudServerlessFunctionName";
+const _cSFR = "cloudServerlessFunctionRuntime";
+const _cSFT = "cloudServerlessFunctionTags";
 const _cSR = "codeSnippetResults";
 const _cSo = "codeSnippet";
+const _cSon = "connectorStatus";
 const _cSv = "cvssSource";
-const _cT = "clientToken";
+const _cT = "connectorType";
+const _cTl = "clientToken";
 const _cTo = "componentType";
 const _cVD = "codeVulnerabilityDetails";
 const _cVDN = "codeVulnerabilityDetectorName";
 const _cVDT = "codeVulnerabilityDetectorTags";
 const _cVFP = "codeVulnerabilityFilePath";
+const _cVIR = "cloudVmImageReference";
+const _cVIT = "cloudVmInstanceTags";
+const _cVNI = "cloudVmNetworkId";
+const _cVSI = "cloudVmSubnetIds";
 const _cl = "cluster";
 const _co = "comparison";
 const _cod = "code";
@@ -603,7 +709,7 @@ const _cvs = "cvss4";
 const _cvss = "cvss3";
 const _cvss_ = "cvss2";
 const _cw = "cwes";
-const _d = "details";
+const _d = "description";
 const _dA = "dateAdded";
 const _dAA = "delegatedAdminAccounts";
 const _dAAI = "delegatedAdminAccountId";
@@ -619,7 +725,7 @@ const _dT = "detectorTags";
 const _da = "day";
 const _dai = "daily";
 const _day = "days";
-const _de = "description";
+const _de = "details";
 const _des = "destination";
 const _e = "error";
 const _eA = "exploitAvailable";
@@ -654,9 +760,12 @@ const _eR = "evidenceRule";
 const _eRA = "executionRoleArn";
 const _eRN = "ecrRepositoryName";
 const _eRc = "ecrRepository";
-const _eS = "epssScore";
+const _eRx = "executionRole";
+const _eS = "enablementStatus";
+const _eSR = "enablementStatusReason";
 const _eSS = "ec2ScanStatus";
 const _eSST = "earliestScanStartTime";
+const _eSp = "epssScore";
 const _ec = "ec2";
 const _ecr = "ecr";
 const _en = "end";
@@ -705,15 +814,19 @@ const _g = "github";
 const _gB = "groupBy";
 const _gK = "groupKey";
 const _gSM = "gitlabSelfManaged";
-const _h = "high";
+const _h = "health";
 const _hE = "httpError";
 const _hH = "httpHeader";
 const _hQ = "httpQuery";
+const _hi = "high";
 const _ht = "http";
 const _i = "integrations";
 const _iA = "integrationArn";
 const _iC = "informationalChecks";
+const _iD = "imageDigests";
+const _iDm = "imageDigest";
 const _iH = "imageHash";
+const _iHn = "inventoryHash";
 const _iI = "imageId";
 const _iIPA = "iamInstanceProfileArn";
 const _iIn = "instanceIds";
@@ -732,6 +845,8 @@ const _iUC = "inUseCount";
 const _iVA = "ipV4Addresses";
 const _iVAp = "ipV6Addresses";
 const _id = "id";
+const _im = "image";
+const _it = "items";
 const _k = "key";
 const _kKA = "kmsKeyArn";
 const _kKI = "kmsKeyId";
@@ -742,6 +857,7 @@ const _lA = "launchedAt";
 const _lAa = "layerArns";
 const _lAay = "layerArn";
 const _lC = "lambdaCode";
+const _lCA = "lastCheckedAt";
 const _lCI = "lastCommitId";
 const _lF = "lambdaFunction";
 const _lFA = "lambdaFunctionAggregation";
@@ -784,6 +900,7 @@ const _n = "namespace";
 const _nAC = "notApplicableChecks";
 const _nEC = "notEvaluatedChecks";
 const _nF = "networkFindings";
+const _nI = "networkId";
 const _nP = "networkProtocol";
 const _nPe = "networkPath";
 const _nRD = "networkReachabilityDetails";
@@ -801,9 +918,13 @@ const _oSp = "operatingSystem";
 const _oT = "oneTime";
 const _p = "platform";
 const _pA = "pushedAt";
+const _pAI = "providerAccountId";
 const _pAa = "packageAggregation";
+const _pD = "pushDuration";
 const _pDRD = "pullDateRescanDuration";
 const _pDRM = "pullDateRescanMode";
+const _pDr = "providerDetail";
+const _pDu = "pullDuration";
 const _pF = "platformFilters";
 const _pI = "projectId";
 const _pM = "packageManager";
@@ -811,8 +932,11 @@ const _pN = "projectNames";
 const _pNa = "packageNames";
 const _pNac = "packageName";
 const _pNr = "projectName";
-const _pP = "packagePaths";
-const _pR = "portRange";
+const _pOI = "providerOrgId";
+const _pP = "providerPartition";
+const _pPa = "packagePaths";
+const _pR = "providerRegion";
+const _pRo = "portRange";
 const _pSC = "periodicScanConfiguration";
 const _pSCe = "periodicScanConfigurations";
 const _pSF = "periodicScanFrequency";
@@ -826,8 +950,9 @@ const _pa = "partition";
 const _pas = "passed";
 const _pe = "permissions";
 const _pr = "product";
-const _pro = "protocol";
+const _pro = "provider";
 const _prog = "progress";
+const _prot = "protocol";
 const _r = "reason";
 const _rA = "resourceArn";
 const _rAS = "retryAfterSeconds";
@@ -856,7 +981,8 @@ const _rV = "relatedVulnerabilities";
 const _re = "resource";
 const _rec = "recommendation";
 const _reg = "registry";
-const _regi = "region";
+const _regi = "registries";
+const _regio = "region";
 const _rel = "release";
 const _rem = "remediation";
 const _rep = "repositories";
@@ -876,8 +1002,9 @@ const _sBc = "scheduledBy";
 const _sC = "severityCounts";
 const _sCA = "scanConfigurationArn";
 const _sCAF = "scanConfigurationArnFilters";
-const _sCc = "scanConfiguration";
-const _sCca = "scanConfigurations";
+const _sCc = "scopeConfiguration";
+const _sCca = "scanConfiguration";
+const _sCcan = "scanConfigurations";
 const _sCo = "sortCriteria";
 const _sCt = "statusCounts";
 const _sCta = "statusCode";
@@ -887,7 +1014,10 @@ const _sDe = "s3Destination";
 const _sE = "supportedEvents";
 const _sEu = "supportedEvent";
 const _sF = "statusFilters";
+const _sFA = "serverlessFunctionAggregation";
+const _sFN = "serverlessFunctionName";
 const _sFc = "scanFrequency";
+const _sFe = "serverlessFunction";
 const _sFu = "suggestedFixes";
 const _sGI = "securityGroupIds";
 const _sI = "subnetId";
@@ -909,18 +1039,22 @@ const _sNF = "scanNameFilters";
 const _sO = "sortOrder";
 const _sR = "statusReason";
 const _sRD = "scanResultDetails";
-const _sS = "scanStatus";
+const _sRt = "stateReason";
+const _sS = "serverlessScanning";
 const _sSC = "scanStatusCode";
 const _sSF = "scanStatusFilters";
 const _sSR = "scanStatusReason";
-const _sSc = "scopeSettings";
-const _sSco = "scoreSource";
+const _sSc = "scanStatus";
+const _sSco = "scopeSettings";
+const _sScor = "scoreSource";
 const _sT = "scanType";
+const _sTc = "scopeType";
 const _sTe = "sessionToken";
 const _sTt = "startTime";
 const _sU = "sourceUrl";
 const _sUC = "stoppedUnitCount";
 const _sV = "scoringVector";
+const _sVc = "scopeValues";
 const _sc = "schedule";
 const _sca = "scans";
 const _sco = "score";
@@ -965,21 +1099,29 @@ const _ty = "type";
 const _u = "url";
 const _uA = "updatedAt";
 const _uC = "unknownChecks";
+const _uCI = "updateConfigurationInheritance";
 const _uI = "upperInclusive";
 const _us = "usage";
-const _v = "version";
+const _v = "value";
 const _vC = "vpcConfig";
 const _vCA = "vendorCreatedAt";
 const _vI = "vpcId";
+const _vIA = "vmInstanceAggregation";
+const _vIR = "vmImageReference";
+const _vIRm = "vmImageReferences";
+const _vIm = "vmInstance";
 const _vIu = "vulnerabilityId";
 const _vIul = "vulnerabilityIds";
+const _vN = "vmName";
 const _vP = "vulnerablePackages";
-const _vS = "vulnerabilitySource";
+const _vS = "vmScanning";
 const _vSS = "vmScannerState";
 const _vSe = "vendorSeverity";
+const _vSu = "vulnerabilitySource";
 const _vUA = "vendorUpdatedAt";
-const _va = "value";
-const _ve = "vendor";
+const _ve = "version";
+const _ven = "vendor";
+const _vm = "vm";
 const _vu = "vulnerabilities";
 const _w = "weekly";
 const _wIL = "workloadInfoList";
@@ -1072,6 +1214,7 @@ export const errorTypeRegistries = [
   n0_registry,
 ]
 var AuthorizationUrl: StaticSimpleSchema = [0, n0, _AU, 8, 0];
+var ConnectorNextToken: StaticSimpleSchema = [0, n0, _CNT, 8, 0];
 var GitHubAuthCode: StaticSimpleSchema = [0, n0, _GHAC, 8, 0];
 var GitLabAccessToken: StaticSimpleSchema = [0, n0, _GLAT, 8, 0];
 var GitLabAuthCode: StaticSimpleSchema = [0, n0, _GLAC, 8, 0];
@@ -1103,8 +1246,8 @@ export var AmiAggregation$: StaticStructureSchema = [3, n0, _AAm,
 ];
 export var AmiAggregationResponse$: StaticStructureSchema = [3, n0, _AARm,
   0,
-  [_am, _aI, _sC, _aIf],
-  [0, 0, () => SeverityCounts$, 1], 1
+  [_am, _aI, _cP, _cPl, _cR, _cOI, _cAI, _sC, _aIf],
+  [0, 0, 0, 0, 0, 0, 0, () => SeverityCounts$, 1], 1
 ];
 export var AssociateConfigurationRequest$: StaticStructureSchema = [3, n0, _ACR,
   0,
@@ -1128,8 +1271,13 @@ export var AtigData$: StaticStructureSchema = [3, n0, _AD,
 ];
 export var AutoEnable$: StaticStructureSchema = [3, n0, _AE,
   0,
-  [_ec, _ecr, _l, _lC, _cR],
+  [_ec, _ecr, _l, _lC, _cRo],
   [2, 2, 2, 2, 2], 2
+];
+export var AwsConfigConnectorArnFilter$: StaticStructureSchema = [3, n0, _ACCAF,
+  0,
+  [_co, _v],
+  [0, 0], 2
 ];
 export var AwsEc2InstanceDetails$: StaticStructureSchema = [3, n0, _AEID,
   0,
@@ -1168,8 +1316,28 @@ export var AwsEksWorkloadInfo$: StaticStructureSchema = [3, n0, _AEWI,
 ];
 export var AwsLambdaFunctionDetails$: StaticStructureSchema = [3, n0, _ALFD,
   0,
-  [_fN, _ru, _cS, _v, _eRA, _la, _vC, _pT, _ar, _lMA],
+  [_fN, _ru, _cS, _ve, _eRA, _la, _vC, _pT, _ar, _lMA],
   [0, 0, 0, 0, 0, 64 | 0, () => LambdaVpcConfig$, 0, 64 | 0, 4], 5
+];
+export var AzureProviderDetailCreate$: StaticStructureSchema = [3, n0, _APDC,
+  0,
+  [_aCCA, _sCc, _aR, _aIVMS],
+  [0, () => AzureScopeConfigurationInput$, 64 | 0, 2], 3
+];
+export var AzureProviderDetailUpdate$: StaticStructureSchema = [3, n0, _APDU,
+  0,
+  [_aR, _sCc, _aIVMS],
+  [64 | 0, () => AzureScopeConfigurationInput$, 2]
+];
+export var AzureScopeConfiguration$: StaticStructureSchema = [3, n0, _ASC,
+  0,
+  [_vS, _cIS, _sS],
+  [() => ScopeConfiguration$, () => ScopeConfiguration$, () => ScopeConfiguration$]
+];
+export var AzureScopeConfigurationInput$: StaticStructureSchema = [3, n0, _ASCI,
+  0,
+  [_vS, _cIS, _sS],
+  [() => ScopeConfigurationInput$, () => ScopeConfigurationInput$, () => ScopeConfigurationInput$]
 ];
 export var BatchAssociateCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [3, n0, _BACSSCR,
   0,
@@ -1288,7 +1456,7 @@ export var CisDateFilter$: StaticStructureSchema = [3, n0, _CDF,
 ];
 export var CisFindingStatusFilter$: StaticStructureSchema = [3, n0, _CFSF,
   0,
-  [_co, _va],
+  [_co, _v],
   [0, 0], 2
 ];
 export var CisNumberFilter$: StaticStructureSchema = [3, n0, _CNF,
@@ -1298,7 +1466,7 @@ export var CisNumberFilter$: StaticStructureSchema = [3, n0, _CNF,
 ];
 export var CisResultStatusFilter$: StaticStructureSchema = [3, n0, _CRSF,
   0,
-  [_co, _va],
+  [_co, _v],
   [0, 0], 2
 ];
 export var CisScan$: StaticStructureSchema = [3, n0, _CS,
@@ -1333,12 +1501,12 @@ export var CisScanResultsAggregatedByTargetResourceFilterCriteria$: StaticStruct
 ];
 export var CisScanStatusFilter$: StaticStructureSchema = [3, n0, _CSSF,
   0,
-  [_co, _va],
+  [_co, _v],
   [0, 0], 2
 ];
 export var CisSecurityLevelFilter$: StaticStructureSchema = [3, n0, _CSLF,
   0,
-  [_co, _va],
+  [_co, _v],
   [0, 0], 2
 ];
 export var CisSessionMessage$: StaticStructureSchema = [3, n0, _CSM,
@@ -1348,7 +1516,7 @@ export var CisSessionMessage$: StaticStructureSchema = [3, n0, _CSM,
 ];
 export var CisStringFilter$: StaticStructureSchema = [3, n0, _CSF,
   0,
-  [_co, _va],
+  [_co, _v],
   [0, 0], 2
 ];
 export var CisTargetResourceAggregation$: StaticStructureSchema = [3, n0, _CTRA,
@@ -1363,12 +1531,12 @@ export var CisTargets$: StaticStructureSchema = [3, n0, _CT,
 ];
 export var CisTargetStatusFilter$: StaticStructureSchema = [3, n0, _CTSF,
   0,
-  [_co, _va],
+  [_co, _v],
   [0, 0], 2
 ];
 export var CisTargetStatusReasonFilter$: StaticStructureSchema = [3, n0, _CTSRF,
   0,
-  [_co, _va],
+  [_co, _v],
   [0, 0], 2
 ];
 export var ClusterDetails$: StaticStructureSchema = [3, n0, _CDl,
@@ -1413,12 +1581,12 @@ export var CodeRepositoryDetails$: StaticStructureSchema = [3, n0, _CRD,
 ];
 export var CodeRepositoryMetadata$: StaticStructureSchema = [3, n0, _CRM,
   0,
-  [_pNr, _pTro, _pTV, _iA, _lSCI, _sCc, _oDS],
+  [_pNr, _pTro, _pTV, _iA, _lSCI, _sCca, _oDS],
   [0, 0, 0, 0, 0, () => ProjectCodeSecurityScanConfiguration$, () => CodeRepositoryOnDemandScan$], 3
 ];
 export var CodeRepositoryOnDemandScan$: StaticStructureSchema = [3, n0, _CRODS,
   0,
-  [_lSCI, _lSA, _sS],
+  [_lSCI, _lSA, _sSc],
   [0, 4, () => ScanStatus$]
 ];
 export var CodeSecurityIntegrationSummary$: StaticStructureSchema = [3, n0, _CSIS,
@@ -1438,7 +1606,7 @@ export var CodeSecurityScanConfigurationAssociationSummary$: StaticStructureSche
 ];
 export var CodeSecurityScanConfigurationSummary$: StaticStructureSchema = [3, n0, _CSSCS,
   0,
-  [_sCA, _na, _oAI, _rSC, _pSF, _fE, _cISSE, _sSc, _ta],
+  [_sCA, _na, _oAI, _rSC, _pSF, _fE, _cISSE, _sSco, _ta],
   [0, 0, 0, 64 | 0, 0, 0, 64 | 0, () => ScopeSettings$, 128 | 0], 4
 ];
 export var CodeSnippetError$: StaticStructureSchema = [3, n0, _CSE,
@@ -1458,15 +1626,80 @@ export var CodeVulnerabilityDetails$: StaticStructureSchema = [3, n0, _CVD,
 ];
 export var ComputePlatform$: StaticStructureSchema = [3, n0, _CP,
   0,
-  [_ve, _pr, _v],
+  [_ven, _pr, _ve],
   [0, 0, 0]
+];
+export var Connector$: StaticStructureSchema = [3, n0, _C,
+  0,
+  [_cAo, _pro, _cAr, _uA, _na, _d, _eS, _eSR, _h, _aR, _aCCA, _sCc, _ta, _aIVMS],
+  [0, 0, 5, 5, 0, 0, 0, 0, () => ConnectorHealth$, 64 | 0, 0, () => AzureScopeConfiguration$, 128 | 0, 2], 4
+];
+export var ConnectorArnFilter$: StaticStructureSchema = [3, n0, _CAF,
+  0,
+  [_co, _v],
+  [0, 0], 2
+];
+export var ConnectorContainerImageScanConfiguration$: StaticStructureSchema = [3, n0, _CCISC,
+  0,
+  [_pD, _pDu],
+  [0, 0]
+];
+export var ConnectorFilterCriteria$: StaticStructureSchema = [3, n0, _CFC,
+  0,
+  [_cAon, _ac, _aCCAw, _cT, _pro],
+  [() => ConnectorArnFilterList, () => StringFilterList, () => AwsConfigConnectorArnFilterList, () => ConnectorTypeFilterList, () => ProviderFilterList]
+];
+export var ConnectorHealth$: StaticStructureSchema = [3, n0, _CH,
+  0,
+  [_cSon, _lCA, _m],
+  [0, 5, 0], 2
+];
+export var ConnectorScanConfiguration$: StaticStructureSchema = [3, n0, _CSCo,
+  0,
+  [_cIS],
+  [() => ConnectorContainerImageScanConfiguration$]
+];
+export var ConnectorScanConfigurationItem$: StaticStructureSchema = [3, n0, _CSCI,
+  0,
+  [_aCCA, _cAon, _sCca],
+  [0, 64 | 0, () => ConnectorScanConfiguration$], 3
+];
+export var ConnectorTypeFilter$: StaticStructureSchema = [3, n0, _CTF,
+  0,
+  [_co, _v],
+  [0, 0], 2
+];
+export var ContainerImageAggregation$: StaticStructureSchema = [3, n0, _CIA,
+  0,
+  [_rIe, _iD, _rep, _regi, _ar, _iT, _cPlo, _cPlou, _cRl, _cOIl, _cAIl, _lIUA, _iUC, _sO, _sB],
+  [() => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => NumberFilterList, 0, 0]
+];
+export var ContainerImageAggregationResponse$: StaticStructureSchema = [3, n0, _CIAR,
+  0,
+  [_rI, _cP, _cAI, _cPl, _cR, _cOI, _iDm, _repo, _reg, _arc, _iT, _aI, _sC, _lIUA, _iUC, _eAAFC, _fAAFC],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 0, () => SeverityCounts$, 4, 1, 1, 1], 1
+];
+export var ContainerImageMetadata$: StaticStructureSchema = [3, n0, _CIM,
+  0,
+  [_iT, _iPA, _lIUA, _iUC],
+  [64 | 0, 4, 4, 1]
+];
+export var ContainerRegistryMetadata$: StaticStructureSchema = [3, n0, _CRMo,
+  0,
+  [_na],
+  [0]
+];
+export var ContainerRepositoryMetadata$: StaticStructureSchema = [3, n0, _CRMon,
+  0,
+  [_na, _sFc],
+  [0, 0]
 ];
 export var ContinuousIntegrationScanConfiguration$: StaticStructureSchema = [3, n0, _CISC,
   0,
   [_sE],
   [64 | 0], 1
 ];
-export var Counts$: StaticStructureSchema = [3, n0, _C,
+export var Counts$: StaticStructureSchema = [3, n0, _Co,
   0,
   [_cou, _gK],
   [1, 0]
@@ -1476,14 +1709,14 @@ export var CoverageDateFilter$: StaticStructureSchema = [3, n0, _CDFo,
   [_sIt, _eI],
   [4, 4]
 ];
-export var CoverageFilterCriteria$: StaticStructureSchema = [3, n0, _CFC,
+export var CoverageFilterCriteria$: StaticStructureSchema = [3, n0, _CFCo,
   0,
-  [_sSC, _sSR, _aI, _rI, _rT, _sT, _eRN, _eIT, _eITc, _lFN, _lFT, _lFR, _lSAa, _sM, _iPA, _eILIUA, _eIIUC, _cRPN, _cRPT, _cRPTV, _lSCI],
-  [() => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageMapFilterList, () => CoverageStringFilterList, () => CoverageMapFilterList, () => CoverageStringFilterList, () => CoverageDateFilterList, () => CoverageStringFilterList, () => CoverageDateFilterList, () => CoverageDateFilterList, () => CoverageNumberFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList]
+  [_sSC, _sSR, _aI, _rI, _rT, _sT, _eRN, _eIT, _eITc, _lFN, _lFT, _lFR, _lSAa, _sM, _iPA, _eILIUA, _eIIUC, _cRPN, _cRPT, _cRPTV, _lSCI, _cP, _cPAI, _cPR, _cVIT, _cCIT, _cCRN, _cCRNl, _cSFN, _cSFR, _cSFT, _cPOI],
+  [() => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageMapFilterList, () => CoverageStringFilterList, () => CoverageMapFilterList, () => CoverageStringFilterList, () => CoverageDateFilterList, () => CoverageStringFilterList, () => CoverageDateFilterList, () => CoverageDateFilterList, () => CoverageNumberFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageMapFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageStringFilterList, () => CoverageMapFilterList, () => CoverageStringFilterList]
 ];
 export var CoverageMapFilter$: StaticStructureSchema = [3, n0, _CMF,
   0,
-  [_co, _k, _va],
+  [_co, _k, _v],
   [0, 0, 0], 2
 ];
 export var CoverageNumberFilter$: StaticStructureSchema = [3, n0, _CNFo,
@@ -1493,13 +1726,13 @@ export var CoverageNumberFilter$: StaticStructureSchema = [3, n0, _CNFo,
 ];
 export var CoverageStringFilter$: StaticStructureSchema = [3, n0, _CSFo,
   0,
-  [_co, _va],
+  [_co, _v],
   [0, 0], 2
 ];
 export var CoveredResource$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_rT, _rI, _aI, _sT, _sS, _rM, _lSAa, _sM],
-  [0, 0, 0, 0, () => ScanStatus$, () => ResourceScanMetadata$, 4, 0], 4
+  [_rT, _rI, _aI, _sT, _sSc, _rM, _lSAa, _sM, _pro, _pAI, _pOI, _pR, _pP],
+  [0, 0, 0, 0, () => ScanStatus$, () => ResourceScanMetadata$, 4, 0, 0, 0, 0, 0, 0], 4
 ];
 export var CreateCisScanConfigurationRequest$: StaticStructureSchema = [3, n0, _CCSCR,
   0,
@@ -1518,7 +1751,7 @@ export var CreateCisTargets$: StaticStructureSchema = [3, n0, _CCT,
 ];
 export var CreateCodeSecurityIntegrationRequest$: StaticStructureSchema = [3, n0, _CCSIR,
   0,
-  [_na, _ty, _d, _ta],
+  [_na, _ty, _de, _ta],
   [0, 0, [() => CreateIntegrationDetail$, 0], 128 | 0], 2
 ];
 export var CreateCodeSecurityIntegrationResponse$: StaticStructureSchema = [3, n0, _CCSIRr,
@@ -1528,7 +1761,7 @@ export var CreateCodeSecurityIntegrationResponse$: StaticStructureSchema = [3, n
 ];
 export var CreateCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [3, n0, _CCSSCR,
   0,
-  [_na, _le, _conf, _sSc, _ta],
+  [_na, _le, _conf, _sSco, _ta],
   [0, 0, () => CodeSecurityScanConfiguration$, () => ScopeSettings$, 128 | 0], 3
 ];
 export var CreateCodeSecurityScanConfigurationResponse$: StaticStructureSchema = [3, n0, _CCSSCRr,
@@ -1536,9 +1769,19 @@ export var CreateCodeSecurityScanConfigurationResponse$: StaticStructureSchema =
   [_sCA],
   [0], 1
 ];
+export var CreateConnectorRequest$: StaticStructureSchema = [3, n0, _CCR,
+  0,
+  [_na, _pro, _pDr, _cTl, _d, _ta],
+  [0, 0, () => ProviderDetailCreate$, [0, 4], 0, 128 | 0], 3
+];
+export var CreateConnectorResponse$: StaticStructureSchema = [3, n0, _CCRr,
+  0,
+  [_cAo],
+  [0], 1
+];
 export var CreateFilterRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_act, _fCi, _na, _de, _ta, _r],
+  [_act, _fCi, _na, _d, _ta, _r],
   [0, () => FilterCriteria$, 0, 0, 128 | 0, 0], 3
 ];
 export var CreateFilterResponse$: StaticStructureSchema = [3, n0, _CFRr,
@@ -1588,7 +1831,7 @@ export var Cvss4$: StaticStructureSchema = [3, n0, _Cvss,
 ];
 export var CvssScore$: StaticStructureSchema = [3, n0, _CSv,
   0,
-  [_bS, _sV, _v, _so],
+  [_bS, _sV, _ve, _so],
   [1, 0, 0, 0], 4
 ];
 export var CvssScoreAdjustment$: StaticStructureSchema = [3, n0, _CSA,
@@ -1598,7 +1841,7 @@ export var CvssScoreAdjustment$: StaticStructureSchema = [3, n0, _CSA,
 ];
 export var CvssScoreDetails$: StaticStructureSchema = [3, n0, _CSD,
   0,
-  [_sSco, _v, _sco, _sV, _cSv, _ad],
+  [_sScor, _ve, _sco, _sV, _cSv, _ad],
   [0, 0, 1, 0, 0, () => CvssScoreAdjustmentList], 4
 ];
 export var DailySchedule$: StaticStructureSchema = [3, n0, _DS,
@@ -1651,6 +1894,16 @@ export var DeleteCodeSecurityScanConfigurationResponse$: StaticStructureSchema =
   [_sCA],
   [0]
 ];
+export var DeleteConnectorRequest$: StaticStructureSchema = [3, n0, _DCR,
+  0,
+  [_cAo],
+  [0], 1
+];
+export var DeleteConnectorResponse$: StaticStructureSchema = [3, n0, _DCRe,
+  0,
+  [],
+  []
+];
 export var DeleteFilterRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
   [_arn],
@@ -1696,7 +1949,7 @@ export var DisableResponse$: StaticStructureSchema = [3, n0, _DRi,
   [_ac, _fAa],
   [() => AccountList, () => FailedAccountList], 1
 ];
-export var DisassociateConfigurationRequest$: StaticStructureSchema = [3, n0, _DCR,
+export var DisassociateConfigurationRequest$: StaticStructureSchema = [3, n0, _DCRi,
   0,
   [_sCA, _re],
   [0, () => CodeSecurityResource$], 2
@@ -1768,7 +2021,7 @@ export var EcrRescanDurationState$: StaticStructureSchema = [3, n0, _ERDS,
 ];
 export var EnableDelegatedAdminAccountRequest$: StaticStructureSchema = [3, n0, _EDAAR,
   0,
-  [_dAAI, _cT],
+  [_dAAI, _cTl],
   [0, [0, 4]], 1
 ];
 export var EnableDelegatedAdminAccountResponse$: StaticStructureSchema = [3, n0, _EDAARn,
@@ -1778,7 +2031,7 @@ export var EnableDelegatedAdminAccountResponse$: StaticStructureSchema = [3, n0,
 ];
 export var EnableRequest$: StaticStructureSchema = [3, n0, _ER,
   0,
-  [_rTe, _aIc, _cT],
+  [_rTe, _aIc, _cTl],
   [64 | 0, 64 | 0, [0, 4]], 1
 ];
 export var EnableResponse$: StaticStructureSchema = [3, n0, _ERn,
@@ -1828,22 +2081,22 @@ export var FailedMemberAccountEc2DeepInspectionStatusState$: StaticStructureSche
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_arn, _oI, _na, _cr, _act, _cAr, _uA, _de, _r, _ta],
+  [_arn, _oI, _na, _cr, _act, _cAr, _uA, _d, _r, _ta],
   [0, 0, 0, () => FilterCriteria$, 0, 4, 4, 0, 0, 128 | 0], 7
 ];
 export var FilterCriteria$: StaticStructureSchema = [3, n0, _FC,
   0,
-  [_fAin, _aAI, _fT, _sev, _fOA, _lOA, _uA, _fSi, _ti, _iSn, _rT, _rI, _rTes, _eIII, _eIVI, _eISI, _eIPA, _eIA, _eIR, _eIRN, _eIT, _eIH, _eILIUA, _eIIUC, _pR, _nP, _cIo, _cTo, _vIu, _vS, _vSe, _vP, _rV, _fAix, _lFN, _lFL, _lFR, _lFLMA, _lFERA, _eA, _cVDN, _cVDT, _cVFP, _eS, _cRPN, _cRPT],
-  [() => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => DateFilterList, () => DateFilterList, () => StringFilterList, () => StringFilterList, () => NumberFilterList, () => StringFilterList, () => StringFilterList, () => MapFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => NumberFilterList, () => PortRangeFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => PackageFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => NumberFilterList, () => StringFilterList, () => StringFilterList]
+  [_fAin, _aAI, _fT, _sev, _fOA, _lOA, _uA, _fSi, _ti, _iSn, _rT, _rI, _rTes, _eIII, _eIVI, _eISI, _eIPA, _eIA, _eIR, _eIRN, _eIT, _eIH, _eILIUA, _eIIUC, _pRo, _nP, _cIo, _cTo, _vIu, _vSu, _vSe, _vP, _rV, _fAix, _lFN, _lFL, _lFR, _lFLMA, _lFERA, _eA, _cVDN, _cVDT, _cVFP, _eSp, _cRPN, _cRPT, _cP, _cPR, _cPAI, _cPOI, _cVIR, _cVNI, _cVSI, _cIRN, _cIR, _cID, _cIT, _cIPA, _cIA, _cILIUA, _cIIUC, _cSFN, _cSFR, _cSFLMA, _cSFER],
+  [() => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => DateFilterList, () => DateFilterList, () => StringFilterList, () => StringFilterList, () => NumberFilterList, () => StringFilterList, () => StringFilterList, () => MapFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => NumberFilterList, () => PortRangeFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => PackageFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => NumberFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => StringFilterList, () => DateFilterList, () => NumberFilterList, () => StringFilterList, () => StringFilterList, () => DateFilterList, () => StringFilterList]
 ];
 export var Finding$: StaticStructureSchema = [3, n0, _Fi,
   0,
-  [_fAin, _aAI, _ty, _de, _rem, _sev, _fOA, _lOA, _st, _res, _ti, _uA, _iSn, _iSD, _nRD, _pVD, _fAix, _eA, _eDx, _cVD, _ep],
+  [_fAin, _aAI, _ty, _d, _rem, _sev, _fOA, _lOA, _st, _res, _ti, _uA, _iSn, _iSD, _nRD, _pVD, _fAix, _eA, _eDx, _cVD, _ep],
   [0, 0, 0, 0, () => Remediation$, 0, 4, 4, 0, () => ResourceList, 0, 4, 1, () => InspectorScoreDetails$, () => NetworkReachabilityDetails$, () => PackageVulnerabilityDetails$, 0, 0, () => ExploitabilityDetails$, () => CodeVulnerabilityDetails$, () => EpssDetails$], 10
 ];
 export var FindingDetail$: StaticStructureSchema = [3, n0, _FD,
   0,
-  [_fAin, _cDi, _rSi, _ev, _tt, _to, _eO, _rU, _cw, _eS],
+  [_fAin, _cDi, _rSi, _ev, _tt, _to, _eO, _rU, _cw, _eSp],
   [0, () => CisaData$, 1, () => EvidenceList, 64 | 0, 64 | 0, () => ExploitObserved$, 64 | 0, 64 | 0, 1]
 ];
 export var FindingDetailsError$: StaticStructureSchema = [3, n0, _FDE,
@@ -1858,8 +2111,8 @@ export var FindingTypeAggregation$: StaticStructureSchema = [3, n0, _FTA,
 ];
 export var FindingTypeAggregationResponse$: StaticStructureSchema = [3, n0, _FTAR,
   0,
-  [_aI, _sC, _eAC, _fAC],
-  [0, () => SeverityCounts$, 1, 1]
+  [_aI, _sC, _eAC, _fAC, _cP, _cAI, _cOI, _cR, _cPl],
+  [0, () => SeverityCounts$, 1, 1, 0, 0, 0, 0, 0]
 ];
 export var FreeTrialAccountInfo$: StaticStructureSchema = [3, n0, _FTAI,
   0,
@@ -1868,8 +2121,8 @@ export var FreeTrialAccountInfo$: StaticStructureSchema = [3, n0, _FTAI,
 ];
 export var FreeTrialInfo$: StaticStructureSchema = [3, n0, _FTI,
   0,
-  [_ty, _star, _en, _st],
-  [0, 4, 4, 0], 4
+  [_ty, _star, _en, _st, _cP],
+  [0, 4, 4, 0, 0], 4
 ];
 export var FreeTrialInfoError$: StaticStructureSchema = [3, n0, _FTIE,
   0,
@@ -1923,7 +2176,7 @@ export var GetCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [3,
 ];
 export var GetCodeSecurityScanConfigurationResponse$: StaticStructureSchema = [3, n0, _GCSSCRe,
   0,
-  [_sCA, _na, _conf, _le, _sSc, _cAr, _lUA, _ta],
+  [_sCA, _na, _conf, _le, _sSco, _cAr, _lUA, _ta],
   [0, 0, () => CodeSecurityScanConfiguration$, 0, () => ScopeSettings$, 4, 4, 128 | 0]
 ];
 export var GetCodeSecurityScanRequest$: StaticStructureSchema = [3, n0, _GCSSR,
@@ -1938,8 +2191,8 @@ export var GetCodeSecurityScanResponse$: StaticStructureSchema = [3, n0, _GCSSRe
 ];
 export var GetConfigurationRequest$: StaticStructureSchema = [3, n0, _GCR,
   0,
-  [],
-  []
+  [_aI],
+  [0]
 ];
 export var GetConfigurationResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
@@ -1963,7 +2216,7 @@ export var GetEc2DeepInspectionConfigurationRequest$: StaticStructureSchema = [3
 ];
 export var GetEc2DeepInspectionConfigurationResponse$: StaticStructureSchema = [3, n0, _GEDICRe,
   0,
-  [_pP, _oPP, _st, _eM],
+  [_pPa, _oPP, _st, _eM],
   [64 | 0, 64 | 0, 0, 0]
 ];
 export var GetEncryptionKeyRequest$: StaticStructureSchema = [3, n0, _GEKR,
@@ -2006,15 +2259,20 @@ export var GetSbomExportResponse$: StaticStructureSchema = [3, n0, _GSERe,
   [_rIep, _fo, _st, _eC, _eM, _sDe, _fCi],
   [0, 0, 0, 0, 0, () => Destination$, () => ResourceFilterCriteria$]
 ];
+export var Image$: StaticStructureSchema = [3, n0, _I,
+  0,
+  [_rN, _reg, _iT, _iDm, _pA, _arc, _au, _iUC, _lIUA, _p],
+  [0, 0, 64 | 0, 0, 4, 0, 0, 1, 4, 0]
+];
 export var ImageLayerAggregation$: StaticStructureSchema = [3, n0, _ILA,
   0,
-  [_rep, _rIe, _lH, _sO, _sB],
-  [() => StringFilterList, () => StringFilterList, () => StringFilterList, 0, 0]
+  [_rep, _rIe, _lH, _cPlo, _cAIl, _cOIl, _cRl, _cPlou, _sO, _sB],
+  [() => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, 0, 0]
 ];
 export var ImageLayerAggregationResponse$: StaticStructureSchema = [3, n0, _ILAR,
   0,
-  [_repo, _rI, _lHa, _aI, _sC],
-  [0, 0, 0, 0, () => SeverityCounts$], 4
+  [_repo, _rI, _lHa, _aI, _cP, _cAI, _cOI, _cR, _cPl, _sC],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => SeverityCounts$], 4
 ];
 export var InspectorScoreDetails$: StaticStructureSchema = [3, n0, _ISD,
   0,
@@ -2073,7 +2331,7 @@ export var ListCisScanConfigurationsRequest$: StaticStructureSchema = [3, n0, _L
 ];
 export var ListCisScanConfigurationsResponse$: StaticStructureSchema = [3, n0, _LCSCRi,
   0,
-  [_sCca, _nT],
+  [_sCcan, _nT],
   [() => CisScanConfigurationList, 0]
 ];
 export var ListCisScanResultsAggregatedByChecksRequest$: StaticStructureSchema = [3, n0, _LCSRABCR,
@@ -2141,14 +2399,34 @@ export var ListCodeSecurityScanConfigurationsResponse$: StaticStructureSchema = 
   [_confi, _nT],
   [() => CodeSecurityScanConfigurationSummaries, 0]
 ];
-export var ListCoverageRequest$: StaticStructureSchema = [3, n0, _LCR,
+export var ListConnectorScanConfigurationsRequest$: StaticStructureSchema = [3, n0, _LCSCRis,
+  0,
+  [_aCCAw, _mR, _nT],
+  [64 | 0, 1, [() => ConnectorNextToken, 0]]
+];
+export var ListConnectorScanConfigurationsResponse$: StaticStructureSchema = [3, n0, _LCSCRist,
+  0,
+  [_sCcan, _nT],
+  [() => ConnectorScanConfigurationItemList, [() => ConnectorNextToken, 0]], 1
+];
+export var ListConnectorsRequest$: StaticStructureSchema = [3, n0, _LCR,
+  0,
+  [_mR, _nT, _fCi],
+  [1, [() => ConnectorNextToken, 0], () => ConnectorFilterCriteria$]
+];
+export var ListConnectorsResponse$: StaticStructureSchema = [3, n0, _LCRi,
+  0,
+  [_it, _nT],
+  [() => ConnectorList, [() => ConnectorNextToken, 0]], 1
+];
+export var ListCoverageRequest$: StaticStructureSchema = [3, n0, _LCRis,
   0,
   [_mR, _nT, _fCi],
   [1, 0, () => CoverageFilterCriteria$]
 ];
-export var ListCoverageResponse$: StaticStructureSchema = [3, n0, _LCRi,
+export var ListCoverageResponse$: StaticStructureSchema = [3, n0, _LCRist,
   0,
-  [_nT, _cRo],
+  [_nT, _cRov],
   [0, () => CoveredResources]
 ];
 export var ListCoverageStatisticsRequest$: StaticStructureSchema = [3, n0, _LCSRis,
@@ -2183,7 +2461,7 @@ export var ListFiltersResponse$: StaticStructureSchema = [3, n0, _LFRi,
 ];
 export var ListFindingAggregationsRequest$: StaticStructureSchema = [3, n0, _LFARi,
   0,
-  [_aTg, _nT, _mR, _aIc, _aR],
+  [_aTg, _nT, _mR, _aIc, _aRg],
   [0, 0, 1, () => StringFilterList, () => AggregationRequest$], 1
 ];
 export var ListFindingAggregationsResponse$: StaticStructureSchema = [3, n0, _LFARis,
@@ -2233,7 +2511,7 @@ export var ListUsageTotalsResponse$: StaticStructureSchema = [3, n0, _LUTRi,
 ];
 export var MapFilter$: StaticStructureSchema = [3, n0, _MF,
   0,
-  [_co, _k, _va],
+  [_co, _k, _v],
   [0, 0, 0], 2
 ];
 export var Member$: StaticStructureSchema = [3, n0, _M,
@@ -2263,7 +2541,7 @@ export var NetworkPath$: StaticStructureSchema = [3, n0, _NP,
 ];
 export var NetworkReachabilityDetails$: StaticStructureSchema = [3, n0, _NRD,
   0,
-  [_oPR, _pro, _nPe],
+  [_oPR, _prot, _nPe],
   [() => PortRange$, 0, () => NetworkPath$], 3
 ];
 export var NumberFilter$: StaticStructureSchema = [3, n0, _NF,
@@ -2288,7 +2566,7 @@ export var PackageAggregationResponse$: StaticStructureSchema = [3, n0, _PAR,
 ];
 export var PackageFilter$: StaticStructureSchema = [3, n0, _PF,
   0,
-  [_na, _v, _epo, _rel, _arc, _sLH, _sLLA, _fP],
+  [_na, _ve, _epo, _rel, _arc, _sLH, _sLLA, _fP],
   [() => StringFilter$, () => StringFilter$, () => NumberFilter$, () => StringFilter$, () => StringFilter$, () => StringFilter$, () => StringFilter$, () => StringFilter$]
 ];
 export var PackageVulnerabilityDetails$: StaticStructureSchema = [3, n0, _PVD,
@@ -2331,6 +2609,11 @@ export var ProjectPeriodicScanConfiguration$: StaticStructureSchema = [3, n0, _P
   [_fE, _rSC],
   [0, 64 | 0]
 ];
+export var ProviderFilter$: StaticStructureSchema = [3, n0, _PFr,
+  0,
+  [_co, _v],
+  [0, 0], 2
+];
 export var Recommendation$: StaticStructureSchema = [3, n0, _R,
   0,
   [_te, _U],
@@ -2348,8 +2631,8 @@ export var RepositoryAggregation$: StaticStructureSchema = [3, n0, _RAe,
 ];
 export var RepositoryAggregationResponse$: StaticStructureSchema = [3, n0, _RAR,
   0,
-  [_repo, _aI, _sC, _aIff],
-  [0, 0, () => SeverityCounts$, 1], 1
+  [_repo, _aI, _cP, _cPl, _cR, _cOI, _cAI, _sC, _aIff],
+  [0, 0, 0, 0, 0, 0, 0, () => SeverityCounts$, 1], 1
 ];
 export var ResetEncryptionKeyRequest$: StaticStructureSchema = [3, n0, _REKR,
   0,
@@ -2363,13 +2646,13 @@ export var ResetEncryptionKeyResponse$: StaticStructureSchema = [3, n0, _REKRe,
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _Res,
   0,
-  [_ty, _id, _pa, _regi, _ta, _d],
-  [0, 0, 0, 0, 128 | 0, () => ResourceDetails$], 2
+  [_ty, _id, _pa, _regio, _ta, _de, _pro, _pAI, _pOI],
+  [0, 0, 0, 0, 128 | 0, () => ResourceDetails$, 0, 0, 0], 2
 ];
 export var ResourceDetails$: StaticStructureSchema = [3, n0, _RD,
   0,
-  [_aEI, _aECI, _aLF, _cR],
-  [() => AwsEc2InstanceDetails$, () => AwsEcrContainerImageDetails$, () => AwsLambdaFunctionDetails$, () => CodeRepositoryDetails$]
+  [_aEI, _aECI, _aLF, _cRo, _vm, _im, _sFe],
+  [() => AwsEc2InstanceDetails$, () => AwsEcrContainerImageDetails$, () => AwsLambdaFunctionDetails$, () => CodeRepositoryDetails$, () => Vm$, () => Image$, () => ServerlessFunction$]
 ];
 export var ResourceFilterCriteria$: StaticStructureSchema = [3, n0, _RFC,
   0,
@@ -2378,33 +2661,43 @@ export var ResourceFilterCriteria$: StaticStructureSchema = [3, n0, _RFC,
 ];
 export var ResourceMapFilter$: StaticStructureSchema = [3, n0, _RMF,
   0,
-  [_co, _k, _va],
+  [_co, _k, _v],
   [0, 0, 0], 2
 ];
 export var ResourceScanMetadata$: StaticStructureSchema = [3, n0, _RSM,
   0,
-  [_eRc, _eIc, _ec, _lF, _cR],
-  [() => EcrRepositoryMetadata$, () => EcrContainerImageMetadata$, () => Ec2Metadata$, () => LambdaFunctionMetadata$, () => CodeRepositoryMetadata$]
+  [_eRc, _eIc, _ec, _lF, _cRo, _vIm, _cIon, _cRon, _cRont, _sFe],
+  [() => EcrRepositoryMetadata$, () => EcrContainerImageMetadata$, () => Ec2Metadata$, () => LambdaFunctionMetadata$, () => CodeRepositoryMetadata$, () => VmInstanceMetadata$, () => ContainerImageMetadata$, () => ContainerRepositoryMetadata$, () => ContainerRegistryMetadata$, () => ServerlessFunctionMetadata$]
 ];
 export var ResourceState$: StaticStructureSchema = [3, n0, _RS,
   0,
-  [_ec, _ecr, _l, _lC, _cR],
+  [_ec, _ecr, _l, _lC, _cRo],
   [() => State$, () => State$, () => State$, () => State$, () => State$], 2
 ];
 export var ResourceStatus$: StaticStructureSchema = [3, n0, _RSe,
   0,
-  [_ec, _ecr, _l, _lC, _cR],
+  [_ec, _ecr, _l, _lC, _cRo],
   [0, 0, 0, 0, 0], 2
 ];
 export var ResourceStringFilter$: StaticStructureSchema = [3, n0, _RSF,
   0,
-  [_co, _va],
+  [_co, _v],
   [0, 0], 2
 ];
 export var ScanStatus$: StaticStructureSchema = [3, n0, _SS,
   0,
   [_sCta, _r],
   [0, 0], 2
+];
+export var ScopeConfiguration$: StaticStructureSchema = [3, n0, _SC,
+  0,
+  [_sTc, _sVc, _sta, _sRt],
+  [0, 64 | 0, 0, 0], 1
+];
+export var ScopeConfigurationInput$: StaticStructureSchema = [3, n0, _SCI,
+  0,
+  [_sTc, _sVc],
+  [0, 64 | 0], 1
 ];
 export var ScopeSettings$: StaticStructureSchema = [3, n0, _SSc,
   0,
@@ -2446,9 +2739,29 @@ export var SendCisSessionTelemetryResponse$: StaticStructureSchema = [3, n0, _SC
   [],
   []
 ];
-export var SeverityCounts$: StaticStructureSchema = [3, n0, _SC,
+export var ServerlessFunction$: StaticStructureSchema = [3, n0, _SF,
   0,
-  [_al, _med, _h, _cri],
+  [_sFN, _ru, _ve, _cDo, _lMA, _nI, _sIu, _sGI, _eRx, _pT, _ar, _la],
+  [0, 0, 0, 0, 4, 0, 64 | 0, 64 | 0, 0, 0, 64 | 0, 64 | 0]
+];
+export var ServerlessFunctionAggregation$: StaticStructureSchema = [3, n0, _SFA,
+  0,
+  [_rIe, _fNu, _run, _fTu, _cPlo, _cPlou, _cRl, _cOIl, _cAIl, _sO, _sB],
+  [() => StringFilterList, () => StringFilterList, () => StringFilterList, () => MapFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, 0, 0]
+];
+export var ServerlessFunctionAggregationResponse$: StaticStructureSchema = [3, n0, _SFAR,
+  0,
+  [_rI, _cP, _cAI, _cPl, _cR, _cOI, _fN, _ru, _ta, _aI, _sC, _lMA, _eAAFC, _fAAFC],
+  [0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 0, () => SeverityCounts$, 4, 1, 1], 1
+];
+export var ServerlessFunctionMetadata$: StaticStructureSchema = [3, n0, _SFM,
+  0,
+  [_sFN, _ru, _fTu],
+  [0, 0, 128 | 0]
+];
+export var SeverityCounts$: StaticStructureSchema = [3, n0, _SCe,
+  0,
+  [_al, _med, _hi, _cri],
   [1, 1, 1, 1]
 ];
 export var SortCriteria$: StaticStructureSchema = [3, n0, _SCo,
@@ -2473,7 +2786,7 @@ export var StartCisSessionResponse$: StaticStructureSchema = [3, n0, _SCSRt,
 ];
 export var StartCodeSecurityScanRequest$: StaticStructureSchema = [3, n0, _SCSSR,
   0,
-  [_re, _cT],
+  [_re, _cTl],
   [() => CodeSecurityResource$, [0, 4]], 1
 ];
 export var StartCodeSecurityScanResponse$: StaticStructureSchema = [3, n0, _SCSSRt,
@@ -2493,7 +2806,7 @@ export var StatusCounts$: StaticStructureSchema = [3, n0, _SCt,
 ];
 export var Step$: StaticStructureSchema = [3, n0, _St,
   0,
-  [_cIo, _cTo, _cAo],
+  [_cIo, _cTo, _cAom],
   [0, 0, 0], 2
 ];
 export var StopCisMessageProgress$: StaticStructureSchema = [3, n0, _SCMP,
@@ -2503,7 +2816,7 @@ export var StopCisMessageProgress$: StaticStructureSchema = [3, n0, _SCMP,
 ];
 export var StopCisSessionMessage$: StaticStructureSchema = [3, n0, _SCSMt,
   0,
-  [_st, _prog, _r, _cP, _bV, _bP],
+  [_st, _prog, _r, _cPo, _bV, _bP],
   [0, () => StopCisMessageProgress$, 0, () => ComputePlatform$, 0, 0], 2
 ];
 export var StopCisSessionRequest$: StaticStructureSchema = [3, n0, _SCSRto,
@@ -2516,9 +2829,9 @@ export var StopCisSessionResponse$: StaticStructureSchema = [3, n0, _SCSRtop,
   [],
   []
 ];
-export var StringFilter$: StaticStructureSchema = [3, n0, _SF,
+export var StringFilter$: StaticStructureSchema = [3, n0, _SFt,
   0,
-  [_co, _va],
+  [_co, _v],
   [0, 0], 2
 ];
 export var SuccessfulAssociationResult$: StaticStructureSchema = [3, n0, _SAR,
@@ -2528,12 +2841,12 @@ export var SuccessfulAssociationResult$: StaticStructureSchema = [3, n0, _SAR,
 ];
 export var SuggestedFix$: StaticStructureSchema = [3, n0, _SFu,
   0,
-  [_de, _cod],
+  [_d, _cod],
   [0, 0]
 ];
 export var TagFilter$: StaticStructureSchema = [3, n0, _TF,
   0,
-  [_co, _k, _va],
+  [_co, _k, _v],
   [0, 0, 0], 3
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
@@ -2553,7 +2866,7 @@ export var Time$: StaticStructureSchema = [3, n0, _T,
 ];
 export var TitleAggregation$: StaticStructureSchema = [3, n0, _TA,
   0,
-  [_tit, _vIul, _rT, _sO, _sB, _fT],
+  [_tit, _vIul, _rT, _fT, _sO, _sB],
   [() => StringFilterList, () => StringFilterList, 0, 0, 0, 0]
 ];
 export var TitleAggregationResponse$: StaticStructureSchema = [3, n0, _TAR,
@@ -2588,7 +2901,7 @@ export var UpdateCisTargets$: StaticStructureSchema = [3, n0, _UCT,
 ];
 export var UpdateCodeSecurityIntegrationRequest$: StaticStructureSchema = [3, n0, _UCSIR,
   0,
-  [_iA, _d],
+  [_iA, _de],
   [0, [() => UpdateIntegrationDetails$, 0]], 2
 ];
 export var UpdateCodeSecurityIntegrationResponse$: StaticStructureSchema = [3, n0, _UCSIRp,
@@ -2606,24 +2919,49 @@ export var UpdateCodeSecurityScanConfigurationResponse$: StaticStructureSchema =
   [_sCA],
   [0]
 ];
+export var UpdateConfigurationInheritance$: StaticStructureSchema = [3, n0, _UCI,
+  0,
+  [_eCco, _eCc],
+  [0, 0]
+];
 export var UpdateConfigurationRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,
-  [_eCc, _eCco],
-  [() => EcrConfiguration$, () => Ec2Configuration$]
+  [_aI, _eCc, _eCco, _uCI],
+  [0, () => EcrConfiguration$, () => Ec2Configuration$, () => UpdateConfigurationInheritance$]
 ];
 export var UpdateConfigurationResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
   [],
   []
 ];
+export var UpdateConnectorRequest$: StaticStructureSchema = [3, n0, _UCRpd,
+  0,
+  [_cAo, _d, _pDr],
+  [0, 0, () => ProviderDetailUpdate$], 1
+];
+export var UpdateConnectorResponse$: StaticStructureSchema = [3, n0, _UCRpda,
+  0,
+  [_cAo],
+  [0]
+];
+export var UpdateConnectorScanConfigurationRequest$: StaticStructureSchema = [3, n0, _UCSCRpd,
+  0,
+  [_aCCA, _sCca],
+  [0, () => ConnectorScanConfiguration$], 2
+];
+export var UpdateConnectorScanConfigurationResponse$: StaticStructureSchema = [3, n0, _UCSCRpda,
+  0,
+  [],
+  []
+];
 export var UpdateEc2DeepInspectionConfigurationRequest$: StaticStructureSchema = [3, n0, _UEDICR,
   0,
-  [_aDI, _pP],
+  [_aDI, _pPa],
   [2, 64 | 0]
 ];
 export var UpdateEc2DeepInspectionConfigurationResponse$: StaticStructureSchema = [3, n0, _UEDICRp,
   0,
-  [_pP, _oPP, _st, _eM],
+  [_pPa, _oPP, _st, _eM],
   [64 | 0, 64 | 0, 0, 0]
 ];
 export var UpdateEncryptionKeyRequest$: StaticStructureSchema = [3, n0, _UEKR,
@@ -2638,7 +2976,7 @@ export var UpdateEncryptionKeyResponse$: StaticStructureSchema = [3, n0, _UEKRp,
 ];
 export var UpdateFilterRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
-  [_fAil, _act, _de, _fCi, _na, _r],
+  [_fAil, _act, _d, _fCi, _na, _r],
   [0, 0, 0, () => FilterCriteria$, 0, 0], 1
 ];
 export var UpdateFilterResponse$: StaticStructureSchema = [3, n0, _UFRp,
@@ -2678,8 +3016,8 @@ export var UpdateOrgEc2DeepInspectionConfigurationResponse$: StaticStructureSche
 ];
 export var Usage$: StaticStructureSchema = [3, n0, _Us,
   0,
-  [_ty, _tota, _eMC, _cu],
-  [0, 1, 1, 0]
+  [_ty, _tota, _eMC, _cu, _cP],
+  [0, 1, 1, 0, 0]
 ];
 export var UsageTotal$: StaticStructureSchema = [3, n0, _UT,
   0,
@@ -2691,19 +3029,39 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   [_na, _m],
   [0, 0], 2
 ];
+export var Vm$: StaticStructureSchema = [3, n0, _V,
+  0,
+  [_ty, _vN, _vIR, _iVA, _iVAp, _nI, _sIu, _sGI, _lA, _p, _eRx, _kN],
+  [0, 0, 0, 64 | 0, 64 | 0, 0, 64 | 0, 64 | 0, 4, 0, 0, 0]
+];
+export var VmInstanceAggregation$: StaticStructureSchema = [3, n0, _VIA,
+  0,
+  [_rIe, _oS, _iTn, _vIRm, _cPlo, _cPlou, _cRl, _cOIl, _cAIl, _sO, _sB],
+  [() => StringFilterList, () => StringFilterList, () => MapFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, () => StringFilterList, 0, 0]
+];
+export var VmInstanceAggregationResponse$: StaticStructureSchema = [3, n0, _VIAR,
+  0,
+  [_rI, _cP, _cAI, _cPl, _cR, _cOI, _vIR, _oSp, _ta, _aI, _sC, _nF, _eAAFC, _fAAFC],
+  [0, 0, 0, 0, 0, 0, 0, 0, 128 | 0, 0, () => SeverityCounts$, 1, 1, 1], 1
+];
+export var VmInstanceMetadata$: StaticStructureSchema = [3, n0, _VIM,
+  0,
+  [_ta, _p, _iHn, _vIR],
+  [128 | 0, 0, 0, 0]
+];
 export var VMScannerState$: StaticStructureSchema = [3, n0, _VMSS,
   0,
   [_acti, _aA, _st],
   [2, 4, 0]
 ];
-export var Vulnerability$: StaticStructureSchema = [3, n0, _V,
+export var Vulnerability$: StaticStructureSchema = [3, n0, _Vu,
   0,
-  [_id, _cw, _cDi, _so, _de, _aD, _vSe, _cvs, _cvss, _rV, _cvss_, _vCA, _vUA, _sU, _rU, _eO, _dP, _ep],
+  [_id, _cw, _cDi, _so, _d, _aD, _vSe, _cvs, _cvss, _rV, _cvss_, _vCA, _vUA, _sU, _rU, _eO, _dP, _ep],
   [0, 64 | 0, () => CisaData$, 0, 0, () => AtigData$, 0, () => Cvss4$, () => Cvss3$, 64 | 0, () => Cvss2$, 4, 4, 0, 64 | 0, () => ExploitObserved$, 64 | 0, () => Epss$], 1
 ];
 export var VulnerablePackage$: StaticStructureSchema = [3, n0, _VP,
   0,
-  [_na, _v, _sLH, _epo, _rel, _arch, _pM, _fP, _fIV, _rem, _sLLA],
+  [_na, _ve, _sLH, _epo, _rel, _arch, _pM, _fP, _fIV, _rem, _sLLA],
   [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0], 2
 ];
 export var WeeklySchedule$: StaticStructureSchema = [3, n0, _WS,
@@ -2728,9 +3086,14 @@ var ArchitectureList = 64 | 0;
 var AssociateConfigurationRequestList: StaticListSchema = [1, n0, _ACRL,
   0, () => AssociateConfigurationRequest$
 ];
+var AwsConfigConnectorArnFilterList: StaticListSchema = [1, n0, _ACCAFL,
+  0, () => AwsConfigConnectorArnFilter$
+];
+var AwsConfigConnectorArnList = 64 | 0;
 var AwsEksWorkloadInfoList: StaticListSchema = [1, n0, _AEWIL,
   0, () => AwsEksWorkloadInfo$
 ];
+var AzureRegionList = 64 | 0;
 var CheckIdFilterList: StaticListSchema = [1, n0, _CIFL,
   0, () => CisStringFilter$
 ];
@@ -2786,6 +3149,8 @@ var CisSessionMessages: StaticListSchema = [1, n0, _CSMi,
 var CisTargetResourceAggregationList: StaticListSchema = [1, n0, _CTRAL,
   0, () => CisTargetResourceAggregation$
 ];
+var CloudSecurityGroupIdList = 64 | 0;
+var CloudSubnetIdList = 64 | 0;
 var ClusterDetailsList: StaticListSchema = [1, n0, _CDL,
   0, () => ClusterDetails$
 ];
@@ -2807,8 +3172,21 @@ var CodeSnippetErrorList: StaticListSchema = [1, n0, _CSEL,
 var CodeSnippetResultList: StaticListSchema = [1, n0, _CSRL,
   0, () => CodeSnippetResult$
 ];
+var ConnectorArnFilterList: StaticListSchema = [1, n0, _CAFL,
+  0, () => ConnectorArnFilter$
+];
+var ConnectorArnList = 64 | 0;
+var ConnectorList: StaticListSchema = [1, n0, _CLo,
+  0, () => Connector$
+];
+var ConnectorScanConfigurationItemList: StaticListSchema = [1, n0, _CSCIL,
+  0, () => ConnectorScanConfigurationItem$
+];
+var ConnectorTypeFilterList: StaticListSchema = [1, n0, _CTFL,
+  0, () => ConnectorTypeFilter$
+];
 var ContinuousIntegrationScanSupportedEvents = 64 | 0;
-var CountsList: StaticListSchema = [1, n0, _CLo,
+var CountsList: StaticListSchema = [1, n0, _CLou,
   0, () => Counts$
 ];
 var CoverageDateFilterList: StaticListSchema = [1, n0, _CDFL,
@@ -2931,6 +3309,9 @@ var ProjectContinuousIntegrationScanConfigurationList: StaticListSchema = [1, n0
 var ProjectPeriodicScanConfigurationList: StaticListSchema = [1, n0, _PPSCL,
   0, () => ProjectPeriodicScanConfiguration$
 ];
+var ProviderFilterList: StaticListSchema = [1, n0, _PFLr,
+  0, () => ProviderFilter$
+];
 var ReferenceUrls = 64 | 0;
 var RelatedVulnerabilities = 64 | 0;
 var ReportTargetAccounts = 64 | 0;
@@ -2950,7 +3331,9 @@ var ResourceTagFilterList: StaticListSchema = [1, n0, _RTFL,
   0, () => TagFilter$
 ];
 var RuleSetCategories = 64 | 0;
+var ScopeValueList = 64 | 0;
 var SecurityGroupIdList = 64 | 0;
+var ServerlessFunctionLayerList = 64 | 0;
 var StepList: StaticListSchema = [1, n0, _SL,
   0, () => Step$
 ];
@@ -2991,7 +3374,7 @@ var UsageTotalList: StaticListSchema = [1, n0, _UTL,
 var ValidationExceptionFields: StaticListSchema = [1, n0, _VEFa,
   0, () => ValidationExceptionField$
 ];
-var Vulnerabilities: StaticListSchema = [1, n0, _Vu,
+var Vulnerabilities: StaticListSchema = [1, n0, _Vul,
   0, () => Vulnerability$
 ];
 var VulnerabilityIdList = 64 | 0;
@@ -3001,19 +3384,20 @@ var VulnerablePackageList: StaticListSchema = [1, n0, _VPL,
 ];
 var VulnIdList = 64 | 0;
 var CisTagMap = 128 | 0;
+var ConnectorTagMap = 128 | 0;
 var TagMap = 128 | 0;
 var TargetResourceTags: StaticMapSchema = [2, n0, _TRT,
   0, 0, 64 | 0
 ];
 export var AggregationRequest$: StaticUnionSchema = [4, n0, _AR,
   0,
-  [_aAc, _aAm, _aECA, _eIAc, _fTA, _iLA, _pAa, _rAe, _tAi, _lLA, _lFA, _cRA],
-  [() => AccountAggregation$, () => AmiAggregation$, () => AwsEcrContainerAggregation$, () => Ec2InstanceAggregation$, () => FindingTypeAggregation$, () => ImageLayerAggregation$, () => PackageAggregation$, () => RepositoryAggregation$, () => TitleAggregation$, () => LambdaLayerAggregation$, () => LambdaFunctionAggregation$, () => CodeRepositoryAggregation$]
+  [_aAc, _aAm, _aECA, _eIAc, _fTA, _iLA, _pAa, _rAe, _tAi, _lLA, _lFA, _cRA, _vIA, _cIAo, _sFA],
+  [() => AccountAggregation$, () => AmiAggregation$, () => AwsEcrContainerAggregation$, () => Ec2InstanceAggregation$, () => FindingTypeAggregation$, () => ImageLayerAggregation$, () => PackageAggregation$, () => RepositoryAggregation$, () => TitleAggregation$, () => LambdaLayerAggregation$, () => LambdaFunctionAggregation$, () => CodeRepositoryAggregation$, () => VmInstanceAggregation$, () => ContainerImageAggregation$, () => ServerlessFunctionAggregation$]
 ];
 export var AggregationResponse$: StaticUnionSchema = [4, n0, _ARg,
   0,
-  [_aAc, _aAm, _aECA, _eIAc, _fTA, _iLA, _pAa, _rAe, _tAi, _lLA, _lFA, _cRA],
-  [() => AccountAggregationResponse$, () => AmiAggregationResponse$, () => AwsEcrContainerAggregationResponse$, () => Ec2InstanceAggregationResponse$, () => FindingTypeAggregationResponse$, () => ImageLayerAggregationResponse$, () => PackageAggregationResponse$, () => RepositoryAggregationResponse$, () => TitleAggregationResponse$, () => LambdaLayerAggregationResponse$, () => LambdaFunctionAggregationResponse$, () => CodeRepositoryAggregationResponse$]
+  [_aAc, _aAm, _aECA, _eIAc, _fTA, _iLA, _pAa, _rAe, _tAi, _lLA, _lFA, _cRA, _vIA, _cIAo, _sFA],
+  [() => AccountAggregationResponse$, () => AmiAggregationResponse$, () => AwsEcrContainerAggregationResponse$, () => Ec2InstanceAggregationResponse$, () => FindingTypeAggregationResponse$, () => ImageLayerAggregationResponse$, () => PackageAggregationResponse$, () => RepositoryAggregationResponse$, () => TitleAggregationResponse$, () => LambdaLayerAggregationResponse$, () => LambdaFunctionAggregationResponse$, () => CodeRepositoryAggregationResponse$, () => VmInstanceAggregationResponse$, () => ContainerImageAggregationResponse$, () => ServerlessFunctionAggregationResponse$]
 ];
 export var ClusterMetadata$: StaticUnionSchema = [4, n0, _CM,
   0,
@@ -3029,6 +3413,16 @@ export var CreateIntegrationDetail$: StaticUnionSchema = [4, n0, _CID,
   0,
   [_gSM],
   [[() => CreateGitLabSelfManagedIntegrationDetail$, 0]]
+];
+export var ProviderDetailCreate$: StaticUnionSchema = [4, n0, _PDC,
+  0,
+  [_az],
+  [() => AzureProviderDetailCreate$]
+];
+export var ProviderDetailUpdate$: StaticUnionSchema = [4, n0, _PDU,
+  0,
+  [_az],
+  [() => AzureProviderDetailUpdate$]
 ];
 export var Schedule$: StaticUnionSchema = [4, n0, _Sc,
   0,
@@ -3082,6 +3476,9 @@ export var CreateCodeSecurityIntegration$: StaticOperationSchema = [9, n0, _CCSI
 export var CreateCodeSecurityScanConfiguration$: StaticOperationSchema = [9, n0, _CCSSC,
   { [_ht]: ["POST", "/codesecurity/scan-configuration/create", 200] }, () => CreateCodeSecurityScanConfigurationRequest$, () => CreateCodeSecurityScanConfigurationResponse$
 ];
+export var CreateConnector$: StaticOperationSchema = [9, n0, _CC,
+  { [_ht]: ["POST", "/connector/create", 200] }, () => CreateConnectorRequest$, () => CreateConnectorResponse$
+];
 export var CreateFilter$: StaticOperationSchema = [9, n0, _CF,
   { [_ht]: ["POST", "/filters/create", 200] }, () => CreateFilterRequest$, () => CreateFilterResponse$
 ];
@@ -3099,6 +3496,9 @@ export var DeleteCodeSecurityIntegration$: StaticOperationSchema = [9, n0, _DCSI
 ];
 export var DeleteCodeSecurityScanConfiguration$: StaticOperationSchema = [9, n0, _DCSSC,
   { [_ht]: ["POST", "/codesecurity/scan-configuration/delete", 200] }, () => DeleteCodeSecurityScanConfigurationRequest$, () => DeleteCodeSecurityScanConfigurationResponse$
+];
+export var DeleteConnector$: StaticOperationSchema = [9, n0, _DC,
+  { [_ht]: ["POST", "/connector/delete", 200] }, () => DeleteConnectorRequest$, () => DeleteConnectorResponse$
 ];
 export var DeleteFilter$: StaticOperationSchema = [9, n0, _DFe,
   { [_ht]: ["POST", "/filters/delete", 200] }, () => DeleteFilterRequest$, () => DeleteFilterResponse$
@@ -3184,7 +3584,13 @@ export var ListCodeSecurityScanConfigurationAssociations$: StaticOperationSchema
 export var ListCodeSecurityScanConfigurations$: StaticOperationSchema = [9, n0, _LCSSC,
   { [_ht]: ["POST", "/codesecurity/scan-configuration/list", 200] }, () => ListCodeSecurityScanConfigurationsRequest$, () => ListCodeSecurityScanConfigurationsResponse$
 ];
-export var ListCoverage$: StaticOperationSchema = [9, n0, _LC,
+export var ListConnectors$: StaticOperationSchema = [9, n0, _LC,
+  { [_ht]: ["POST", "/connector/list", 200] }, () => ListConnectorsRequest$, () => ListConnectorsResponse$
+];
+export var ListConnectorScanConfigurations$: StaticOperationSchema = [9, n0, _LCSCi,
+  { [_ht]: ["POST", "/connectorscanconfigurations/list", 200] }, () => ListConnectorScanConfigurationsRequest$, () => ListConnectorScanConfigurationsResponse$
+];
+export var ListCoverage$: StaticOperationSchema = [9, n0, _LCi,
   { [_ht]: ["POST", "/coverage/list", 200] }, () => ListCoverageRequest$, () => ListCoverageResponse$
 ];
 export var ListCoverageStatistics$: StaticOperationSchema = [9, n0, _LCSi,
@@ -3249,6 +3655,12 @@ export var UpdateCodeSecurityScanConfiguration$: StaticOperationSchema = [9, n0,
 ];
 export var UpdateConfiguration$: StaticOperationSchema = [9, n0, _UC,
   { [_ht]: ["POST", "/configuration/update", 200] }, () => UpdateConfigurationRequest$, () => UpdateConfigurationResponse$
+];
+export var UpdateConnector$: StaticOperationSchema = [9, n0, _UCp,
+  { [_ht]: ["POST", "/connector/update", 200] }, () => UpdateConnectorRequest$, () => UpdateConnectorResponse$
+];
+export var UpdateConnectorScanConfiguration$: StaticOperationSchema = [9, n0, _UCSCp,
+  { [_ht]: ["POST", "/connectorscanconfiguration/update", 200] }, () => UpdateConnectorScanConfigurationRequest$, () => UpdateConnectorScanConfigurationResponse$
 ];
 export var UpdateEc2DeepInspectionConfiguration$: StaticOperationSchema = [9, n0, _UEDIC,
   { [_ht]: ["POST", "/ec2deepinspectionconfiguration/update", 200] }, () => UpdateEc2DeepInspectionConfigurationRequest$, () => UpdateEc2DeepInspectionConfigurationResponse$

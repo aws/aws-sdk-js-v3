@@ -23,6 +23,8 @@ import {
   AssociationResultStatusCode,
   AtigData$,
   AutoEnable$,
+  AwsConfigConnectorArnComparison,
+  AwsConfigConnectorArnFilter$,
   AwsEc2InstanceDetails$,
   AwsEcrContainerAggregation$,
   AwsEcrContainerAggregationResponse$,
@@ -32,6 +34,10 @@ import {
   AwsEksMetadataDetails$,
   AwsEksWorkloadInfo$,
   AwsLambdaFunctionDetails$,
+  AzureProviderDetailCreate$,
+  AzureProviderDetailUpdate$,
+  AzureScopeConfiguration$,
+  AzureScopeConfigurationInput$,
   BadRequestException,
   BadRequestException$,
   BatchAssociateCodeSecurityScanConfiguration$,
@@ -114,6 +120,7 @@ import {
   CisTargetStatusFilter$,
   CisTargetStatusReason,
   CisTargetStatusReasonFilter$,
+  CloudProvider,
   ClusterDetails$,
   ClusterForImageFilterCriteria$,
   ClusterInformation$,
@@ -141,6 +148,27 @@ import {
   ConfigurationLevel,
   ConflictException,
   ConflictException$,
+  Connector$,
+  ConnectorArnComparison,
+  ConnectorArnFilter$,
+  ConnectorCloudProvider,
+  ConnectorContainerImageScanConfiguration$,
+  ConnectorFilterCriteria$,
+  ConnectorHealth$,
+  ConnectorHealthStatus,
+  ConnectorScanConfiguration$,
+  ConnectorScanConfigurationItem$,
+  ConnectorType,
+  ConnectorTypeComparison,
+  ConnectorTypeFilter$,
+  ContainerImageAggregation$,
+  ContainerImageAggregationResponse$,
+  ContainerImageMetadata$,
+  ContainerImagePullDateRescanDuration,
+  ContainerImageRescanDuration,
+  ContainerImageSortBy,
+  ContainerRegistryMetadata$,
+  ContainerRepositoryMetadata$,
   ContinuousIntegrationScanConfiguration$,
   ContinuousIntegrationScanEvent,
   Counts$,
@@ -166,6 +194,10 @@ import {
   CreateCodeSecurityScanConfigurationCommand,
   CreateCodeSecurityScanConfigurationRequest$,
   CreateCodeSecurityScanConfigurationResponse$,
+  CreateConnector$,
+  CreateConnectorCommand,
+  CreateConnectorRequest$,
+  CreateConnectorResponse$,
   CreateFilter$,
   CreateFilterCommand,
   CreateFilterRequest$,
@@ -205,6 +237,10 @@ import {
   DeleteCodeSecurityScanConfigurationCommand,
   DeleteCodeSecurityScanConfigurationRequest$,
   DeleteCodeSecurityScanConfigurationResponse$,
+  DeleteConnector$,
+  DeleteConnectorCommand,
+  DeleteConnectorRequest$,
+  DeleteConnectorResponse$,
   DeleteFilter$,
   DeleteFilterCommand,
   DeleteFilterRequest$,
@@ -254,6 +290,7 @@ import {
   EnableDelegatedAdminAccountCommand,
   EnableDelegatedAdminAccountRequest$,
   EnableDelegatedAdminAccountResponse$,
+  EnablementStatus,
   EnableRequest$,
   EnableResponse$,
   Epss$,
@@ -339,9 +376,11 @@ import {
   GetSbomExportRequest$,
   GetSbomExportResponse$,
   GroupKey,
+  Image$,
   ImageLayerAggregation$,
   ImageLayerAggregationResponse$,
   ImageLayerSortBy,
+  InheritanceMode,
   Inspector2,
   Inspector2Client,
   Inspector2ServiceException,
@@ -394,6 +433,14 @@ import {
   ListCodeSecurityScanConfigurationsCommand,
   ListCodeSecurityScanConfigurationsRequest$,
   ListCodeSecurityScanConfigurationsResponse$,
+  ListConnectors$,
+  ListConnectorScanConfigurations$,
+  ListConnectorScanConfigurationsCommand,
+  ListConnectorScanConfigurationsRequest$,
+  ListConnectorScanConfigurationsResponse$,
+  ListConnectorsCommand,
+  ListConnectorsRequest$,
+  ListConnectorsResponse$,
   ListCoverage$,
   ListCoverageCommand,
   ListCoverageRequest$,
@@ -456,6 +503,8 @@ import {
   paginateListCisScanResultsAggregatedByChecks,
   paginateListCisScanResultsAggregatedByTargetResource,
   paginateListCisScans,
+  paginateListConnectors,
+  paginateListConnectorScanConfigurations,
   paginateListCoverage,
   paginateListCoverageStatistics,
   paginateListDelegatedAdminAccounts,
@@ -474,6 +523,11 @@ import {
   ProjectContinuousIntegrationScanConfiguration$,
   ProjectPeriodicScanConfiguration$,
   ProjectSelectionScope,
+  Provider,
+  ProviderComparison,
+  ProviderDetailCreate$,
+  ProviderDetailUpdate$,
+  ProviderFilter$,
   Recommendation$,
   RelationshipStatus,
   Remediation$,
@@ -509,7 +563,11 @@ import {
   ScanStatusReason,
   ScanType,
   Schedule$,
+  ScopeConfiguration$,
+  ScopeConfigurationInput$,
   ScopeSettings$,
+  ScopeState,
+  ScopeType,
   SearchVulnerabilities$,
   SearchVulnerabilitiesCommand,
   SearchVulnerabilitiesFilterCriteria$,
@@ -523,6 +581,11 @@ import {
   SendCisSessionTelemetryCommand,
   SendCisSessionTelemetryRequest$,
   SendCisSessionTelemetryResponse$,
+  ServerlessFunction$,
+  ServerlessFunctionAggregation$,
+  ServerlessFunctionAggregationResponse$,
+  ServerlessFunctionMetadata$,
+  ServerlessFunctionSortBy,
   Service,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
@@ -586,8 +649,17 @@ import {
   UpdateCodeSecurityScanConfigurationResponse$,
   UpdateConfiguration$,
   UpdateConfigurationCommand,
+  UpdateConfigurationInheritance$,
   UpdateConfigurationRequest$,
   UpdateConfigurationResponse$,
+  UpdateConnector$,
+  UpdateConnectorCommand,
+  UpdateConnectorRequest$,
+  UpdateConnectorResponse$,
+  UpdateConnectorScanConfiguration$,
+  UpdateConnectorScanConfigurationCommand,
+  UpdateConnectorScanConfigurationRequest$,
+  UpdateConnectorScanConfigurationResponse$,
   UpdateEc2DeepInspectionConfiguration$,
   UpdateEc2DeepInspectionConfigurationCommand,
   UpdateEc2DeepInspectionConfigurationRequest$,
@@ -618,11 +690,23 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
+  Vm$,
+  VmInstanceAggregation$,
+  VmInstanceAggregationResponse$,
+  VmInstanceMetadata$,
+  VmInstanceSortBy,
+  VmPlatform,
   VMScannerState$,
   VMScannerStatus,
   Vulnerability$,
   VulnerabilitySource,
   VulnerablePackage$,
+  waitForConnectorConnected,
+  waitForConnectorDeleted,
+  waitForConnectorEnabled,
+  waitUntilConnectorConnected,
+  waitUntilConnectorDeleted,
+  waitUntilConnectorEnabled,
   WeeklySchedule$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -658,6 +742,8 @@ assert(typeof CreateCodeSecurityIntegrationCommand === "function");
 assert(typeof CreateCodeSecurityIntegration$ === "object");
 assert(typeof CreateCodeSecurityScanConfigurationCommand === "function");
 assert(typeof CreateCodeSecurityScanConfiguration$ === "object");
+assert(typeof CreateConnectorCommand === "function");
+assert(typeof CreateConnector$ === "object");
 assert(typeof CreateFilterCommand === "function");
 assert(typeof CreateFilter$ === "object");
 assert(typeof CreateFindingsReportCommand === "function");
@@ -670,6 +756,8 @@ assert(typeof DeleteCodeSecurityIntegrationCommand === "function");
 assert(typeof DeleteCodeSecurityIntegration$ === "object");
 assert(typeof DeleteCodeSecurityScanConfigurationCommand === "function");
 assert(typeof DeleteCodeSecurityScanConfiguration$ === "object");
+assert(typeof DeleteConnectorCommand === "function");
+assert(typeof DeleteConnector$ === "object");
 assert(typeof DeleteFilterCommand === "function");
 assert(typeof DeleteFilter$ === "object");
 assert(typeof DescribeOrganizationConfigurationCommand === "function");
@@ -726,6 +814,10 @@ assert(typeof ListCodeSecurityScanConfigurationAssociationsCommand === "function
 assert(typeof ListCodeSecurityScanConfigurationAssociations$ === "object");
 assert(typeof ListCodeSecurityScanConfigurationsCommand === "function");
 assert(typeof ListCodeSecurityScanConfigurations$ === "object");
+assert(typeof ListConnectorsCommand === "function");
+assert(typeof ListConnectors$ === "object");
+assert(typeof ListConnectorScanConfigurationsCommand === "function");
+assert(typeof ListConnectorScanConfigurations$ === "object");
 assert(typeof ListCoverageCommand === "function");
 assert(typeof ListCoverage$ === "object");
 assert(typeof ListCoverageStatisticsCommand === "function");
@@ -770,6 +862,10 @@ assert(typeof UpdateCodeSecurityScanConfigurationCommand === "function");
 assert(typeof UpdateCodeSecurityScanConfiguration$ === "object");
 assert(typeof UpdateConfigurationCommand === "function");
 assert(typeof UpdateConfiguration$ === "object");
+assert(typeof UpdateConnectorCommand === "function");
+assert(typeof UpdateConnector$ === "object");
+assert(typeof UpdateConnectorScanConfigurationCommand === "function");
+assert(typeof UpdateConnectorScanConfiguration$ === "object");
 assert(typeof UpdateEc2DeepInspectionConfigurationCommand === "function");
 assert(typeof UpdateEc2DeepInspectionConfiguration$ === "object");
 assert(typeof UpdateEncryptionKeyCommand === "function");
@@ -794,6 +890,7 @@ assert(typeof AssociateMemberRequest$ === "object");
 assert(typeof AssociateMemberResponse$ === "object");
 assert(typeof AtigData$ === "object");
 assert(typeof AutoEnable$ === "object");
+assert(typeof AwsConfigConnectorArnFilter$ === "object");
 assert(typeof AwsEc2InstanceDetails$ === "object");
 assert(typeof AwsEcrContainerAggregation$ === "object");
 assert(typeof AwsEcrContainerAggregationResponse$ === "object");
@@ -802,6 +899,10 @@ assert(typeof AwsEcsMetadataDetails$ === "object");
 assert(typeof AwsEksMetadataDetails$ === "object");
 assert(typeof AwsEksWorkloadInfo$ === "object");
 assert(typeof AwsLambdaFunctionDetails$ === "object");
+assert(typeof AzureProviderDetailCreate$ === "object");
+assert(typeof AzureProviderDetailUpdate$ === "object");
+assert(typeof AzureScopeConfiguration$ === "object");
+assert(typeof AzureScopeConfigurationInput$ === "object");
 assert(typeof BatchAssociateCodeSecurityScanConfigurationRequest$ === "object");
 assert(typeof BatchAssociateCodeSecurityScanConfigurationResponse$ === "object");
 assert(typeof BatchDisassociateCodeSecurityScanConfigurationRequest$ === "object");
@@ -862,6 +963,19 @@ assert(typeof CodeSnippetError$ === "object");
 assert(typeof CodeSnippetResult$ === "object");
 assert(typeof CodeVulnerabilityDetails$ === "object");
 assert(typeof ComputePlatform$ === "object");
+assert(typeof Connector$ === "object");
+assert(typeof ConnectorArnFilter$ === "object");
+assert(typeof ConnectorContainerImageScanConfiguration$ === "object");
+assert(typeof ConnectorFilterCriteria$ === "object");
+assert(typeof ConnectorHealth$ === "object");
+assert(typeof ConnectorScanConfiguration$ === "object");
+assert(typeof ConnectorScanConfigurationItem$ === "object");
+assert(typeof ConnectorTypeFilter$ === "object");
+assert(typeof ContainerImageAggregation$ === "object");
+assert(typeof ContainerImageAggregationResponse$ === "object");
+assert(typeof ContainerImageMetadata$ === "object");
+assert(typeof ContainerRegistryMetadata$ === "object");
+assert(typeof ContainerRepositoryMetadata$ === "object");
 assert(typeof ContinuousIntegrationScanConfiguration$ === "object");
 assert(typeof Counts$ === "object");
 assert(typeof CoverageDateFilter$ === "object");
@@ -877,6 +991,8 @@ assert(typeof CreateCodeSecurityIntegrationRequest$ === "object");
 assert(typeof CreateCodeSecurityIntegrationResponse$ === "object");
 assert(typeof CreateCodeSecurityScanConfigurationRequest$ === "object");
 assert(typeof CreateCodeSecurityScanConfigurationResponse$ === "object");
+assert(typeof CreateConnectorRequest$ === "object");
+assert(typeof CreateConnectorResponse$ === "object");
 assert(typeof CreateFilterRequest$ === "object");
 assert(typeof CreateFilterResponse$ === "object");
 assert(typeof CreateFindingsReportRequest$ === "object");
@@ -901,6 +1017,8 @@ assert(typeof DeleteCodeSecurityIntegrationRequest$ === "object");
 assert(typeof DeleteCodeSecurityIntegrationResponse$ === "object");
 assert(typeof DeleteCodeSecurityScanConfigurationRequest$ === "object");
 assert(typeof DeleteCodeSecurityScanConfigurationResponse$ === "object");
+assert(typeof DeleteConnectorRequest$ === "object");
+assert(typeof DeleteConnectorResponse$ === "object");
 assert(typeof DeleteFilterRequest$ === "object");
 assert(typeof DeleteFilterResponse$ === "object");
 assert(typeof DescribeOrganizationConfigurationRequest$ === "object");
@@ -972,6 +1090,7 @@ assert(typeof GetMemberRequest$ === "object");
 assert(typeof GetMemberResponse$ === "object");
 assert(typeof GetSbomExportRequest$ === "object");
 assert(typeof GetSbomExportResponse$ === "object");
+assert(typeof Image$ === "object");
 assert(typeof ImageLayerAggregation$ === "object");
 assert(typeof ImageLayerAggregationResponse$ === "object");
 assert(typeof InspectorScoreDetails$ === "object");
@@ -999,6 +1118,10 @@ assert(typeof ListCodeSecurityScanConfigurationAssociationsRequest$ === "object"
 assert(typeof ListCodeSecurityScanConfigurationAssociationsResponse$ === "object");
 assert(typeof ListCodeSecurityScanConfigurationsRequest$ === "object");
 assert(typeof ListCodeSecurityScanConfigurationsResponse$ === "object");
+assert(typeof ListConnectorScanConfigurationsRequest$ === "object");
+assert(typeof ListConnectorScanConfigurationsResponse$ === "object");
+assert(typeof ListConnectorsRequest$ === "object");
+assert(typeof ListConnectorsResponse$ === "object");
 assert(typeof ListCoverageRequest$ === "object");
 assert(typeof ListCoverageResponse$ === "object");
 assert(typeof ListCoverageStatisticsRequest$ === "object");
@@ -1037,6 +1160,9 @@ assert(typeof PortRangeFilter$ === "object");
 assert(typeof ProjectCodeSecurityScanConfiguration$ === "object");
 assert(typeof ProjectContinuousIntegrationScanConfiguration$ === "object");
 assert(typeof ProjectPeriodicScanConfiguration$ === "object");
+assert(typeof ProviderDetailCreate$ === "object");
+assert(typeof ProviderDetailUpdate$ === "object");
+assert(typeof ProviderFilter$ === "object");
 assert(typeof Recommendation$ === "object");
 assert(typeof Remediation$ === "object");
 assert(typeof RepositoryAggregation$ === "object");
@@ -1053,6 +1179,8 @@ assert(typeof ResourceStatus$ === "object");
 assert(typeof ResourceStringFilter$ === "object");
 assert(typeof ScanStatus$ === "object");
 assert(typeof Schedule$ === "object");
+assert(typeof ScopeConfiguration$ === "object");
+assert(typeof ScopeConfigurationInput$ === "object");
 assert(typeof ScopeSettings$ === "object");
 assert(typeof SearchVulnerabilitiesFilterCriteria$ === "object");
 assert(typeof SearchVulnerabilitiesRequest$ === "object");
@@ -1061,6 +1189,10 @@ assert(typeof SendCisSessionHealthRequest$ === "object");
 assert(typeof SendCisSessionHealthResponse$ === "object");
 assert(typeof SendCisSessionTelemetryRequest$ === "object");
 assert(typeof SendCisSessionTelemetryResponse$ === "object");
+assert(typeof ServerlessFunction$ === "object");
+assert(typeof ServerlessFunctionAggregation$ === "object");
+assert(typeof ServerlessFunctionAggregationResponse$ === "object");
+assert(typeof ServerlessFunctionMetadata$ === "object");
 assert(typeof SeverityCounts$ === "object");
 assert(typeof SortCriteria$ === "object");
 assert(typeof StartCisSessionMessage$ === "object");
@@ -1093,8 +1225,13 @@ assert(typeof UpdateCodeSecurityIntegrationRequest$ === "object");
 assert(typeof UpdateCodeSecurityIntegrationResponse$ === "object");
 assert(typeof UpdateCodeSecurityScanConfigurationRequest$ === "object");
 assert(typeof UpdateCodeSecurityScanConfigurationResponse$ === "object");
+assert(typeof UpdateConfigurationInheritance$ === "object");
 assert(typeof UpdateConfigurationRequest$ === "object");
 assert(typeof UpdateConfigurationResponse$ === "object");
+assert(typeof UpdateConnectorRequest$ === "object");
+assert(typeof UpdateConnectorResponse$ === "object");
+assert(typeof UpdateConnectorScanConfigurationRequest$ === "object");
+assert(typeof UpdateConnectorScanConfigurationResponse$ === "object");
 assert(typeof UpdateEc2DeepInspectionConfigurationRequest$ === "object");
 assert(typeof UpdateEc2DeepInspectionConfigurationResponse$ === "object");
 assert(typeof UpdateEncryptionKeyRequest$ === "object");
@@ -1111,6 +1248,10 @@ assert(typeof UpdateOrgEc2DeepInspectionConfigurationResponse$ === "object");
 assert(typeof Usage$ === "object");
 assert(typeof UsageTotal$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
+assert(typeof Vm$ === "object");
+assert(typeof VmInstanceAggregation$ === "object");
+assert(typeof VmInstanceAggregationResponse$ === "object");
+assert(typeof VmInstanceMetadata$ === "object");
 assert(typeof VMScannerState$ === "object");
 assert(typeof Vulnerability$ === "object");
 assert(typeof VulnerablePackage$ === "object");
@@ -1123,6 +1264,7 @@ assert(typeof AggregationType === "object");
 assert(typeof AmiSortBy === "object");
 assert(typeof Architecture === "object");
 assert(typeof AssociationResultStatusCode === "object");
+assert(typeof AwsConfigConnectorArnComparison === "object");
 assert(typeof AwsEcrContainerSortBy === "object");
 assert(typeof CisFindingStatus === "object");
 assert(typeof CisFindingStatusComparison === "object");
@@ -1144,11 +1286,20 @@ assert(typeof CisStringComparison === "object");
 assert(typeof CisTargetStatus === "object");
 assert(typeof CisTargetStatusComparison === "object");
 assert(typeof CisTargetStatusReason === "object");
+assert(typeof CloudProvider === "object");
 assert(typeof CodeRepositoryProviderType === "object");
 assert(typeof CodeRepositorySortBy === "object");
 assert(typeof CodeScanStatus === "object");
 assert(typeof CodeSnippetErrorCode === "object");
 assert(typeof ConfigurationLevel === "object");
+assert(typeof ConnectorArnComparison === "object");
+assert(typeof ConnectorCloudProvider === "object");
+assert(typeof ConnectorHealthStatus === "object");
+assert(typeof ConnectorType === "object");
+assert(typeof ConnectorTypeComparison === "object");
+assert(typeof ContainerImagePullDateRescanDuration === "object");
+assert(typeof ContainerImageRescanDuration === "object");
+assert(typeof ContainerImageSortBy === "object");
 assert(typeof ContinuousIntegrationScanEvent === "object");
 assert(typeof CoverageMapComparison === "object");
 assert(typeof CoverageResourceType === "object");
@@ -1166,6 +1317,7 @@ assert(typeof EcrPullDateRescanMode === "object");
 assert(typeof EcrRescanDuration === "object");
 assert(typeof EcrRescanDurationStatus === "object");
 assert(typeof EcrScanFrequency === "object");
+assert(typeof EnablementStatus === "object");
 assert(typeof ErrorCode === "object");
 assert(typeof ExploitAvailable === "object");
 assert(typeof ExternalReportStatus === "object");
@@ -1180,6 +1332,7 @@ assert(typeof FreeTrialStatus === "object");
 assert(typeof FreeTrialType === "object");
 assert(typeof GroupKey === "object");
 assert(typeof ImageLayerSortBy === "object");
+assert(typeof InheritanceMode === "object");
 assert(typeof IntegrationStatus === "object");
 assert(typeof IntegrationType === "object");
 assert(typeof LambdaFunctionSortBy === "object");
@@ -1194,6 +1347,8 @@ assert(typeof PackageSortBy === "object");
 assert(typeof PackageType === "object");
 assert(typeof PeriodicScanFrequency === "object");
 assert(typeof ProjectSelectionScope === "object");
+assert(typeof Provider === "object");
+assert(typeof ProviderComparison === "object");
 assert(typeof RelationshipStatus === "object");
 assert(typeof ReportFormat === "object");
 assert(typeof ReportingErrorCode === "object");
@@ -1209,6 +1364,9 @@ assert(typeof ScanMode === "object");
 assert(typeof ScanStatusCode === "object");
 assert(typeof ScanStatusReason === "object");
 assert(typeof ScanType === "object");
+assert(typeof ScopeState === "object");
+assert(typeof ScopeType === "object");
+assert(typeof ServerlessFunctionSortBy === "object");
 assert(typeof Service === "object");
 assert(typeof Severity === "object");
 assert(typeof SortField === "object");
@@ -1220,6 +1378,8 @@ assert(typeof TagComparison === "object");
 assert(typeof TitleSortBy === "object");
 assert(typeof UsageType === "object");
 assert(typeof ValidationExceptionReason === "object");
+assert(typeof VmInstanceSortBy === "object");
+assert(typeof VmPlatform === "object");
 assert(typeof VMScannerStatus === "object");
 assert(typeof VulnerabilitySource === "object");
 // errors
@@ -1240,6 +1400,13 @@ assert(typeof ThrottlingException$ === "object");
 assert(ValidationException.prototype instanceof Inspector2ServiceException);
 assert(typeof ValidationException$ === "object");
 assert(Inspector2ServiceException.prototype instanceof Error);
+// waiters
+assert(typeof waitForConnectorConnected === "function");
+assert(typeof waitForConnectorDeleted === "function");
+assert(typeof waitForConnectorEnabled === "function");
+assert(typeof waitUntilConnectorConnected === "function");
+assert(typeof waitUntilConnectorDeleted === "function");
+assert(typeof waitUntilConnectorEnabled === "function");
 // paginators
 assert(typeof paginateGetCisScanResultDetails === "function");
 assert(typeof paginateGetClustersForImage === "function");
@@ -1248,6 +1415,8 @@ assert(typeof paginateListCisScanConfigurations === "function");
 assert(typeof paginateListCisScanResultsAggregatedByChecks === "function");
 assert(typeof paginateListCisScanResultsAggregatedByTargetResource === "function");
 assert(typeof paginateListCisScans === "function");
+assert(typeof paginateListConnectorScanConfigurations === "function");
+assert(typeof paginateListConnectors === "function");
 assert(typeof paginateListCoverage === "function");
 assert(typeof paginateListCoverageStatistics === "function");
 assert(typeof paginateListDelegatedAdminAccounts === "function");

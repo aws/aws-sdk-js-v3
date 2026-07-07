@@ -23,9 +23,12 @@ export interface UpdateConfigurationCommandInput extends UpdateConfigurationRequ
 export interface UpdateConfigurationCommandOutput extends UpdateConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates setting configurations for your Amazon Inspector account. When you use this API as an Amazon Inspector
- *          delegated administrator this updates the setting for all accounts you manage. Member
- *          accounts in an organization cannot update this setting.</p>
+ * <p>Updates the scan configuration for your Amazon Inspector account. If you don't specify an
+ *          <code>accountId</code>, this operation updates the delegated administrator's configuration
+ *          and propagates it to member accounts that have not been individually configured. If you
+ *          specify an <code>accountId</code>, this operation updates that member account's
+ *          configuration. Only the delegated administrator can specify an <code>accountId</code>;
+ *          member accounts cannot call this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -35,6 +38,7 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  * const config = {}; // type is Inspector2ClientConfig
  * const client = new Inspector2Client(config);
  * const input = { // UpdateConfigurationRequest
+ *   accountId: "STRING_VALUE",
  *   ecrConfiguration: { // EcrConfiguration
  *     rescanDuration: "STRING_VALUE", // required
  *     pullDateRescanDuration: "STRING_VALUE",
@@ -43,6 +47,10 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  *   ec2Configuration: { // Ec2Configuration
  *     scanMode: "STRING_VALUE", // required
  *     activateVMScanner: true || false,
+ *   },
+ *   updateConfigurationInheritance: { // UpdateConfigurationInheritance
+ *     ec2Configuration: "STRING_VALUE",
+ *     ecrConfiguration: "STRING_VALUE",
  *   },
  * };
  * const command = new UpdateConfigurationCommand(input);

@@ -39,6 +39,9 @@ export const AggregationResourceType = {
   AWS_ECR_CONTAINER_IMAGE: "AWS_ECR_CONTAINER_IMAGE",
   AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
   CODE_REPOSITORY: "CODE_REPOSITORY",
+  MICROSOFT_COMPUTE_VIRTUAL_MACHINES: "Microsoft.Compute/virtualMachines",
+  MICROSOFT_CONTAINER_REGISTRY_REGISTRY_CONTAINER_IMAGE: "Microsoft.ContainerRegistry/registry/containerImage",
+  MICROSOFT_WEB_SITES: "Microsoft.Web/sites",
 } as const;
 /**
  * @public
@@ -175,6 +178,20 @@ export type CodeRepositorySortBy = (typeof CodeRepositorySortBy)[keyof typeof Co
  * @public
  * @enum
  */
+export const ContainerImageSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
+/**
+ * @public
+ */
+export type ContainerImageSortBy = (typeof ContainerImageSortBy)[keyof typeof ContainerImageSortBy];
+
+/**
+ * @public
+ * @enum
+ */
 export const MapComparison = {
   EQUALS: "EQUALS",
 } as const;
@@ -287,6 +304,20 @@ export type RepositorySortBy = (typeof RepositorySortBy)[keyof typeof Repository
  * @public
  * @enum
  */
+export const ServerlessFunctionSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+} as const;
+/**
+ * @public
+ */
+export type ServerlessFunctionSortBy = (typeof ServerlessFunctionSortBy)[keyof typeof ServerlessFunctionSortBy];
+
+/**
+ * @public
+ * @enum
+ */
 export const TitleSortBy = {
   ALL: "ALL",
   CRITICAL: "CRITICAL",
@@ -301,6 +332,34 @@ export type TitleSortBy = (typeof TitleSortBy)[keyof typeof TitleSortBy];
  * @public
  * @enum
  */
+export const VmInstanceSortBy = {
+  ALL: "ALL",
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  NETWORK_FINDINGS: "NETWORK_FINDINGS",
+} as const;
+/**
+ * @public
+ */
+export type VmInstanceSortBy = (typeof VmInstanceSortBy)[keyof typeof VmInstanceSortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const Provider = {
+  AWS: "AWS",
+  AZURE: "AZURE",
+} as const;
+/**
+ * @public
+ */
+export type Provider = (typeof Provider)[keyof typeof Provider];
+
+/**
+ * @public
+ * @enum
+ */
 export const AggregationType = {
   ACCOUNT: "ACCOUNT",
   AMI: "AMI",
@@ -308,12 +367,15 @@ export const AggregationType = {
   AWS_ECR_CONTAINER: "AWS_ECR_CONTAINER",
   AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
   CODE_REPOSITORY: "CODE_REPOSITORY",
+  CONTAINER_IMAGE: "CONTAINER_IMAGE",
   FINDING_TYPE: "FINDING_TYPE",
   IMAGE_LAYER: "IMAGE_LAYER",
   LAMBDA_LAYER: "LAMBDA_LAYER",
   PACKAGE: "PACKAGE",
   REPOSITORY: "REPOSITORY",
+  SERVERLESS_FUNCTION: "SERVERLESS_FUNCTION",
   TITLE: "TITLE",
+  VM_INSTANCE: "VM_INSTANCE",
 } as const;
 /**
  * @public
@@ -369,6 +431,19 @@ export type AssociationResultStatusCode =
  * @public
  * @enum
  */
+export const AwsConfigConnectorArnComparison = {
+  EQUALS: "EQUALS",
+} as const;
+/**
+ * @public
+ */
+export type AwsConfigConnectorArnComparison =
+  (typeof AwsConfigConnectorArnComparison)[keyof typeof AwsConfigConnectorArnComparison];
+
+/**
+ * @public
+ * @enum
+ */
 export const PackageType = {
   IMAGE: "IMAGE",
   ZIP: "ZIP",
@@ -390,6 +465,8 @@ export const Runtime = {
   GO_1_X: "GO_1_X",
   JAVA_11: "JAVA_11",
   JAVA_17: "JAVA_17",
+  JAVA_21: "JAVA_21",
+  JAVA_25: "JAVA_25",
   JAVA_8: "JAVA_8",
   JAVA_8_AL2: "JAVA_8_AL2",
   NODEJS: "NODEJS",
@@ -397,6 +474,7 @@ export const Runtime = {
   NODEJS_14_X: "NODEJS_14_X",
   NODEJS_16_X: "NODEJS_16_X",
   NODEJS_18_X: "NODEJS_18_X",
+  NODEJS_22_X: "NODEJS_22_X",
   NODEJS_24_X: "NODEJS_24_X",
   PYTHON_3_10: "PYTHON_3_10",
   PYTHON_3_11: "PYTHON_3_11",
@@ -411,6 +489,34 @@ export const Runtime = {
  * @public
  */
 export type Runtime = (typeof Runtime)[keyof typeof Runtime];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScopeType = {
+  SUBSCRIPTION: "SUBSCRIPTION",
+  TENANT: "TENANT",
+} as const;
+/**
+ * @public
+ */
+export type ScopeType = (typeof ScopeType)[keyof typeof ScopeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScopeState = {
+  ACTIVE: "ACTIVE",
+  DISABLED: "DISABLED",
+  ERROR: "ERROR",
+  PENDING: "PENDING",
+} as const;
+/**
+ * @public
+ */
+export type ScopeState = (typeof ScopeState)[keyof typeof ScopeState];
 
 /**
  * @public
@@ -446,6 +552,20 @@ export type FindingDetailsErrorCode = (typeof FindingDetailsErrorCode)[keyof typ
  * @public
  * @enum
  */
+export const CloudProvider = {
+  AWS: "AWS",
+  AZURE: "AZURE",
+  NOT_APPLICABLE: "NOT_APPLICABLE",
+} as const;
+/**
+ * @public
+ */
+export type CloudProvider = (typeof CloudProvider)[keyof typeof CloudProvider];
+
+/**
+ * @public
+ * @enum
+ */
 export const FreeTrialStatus = {
   ACTIVE: "ACTIVE",
   INACTIVE: "INACTIVE",
@@ -461,10 +581,13 @@ export type FreeTrialStatus = (typeof FreeTrialStatus)[keyof typeof FreeTrialSta
  */
 export const FreeTrialType = {
   CODE_REPOSITORY: "CODE_REPOSITORY",
+  CONTAINER_IMAGE: "CONTAINER_IMAGE",
   EC2: "EC2",
   ECR: "ECR",
   LAMBDA: "LAMBDA",
   LAMBDA_CODE: "LAMBDA_CODE",
+  SERVERLESS_FUNCTION: "SERVERLESS_FUNCTION",
+  VM: "VM",
 } as const;
 /**
  * @public
@@ -831,7 +954,9 @@ export const ScanStatusReason = {
   PENDING_DISABLE: "PENDING_DISABLE",
   PENDING_INITIAL_SCAN: "PENDING_INITIAL_SCAN",
   PENDING_REVIVAL_SCAN: "PENDING_REVIVAL_SCAN",
+  RESOURCE_STOPPED: "RESOURCE_STOPPED",
   RESOURCE_TERMINATED: "RESOURCE_TERMINATED",
+  RESOURCE_UNMANAGED: "RESOURCE_UNMANAGED",
   SCAN_ELIGIBILITY_EXPIRED: "SCAN_ELIGIBILITY_EXPIRED",
   SCAN_FREQUENCY_MANUAL: "SCAN_FREQUENCY_MANUAL",
   SCAN_FREQUENCY_SCAN_ON_PUSH: "SCAN_FREQUENCY_SCAN_ON_PUSH",
@@ -979,9 +1104,149 @@ export type ConfigurationLevel = (typeof ConfigurationLevel)[keyof typeof Config
  * @public
  * @enum
  */
+export const EnablementStatus = {
+  DELETED: "DELETED",
+  ENABLED: "ENABLED",
+  FAILED_TO_DELETE: "FAILED_TO_DELETE",
+  FAILED_TO_ENABLE: "FAILED_TO_ENABLE",
+  FAILED_TO_UPDATE: "FAILED_TO_UPDATE",
+  PENDING_DELETION: "PENDING_DELETION",
+  PENDING_ENABLEMENT: "PENDING_ENABLEMENT",
+  PENDING_UPDATE: "PENDING_UPDATE",
+} as const;
+/**
+ * @public
+ */
+export type EnablementStatus = (typeof EnablementStatus)[keyof typeof EnablementStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorHealthStatus = {
+  CONNECTED: "CONNECTED",
+  DEGRADED: "DEGRADED",
+  FAILED_TO_CONNECT: "FAILED_TO_CONNECT",
+  PENDING_AUTHORIZATION: "PENDING_AUTHORIZATION",
+  PENDING_CONFIGURATION: "PENDING_CONFIGURATION",
+  UNKNOWN: "UNKNOWN",
+} as const;
+/**
+ * @public
+ */
+export type ConnectorHealthStatus = (typeof ConnectorHealthStatus)[keyof typeof ConnectorHealthStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorCloudProvider = {
+  AZURE: "AZURE",
+} as const;
+/**
+ * @public
+ */
+export type ConnectorCloudProvider = (typeof ConnectorCloudProvider)[keyof typeof ConnectorCloudProvider];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorArnComparison = {
+  EQUALS: "EQUALS",
+} as const;
+/**
+ * @public
+ */
+export type ConnectorArnComparison = (typeof ConnectorArnComparison)[keyof typeof ConnectorArnComparison];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContainerImagePullDateRescanDuration = {
+  DAYS_14: "DAYS_14",
+  DAYS_180: "DAYS_180",
+  DAYS_3: "DAYS_3",
+  DAYS_30: "DAYS_30",
+  DAYS_60: "DAYS_60",
+  DAYS_7: "DAYS_7",
+  DAYS_90: "DAYS_90",
+} as const;
+/**
+ * @public
+ */
+export type ContainerImagePullDateRescanDuration =
+  (typeof ContainerImagePullDateRescanDuration)[keyof typeof ContainerImagePullDateRescanDuration];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContainerImageRescanDuration = {
+  DAYS_14: "DAYS_14",
+  DAYS_180: "DAYS_180",
+  DAYS_3: "DAYS_3",
+  DAYS_30: "DAYS_30",
+  DAYS_60: "DAYS_60",
+  DAYS_7: "DAYS_7",
+  DAYS_90: "DAYS_90",
+  LIFETIME: "LIFETIME",
+} as const;
+/**
+ * @public
+ */
+export type ContainerImageRescanDuration =
+  (typeof ContainerImageRescanDuration)[keyof typeof ContainerImageRescanDuration];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorTypeComparison = {
+  EQUALS: "EQUALS",
+} as const;
+/**
+ * @public
+ */
+export type ConnectorTypeComparison = (typeof ConnectorTypeComparison)[keyof typeof ConnectorTypeComparison];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorType = {
+  CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
+  SERVICE_LINKED: "SERVICE_LINKED",
+} as const;
+/**
+ * @public
+ */
+export type ConnectorType = (typeof ConnectorType)[keyof typeof ConnectorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProviderComparison = {
+  EQUALS: "EQUALS",
+} as const;
+/**
+ * @public
+ */
+export type ProviderComparison = (typeof ProviderComparison)[keyof typeof ProviderComparison];
+
+/**
+ * @public
+ * @enum
+ */
 export const GroupKey = {
   ACCOUNT_ID: "ACCOUNT_ID",
   ECR_REPOSITORY_NAME: "ECR_REPOSITORY_NAME",
+  PROVIDER: "PROVIDER",
+  PROVIDER_ACCOUNT_ID: "PROVIDER_ACCOUNT_ID",
+  PROVIDER_ORG_ID: "PROVIDER_ORG_ID",
+  PROVIDER_REGION: "PROVIDER_REGION",
   RESOURCE_TYPE: "RESOURCE_TYPE",
   SCAN_STATUS_CODE: "SCAN_STATUS_CODE",
   SCAN_STATUS_REASON: "SCAN_STATUS_REASON",
@@ -1026,6 +1291,11 @@ export const CoverageResourceType = {
   AWS_ECR_REPOSITORY: "AWS_ECR_REPOSITORY",
   AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
   CODE_REPOSITORY: "CODE_REPOSITORY",
+  MICROSOFT_COMPUTE_VIRTUAL_MACHINES: "Microsoft.Compute/virtualMachines",
+  MICROSOFT_CONTAINER_REGISTRY_REGISTRIES: "Microsoft.ContainerRegistry/registries",
+  MICROSOFT_CONTAINER_REGISTRY_REGISTRY_CONTAINER_IMAGE: "Microsoft.ContainerRegistry/registry/containerImage",
+  MICROSOFT_CONTAINER_REGISTRY_REGISTRY_CONTAINER_REPOSITORY: "Microsoft.ContainerRegistry/registry/containerRepository",
+  MICROSOFT_WEB_SITES: "Microsoft.Web/sites",
 } as const;
 /**
  * @public
@@ -1065,10 +1335,25 @@ export type EcrScanFrequency = (typeof EcrScanFrequency)[keyof typeof EcrScanFre
  * @public
  * @enum
  */
+export const VmPlatform = {
+  LINUX: "LINUX",
+  UNKNOWN: "UNKNOWN",
+  WINDOWS: "WINDOWS",
+} as const;
+/**
+ * @public
+ */
+export type VmPlatform = (typeof VmPlatform)[keyof typeof VmPlatform];
+
+/**
+ * @public
+ * @enum
+ */
 export const ScanMode = {
   EC2_AGENTLESS: "EC2_AGENTLESS",
   EC2_INSPECTOR_AGENT_BASED: "EC2_INSPECTOR_AGENT_BASED",
   EC2_SSM_AGENT_BASED: "EC2_SSM_AGENT_BASED",
+  VM_INSPECTOR_AGENT_BASED: "VM_INSPECTOR_AGENT_BASED",
 } as const;
 /**
  * @public
@@ -1411,6 +1696,9 @@ export const ResourceType = {
   AWS_ECR_REPOSITORY: "AWS_ECR_REPOSITORY",
   AWS_LAMBDA_FUNCTION: "AWS_LAMBDA_FUNCTION",
   CODE_REPOSITORY: "CODE_REPOSITORY",
+  MICROSOFT_COMPUTE_VIRTUAL_MACHINES: "Microsoft.Compute/virtualMachines",
+  MICROSOFT_CONTAINER_REGISTRY_REGISTRY_CONTAINER_IMAGE: "Microsoft.ContainerRegistry/registry/containerImage",
+  MICROSOFT_WEB_SITES: "Microsoft.Web/sites",
 } as const;
 /**
  * @public
@@ -1478,6 +1766,18 @@ export const ReportingErrorCode = {
  * @public
  */
 export type ReportingErrorCode = (typeof ReportingErrorCode)[keyof typeof ReportingErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const InheritanceMode = {
+  INHERIT_FROM_ADMIN: "INHERIT_FROM_ADMIN",
+} as const;
+/**
+ * @public
+ */
+export type InheritanceMode = (typeof InheritanceMode)[keyof typeof InheritanceMode];
 
 /**
  * @public
@@ -1569,6 +1869,10 @@ export type SortField = (typeof SortField)[keyof typeof SortField];
  * @enum
  */
 export const UsageType = {
+  AZURE_CONTAINER_IMAGE_INITIAL_SCAN: "AZURE_CONTAINER_IMAGE_INITIAL_SCAN",
+  AZURE_CONTAINER_IMAGE_RESCAN: "AZURE_CONTAINER_IMAGE_RESCAN",
+  AZURE_SERVERLESS_FUNCTION_HOURS: "AZURE_SERVERLESS_FUNCTION_HOURS",
+  AZURE_VM_AGENT_BASED_INSTANCE_HOURS: "AZURE_VM_AGENT_BASED_INSTANCE_HOURS",
   CODE_REPOSITORY_IAC: "CODE_REPOSITORY_IAC",
   CODE_REPOSITORY_SAST: "CODE_REPOSITORY_SAST",
   CODE_REPOSITORY_SCA: "CODE_REPOSITORY_SCA",

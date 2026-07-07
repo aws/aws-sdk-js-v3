@@ -7,6 +7,8 @@ export * from "./ListCisScanConfigurationsPaginator";
 export * from "./ListCisScanResultsAggregatedByChecksPaginator";
 export * from "./ListCisScanResultsAggregatedByTargetResourcePaginator";
 export * from "./ListCisScansPaginator";
+export * from "./ListConnectorsPaginator";
+export * from "./ListConnectorScanConfigurationsPaginator";
 export * from "./ListCoveragePaginator";
 export * from "./ListCoverageStatisticsPaginator";
 export * from "./ListDelegatedAdminAccountsPaginator";

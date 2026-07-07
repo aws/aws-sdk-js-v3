@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListCoverageRequest, ListCoverageResponse } from "../models/models_0";
+import type { ListCoverageRequest, ListCoverageResponse } from "../models/models_1";
 import { ListCoverage$ } from "../schemas/schemas_0";
 
 /**
@@ -114,6 +114,29 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *     codeRepositoryProviderType: "<CoverageStringFilterList>",
  *     codeRepositoryProviderTypeVisibility: "<CoverageStringFilterList>",
  *     lastScannedCommitId: "<CoverageStringFilterList>",
+ *     cloudProvider: "<CoverageStringFilterList>",
+ *     cloudProviderAccountId: "<CoverageStringFilterList>",
+ *     cloudProviderRegion: "<CoverageStringFilterList>",
+ *     cloudVmInstanceTags: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     cloudContainerImageTags: "<CoverageStringFilterList>",
+ *     cloudContainerRepositoryName: "<CoverageStringFilterList>",
+ *     cloudContainerRegistryName: "<CoverageStringFilterList>",
+ *     cloudServerlessFunctionName: "<CoverageStringFilterList>",
+ *     cloudServerlessFunctionRuntime: "<CoverageStringFilterList>",
+ *     cloudServerlessFunctionTags: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     cloudProviderOrgId: "<CoverageStringFilterList>",
  *   },
  * };
  * const command = new ListCoverageCommand(input);
@@ -193,9 +216,44 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * //             },
  * //           },
  * //         },
+ * //         vmInstance: { // VmInstanceMetadata
+ * //           tags: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           platform: "STRING_VALUE",
+ * //           inventoryHash: "STRING_VALUE",
+ * //           vmImageReference: "STRING_VALUE",
+ * //         },
+ * //         containerImage: { // ContainerImageMetadata
+ * //           imageTags: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           imagePulledAt: new Date("TIMESTAMP"),
+ * //           lastInUseAt: new Date("TIMESTAMP"),
+ * //           inUseCount: Number("long"),
+ * //         },
+ * //         containerRepository: { // ContainerRepositoryMetadata
+ * //           name: "STRING_VALUE",
+ * //           scanFrequency: "STRING_VALUE",
+ * //         },
+ * //         containerRegistry: { // ContainerRegistryMetadata
+ * //           name: "STRING_VALUE",
+ * //         },
+ * //         serverlessFunction: { // ServerlessFunctionMetadata
+ * //           serverlessFunctionName: "STRING_VALUE",
+ * //           runtime: "STRING_VALUE",
+ * //           functionTags: {
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
  * //       },
  * //       lastScannedAt: new Date("TIMESTAMP"),
  * //       scanMode: "STRING_VALUE",
+ * //       provider: "STRING_VALUE",
+ * //       providerAccountId: "STRING_VALUE",
+ * //       providerOrgId: "STRING_VALUE",
+ * //       providerRegion: "STRING_VALUE",
+ * //       providerPartition: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

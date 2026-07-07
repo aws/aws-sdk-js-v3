@@ -104,6 +104,7 @@ import type {
   CreateCodeSecurityScanConfigurationCommandInput,
   CreateCodeSecurityScanConfigurationCommandOutput,
 } from "./commands/CreateCodeSecurityScanConfigurationCommand";
+import type { CreateConnectorCommandInput, CreateConnectorCommandOutput } from "./commands/CreateConnectorCommand";
 import type { CreateFilterCommandInput, CreateFilterCommandOutput } from "./commands/CreateFilterCommand";
 import type {
   CreateFindingsReportCommandInput,
@@ -122,6 +123,7 @@ import type {
   DeleteCodeSecurityScanConfigurationCommandInput,
   DeleteCodeSecurityScanConfigurationCommandOutput,
 } from "./commands/DeleteCodeSecurityScanConfigurationCommand";
+import type { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "./commands/DeleteConnectorCommand";
 import type { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "./commands/DeleteFilterCommand";
 import type {
   DescribeOrganizationConfigurationCommandInput,
@@ -207,6 +209,11 @@ import type {
   ListCodeSecurityScanConfigurationsCommandInput,
   ListCodeSecurityScanConfigurationsCommandOutput,
 } from "./commands/ListCodeSecurityScanConfigurationsCommand";
+import type {
+  ListConnectorScanConfigurationsCommandInput,
+  ListConnectorScanConfigurationsCommandOutput,
+} from "./commands/ListConnectorScanConfigurationsCommand";
+import type { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "./commands/ListConnectorsCommand";
 import type { ListCoverageCommandInput, ListCoverageCommandOutput } from "./commands/ListCoverageCommand";
 import type {
   ListCoverageStatisticsCommandInput,
@@ -268,6 +275,11 @@ import type {
   UpdateConfigurationCommandInput,
   UpdateConfigurationCommandOutput,
 } from "./commands/UpdateConfigurationCommand";
+import type { UpdateConnectorCommandInput, UpdateConnectorCommandOutput } from "./commands/UpdateConnectorCommand";
+import type {
+  UpdateConnectorScanConfigurationCommandInput,
+  UpdateConnectorScanConfigurationCommandOutput,
+} from "./commands/UpdateConnectorScanConfigurationCommand";
 import type {
   UpdateEc2DeepInspectionConfigurationCommandInput,
   UpdateEc2DeepInspectionConfigurationCommandOutput,
@@ -314,12 +326,14 @@ export type ServiceInputTypes =
   | CreateCisScanConfigurationCommandInput
   | CreateCodeSecurityIntegrationCommandInput
   | CreateCodeSecurityScanConfigurationCommandInput
+  | CreateConnectorCommandInput
   | CreateFilterCommandInput
   | CreateFindingsReportCommandInput
   | CreateSbomExportCommandInput
   | DeleteCisScanConfigurationCommandInput
   | DeleteCodeSecurityIntegrationCommandInput
   | DeleteCodeSecurityScanConfigurationCommandInput
+  | DeleteConnectorCommandInput
   | DeleteFilterCommandInput
   | DescribeOrganizationConfigurationCommandInput
   | DisableCommandInput
@@ -348,6 +362,8 @@ export type ServiceInputTypes =
   | ListCodeSecurityIntegrationsCommandInput
   | ListCodeSecurityScanConfigurationAssociationsCommandInput
   | ListCodeSecurityScanConfigurationsCommandInput
+  | ListConnectorScanConfigurationsCommandInput
+  | ListConnectorsCommandInput
   | ListCoverageCommandInput
   | ListCoverageStatisticsCommandInput
   | ListDelegatedAdminAccountsCommandInput
@@ -370,6 +386,8 @@ export type ServiceInputTypes =
   | UpdateCodeSecurityIntegrationCommandInput
   | UpdateCodeSecurityScanConfigurationCommandInput
   | UpdateConfigurationCommandInput
+  | UpdateConnectorCommandInput
+  | UpdateConnectorScanConfigurationCommandInput
   | UpdateEc2DeepInspectionConfigurationCommandInput
   | UpdateEncryptionKeyCommandInput
   | UpdateFilterCommandInput
@@ -394,12 +412,14 @@ export type ServiceOutputTypes =
   | CreateCisScanConfigurationCommandOutput
   | CreateCodeSecurityIntegrationCommandOutput
   | CreateCodeSecurityScanConfigurationCommandOutput
+  | CreateConnectorCommandOutput
   | CreateFilterCommandOutput
   | CreateFindingsReportCommandOutput
   | CreateSbomExportCommandOutput
   | DeleteCisScanConfigurationCommandOutput
   | DeleteCodeSecurityIntegrationCommandOutput
   | DeleteCodeSecurityScanConfigurationCommandOutput
+  | DeleteConnectorCommandOutput
   | DeleteFilterCommandOutput
   | DescribeOrganizationConfigurationCommandOutput
   | DisableCommandOutput
@@ -428,6 +448,8 @@ export type ServiceOutputTypes =
   | ListCodeSecurityIntegrationsCommandOutput
   | ListCodeSecurityScanConfigurationAssociationsCommandOutput
   | ListCodeSecurityScanConfigurationsCommandOutput
+  | ListConnectorScanConfigurationsCommandOutput
+  | ListConnectorsCommandOutput
   | ListCoverageCommandOutput
   | ListCoverageStatisticsCommandOutput
   | ListDelegatedAdminAccountsCommandOutput
@@ -450,6 +472,8 @@ export type ServiceOutputTypes =
   | UpdateCodeSecurityIntegrationCommandOutput
   | UpdateCodeSecurityScanConfigurationCommandOutput
   | UpdateConfigurationCommandOutput
+  | UpdateConnectorCommandOutput
+  | UpdateConnectorScanConfigurationCommandOutput
   | UpdateEc2DeepInspectionConfigurationCommandOutput
   | UpdateEncryptionKeyCommandOutput
   | UpdateFilterCommandOutput

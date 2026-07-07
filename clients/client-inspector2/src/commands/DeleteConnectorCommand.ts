@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { SendCisSessionHealthRequest, SendCisSessionHealthResponse } from "../models/models_1";
-import { SendCisSessionHealth$ } from "../schemas/schemas_0";
+import type { DeleteConnectorRequest, DeleteConnectorResponse } from "../models/models_0";
+import { DeleteConnector$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,42 +12,39 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link SendCisSessionHealthCommand}.
+ * The input for {@link DeleteConnectorCommand}.
  */
-export interface SendCisSessionHealthCommandInput extends SendCisSessionHealthRequest {}
+export interface DeleteConnectorCommandInput extends DeleteConnectorRequest {}
 /**
  * @public
  *
- * The output of {@link SendCisSessionHealthCommand}.
+ * The output of {@link DeleteConnectorCommand}.
  */
-export interface SendCisSessionHealthCommandOutput extends SendCisSessionHealthResponse, __MetadataBearer {}
+export interface DeleteConnectorCommandOutput extends DeleteConnectorResponse, __MetadataBearer {}
 
 /**
- * <p> Sends a CIS session health. This API is used by the Amazon Inspector SSM plugin to
- *          communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin calls
- *          this API to start a CIS scan session for the scan ID supplied by the service. </p>
+ * <p>Deletes a connector from your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Inspector2Client, SendCisSessionHealthCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
- * // const { Inspector2Client, SendCisSessionHealthCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
+ * import { Inspector2Client, DeleteConnectorCommand } from "@aws-sdk/client-inspector2"; // ES Modules import
+ * // const { Inspector2Client, DeleteConnectorCommand } = require("@aws-sdk/client-inspector2"); // CommonJS import
  * // import type { Inspector2ClientConfig } from "@aws-sdk/client-inspector2";
  * const config = {}; // type is Inspector2ClientConfig
  * const client = new Inspector2Client(config);
- * const input = { // SendCisSessionHealthRequest
- *   scanJobId: "STRING_VALUE", // required
- *   sessionToken: "STRING_VALUE", // required
+ * const input = { // DeleteConnectorRequest
+ *   connectorArn: "STRING_VALUE", // required
  * };
- * const command = new SendCisSessionHealthCommand(input);
+ * const command = new DeleteConnectorCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param SendCisSessionHealthCommandInput - {@link SendCisSessionHealthCommandInput}
- * @returns {@link SendCisSessionHealthCommandOutput}
- * @see {@link SendCisSessionHealthCommandInput} for command's `input` shape.
- * @see {@link SendCisSessionHealthCommandOutput} for command's `response` shape.
+ * @param DeleteConnectorCommandInput - {@link DeleteConnectorCommandInput}
+ * @returns {@link DeleteConnectorCommandOutput}
+ * @see {@link DeleteConnectorCommandInput} for command's `input` shape.
+ * @see {@link DeleteConnectorCommandOutput} for command's `response` shape.
  * @see {@link Inspector2ClientResolvedConfig | config} for Inspector2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -62,6 +59,10 @@ export interface SendCisSessionHealthCommandOutput extends SendCisSessionHealthR
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The operation tried to access an invalid resource. Make sure the resource is specified
+ *          correctly.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
@@ -73,14 +74,13 @@ export interface SendCisSessionHealthCommandOutput extends SendCisSessionHealthR
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  *
- * @example Sample SendCisSessionHealth Call
+ * @example Delete a customer-managed connector
  * ```javascript
  * //
  * const input = {
- *   scanJobId: "624b746d-e080-44ae-8c1d-48e653365a38",
- *   sessionToken: "624b746d-e080-44ae-8c1d-48e653365a31"
+ *   connectorArn: "arn:aws:inspector2:us-east-1:123456789012:connector/6ccf8549-b52b-57ca-bf52-a2266da3c53a"
  * };
- * const command = new SendCisSessionHealthCommand(input);
+ * const command = new DeleteConnectorCommand(input);
  * const response = await client.send(command);
  * /* response is
  * { /* empty *\/ }
@@ -89,21 +89,21 @@ export interface SendCisSessionHealthCommandOutput extends SendCisSessionHealthR
  *
  * @public
  */
-export class SendCisSessionHealthCommand extends command<SendCisSessionHealthCommandInput, SendCisSessionHealthCommandOutput>(
+export class DeleteConnectorCommand extends command<DeleteConnectorCommandInput, DeleteConnectorCommandOutput>(
   _ep0,
   _mw0,
-  "SendCisSessionHealth",
-  SendCisSessionHealth$
+  "DeleteConnector",
+  DeleteConnector$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: SendCisSessionHealthRequest;
+      input: DeleteConnectorRequest;
       output: {};
     };
     sdk: {
-      input: SendCisSessionHealthCommandInput;
-      output: SendCisSessionHealthCommandOutput;
+      input: DeleteConnectorCommandInput;
+      output: DeleteConnectorCommandOutput;
     };
   };
 }
