@@ -2208,6 +2208,39 @@ it("RestJsonFooErrorUsingXAmznErrorTypeWithUriAndNamespace:Error:GreetingWithErr
 });
 
 /**
+ * Because namespace and URL are ignored, an unrecognized namespace should not make a difference.
+ */
+it("RestJsonFooErrorUsingXAmznErrorTypeWithUriAndDifferentNamespace:Error:GreetingWithErrors", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      500,
+      {
+        "x-amzn-errortype": "aws.different.namespace#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/",
+      }
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "FooError") {
+      console.log(err);
+      fail(`Expected a FooError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r.$metadata.httpStatusCode).toBe(500);
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
  * This example uses the 'code' property in the output rather than X-Amzn-Errortype. Some services do this though it's preferable to send the X-Amzn-Errortype. Client implementations must first check for the X-Amzn-Errortype and then check for a top-level 'code' property.
  *
  * For example service see Amazon S3 Glacier.

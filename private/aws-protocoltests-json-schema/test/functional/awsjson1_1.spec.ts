@@ -1049,6 +1049,42 @@ it("AwsJson11FooErrorWithDunderTypeAndNamespace:Error:GreetingWithErrors", async
 });
 
 /**
+ * Because only the part after '#' is considered, an unrecognized namespace should not make a difference.
+ */
+it("AwsJson11FooErrorWithDunderTypeAndDifferentNamespace:Error:GreetingWithErrors", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      false,
+      500,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "__type": "aws.different.namespace#FooError"
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new GreetingWithErrorsCommand(params);
+
+  try {
+    await client.send(command);
+  } catch (err) {
+    if (err.name !== "FooError") {
+      console.log(err);
+      fail(`Expected a FooError to be thrown, got ${err.name} instead`);
+      return;
+    }
+    const r: any = err;
+    expect(r.$metadata.httpStatusCode).toBe(500);
+    return;
+  }
+  fail("Expected an exception to be thrown from response");
+});
+
+/**
  * Some services serialize errors using __type, and it might contain a namespace. It also might contain a URI. Clients should just take the last part of the string after '#' and before ":". This is a pathalogical case that might not occur in any deployed AWS service.
  */
 it("AwsJson11FooErrorWithDunderTypeUriAndNamespace:Error:GreetingWithErrors", async () => {
