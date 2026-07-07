@@ -36,6 +36,13 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *          <p>Usage records should be submitted in quick succession following a
  *       recorded event. Usage records aren't accepted 24 hours or more after an
  *       event.</p>
+ *          <note>
+ *             <p>At the end of each billing cycle, a 6-hour grace period applies. We accept
+ *       usage records for the previous billing month until 06:00 UTC on the first day of the
+ *       next month. For example, you must submit March usage records before 06:00 UTC on
+ *       April 1. After this grace period, we return a
+ *       <code>TimestampOutOfBoundsException</code> error.</p>
+ *          </note>
  *          <p>
  *             <code>BatchMeterUsage</code> can process up to 25
  *         <code>UsageRecords</code> at a time, and each request must be less than
