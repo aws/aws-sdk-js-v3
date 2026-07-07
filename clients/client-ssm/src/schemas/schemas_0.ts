@@ -7,10 +7,12 @@ const _ACL = "AttachmentContentList";
 const _ACc = "ActivationCode";
 const _ACt = "AttachmentContent";
 const _ACtt = "AttachmentsContent";
+const _ACz = "AzureConfiguration";
 const _AD = "AssociationDescription";
 const _ADAR = "AssociationDispatchAssumeRole";
 const _ADE = "AccessDeniedException";
 const _ADL = "AssociationDescriptionList";
+const _ADN = "ApplicationDisplayName";
 const _ADNAE = "AutomationDefinitionNotApprovedException";
 const _ADNE = "AssociationDoesNotExist";
 const _ADNFE = "AutomationDefinitionNotFoundException";
@@ -52,6 +54,7 @@ const _AIcc = "AccountIds";
 const _AIct = "ActivationId";
 const _AId = "AdditionalInfo";
 const _AIdv = "AdvisoryIds";
+const _AIp = "ApplicationId";
 const _AIs = "AssociationId";
 const _AIss = "AssociationIds";
 const _AIt = "AttachmentInformation";
@@ -86,12 +89,14 @@ const _ASIL = "AccountSharingInfoList";
 const _ASILl = "AlarmStateInformationList";
 const _ASIl = "AlarmStateInformation";
 const _ASL = "AttachmentsSourceList";
+const _ASLz = "AzureSubscriptionList";
 const _ASNFE = "AutomationStepNotFoundException";
 const _AST = "ActualStartTime";
 const _ASUC = "AvailableSecurityUpdateCount";
 const _ASUCS = "AvailableSecurityUpdatesComplianceStatus";
 const _ASt = "AttachmentsSource";
 const _ASu = "AutomationSubtype";
+const _ASz = "AzureSubscription";
 const _AT = "AssociationType";
 const _ATPN = "AutomationTargetParameterName";
 const _ATTR = "AddTagsToResource";
@@ -112,6 +117,8 @@ const _AVg = "AgentVersion";
 const _AVp = "ApprovedVersion";
 const _AVs = "AssociationVersions";
 const _AWSKMSKARN = "AWSKMSKeyARN";
+const _AZ = "AvailabilityZone";
+const _AZI = "AvailabilityZoneId";
 const _Ac = "Action";
 const _Acc = "Accounts";
 const _Ag = "Aggregators";
@@ -147,15 +154,28 @@ const _CAR = "CreateActivationRequest";
 const _CARr = "CreateActivationResult";
 const _CARre = "CreateAssociationRequest";
 const _CARrea = "CreateAssociationResult";
-const _CAr = "CreateActivation";
-const _CAre = "CreateAssociation";
+const _CAr = "CreatedAt";
+const _CAre = "CreateActivation";
+const _CArea = "CreateAssociation";
 const _CB = "CutoffBehavior";
 const _CBr = "CreatedBy";
 const _CC = "CompletedCount";
+const _CCA = "ConfigConnectorArn";
+const _CCAl = "CloudConnectorArn";
+const _CCC = "CloudConnectorConfiguration";
+const _CCCR = "CreateCloudConnectorRequest";
+const _CCCRr = "CreateCloudConnectorResult";
+const _CCCr = "CreateCloudConnector";
+const _CCF = "CloudConnectorFilter";
+const _CCFL = "CloudConnectorFilterList";
+const _CCI = "CloudConnectorId";
 const _CCR = "CancelCommandRequest";
 const _CCRa = "CancelCommandResult";
+const _CCS = "CloudConnectorSummary";
+const _CCSL = "CloudConnectorSummaryList";
 const _CCa = "CancelCommand";
-const _CCl = "ClientContext";
+const _CCl = "CloudConnectors";
+const _CCli = "ClientContext";
 const _CCo = "CompliantCount";
 const _CCr = "CriticalCount";
 const _CD = "CreatedDate";
@@ -164,8 +184,9 @@ const _CDRr = "CreateDocumentResult";
 const _CDh = "ChangeDetails";
 const _CDr = "CreationDate";
 const _CDre = "CreateDocument";
-const _CE = "CategoryEnum";
+const _CE = "ConflictException";
 const _CES = "ComplianceExecutionSummary";
+const _CEa = "CategoryEnum";
 const _CF = "CommandFilter";
 const _CFL = "CommandFilterList";
 const _CFo = "ComplianceFilter";
@@ -222,6 +243,7 @@ const _CTCLEE = "ComplianceTypeCountLimitExceededException";
 const _CTa = "CaptureTime";
 const _CTl = "ClientToken";
 const _CTo = "ComplianceType";
+const _CTon = "ConfigurationTargets";
 const _CTr = "CreateTime";
 const _CU = "ContentUrl";
 const _CVEI = "CVEIds";
@@ -232,10 +254,11 @@ const _CWOU = "CloudWatchOutputUrl";
 const _Ca = "Category";
 const _Cl = "Classification";
 const _Co = "Comment";
+const _Cod = "Code";
 const _Com = "Commands";
-const _Con = "Content";
-const _Conf = "Configuration";
-const _Cont = "Context";
+const _Con = "Configuration";
+const _Cont = "Content";
+const _Conte = "Context";
 const _Cou = "Count";
 const _Cr = "Credentials";
 const _Cu = "Cutoff";
@@ -271,6 +294,9 @@ const _DAe = "DeleteAssociation";
 const _DAes = "DescribeActivations";
 const _DAesc = "DescribeAssociation";
 const _DB = "DefaultBaseline";
+const _DCC = "DeleteCloudConnector";
+const _DCCR = "DeleteCloudConnectorRequest";
+const _DCCRe = "DeleteCloudConnectorResult";
 const _DD = "DocumentDescription";
 const _DDC = "DuplicateDocumentContent";
 const _DDP = "DescribeDocumentPermission";
@@ -515,6 +541,9 @@ const _GAERe = "GetAutomationExecutionResult";
 const _GAT = "GetAccessToken";
 const _GATR = "GetAccessTokenRequest";
 const _GATRe = "GetAccessTokenResponse";
+const _GCC = "GetCloudConnector";
+const _GCCR = "GetCloudConnectorRequest";
+const _GCCRe = "GetCloudConnectorResult";
 const _GCI = "GetCommandInvocation";
 const _GCIR = "GetCommandInvocationRequest";
 const _GCIRe = "GetCommandInvocationResult";
@@ -772,6 +801,9 @@ const _LAV = "ListAssociationVersions";
 const _LAVR = "ListAssociationVersionsRequest";
 const _LAVRi = "ListAssociationVersionsResult";
 const _LC = "LowCount";
+const _LCC = "ListCloudConnectors";
+const _LCCR = "ListCloudConnectorsRequest";
+const _LCCRi = "ListCloudConnectorsResult";
 const _LCI = "ListCommandInvocations";
 const _LCIR = "ListCommandInvocationsRequest";
 const _LCIRi = "ListCommandInvocationsResult";
@@ -1047,6 +1079,7 @@ const _PLa = "PatchList";
 const _PM = "ParameterMetadata";
 const _PML = "ParameterMetadataList";
 const _PMVLE = "ParameterMaxVersionLimitExceeded";
+const _PMr = "ProviderMessage";
 const _PN = "ParameterNames";
 const _PNF = "ParameterNotFound";
 const _PNl = "PluginName";
@@ -1106,10 +1139,11 @@ const _Prop = "Properties";
 const _Q = "Qualifier";
 const _QC = "QuotaCode";
 const _R = "Runbooks";
-const _RA = "ResourceArn";
+const _RA = "RoleArn";
 const _RAL = "ResultAttributeList";
-const _RAe = "ResultAttributes";
-const _RAes = "ResultAttribute";
+const _RAe = "ResourceArn";
+const _RAes = "ResultAttributes";
+const _RAesu = "ResultAttribute";
 const _RC = "ReasonCode";
 const _RCBS = "ResourceCountByStatus";
 const _RCSI = "ResourceComplianceSummaryItems";
@@ -1262,6 +1296,7 @@ const _SKP = "S3KeyPrefix";
 const _SL = "S3Location";
 const _SLMT = "SyncLastModifiedTime";
 const _SLe = "SessionList";
+const _SLo = "SourceLocation";
 const _SM = "StatusMessage";
 const _SMOU = "SessionManagerOutputUrl";
 const _SMP = "SessionManagerParameters";
@@ -1309,6 +1344,7 @@ const _SWEc = "ScheduledWindowExecution";
 const _Sa = "Safe";
 const _Sc = "Schedule";
 const _Sch = "Schemas";
+const _Sco = "Scope";
 const _Se = "Severity";
 const _Sel = "Selector";
 const _Ses = "Sessions";
@@ -1320,6 +1356,7 @@ const _So = "Sources";
 const _Sou = "Source";
 const _St = "Status";
 const _Su = "Successful";
+const _Sub = "Subscriptions";
 const _Sum = "Summary";
 const _Summ = "Summaries";
 const _T = "Tags";
@@ -1328,12 +1365,14 @@ const _TAa = "TaskArn";
 const _TAo = "TotalAccounts";
 const _TC = "TargetCount";
 const _TCo = "TotalCount";
+const _TDN = "TenantDisplayName";
 const _TE = "ThrottlingException";
 const _TEI = "TaskExecutionId";
-const _TI = "TaskId";
+const _TI = "TenantId";
 const _TIP = "TaskInvocationParameters";
 const _TIUE = "TargetInUseException";
-const _TIa = "TaskIds";
+const _TIa = "TaskId";
+const _TIas = "TaskIds";
 const _TK = "TagKeys";
 const _TL = "TargetLocations";
 const _TLAC = "TargetLocationAlarmConfiguration";
@@ -1375,13 +1414,17 @@ const _Tie = "Tier";
 const _Tr = "Truncated";
 const _Ty = "Type";
 const _U = "Url";
-const _UA = "UpdateAssociation";
+const _UA = "UpdatedAt";
 const _UAR = "UpdateAssociationRequest";
 const _UARp = "UpdateAssociationResult";
 const _UAS = "UpdateAssociationStatus";
 const _UASR = "UpdateAssociationStatusRequest";
 const _UASRp = "UpdateAssociationStatusResult";
+const _UAp = "UpdateAssociation";
 const _UC = "UnspecifiedCount";
+const _UCC = "UpdateCloudConnector";
+const _UCCR = "UpdateCloudConnectorRequest";
+const _UCCRp = "UpdateCloudConnectorResult";
 const _UCE = "UnsupportedCalendarException";
 const _UD = "UpdateDocument";
 const _UDDV = "UpdateDocumentDefaultVersion";
@@ -1434,7 +1477,14 @@ const _USSRp = "UpdateServiceSettingResult";
 const _UT = "UpdatedTime";
 const _UTp = "UploadType";
 const _V = "Value";
+const _VCC = "ValidateCloudConnector";
+const _VCCR = "ValidateCloudConnectorRequest";
+const _VCCRa = "ValidateCloudConnectorResult";
 const _VE = "ValidationException";
+const _VF = "ValidationFindings";
+const _VFL = "ValidationFindingList";
+const _VFS = "ValidationFindingScope";
+const _VFa = "ValidationFinding";
 const _VN = "VersionName";
 const _VNS = "ValidNextSteps";
 const _Va = "Values";
@@ -1491,6 +1541,7 @@ import {
   AutomationExecutionNotFoundException,
   AutomationStepNotFoundException,
   ComplianceTypeCountLimitExceededException,
+  ConflictException,
   CustomSchemaCountLimitExceededException,
   DocumentAlreadyExists,
   DocumentLimitExceeded,
@@ -1713,6 +1764,12 @@ export var ComplianceTypeCountLimitExceededException$: StaticErrorSchema = [-3, 
   [0]
 ];
 n0_registry.registerError(ComplianceTypeCountLimitExceededException$, ComplianceTypeCountLimitExceededException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_aQE]: [`ConflictException`, 409], [_e]: _c },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ConflictException$, ConflictException);
 export var CustomSchemaCountLimitExceededException$: StaticErrorSchema = [-3, n0, _CSCLEE,
   { [_aQE]: [`CustomSchemaCountLimitExceeded`, 400], [_e]: _c },
   [_M],
@@ -2612,6 +2669,16 @@ export var AutomationExecutionPreview$: StaticStructureSchema = [3, n0, _AEP,
   [_SP, _Re, _TP, _TAo],
   [128 | 1, 64 | 0, () => TargetPreviewList, 1]
 ];
+export var AzureConfiguration$: StaticStructureSchema = [3, n0, _ACz,
+  0,
+  [_TI, _AIp, _TDN, _ADN, _Ta],
+  [0, 0, 0, 0, () => ConfigurationTargets$], 2
+];
+export var AzureSubscription$: StaticStructureSchema = [3, n0, _ASz,
+  0,
+  [_I, _DNi],
+  [0, 0], 1
+];
 export var BaselineOverride$: StaticStructureSchema = [3, n0, _BO,
   0,
   [_OSp, _GF, _AR, _AP, _APCL, _RP, _RPA, _APENS, _So, _ASUCS],
@@ -2636,6 +2703,16 @@ export var CancelMaintenanceWindowExecutionResult$: StaticStructureSchema = [3, 
   0,
   [_WEI],
   [0]
+];
+export var CloudConnectorFilter$: StaticStructureSchema = [3, n0, _CCF,
+  0,
+  [_FK, _FV],
+  [0, 64 | 0]
+];
+export var CloudConnectorSummary$: StaticStructureSchema = [3, n0, _CCS,
+  0,
+  [_CCI, _DNi, _D, _RA, _CAr, _UA],
+  [0, 0, 0, 0, 4, 4]
 ];
 export var CloudWatchOutputConfig$: StaticStructureSchema = [3, n0, _CWOC,
   0,
@@ -2727,9 +2804,19 @@ export var CreateAssociationResult$: StaticStructureSchema = [3, n0, _CARrea,
   [_AD],
   [[() => AssociationDescription$, 0]]
 ];
+export var CreateCloudConnectorRequest$: StaticStructureSchema = [3, n0, _CCCR,
+  0,
+  [_DNi, _RA, _Con, _CCA, _D, _T],
+  [0, 0, () => CloudConnectorConfiguration$, 0, 0, () => TagList], 4
+];
+export var CreateCloudConnectorResult$: StaticStructureSchema = [3, n0, _CCCRr,
+  0,
+  [_CCI],
+  [0]
+];
 export var CreateDocumentRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
-  [_Con, _N, _Req, _At, _DNi, _VN, _DT, _DF, _TT, _T],
+  [_Cont, _N, _Req, _At, _DNi, _VN, _DT, _DF, _TT, _T],
   [0, 0, () => DocumentRequiresList, () => AttachmentsSourceList, 0, 0, 0, 0, 0, () => TagList], 2
 ];
 export var CreateDocumentResult$: StaticStructureSchema = [3, n0, _CDRr,
@@ -2811,6 +2898,16 @@ export var DeleteAssociationResult$: StaticStructureSchema = [3, n0, _DARele,
   0,
   [],
   []
+];
+export var DeleteCloudConnectorRequest$: StaticStructureSchema = [3, n0, _DCCR,
+  0,
+  [_CCI],
+  [0], 1
+];
+export var DeleteCloudConnectorResult$: StaticStructureSchema = [3, n0, _DCCRe,
+  0,
+  [_CCI],
+  [0]
 ];
 export var DeleteDocumentRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
@@ -2904,7 +3001,7 @@ export var DeleteResourceDataSyncResult$: StaticStructureSchema = [3, n0, _DRDSR
 ];
 export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
   0,
-  [_RA, _PI, _PH],
+  [_RAe, _PI, _PH],
   [0, 0, 0], 3
 ];
 export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe,
@@ -3149,7 +3246,7 @@ export var DescribeMaintenanceWindowExecutionsResult$: StaticStructureSchema = [
 ];
 export var DescribeMaintenanceWindowExecutionTaskInvocationsRequest$: StaticStructureSchema = [3, n0, _DMWETIR,
   0,
-  [_WEI, _TI, _Fi, _MR, _NT],
+  [_WEI, _TIa, _Fi, _MR, _NT],
   [0, 0, () => MaintenanceWindowFilterList, 1, 0], 2
 ];
 export var DescribeMaintenanceWindowExecutionTaskInvocationsResult$: StaticStructureSchema = [3, n0, _DMWETIRe,
@@ -3304,7 +3401,7 @@ export var DocumentDefaultVersionDescription$: StaticStructureSchema = [3, n0, _
 ];
 export var DocumentDescription$: StaticStructureSchema = [3, n0, _DD,
   0,
-  [_Sha, _H, _HT, _N, _DNi, _VN, _Ow, _CD, _St, _SI, _DV, _D, _P, _PTl, _DT, _SV, _LV, _DVe, _DF, _TT, _T, _AItt, _Req, _Au, _RIe, _AVp, _PRV, _RS, _Ca, _CE],
+  [_Sha, _H, _HT, _N, _DNi, _VN, _Ow, _CD, _St, _SI, _DV, _D, _P, _PTl, _DT, _SV, _LV, _DVe, _DF, _TT, _T, _AItt, _Req, _Au, _RIe, _AVp, _PRV, _RS, _Ca, _CEa],
   [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, [() => DocumentParameterList, 0], [() => PlatformTypeList, 0], 0, 0, 0, 0, 0, 0, () => TagList, [() => AttachmentInformationList, 0], () => DocumentRequiresList, 0, [() => ReviewInformationList, 0], 0, 0, 0, 64 | 0, 64 | 0]
 ];
 export var DocumentFilter$: StaticStructureSchema = [3, n0, _DFo,
@@ -3339,7 +3436,7 @@ export var DocumentRequires$: StaticStructureSchema = [3, n0, _DRo,
 ];
 export var DocumentReviewCommentSource$: StaticStructureSchema = [3, n0, _DRCS,
   0,
-  [_Ty, _Con],
+  [_Ty, _Cont],
   [0, 0]
 ];
 export var DocumentReviewerResponseSource$: StaticStructureSchema = [3, n0, _DRRS,
@@ -3402,6 +3499,16 @@ export var GetCalendarStateResponse$: StaticStructureSchema = [3, n0, _GCSRe,
   [_S, _ATt, _NTT],
   [0, 0, 0]
 ];
+export var GetCloudConnectorRequest$: StaticStructureSchema = [3, n0, _GCCR,
+  0,
+  [_CCI],
+  [0], 1
+];
+export var GetCloudConnectorResult$: StaticStructureSchema = [3, n0, _GCCRe,
+  0,
+  [_CCAl, _DNi, _D, _RA, _Con, _CCA, _CAr, _UA],
+  [0, 0, 0, 0, () => CloudConnectorConfiguration$, 0, 4, 4]
+];
 export var GetCommandInvocationRequest$: StaticStructureSchema = [3, n0, _GCIR,
   0,
   [_CI, _II, _PNl],
@@ -3449,7 +3556,7 @@ export var GetDocumentRequest$: StaticStructureSchema = [3, n0, _GDR,
 ];
 export var GetDocumentResult$: StaticStructureSchema = [3, n0, _GDRe,
   0,
-  [_N, _CD, _DNi, _VN, _DV, _St, _SI, _Con, _DT, _DF, _Req, _ACtt, _RS],
+  [_N, _CD, _DNi, _VN, _DV, _St, _SI, _Cont, _DT, _DF, _Req, _ACtt, _RS],
   [0, 4, 0, 0, 0, 0, 0, 0, 0, 0, () => DocumentRequiresList, [() => AttachmentContentList, 0], 0]
 ];
 export var GetExecutionPreviewRequest$: StaticStructureSchema = [3, n0, _GEPR,
@@ -3464,7 +3571,7 @@ export var GetExecutionPreviewResponse$: StaticStructureSchema = [3, n0, _GEPRe,
 ];
 export var GetInventoryRequest$: StaticStructureSchema = [3, n0, _GIR,
   0,
-  [_Fi, _Ag, _RAe, _NT, _MR],
+  [_Fi, _Ag, _RAes, _NT, _MR],
   [[() => InventoryFilterList, 0], [() => InventoryAggregatorList, 0], [() => ResultAttributeList, 0], 0, 1]
 ];
 export var GetInventoryResult$: StaticStructureSchema = [3, n0, _GIRe,
@@ -3489,12 +3596,12 @@ export var GetMaintenanceWindowExecutionRequest$: StaticStructureSchema = [3, n0
 ];
 export var GetMaintenanceWindowExecutionResult$: StaticStructureSchema = [3, n0, _GMWERe,
   0,
-  [_WEI, _TIa, _St, _SD, _STt, _ETn],
+  [_WEI, _TIas, _St, _SD, _STt, _ETn],
   [0, 64 | 0, 0, 0, 4, 4]
 ];
 export var GetMaintenanceWindowExecutionTaskInvocationRequest$: StaticStructureSchema = [3, n0, _GMWETIR,
   0,
-  [_WEI, _TI, _IInv],
+  [_WEI, _TIa, _IInv],
   [0, 0, 0], 3
 ];
 export var GetMaintenanceWindowExecutionTaskInvocationResult$: StaticStructureSchema = [3, n0, _GMWETIRe,
@@ -3504,7 +3611,7 @@ export var GetMaintenanceWindowExecutionTaskInvocationResult$: StaticStructureSc
 ];
 export var GetMaintenanceWindowExecutionTaskRequest$: StaticStructureSchema = [3, n0, _GMWETR,
   0,
-  [_WEI, _TI],
+  [_WEI, _TIa],
   [0, 0], 2
 ];
 export var GetMaintenanceWindowExecutionTaskResult$: StaticStructureSchema = [3, n0, _GMWETRe,
@@ -3554,7 +3661,7 @@ export var GetOpsMetadataResult$: StaticStructureSchema = [3, n0, _GOMRe,
 ];
 export var GetOpsSummaryRequest$: StaticStructureSchema = [3, n0, _GOSR,
   0,
-  [_SN, _Fi, _Ag, _RAe, _NT, _MR],
+  [_SN, _Fi, _Ag, _RAes, _NT, _MR],
   [0, [() => OpsFilterList, 0], [() => OpsAggregatorList, 0], [() => OpsResultAttributeList, 0], 0, 1]
 ];
 export var GetOpsSummaryResult$: StaticStructureSchema = [3, n0, _GOSRe,
@@ -3624,7 +3731,7 @@ export var GetPatchBaselineResult$: StaticStructureSchema = [3, n0, _GPBRe,
 ];
 export var GetResourcePoliciesRequest$: StaticStructureSchema = [3, n0, _GRPR,
   0,
-  [_RA, _NT, _MR],
+  [_RAe, _NT, _MR],
   [0, 0, 1], 1
 ];
 export var GetResourcePoliciesResponse$: StaticStructureSchema = [3, n0, _GRPRe,
@@ -3654,7 +3761,7 @@ export var InstanceAggregatedAssociationOverview$: StaticStructureSchema = [3, n
 ];
 export var InstanceAssociation$: StaticStructureSchema = [3, n0, _IAns,
   0,
-  [_AIs, _II, _Con, _AV],
+  [_AIs, _II, _Cont, _AV],
   [0, 0, 0, 0]
 ];
 export var InstanceAssociationOutputLocation$: StaticStructureSchema = [3, n0, _IAOL,
@@ -3674,13 +3781,13 @@ export var InstanceAssociationStatusInfo$: StaticStructureSchema = [3, n0, _IASI
 ];
 export var InstanceInfo$: StaticStructureSchema = [3, n0, _IIns,
   0,
-  [_ATg, _AVg, _CNo, _ISn, _IAp, _MS, _PTla, _PNla, _PV, _RTe],
-  [0, 0, 0, 0, [() => IPAddress, 0], 0, 0, 0, 0, 0]
+  [_ATg, _AVg, _CNo, _ISn, _IAp, _MS, _N, _PTla, _PNla, _PV, _RTe, _STo, _SIo, _SLo, _AZ, _AZI],
+  [0, 0, 0, 0, [() => IPAddress, 0], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var InstanceInformation$: StaticStructureSchema = [3, n0, _IInst,
   0,
-  [_II, _PSi, _LPDT, _AVg, _ILV, _PTla, _PNla, _PV, _AIct, _IRa, _RD, _RTe, _N, _IPA, _CNo, _AS, _LAED, _LSAED, _AO, _SIo, _STo],
-  [0, 0, 4, 0, 2, 0, 0, 0, 0, 0, 4, 0, 0, [() => IPAddress, 0], 0, 0, 4, 4, () => InstanceAggregatedAssociationOverview$, 0, 0]
+  [_II, _PSi, _LPDT, _AVg, _ILV, _PTla, _PNla, _PV, _AIct, _IRa, _RD, _RTe, _N, _IPA, _CNo, _AS, _LAED, _LSAED, _AO, _SIo, _STo, _SLo],
+  [0, 0, 4, 0, 2, 0, 0, 0, 0, 0, 4, 0, 0, [() => IPAddress, 0], 0, 0, 4, 4, () => InstanceAggregatedAssociationOverview$, 0, 0, 0]
 ];
 export var InstanceInformationFilter$: StaticStructureSchema = [3, n0, _IIF,
   0,
@@ -3704,8 +3811,8 @@ export var InstancePatchStateFilter$: StaticStructureSchema = [3, n0, _IPSF,
 ];
 export var InstanceProperty$: StaticStructureSchema = [3, n0, _IPns,
   0,
-  [_N, _II, _ITns, _IRn, _KN, _ISns, _Ar, _IPA, _LTa, _PSi, _LPDT, _AVg, _PTla, _PNla, _PV, _AIct, _IRa, _RD, _RTe, _CNo, _AS, _LAED, _LSAED, _AO, _SIo, _STo],
-  [0, 0, 0, 0, 0, 0, 0, [() => IPAddress, 0], 4, 0, 4, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 4, 4, () => InstanceAggregatedAssociationOverview$, 0, 0]
+  [_N, _II, _ITns, _IRn, _KN, _ISns, _Ar, _IPA, _LTa, _PSi, _LPDT, _AVg, _PTla, _PNla, _PV, _AIct, _IRa, _RD, _RTe, _CNo, _AS, _LAED, _LSAED, _AO, _SIo, _STo, _SLo, _AZ],
+  [0, 0, 0, 0, 0, 0, 0, [() => IPAddress, 0], 4, 0, 4, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 4, 4, () => InstanceAggregatedAssociationOverview$, 0, 0, 0, 0]
 ];
 export var InstancePropertyFilter$: StaticStructureSchema = [3, n0, _IPF,
   0,
@@ -3749,7 +3856,7 @@ export var InventoryGroup$: StaticStructureSchema = [3, n0, _IG,
 ];
 export var InventoryItem$: StaticStructureSchema = [3, n0, _IInve,
   0,
-  [_TN, _SV, _CTa, _CH, _Con, _Cont],
+  [_TN, _SV, _CTa, _CH, _Cont, _Conte],
   [0, 0, 0, 0, [1, n0, _IIEL, 0, 128 | 0], 128 | 0], 3
 ];
 export var InventoryItemAttribute$: StaticStructureSchema = [3, n0, _IIA,
@@ -3769,7 +3876,7 @@ export var InventoryResultEntity$: StaticStructureSchema = [3, n0, _IRE,
 ];
 export var InventoryResultItem$: StaticStructureSchema = [3, n0, _IRIn,
   0,
-  [_TN, _SV, _Con, _CTa, _CH],
+  [_TN, _SV, _Cont, _CTa, _CH],
   [0, 0, [1, n0, _IIEL, 0, 128 | 0], 0, 0], 3
 ];
 export var LabelParameterVersionRequest$: StaticStructureSchema = [3, n0, _LPVR,
@@ -3801,6 +3908,16 @@ export var ListAssociationVersionsResult$: StaticStructureSchema = [3, n0, _LAVR
   0,
   [_AVs, _NT],
   [[() => AssociationVersionList, 0], 0]
+];
+export var ListCloudConnectorsRequest$: StaticStructureSchema = [3, n0, _LCCR,
+  0,
+  [_MR, _NT, _Fi],
+  [1, 0, () => CloudConnectorFilterList]
+];
+export var ListCloudConnectorsResult$: StaticStructureSchema = [3, n0, _LCCRi,
+  0,
+  [_CCl, _NT],
+  [() => CloudConnectorSummaryList, 0]
 ];
 export var ListCommandInvocationsRequest$: StaticStructureSchema = [3, n0, _LCIR,
   0,
@@ -4004,7 +4121,7 @@ export var MaintenanceWindowIdentityForTarget$: StaticStructureSchema = [3, n0, 
 ];
 export var MaintenanceWindowLambdaParameters$: StaticStructureSchema = [3, n0, _MWLPa,
   0,
-  [_CCl, _Q, _Pay],
+  [_CCli, _Q, _Pay],
   [0, 0, [() => MaintenanceWindowLambdaPayload, 0]]
 ];
 export var MaintenanceWindowRunCommandParameters$: StaticStructureSchema = [3, n0, _MWRCP,
@@ -4094,7 +4211,7 @@ export var OpsEntity$: StaticStructureSchema = [3, n0, _OE,
 ];
 export var OpsEntityItem$: StaticStructureSchema = [3, n0, _OEI,
   0,
-  [_CTa, _Con],
+  [_CTa, _Cont],
   [0, [1, n0, _OEIEL, 0, 128 | 0]]
 ];
 export var OpsFilter$: StaticStructureSchema = [3, n0, _OF,
@@ -4254,7 +4371,7 @@ export var PatchRuleGroup$: StaticStructureSchema = [3, n0, _PRG,
 ];
 export var PatchSource$: StaticStructureSchema = [3, n0, _PSat,
   0,
-  [_N, _Produ, _Conf],
+  [_N, _Produ, _Con],
   [0, 64 | 0, [() => PatchSourceConfiguration, 0]], 3
 ];
 export var PatchStatus$: StaticStructureSchema = [3, n0, _PSa,
@@ -4299,7 +4416,7 @@ export var PutParameterResult$: StaticStructureSchema = [3, n0, _PPRu,
 ];
 export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
   0,
-  [_RA, _Pol, _PI, _PH],
+  [_RAe, _Pol, _PI, _PH],
   [0, 0, 0, 0], 2
 ];
 export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
@@ -4422,7 +4539,7 @@ export var ResourceDataSyncSourceWithState$: StaticStructureSchema = [3, n0, _RD
   [_STo, _AOS, _SRou, _IFR, _S, _EAODS],
   [0, () => ResourceDataSyncAwsOrganizationsSource$, 64 | 0, 2, 0, 2]
 ];
-export var ResultAttribute$: StaticStructureSchema = [3, n0, _RAes,
+export var ResultAttribute$: StaticStructureSchema = [3, n0, _RAesu,
   0,
   [_TN],
   [0], 1
@@ -4647,6 +4764,16 @@ export var UpdateAssociationStatusResult$: StaticStructureSchema = [3, n0, _UASR
   [_AD],
   [[() => AssociationDescription$, 0]]
 ];
+export var UpdateCloudConnectorRequest$: StaticStructureSchema = [3, n0, _UCCR,
+  0,
+  [_CCI, _DNi, _Con, _D],
+  [0, 0, () => CloudConnectorConfiguration$, 0], 1
+];
+export var UpdateCloudConnectorResult$: StaticStructureSchema = [3, n0, _UCCRp,
+  0,
+  [_CCI],
+  [0]
+];
 export var UpdateDocumentDefaultVersionRequest$: StaticStructureSchema = [3, n0, _UDDVR,
   0,
   [_N, _DV],
@@ -4669,7 +4796,7 @@ export var UpdateDocumentMetadataResponse$: StaticStructureSchema = [3, n0, _UDM
 ];
 export var UpdateDocumentRequest$: StaticStructureSchema = [3, n0, _UDR,
   0,
-  [_Con, _N, _At, _DNi, _VN, _DV, _DF, _TT],
+  [_Cont, _N, _At, _DNi, _VN, _DV, _DF, _TT],
   [0, 0, () => AttachmentsSourceList, 0, 0, 0, 0, 0], 2
 ];
 export var UpdateDocumentResult$: StaticStructureSchema = [3, n0, _UDRp,
@@ -4767,6 +4894,26 @@ export var UpdateServiceSettingResult$: StaticStructureSchema = [3, n0, _USSRp,
   [],
   []
 ];
+export var ValidateCloudConnectorRequest$: StaticStructureSchema = [3, n0, _VCCR,
+  0,
+  [_CCI, _MR, _NT],
+  [0, 1, 0], 1
+];
+export var ValidateCloudConnectorResult$: StaticStructureSchema = [3, n0, _VCCRa,
+  0,
+  [_VF, _NT],
+  [() => ValidationFindingList, 0]
+];
+export var ValidationFinding$: StaticStructureSchema = [3, n0, _VFa,
+  0,
+  [_Ty, _Cod, _M, _PMr, _Sco],
+  [0, 0, 0, 0, () => ValidationFindingScope$]
+];
+export var ValidationFindingScope$: StaticStructureSchema = [3, n0, _VFS,
+  0,
+  [_Ty, _I],
+  [0, 0]
+];
 var AccountIdList: StaticListSchema = [1, n0, _AIL,
   0, [0,
     { [_xN]: _AIc }]
@@ -4838,9 +4985,19 @@ var AutomationExecutionMetadataList: StaticListSchema = [1, n0, _AEML,
   0, () => AutomationExecutionMetadata$
 ];
 var AutomationParameterValueList = 64 | 0;
+var AzureSubscriptionList: StaticListSchema = [1, n0, _ASLz,
+  0, () => AzureSubscription$
+];
 var CalendarNameOrARNList = 64 | 0;
 var CategoryEnumList = 64 | 0;
 var CategoryList = 64 | 0;
+var CloudConnectorFilterList: StaticListSchema = [1, n0, _CCFL,
+  0, () => CloudConnectorFilter$
+];
+var CloudConnectorFilterValues = 64 | 0;
+var CloudConnectorSummaryList: StaticListSchema = [1, n0, _CCSL,
+  0, () => CloudConnectorSummary$
+];
 var CommandFilterList: StaticListSchema = [1, n0, _CFL,
   0, () => CommandFilter$
 ];
@@ -5216,7 +5373,7 @@ var ResourceDataSyncSourceRegionList = 64 | 0;
 var ResourcePolicyParameterNamesList = 64 | 0;
 var ResultAttributeList: StaticListSchema = [1, n0, _RAL,
   0, [() => ResultAttribute$,
-    { [_xN]: _RAes }]
+    { [_xN]: _RAesu }]
 ];
 var ReviewInformationList: StaticListSchema = [1, n0, _RIL,
   0, [() => ReviewInformation$,
@@ -5261,6 +5418,9 @@ var Targets: StaticListSchema = [1, n0, _Ta,
   0, () => Target$
 ];
 var TargetValues = 64 | 0;
+var ValidationFindingList: StaticListSchema = [1, n0, _VFL,
+  0, () => ValidationFinding$
+];
 var ValidNextStepList = 64 | 0;
 var AssociationStatusAggregatedCount = 128 | 1;
 var AutomationParameterMap: StaticMapSchema = [2, n0, _APM,
@@ -5303,6 +5463,16 @@ var StepPreviewMap = 128 | 1;
 var TargetMap: StaticMapSchema = [2, n0, _TMa,
   0, 0, 64 | 0
 ];
+export var CloudConnectorConfiguration$: StaticUnionSchema = [4, n0, _CCC,
+  0,
+  [_ACz],
+  [() => AzureConfiguration$]
+];
+export var ConfigurationTargets$: StaticUnionSchema = [4, n0, _CTon,
+  0,
+  [_Sub],
+  [() => AzureSubscriptionList]
+];
 export var ExecutionInputs$: StaticUnionSchema = [4, n0, _EIx,
   0,
   [_Aut],
@@ -5330,14 +5500,17 @@ export var CancelCommand$: StaticOperationSchema = [9, n0, _CCa,
 export var CancelMaintenanceWindowExecution$: StaticOperationSchema = [9, n0, _CMWE,
   0, () => CancelMaintenanceWindowExecutionRequest$, () => CancelMaintenanceWindowExecutionResult$
 ];
-export var CreateActivation$: StaticOperationSchema = [9, n0, _CAr,
+export var CreateActivation$: StaticOperationSchema = [9, n0, _CAre,
   0, () => CreateActivationRequest$, () => CreateActivationResult$
 ];
-export var CreateAssociation$: StaticOperationSchema = [9, n0, _CAre,
+export var CreateAssociation$: StaticOperationSchema = [9, n0, _CArea,
   0, () => CreateAssociationRequest$, () => CreateAssociationResult$
 ];
 export var CreateAssociationBatch$: StaticOperationSchema = [9, n0, _CAB,
   0, () => CreateAssociationBatchRequest$, () => CreateAssociationBatchResult$
+];
+export var CreateCloudConnector$: StaticOperationSchema = [9, n0, _CCCr,
+  0, () => CreateCloudConnectorRequest$, () => CreateCloudConnectorResult$
 ];
 export var CreateDocument$: StaticOperationSchema = [9, n0, _CDre,
   0, () => CreateDocumentRequest$, () => CreateDocumentResult$
@@ -5362,6 +5535,9 @@ export var DeleteActivation$: StaticOperationSchema = [9, n0, _DA,
 ];
 export var DeleteAssociation$: StaticOperationSchema = [9, n0, _DAe,
   0, () => DeleteAssociationRequest$, () => DeleteAssociationResult$
+];
+export var DeleteCloudConnector$: StaticOperationSchema = [9, n0, _DCC,
+  0, () => DeleteCloudConnectorRequest$, () => DeleteCloudConnectorResult$
 ];
 export var DeleteDocument$: StaticOperationSchema = [9, n0, _DDe,
   0, () => DeleteDocumentRequest$, () => DeleteDocumentResult$
@@ -5516,6 +5692,9 @@ export var GetAutomationExecution$: StaticOperationSchema = [9, n0, _GAE,
 export var GetCalendarState$: StaticOperationSchema = [9, n0, _GCS,
   0, () => GetCalendarStateRequest$, () => GetCalendarStateResponse$
 ];
+export var GetCloudConnector$: StaticOperationSchema = [9, n0, _GCC,
+  0, () => GetCloudConnectorRequest$, () => GetCloudConnectorResult$
+];
 export var GetCommandInvocation$: StaticOperationSchema = [9, n0, _GCI,
   0, () => GetCommandInvocationRequest$, () => GetCommandInvocationResult$
 ];
@@ -5596,6 +5775,9 @@ export var ListAssociations$: StaticOperationSchema = [9, n0, _LA,
 ];
 export var ListAssociationVersions$: StaticOperationSchema = [9, n0, _LAV,
   0, () => ListAssociationVersionsRequest$, () => ListAssociationVersionsResult$
+];
+export var ListCloudConnectors$: StaticOperationSchema = [9, n0, _LCC,
+  0, () => ListCloudConnectorsRequest$, () => ListCloudConnectorsResult$
 ];
 export var ListCommandInvocations$: StaticOperationSchema = [9, n0, _LCI,
   0, () => ListCommandInvocationsRequest$, () => ListCommandInvocationsResult$
@@ -5714,11 +5896,14 @@ export var TerminateSession$: StaticOperationSchema = [9, n0, _TSe,
 export var UnlabelParameterVersion$: StaticOperationSchema = [9, n0, _UPV,
   0, () => UnlabelParameterVersionRequest$, () => UnlabelParameterVersionResult$
 ];
-export var UpdateAssociation$: StaticOperationSchema = [9, n0, _UA,
+export var UpdateAssociation$: StaticOperationSchema = [9, n0, _UAp,
   0, () => UpdateAssociationRequest$, () => UpdateAssociationResult$
 ];
 export var UpdateAssociationStatus$: StaticOperationSchema = [9, n0, _UAS,
   0, () => UpdateAssociationStatusRequest$, () => UpdateAssociationStatusResult$
+];
+export var UpdateCloudConnector$: StaticOperationSchema = [9, n0, _UCC,
+  0, () => UpdateCloudConnectorRequest$, () => UpdateCloudConnectorResult$
 ];
 export var UpdateDocument$: StaticOperationSchema = [9, n0, _UD,
   0, () => UpdateDocumentRequest$, () => UpdateDocumentResult$
@@ -5755,4 +5940,7 @@ export var UpdateResourceDataSync$: StaticOperationSchema = [9, n0, _URDS,
 ];
 export var UpdateServiceSetting$: StaticOperationSchema = [9, n0, _USS,
   0, () => UpdateServiceSettingRequest$, () => UpdateServiceSettingResult$
+];
+export var ValidateCloudConnector$: StaticOperationSchema = [9, n0, _VCC,
+  0, () => ValidateCloudConnectorRequest$, () => ValidateCloudConnectorResult$
 ];

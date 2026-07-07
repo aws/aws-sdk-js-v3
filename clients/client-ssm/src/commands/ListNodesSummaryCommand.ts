@@ -37,7 +37,7 @@ export interface ListNodesSummaryCommandOutput extends ListNodesSummaryResult, _
  *   SyncName: "STRING_VALUE",
  *   Filters: [ // NodeFilterList
  *     { // NodeFilter
- *       Key: "AgentType" || "AgentVersion" || "ComputerName" || "InstanceId" || "InstanceStatus" || "IpAddress" || "ManagedStatus" || "PlatformName" || "PlatformType" || "PlatformVersion" || "ResourceType" || "OrganizationalUnitId" || "OrganizationalUnitPath" || "Region" || "AccountId", // required
+ *       Key: "AgentType" || "AgentVersion" || "ComputerName" || "InstanceId" || "InstanceStatus" || "IpAddress" || "ManagedStatus" || "PlatformName" || "PlatformType" || "PlatformVersion" || "ResourceType" || "OrganizationalUnitId" || "OrganizationalUnitPath" || "Region" || "AccountId" || "SourceType" || "SourceId" || "SourceLocation" || "AvailabilityZone" || "AvailabilityZoneId", // required
  *       Values: [ // NodeFilterValueList // required
  *         "STRING_VALUE",
  *       ],
@@ -48,12 +48,12 @@ export interface ListNodesSummaryCommandOutput extends ListNodesSummaryResult, _
  *     { // NodeAggregator
  *       AggregatorType: "Count", // required
  *       TypeName: "Instance", // required
- *       AttributeName: "AgentVersion" || "PlatformName" || "PlatformType" || "PlatformVersion" || "Region" || "ResourceType", // required
+ *       AttributeName: "AgentVersion" || "PlatformName" || "PlatformType" || "PlatformVersion" || "Region" || "ResourceType" || "SourceType" || "AvailabilityZone", // required
  *       Aggregators: [
  *         {
  *           AggregatorType: "Count", // required
  *           TypeName: "Instance", // required
- *           AttributeName: "AgentVersion" || "PlatformName" || "PlatformType" || "PlatformVersion" || "Region" || "ResourceType", // required
+ *           AttributeName: "AgentVersion" || "PlatformName" || "PlatformType" || "PlatformVersion" || "Region" || "ResourceType" || "SourceType" || "AvailabilityZone", // required
  *           Aggregators: "<NodeAggregatorList>",
  *         },
  *       ],
