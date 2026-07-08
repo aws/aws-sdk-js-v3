@@ -7,7 +7,7 @@ import { DynamoDBDocumentClient } from "../DynamoDBDocumentClient";
 /**
  * @public
  */
-export { PaginationConfiguration };
+export type { PaginationConfiguration };
 
 /**
  * @public
