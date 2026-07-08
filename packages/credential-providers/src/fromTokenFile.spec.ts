@@ -11,7 +11,7 @@ vi.mock("@aws-sdk/nested-clients/sts", () => ({
 }));
 
 vi.mock("@aws-sdk/credential-provider-web-identity", () => ({
-  fromTokenFile: vi.fn(),
+  fromTokenFile: vi.fn().mockReturnValue(vi.fn()),
 }));
 
 describe("fromTokenFile", () => {
@@ -19,21 +19,23 @@ describe("fromTokenFile", () => {
     vi.clearAllMocks();
   });
 
-  it("should not inject default role assumer", () => {
-    fromTokenFile();
+  it("should not inject default role assumer", async () => {
+    const provider = fromTokenFile();
+    await provider({});
     expect(coreProvider).toHaveBeenCalledWith({});
     expect(getDefaultRoleAssumerWithWebIdentity).not.toHaveBeenCalled();
   });
 
-  it("defers to @aws-sdk/credential-provider-web-identity", () => {
+  it("defers to @aws-sdk/credential-provider-web-identity", async () => {
     const clientConfig = {
       region: "US_FOO_0",
     };
     const plugin = { applyToStack: () => {} };
-    fromTokenFile({
+    const provider = fromTokenFile({
       clientConfig,
       clientPlugins: [plugin],
     });
+    await provider({});
     expect(coreProvider).toHaveBeenCalledWith({
       clientConfig,
       clientPlugins: [plugin],

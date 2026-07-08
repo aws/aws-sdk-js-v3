@@ -10,7 +10,7 @@ vi.mock("@aws-sdk/client-cognito-identity", () => ({
 }));
 
 vi.mock("@aws-sdk/credential-provider-cognito-identity", () => ({
-  fromCognitoIdentity: vi.fn(),
+  fromCognitoIdentity: vi.fn().mockReturnValue(vi.fn()),
 }));
 
 describe("fromCognitoIdentity", () => {
@@ -20,10 +20,11 @@ describe("fromCognitoIdentity", () => {
     vi.clearAllMocks();
   });
 
-  it("defers to @aws-sdk/credential-provider-cognito-identity", () => {
-    fromCognitoIdentity({
+  it("defers to @aws-sdk/credential-provider-cognito-identity", async () => {
+    const provider = fromCognitoIdentity({
       identityId,
     });
+    await provider({});
     expect(coreProvider).toHaveBeenCalledWith({
       identityId,
     });

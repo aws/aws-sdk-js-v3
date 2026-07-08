@@ -1,6 +1,5 @@
 import type { FromIniInit } from "@aws-sdk/credential-provider-ini";
-import { fromIni as _fromIni } from "@aws-sdk/credential-provider-ini";
-import type { RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
+import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 
 /**
  * Creates a credential provider function that reads from a shared credentials file at `~/.aws/credentials` and a
@@ -43,7 +42,9 @@ import type { RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types"
  *
  * @public
  */
-export const fromIni = (init: FromIniInit = {}): RuntimeConfigAwsCredentialIdentityProvider =>
-  _fromIni({
-    ...init,
-  });
+export const fromIni = (init: FromIniInit = {}): RuntimeConfigAwsCredentialIdentityProvider => {
+  return async (args?: AwsIdentityProperties) => {
+    const { fromIni: _fromIni } = await import("@aws-sdk/credential-provider-ini");
+    return _fromIni({ ...init })(args);
+  };
+};

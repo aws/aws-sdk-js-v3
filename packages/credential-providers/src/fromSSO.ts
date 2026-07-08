@@ -1,5 +1,5 @@
-import { fromSSO as _fromSSO, FromSSOInit } from "@aws-sdk/credential-provider-sso";
-import type { AwsCredentialIdentityProvider } from "@smithy/types";
+import type { FromSSOInit, SsoCredentialsParameters } from "@aws-sdk/credential-provider-sso";
+import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 
 /**
  * Creates a credential provider function that reads from the _resolved_ access token from local disk then requests
@@ -44,6 +44,11 @@ import type { AwsCredentialIdentityProvider } from "@smithy/types";
  *
  * @public
  */
-export const fromSSO = (init: Parameters<typeof _fromSSO>[0] = {}): AwsCredentialIdentityProvider => {
-  return _fromSSO({ ...init });
+export const fromSSO = (
+  init: FromSSOInit & Partial<SsoCredentialsParameters> = {}
+): RuntimeConfigAwsCredentialIdentityProvider => {
+  return async (args?: AwsIdentityProperties) => {
+    const { fromSSO: _fromSSO } = await import("@aws-sdk/credential-provider-sso");
+    return _fromSSO({ ...init })(args);
+  };
 };
