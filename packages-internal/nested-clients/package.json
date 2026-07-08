@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/nested-clients",
-  "version": "3.997.30",
+  "version": "3.997.31",
   "description": "Nested clients for AWS SDK packages.",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -28,7 +28,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.975.0",
+    "@aws-sdk/core": "workspace:^3.975.1",
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.39",
     "@aws-sdk/types": "workspace:^3.974.0",
     "@smithy/core": "^3.29.2",

@@ -63,6 +63,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.47 (2026-07-08)
+### Chores
+* **util-user-agent-node:** update dependencies.
+
+
+
 # 3.973.46 (2026-07-08)
 ### Chores
 * **util-user-agent-node:** update dependencies.

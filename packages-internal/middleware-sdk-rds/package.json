@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-rds",
-  "version": "3.972.44",
+  "version": "3.972.45",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -24,7 +24,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.975.0",
+    "@aws-sdk/core": "workspace:^3.975.1",
     "@aws-sdk/types": "workspace:^3.974.0",
     "@smithy/core": "^3.29.2",
     "@smithy/signature-v4": "^5.6.3",

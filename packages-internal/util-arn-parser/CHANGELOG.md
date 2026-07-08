@@ -28,6 +28,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.26 (2026-07-08)
+### Chores
+* **util-arn-parser:** update dependencies.
+
+
+
 # 3.972.25 (2026-07-08)
 ### Chores
 * use isolatedModules for types ([#8164](https://github.com/aws/aws-sdk-js-v3/issues/8164)) ([f274899](https://github.com/aws/aws-sdk-js-v3/commit/f274899d4ecfef189ed7f9b4d5d02c450e11d84d))

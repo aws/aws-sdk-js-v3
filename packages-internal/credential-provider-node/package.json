@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-node",
-  "version": "3.972.65",
+  "version": "3.972.66",
   "description": "AWS credential provider that sources credentials from a Node.JS environment. ",
   "engines": {
     "node": ">=20.0.0"
@@ -31,12 +31,12 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/credential-provider-env": "workspace:^3.972.56",
-    "@aws-sdk/credential-provider-http": "workspace:^3.972.58",
-    "@aws-sdk/credential-provider-ini": "workspace:^3.973.0",
-    "@aws-sdk/credential-provider-process": "workspace:^3.972.56",
-    "@aws-sdk/credential-provider-sso": "workspace:^3.973.0",
-    "@aws-sdk/credential-provider-web-identity": "workspace:^3.972.62",
+    "@aws-sdk/credential-provider-env": "workspace:^3.972.57",
+    "@aws-sdk/credential-provider-http": "workspace:^3.972.59",
+    "@aws-sdk/credential-provider-ini": "workspace:^3.973.1",
+    "@aws-sdk/credential-provider-process": "workspace:^3.972.57",
+    "@aws-sdk/credential-provider-sso": "workspace:^3.973.1",
+    "@aws-sdk/credential-provider-web-identity": "workspace:^3.972.63",
     "@aws-sdk/types": "workspace:^3.974.0",
     "@smithy/core": "^3.29.2",
     "@smithy/credential-provider-imds": "^4.4.7",

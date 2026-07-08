@@ -62,6 +62,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.31 (2026-07-08)
+### Chores
+* **dynamodb-codec:** update dependencies.
+
+
+
 # 3.973.30 (2026-07-08)
 ### Chores
 * **codegen:** sync for isolatedModules tsconfig and server metrics recorder ([#8174](https://github.com/aws/aws-sdk-js-v3/issues/8174)) ([f8b4987](https://github.com/aws/aws-sdk-js-v3/commit/f8b4987c1d5b52966d536b36200496ea490327b1))

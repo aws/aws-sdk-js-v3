@@ -62,6 +62,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.975.1 (2026-07-08)
+### Chores
+* **core/client:** remove TypeScript version user-agent metric ([#8177](https://github.com/aws/aws-sdk-js-v3/issues/8177)) ([9d72bc2](https://github.com/aws/aws-sdk-js-v3/commit/9d72bc2930426ebee73da6a72df0f495be4e7db9))
+
+
+
 # 3.975.0 (2026-07-08)
 ### Features
 * **core/client:** propagate w3c trace headers ([#8156](https://github.com/aws/aws-sdk-js-v3/issues/8156)) ([e5f383c](https://github.com/aws/aws-sdk-js-v3/commit/e5f383c77b935532ab183a43b139faf1d889a0fc))
