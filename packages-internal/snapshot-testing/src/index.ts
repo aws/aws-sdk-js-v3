@@ -1,1 +1,1 @@
-export * from "./snapshot-setup";
+export { setup } from "./snapshot-setup";

@@ -1,2 +1,24 @@
-export * from "./aws_sdk";
-export * from "./utils/getBearerTokenEnvKey";
+export {
+  AwsSdkSigV4Signer,
+  AWSSDKSigV4Signer,
+  validateSigningProperties,
+  AwsSdkSigV4ASigner,
+  NODE_AUTH_SCHEME_PREFERENCE_OPTIONS,
+  resolveAwsSdkSigV4AConfig,
+  NODE_SIGV4A_CONFIG_OPTIONS,
+  resolveAwsSdkSigV4Config,
+  resolveAWSSDKSigV4Config,
+} from "./aws_sdk";
+export type {
+  AwsSdkSigV4AAuthInputConfig,
+  AwsSdkSigV4APreviouslyResolved,
+  AwsSdkSigV4AAuthResolvedConfig,
+  AwsSdkSigV4AuthInputConfig,
+  AwsSdkSigV4Memoized,
+  AwsSdkSigV4PreviouslyResolved,
+  AwsSdkSigV4AuthResolvedConfig,
+  AWSSDKSigV4AuthInputConfig,
+  AWSSDKSigV4PreviouslyResolved,
+  AWSSDKSigV4AuthResolvedConfig,
+} from "./aws_sdk";
+export { getBearerTokenEnvKey } from "./utils/getBearerTokenEnvKey";

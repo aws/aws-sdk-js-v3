@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 export * from "./submodules/credentials/index";
 export * from "./submodules/logger/index";
 export * from "./submodules/protocol/index";

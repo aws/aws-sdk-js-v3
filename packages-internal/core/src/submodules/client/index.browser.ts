@@ -65,16 +65,16 @@ export {
 } from "./util-endpoints/lib/aws/partition";
 export type { PartitionsInfo } from "./util-endpoints/lib/aws/partition";
 export { EndpointError } from "./util-endpoints/types/EndpointError";
-export {
+export type {
   EndpointObjectProperties,
   EndpointObjectHeaders,
   EndpointObject,
   EndpointRuleObject,
 } from "./util-endpoints/types/EndpointRuleObject";
-export { ErrorRuleObject } from "./util-endpoints/types/ErrorRuleObject";
-export { RuleSetRules, TreeRuleObject } from "./util-endpoints/types/TreeRuleObject";
-export { DeprecatedObject, ParameterObject, RuleSetObject } from "./util-endpoints/types/RuleSetObject";
-export {
+export type { ErrorRuleObject } from "./util-endpoints/types/ErrorRuleObject";
+export type { RuleSetRules, TreeRuleObject } from "./util-endpoints/types/TreeRuleObject";
+export type { DeprecatedObject, ParameterObject, RuleSetObject } from "./util-endpoints/types/RuleSetObject";
+export type {
   ReferenceObject,
   FunctionObject,
   FunctionArgv,

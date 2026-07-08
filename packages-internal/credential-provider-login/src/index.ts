@@ -1,8 +1,2 @@
-/**
- * @internal
- */
-export * from "./fromLoginCredentials";
-/**
- * @internal
- */
-export * from "./types";
+export { fromLoginCredentials } from "./fromLoginCredentials";
+export type { FromLoginCredentialsInit, LoginToken, DpopHeader, DpopPayload } from "./types";

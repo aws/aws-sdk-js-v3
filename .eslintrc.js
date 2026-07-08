@@ -8,7 +8,7 @@ module.exports = {
     // Uses the recommended rules from the @typescript-eslint/eslint-plugin
     "plugin:@typescript-eslint/recommended",
   ],
-  plugins: ["@typescript-eslint", "simple-import-sort", "eslint-plugin-sort-export-all", "eslint-plugin-tsdoc", "n"],
+  plugins: ["@typescript-eslint", "simple-import-sort", "eslint-plugin-tsdoc", "n"],
   rules: {
     /** Turn off strict enforcement */
     "@typescript-eslint/ban-types": "off",
@@ -27,7 +27,6 @@ module.exports = {
 
     /** Errors */
     "simple-import-sort/imports": "error",
-    "sort-export-all/sort-export-all": "error",
     "@typescript-eslint/consistent-type-imports": "error",
     "n/prefer-node-protocol": "error",
   },
@@ -50,6 +49,13 @@ module.exports = {
         "private/*/src/**/*.ts",
       ],
       rules: {
+        "no-restricted-syntax": [
+          "error",
+          {
+            selector: "ExportAllDeclaration",
+            message: "Use explicit named exports (export { X } or export type { X }) instead of 'export *'.",
+          },
+        ],
         "no-restricted-imports": [
           "error",
           {
@@ -189,6 +195,16 @@ module.exports = {
       rules: {
         "tsdoc/syntax": "off",
         "n/prefer-node-protocol": "error",
+      },
+    },
+    {
+      files: [
+        "packages-internal/nested-clients/src/submodules/**/index.ts",
+        "packages-internal/nested-clients/src/submodules/**/commands/index.ts",
+        "clients/*/src/**/*.ts",
+      ],
+      rules: {
+        "no-restricted-syntax": "off",
       },
     },
   ],

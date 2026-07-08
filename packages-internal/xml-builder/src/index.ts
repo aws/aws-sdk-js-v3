@@ -1,13 +1,3 @@
-/**
- * @internal
- */
-export * from "./XmlNode";
-/**
- * @internal
- */
-export * from "./XmlText";
-
-/**
- * @internal
- */
+export { XmlNode } from "./XmlNode";
+export { XmlText } from "./XmlText";
 export { parseXML } from "./xml-parser";
