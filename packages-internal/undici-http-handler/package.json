@@ -18,7 +18,7 @@
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
   "dependencies": {
-    "@smithy/undici-http-handler": "^3.0.0",
+    "@smithy/undici-http-handler": "^3.0.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

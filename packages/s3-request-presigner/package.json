@@ -26,8 +26,8 @@
     "@aws-sdk/core": "workspace:^3.974.29",
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.38",
     "@aws-sdk/types": "workspace:^3.973.15",
-    "@smithy/core": "^3.29.1",
-    "@smithy/types": "^4.15.1",
+    "@smithy/core": "^3.29.2",
+    "@smithy/types": "^4.16.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
