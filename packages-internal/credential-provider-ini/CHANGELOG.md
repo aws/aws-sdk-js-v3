@@ -65,6 +65,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.0 (2026-07-08)
+### Features
+* **credential-providers:** deferred loading for credential providers aggregation package ([#8129](https://github.com/aws/aws-sdk-js-v3/issues/8129)) ([d0f426c](https://github.com/aws/aws-sdk-js-v3/commit/d0f426cb354454238efc135a059ee413406a196c))
+### Chores
+* **codegen:** sync for isolatedModules tsconfig and server metrics recorder ([#8174](https://github.com/aws/aws-sdk-js-v3/issues/8174)) ([f8b4987](https://github.com/aws/aws-sdk-js-v3/commit/f8b4987c1d5b52966d536b36200496ea490327b1))
+* use isolatedModules for types ([#8164](https://github.com/aws/aws-sdk-js-v3/issues/8164)) ([f274899](https://github.com/aws/aws-sdk-js-v3/commit/f274899d4ecfef189ed7f9b4d5d02c450e11d84d))
+* **deps:** bump versions which are not code generated ([#8171](https://github.com/aws/aws-sdk-js-v3/issues/8171)) ([7279203](https://github.com/aws/aws-sdk-js-v3/commit/7279203b7999a06408044f7c06021d6355b28ca9))
+* **deps:** bump '@smithy/core' to ^3.29.1 ([#8167](https://github.com/aws/aws-sdk-js-v3/issues/8167)) ([8f43c79](https://github.com/aws/aws-sdk-js-v3/commit/8f43c790d2d05f793e719773f74ee10e0f49f00d))
+
+
+
 # 3.972.62 (2026-07-07)
 ### Chores
 * **credential-provider-ini:** update dependencies.

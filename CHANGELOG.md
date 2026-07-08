@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1082.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1081.0...v3.1082.0) (2026-07-08)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** destroy orphaned response streams on abort ([#8165](https://github.com/aws/aws-sdk-js-v3/issues/8165)) ([8a5e590](https://github.com/aws/aws-sdk-js-v3/commit/8a5e590c9386c2106444971fc26dbb4f21926358))
+
+
+### Features
+
+* **client-appconfig:** Update ExperimentRun APIs to support ConflictExceptions. ([d985124](https://github.com/aws/aws-sdk-js-v3/commit/d985124fd39f761a7b65a2d467778cf03f8946c6))
+* **client-bedrock-agentcore-control:** AgentCore Gateway now supports mapping allowed scopes to separate advertised scopes on the inbound authorizer. ([bde793c](https://github.com/aws/aws-sdk-js-v3/commit/bde793c87392f5f6991790abe0f4f9a6f7fe2363))
+* **client-ec2:** Replace Root Volume now supports a VolumeId parameter. This allows the customer to pass in a pre-prepared volume as the target root volume for an RRV workflow. ([76859d4](https://github.com/aws/aws-sdk-js-v3/commit/76859d480e3786942a43b82e55b74632fdce0ee1))
+* **client-ecs:** Amazon ECS now automatically detects the correct CPU architecture for Express Mode services. ([a273b75](https://github.com/aws/aws-sdk-js-v3/commit/a273b75711e07dc1c0445880172ca76e6bfafb3c))
+* **client-geo-places:** Added AddressNamesMode, AddressNameTranslations, MobilityMode, PostalCodeMode, SecondaryAddresses, and DriveThrough features across Places V2 APIs to support address name formatting,  multilingual translations, travel-aware search, multi-city postal codes, and unit-level address resolution. ([81bbd67](https://github.com/aws/aws-sdk-js-v3/commit/81bbd6772403999d20f80bb4bd0e582769251751))
+* **client-iot-wireless:** Default session downlink transmission parameters have been added to the existing Multicast Group APIs. Explicit transmission parameters are no longer required when starting a multicast session during the FUOTA procedure. ([a2e2650](https://github.com/aws/aws-sdk-js-v3/commit/a2e2650398637a623a7f99eaddd2267f26c3f2e0))
+* **client-resiliencehubv2:** Next Generation Resilience Hub now supports filtering and sorting failure mode assessments, resource type filtering in ListResources, cross-region and cross-account topology edges, data recovery achievability status, and more granular dependency discovery progress tracking. ([572ad2c](https://github.com/aws/aws-sdk-js-v3/commit/572ad2cf71f6925d7ecef0affa0e82cef0ccc24a))
+* **core/client:** propagate w3c trace headers ([#8156](https://github.com/aws/aws-sdk-js-v3/issues/8156)) ([e5f383c](https://github.com/aws/aws-sdk-js-v3/commit/e5f383c77b935532ab183a43b139faf1d889a0fc))
+* **credential-providers:** deferred loading for credential providers aggregation package ([#8129](https://github.com/aws/aws-sdk-js-v3/issues/8129)) ([d0f426c](https://github.com/aws/aws-sdk-js-v3/commit/d0f426cb354454238efc135a059ee413406a196c))
+* **undici-http-handler:** bump version to 3.0.0 ([#8168](https://github.com/aws/aws-sdk-js-v3/issues/8168)) ([6c243a1](https://github.com/aws/aws-sdk-js-v3/commit/6c243a15d8e0b059098d547a7b48311d9e43e352))
+
+
+
+
+
 # [3.1081.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1080.0...v3.1081.0) (2026-07-07)
 
 

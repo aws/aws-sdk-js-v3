@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-login",
-  "version": "3.972.61",
+  "version": "3.972.62",
   "description": "AWS credential provider that sources credentials from aws login cached tokens",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -28,9 +28,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.29",
-    "@aws-sdk/nested-clients": "workspace:^3.997.29",
-    "@aws-sdk/types": "workspace:^3.973.15",
+    "@aws-sdk/core": "workspace:^3.975.0",
+    "@aws-sdk/nested-clients": "workspace:^3.997.30",
+    "@aws-sdk/types": "workspace:^3.974.0",
     "@smithy/core": "^3.29.2",
     "@smithy/types": "^4.16.0",
     "tslib": "^2.6.2"

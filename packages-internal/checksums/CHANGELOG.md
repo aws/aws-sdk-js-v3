@@ -15,6 +15,16 @@
 
 
 
+
+# 3.1000.15 (2026-07-08)
+### Chores
+* **codegen:** sync for isolatedModules tsconfig and server metrics recorder ([#8174](https://github.com/aws/aws-sdk-js-v3/issues/8174)) ([f8b4987](https://github.com/aws/aws-sdk-js-v3/commit/f8b4987c1d5b52966d536b36200496ea490327b1))
+* **deps:** bump '@smithy/core' to ^3.29.1 ([#8167](https://github.com/aws/aws-sdk-js-v3/issues/8167)) ([8f43c79](https://github.com/aws/aws-sdk-js-v3/commit/8f43c790d2d05f793e719773f74ee10e0f49f00d))
+### Tests
+* **checksums:** pass buffer in flexible checksums integ test ([#8166](https://github.com/aws/aws-sdk-js-v3/issues/8166)) ([22281e3](https://github.com/aws/aws-sdk-js-v3/commit/22281e3968b75b54e3ab8bbe33c9259e7e72973a))
+
+
+
 # 3.1000.14 (2026-07-07)
 ### Chores
 * **checksums:** update dependencies.

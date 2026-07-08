@@ -61,6 +61,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.975.0 (2026-07-08)
+### Features
+* **core/client:** propagate w3c trace headers ([#8156](https://github.com/aws/aws-sdk-js-v3/issues/8156)) ([e5f383c](https://github.com/aws/aws-sdk-js-v3/commit/e5f383c77b935532ab183a43b139faf1d889a0fc))
+### Chores
+* **codegen:** sync for isolatedModules tsconfig and server metrics recorder ([#8174](https://github.com/aws/aws-sdk-js-v3/issues/8174)) ([f8b4987](https://github.com/aws/aws-sdk-js-v3/commit/f8b4987c1d5b52966d536b36200496ea490327b1))
+* use isolatedModules for types ([#8164](https://github.com/aws/aws-sdk-js-v3/issues/8164)) ([f274899](https://github.com/aws/aws-sdk-js-v3/commit/f274899d4ecfef189ed7f9b4d5d02c450e11d84d))
+* **deps:** bump versions which are not code generated ([#8171](https://github.com/aws/aws-sdk-js-v3/issues/8171)) ([7279203](https://github.com/aws/aws-sdk-js-v3/commit/7279203b7999a06408044f7c06021d6355b28ca9))
+* **deps:** bump '@smithy/core' to ^3.29.1 ([#8167](https://github.com/aws/aws-sdk-js-v3/issues/8167)) ([8f43c79](https://github.com/aws/aws-sdk-js-v3/commit/8f43c790d2d05f793e719773f74ee10e0f49f00d))
+
+
+
 # 3.974.29 (2026-07-06)
 ### Tests
 * **core/client:** delete partitions test ([#8158](https://github.com/aws/aws-sdk-js-v3/issues/8158)) ([6e80e26](https://github.com/aws/aws-sdk-js-v3/commit/6e80e26e0c7ce8038e14ccebae26d61df7262052))

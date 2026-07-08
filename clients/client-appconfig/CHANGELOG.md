@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1082.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1081.0...v3.1082.0) (2026-07-08)
+
+
+### Features
+
+* **client-appconfig:** Update ExperimentRun APIs to support ConflictExceptions. ([d985124](https://github.com/aws/aws-sdk-js-v3/commit/d985124fd39f761a7b65a2d467778cf03f8946c6))
+
+
+
+
+
 # [3.1081.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1080.0...v3.1081.0) (2026-07-07)
 
 **Note:** Version bump only for package @aws-sdk/client-appconfig

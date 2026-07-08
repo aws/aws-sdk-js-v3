@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1082.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1081.0...v3.1082.0) (2026-07-08)
+
+
+### Features
+
+* **client-iot-wireless:** Default session downlink transmission parameters have been added to the existing Multicast Group APIs. Explicit transmission parameters are no longer required when starting a multicast session during the FUOTA procedure. ([a2e2650](https://github.com/aws/aws-sdk-js-v3/commit/a2e2650398637a623a7f99eaddd2267f26c3f2e0))
+
+
+
+
+
 # [3.1081.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1080.0...v3.1081.0) (2026-07-07)
 
 **Note:** Version bump only for package @aws-sdk/client-iot-wireless

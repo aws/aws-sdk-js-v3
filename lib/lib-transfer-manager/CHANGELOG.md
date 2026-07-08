@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1082.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1081.0...v3.1082.0) (2026-07-08)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** destroy orphaned response streams on abort ([#8165](https://github.com/aws/aws-sdk-js-v3/issues/8165)) ([8a5e590](https://github.com/aws/aws-sdk-js-v3/commit/8a5e590c9386c2106444971fc26dbb4f21926358))
+
+
+
+
+
 # [3.1081.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1080.0...v3.1081.0) (2026-07-07)
 
 **Note:** Version bump only for package @aws-sdk/lib-transfer-manager

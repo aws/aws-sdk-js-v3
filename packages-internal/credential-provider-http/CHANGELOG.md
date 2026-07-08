@@ -60,6 +60,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.58 (2026-07-08)
+### Chores
+* **codegen:** sync for isolatedModules tsconfig and server metrics recorder ([#8174](https://github.com/aws/aws-sdk-js-v3/issues/8174)) ([f8b4987](https://github.com/aws/aws-sdk-js-v3/commit/f8b4987c1d5b52966d536b36200496ea490327b1))
+* **deps:** bump '@smithy/core' to ^3.29.1 ([#8167](https://github.com/aws/aws-sdk-js-v3/issues/8167)) ([8f43c79](https://github.com/aws/aws-sdk-js-v3/commit/8f43c790d2d05f793e719773f74ee10e0f49f00d))
+
+
+
 # 3.972.57 (2026-07-07)
 ### Bug Fixes
 * **credential-provider-http:** fix token and URI path priority resolution ([#8159](https://github.com/aws/aws-sdk-js-v3/issues/8159)) ([e9e857d](https://github.com/aws/aws-sdk-js-v3/commit/e9e857d324d216f705e5b2fe0e8f8c535e55d7fb))
