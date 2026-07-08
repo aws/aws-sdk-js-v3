@@ -403,6 +403,7 @@ const _RDTDRe = "RegisterDaemonTaskDefinitionResponse";
 const _RIUE = "ResourceInUseException";
 const _RNFE = "ResourceNotFoundException";
 const _RP = "RuntimePlatform";
+const _RPO = "RuntimePlatformOverride";
 const _RR = "ResourceRequirement";
 const _RRe = "ResourceRequirements";
 const _RT = "RunTask";
@@ -455,6 +456,7 @@ const _SNFE = "ServiceNotFoundException";
 const _SR = "ServiceRegistry";
 const _SRLB = "ServiceRevisionLoadBalancer";
 const _SRLBe = "ServiceRevisionLoadBalancers";
+const _SRO = "ServiceRevisionOverrides";
 const _SRS = "ServiceRevisionSummary";
 const _SRSL = "ServiceRevisionsSummaryList";
 const _SRe = "ServiceRevision";
@@ -2654,6 +2656,11 @@ export var RuntimePlatform$: StaticStructureSchema = [3, n0, _RP,
   [_cAp, _oSF],
   [0, 0]
 ];
+export var RuntimePlatformOverride$: StaticStructureSchema = [3, n0, _RPO,
+  0,
+  [_cAp],
+  [0]
+];
 export var S3FilesVolumeConfiguration$: StaticStructureSchema = [3, n0, _SFVC,
   0,
   [_fSA, _rD, _tEP, _aPA],
@@ -2766,13 +2773,18 @@ export var ServiceRegistry$: StaticStructureSchema = [3, n0, _SR,
 ];
 export var ServiceRevision$: StaticStructureSchema = [3, n0, _SRe,
   0,
-  [_sRAe, _sAe, _cA, _tD, _cPS, _lT, _pV, _pF, _lB, _sRe, _nC, _cI, _gDE, _sCC, _vCo, _fES, _cAr, _vLC, _rCes, _eMR, _mo],
-  [0, 0, 0, 0, () => CapacityProviderStrategy, 0, 0, 0, () => LoadBalancers, () => ServiceRegistries, () => NetworkConfiguration$, () => ContainerImages, 2, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => DeploymentEphemeralStorage$, 4, () => VpcLatticeConfigurations, () => ResolvedConfiguration$, () => ECSManagedResources$, () => MonitoringConfiguration$]
+  [_sRAe, _sAe, _cA, _tD, _cPS, _lT, _pV, _pF, _lB, _sRe, _nC, _cI, _gDE, _sCC, _vCo, _fES, _cAr, _vLC, _rCes, _eMR, _ov, _mo],
+  [0, 0, 0, 0, () => CapacityProviderStrategy, 0, 0, 0, () => LoadBalancers, () => ServiceRegistries, () => NetworkConfiguration$, () => ContainerImages, 2, () => ServiceConnectConfiguration$, () => ServiceVolumeConfigurations, () => DeploymentEphemeralStorage$, 4, () => VpcLatticeConfigurations, () => ResolvedConfiguration$, () => ECSManagedResources$, () => ServiceRevisionOverrides$, () => MonitoringConfiguration$]
 ];
 export var ServiceRevisionLoadBalancer$: StaticStructureSchema = [3, n0, _SRLB,
   0,
   [_tGA, _pLR],
   [0, 0]
+];
+export var ServiceRevisionOverrides$: StaticStructureSchema = [3, n0, _SRO,
+  0,
+  [_rPu],
+  [() => RuntimePlatformOverride$]
 ];
 export var ServiceRevisionSummary$: StaticStructureSchema = [3, n0, _SRS,
   0,

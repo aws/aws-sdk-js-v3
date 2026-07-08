@@ -303,6 +303,11 @@ export interface DescribeServiceRevisionsCommandOutput extends DescribeServiceRe
  * //           },
  * //         ],
  * //       },
+ * //       overrides: { // ServiceRevisionOverrides
+ * //         runtimePlatform: { // RuntimePlatformOverride
+ * //           cpuArchitecture: "STRING_VALUE",
+ * //         },
+ * //       },
  * //       monitoring: { // MonitoringConfiguration
  * //         metricConfigurations: [ // MetricConfigurationList
  * //           { // MetricConfiguration

@@ -505,6 +505,7 @@ import {
   RunTaskRequest$,
   RunTaskResponse$,
   RuntimePlatform$,
+  RuntimePlatformOverride$,
   S3FilesVolumeConfiguration$,
   Scale$,
   ScaleUnit,
@@ -546,6 +547,7 @@ import {
   ServiceRegistry$,
   ServiceRevision$,
   ServiceRevisionLoadBalancer$,
+  ServiceRevisionOverrides$,
   ServiceRevisionSummary$,
   ServiceVolumeConfiguration$,
   Session$,
@@ -1113,6 +1115,7 @@ assert(typeof Rollback$ === "object");
 assert(typeof RunTaskRequest$ === "object");
 assert(typeof RunTaskResponse$ === "object");
 assert(typeof RuntimePlatform$ === "object");
+assert(typeof RuntimePlatformOverride$ === "object");
 assert(typeof S3FilesVolumeConfiguration$ === "object");
 assert(typeof Scale$ === "object");
 assert(typeof Secret$ === "object");
@@ -1137,6 +1140,7 @@ assert(typeof ServiceManagedEBSVolumeConfiguration$ === "object");
 assert(typeof ServiceRegistry$ === "object");
 assert(typeof ServiceRevision$ === "object");
 assert(typeof ServiceRevisionLoadBalancer$ === "object");
+assert(typeof ServiceRevisionOverrides$ === "object");
 assert(typeof ServiceRevisionSummary$ === "object");
 assert(typeof ServiceVolumeConfiguration$ === "object");
 assert(typeof Session$ === "object");

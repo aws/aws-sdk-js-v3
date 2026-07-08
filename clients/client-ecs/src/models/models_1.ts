@@ -52,6 +52,30 @@ import type {
 } from "./models_0";
 
 /**
+ * <p>The runtime platform that Amazon ECS applies to a service revision. This value overrides the runtime platform specified in the task definition. You can't set this value.</p>
+ * @public
+ */
+export interface RuntimePlatformOverride {
+  /**
+   * <p>The CPU architecture that tasks in this service revision run on. This value might differ from the architecture declared in the task definition—for example, when Amazon ECS detects an architecture mismatch during an Amazon ECS Express deployment and runs tasks on a different architecture. You can't set this value.</p> <p>Valid values:</p> <ul> <li> <p> <code>X86_64</code> - The x86 64-bit architecture.</p> </li> <li> <p> <code>ARM64</code> - The 64-bit ARM architecture.</p> </li> </ul>
+   * @public
+   */
+  cpuArchitecture?: string | undefined;
+}
+
+/**
+ * <p>Contains the runtime overrides that Amazon ECS automatically applies to a service revision when the effective runtime configuration differs from the task definition. This value is read-only.</p>
+ * @public
+ */
+export interface ServiceRevisionOverrides {
+  /**
+   * <p>The runtime platform override that Amazon ECS automatically applies to the service revision. You can't set this value.</p>
+   * @public
+   */
+  runtimePlatform?: RuntimePlatformOverride | undefined;
+}
+
+/**
  * <p>The resolved load balancer configuration for a service revision. This includes information about which target groups serve traffic and which listener rules direct traffic to them.</p>
  * @public
  */
@@ -205,6 +229,12 @@ export interface ServiceRevision {
    * @public
    */
   ecsManagedResources?: ECSManagedResources | undefined;
+
+  /**
+   * <p>The effective runtime overrides that Amazon ECS applies to this service revision. This value is present only when Amazon ECS detects a difference between the task definition and the actual runtime configuration.</p>
+   * @public
+   */
+  overrides?: ServiceRevisionOverrides | undefined;
 
   /**
    * <p>The optional monitoring configuration for the service, which defines the resolution for the service-level <code>CPUUtilization</code> and <code>MemoryUtilization</code> Amazon CloudWatch metrics. When not specified, Amazon ECS uses the default resolution of <code>60</code> seconds.</p>

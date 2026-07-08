@@ -6075,13 +6075,13 @@ export interface CanaryConfiguration {
  */
 export interface ThresholdConfiguration {
   /**
-   * <p>Determines how <code>value</code> is used to calculate the failure threshold. For the percentage types (<code>BOUNDED_PERCENT</code> and <code>UNBOUNDED_PERCENT</code>), <code>value</code> is multiplied by the latest service desired count; for <code>COUNT</code>, <code>value</code> is used directly. The default is <code>BOUNDED_PERCENT</code>.</p>
+   * <p>Determines how Amazon ECS uses <code>value</code> to calculate the failure threshold. For the percentage types (<code>BOUNDED_PERCENT</code> and <code>UNBOUNDED_PERCENT</code>), Amazon ECS multiplies <code>value</code> by the latest service desired count. For <code>COUNT</code>, Amazon ECS uses <code>value</code> directly as the threshold. The default is <code>BOUNDED_PERCENT</code>.</p>
    * @public
    */
   type: ThresholdType | undefined;
 
   /**
-   * <p>The integer used to calculate the failure threshold. When <code>type</code> is <code>COUNT</code>, this is the failure threshold itself. When <code>type</code> is a percentage type, this is the percentage that Amazon ECS multiplies by the latest service desired count to calculate the failure threshold.</p>
+   * <p>Specifies the integer that Amazon ECS uses to calculate the failure threshold. When <code>type</code> is <code>COUNT</code>, this value is the failure threshold itself. When <code>type</code> is a percentage type, Amazon ECS multiplies this value by the latest service desired count to produce the failure threshold. The default is <code>50</code>.</p>
    * @public
    */
   value: number | undefined;
@@ -6105,13 +6105,13 @@ export interface DeploymentCircuitBreaker {
   rollback: boolean | undefined;
 
   /**
-   * <p>Determines whether the deployment circuit breaker resets its failure count when a task reaches a healthy state. When set to <code>true</code>, a healthy task resets the failure count to <code>0</code>; when <code>false</code>, it doesn't.</p>
+   * <p>Specifies whether the deployment circuit breaker resets its failure count when a task reaches a healthy state. When set to <code>true</code>, a task that reaches a healthy state resets the failure count to <code>0</code>. When set to <code>false</code>, Amazon ECS does not reset the failure count. The default is <code>true</code>.</p>
    * @public
    */
   resetOnHealthyTask?: boolean | undefined;
 
   /**
-   * <p>The threshold configuration that controls when the deployment circuit breaker triggers.</p>
+   * <p>The threshold configuration that controls when the deployment circuit breaker triggers. The <code>type</code> and <code>value</code> together determine how many task failures are tolerated before the circuit breaker activates.</p>
    * @public
    */
   thresholdConfiguration?: ThresholdConfiguration | undefined;
