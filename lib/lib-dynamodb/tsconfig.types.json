@@ -6,7 +6,7 @@
     "paths": {
       "@smithy/core/*": ["../../node_modules/@smithy/core/dist-types/submodules/*/index.d.ts"]
     },
-    "isolatedModules": false
+    "isolatedModules": true
   },
   "extends": "../../tsconfig.types.json",
   "include": ["src/"]
