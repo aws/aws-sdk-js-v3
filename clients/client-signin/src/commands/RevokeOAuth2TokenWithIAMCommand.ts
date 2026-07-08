@@ -1,12 +1,9 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep2, _mw0, command } from "../commandBuilder";
-import type {
-  DeleteResourcePermissionStatementInput,
-  DeleteResourcePermissionStatementOutput,
-} from "../models/models_0";
-import { DeleteResourcePermissionStatement$ } from "../schemas/schemas_0";
+import { _ep1, _mw0, command } from "../commandBuilder";
+import type { RevokeOAuth2TokenWithIAMRequest, RevokeOAuth2TokenWithIAMResponse } from "../models/models_0";
+import { RevokeOAuth2TokenWithIAM$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -15,40 +12,45 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link DeleteResourcePermissionStatementCommand}.
+ * The input for {@link RevokeOAuth2TokenWithIAMCommand}.
  */
-export interface DeleteResourcePermissionStatementCommandInput extends DeleteResourcePermissionStatementInput {}
+export interface RevokeOAuth2TokenWithIAMCommandInput extends RevokeOAuth2TokenWithIAMRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteResourcePermissionStatementCommand}.
+ * The output of {@link RevokeOAuth2TokenWithIAMCommand}.
  */
-export interface DeleteResourcePermissionStatementCommandOutput extends DeleteResourcePermissionStatementOutput, __MetadataBearer {}
+export interface RevokeOAuth2TokenWithIAMCommandOutput extends RevokeOAuth2TokenWithIAMResponse, __MetadataBearer {}
 
 /**
- * Remove a permission statement from the account's SignIn resource-based policy
+ * Grants permission to revoke an OAuth 2.0 refresh token and its associated refresh tokens
+ *
+ * Revokes a refresh_token issued by AWS Sign-In, invalidating the entire token
+ * chain so that the refresh_token can no longer be used to mint new access_tokens.
+ *
+ * Idempotency: revoking an already-revoked, expired, or otherwise invalid token
+ * still returns 200 OK with an empty body. Only the refresh_token type is accepted.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SigninClient, DeleteResourcePermissionStatementCommand } from "@aws-sdk/client-signin"; // ES Modules import
- * // const { SigninClient, DeleteResourcePermissionStatementCommand } = require("@aws-sdk/client-signin"); // CommonJS import
+ * import { SigninClient, RevokeOAuth2TokenWithIAMCommand } from "@aws-sdk/client-signin"; // ES Modules import
+ * // const { SigninClient, RevokeOAuth2TokenWithIAMCommand } = require("@aws-sdk/client-signin"); // CommonJS import
  * // import type { SigninClientConfig } from "@aws-sdk/client-signin";
  * const config = {}; // type is SigninClientConfig
  * const client = new SigninClient(config);
- * const input = { // DeleteResourcePermissionStatementInput
- *   statementId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ * const input = { // RevokeOAuth2TokenWithIAMRequest
+ *   token: "STRING_VALUE", // required
  * };
- * const command = new DeleteResourcePermissionStatementCommand(input);
+ * const command = new RevokeOAuth2TokenWithIAMCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteResourcePermissionStatementCommandInput - {@link DeleteResourcePermissionStatementCommandInput}
- * @returns {@link DeleteResourcePermissionStatementCommandOutput}
- * @see {@link DeleteResourcePermissionStatementCommandInput} for command's `input` shape.
- * @see {@link DeleteResourcePermissionStatementCommandOutput} for command's `response` shape.
+ * @param RevokeOAuth2TokenWithIAMCommandInput - {@link RevokeOAuth2TokenWithIAMCommandInput}
+ * @returns {@link RevokeOAuth2TokenWithIAMCommandOutput}
+ * @see {@link RevokeOAuth2TokenWithIAMCommandInput} for command's `input` shape.
+ * @see {@link RevokeOAuth2TokenWithIAMCommandOutput} for command's `response` shape.
  * @see {@link SigninClientResolvedConfig | config} for SigninClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -67,13 +69,6 @@ export interface DeleteResourcePermissionStatementCommandOutput extends DeleteRe
  * HTTP Status Code: 500 Internal Server Error
  *
  * Used for unexpected server-side errors that prevent request processing.
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  Error thrown when requested resource is not found
- *
- * HTTP Status Code: 404 Not Found
- *
- * Used when the specified resource does not exist
  *
  * @throws {@link TooManyRequestsError} (client fault)
  *  Error thrown when rate limit is exceeded
@@ -103,21 +98,21 @@ export interface DeleteResourcePermissionStatementCommandOutput extends DeleteRe
  *
  * @public
  */
-export class DeleteResourcePermissionStatementCommand extends command<DeleteResourcePermissionStatementCommandInput, DeleteResourcePermissionStatementCommandOutput>(
-  _ep2,
+export class RevokeOAuth2TokenWithIAMCommand extends command<RevokeOAuth2TokenWithIAMCommandInput, RevokeOAuth2TokenWithIAMCommandOutput>(
+  _ep1,
   _mw0,
-  "DeleteResourcePermissionStatement",
-  DeleteResourcePermissionStatement$
+  "RevokeOAuth2TokenWithIAM",
+  RevokeOAuth2TokenWithIAM$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteResourcePermissionStatementInput;
+      input: RevokeOAuth2TokenWithIAMRequest;
       output: {};
     };
     sdk: {
-      input: DeleteResourcePermissionStatementCommandInput;
-      output: DeleteResourcePermissionStatementCommandOutput;
+      input: RevokeOAuth2TokenWithIAMCommandInput;
+      output: RevokeOAuth2TokenWithIAMCommandOutput;
     };
   };
 }

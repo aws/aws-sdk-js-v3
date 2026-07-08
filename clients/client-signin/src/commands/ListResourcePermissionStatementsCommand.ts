@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep1, _mw0, command } from "../commandBuilder";
+import { _ep2, _mw0, command } from "../commandBuilder";
 import type { ListResourcePermissionStatementsInput, ListResourcePermissionStatementsOutput } from "../models/models_0";
 import { ListResourcePermissionStatements$ } from "../schemas/schemas_0";
 
@@ -115,7 +115,7 @@ export interface ListResourcePermissionStatementsCommandOutput extends ListResou
  * @public
  */
 export class ListResourcePermissionStatementsCommand extends command<ListResourcePermissionStatementsCommandInput, ListResourcePermissionStatementsCommandOutput>(
-  _ep1,
+  _ep2,
   _mw0,
   "ListResourcePermissionStatements",
   ListResourcePermissionStatements$

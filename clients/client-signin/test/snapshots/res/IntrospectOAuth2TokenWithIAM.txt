@@ -1,0 +1,102 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "active": false,
+  "client_id": "__clientId__",
+  "user_id": "__userId__",
+  "token_type": "__tokenType__",
+  "exp": 0,
+  "iat": 0,
+  "nbf": 0,
+  "sub": "__sub__",
+  "aud": "__aud__",
+  "iss": "__iss__",
+  "jti": "__jti__",
+  "account_id": "123456789012",
+  "signin_session": "__signinSession__",
+  "resource": "__resource__"
+}
+
+
+--- [output object] ---
+{
+  active: (boolean) false,
+  clientId: "__clientId__",
+  userId: "__userId__",
+  tokenType: "__tokenType__",
+  exp: (number) 0,
+  iat: (number) 0,
+  nbf: (number) 0,
+  sub: "__sub__",
+  aud: "__aud__",
+  iss: "__iss__",
+  jti: "__jti__",
+  accountId: "123456789012",
+  signinSession: "__signinSession__",
+  resource: "__resource__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/json
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "active": false,
+  "client_id": "__clientId__",
+  "user_id": "__userId__",
+  "token_type": "__tokenType__",
+  "exp": 0,
+  "iat": 0,
+  "nbf": 0,
+  "sub": "__sub__",
+  "aud": "__aud__",
+  "iss": "__iss__",
+  "jti": "__jti__",
+  "account_id": "123456789012",
+  "signin_session": "__signinSession__",
+  "resource": "__resource__"
+}
+
+
+--- [output object] ---
+{
+  active: (boolean) false,
+  clientId: "__clientId__",
+  userId: "__userId__",
+  tokenType: "__tokenType__",
+  exp: (number) 0,
+  iat: (number) 0,
+  nbf: (number) 0,
+  sub: "__sub__",
+  aud: "__aud__",
+  iss: "__iss__",
+  jti: "__jti__",
+  accountId: "123456789012",
+  signinSession: "__signinSession__",
+  resource: "__resource__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -189,6 +189,13 @@ CreateOAuth2Token
 </details>
 <details>
 <summary>
+CreateOAuth2TokenWithIAM
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/CreateOAuth2TokenWithIAMCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/CreateOAuth2TokenWithIAMCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/CreateOAuth2TokenWithIAMCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteConsoleAuthorizationConfiguration
 </summary>
 
@@ -217,6 +224,13 @@ GetResourcePolicy
 </details>
 <details>
 <summary>
+IntrospectOAuth2TokenWithIAM
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/IntrospectOAuth2TokenWithIAMCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/IntrospectOAuth2TokenWithIAMCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/IntrospectOAuth2TokenWithIAMCommandOutput/)
+</details>
+<details>
+<summary>
 ListResourcePermissionStatements
 </summary>
 
@@ -235,4 +249,11 @@ PutResourcePermissionStatement
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/PutResourcePermissionStatementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/PutResourcePermissionStatementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/PutResourcePermissionStatementCommandOutput/)
+</details>
+<details>
+<summary>
+RevokeOAuth2TokenWithIAM
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/signin/command/RevokeOAuth2TokenWithIAMCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/RevokeOAuth2TokenWithIAMCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-signin/Interface/RevokeOAuth2TokenWithIAMCommandOutput/)
 </details>

@@ -1,12 +1,9 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep2, _mw0, command } from "../commandBuilder";
-import type {
-  DeleteResourcePermissionStatementInput,
-  DeleteResourcePermissionStatementOutput,
-} from "../models/models_0";
-import { DeleteResourcePermissionStatement$ } from "../schemas/schemas_0";
+import { _ep1, _mw0, command } from "../commandBuilder";
+import type { CreateOAuth2TokenWithIAMRequest, CreateOAuth2TokenWithIAMResponse } from "../models/models_0";
+import { CreateOAuth2TokenWithIAM$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -15,40 +12,45 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link DeleteResourcePermissionStatementCommand}.
+ * The input for {@link CreateOAuth2TokenWithIAMCommand}.
  */
-export interface DeleteResourcePermissionStatementCommandInput extends DeleteResourcePermissionStatementInput {}
+export interface CreateOAuth2TokenWithIAMCommandInput extends CreateOAuth2TokenWithIAMRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteResourcePermissionStatementCommand}.
+ * The output of {@link CreateOAuth2TokenWithIAMCommand}.
  */
-export interface DeleteResourcePermissionStatementCommandOutput extends DeleteResourcePermissionStatementOutput, __MetadataBearer {}
+export interface CreateOAuth2TokenWithIAMCommandOutput extends CreateOAuth2TokenWithIAMResponse, __MetadataBearer {}
 
 /**
- * Remove a permission statement from the account's SignIn resource-based policy
+ * Grants permission to exchange client credentials for an OAuth 2.0 access token
+ * scoped to a resource that can be used to access AWS services from applications
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SigninClient, DeleteResourcePermissionStatementCommand } from "@aws-sdk/client-signin"; // ES Modules import
- * // const { SigninClient, DeleteResourcePermissionStatementCommand } = require("@aws-sdk/client-signin"); // CommonJS import
+ * import { SigninClient, CreateOAuth2TokenWithIAMCommand } from "@aws-sdk/client-signin"; // ES Modules import
+ * // const { SigninClient, CreateOAuth2TokenWithIAMCommand } = require("@aws-sdk/client-signin"); // CommonJS import
  * // import type { SigninClientConfig } from "@aws-sdk/client-signin";
  * const config = {}; // type is SigninClientConfig
  * const client = new SigninClient(config);
- * const input = { // DeleteResourcePermissionStatementInput
- *   statementId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
+ * const input = { // CreateOAuth2TokenWithIAMRequest
+ *   grantType: "STRING_VALUE", // required
+ *   resource: "STRING_VALUE", // required
  * };
- * const command = new DeleteResourcePermissionStatementCommand(input);
+ * const command = new CreateOAuth2TokenWithIAMCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // CreateOAuth2TokenWithIAMResponse
+ * //   accessToken: "STRING_VALUE", // required
+ * //   tokenType: "STRING_VALUE", // required
+ * //   expiresIn: Number("int"), // required
+ * // };
  *
  * ```
  *
- * @param DeleteResourcePermissionStatementCommandInput - {@link DeleteResourcePermissionStatementCommandInput}
- * @returns {@link DeleteResourcePermissionStatementCommandOutput}
- * @see {@link DeleteResourcePermissionStatementCommandInput} for command's `input` shape.
- * @see {@link DeleteResourcePermissionStatementCommandOutput} for command's `response` shape.
+ * @param CreateOAuth2TokenWithIAMCommandInput - {@link CreateOAuth2TokenWithIAMCommandInput}
+ * @returns {@link CreateOAuth2TokenWithIAMCommandOutput}
+ * @see {@link CreateOAuth2TokenWithIAMCommandInput} for command's `input` shape.
+ * @see {@link CreateOAuth2TokenWithIAMCommandOutput} for command's `response` shape.
  * @see {@link SigninClientResolvedConfig | config} for SigninClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -67,13 +69,6 @@ export interface DeleteResourcePermissionStatementCommandOutput extends DeleteRe
  * HTTP Status Code: 500 Internal Server Error
  *
  * Used for unexpected server-side errors that prevent request processing.
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  Error thrown when requested resource is not found
- *
- * HTTP Status Code: 404 Not Found
- *
- * Used when the specified resource does not exist
  *
  * @throws {@link TooManyRequestsError} (client fault)
  *  Error thrown when rate limit is exceeded
@@ -103,21 +98,21 @@ export interface DeleteResourcePermissionStatementCommandOutput extends DeleteRe
  *
  * @public
  */
-export class DeleteResourcePermissionStatementCommand extends command<DeleteResourcePermissionStatementCommandInput, DeleteResourcePermissionStatementCommandOutput>(
-  _ep2,
+export class CreateOAuth2TokenWithIAMCommand extends command<CreateOAuth2TokenWithIAMCommandInput, CreateOAuth2TokenWithIAMCommandOutput>(
+  _ep1,
   _mw0,
-  "DeleteResourcePermissionStatement",
-  DeleteResourcePermissionStatement$
+  "CreateOAuth2TokenWithIAM",
+  CreateOAuth2TokenWithIAM$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteResourcePermissionStatementInput;
-      output: {};
+      input: CreateOAuth2TokenWithIAMRequest;
+      output: CreateOAuth2TokenWithIAMResponse;
     };
     sdk: {
-      input: DeleteResourcePermissionStatementCommandInput;
-      output: DeleteResourcePermissionStatementCommandOutput;
+      input: CreateOAuth2TokenWithIAMCommandInput;
+      output: CreateOAuth2TokenWithIAMCommandOutput;
     };
   };
 }
