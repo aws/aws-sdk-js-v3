@@ -48,6 +48,9 @@ export interface CreatePaymentManagerCommandOutput extends CreatePaymentManagerR
  *       allowedScopes: [ // AllowedScopesType
  *         "STRING_VALUE",
  *       ],
+ *       advertisedScopeMapping: { // AdvertisedScopeMappingType
+ *         "<keys>": "STRING_VALUE",
+ *       },
  *       customClaims: [ // CustomClaimValidationsType
  *         { // CustomClaimValidationType
  *           inboundTokenClaimName: "STRING_VALUE", // required
@@ -141,6 +144,9 @@ export interface CreatePaymentManagerCommandOutput extends CreatePaymentManagerR
  * //       allowedScopes: [ // AllowedScopesType
  * //         "STRING_VALUE",
  * //       ],
+ * //       advertisedScopeMapping: { // AdvertisedScopeMappingType
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //       customClaims: [ // CustomClaimValidationsType
  * //         { // CustomClaimValidationType
  * //           inboundTokenClaimName: "STRING_VALUE", // required

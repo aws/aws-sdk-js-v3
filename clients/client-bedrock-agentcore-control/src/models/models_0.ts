@@ -1413,6 +1413,12 @@ export interface CustomJWTAuthorizerConfiguration {
   allowedScopes?: string[] | undefined;
 
   /**
+   * <p>A map that associates each scope in <code>allowedScopes</code> with a corresponding advertised scope value. The advertised scope appears in OAuth protected resource metadata and <code>WWW-Authenticate</code> response headers. Use this parameter when the scope that clients request from your identity provider differs from the scope in the validated token. Each key is a scope from <code>allowedScopes</code> that the service uses for token validation. Each value is the corresponding scope that the service advertises to clients. Scopes without a mapping entry appear unchanged to clients.</p>
+   * @public
+   */
+  advertisedScopeMapping?: Record<string, string> | undefined;
+
+  /**
    * <p>An array of objects that define a custom claim validation name, value, and operation </p>
    * @public
    */
@@ -7673,7 +7679,7 @@ export interface PassthroughTargetConfiguration {
   endpoint: string | undefined;
 
   /**
-   * The application protocol the passthrough target implements. Required for passthrough targets.
+   * <p>The application protocol that the passthrough target implements. This value is required for passthrough targets:</p> <ul> <li> <p> <code>MCP</code> - The Model Context Protocol.</p> </li> <li> <p> <code>A2A</code> - The Agent-to-Agent protocol.</p> </li> <li> <p> <code>INFERENCE</code> - The protocol for routing requests to a large language model (LLM) provider.</p> </li> <li> <p> <code>CUSTOM</code> - A custom application protocol.</p> </li> </ul>
    * @public
    */
   protocolType: PassthroughProtocolType | undefined;

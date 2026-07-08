@@ -48,6 +48,9 @@ export interface UpdatePaymentManagerCommandOutput extends UpdatePaymentManagerR
  *       allowedScopes: [ // AllowedScopesType
  *         "STRING_VALUE",
  *       ],
+ *       advertisedScopeMapping: { // AdvertisedScopeMappingType
+ *         "<keys>": "STRING_VALUE",
+ *       },
  *       customClaims: [ // CustomClaimValidationsType
  *         { // CustomClaimValidationType
  *           inboundTokenClaimName: "STRING_VALUE", // required
