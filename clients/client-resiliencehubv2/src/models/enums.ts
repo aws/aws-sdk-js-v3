@@ -70,6 +70,18 @@ export type AssessmentErrorCode = (typeof AssessmentErrorCode)[keyof typeof Asse
  * @public
  * @enum
  */
+export const AssessmentSortField = {
+  STARTED_AT: "STARTED_AT",
+} as const;
+/**
+ * @public
+ */
+export type AssessmentSortField = (typeof AssessmentSortField)[keyof typeof AssessmentSortField];
+
+/**
+ * @public
+ * @enum
+ */
 export const AssessmentStatus = {
   FAILED: "FAILED",
   IN_PROGRESS: "IN_PROGRESS",
@@ -87,9 +99,15 @@ export type AssessmentStatus = (typeof AssessmentStatus)[keyof typeof Assessment
  * @enum
  */
 export const AssessmentStep = {
+  DESIGN_ANALYSIS: "DESIGN_ANALYSIS",
+  FAILURE_MODE_FINDINGS_CONSOLIDATION: "FAILURE_MODE_FINDINGS_CONSOLIDATION",
+  FAILURE_MODE_FINDINGS_ENRICHMENT: "FAILURE_MODE_FINDINGS_ENRICHMENT",
+  INPUT_VALIDATION: "INPUT_VALIDATION",
+  POLICY_VALIDATION: "POLICY_VALIDATION",
   RESILIENCE_ASSESSMENT: "RESILIENCE_ASSESSMENT",
   SERVICE_FUNCTION_GENERATION: "SERVICE_FUNCTION_GENERATION",
   TOPOLOGY_ENHANCEMENT: "TOPOLOGY_ENHANCEMENT",
+  TOPOLOGY_GENERATION: "TOPOLOGY_GENERATION",
 } as const;
 /**
  * @public
@@ -402,6 +420,19 @@ export const InputSourceType = {
  * @public
  */
 export type InputSourceType = (typeof InputSourceType)[keyof typeof InputSourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 
 /**
  * @public

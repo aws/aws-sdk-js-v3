@@ -83,6 +83,8 @@ export interface ImportAppCommandOutput extends ImportAppResponse, __MetadataBea
  * //     dependencyDiscovery: { // DependencyDiscoveryConfig
  * //       status: "ENABLED" || "INITIALIZING" || "DISABLED", // required
  * //       updatedAt: new Date("TIMESTAMP"),
+ * //       eligibleResourceCount: Number("int"),
+ * //       message: "STRING_VALUE",
  * //     },
  * //     effectivePolicyValues: { // EffectivePolicyValues
  * //       availabilitySlo: { // SloSource
@@ -130,6 +132,7 @@ export interface ImportAppCommandOutput extends ImportAppResponse, __MetadataBea
  * //       availabilitySlo: "ACHIEVABLE" || "NOT_ACHIEVABLE",
  * //       multiAzRtoRpo: "ACHIEVABLE" || "NOT_ACHIEVABLE",
  * //       multiRegionRtoRpo: "ACHIEVABLE" || "NOT_ACHIEVABLE",
+ * //       dataRecoveryTimeBetweenBackups: "ACHIEVABLE" || "NOT_ACHIEVABLE",
  * //     },
  * //     reportConfiguration: { // ServiceReportConfiguration
  * //       reportOutputs: [ // ReportOutputConfigurationList // required

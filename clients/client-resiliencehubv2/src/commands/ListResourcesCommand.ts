@@ -36,6 +36,10 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  *   serviceArn: "STRING_VALUE", // required
  *   serviceFunctionId: "STRING_VALUE",
  *   awsRegion: "STRING_VALUE",
+ *   resourceTypes: [ // ResourceTypeFilterList
+ *     "STRING_VALUE",
+ *   ],
+ *   billable: true || false,
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };

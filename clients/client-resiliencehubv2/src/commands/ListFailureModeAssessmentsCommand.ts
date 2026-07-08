@@ -34,6 +34,13 @@ export interface ListFailureModeAssessmentsCommandOutput extends ListFailureMode
  * const client = new Resiliencehubv2Client(config);
  * const input = { // ListFailureModeAssessmentsRequest
  *   serviceArn: "STRING_VALUE", // required
+ *   assessmentStatuses: [ // AssessmentStatusList
+ *     "NOT_STARTED" || "PENDING" || "IN_PROGRESS" || "FAILED" || "SUCCESS",
+ *   ],
+ *   startedAfter: new Date("TIMESTAMP"),
+ *   endedBefore: new Date("TIMESTAMP"),
+ *   sortBy: "STARTED_AT",
+ *   sortOrder: "ASC" || "DESC",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };
@@ -45,7 +52,7 @@ export interface ListFailureModeAssessmentsCommandOutput extends ListFailureMode
  * //       assessmentId: "STRING_VALUE", // required
  * //       serviceArn: "STRING_VALUE", // required
  * //       assessmentStatus: "NOT_STARTED" || "PENDING" || "IN_PROGRESS" || "FAILED" || "SUCCESS",
- * //       assessmentStep: "TOPOLOGY_ENHANCEMENT" || "SERVICE_FUNCTION_GENERATION" || "RESILIENCE_ASSESSMENT",
+ * //       assessmentStep: "TOPOLOGY_GENERATION" || "INPUT_VALIDATION" || "DESIGN_ANALYSIS" || "TOPOLOGY_ENHANCEMENT" || "SERVICE_FUNCTION_GENERATION" || "POLICY_VALIDATION" || "RESILIENCE_ASSESSMENT" || "FAILURE_MODE_FINDINGS_CONSOLIDATION" || "FAILURE_MODE_FINDINGS_ENRICHMENT",
  * //       totalFindings: Number("int"),
  * //       startedAt: new Date("TIMESTAMP"),
  * //       endedAt: new Date("TIMESTAMP"),
@@ -60,6 +67,7 @@ export interface ListFailureModeAssessmentsCommandOutput extends ListFailureMode
  * //         availabilitySlo: "ACHIEVABLE" || "NOT_ACHIEVABLE",
  * //         multiAzRtoRpo: "ACHIEVABLE" || "NOT_ACHIEVABLE",
  * //         multiRegionRtoRpo: "ACHIEVABLE" || "NOT_ACHIEVABLE",
+ * //         dataRecoveryTimeBetweenBackups: "ACHIEVABLE" || "NOT_ACHIEVABLE",
  * //       },
  * //     },
  * //   ],

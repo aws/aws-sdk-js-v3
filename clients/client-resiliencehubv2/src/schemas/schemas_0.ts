@@ -291,7 +291,8 @@ const _aSAD = "associatedServicesAtDeletion";
 const _aSC = "associatedServiceCount";
 const _aSs = "assessmentStatus";
 const _aSss = "assessmentStep";
-const _aSsse = "assessmentSummaries";
+const _aSsse = "assessmentStatuses";
+const _aSsses = "assessmentSummaries";
 const _aSsso = "associatedSystems";
 const _aSssoc = "associatedServices";
 const _aU = "assertionUpdated";
@@ -300,6 +301,7 @@ const _act = "actor";
 const _ad = "added";
 const _as = "assertion";
 const _ass = "assertions";
+const _b = "billable";
 const _bAUC = "billableAssessmentUnitCount";
 const _bO = "bucketOwner";
 const _bP = "bucketPath";
@@ -315,6 +317,7 @@ const _co = "comment";
 const _cr = "criticality";
 const _cu = "currency";
 const _d = "description";
+const _dA = "destinationAccount";
 const _dD = "dependencyDiscovery";
 const _dFSU = "designFileS3Url";
 const _dI = "dependencyId";
@@ -325,10 +328,12 @@ const _dR = "dataRecovery";
 const _dRA = "disasterRecoveryApproach";
 const _dRI = "destinationResourceIdentifier";
 const _dRTBB = "dataRecoveryTimeBetweenBackups";
+const _dRe = "destinationRegion";
 const _dS = "dependencySummaries";
 const _e = "error";
 const _eA = "endedAt";
 const _eAC = "estimatedAssessmentCost";
+const _eB = "endedBefore";
 const _eC = "errorCode";
 const _eD = "eventDetails";
 const _eI = "externalId";
@@ -336,6 +341,7 @@ const _eIv = "eventId";
 const _eM = "errorMessage";
 const _eMv = "eventMetadata";
 const _ePV = "effectivePolicyValues";
+const _eRC = "eligibleResourceCount";
 const _eT = "eventTypes";
 const _eTn = "endTime";
 const _eTv = "eventType";
@@ -432,8 +438,11 @@ const _res = "resource";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.resiliencehubv2";
 const _sA = "serviceArn";
 const _sAU = "serviceAchievabilityUpdated";
+const _sAo = "sourceAccount";
 const _sAt = "startedAt";
+const _sAta = "startedAfter";
 const _sAy = "systemArn";
+const _sB = "sortBy";
 const _sC = "suggestedChanges";
 const _sCe = "servicesCount";
 const _sCer = "serviceCreated";
@@ -456,6 +465,7 @@ const _sIy = "systemId";
 const _sMAR = "skipManuallyAddedResources";
 const _sN = "systemName";
 const _sNe = "serviceName";
+const _sO = "sortOrder";
 const _sOK = "s3ObjectKey";
 const _sPA = "servicePolicyAssociated";
 const _sPAy = "systemPolicyAssociated";
@@ -467,6 +477,7 @@ const _sRD = "serviceResourcesDisassociated";
 const _sRI = "sourceResourceIdentifier";
 const _sRO = "s3ReportOutput";
 const _sRe = "serviceResources";
+const _sRo = "sourceRegion";
 const _sS = "serviceSummaries";
 const _sSA = "serviceSystemAssociated";
 const _sSAy = "systemServiceAssociated";
@@ -594,8 +605,8 @@ export const errorTypeRegistries = [
 ]
 export var Achievability$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_aS, _mARR, _mRRR],
-  [0, 0, 0]
+  [_aS, _mARR, _mRRR, _dRTBB],
+  [0, 0, 0, 0]
 ];
 export var Assertion$: StaticStructureSchema = [3, n0, _As,
   0,
@@ -819,8 +830,8 @@ export var DeleteUserJourneyResponse$: StaticStructureSchema = [3, n0, _DUJRe,
 ];
 export var DependencyDiscoveryConfig$: StaticStructureSchema = [3, n0, _DDC,
   0,
-  [_st, _uA],
-  [0, 4], 1
+  [_st, _uA, _eRC, _m],
+  [0, 4, 1, 0], 1
 ];
 export var DependencySummary$: StaticStructureSchema = [3, n0, _DS,
   0,
@@ -974,12 +985,12 @@ export var ListDependenciesResponse$: StaticStructureSchema = [3, n0, _LDRi,
 ];
 export var ListFailureModeAssessmentsRequest$: StaticStructureSchema = [3, n0, _LFMAR,
   0,
-  [_sA, _mRa, _nT],
-  [[0, { [_hQ]: _sA }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 1
+  [_sA, _aSsse, _sAta, _eB, _sB, _sO, _mRa, _nT],
+  [[0, { [_hQ]: _sA }], [64 | 0, { [_hQ]: _aSsse }], [4, { [_hQ]: _sAta }], [4, { [_hQ]: _eB }], [0, { [_hQ]: _sB }], [0, { [_hQ]: _sO }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListFailureModeAssessmentsResponse$: StaticStructureSchema = [3, n0, _LFMARi,
   0,
-  [_aSsse, _nT],
+  [_aSsses, _nT],
   [() => AssessmentSummaryList, 0], 1
 ];
 export var ListFailureModeFindingsRequest$: StaticStructureSchema = [3, n0, _LFMFR,
@@ -1024,8 +1035,8 @@ export var ListReportsResponse$: StaticStructureSchema = [3, n0, _LRRi,
 ];
 export var ListResourcesRequest$: StaticStructureSchema = [3, n0, _LRRis,
   0,
-  [_sA, _sFI, _aR, _mRa, _nT],
-  [[0, { [_hQ]: _sA }], [0, { [_hQ]: _sFI }], [0, { [_hQ]: _aR }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 1
+  [_sA, _sFI, _aR, _rTeso, _b, _mRa, _nT],
+  [[0, { [_hQ]: _sA }], [0, { [_hQ]: _sFI }], [0, { [_hQ]: _aR }], [64 | 0, { [_hQ]: _rTeso }], [2, { [_hQ]: _b }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 1
 ];
 export var ListResourcesResponse$: StaticStructureSchema = [3, n0, _LRRist,
   0,
@@ -1304,8 +1315,8 @@ export var ServiceSystemDisassociatedMetadata$: StaticStructureSchema = [3, n0, 
 ];
 export var ServiceTopologyEdgeSummary$: StaticStructureSchema = [3, n0, _STES,
   0,
-  [_sRI, _dRI, _pro],
-  [0, 0, () => EdgePropertyList], 2
+  [_sRI, _dRI, _sRo, _dRe, _sAo, _dA, _pro],
+  [0, 0, 0, 0, 0, 0, () => EdgePropertyList], 2
 ];
 export var ServiceWorkflowUpdatedMetadata$: StaticStructureSchema = [3, n0, _SWUM,
   0,
@@ -1531,6 +1542,7 @@ var ArnList = 64 | 0;
 var AssertionList: StaticListSchema = [1, n0, _AL,
   0, () => Assertion$
 ];
+var AssessmentStatusList = 64 | 0;
 var AssessmentSummaryList: StaticListSchema = [1, n0, _ASL,
   0, () => AssessmentSummary$
 ];
@@ -1577,6 +1589,7 @@ var ResourceList = 64 | 0;
 var ResourceTagList: StaticListSchema = [1, n0, _RTL,
   0, () => ResourceTag$
 ];
+var ResourceTypeFilterList = 64 | 0;
 var ResourceTypeList = 64 | 0;
 var ServiceEventList: StaticListSchema = [1, n0, _SEL,
   0, () => ServiceEvent$

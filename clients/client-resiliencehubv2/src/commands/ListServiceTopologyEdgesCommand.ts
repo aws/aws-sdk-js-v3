@@ -44,6 +44,10 @@ export interface ListServiceTopologyEdgesCommandOutput extends ListServiceTopolo
  * //     { // ServiceTopologyEdgeSummary
  * //       sourceResourceIdentifier: "STRING_VALUE", // required
  * //       destinationResourceIdentifier: "STRING_VALUE", // required
+ * //       sourceRegion: "STRING_VALUE",
+ * //       destinationRegion: "STRING_VALUE",
+ * //       sourceAccount: "STRING_VALUE",
+ * //       destinationAccount: "STRING_VALUE",
  * //       properties: [ // EdgePropertyList
  * //         { // EdgePropertySummary
  * //           topologyType: "CONTAINMENT" || "DATA_FLOW" || "OBSERVABILITY" || "PERMISSIONS",

@@ -23,7 +23,7 @@ export interface StartFailureModeAssessmentCommandInput extends StartFailureMode
 export interface StartFailureModeAssessmentCommandOutput extends StartFailureModeAssessmentResponse, __MetadataBearer {}
 
 /**
- * <p>Start a failure mode assessment.</p>
+ * <p>Starts a failure mode assessment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

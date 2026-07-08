@@ -11,6 +11,7 @@ import {
   AssertionUpdatedMetadata$,
   AssessmentCost$,
   AssessmentErrorCode,
+  AssessmentSortField,
   AssessmentStatus,
   AssessmentStep,
   AssessmentSummary$,
@@ -283,6 +284,7 @@ import {
   ServiceTopologyEdgeSummary$,
   ServiceWorkflowUpdatedMetadata$,
   SloSource$,
+  SortOrder,
   StartFailureModeAssessment$,
   StartFailureModeAssessmentCommand,
   StartFailureModeAssessmentRequest$,
@@ -669,6 +671,7 @@ assert(typeof AchievabilityStatus === "object");
 assert(typeof ActorType === "object");
 assert(typeof AssertionSource === "object");
 assert(typeof AssessmentErrorCode === "object");
+assert(typeof AssessmentSortField === "object");
 assert(typeof AssessmentStatus === "object");
 assert(typeof AssessmentStep === "object");
 assert(typeof CostCurrency === "object");
@@ -692,6 +695,7 @@ assert(typeof ResourceDiscoveryRunStatus === "object");
 assert(typeof ServiceEventType === "object");
 assert(typeof ServiceFunctionCriticality === "object");
 assert(typeof ServiceFunctionSource === "object");
+assert(typeof SortOrder === "object");
 assert(typeof SystemEventType === "object");
 assert(typeof TopologyType === "object");
 assert(typeof ValidationExceptionReason === "object");
