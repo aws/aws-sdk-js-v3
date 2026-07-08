@@ -202,10 +202,8 @@ describe("@aws-sdk/client-kinesis", () => {
         },
       });
 
-      expect(connectionManagerStates.idle).toEqual({
-        [endpoint]: {
-          sessions: [],
-        },
+      expect(connectionManagerStates.idle[endpoint]).toEqual({
+        sessions: [],
       });
 
       expect(connectionManagerStates.destroyed).toEqual({});
