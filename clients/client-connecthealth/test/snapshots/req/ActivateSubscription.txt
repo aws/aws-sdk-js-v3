@@ -2,7 +2,7 @@ POST https://health-agent.us-east-1.api.aws
 /domains/__domainId__/subscriptions/__subscriptionId__/activate
 
 x-amz-user-agent: aws-sdk-js/3.___._
-user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/connecthealth#_.__ m/E,e
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/connecthealth#_.__ m/E,e
 host: health-agent.us-east-1.api.aws
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
