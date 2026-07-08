@@ -25,8 +25,9 @@ export interface CreateReplaceRootVolumeTaskCommandOutput extends CreateReplaceR
 /**
  * <p>Replaces the EBS-backed root volume for a <code>running</code> instance with a new
  *       volume that is restored to the original root volume's launch state, that is restored to a
- *       specific snapshot taken from the original root volume, or that is restored from an AMI
- *       that has the same key characteristics as that of the instance.</p>
+ *       specific snapshot taken from the original root volume, that is restored from an AMI
+ *       that has the same key characteristics as that of the instance, or that is replaced by
+ *       a specified volume.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -55,6 +56,7 @@ export interface CreateReplaceRootVolumeTaskCommandOutput extends CreateReplaceR
  *   ImageId: "STRING_VALUE",
  *   DeleteReplacedRootVolume: true || false,
  *   VolumeInitializationRate: Number("long"),
+ *   VolumeId: "STRING_VALUE",
  * };
  * const command = new CreateReplaceRootVolumeTaskCommand(input);
  * const response = await client.send(command);

@@ -10979,8 +10979,8 @@ export var CreatePublicIpv4PoolResult$: StaticStructureSchema = [3, n0, _CPIPRr,
 ];
 export var CreateReplaceRootVolumeTaskRequest$: StaticStructureSchema = [3, n0, _CRRVTR,
   0,
-  [_II, _SIn, _CT, _DR, _TS, _IIm, _DRRV, _VIR],
-  [0, 0, [0, 4], 2, [() => TagSpecificationList, { [_xN]: _TSa }], 0, 2, 1], 1
+  [_II, _SIn, _CT, _DR, _TS, _IIm, _DRRV, _VIR, _VIo],
+  [0, 0, [0, 4], 2, [() => TagSpecificationList, { [_xN]: _TSa }], 0, 2, 1, 0], 1
 ];
 export var CreateReplaceRootVolumeTaskResult$: StaticStructureSchema = [3, n0, _CRRVTRr,
   0,

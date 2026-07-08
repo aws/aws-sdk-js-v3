@@ -13523,8 +13523,8 @@ export interface CreateReplaceRootVolumeTaskRequest {
    *       specified snapshot must be a snapshot that you previously created from the original
    *       root volume.</p>
    *          <p>If you want to restore the replacement root volume to the initial launch state,
-   *       or if you want to restore the replacement root volume from an AMI, omit this
-   *       parameter.</p>
+   *       if you want to restore the replacement root volume from an AMI, or if you want to
+   *       replace the root volume with a specified volume, omit this parameter.</p>
    * @public
    */
   SnapshotId?: string | undefined;
@@ -13555,8 +13555,9 @@ export interface CreateReplaceRootVolumeTaskRequest {
    * <p>The ID of the AMI to use to restore the root volume. The specified AMI must have the
    *       same product code, billing information, architecture type, and virtualization type as
    *       that of the instance.</p>
-   *          <p>If you want to restore the replacement volume from a specific snapshot, or if you want
-   *       to restore it to its launch state, omit this parameter.</p>
+   *          <p>If you want to restore the replacement volume from a specific snapshot, if you want
+   *       to restore it to its launch state, or if you want to replace the root volume with a
+   *       specified volume, omit this parameter.</p>
    * @public
    */
   ImageId?: string | undefined;
@@ -13596,6 +13597,17 @@ export interface CreateReplaceRootVolumeTaskRequest {
    * @public
    */
   VolumeInitializationRate?: number | undefined;
+
+  /**
+   * <p>The ID of the volume to use as the replacement root volume. The specified volume must
+   *       be in the same Availability Zone as the instance, must be in the <code>available</code>
+   *       state, and must not be attached to an instance. If the original root volume is encrypted,
+   *       the specified volume must also be encrypted.</p>
+   *          <p>If you want to restore the replacement root volume from a specific snapshot, an AMI,
+   *       or to its launch state, omit this parameter.</p>
+   * @public
+   */
+  VolumeId?: string | undefined;
 }
 
 /**
