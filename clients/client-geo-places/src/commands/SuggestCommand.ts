@@ -54,11 +54,12 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  *     ],
  *   },
  *   AdditionalFeatures: [ // SuggestAdditionalFeatureList
- *     "STRING_VALUE",
+ *     "Core" || "TimeZone" || "Phonemes" || "Access" || "CrossReferences",
  *   ],
  *   Language: "STRING_VALUE",
  *   PoliticalView: "STRING_VALUE",
- *   IntendedUse: "STRING_VALUE",
+ *   IntendedUse: "SingleUse",
+ *   TravelMode: "Car" || "Scooter" || "Truck",
  *   Key: "STRING_VALUE",
  * };
  * const command = new SuggestCommand(input);
@@ -68,10 +69,10 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  * //   ResultItems: [ // SuggestResultItemList
  * //     { // SuggestResultItem
  * //       Title: "STRING_VALUE", // required
- * //       SuggestResultItemType: "STRING_VALUE", // required
+ * //       SuggestResultItemType: "Place" || "Query", // required
  * //       Place: { // SuggestPlaceResult
  * //         PlaceId: "STRING_VALUE",
- * //         PlaceType: "STRING_VALUE",
+ * //         PlaceType: "Country" || "Region" || "SubRegion" || "Locality" || "District" || "SubDistrict" || "PostalCode" || "Block" || "SubBlock" || "Intersection" || "Street" || "PointOfInterest" || "PointAddress" || "InterpolatedAddress" || "SecondaryAddress" || "InferredSecondaryAddress",
  * //         Address: { // Address
  * //           Label: "STRING_VALUE",
  * //           Country: { // Country
@@ -101,7 +102,7 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  * //             { // StreetComponents
  * //               BaseName: "STRING_VALUE",
  * //               Type: "STRING_VALUE",
- * //               TypePlacement: "STRING_VALUE",
+ * //               TypePlacement: "BeforeBaseName" || "AfterBaseName",
  * //               TypeSeparator: "STRING_VALUE",
  * //               Prefix: "STRING_VALUE",
  * //               Suffix: "STRING_VALUE",
@@ -151,6 +152,9 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  * //             Position: [
  * //               Number("double"),
  * //             ],
+ * //             Type: "Delivery" || "Emergency" || "Entrance" || "Loading" || "Other" || "Parking" || "Taxi",
+ * //             Primary: true || false,
+ * //             Label: "STRING_VALUE",
  * //           },
  * //         ],
  * //         AccessRestrictions: [ // AccessRestrictionList
@@ -216,10 +220,27 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  * //             Street: "<PhonemeTranscriptionList>",
  * //           },
  * //         },
+ * //         PlaceAttributes: [ // PlaceAttributeList
+ * //           "DriveThrough",
+ * //         ],
+ * //         CrossReferences: [ // CrossReferenceList
+ * //           { // CrossReference
+ * //             Source: "STRING_VALUE", // required
+ * //             SourcePlaceId: "STRING_VALUE", // required
+ * //             SourceCategories: [
+ * //               {
+ * //                 Id: "STRING_VALUE", // required
+ * //                 Name: "STRING_VALUE", // required
+ * //                 LocalizedName: "STRING_VALUE",
+ * //                 Primary: true || false,
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
  * //       },
  * //       Query: { // SuggestQueryResult
  * //         QueryId: "STRING_VALUE",
- * //         QueryType: "STRING_VALUE",
+ * //         QueryType: "Category" || "BusinessChain",
  * //       },
  * //       Highlights: { // SuggestHighlights
  * //         Title: [ // HighlightList

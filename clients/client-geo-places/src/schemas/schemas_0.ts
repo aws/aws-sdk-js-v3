@@ -9,6 +9,9 @@ const _AH = "AutocompleteHighlights";
 const _AK = "ApiKey";
 const _AN = "AddressNumber";
 const _ANC = "AddressNumberCorrected";
+const _ANL = "AdminNamesList";
+const _ANM = "AddressNamesMode";
+const _ANd = "AdminNames";
 const _AP = "AccessPoint";
 const _APL = "AccessPointList";
 const _APc = "AccessPoints";
@@ -19,6 +22,7 @@ const _ARL = "AccessRestrictionList";
 const _ARc = "AccessRestrictions";
 const _ARu = "AutocompleteRequest";
 const _ARut = "AutocompleteResponse";
+const _AT = "AddressTranslations";
 const _Au = "Autocomplete";
 const _B = "Block";
 const _BB = "BoundingBox";
@@ -38,6 +42,9 @@ const _CDL = "ContactDetailsList";
 const _CH = "CountryHighlights";
 const _CL = "CategoryList";
 const _CMS = "ComponentMatchScores";
+const _CR = "CrossReference";
+const _CRL = "CrossReferenceList";
+const _CRr = "CrossReferences";
 const _Ca = "Category";
 const _Ce = "Center";
 const _Ci = "Circle";
@@ -59,6 +66,7 @@ const _EBC = "ExcludeBusinessChains";
 const _EC = "ExcludeCategories";
 const _EFT = "ExcludeFoodTypes";
 const _EI = "EndIndex";
+const _EPA = "EstimatedPointAddress";
 const _F = "Filter";
 const _FBCL = "FilterBusinessChainList";
 const _FC = "FilterCircle";
@@ -111,10 +119,12 @@ const _MR = "MaxResults";
 const _MS = "MatchScores";
 const _MSD = "MatchScoreDetails";
 const _MV = "MapView";
-const _N = "Name";
+const _N = "Names";
 const _NT = "NextToken";
+const _Na = "Name";
 const _Nu = "Number";
 const _O = "Overall";
+const _OC = "OtherComponents";
 const _OD = "OpenDuration";
 const _OH = "OpeningHours";
 const _OHC = "OpeningHoursComponents";
@@ -128,7 +138,10 @@ const _OT = "OpenTime";
 const _OTr = "OriginalTerm";
 const _Of = "Offset";
 const _P = "Position";
-const _PA = "PostalAuthority";
+const _PA = "PlaceAttribute";
+const _PAL = "PlaceAttributeList";
+const _PAl = "PlaceAttributes";
+const _PAo = "PostalAuthority";
 const _PB = "PricingBucket";
 const _PC = "PostalCode";
 const _PCD = "PostalCodeDetails";
@@ -150,8 +163,9 @@ const _Ph = "Phones";
 const _Pho = "Phonemes";
 const _Pl = "Place";
 const _Pr = "Primary";
-const _Pre = "Preferred";
-const _Pref = "Prefix";
+const _Pre = "Preference";
+const _Pref = "Preferred";
+const _Prefi = "Prefix";
 const _Q = "Query";
 const _QC = "QueryComponents";
 const _QCu = "QueryComponent";
@@ -193,6 +207,7 @@ const _SB = "SensitiveBoolean";
 const _SBu = "SubBlock";
 const _SC = "StreetComponents";
 const _SCL = "StreetComponentsList";
+const _SCo = "SourceCategories";
 const _SD = "SubDistrict";
 const _SF = "SuggestFilter";
 const _SH = "SuggestHighlights";
@@ -203,6 +218,7 @@ const _SNR = "SearchNearbyRequest";
 const _SNRI = "SearchNearbyResultItem";
 const _SNRIL = "SearchNearbyResultItemList";
 const _SNRe = "SearchNearbyResponse";
+const _SPI = "SourcePlaceId";
 const _SPR = "SuggestPlaceResult";
 const _SQR = "SuggestQueryResult";
 const _SR = "SubRegion";
@@ -219,14 +235,21 @@ const _STR = "SearchTextRequest";
 const _STRI = "SearchTextResultItem";
 const _STRIL = "SearchTextResultItemList";
 const _STRe = "SearchTextResponse";
+const _So = "Source";
 const _Su = "Suffix";
 const _Sug = "Suggest";
-const _T = "Title";
+const _T = "Type";
+const _TD = "TranslationDetails";
 const _TE = "ThrottlingException";
+const _TM = "TravelMode";
+const _TN = "TranslationName";
+const _TNL = "TranslationNameList";
 const _TP = "TypePlacement";
 const _TS = "TypeSeparator";
 const _TZ = "TimeZone";
-const _Ty = "Type";
+const _Ti = "Title";
+const _Tr = "Translations";
+const _Tra = "Transliterated";
 const _UZ = "UspsZip";
 const _UZP = "UspsZipPlus4";
 const _V = "Value";
@@ -236,6 +259,7 @@ const _VEFL = "ValidationExceptionFieldList";
 const _W = "Websites";
 const _ZCC = "ZipClassificationCode";
 const _af = "additional-features";
+const _anm = "address-names-mode";
 const _c = "client";
 const _e = "error";
 const _fL = "fieldList";
@@ -321,8 +345,9 @@ var DurationSeconds: StaticSimpleSchema = [0, n0, _DS, 8, 1];
 var GeocodeFilterPlaceType: StaticSimpleSchema = [0, n0, _GFPT, 8, 0];
 var Heading: StaticSimpleSchema = [0, n0, _H, 8, 1];
 var OpeningHoursDisplay: StaticSimpleSchema = [0, n0, _OHD, 8, 0];
+var PlaceAttribute: StaticSimpleSchema = [0, n0, _PA, 8, 0];
 var PlaceType: StaticSimpleSchema = [0, n0, _PT, 8, 0];
-var PostalAuthority: StaticSimpleSchema = [0, n0, _PA, 8, 0];
+var PostalAuthority: StaticSimpleSchema = [0, n0, _PAo, 8, 0];
 var PostalCodeType: StaticSimpleSchema = [0, n0, _PCT, 8, 0];
 var RecordTypeCode: StaticSimpleSchema = [0, n0, _RTC, 8, 0];
 var SensitiveBoolean: StaticSimpleSchema = [0, n0, _SB, 8, 2];
@@ -330,8 +355,8 @@ var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 var ZipClassificationCode: StaticSimpleSchema = [0, n0, _ZCC, 8, 0];
 export var AccessPoint$: StaticStructureSchema = [3, n0, _AP,
   0,
-  [_P],
-  [[() => Position, 0]]
+  [_P, _T, _Pr, _L],
+  [[() => Position, 0], 0, [() => SensitiveBoolean, 0], [() => SensitiveString, 0]]
 ];
 export var AccessRestriction$: StaticStructureSchema = [3, n0, _AR,
   0,
@@ -353,6 +378,11 @@ export var AddressComponentPhonemes$: StaticStructureSchema = [3, n0, _ACP,
   [_Co, _Reg, _SR, _Lo, _D, _SD, _B, _SBu, _S],
   [[() => PhonemeTranscriptionList, 0], [() => PhonemeTranscriptionList, 0], [() => PhonemeTranscriptionList, 0], [() => PhonemeTranscriptionList, 0], [() => PhonemeTranscriptionList, 0], [() => PhonemeTranscriptionList, 0], [() => PhonemeTranscriptionList, 0], [() => PhonemeTranscriptionList, 0], [() => PhonemeTranscriptionList, 0]]
 ];
+export var AdminNames$: StaticStructureSchema = [3, n0, _ANd,
+  0,
+  [_N, _Pre],
+  [[() => TranslationNameList, 0], 0], 1
+];
 export var AutocompleteAddressHighlights$: StaticStructureSchema = [3, n0, _AAH,
   0,
   [_L, _Co, _Reg, _SR, _Lo, _D, _SD, _S, _B, _SBu, _I, _PC, _AN, _Bu],
@@ -365,7 +395,7 @@ export var AutocompleteFilter$: StaticStructureSchema = [3, n0, _AF,
 ];
 export var AutocompleteHighlights$: StaticStructureSchema = [3, n0, _AH,
   0,
-  [_T, _A],
+  [_Ti, _A],
   [[() => HighlightList, 0], [() => AutocompleteAddressHighlights$, 0]]
 ];
 export var AutocompleteRequest$: StaticStructureSchema = [3, n0, _ARu,
@@ -380,22 +410,22 @@ export var AutocompleteResponse$: StaticStructureSchema = [3, n0, _ARut,
 ];
 export var AutocompleteResultItem$: StaticStructureSchema = [3, n0, _ARI,
   0,
-  [_PI, _PT, _T, _A, _Di, _La, _PV, _Hi],
-  [[() => SensitiveString, 0], [() => PlaceType, 0], [() => SensitiveString, 0], [() => Address$, 0], [() => DistanceMeters, 0], 0, [() => CountryCode3, 0], [() => AutocompleteHighlights$, 0]], 3
+  [_PI, _PT, _Ti, _A, _Di, _La, _PV, _Hi, _EPA],
+  [[() => SensitiveString, 0], [() => PlaceType, 0], [() => SensitiveString, 0], [() => Address$, 0], [() => DistanceMeters, 0], 0, [() => CountryCode3, 0], [() => AutocompleteHighlights$, 0], [() => SensitiveBoolean, 0]], 3
 ];
 export var BusinessChain$: StaticStructureSchema = [3, n0, _BC,
   0,
-  [_N, _Id],
+  [_Na, _Id],
   [[() => SensitiveString, 0], [() => SensitiveString, 0]]
 ];
 export var Category$: StaticStructureSchema = [3, n0, _Ca,
   0,
-  [_Id, _N, _LN, _Pr],
+  [_Id, _Na, _LN, _Pr],
   [[() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveBoolean, 0]], 2
 ];
 export var ComponentMatchScores$: StaticStructureSchema = [3, n0, _CMS,
   0,
-  [_T, _A],
+  [_Ti, _A],
   [1, () => AddressComponentMatchScores$]
 ];
 export var ContactDetails$: StaticStructureSchema = [3, n0, _CD,
@@ -410,13 +440,18 @@ export var Contacts$: StaticStructureSchema = [3, n0, _Con,
 ];
 export var Country$: StaticStructureSchema = [3, n0, _Co,
   0,
-  [_Cod, _Code, _N],
+  [_Cod, _Code, _Na],
   [[() => CountryCode2, 0], [() => CountryCode3, 0], [() => SensitiveString, 0]]
 ];
 export var CountryHighlights$: StaticStructureSchema = [3, n0, _CH,
   0,
-  [_Code_, _N],
+  [_Code_, _Na],
   [[() => HighlightList, 0], [() => HighlightList, 0]]
+];
+export var CrossReference$: StaticStructureSchema = [3, n0, _CR,
+  0,
+  [_So, _SPI, _SCo],
+  [[() => SensitiveString, 0], [() => SensitiveString, 0], [() => CategoryList, 0]], 2
 ];
 export var FilterCircle$: StaticStructureSchema = [3, n0, _FC,
   8,
@@ -435,13 +470,13 @@ export var GeocodeFilter$: StaticStructureSchema = [3, n0, _GF,
 ];
 export var GeocodeParsedQuery$: StaticStructureSchema = [3, n0, _GPQ,
   0,
-  [_T, _A],
+  [_Ti, _A],
   [[() => ParsedQueryComponentList, 0], [() => GeocodeParsedQueryAddressComponents$, 0]]
 ];
 export var GeocodeParsedQueryAddressComponents$: StaticStructureSchema = [3, n0, _GPQAC,
   0,
-  [_Co, _Reg, _SR, _Lo, _D, _SD, _PC, _B, _SBu, _S, _AN, _Bu, _SAC],
-  [[() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQuerySecondaryAddressComponentList, 0]]
+  [_Co, _Reg, _SR, _Lo, _D, _SD, _PC, _B, _SBu, _S, _AN, _Bu, _SAC, _OC],
+  [[() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQueryComponentList, 0], [() => ParsedQuerySecondaryAddressComponentList, 0], [() => ParsedQueryComponentList, 0]]
 ];
 export var GeocodeQueryComponents$: StaticStructureSchema = [3, n0, _GQC,
   0,
@@ -450,8 +485,8 @@ export var GeocodeQueryComponents$: StaticStructureSchema = [3, n0, _GQC,
 ];
 export var GeocodeRequest$: StaticStructureSchema = [3, n0, _GR,
   0,
-  [_QT, _QC, _MR, _BP, _F, _AFd, _La, _PV, _IU, _K],
-  [[() => SensitiveString, 0], [() => GeocodeQueryComponents$, 0], 1, [() => Position, 0], [() => GeocodeFilter$, 0], 64 | 0, 0, [() => CountryCode, 0], 0, [() => ApiKey, { [_hQ]: _k }]]
+  [_QT, _QC, _MR, _BP, _F, _AFd, _La, _PV, _IU, _K, _PCM, _AT, _ANM],
+  [[() => SensitiveString, 0], [() => GeocodeQueryComponents$, 0], 1, [() => Position, 0], [() => GeocodeFilter$, 0], 64 | 0, 0, [() => CountryCode, 0], 0, [() => ApiKey, { [_hQ]: _k }], 0, 64 | 0, 0]
 ];
 export var GeocodeResponse$: StaticStructureSchema = [3, n0, _GRe,
   0,
@@ -460,18 +495,18 @@ export var GeocodeResponse$: StaticStructureSchema = [3, n0, _GRe,
 ];
 export var GeocodeResultItem$: StaticStructureSchema = [3, n0, _GRI,
   0,
-  [_PI, _PT, _T, _A, _ANC, _PCD, _P, _Di, _MV, _C, _FTo, _APc, _TZ, _PV, _MS, _PQ, _In, _MA, _SA],
-  [[() => SensitiveString, 0], [() => PlaceType, 0], [() => SensitiveString, 0], [() => Address$, 0], [() => SensitiveBoolean, 0], [() => PostalCodeDetailsList, 0], [() => Position, 0], [() => DistanceMeters, 0], [() => BoundingBox, 0], [() => CategoryList, 0], [() => FoodTypeList, 0], [() => AccessPointList, 0], [() => TimeZone$, 0], [() => CountryCode3, 0], () => MatchScoreDetails$, [() => GeocodeParsedQuery$, 0], [() => IntersectionList, 0], [() => RelatedPlace$, 0], [() => RelatedPlaceList, 0]], 3
+  [_PI, _PT, _Ti, _A, _ANC, _PCD, _P, _Di, _MV, _C, _FTo, _APc, _TZ, _PV, _MS, _PQ, _In, _MA, _SA, _Tr, _EPA],
+  [[() => SensitiveString, 0], [() => PlaceType, 0], [() => SensitiveString, 0], [() => Address$, 0], [() => SensitiveBoolean, 0], [() => PostalCodeDetailsList, 0], [() => Position, 0], [() => DistanceMeters, 0], [() => BoundingBox, 0], [() => CategoryList, 0], [() => FoodTypeList, 0], [() => AccessPointList, 0], [() => TimeZone$, 0], [() => CountryCode3, 0], () => MatchScoreDetails$, [() => GeocodeParsedQuery$, 0], [() => IntersectionList, 0], [() => RelatedPlace$, 0], [() => RelatedPlaceList, 0], [() => TranslationDetails$, 0], [() => SensitiveBoolean, 0]], 3
 ];
 export var GetPlaceRequest$: StaticStructureSchema = [3, n0, _GPR,
   0,
-  [_PI, _AFd, _La, _PV, _IU, _K],
-  [[() => SensitiveString, 1], [64 | 0, { [_hQ]: _af }], [0, { [_hQ]: _l }], [() => CountryCode, { [_hQ]: _pv }], [0, { [_hQ]: _iu }], [() => ApiKey, { [_hQ]: _k }]], 1
+  [_PI, _AFd, _La, _PV, _IU, _K, _ANM],
+  [[() => SensitiveString, 1], [64 | 0, { [_hQ]: _af }], [0, { [_hQ]: _l }], [() => CountryCode, { [_hQ]: _pv }], [0, { [_hQ]: _iu }], [() => ApiKey, { [_hQ]: _k }], [0, { [_hQ]: _anm }]], 1
 ];
 export var GetPlaceResponse$: StaticStructureSchema = [3, n0, _GPRe,
   0,
-  [_PI, _PT, _T, _PB, _A, _ANC, _PCD, _P, _MV, _C, _FTo, _BCu, _Con, _OH, _APc, _ARc, _TZ, _PV, _Pho, _MA, _SA],
-  [[() => SensitiveString, 0], [() => PlaceType, 0], [() => SensitiveString, 0], [0, { [_hH]: _xagpb }], [() => Address$, 0], [() => SensitiveBoolean, 0], [() => PostalCodeDetailsList, 0], [() => Position, 0], [() => BoundingBox, 0], [() => CategoryList, 0], [() => FoodTypeList, 0], [() => BusinessChainList, 0], [() => Contacts$, 0], [() => OpeningHoursList, 0], [() => AccessPointList, 0], [() => AccessRestrictionList, 0], [() => TimeZone$, 0], [() => CountryCode3, 0], [() => PhonemeDetails$, 0], [() => RelatedPlace$, 0], [() => RelatedPlaceList, 0]], 4
+  [_PI, _PT, _Ti, _PB, _A, _ANC, _PCD, _P, _MV, _C, _FTo, _BCu, _Con, _OH, _APc, _ARc, _TZ, _PV, _Pho, _MA, _SA, _PAl, _EPA, _CRr],
+  [[() => SensitiveString, 0], [() => PlaceType, 0], [() => SensitiveString, 0], [0, { [_hH]: _xagpb }], [() => Address$, 0], [() => SensitiveBoolean, 0], [() => PostalCodeDetailsList, 0], [() => Position, 0], [() => BoundingBox, 0], [() => CategoryList, 0], [() => FoodTypeList, 0], [() => BusinessChainList, 0], [() => Contacts$, 0], [() => OpeningHoursList, 0], [() => AccessPointList, 0], [() => AccessRestrictionList, 0], [() => TimeZone$, 0], [() => CountryCode3, 0], [() => PhonemeDetails$, 0], [() => RelatedPlace$, 0], [() => RelatedPlaceList, 0], [() => PlaceAttributeList, 0], [() => SensitiveBoolean, 0], [() => CrossReferenceList, 0]], 4
 ];
 export var Highlight$: StaticStructureSchema = [3, n0, _Hig,
   0,
@@ -480,7 +515,7 @@ export var Highlight$: StaticStructureSchema = [3, n0, _Hig,
 ];
 export var Intersection$: StaticStructureSchema = [3, n0, _I,
   0,
-  [_PI, _T, _A, _P, _Di, _RD, _MV, _APc],
+  [_PI, _Ti, _A, _P, _Di, _RD, _MV, _APc],
   [[() => SensitiveString, 0], [() => SensitiveString, 0], [() => Address$, 0], [() => Position, 0], [() => DistanceMeters, 0], [() => DistanceMeters, 0], [() => BoundingBox, 0], [() => AccessPointList, 0]], 2
 ];
 export var MatchScoreDetails$: StaticStructureSchema = [3, n0, _MSD,
@@ -510,17 +545,17 @@ export var ParsedQuerySecondaryAddressComponent$: StaticStructureSchema = [3, n0
 ];
 export var PhonemeDetails$: StaticStructureSchema = [3, n0, _PD,
   0,
-  [_T, _A],
+  [_Ti, _A],
   [[() => PhonemeTranscriptionList, 0], [() => AddressComponentPhonemes$, 0]]
 ];
 export var PhonemeTranscription$: StaticStructureSchema = [3, n0, _PTh,
   0,
-  [_V, _La, _Pre],
+  [_V, _La, _Pref],
   [[() => SensitiveString, 0], 0, [() => SensitiveBoolean, 0]]
 ];
 export var PostalCodeDetails$: StaticStructureSchema = [3, n0, _PCD,
   0,
-  [_PC, _PA, _PCT, _UZ, _UZP],
+  [_PC, _PAo, _PCT, _UZ, _UZP],
   [[() => SensitiveString, 0], [() => PostalAuthority, 0], [() => PostalCodeType, 0], [() => UspsZip$, 0], [() => UspsZipPlus4$, 0]]
 ];
 export var QueryRefinement$: StaticStructureSchema = [3, n0, _QR,
@@ -530,17 +565,17 @@ export var QueryRefinement$: StaticStructureSchema = [3, n0, _QR,
 ];
 export var Region$: StaticStructureSchema = [3, n0, _Reg,
   0,
-  [_Code_, _N],
+  [_Code_, _Na],
   [[() => SensitiveString, 0], [() => SensitiveString, 0]]
 ];
 export var RegionHighlights$: StaticStructureSchema = [3, n0, _RH,
   0,
-  [_Code_, _N],
+  [_Code_, _Na],
   [[() => HighlightList, 0], [() => HighlightList, 0]]
 ];
 export var RelatedPlace$: StaticStructureSchema = [3, n0, _RP,
   0,
-  [_PI, _PT, _T, _A, _P, _APc],
+  [_PI, _PT, _Ti, _A, _P, _APc],
   [[() => SensitiveString, 0], [() => PlaceType, 0], [() => SensitiveString, 0], [() => Address$, 0], [() => Position, 0], [() => AccessPointList, 0]], 3
 ];
 export var ReverseGeocodeFilter$: StaticStructureSchema = [3, n0, _RGF,
@@ -550,8 +585,8 @@ export var ReverseGeocodeFilter$: StaticStructureSchema = [3, n0, _RGF,
 ];
 export var ReverseGeocodeRequest$: StaticStructureSchema = [3, n0, _RGR,
   0,
-  [_QP, _QRu, _MR, _F, _AFd, _La, _PV, _IU, _K, _H],
-  [[() => Position, 0], [() => DistanceMeters, 0], 1, () => ReverseGeocodeFilter$, 64 | 0, 0, [() => CountryCode, 0], 0, [() => ApiKey, { [_hQ]: _k }], [() => Heading, 0]], 1
+  [_QP, _QRu, _MR, _F, _AFd, _La, _PV, _IU, _K, _H, _ANM],
+  [[() => Position, 0], [() => DistanceMeters, 0], 1, () => ReverseGeocodeFilter$, 64 | 0, 0, [() => CountryCode, 0], 0, [() => ApiKey, { [_hQ]: _k }], [() => Heading, 0], 0], 1
 ];
 export var ReverseGeocodeResponse$: StaticStructureSchema = [3, n0, _RGRe,
   0,
@@ -560,8 +595,8 @@ export var ReverseGeocodeResponse$: StaticStructureSchema = [3, n0, _RGRe,
 ];
 export var ReverseGeocodeResultItem$: StaticStructureSchema = [3, n0, _RGRI,
   0,
-  [_PI, _PT, _T, _A, _ANC, _PCD, _P, _Di, _MV, _C, _FTo, _APc, _TZ, _PV, _In],
-  [[() => SensitiveString, 0], [() => PlaceType, 0], [() => SensitiveString, 0], [() => Address$, 0], [() => SensitiveBoolean, 0], [() => PostalCodeDetailsList, 0], [() => Position, 0], [() => DistanceMeters, 0], [() => BoundingBox, 0], [() => CategoryList, 0], [() => FoodTypeList, 0], [() => AccessPointList, 0], [() => TimeZone$, 0], [() => CountryCode3, 0], [() => IntersectionList, 0]], 3
+  [_PI, _PT, _Ti, _A, _ANC, _PCD, _P, _Di, _MV, _C, _FTo, _APc, _TZ, _PV, _In, _MA, _EPA],
+  [[() => SensitiveString, 0], [() => PlaceType, 0], [() => SensitiveString, 0], [() => Address$, 0], [() => SensitiveBoolean, 0], [() => PostalCodeDetailsList, 0], [() => Position, 0], [() => DistanceMeters, 0], [() => BoundingBox, 0], [() => CategoryList, 0], [() => FoodTypeList, 0], [() => AccessPointList, 0], [() => TimeZone$, 0], [() => CountryCode3, 0], [() => IntersectionList, 0], [() => RelatedPlace$, 0], [() => SensitiveBoolean, 0]], 3
 ];
 export var SearchNearbyFilter$: StaticStructureSchema = [3, n0, _SNF,
   0,
@@ -580,8 +615,8 @@ export var SearchNearbyResponse$: StaticStructureSchema = [3, n0, _SNRe,
 ];
 export var SearchNearbyResultItem$: StaticStructureSchema = [3, n0, _SNRI,
   0,
-  [_PI, _PT, _T, _A, _ANC, _P, _Di, _MV, _C, _FTo, _BCu, _Con, _OH, _APc, _ARc, _TZ, _PV, _Pho],
-  [[() => SensitiveString, 0], [() => PlaceType, 0], [() => SensitiveString, 0], [() => Address$, 0], [() => SensitiveBoolean, 0], [() => Position, 0], [() => DistanceMeters, 0], [() => BoundingBox, 0], [() => CategoryList, 0], [() => FoodTypeList, 0], [() => BusinessChainList, 0], [() => Contacts$, 0], [() => OpeningHoursList, 0], [() => AccessPointList, 0], [() => AccessRestrictionList, 0], [() => TimeZone$, 0], [() => CountryCode3, 0], [() => PhonemeDetails$, 0]], 3
+  [_PI, _PT, _Ti, _A, _ANC, _P, _Di, _MV, _C, _FTo, _BCu, _Con, _OH, _APc, _ARc, _TZ, _PV, _Pho, _PAl, _CRr],
+  [[() => SensitiveString, 0], [() => PlaceType, 0], [() => SensitiveString, 0], [() => Address$, 0], [() => SensitiveBoolean, 0], [() => Position, 0], [() => DistanceMeters, 0], [() => BoundingBox, 0], [() => CategoryList, 0], [() => FoodTypeList, 0], [() => BusinessChainList, 0], [() => Contacts$, 0], [() => OpeningHoursList, 0], [() => AccessPointList, 0], [() => AccessRestrictionList, 0], [() => TimeZone$, 0], [() => CountryCode3, 0], [() => PhonemeDetails$, 0], [() => PlaceAttributeList, 0], [() => CrossReferenceList, 0]], 3
 ];
 export var SearchTextFilter$: StaticStructureSchema = [3, n0, _STF,
   0,
@@ -590,8 +625,8 @@ export var SearchTextFilter$: StaticStructureSchema = [3, n0, _STF,
 ];
 export var SearchTextRequest$: StaticStructureSchema = [3, n0, _STR,
   0,
-  [_QT, _QI, _MR, _BP, _F, _AFd, _La, _PV, _IU, _NT, _K],
-  [[() => SensitiveString, 0], [() => SensitiveString, 0], 1, [() => Position, 0], [() => SearchTextFilter$, 0], 64 | 0, 0, [() => CountryCode, 0], 0, 0, [() => ApiKey, { [_hQ]: _k }]]
+  [_QT, _QI, _MR, _BP, _F, _AFd, _La, _PV, _IU, _NT, _TM, _K],
+  [[() => SensitiveString, 0], [() => SensitiveString, 0], 1, [() => Position, 0], [() => SearchTextFilter$, 0], 64 | 0, 0, [() => CountryCode, 0], 0, 0, 0, [() => ApiKey, { [_hQ]: _k }]]
 ];
 export var SearchTextResponse$: StaticStructureSchema = [3, n0, _STRe,
   0,
@@ -600,8 +635,8 @@ export var SearchTextResponse$: StaticStructureSchema = [3, n0, _STRe,
 ];
 export var SearchTextResultItem$: StaticStructureSchema = [3, n0, _STRI,
   0,
-  [_PI, _PT, _T, _A, _ANC, _P, _Di, _MV, _C, _FTo, _BCu, _Con, _OH, _APc, _ARc, _TZ, _PV, _Pho],
-  [[() => SensitiveString, 0], [() => PlaceType, 0], [() => SensitiveString, 0], [() => Address$, 0], [() => SensitiveBoolean, 0], [() => Position, 0], [() => DistanceMeters, 0], [() => BoundingBox, 0], [() => CategoryList, 0], [() => FoodTypeList, 0], [() => BusinessChainList, 0], [() => Contacts$, 0], [() => OpeningHoursList, 0], [() => AccessPointList, 0], [() => AccessRestrictionList, 0], [() => TimeZone$, 0], [() => CountryCode3, 0], [() => PhonemeDetails$, 0]], 3
+  [_PI, _PT, _Ti, _A, _ANC, _P, _Di, _MV, _C, _FTo, _BCu, _Con, _OH, _APc, _ARc, _TZ, _PV, _Pho, _PAl, _CRr],
+  [[() => SensitiveString, 0], [() => PlaceType, 0], [() => SensitiveString, 0], [() => Address$, 0], [() => SensitiveBoolean, 0], [() => Position, 0], [() => DistanceMeters, 0], [() => BoundingBox, 0], [() => CategoryList, 0], [() => FoodTypeList, 0], [() => BusinessChainList, 0], [() => Contacts$, 0], [() => OpeningHoursList, 0], [() => AccessPointList, 0], [() => AccessRestrictionList, 0], [() => TimeZone$, 0], [() => CountryCode3, 0], [() => PhonemeDetails$, 0], [() => PlaceAttributeList, 0], [() => CrossReferenceList, 0]], 3
 ];
 export var SecondaryAddressComponent$: StaticStructureSchema = [3, n0, _SACe,
   0,
@@ -615,17 +650,17 @@ export var SecondaryAddressComponentMatchScore$: StaticStructureSchema = [3, n0,
 ];
 export var StreetComponents$: StaticStructureSchema = [3, n0, _SC,
   0,
-  [_BN, _Ty, _TP, _TS, _Pref, _Su, _Dir, _La],
+  [_BN, _T, _TP, _TS, _Prefi, _Su, _Dir, _La],
   [[() => SensitiveString, 0], [() => SensitiveString, 0], 0, 0, [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 0]
 ];
 export var SubRegion$: StaticStructureSchema = [3, n0, _SR,
   0,
-  [_Code_, _N],
+  [_Code_, _Na],
   [[() => SensitiveString, 0], [() => SensitiveString, 0]]
 ];
 export var SubRegionHighlights$: StaticStructureSchema = [3, n0, _SRH,
   0,
-  [_Code_, _N],
+  [_Code_, _Na],
   [[() => HighlightList, 0], [() => HighlightList, 0]]
 ];
 export var SuggestAddressHighlights$: StaticStructureSchema = [3, n0, _SAH,
@@ -640,13 +675,13 @@ export var SuggestFilter$: StaticStructureSchema = [3, n0, _SF,
 ];
 export var SuggestHighlights$: StaticStructureSchema = [3, n0, _SH,
   0,
-  [_T, _A],
+  [_Ti, _A],
   [[() => HighlightList, 0], [() => SuggestAddressHighlights$, 0]]
 ];
 export var SuggestPlaceResult$: StaticStructureSchema = [3, n0, _SPR,
   0,
-  [_PI, _PT, _A, _P, _Di, _MV, _C, _FTo, _BCu, _APc, _ARc, _TZ, _PV, _Pho],
-  [[() => SensitiveString, 0], [() => PlaceType, 0], [() => Address$, 0], [() => Position, 0], [() => DistanceMeters, 0], [() => BoundingBox, 0], [() => CategoryList, 0], [() => FoodTypeList, 0], [() => BusinessChainList, 0], [() => AccessPointList, 0], [() => AccessRestrictionList, 0], [() => TimeZone$, 0], [() => CountryCode3, 0], [() => PhonemeDetails$, 0]]
+  [_PI, _PT, _A, _P, _Di, _MV, _C, _FTo, _BCu, _APc, _ARc, _TZ, _PV, _Pho, _PAl, _CRr],
+  [[() => SensitiveString, 0], [() => PlaceType, 0], [() => Address$, 0], [() => Position, 0], [() => DistanceMeters, 0], [() => BoundingBox, 0], [() => CategoryList, 0], [() => FoodTypeList, 0], [() => BusinessChainList, 0], [() => AccessPointList, 0], [() => AccessRestrictionList, 0], [() => TimeZone$, 0], [() => CountryCode3, 0], [() => PhonemeDetails$, 0], [() => PlaceAttributeList, 0], [() => CrossReferenceList, 0]]
 ];
 export var SuggestQueryResult$: StaticStructureSchema = [3, n0, _SQR,
   0,
@@ -655,8 +690,8 @@ export var SuggestQueryResult$: StaticStructureSchema = [3, n0, _SQR,
 ];
 export var SuggestRequest$: StaticStructureSchema = [3, n0, _SRu,
   0,
-  [_QT, _MR, _MQR, _BP, _F, _AFd, _La, _PV, _IU, _K],
-  [[() => SensitiveString, 0], 1, 1, [() => Position, 0], [() => SuggestFilter$, 0], 64 | 0, 0, [() => CountryCode, 0], 0, [() => ApiKey, { [_hQ]: _k }]], 1
+  [_QT, _MR, _MQR, _BP, _F, _AFd, _La, _PV, _IU, _TM, _K],
+  [[() => SensitiveString, 0], 1, 1, [() => Position, 0], [() => SuggestFilter$, 0], 64 | 0, 0, [() => CountryCode, 0], 0, 0, [() => ApiKey, { [_hQ]: _k }]], 1
 ];
 export var SuggestResponse$: StaticStructureSchema = [3, n0, _SRug,
   0,
@@ -665,13 +700,23 @@ export var SuggestResponse$: StaticStructureSchema = [3, n0, _SRug,
 ];
 export var SuggestResultItem$: StaticStructureSchema = [3, n0, _SRI,
   0,
-  [_T, _SRIT, _Pl, _Q, _Hi],
+  [_Ti, _SRIT, _Pl, _Q, _Hi],
   [[() => SensitiveString, 0], 0, [() => SuggestPlaceResult$, 0], [() => SuggestQueryResult$, 0], [() => SuggestHighlights$, 0]], 2
 ];
 export var TimeZone$: StaticStructureSchema = [3, n0, _TZ,
   0,
-  [_N, _Of, _OS],
+  [_Na, _Of, _OS],
   [[() => SensitiveString, 0], [() => SensitiveString, 0], [() => DurationSeconds, 0]], 1
+];
+export var TranslationDetails$: StaticStructureSchema = [3, n0, _TD,
+  0,
+  [_Lo, _Reg, _D, _SR],
+  [[() => AdminNamesList, 0], [() => AdminNamesList, 0], [() => AdminNamesList, 0], [() => AdminNamesList, 0]]
+];
+export var TranslationName$: StaticStructureSchema = [3, n0, _TN,
+  0,
+  [_V, _T, _La, _Pr, _Tra],
+  [[() => SensitiveString, 0], 0, 0, [() => SensitiveBoolean, 0], [() => SensitiveBoolean, 0]], 2
 ];
 export var UspsZip$: StaticStructureSchema = [3, n0, _UZ,
   0,
@@ -685,7 +730,7 @@ export var UspsZipPlus4$: StaticStructureSchema = [3, n0, _UZP,
 ];
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
-  [_N, _M],
+  [_Na, _M],
   [[0, { [_jN]: _n }], [0, { [_jN]: _m }]], 2
 ];
 var AccessPointList: StaticListSchema = [1, n0, _APL,
@@ -694,6 +739,11 @@ var AccessPointList: StaticListSchema = [1, n0, _APL,
 ];
 var AccessRestrictionList: StaticListSchema = [1, n0, _ARL,
   0, [() => AccessRestriction$,
+    0]
+];
+var AddressTranslationComponentList = 64 | 0;
+var AdminNamesList: StaticListSchema = [1, n0, _ANL,
+  0, [() => AdminNames$,
     0]
 ];
 var AutocompleteAdditionalFeatureList = 64 | 0;
@@ -719,6 +769,10 @@ var ContactDetailsList: StaticListSchema = [1, n0, _CDL,
 ];
 var CountryCodeList: StaticListSchema = [1, n0, _CCL,
   0, [() => CountryCode,
+    0]
+];
+var CrossReferenceList: StaticListSchema = [1, n0, _CRL,
+  0, [() => CrossReference$,
     0]
 ];
 var FilterBusinessChainList: StaticListSchema = [1, n0, _FBCL,
@@ -785,6 +839,10 @@ var PhonemeTranscriptionList: StaticListSchema = [1, n0, _PTL,
   0, [() => PhonemeTranscription$,
     0]
 ];
+var PlaceAttributeList: StaticListSchema = [1, n0, _PAL,
+  0, [() => PlaceAttribute,
+    0]
+];
 var Position: StaticListSchema = [1, n0, _P,
   8, 1
 ];
@@ -830,6 +888,10 @@ var StreetComponentsList: StaticListSchema = [1, n0, _SCL,
 var SuggestAdditionalFeatureList = 64 | 0;
 var SuggestResultItemList: StaticListSchema = [1, n0, _SRIL,
   0, [() => SuggestResultItem$,
+    0]
+];
+var TranslationNameList: StaticListSchema = [1, n0, _TNL,
+  0, [() => TranslationName$,
     0]
 ];
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,

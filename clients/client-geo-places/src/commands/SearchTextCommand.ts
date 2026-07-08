@@ -54,12 +54,13 @@ export interface SearchTextCommandOutput extends SearchTextResponse, __MetadataB
  *     ],
  *   },
  *   AdditionalFeatures: [ // SearchTextAdditionalFeatureList
- *     "STRING_VALUE",
+ *     "TimeZone" || "Phonemes" || "Access" || "Contact" || "CrossReferences",
  *   ],
  *   Language: "STRING_VALUE",
  *   PoliticalView: "STRING_VALUE",
- *   IntendedUse: "STRING_VALUE",
+ *   IntendedUse: "SingleUse" || "Storage",
  *   NextToken: "STRING_VALUE",
+ *   TravelMode: "Car" || "Scooter" || "Truck",
  *   Key: "STRING_VALUE",
  * };
  * const command = new SearchTextCommand(input);
@@ -69,7 +70,7 @@ export interface SearchTextCommandOutput extends SearchTextResponse, __MetadataB
  * //   ResultItems: [ // SearchTextResultItemList
  * //     { // SearchTextResultItem
  * //       PlaceId: "STRING_VALUE", // required
- * //       PlaceType: "STRING_VALUE", // required
+ * //       PlaceType: "Country" || "Region" || "SubRegion" || "Locality" || "District" || "SubDistrict" || "PostalCode" || "Block" || "SubBlock" || "Intersection" || "Street" || "PointOfInterest" || "PointAddress" || "InterpolatedAddress" || "SecondaryAddress" || "InferredSecondaryAddress", // required
  * //       Title: "STRING_VALUE", // required
  * //       Address: { // Address
  * //         Label: "STRING_VALUE",
@@ -100,7 +101,7 @@ export interface SearchTextCommandOutput extends SearchTextResponse, __MetadataB
  * //           { // StreetComponents
  * //             BaseName: "STRING_VALUE",
  * //             Type: "STRING_VALUE",
- * //             TypePlacement: "STRING_VALUE",
+ * //             TypePlacement: "BeforeBaseName" || "AfterBaseName",
  * //             TypeSeparator: "STRING_VALUE",
  * //             Prefix: "STRING_VALUE",
  * //             Suffix: "STRING_VALUE",
@@ -225,6 +226,9 @@ export interface SearchTextCommandOutput extends SearchTextResponse, __MetadataB
  * //           Position: [
  * //             Number("double"),
  * //           ],
+ * //           Type: "Delivery" || "Emergency" || "Entrance" || "Loading" || "Other" || "Parking" || "Taxi",
+ * //           Primary: true || false,
+ * //           Label: "STRING_VALUE",
  * //         },
  * //       ],
  * //       AccessRestrictions: [ // AccessRestrictionList
@@ -283,6 +287,16 @@ export interface SearchTextCommandOutput extends SearchTextResponse, __MetadataB
  * //           Street: "<PhonemeTranscriptionList>",
  * //         },
  * //       },
+ * //       PlaceAttributes: [ // PlaceAttributeList
+ * //         "DriveThrough",
+ * //       ],
+ * //       CrossReferences: [ // CrossReferenceList
+ * //         { // CrossReference
+ * //           Source: "STRING_VALUE", // required
+ * //           SourcePlaceId: "STRING_VALUE", // required
+ * //           SourceCategories: "<CategoryList>",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

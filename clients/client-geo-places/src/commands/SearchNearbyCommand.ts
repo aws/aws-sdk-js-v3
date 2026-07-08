@@ -23,7 +23,7 @@ export interface SearchNearbyCommandInput extends SearchNearbyRequest {}
 export interface SearchNearbyCommandOutput extends SearchNearbyResponse, __MetadataBearer {}
 
 /**
- * <p> <code>SearchNearby</code> queries for points of interest within a radius from a central coordinates, returning place results with optional filters such as categories, business chains, food types and more. The API returns details such as a place name, address, phone, category, food type, contact, opening hours. Also, the API can return phonemes, time zones and more based on requested parameters.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/search-nearby.html">Search Nearby</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+ * <p> <code>SearchNearby</code> queries for points of interest within a radius from a central coordinates, returning place results with optional filters such as categories, business chains, food types and more. The API returns details such as a place name, address, phone, category, food type, contact, opening hours. Also, the API can return phonemes, time zones and more based on requested parameters. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/search-nearby.html">Search Nearby</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,11 +65,11 @@ export interface SearchNearbyCommandOutput extends SearchNearbyResponse, __Metad
  *     ],
  *   },
  *   AdditionalFeatures: [ // SearchNearbyAdditionalFeatureList
- *     "STRING_VALUE",
+ *     "TimeZone" || "Phonemes" || "Access" || "Contact" || "CrossReferences",
  *   ],
  *   Language: "STRING_VALUE",
  *   PoliticalView: "STRING_VALUE",
- *   IntendedUse: "STRING_VALUE",
+ *   IntendedUse: "SingleUse" || "Storage",
  *   NextToken: "STRING_VALUE",
  *   Key: "STRING_VALUE",
  * };
@@ -80,7 +80,7 @@ export interface SearchNearbyCommandOutput extends SearchNearbyResponse, __Metad
  * //   ResultItems: [ // SearchNearbyResultItemList
  * //     { // SearchNearbyResultItem
  * //       PlaceId: "STRING_VALUE", // required
- * //       PlaceType: "STRING_VALUE", // required
+ * //       PlaceType: "Country" || "Region" || "SubRegion" || "Locality" || "District" || "SubDistrict" || "PostalCode" || "Block" || "SubBlock" || "Intersection" || "Street" || "PointOfInterest" || "PointAddress" || "InterpolatedAddress" || "SecondaryAddress" || "InferredSecondaryAddress", // required
  * //       Title: "STRING_VALUE", // required
  * //       Address: { // Address
  * //         Label: "STRING_VALUE",
@@ -111,7 +111,7 @@ export interface SearchNearbyCommandOutput extends SearchNearbyResponse, __Metad
  * //           { // StreetComponents
  * //             BaseName: "STRING_VALUE",
  * //             Type: "STRING_VALUE",
- * //             TypePlacement: "STRING_VALUE",
+ * //             TypePlacement: "BeforeBaseName" || "AfterBaseName",
  * //             TypeSeparator: "STRING_VALUE",
  * //             Prefix: "STRING_VALUE",
  * //             Suffix: "STRING_VALUE",
@@ -236,6 +236,9 @@ export interface SearchNearbyCommandOutput extends SearchNearbyResponse, __Metad
  * //           Position: [
  * //             Number("double"),
  * //           ],
+ * //           Type: "Delivery" || "Emergency" || "Entrance" || "Loading" || "Other" || "Parking" || "Taxi",
+ * //           Primary: true || false,
+ * //           Label: "STRING_VALUE",
  * //         },
  * //       ],
  * //       AccessRestrictions: [ // AccessRestrictionList
@@ -294,6 +297,16 @@ export interface SearchNearbyCommandOutput extends SearchNearbyResponse, __Metad
  * //           Street: "<PhonemeTranscriptionList>",
  * //         },
  * //       },
+ * //       PlaceAttributes: [ // PlaceAttributeList
+ * //         "DriveThrough",
+ * //       ],
+ * //       CrossReferences: [ // CrossReferenceList
+ * //         { // CrossReference
+ * //           Source: "STRING_VALUE", // required
+ * //           SourcePlaceId: "STRING_VALUE", // required
+ * //           SourceCategories: "<CategoryList>",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -3,6 +3,24 @@
  * @public
  * @enum
  */
+export const AccessPointType = {
+  DELIVERY: "Delivery",
+  EMERGENCY: "Emergency",
+  ENTRANCE: "Entrance",
+  LOADING: "Loading",
+  OTHER: "Other",
+  PARKING: "Parking",
+  TAXI: "Taxi",
+} as const;
+/**
+ * @public
+ */
+export type AccessPointType = (typeof AccessPointType)[keyof typeof AccessPointType];
+
+/**
+ * @public
+ * @enum
+ */
 export const TypePlacement = {
   AFTER_BASE_NAME: "AfterBaseName",
   BEFORE_BASE_NAME: "BeforeBaseName",
@@ -11,6 +29,52 @@ export const TypePlacement = {
  * @public
  */
 export type TypePlacement = (typeof TypePlacement)[keyof typeof TypePlacement];
+
+/**
+ * @public
+ * @enum
+ */
+export const AddressTranslationComponent = {
+  DISTRICT: "District",
+  LOCALITY: "Locality",
+  REGION: "Region",
+  SUB_REGION: "SubRegion",
+} as const;
+/**
+ * @public
+ */
+export type AddressTranslationComponent =
+  (typeof AddressTranslationComponent)[keyof typeof AddressTranslationComponent];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranslationNameType = {
+  ABBREVIATION: "Abbreviation",
+  AREA_CODE: "AreaCode",
+  BASE_NAME: "BaseName",
+  EXONYM: "Exonym",
+  SHORTENED: "Shortened",
+  SYNONYM: "Synonym",
+} as const;
+/**
+ * @public
+ */
+export type TranslationNameType = (typeof TranslationNameType)[keyof typeof TranslationNameType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AdminNamesPreference = {
+  ALTERNATIVE: "Alternative",
+  PRIMARY: "Primary",
+} as const;
+/**
+ * @public
+ */
+export type AdminNamesPreference = (typeof AdminNamesPreference)[keyof typeof AdminNamesPreference];
 
 /**
  * @public
@@ -30,8 +94,14 @@ export type AutocompleteAdditionalFeature =
  * @enum
  */
 export const AutocompleteFilterPlaceType = {
+  COUNTRY: "Country",
+  INTERPOLATED_ADDRESS: "InterpolatedAddress",
+  INTERSECTION: "Intersection",
   LOCALITY: "Locality",
+  POINT_ADDRESS: "PointAddress",
   POSTAL_CODE: "PostalCode",
+  REGION: "Region",
+  STREET: "Street",
 } as const;
 /**
  * @public
@@ -59,6 +129,7 @@ export type AutocompleteIntendedUse = (typeof AutocompleteIntendedUse)[keyof typ
  * @enum
  */
 export const PostalCodeMode = {
+  ENUMERATE_SPANNED_DISTRICTS: "EnumerateSpannedDistricts",
   ENUMERATE_SPANNED_LOCALITIES: "EnumerateSpannedLocalities",
   MERGE_ALL_SPANNED_LOCALITIES: "MergeAllSpannedLocalities",
 } as const;
@@ -99,17 +170,7 @@ export type PlaceType = (typeof PlaceType)[keyof typeof PlaceType];
  * @enum
  */
 export const ValidationExceptionReason = {
-  /**
-   *     The input cannot be parsed. For example a required JSON document, ARN identifier,
-   *     date value, or numeric field cannot be parsed.
-   *
-   */
   CANNOT_PARSE: "CannotParse",
-  /**
-   *     The input is present and parsable, but it is otherwise invalid. For example, a
-   *     required numeric argument is outside the allowed range.
-   *
-   */
   FIELD_VALIDATION_FAILED: "FieldValidationFailed",
   /**
    * The required input is missing.
@@ -152,12 +213,29 @@ export type GeocodeAdditionalFeature = (typeof GeocodeAdditionalFeature)[keyof t
  * @public
  * @enum
  */
+export const GeocodeAddressNamesMode = {
+  ADMINISTRATIVE: "Administrative",
+  MATCHED: "Matched",
+} as const;
+/**
+ * @public
+ */
+export type GeocodeAddressNamesMode = (typeof GeocodeAddressNamesMode)[keyof typeof GeocodeAddressNamesMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const GeocodeFilterPlaceType = {
+  COUNTRY: "Country",
   INTERPOLATED_ADDRESS: "InterpolatedAddress",
   INTERSECTION: "Intersection",
   LOCALITY: "Locality",
   POINT_ADDRESS: "PointAddress",
+  POINT_OF_INTEREST: "PointOfInterest",
   POSTAL_CODE: "PostalCode",
+  REGION: "Region",
+  SECONDARY_ADDRESS: "SecondaryAddress",
   STREET: "Street",
 } as const;
 /**
@@ -247,6 +325,7 @@ export type RecordTypeCode = (typeof RecordTypeCode)[keyof typeof RecordTypeCode
 export const GetPlaceAdditionalFeature = {
   ACCESS: "Access",
   CONTACT: "Contact",
+  CROSS_REFERENCES: "CrossReferences",
   PHONEMES: "Phonemes",
   SECONDARY_ADDRESSES: "SecondaryAddresses",
   TIME_ZONE: "TimeZone",
@@ -255,6 +334,18 @@ export const GetPlaceAdditionalFeature = {
  * @public
  */
 export type GetPlaceAdditionalFeature = (typeof GetPlaceAdditionalFeature)[keyof typeof GetPlaceAdditionalFeature];
+
+/**
+ * @public
+ * @enum
+ */
+export const GetPlaceAddressNamesMode = {
+  ADMINISTRATIVE: "Administrative",
+} as const;
+/**
+ * @public
+ */
+export type GetPlaceAddressNamesMode = (typeof GetPlaceAddressNamesMode)[keyof typeof GetPlaceAddressNamesMode];
 
 /**
  * @public
@@ -279,6 +370,18 @@ export type GetPlaceIntendedUse = (typeof GetPlaceIntendedUse)[keyof typeof GetP
  * @public
  * @enum
  */
+export const PlaceAttribute = {
+  DRIVE_THROUGH: "DriveThrough",
+} as const;
+/**
+ * @public
+ */
+export type PlaceAttribute = (typeof PlaceAttribute)[keyof typeof PlaceAttribute];
+
+/**
+ * @public
+ * @enum
+ */
 export const ReverseGeocodeAdditionalFeature = {
   ACCESS: "Access",
   INTERSECTIONS: "Intersections",
@@ -294,11 +397,26 @@ export type ReverseGeocodeAdditionalFeature =
  * @public
  * @enum
  */
+export const ReverseGeocodeAddressNamesMode = {
+  ADMINISTRATIVE: "Administrative",
+} as const;
+/**
+ * @public
+ */
+export type ReverseGeocodeAddressNamesMode =
+  (typeof ReverseGeocodeAddressNamesMode)[keyof typeof ReverseGeocodeAddressNamesMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const ReverseGeocodeFilterPlaceType = {
   INTERPOLATED_ADDRESS: "InterpolatedAddress",
   INTERSECTION: "Intersection",
   LOCALITY: "Locality",
   POINT_ADDRESS: "PointAddress",
+  POINT_OF_INTEREST: "PointOfInterest",
+  SECONDARY_ADDRESS: "SecondaryAddress",
   STREET: "Street",
 } as const;
 /**
@@ -333,6 +451,7 @@ export type ReverseGeocodeIntendedUse = (typeof ReverseGeocodeIntendedUse)[keyof
 export const SearchNearbyAdditionalFeature = {
   ACCESS: "Access",
   CONTACT: "Contact",
+  CROSS_REFERENCES: "CrossReferences",
   PHONEMES: "Phonemes",
   TIME_ZONE: "TimeZone",
 } as const;
@@ -368,6 +487,7 @@ export type SearchNearbyIntendedUse = (typeof SearchNearbyIntendedUse)[keyof typ
 export const SearchTextAdditionalFeature = {
   ACCESS: "Access",
   CONTACT: "Contact",
+  CROSS_REFERENCES: "CrossReferences",
   PHONEMES: "Phonemes",
   TIME_ZONE: "TimeZone",
 } as const;
@@ -400,9 +520,24 @@ export type SearchTextIntendedUse = (typeof SearchTextIntendedUse)[keyof typeof 
  * @public
  * @enum
  */
+export const SearchTextTravelMode = {
+  CAR: "Car",
+  SCOOTER: "Scooter",
+  TRUCK: "Truck",
+} as const;
+/**
+ * @public
+ */
+export type SearchTextTravelMode = (typeof SearchTextTravelMode)[keyof typeof SearchTextTravelMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const SuggestAdditionalFeature = {
   ACCESS: "Access",
   CORE: "Core",
+  CROSS_REFERENCES: "CrossReferences",
   PHONEMES: "Phonemes",
   TIME_ZONE: "TimeZone",
 } as const;
@@ -425,6 +560,20 @@ export const SuggestIntendedUse = {
  * @public
  */
 export type SuggestIntendedUse = (typeof SuggestIntendedUse)[keyof typeof SuggestIntendedUse];
+
+/**
+ * @public
+ * @enum
+ */
+export const SuggestTravelMode = {
+  CAR: "Car",
+  SCOOTER: "Scooter",
+  TRUCK: "Truck",
+} as const;
+/**
+ * @public
+ */
+export type SuggestTravelMode = (typeof SuggestTravelMode)[keyof typeof SuggestTravelMode];
 
 /**
  * @public

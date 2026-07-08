@@ -40,17 +40,18 @@ export interface ReverseGeocodeCommandOutput extends ReverseGeocodeResponse, __M
  *   MaxResults: Number("int"),
  *   Filter: { // ReverseGeocodeFilter
  *     IncludePlaceTypes: [ // ReverseGeocodeFilterPlaceTypeList
- *       "STRING_VALUE",
+ *       "Locality" || "Intersection" || "Street" || "PointAddress" || "InterpolatedAddress" || "SecondaryAddress" || "PointOfInterest",
  *     ],
  *   },
  *   AdditionalFeatures: [ // ReverseGeocodeAdditionalFeatureList
- *     "STRING_VALUE",
+ *     "TimeZone" || "Access" || "Intersections",
  *   ],
  *   Language: "STRING_VALUE",
  *   PoliticalView: "STRING_VALUE",
- *   IntendedUse: "STRING_VALUE",
+ *   IntendedUse: "SingleUse" || "Storage",
  *   Key: "STRING_VALUE",
  *   Heading: Number("double"),
+ *   AddressNamesMode: "Administrative",
  * };
  * const command = new ReverseGeocodeCommand(input);
  * const response = await client.send(command);
@@ -59,7 +60,7 @@ export interface ReverseGeocodeCommandOutput extends ReverseGeocodeResponse, __M
  * //   ResultItems: [ // ReverseGeocodeResultItemList
  * //     { // ReverseGeocodeResultItem
  * //       PlaceId: "STRING_VALUE", // required
- * //       PlaceType: "STRING_VALUE", // required
+ * //       PlaceType: "Country" || "Region" || "SubRegion" || "Locality" || "District" || "SubDistrict" || "PostalCode" || "Block" || "SubBlock" || "Intersection" || "Street" || "PointOfInterest" || "PointAddress" || "InterpolatedAddress" || "SecondaryAddress" || "InferredSecondaryAddress", // required
  * //       Title: "STRING_VALUE", // required
  * //       Address: { // Address
  * //         Label: "STRING_VALUE",
@@ -90,7 +91,7 @@ export interface ReverseGeocodeCommandOutput extends ReverseGeocodeResponse, __M
  * //           { // StreetComponents
  * //             BaseName: "STRING_VALUE",
  * //             Type: "STRING_VALUE",
- * //             TypePlacement: "STRING_VALUE",
+ * //             TypePlacement: "BeforeBaseName" || "AfterBaseName",
  * //             TypeSeparator: "STRING_VALUE",
  * //             Prefix: "STRING_VALUE",
  * //             Suffix: "STRING_VALUE",
@@ -111,13 +112,13 @@ export interface ReverseGeocodeCommandOutput extends ReverseGeocodeResponse, __M
  * //       PostalCodeDetails: [ // PostalCodeDetailsList
  * //         { // PostalCodeDetails
  * //           PostalCode: "STRING_VALUE",
- * //           PostalAuthority: "STRING_VALUE",
- * //           PostalCodeType: "STRING_VALUE",
+ * //           PostalAuthority: "Usps",
+ * //           PostalCodeType: "UspsZip" || "UspsZipPlus4",
  * //           UspsZip: { // UspsZip
- * //             ZipClassificationCode: "STRING_VALUE",
+ * //             ZipClassificationCode: "Military" || "PostOfficeBoxes" || "Unique",
  * //           },
  * //           UspsZipPlus4: { // UspsZipPlus4
- * //             RecordTypeCode: "STRING_VALUE",
+ * //             RecordTypeCode: "Firm" || "General" || "HighRise" || "PostOfficeBox" || "Rural" || "Street",
  * //           },
  * //         },
  * //       ],
@@ -148,6 +149,9 @@ export interface ReverseGeocodeCommandOutput extends ReverseGeocodeResponse, __M
  * //           Position: [
  * //             Number("double"),
  * //           ],
+ * //           Type: "Delivery" || "Emergency" || "Entrance" || "Loading" || "Other" || "Parking" || "Taxi",
+ * //           Primary: true || false,
+ * //           Label: "STRING_VALUE",
  * //         },
  * //       ],
  * //       TimeZone: { // TimeZone
@@ -189,7 +193,7 @@ export interface ReverseGeocodeCommandOutput extends ReverseGeocodeResponse, __M
  * //               {
  * //                 BaseName: "STRING_VALUE",
  * //                 Type: "STRING_VALUE",
- * //                 TypePlacement: "STRING_VALUE",
+ * //                 TypePlacement: "BeforeBaseName" || "AfterBaseName",
  * //                 TypeSeparator: "STRING_VALUE",
  * //                 Prefix: "STRING_VALUE",
  * //                 Suffix: "STRING_VALUE",
@@ -217,10 +221,22 @@ export interface ReverseGeocodeCommandOutput extends ReverseGeocodeResponse, __M
  * //           AccessPoints: [
  * //             {
  * //               Position: "<Position>",
+ * //               Type: "Delivery" || "Emergency" || "Entrance" || "Loading" || "Other" || "Parking" || "Taxi",
+ * //               Primary: true || false,
+ * //               Label: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
  * //       ],
+ * //       MainAddress: { // RelatedPlace
+ * //         PlaceId: "STRING_VALUE", // required
+ * //         PlaceType: "Country" || "Region" || "SubRegion" || "Locality" || "District" || "SubDistrict" || "PostalCode" || "Block" || "SubBlock" || "Intersection" || "Street" || "PointOfInterest" || "PointAddress" || "InterpolatedAddress" || "SecondaryAddress" || "InferredSecondaryAddress", // required
+ * //         Title: "STRING_VALUE", // required
+ * //         Address: "<Address>",
+ * //         Position: "<Position>",
+ * //         AccessPoints: "<AccessPointList>",
+ * //       },
+ * //       EstimatedPointAddress: true || false,
  * //     },
  * //   ],
  * // };
