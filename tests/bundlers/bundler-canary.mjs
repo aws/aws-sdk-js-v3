@@ -35,7 +35,7 @@ if (!npmInstallWithRetry("npm install", "Installing dependencies")) {
   process.exit(0);
 }
 
-if (!npmInstallWithRetry("npm install --no-save vite webpack webpack-cli ts-loader typescript esbuild", "Installing bundlers")) {
+if (!npmInstallWithRetry("npm install --no-save vite webpack webpack-cli ts-loader typescript@~5 esbuild", "Installing bundlers")) {
   console.log("npm install (bundlers) failed after 4 attempts, skipping test.");
   process.exit(0);
 }
