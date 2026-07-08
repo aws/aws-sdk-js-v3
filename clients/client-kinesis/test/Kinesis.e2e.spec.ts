@@ -185,7 +185,7 @@ describe("@aws-sdk/client-kinesis", () => {
        * If debugging this test, get a picture of the connection states
        * at each step by logging this object.
        */
-      // console.log(JSON.stringify(connectionManagerStates, null, 2));
+      console.log(JSON.stringify(connectionManagerStates, null, 2));
       expect(connectionManagerStates.initial).toEqual({});
 
       expect(getSessions(connectionManagerStates.requestsFinished)).not.toEqual([]);
