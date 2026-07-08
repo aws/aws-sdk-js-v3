@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { SendDataToWirelessDeviceRequest } from "../models/models_0";
-import type { SendDataToWirelessDeviceResponse } from "../models/models_1";
+import type { SendDataToWirelessDeviceRequest, SendDataToWirelessDeviceResponse } from "../models/models_1";
 import { SendDataToWirelessDevice$ } from "../schemas/schemas_0";
 
 /**
