@@ -141,6 +141,10 @@ export interface StopExperimentRunCommandOutput extends ExperimentRun, __Metadat
  * @throws {@link BadRequestException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be processed because of conflict in the current state of the
+ *          resource.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There was an internal failure in the AppConfig service.</p>
  *

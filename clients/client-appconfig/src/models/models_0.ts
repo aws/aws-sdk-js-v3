@@ -46,12 +46,12 @@ export interface DeletionProtectionSettings {
 }
 
 /**
- * <p>Configuration settings for vended metrics.</p>
+ * <p>The configuration settings for vended metrics in your AppConfig account.</p>
  * @public
  */
 export interface VendedMetricsSettings {
   /**
-   * <p>Whether vended metrics are enabled for the account.</p>
+   * <p>Specifies whether vended metrics are enabled for the account.</p>
    * @public
    */
   Enabled?: boolean | undefined;
@@ -72,7 +72,7 @@ export interface AccountSettings {
   DeletionProtection?: DeletionProtectionSettings | undefined;
 
   /**
-   * <p>Configuration for vended metrics in the account.</p>
+   * <p>The configuration for vended metrics in the account.</p>
    * @public
    */
   VendedMetrics?: VendedMetricsSettings | undefined;
@@ -910,7 +910,7 @@ export namespace AttributeValue {
  */
 export interface FlagValue {
   /**
-   * <p>Whether the feature flag is enabled for this treatment.</p>
+   * <p>Specifies whether the feature flag is enabled for this treatment.</p>
    * @public
    */
   Enabled: boolean | undefined;
@@ -3433,7 +3433,7 @@ export interface StartDeploymentRequest {
 }
 
 /**
- * <p>Optional deployment parameters for an experiment run, including extension parameters and tags.</p>
+ * <p>The deployment parameters for an experiment run, including dynamic extension parameters and tags.</p>
  * @public
  */
 export interface DeploymentParameters {
@@ -3491,7 +3491,7 @@ export interface StartExperimentRunRequest {
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Optional deployment parameters including a KMS key for encryption.</p>
+   * <p>The deployment parameters for the experiment run, including a KMS key identifier for encryption.</p>
    * @public
    */
   DeploymentParameters?: DeploymentParameters | undefined;
@@ -3557,7 +3557,7 @@ export interface StopExperimentRunRequest {
   Result?: ExperimentRunResult | undefined;
 
   /**
-   * <p>Optional deployment parameters for the stop operation.</p>
+   * <p>The deployment parameters for the stop operation.</p>
    * @public
    */
   DeploymentParameters?: DeploymentParameters | undefined;
@@ -3614,7 +3614,7 @@ export interface UpdateAccountSettingsRequest {
   DeletionProtection?: DeletionProtectionSettings | undefined;
 
   /**
-   * <p>Configuration for vended metrics in the account.</p>
+   * <p>The configuration for vended metrics in the account.</p>
    * @public
    */
   VendedMetrics?: VendedMetricsSettings | undefined;
@@ -3821,7 +3821,7 @@ export interface UpdateExperimentDefinitionRequest {
   ExperimentDefinitionIdentifier: string | undefined;
 
   /**
-   * <p>An updated list of treatments.</p>
+   * <p>The updated list of treatments to evaluate during the experiment. Each treatment defines a distinct variation compared to the control.</p>
    * @public
    */
   Treatments?: TreatmentInput[] | undefined;
@@ -3892,13 +3892,13 @@ export interface UpdateExperimentRunRequest {
   ExposurePercentage?: number | undefined;
 
   /**
-   * <p>Updated treatment assignment overrides.</p>
+   * <p>The updated treatment assignment overrides that assign specific entity IDs to treatments, bypassing random assignment.</p>
    * @public
    */
   TreatmentOverrides?: TreatmentOverrides | undefined;
 
   /**
-   * <p>Updated deployment parameters.</p>
+   * <p>The updated deployment parameters for the experiment run.</p>
    * @public
    */
   DeploymentParameters?: DeploymentParameters | undefined;
