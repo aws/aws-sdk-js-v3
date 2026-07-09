@@ -1504,6 +1504,9 @@
           "target": "com.amazonaws.connect#DeleteAttachedFile"
         },
         {
+          "target": "com.amazonaws.connect#DeleteContactData"
+        },
+        {
           "target": "com.amazonaws.connect#DeleteContactEvaluation"
         },
         {
@@ -8947,6 +8950,35 @@
         "target": "com.amazonaws.connect#ContactEvaluation"
       }
     },
+    "com.amazonaws.connect#ContactField": {
+      "type": "enum",
+      "members": {
+        "CUSTOMER_ENDPOINT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CUSTOMER_ENDPOINT"
+          }
+        },
+        "ADDITIONAL_EMAIL_RECIPIENTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ADDITIONAL_EMAIL_RECIPIENTS"
+          }
+        },
+        "EMAIL_SUBJECT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EMAIL_SUBJECT"
+          }
+        }
+      }
+    },
+    "com.amazonaws.connect#ContactFields": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.connect#ContactField"
+      }
+    },
     "com.amazonaws.connect#ContactFilter": {
       "type": "structure",
       "members": {
@@ -10052,6 +10084,19 @@
         "smithy.api#documentation": "<p>The contact with the specified ID does not exist.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 410
+      }
+    },
+    "com.amazonaws.connect#ContactNotTerminatedException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.connect#Message"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The contact has not been disconnected and is not in a terminated state. PII can be deleted\n   only from a contact that has been disconnected. This error is returned with an HTTP 409 status\n   code.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.connect#ContactParticipantRole": {
@@ -16721,6 +16766,81 @@
       "members": {},
       "traits": {
         "smithy.api#documentation": "Response from DeleteAttachedFile API",
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.connect#DeleteContactData": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.connect#DeleteContactDataRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.connect#DeleteContactDataResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.connect#ContactNotTerminatedException"
+        },
+        {
+          "target": "com.amazonaws.connect#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.connect#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.connect#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.connect#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the specified fields containing personally identifiable information (PII) from a\n   contact in the specified Connect Customer instance. This operation redacts PII (such as\n   customer endpoints, additional email recipients, and the email subject) from the contact and its\n   associated contact trace record (CTR). The contact must be in a terminated state.</p>\n         <important>\n            <p>This operation performs a hard deletion of the specified PII and cannot be undone. There is\n    no retention period; after the data is deleted, it cannot be recovered. Only fields that\n    Connect Customer identifies and stores as PII are removed. Any PII that you place in fields\n    outside the scope of this operation remains your responsibility to remove.</p>\n         </important>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/contact/delete/{InstanceId}/{ContactId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.connect#DeleteContactDataRequest": {
+      "type": "structure",
+      "members": {
+        "InstanceId": {
+          "target": "com.amazonaws.connect#InstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "ContactId": {
+          "target": "com.amazonaws.connect#ContactId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the contact. PII can be deleted only from a contact that has been\n   disconnected (is in a terminated state).</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "ContactFields": {
+          "target": "com.amazonaws.connect#ContactFields",
+          "traits": {
+            "smithy.api#documentation": "<p>The categories of PII to redact from the contact. Valid values are\n   <code>CUSTOMER_ENDPOINT</code>, <code>ADDITIONAL_EMAIL_RECIPIENTS</code>, and\n   <code>EMAIL_SUBJECT</code>. <code>ADDITIONAL_EMAIL_RECIPIENTS</code> and <code>EMAIL_SUBJECT</code>\n   are supported only for contacts in the email channel.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.connect#DeleteContactDataResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
         "smithy.api#output": {}
       }
     },

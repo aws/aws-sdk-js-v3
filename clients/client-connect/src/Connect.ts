@@ -368,6 +368,11 @@ import {
   DeleteAttachedFileCommand,
 } from "./commands/DeleteAttachedFileCommand";
 import {
+  type DeleteContactDataCommandInput,
+  type DeleteContactDataCommandOutput,
+  DeleteContactDataCommand,
+} from "./commands/DeleteContactDataCommand";
+import {
   type DeleteContactEvaluationCommandInput,
   type DeleteContactEvaluationCommandOutput,
   DeleteContactEvaluationCommand,
@@ -2037,6 +2042,7 @@ const commands = {
   CreateWorkspacePageCommand,
   DeactivateEvaluationFormCommand,
   DeleteAttachedFileCommand,
+  DeleteContactDataCommand,
   DeleteContactEvaluationCommand,
   DeleteContactFlowCommand,
   DeleteContactFlowModuleCommand,
@@ -3671,6 +3677,23 @@ export interface Connect {
     args: DeleteAttachedFileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAttachedFileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteContactDataCommand}
+   */
+  deleteContactData(
+    args: DeleteContactDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContactDataCommandOutput>;
+  deleteContactData(
+    args: DeleteContactDataCommandInput,
+    cb: (err: any, data?: DeleteContactDataCommandOutput) => void
+  ): void;
+  deleteContactData(
+    args: DeleteContactDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContactDataCommandOutput) => void
   ): void;
 
   /**

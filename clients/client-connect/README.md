@@ -717,6 +717,13 @@ DeleteAttachedFile
 </details>
 <details>
 <summary>
+DeleteContactData
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DeleteContactDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteContactDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteContactDataCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteContactEvaluation
 </summary>
 

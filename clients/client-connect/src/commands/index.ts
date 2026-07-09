@@ -72,6 +72,7 @@ export * from "./CreateWorkspaceCommand";
 export * from "./CreateWorkspacePageCommand";
 export * from "./DeactivateEvaluationFormCommand";
 export * from "./DeleteAttachedFileCommand";
+export * from "./DeleteContactDataCommand";
 export * from "./DeleteContactEvaluationCommand";
 export * from "./DeleteContactFlowCommand";
 export * from "./DeleteContactFlowModuleAliasCommand";

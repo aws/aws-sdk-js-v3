@@ -4,6 +4,7 @@ import type {
   AttachmentScope,
   AutoEvaluationStatus,
   Channel,
+  ContactField,
   ContactFlowModuleState,
   ContactFlowModuleStatus,
   ContactFlowState,
@@ -875,6 +876,38 @@ export interface DeleteAttachedFileRequest {
  * @public
  */
 export interface DeleteAttachedFileResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteContactDataRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact. PII can be deleted only from a contact that has been
+   *    disconnected (is in a terminated state).</p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The categories of PII to redact from the contact. Valid values are
+   *    <code>CUSTOMER_ENDPOINT</code>, <code>ADDITIONAL_EMAIL_RECIPIENTS</code>, and
+   *    <code>EMAIL_SUBJECT</code>. <code>ADDITIONAL_EMAIL_RECIPIENTS</code> and <code>EMAIL_SUBJECT</code>
+   *    are supported only for contacts in the email channel.</p>
+   * @public
+   */
+  ContactFields: ContactField[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteContactDataResponse {}
 
 /**
  * @public
@@ -8262,61 +8295,4 @@ export interface GetFederationTokenResponse {
    * @public
    */
   SignInUrl?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetFlowAssociationRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the resource.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Amazon Web Services End User Messaging SMS phone number ARN when using <code>SMS_PHONE_NUMBER</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Amazon Web Services End User Messaging Social phone number ARN when using
-   *       <code>WHATSAPP_MESSAGING_PHONE_NUMBER</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>A valid resource type.</p>
-   * @public
-   */
-  ResourceType: FlowAssociationResourceType | undefined;
-}
-
-/**
- * @public
- */
-export interface GetFlowAssociationResponse {
-  /**
-   * <p>The identifier of the resource.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>The identifier of the flow.</p>
-   * @public
-   */
-  FlowId?: string | undefined;
-
-  /**
-   * <p>A valid resource type.</p>
-   * @public
-   */
-  ResourceType?: FlowAssociationResourceType | undefined;
 }

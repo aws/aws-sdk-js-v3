@@ -233,6 +233,7 @@ import {
   ContactEvaluationAttributeFilter$,
   ContactEvaluationAttributeKey,
   ContactEvaluationAttributeValue$,
+  ContactField,
   ContactFilter$,
   ContactFlow$,
   ContactFlowAttributeAndCondition$,
@@ -265,6 +266,8 @@ import {
   ContactMetricValue$,
   ContactNotFoundException,
   ContactNotFoundException$,
+  ContactNotTerminatedException,
+  ContactNotTerminatedException$,
   ContactParticipantRole,
   ContactRecordingType,
   ContactSearchSummary$,
@@ -476,6 +479,10 @@ import {
   DeleteAttachedFileCommand,
   DeleteAttachedFileRequest$,
   DeleteAttachedFileResponse$,
+  DeleteContactData$,
+  DeleteContactDataCommand,
+  DeleteContactDataRequest$,
+  DeleteContactDataResponse$,
   DeleteContactEvaluation$,
   DeleteContactEvaluationCommand,
   DeleteContactEvaluationRequest$,
@@ -2466,6 +2473,8 @@ assert(typeof DeactivateEvaluationFormCommand === "function");
 assert(typeof DeactivateEvaluationForm$ === "object");
 assert(typeof DeleteAttachedFileCommand === "function");
 assert(typeof DeleteAttachedFile$ === "object");
+assert(typeof DeleteContactDataCommand === "function");
+assert(typeof DeleteContactData$ === "object");
 assert(typeof DeleteContactEvaluationCommand === "function");
 assert(typeof DeleteContactEvaluation$ === "object");
 assert(typeof DeleteContactFlowCommand === "function");
@@ -3349,6 +3358,8 @@ assert(typeof DecimalCondition$ === "object");
 assert(typeof DefaultVocabulary$ === "object");
 assert(typeof DeleteAttachedFileRequest$ === "object");
 assert(typeof DeleteAttachedFileResponse$ === "object");
+assert(typeof DeleteContactDataRequest$ === "object");
+assert(typeof DeleteContactDataResponse$ === "object");
 assert(typeof DeleteContactEvaluationRequest$ === "object");
 assert(typeof DeleteContactFlowModuleAliasRequest$ === "object");
 assert(typeof DeleteContactFlowModuleAliasResponse$ === "object");
@@ -4333,6 +4344,7 @@ assert(typeof Comparison === "object");
 assert(typeof ConfigurableNotificationPriority === "object");
 assert(typeof ContactEvaluationAttributeComparisonType === "object");
 assert(typeof ContactEvaluationAttributeKey === "object");
+assert(typeof ContactField === "object");
 assert(typeof ContactFlowModuleState === "object");
 assert(typeof ContactFlowModuleStatus === "object");
 assert(typeof ContactFlowState === "object");
@@ -4503,6 +4515,8 @@ assert(ContactFlowNotPublishedException.prototype instanceof ConnectServiceExcep
 assert(typeof ContactFlowNotPublishedException$ === "object");
 assert(ContactNotFoundException.prototype instanceof ConnectServiceException);
 assert(typeof ContactNotFoundException$ === "object");
+assert(ContactNotTerminatedException.prototype instanceof ConnectServiceException);
+assert(typeof ContactNotTerminatedException$ === "object");
 assert(DestinationNotAllowedException.prototype instanceof ConnectServiceException);
 assert(typeof DestinationNotAllowedException$ === "object");
 assert(DuplicateResourceException.prototype instanceof ConnectServiceException);

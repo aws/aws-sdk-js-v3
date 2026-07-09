@@ -27,6 +27,7 @@ import type {
   EventSourceName,
   ExecutionRecordStatus,
   FilterV2StringConditionComparisonOperator,
+  FlowAssociationResourceType,
   Grouping,
   HistoricalMetricName,
   InstanceStatus,
@@ -115,6 +116,63 @@ import type {
   HoursOfOperationsIdentifier,
   Notification,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetFlowAssociationRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the resource.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Amazon Web Services End User Messaging SMS phone number ARN when using <code>SMS_PHONE_NUMBER</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Web Services End User Messaging Social phone number ARN when using
+   *       <code>WHATSAPP_MESSAGING_PHONE_NUMBER</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>A valid resource type.</p>
+   * @public
+   */
+  ResourceType: FlowAssociationResourceType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFlowAssociationResponse {
+  /**
+   * <p>The identifier of the resource.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  FlowId?: string | undefined;
+
+  /**
+   * <p>A valid resource type.</p>
+   * @public
+   */
+  ResourceType?: FlowAssociationResourceType | undefined;
+}
 
 /**
  * <p>Contains information about the threshold for service level metrics.</p>
@@ -10776,65 +10834,4 @@ export interface Sort {
    * @public
    */
   Order: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchContactsRequest {
-  /**
-   * <p>The identifier of Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of
-   *    the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>Time range that you want to search results.</p>
-   * @public
-   */
-  TimeRange: SearchContactsTimeRange | undefined;
-
-  /**
-   * <p>The search criteria to be used to return contacts.</p>
-   * @public
-   */
-  SearchCriteria?: SearchCriteria | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Specifies a field to sort by and a sort order.</p>
-   * @public
-   */
-  Sort?: Sort | undefined;
-}
-
-/**
- * <p>Information about the agent who accepted the contact.</p>
- * @public
- */
-export interface ContactSearchSummaryAgentInfo {
-  /**
-   * <p>The identifier of the agent who accepted the contact.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The timestamp when the contact was connected to the agent.</p>
-   * @public
-   */
-  ConnectedToAgentTimestamp?: Date | undefined;
 }

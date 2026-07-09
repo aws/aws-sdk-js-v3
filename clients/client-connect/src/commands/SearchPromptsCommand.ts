@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { SearchPromptsRequest, SearchPromptsResponse } from "../models/models_3";
+import type { SearchPromptsResponse } from "../models/models_3";
+import type { SearchPromptsRequest } from "../models/models_4";
 import { SearchPrompts$ } from "../schemas/schemas_0";
 
 /**

@@ -293,6 +293,10 @@ import type {
   DeleteAttachedFileCommandOutput,
 } from "./commands/DeleteAttachedFileCommand";
 import type {
+  DeleteContactDataCommandInput,
+  DeleteContactDataCommandOutput,
+} from "./commands/DeleteContactDataCommand";
+import type {
   DeleteContactEvaluationCommandInput,
   DeleteContactEvaluationCommandOutput,
 } from "./commands/DeleteContactEvaluationCommand";
@@ -1389,6 +1393,7 @@ export type ServiceInputTypes =
   | CreateWorkspacePageCommandInput
   | DeactivateEvaluationFormCommandInput
   | DeleteAttachedFileCommandInput
+  | DeleteContactDataCommandInput
   | DeleteContactEvaluationCommandInput
   | DeleteContactFlowCommandInput
   | DeleteContactFlowModuleAliasCommandInput
@@ -1771,6 +1776,7 @@ export type ServiceOutputTypes =
   | CreateWorkspacePageCommandOutput
   | DeactivateEvaluationFormCommandOutput
   | DeleteAttachedFileCommandOutput
+  | DeleteContactDataCommandOutput
   | DeleteContactEvaluationCommandOutput
   | DeleteContactFlowCommandOutput
   | DeleteContactFlowModuleAliasCommandOutput

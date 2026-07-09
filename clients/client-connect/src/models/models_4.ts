@@ -42,9 +42,9 @@ import type {
   TaskTemplateInfoV2,
   WisdomInfo,
 } from "./models_1";
-import type { ContactSearchSummaryAgentInfo } from "./models_2";
 import type {
   ChatMessage,
+  ContactSearchSummaryAgentInfo,
   ContactSearchSummaryAiAgentInfo,
   ContactSearchSummaryQueueInfo,
   EmailAddressInfo,
@@ -56,7 +56,11 @@ import type {
   ParticipantConfiguration,
   ParticipantDetails,
   PersistentChat,
+  PromptSearchCriteria,
+  PromptSearchFilter,
   QueueInfoInput,
+  QueueSearchCriteria,
+  QueueSearchFilter,
   QuickConnectSearchCriteria,
   QuickConnectSearchFilter,
   RoutingCriteriaInputStep,
@@ -80,6 +84,83 @@ import type {
   WorkspaceSearchCriteria,
   WorkspaceSearchFilter,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface SearchPromptsRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: PromptSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return prompts.</p>
+   * @public
+   */
+  SearchCriteria?: PromptSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchQueuesRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: QueueSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return queues.</p>
+   *          <note>
+   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
+   *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+   *     outside of this range will throw invalid results. </p>
+   *          </note>
+   * @public
+   */
+  SearchCriteria?: QueueSearchCriteria | undefined;
+}
 
 /**
  * @public

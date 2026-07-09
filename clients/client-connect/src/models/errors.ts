@@ -510,6 +510,30 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
+ * <p>The contact has not been disconnected and is not in a terminated state. PII can be deleted
+ *    only from a contact that has been disconnected. This error is returned with an HTTP 409 status
+ *    code.</p>
+ * @public
+ */
+export class ContactNotTerminatedException extends __BaseException {
+  readonly name = "ContactNotTerminatedException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ContactNotTerminatedException, __BaseException>) {
+    super({
+      name: "ContactNotTerminatedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ContactNotTerminatedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The flow has not been published.</p>
  * @public
  */

@@ -424,7 +424,8 @@ const _CFV = "ContactFlowVersion";
 const _CFVS = "ContactFlowVersionSummary";
 const _CFVSL = "ContactFlowVersionSummaryList";
 const _CFo = "ContactFlow";
-const _CFon = "ContactFlows";
+const _CFon = "ContactFields";
+const _CFont = "ContactFlows";
 const _CHOO = "CreateHoursOfOperation";
 const _CHOOL = "ChildHoursOfOperationsList";
 const _CHOOO = "CreateHoursOfOperationOverride";
@@ -466,6 +467,7 @@ const _CN = "CreateNotification";
 const _CNFE = "ContactNotFoundException";
 const _CNR = "CreateNotificationRequest";
 const _CNRr = "CreateNotificationResponse";
+const _CNTE = "ContactNotTerminatedException";
 const _CNV = "CreateNewVersion";
 const _CO = "ComparisonOperator";
 const _COFE = "ConditionalOperationFailedException";
@@ -621,6 +623,9 @@ const _DAi = "DisplayAs";
 const _DB = "DisassociateBot";
 const _DBR = "DisassociateBotRequest";
 const _DC = "DateCondition";
+const _DCD = "DeleteContactData";
+const _DCDR = "DeleteContactDataRequest";
+const _DCDRe = "DeleteContactDataResponse";
 const _DCE = "DeleteContactEvaluation";
 const _DCER = "DeleteContactEvaluationRequest";
 const _DCERe = "DescribeContactEvaluationRequest";
@@ -2923,6 +2928,7 @@ import {
   ConflictException,
   ContactFlowNotPublishedException,
   ContactNotFoundException,
+  ContactNotTerminatedException,
   DestinationNotAllowedException,
   DuplicateResourceException,
   IdempotencyException,
@@ -2983,6 +2989,12 @@ export var ContactNotFoundException$: StaticErrorSchema = [-3, n0, _CNFE,
   [0]
 ];
 n0_registry.registerError(ContactNotFoundException$, ContactNotFoundException);
+export var ContactNotTerminatedException$: StaticErrorSchema = [-3, n0, _CNTE,
+  { [_e]: _c, [_hE]: 409 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ContactNotTerminatedException$, ContactNotTerminatedException);
 export var DestinationNotAllowedException$: StaticErrorSchema = [-3, n0, _DNAE,
   { [_aQE]: [`DestinationNotAllowedException`, 403], [_e]: _c, [_hE]: 403 },
   [_M],
@@ -4514,6 +4526,16 @@ export var DeleteAttachedFileRequest$: StaticStructureSchema = [3, n0, _DAFR,
   [[0, 1], [0, 1], [0, { [_hQ]: _aRA }]], 3
 ];
 export var DeleteAttachedFileResponse$: StaticStructureSchema = [3, n0, _DAFRe,
+  0,
+  [],
+  []
+];
+export var DeleteContactDataRequest$: StaticStructureSchema = [3, n0, _DCDR,
+  0,
+  [_II, _CI, _CFon],
+  [[0, 1], [0, 1], 64 | 0], 3
+];
+export var DeleteContactDataResponse$: StaticStructureSchema = [3, n0, _DCDRe,
   0,
   [],
   []
@@ -7675,7 +7697,7 @@ export var SearchContactFlowsRequest$: StaticStructureSchema = [3, n0, _SCFR,
 ];
 export var SearchContactFlowsResponse$: StaticStructureSchema = [3, n0, _SCFRe,
   0,
-  [_CFon, _NT, _ATC],
+  [_CFont, _NT, _ATC],
   [() => ContactFlowSearchSummaryList, 0, 1]
 ];
 export var SearchContactsAdditionalTimeRange$: StaticStructureSchema = [3, n0, _SCATR,
@@ -9348,6 +9370,7 @@ var ContactEvaluationAttributeConditionList: StaticListSchema = [1, n0, _CEACL,
 var ContactEvaluationAttributeOrConditionList: StaticListSchema = [1, n0, _CEAOCL,
   0, () => ContactEvaluationAttributeAndCondition$
 ];
+var ContactFields = 64 | 0;
 var ContactFlowAttributeOrConditionList: StaticListSchema = [1, n0, _CFAOCL,
   0, () => ContactFlowAttributeAndCondition$
 ];
@@ -10395,6 +10418,9 @@ export var DeactivateEvaluationForm$: StaticOperationSchema = [9, n0, _DEF,
 ];
 export var DeleteAttachedFile$: StaticOperationSchema = [9, n0, _DAF,
   { [_h]: ["DELETE", "/attached-files/{InstanceId}/{FileId}", 200] }, () => DeleteAttachedFileRequest$, () => DeleteAttachedFileResponse$
+];
+export var DeleteContactData$: StaticOperationSchema = [9, n0, _DCD,
+  { [_h]: ["POST", "/contact/delete/{InstanceId}/{ContactId}", 200] }, () => DeleteContactDataRequest$, () => DeleteContactDataResponse$
 ];
 export var DeleteContactEvaluation$: StaticOperationSchema = [9, n0, _DCE,
   { [_h]: ["DELETE", "/contact-evaluations/{InstanceId}/{EvaluationId}", 200] }, () => DeleteContactEvaluationRequest$, () => __Unit

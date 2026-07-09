@@ -1430,6 +1430,20 @@ export type WorkspaceFontFamily = (typeof WorkspaceFontFamily)[keyof typeof Work
  * @public
  * @enum
  */
+export const ContactField = {
+  ADDITIONAL_EMAIL_RECIPIENTS: "ADDITIONAL_EMAIL_RECIPIENTS",
+  CUSTOMER_ENDPOINT: "CUSTOMER_ENDPOINT",
+  EMAIL_SUBJECT: "EMAIL_SUBJECT",
+} as const;
+/**
+ * @public
+ */
+export type ContactField = (typeof ContactField)[keyof typeof ContactField];
+
+/**
+ * @public
+ * @enum
+ */
 export const MediaType = {
   IMAGE_LOGO_DARK_FAVICON: "IMAGE_LOGO_DARK_FAVICON",
   IMAGE_LOGO_DARK_HORIZONTAL: "IMAGE_LOGO_DARK_HORIZONTAL",
