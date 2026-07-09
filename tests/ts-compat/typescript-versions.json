@@ -1,0 +1,19 @@
+[
+  { "version": "4.5" },
+  { "version": "4.6" },
+  { "version": "4.7" },
+  { "version": "4.8" },
+  { "version": "4.9" },
+  { "version": "5.0" },
+  { "version": "5.1" },
+  { "version": "5.2" },
+  { "version": "5.3" },
+  { "version": "5.4" },
+  { "version": "5.5" },
+  { "version": "5.6" },
+  { "version": "5.7" },
+  { "version": "5.8" },
+  { "version": "5.9" },
+  { "version": "6.0", "tscArgs": ["--ignoreDeprecations", "6.0"] },
+  { "version": "7.0", "tscArgs": ["--moduleResolution", "bundler", "--module", "preserve"] }
+]
