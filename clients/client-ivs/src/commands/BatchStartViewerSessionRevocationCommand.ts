@@ -73,16 +73,16 @@ export interface BatchStartViewerSessionRevocationCommandOutput extends BatchSta
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
+ *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link PendingVerification} (client fault)
- *  <p/>
+ *  <p>Your account is pending verification.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p/>
+ *  <p>Request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>

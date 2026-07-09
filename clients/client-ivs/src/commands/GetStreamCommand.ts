@@ -58,16 +58,16 @@ export interface GetStreamCommandOutput extends GetStreamResponse, __MetadataBea
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
+ *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ChannelNotBroadcasting} (client fault)
- *  <p/>
+ *  <p>The stream is offline for the given channel ARN.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p/>
+ *  <p>Request references a resource which does not exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>

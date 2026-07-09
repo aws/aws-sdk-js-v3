@@ -4,7 +4,7 @@ import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/
 import { IvsServiceException as __BaseException } from "./IvsServiceException";
 
 /**
- * <p/>
+ * <p>User does not have sufficient access to perform this action.</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -86,7 +86,7 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
- * <p/>
+ * <p>The service is temporarily unavailable.</p>
  * @public
  */
 export class ServiceUnavailable extends __BaseException {
@@ -168,7 +168,7 @@ export class ServiceUnavailable extends __BaseException {
 }
 
 /**
- * <p/>
+ * <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -250,7 +250,7 @@ export class ValidationException extends __BaseException {
 }
 
 /**
- * <p/>
+ * <p>Your account is pending verification.</p>
  * @public
  */
 export class PendingVerification extends __BaseException {
@@ -332,7 +332,7 @@ export class PendingVerification extends __BaseException {
 }
 
 /**
- * <p/>
+ * <p>Request was denied due to request throttling.</p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -414,7 +414,7 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p/>
+ * <p>Updating or deleting a resource can cause an inconsistent state.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -496,7 +496,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p/>
+ * <p>Unexpected error during processing of request.</p>
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -578,7 +578,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p/>
+ * <p>Request references a resource which does not exist.</p>
  * @public
  */
 export class ResourceNotFoundException extends __BaseException {
@@ -660,7 +660,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p/>
+ * <p>Request would cause a service quota to be exceeded.</p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -742,7 +742,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p/>
+ * <p>The stream is offline for the given channel ARN.</p>
  * @public
  */
 export class ChannelNotBroadcasting extends __BaseException {
@@ -824,7 +824,7 @@ export class ChannelNotBroadcasting extends __BaseException {
 }
 
 /**
- * <p/>
+ * <p>The stream is temporarily unavailable.</p>
  * @public
  */
 export class StreamUnavailable extends __BaseException {

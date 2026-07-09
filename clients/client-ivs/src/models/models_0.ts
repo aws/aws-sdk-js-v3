@@ -29,6 +29,24 @@ export interface MediaTailorPlaybackConfiguration {
 }
 
 /**
+ * <p>Configuration for the post-roll ad break to use for this ad configuration.</p>
+ * @public
+ */
+export interface PostRollConfiguration {
+  /**
+   * <p>Duration of the post-roll ad break, in seconds.</p>
+   * @public
+   */
+  durationSeconds: number | undefined;
+
+  /**
+   * <p>Whether the post-roll ad configuration is enabled.</p>
+   * @public
+   */
+  enabled: boolean | undefined;
+}
+
+/**
  * <p>Object specifying a configuration for a server-side advertising insertion (which can be triggered with the operation).</p>
  * @public
  */
@@ -50,6 +68,12 @@ export interface AdConfiguration {
    * @public
    */
   mediaTailorPlaybackConfigurations: MediaTailorPlaybackConfiguration[] | undefined;
+
+  /**
+   * <p>Configuration for the post-roll ad break to use for this ad configuration.</p>
+   * @public
+   */
+  postRollConfiguration?: PostRollConfiguration | undefined;
 
   /**
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>
@@ -80,6 +104,12 @@ export interface AdConfigurationSummary {
    * @public
    */
   mediaTailorPlaybackConfigurations: MediaTailorPlaybackConfiguration[] | undefined;
+
+  /**
+   * <p>Configuration for the post-roll ad break to use for this ad configuration.</p>
+   * @public
+   */
+  postRollConfiguration?: PostRollConfiguration | undefined;
 
   /**
    * <p>Tags attached to the resource. Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>
@@ -559,6 +589,12 @@ export interface CreateAdConfigurationRequest {
    * @public
    */
   mediaTailorPlaybackConfigurations: MediaTailorPlaybackConfiguration[] | undefined;
+
+  /**
+   * <p>Configuration for the post-roll ad break to use for this ad configuration. Default: disabled (<code>enabled</code> set to false, <code>durationSeconds</code> set to 15).</p>
+   * @public
+   */
+  postRollConfiguration?: PostRollConfiguration | undefined;
 
   /**
    * <p>Array of 1-50 maps, each of the form <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific constraints beyond what is documented there.</p>
@@ -2331,6 +2367,12 @@ export interface UpdateAdConfigurationRequest {
    * @public
    */
   mediaTailorPlaybackConfigurations?: MediaTailorPlaybackConfiguration[] | undefined;
+
+  /**
+   * <p>Configuration for the post-roll ad break to use for this ad configuration.</p>
+   * @public
+   */
+  postRollConfiguration?: PostRollConfiguration | undefined;
 }
 
 /**

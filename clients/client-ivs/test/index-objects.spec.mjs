@@ -170,6 +170,7 @@ import {
   PlaybackKeyPairSummary$,
   PlaybackRestrictionPolicy$,
   PlaybackRestrictionPolicySummary$,
+  PostRollConfiguration$,
   PutMetadata$,
   PutMetadataCommand,
   PutMetadataRequest$,
@@ -403,6 +404,7 @@ assert(typeof PlaybackKeyPair$ === "object");
 assert(typeof PlaybackKeyPairSummary$ === "object");
 assert(typeof PlaybackRestrictionPolicy$ === "object");
 assert(typeof PlaybackRestrictionPolicySummary$ === "object");
+assert(typeof PostRollConfiguration$ === "object");
 assert(typeof PutMetadataRequest$ === "object");
 assert(typeof RecordingConfiguration$ === "object");
 assert(typeof RecordingConfigurationSummary$ === "object");
