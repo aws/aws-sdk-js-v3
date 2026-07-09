@@ -1,6 +1,5 @@
-import { CreateStreamCommand, Kinesis } from "@aws-sdk/client-kinesis";
+import { Kinesis } from "@aws-sdk/client-kinesis";
 import { NodeHttp2Handler } from "@aws-sdk/config/requestHandler";
-import { getEndpointFromInstructions } from "@smithy/core/endpoints";
 import { type MetadataBearer } from "@smithy/types";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
@@ -22,13 +21,6 @@ describe("@aws-sdk/client-kinesis", () => {
   const debug = () => {
     return (client.config.requestHandler as any).connectionManager?.debug?.();
   };
-
-  /**
-   * The endpoint the client resolves to, used as the connection pool key.
-   * Resolved from the client config instead of being hardcoded, so the test
-   * follows the client's configured region/endpoint.
-   */
-  let endpoint: string;
 
   async function setup() {
     await client.createStream({ StreamName: STREAM_NAME, ShardCount: SHARD_COUNT });
@@ -120,15 +112,19 @@ describe("@aws-sdk/client-kinesis", () => {
    * ]
    * ```
    */
+
+  /**
+   * Aggregates sessions across every connection pool the client opened.
+   *
+   * A client can resolve to more than one endpoint depending on the operation, 
+   * so the connection manager may hold multiple pools. We total the sessions 
+   * across all of them rather than keying off a single endpoint.
+   */
   function getSessions(state: any) {
-    return state?.[endpoint]?.sessions ?? [];
+    return Object.values(state ?? {}).flatMap((pool: any) => pool?.sessions ?? []);
   }
 
   beforeAll(async () => {
-    // Resolve the endpoint the same way the SDK does at request time.
-    const { url } = await getEndpointFromInstructions({}, CreateStreamCommand, client.config);
-    endpoint = url.toString();
-
     connectionManagerStates.initial = debug();
     await setup();
 
@@ -185,26 +181,25 @@ describe("@aws-sdk/client-kinesis", () => {
        * If debugging this test, get a picture of the connection states
        * at each step by logging this object.
        */
-      console.log(JSON.stringify(connectionManagerStates, null, 2));
+      // console.log(JSON.stringify(connectionManagerStates, null, 2));
       expect(connectionManagerStates.initial).toEqual({});
 
       expect(getSessions(connectionManagerStates.requestsFinished)).not.toEqual([]);
-      expect(connectionManagerStates.requestsFinished).toMatchObject({
-        [endpoint]: {
-          sessions: getSessions(connectionManagerStates.requestsFinished).map(() => sessionType),
-        },
-      });
+      for (const session of getSessions(connectionManagerStates.requestsFinished)) {
+        expect(session).toMatchObject(sessionType);
+      }
 
       expect(getSessions(connectionManagerStates.secondBatchRequestsFinished)).not.toEqual([]);
-      expect(connectionManagerStates.secondBatchRequestsFinished).toMatchObject({
-        [endpoint]: {
-          sessions: getSessions(connectionManagerStates.secondBatchRequestsFinished).map(() => sessionType),
-        },
-      });
+      for (const session of getSessions(connectionManagerStates.secondBatchRequestsFinished)) {
+        expect(session).toMatchObject(sessionType);
+      }
 
-      expect(connectionManagerStates.idle[endpoint]).toEqual({
-        sessions: [],
-      });
+      // Every pool the client opened should have drained to zero sessions once idle.
+      const idlePools = Object.values(connectionManagerStates.idle ?? {});
+      expect(idlePools.length).toBeGreaterThan(0);
+      for (const pool of idlePools) {
+        expect((pool as any).sessions).toEqual([]);
+      }
 
       expect(connectionManagerStates.destroyed).toEqual({});
     });
