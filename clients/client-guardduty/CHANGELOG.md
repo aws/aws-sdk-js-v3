@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1084.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1083.0...v3.1084.0) (2026-07-09)
+
+
+### Features
+
+* **client-guardduty:** Adding "AI Analyst" enum value for detector ([20518a4](https://github.com/aws/aws-sdk-js-v3/commit/20518a4ffa622068a3452405a2d56565a5076ed3))
+
+
+
+
+
 # [3.1083.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1082.0...v3.1083.0) (2026-07-08)
 
 **Note:** Version bump only for package @aws-sdk/client-guardduty

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1084.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1083.0...v3.1084.0) (2026-07-09)
+
+
+### Features
+
+* **client-connect:** Amazon Connect - Added DeleteContactData API to support PII deletion of customer endpoint, additional email recipients and email subject. ([87f4ae0](https://github.com/aws/aws-sdk-js-v3/commit/87f4ae0edee3b09fccf660a9ec06f3819c0de033))
+* **client-ec2:** Added support for additional override parameters in CreateFleet, including LaunchTemplateSpecificationUserData, KeyName, IamInstanceProfile, and MetadataOptions. The CreateFleet response now also includes SubnetId, AvailabilityZone, and AvailabilityZoneId for launched instances. ([6fcc95d](https://github.com/aws/aws-sdk-js-v3/commit/6fcc95d184daf8db8b4ab131932b86d011628deb))
+* **client-guardduty:** Adding "AI Analyst" enum value for detector ([20518a4](https://github.com/aws/aws-sdk-js-v3/commit/20518a4ffa622068a3452405a2d56565a5076ed3))
+* **client-ivs:** adds support for AWS IVS ad configuration APIs to allow for a postRollConfiguration object on the ad configuration resource ([7dd93c4](https://github.com/aws/aws-sdk-js-v3/commit/7dd93c48dbdb50fe7039cbb94071c73249bc6419))
+* **client-synthetics:** CloudWatch Synthetics adds support for customer managed KMS keys for canary environment variables. Customers can now encrypt their canary's Lambda function environment variables at rest using their own AWS KMS key, providing additional control over data protection. ([c737915](https://github.com/aws/aws-sdk-js-v3/commit/c7379151145d04c34200a72783f0439873519b6d))
+
+
+
+
+
 # [3.1083.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1082.0...v3.1083.0) (2026-07-08)
 
 
