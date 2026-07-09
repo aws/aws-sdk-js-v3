@@ -4827,6 +4827,12 @@
           "traits": {
             "smithy.api#enumValue": "RUNTIME_MONITORING"
           }
+        },
+        "AI_ANALYST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AI_ANALYST"
+          }
         }
       }
     },
@@ -4968,6 +4974,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "RUNTIME_MONITORING"
+          }
+        },
+        "AI_ANALYST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AI_ANALYST"
           }
         }
       }

@@ -287,6 +287,7 @@ export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
  * @enum
  */
 export const DetectorFeature = {
+  AI_ANALYST: "AI_ANALYST",
   EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
   EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
   EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
@@ -769,6 +770,7 @@ export type DetectionSource = (typeof DetectionSource)[keyof typeof DetectionSou
  * @enum
  */
 export const DetectorFeatureResult = {
+  AI_ANALYST: "AI_ANALYST",
   CLOUD_TRAIL: "CLOUD_TRAIL",
   DNS_LOGS: "DNS_LOGS",
   EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
