@@ -1,0 +1,25 @@
+{
+  // Base config. Options here must be valid across every TypeScript version
+  // listed in typescript-versions.json. Options that changed between versions
+  // (e.g. moduleResolution handling in newer releases) are supplied per-version
+  // by run.mjs.
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "lib": ["es2020", "dom"],
+    // types:[] keeps @types/node out of the program. The fixture uses no Node
+    // APIs, and no single @types/node version parses across all the TypeScript
+    // versions under test.
+    "types": [],
+    "strict": true,
+    "esModuleInterop": true,
+    // skipLibCheck lets the clients' internal Node references pass without
+    // @types/node; the .d.ts are still parsed, so downlevel *syntax*
+    // incompatibilities are still caught.
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true
+  },
+  "include": ["fixtures/**/*.ts"]
+}
