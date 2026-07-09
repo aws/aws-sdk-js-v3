@@ -139,6 +139,72 @@ import type {
 } from "./models_1";
 
 /**
+ * <p>The BGP configuration options requested for a route server peer.</p>
+ * @public
+ */
+export interface RouteServerBgpOptionsRequest {
+  /**
+   * <p>The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.</p>
+   * @public
+   */
+  PeerAsn: number | undefined;
+
+  /**
+   * <p>The requested liveness detection protocol for the BGP peer.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>bgp-keepalive</code>: The standard BGP keep alive mechanism (<a href="https://www.rfc-editor.org/rfc/rfc4271#page-21">RFC4271</a>) that is stable but may take longer to fail-over in cases of network impact or router failure.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bfd</code>: An additional Bidirectional Forwarding Detection (BFD) protocol (<a href="https://www.rfc-editor.org/rfc/rfc5880">RFC5880</a>) that enables fast failover by using more sensitive liveness detection.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Defaults to <code>bgp-keepalive</code>.</p>
+   * @public
+   */
+  PeerLivenessDetection?: RouteServerPeerLivenessMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouteServerPeerRequest {
+  /**
+   * <p>The ID of the route server endpoint for which to create a peer.</p>
+   * @public
+   */
+  RouteServerEndpointId: string | undefined;
+
+  /**
+   * <p>The IPv4 address of the peer device.</p>
+   * @public
+   */
+  PeerAddress: string | undefined;
+
+  /**
+   * <p>The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings.</p>
+   * @public
+   */
+  BgpOptions: RouteServerBgpOptionsRequest | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The tags to apply to the route server peer during creation.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
  * <p>The current status of Bidirectional Forwarding Detection (BFD) for a BGP session.</p>
  * @public
  */
@@ -9817,46 +9883,4 @@ export interface DeleteRouteServerPeerResult {
    * @public
    */
   RouteServerPeer?: RouteServerPeer | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRouteTableRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the route table.</p>
-   * @public
-   */
-  RouteTableId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSecondaryNetworkRequest {
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensure Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the secondary network.</p>
-   * @public
-   */
-  SecondaryNetworkId: string | undefined;
 }

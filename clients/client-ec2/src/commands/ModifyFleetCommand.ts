@@ -62,6 +62,7 @@ export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataB
  *         LaunchTemplateId: "STRING_VALUE",
  *         LaunchTemplateName: "STRING_VALUE",
  *         Version: "STRING_VALUE",
+ *         LaunchTemplateSpecificationUserData: "STRING_VALUE",
  *       },
  *       Overrides: [ // FleetLaunchTemplateOverridesListRequest
  *         { // FleetLaunchTemplateOverridesRequest
@@ -83,6 +84,7 @@ export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataB
  *             GroupId: "STRING_VALUE",
  *             AvailabilityZone: "STRING_VALUE",
  *           },
+ *           KeyName: "STRING_VALUE",
  *           BlockDeviceMappings: [ // FleetBlockDeviceMappingRequestList
  *             { // FleetBlockDeviceMappingRequest
  *               DeviceName: "STRING_VALUE",
@@ -100,6 +102,15 @@ export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataB
  *               NoDevice: "STRING_VALUE",
  *             },
  *           ],
+ *           IamInstanceProfile: { // FleetIamInstanceProfileSpecificationRequest
+ *             Arn: "STRING_VALUE",
+ *             Name: "STRING_VALUE",
+ *           },
+ *           MetadataOptions: { // FleetInstanceMetadataOptionsRequest
+ *             HttpTokens: "optional" || "required",
+ *             HttpPutResponseHopLimit: Number("int"),
+ *             HttpEndpoint: "disabled" || "enabled",
+ *           },
  *           InstanceRequirements: { // InstanceRequirementsRequest
  *             VCpuCount: { // VCpuCountRangeRequest
  *               Min: Number("int"), // required

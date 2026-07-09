@@ -2661,8 +2661,10 @@ const _FIAil = "FilterInArn";
 const _FIGI = "FpgaImageGlobalId";
 const _FII = "FpgaImageId";
 const _FIIL = "FpgaImageIdList";
+const _FIIPSR = "FleetIamInstanceProfileSpecificationRequest";
 const _FIIp = "FpgaImageIds";
 const _FIL = "FpgaImageList";
+const _FIMOR = "FleetInstanceMetadataOptionsRequest";
 const _FIPSE = "FIPSEnabled";
 const _FIS = "FpgaImageState";
 const _FIl = "FleetId";
@@ -3772,6 +3774,7 @@ const _LTS = "LaunchTemplateSpecification";
 const _LTSMO = "LaunchTemplateSpotMarketOptions";
 const _LTSMOR = "LaunchTemplateSpotMarketOptionsRequest";
 const _LTST = "LastTieringStartTime";
+const _LTSUD = "LaunchTemplateSpecificationUserData";
 const _LTSa = "LaunchTemplateSet";
 const _LTTS = "LaunchTemplateTagSpecification";
 const _LTTSL = "LaunchTemplateTagSpecificationList";
@@ -10514,13 +10517,16 @@ export var CreateFleetError$: StaticStructureSchema = [3, n0, _CFE,
 ];
 export var CreateFleetInstance$: StaticStructureSchema = [3, n0, _CFI,
   0,
-  [_LTAO, _Li, _IIns, _IT, _Pl],
+  [_LTAO, _Li, _IIns, _IT, _Pl, _AZI, _AZ, _SIu],
   [[() => LaunchTemplateAndOverridesResponse$, { [_eQN]: `LaunchTemplateAndOverrides`
   , [_xN]: _lTAO }], [0, { [_eQN]: `Lifecycle`
   , [_xN]: _li }], [() => InstanceIdsSet, { [_eQN]: `InstanceIds`
   , [_xN]: _iIns }], [0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [0, { [_eQN]: `Platform`
-  , [_xN]: _pl }]]
+  , [_xN]: _pl }], [0, { [_eQN]: `AvailabilityZoneId`
+  , [_xN]: _aZI }], [0, { [_eQN]: `AvailabilityZone`
+  , [_xN]: _aZ }], [0, { [_eQN]: `SubnetId`
+  , [_xN]: _sIu }]]
 ];
 export var CreateFleetRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
@@ -16720,6 +16726,16 @@ export var FleetEbsBlockDeviceRequest$: StaticStructureSchema = [3, n0, _FEBDR,
   [_Enc, _DOT, _Io, _Th, _KKI, _SIn, _VSo, _VT],
   [2, 2, 1, 1, 0, 0, 1, 0]
 ];
+export var FleetIamInstanceProfileSpecificationRequest$: StaticStructureSchema = [3, n0, _FIIPSR,
+  0,
+  [_Ar, _N],
+  [0, 0]
+];
+export var FleetInstanceMetadataOptionsRequest$: StaticStructureSchema = [3, n0, _FIMOR,
+  0,
+  [_HT, _HPRHL, _HE],
+  [0, 1, 0]
+];
 export var FleetLaunchTemplateConfig$: StaticStructureSchema = [3, n0, _FLTC,
   0,
   [_LTS, _Ov],
@@ -16730,7 +16746,7 @@ export var FleetLaunchTemplateConfig$: StaticStructureSchema = [3, n0, _FLTC,
 export var FleetLaunchTemplateConfigRequest$: StaticStructureSchema = [3, n0, _FLTCR,
   0,
   [_LTS, _Ov],
-  [() => FleetLaunchTemplateSpecificationRequest$, [() => FleetLaunchTemplateOverridesListRequest, 0]]
+  [[() => FleetLaunchTemplateSpecificationRequest$, 0], [() => FleetLaunchTemplateOverridesListRequest, 0]]
 ];
 export var FleetLaunchTemplateOverrides$: StaticStructureSchema = [3, n0, _FLTO,
   0,
@@ -16750,8 +16766,8 @@ export var FleetLaunchTemplateOverrides$: StaticStructureSchema = [3, n0, _FLTO,
 ];
 export var FleetLaunchTemplateOverridesRequest$: StaticStructureSchema = [3, n0, _FLTOR,
   0,
-  [_IT, _MPax, _SIu, _AZ, _WCe, _Prio, _Pla, _BDMl, _IRn, _IIm, _AZI],
-  [0, 0, 0, 0, 1, 1, [() => Placement$, 0], [() => FleetBlockDeviceMappingRequestList, { [_xN]: _BDM }], [() => InstanceRequirementsRequest$, 0], 0, 0]
+  [_IT, _MPax, _SIu, _AZ, _WCe, _Prio, _Pla, _KN, _BDMl, _IIP, _MO, _IRn, _IIm, _AZI],
+  [0, 0, 0, 0, 1, 1, [() => Placement$, 0], 0, [() => FleetBlockDeviceMappingRequestList, { [_xN]: _BDM }], () => FleetIamInstanceProfileSpecificationRequest$, () => FleetInstanceMetadataOptionsRequest$, [() => InstanceRequirementsRequest$, 0], 0, 0]
 ];
 export var FleetLaunchTemplateSpecification$: StaticStructureSchema = [3, n0, _FLTS,
   0,
@@ -16763,8 +16779,8 @@ export var FleetLaunchTemplateSpecification$: StaticStructureSchema = [3, n0, _F
 ];
 export var FleetLaunchTemplateSpecificationRequest$: StaticStructureSchema = [3, n0, _FLTSR,
   0,
-  [_LTI, _LTN, _Ver],
-  [0, 0, 0]
+  [_LTI, _LTN, _Ver, _LTSUD],
+  [0, 0, 0, [() => SensitiveUserData, 0]]
 ];
 export var FleetSpotCapacityRebalance$: StaticStructureSchema = [3, n0, _FSCR,
   0,

@@ -3123,6 +3123,33 @@ export type LocalStorageType = (typeof LocalStorageType)[keyof typeof LocalStora
  * @public
  * @enum
  */
+export const FleetInstanceMetadataEndpointState = {
+  DISABLED: "disabled",
+  ENABLED: "enabled",
+} as const;
+/**
+ * @public
+ */
+export type FleetInstanceMetadataEndpointState =
+  (typeof FleetInstanceMetadataEndpointState)[keyof typeof FleetInstanceMetadataEndpointState];
+
+/**
+ * @public
+ * @enum
+ */
+export const FleetHttpTokensState = {
+  OPTIONAL: "optional",
+  REQUIRED: "required",
+} as const;
+/**
+ * @public
+ */
+export type FleetHttpTokensState = (typeof FleetHttpTokensState)[keyof typeof FleetHttpTokensState];
+
+/**
+ * @public
+ * @enum
+ */
 export const FleetOnDemandAllocationStrategy = {
   LOWEST_PRICE: "lowest-price",
   PRIORITIZED: "prioritized",

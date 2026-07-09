@@ -1544,6 +1544,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <platform>
                 __Platform__
             </platform>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <subnetId>
+                __SubnetId__
+            </subnetId>
         </item>
         <item>
             <launchTemplateAndOverrides>
@@ -1930,6 +1939,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <platform>
                 __Platform__
             </platform>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <subnetId>
+                __SubnetId__
+            </subnetId>
         </item>
         <item>
             <launchTemplateAndOverrides>
@@ -2316,6 +2334,15 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <platform>
                 __Platform__
             </platform>
+            <availabilityZoneId>
+                __AvailabilityZoneId__
+            </availabilityZoneId>
+            <availabilityZone>
+                __AvailabilityZone__
+            </availabilityZone>
+            <subnetId>
+                __SubnetId__
+            </subnetId>
         </item>
     </fleetInstanceSet>
 </CreateFleetResult>
@@ -3022,7 +3049,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__"
       ],
       InstanceType: "__InstanceType__",
-      Platform: "__Platform__"
+      Platform: "__Platform__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      AvailabilityZone: "__AvailabilityZone__",
+      SubnetId: "__SubnetId__"
     },
     {
       LaunchTemplateAndOverrides: {
@@ -3200,7 +3230,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__"
       ],
       InstanceType: "__InstanceType__",
-      Platform: "__Platform__"
+      Platform: "__Platform__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      AvailabilityZone: "__AvailabilityZone__",
+      SubnetId: "__SubnetId__"
     },
     {
       LaunchTemplateAndOverrides: {
@@ -3378,7 +3411,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__"
       ],
       InstanceType: "__InstanceType__",
-      Platform: "__Platform__"
+      Platform: "__Platform__",
+      AvailabilityZoneId: "__AvailabilityZoneId__",
+      AvailabilityZone: "__AvailabilityZone__",
+      SubnetId: "__SubnetId__"
     }
   ],
   $metadata: {

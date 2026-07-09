@@ -149,6 +149,48 @@ import type {
 /**
  * @public
  */
+export interface DeleteRouteTableRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the route table.</p>
+   * @public
+   */
+  RouteTableId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSecondaryNetworkRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensure Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the secondary network.</p>
+   * @public
+   */
+  SecondaryNetworkId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteSecondaryNetworkResult {
   /**
    * <p>Information about the secondary network.</p>
@@ -10729,101 +10771,4 @@ export interface ImageUsageResourceTypeOption {
    * @public
    */
   OptionValues?: string[] | undefined;
-}
-
-/**
- * <p>A resource type to include in the report. Associated options can also be specified if the
- *       resource type is a launch template.</p>
- * @public
- */
-export interface ImageUsageResourceType {
-  /**
-   * <p>The resource type.</p>
-   *          <p>Valid values: <code>ec2:Instance</code> | <code>ec2:LaunchTemplate</code>
-   *          </p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-
-  /**
-   * <p>The options that affect the scope of the report. Valid only when <code>ResourceType</code>
-   *       is <code>ec2:LaunchTemplate</code>.</p>
-   * @public
-   */
-  ResourceTypeOptions?: ImageUsageResourceTypeOption[] | undefined;
-}
-
-/**
- * <p>The configuration and status of an image usage report.</p>
- * @public
- */
-export interface ImageUsageReport {
-  /**
-   * <p>The ID of the image that was specified when the report was created.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The ID of the report.</p>
-   * @public
-   */
-  ReportId?: string | undefined;
-
-  /**
-   * <p>The resource types that were specified when the report was created.</p>
-   * @public
-   */
-  ResourceTypes?: ImageUsageResourceType[] | undefined;
-
-  /**
-   * <p>The IDs of the Amazon Web Services accounts that were specified when the report was created.</p>
-   * @public
-   */
-  AccountIds?: string[] | undefined;
-
-  /**
-   * <p>The current state of the report. Possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>available</code> - The report is available to view.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code> - The report is being created and not available to view.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>error</code> - The report could not be created.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  State?: string | undefined;
-
-  /**
-   * <p>Provides additional details when the report is in an <code>error</code> state.</p>
-   * @public
-   */
-  StateReason?: string | undefined;
-
-  /**
-   * <p>The date and time when the report was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The date and time when Amazon EC2 will delete the report (30 days after the report was
-   *       created).</p>
-   * @public
-   */
-  ExpirationTime?: Date | undefined;
-
-  /**
-   * <p>Any tags assigned to the report.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
 }

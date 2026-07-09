@@ -2474,7 +2474,11 @@ import {
   FleetEbsBlockDeviceRequest$,
   FleetEventType,
   FleetExcessCapacityTerminationPolicy,
+  FleetHttpTokensState,
+  FleetIamInstanceProfileSpecificationRequest$,
   FleetInstanceMatchCriteria,
+  FleetInstanceMetadataEndpointState,
+  FleetInstanceMetadataOptionsRequest$,
   FleetLaunchTemplateConfig$,
   FleetLaunchTemplateConfigRequest$,
   FleetLaunchTemplateOverrides$,
@@ -7493,6 +7497,8 @@ assert(typeof FleetBlockDeviceMappingRequest$ === "object");
 assert(typeof FleetCapacityReservation$ === "object");
 assert(typeof FleetData$ === "object");
 assert(typeof FleetEbsBlockDeviceRequest$ === "object");
+assert(typeof FleetIamInstanceProfileSpecificationRequest$ === "object");
+assert(typeof FleetInstanceMetadataOptionsRequest$ === "object");
 assert(typeof FleetLaunchTemplateConfig$ === "object");
 assert(typeof FleetLaunchTemplateConfigRequest$ === "object");
 assert(typeof FleetLaunchTemplateOverrides$ === "object");
@@ -8758,7 +8764,9 @@ assert(typeof FleetCapacityReservationTenancy === "object");
 assert(typeof FleetCapacityReservationUsageStrategy === "object");
 assert(typeof FleetEventType === "object");
 assert(typeof FleetExcessCapacityTerminationPolicy === "object");
+assert(typeof FleetHttpTokensState === "object");
 assert(typeof FleetInstanceMatchCriteria === "object");
+assert(typeof FleetInstanceMetadataEndpointState === "object");
 assert(typeof FleetOnDemandAllocationStrategy === "object");
 assert(typeof FleetReplacementStrategy === "object");
 assert(typeof FleetReservationType === "object");
