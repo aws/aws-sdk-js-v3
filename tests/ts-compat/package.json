@@ -7,11 +7,11 @@
     "test": "node ./run.mjs"
   },
   "devDependencies": {
-    "@aws-sdk/client-cloudwatch-logs": "file:../../clients/client-cloudwatch-logs",
-    "@aws-sdk/client-dynamodb": "file:../../clients/client-dynamodb",
-    "@aws-sdk/client-ec2": "file:../../clients/client-ec2",
-    "@aws-sdk/client-lambda": "file:../../clients/client-lambda",
-    "@aws-sdk/client-s3": "file:../../clients/client-s3",
-    "@aws-sdk/client-sts": "file:../../clients/client-sts"
+    "@aws-sdk/client-cloudwatch-logs": "3.1084.0",
+    "@aws-sdk/client-dynamodb": "3.1084.0",
+    "@aws-sdk/client-ec2": "3.1084.0",
+    "@aws-sdk/client-lambda": "3.1084.0",
+    "@aws-sdk/client-s3": "3.1084.0",
+    "@aws-sdk/client-sts": "3.1084.0"
   }
 }
