@@ -182,6 +182,7 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * //           KmsKeyArn: "STRING_VALUE",
  * //         },
  * //       },
+ * //       KmsKeyArn: "STRING_VALUE",
  * //       DryRunConfig: { // DryRunConfigOutput
  * //         DryRunId: "STRING_VALUE",
  * //         LastDryRunExecutionStatus: "STRING_VALUE",
