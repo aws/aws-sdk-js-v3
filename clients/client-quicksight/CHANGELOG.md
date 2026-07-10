@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1085.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1084.0...v3.1085.0) (2026-07-10)
+
+
+### Features
+
+* **client-quicksight:** Provides CreateKnowledgeBase and UpdateKnowledgeBase APIs ([42de552](https://github.com/aws/aws-sdk-js-v3/commit/42de55235e68fccff5f36ba5dddd4f6026b9c4f4))
+
+
+
+
+
 # [3.1084.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1083.0...v3.1084.0) (2026-07-09)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1085.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1084.0...v3.1085.0) (2026-07-10)
+
+
+### Features
+
+* **client-inspector2:** Support for 3 day and 7 day ECR re-scan durations ([4b0b5c8](https://github.com/aws/aws-sdk-js-v3/commit/4b0b5c86d1c0c228751d3ad42287c96599982eab))
+
+
+
+
+
 # [3.1084.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1083.0...v3.1084.0) (2026-07-09)
 
 **Note:** Version bump only for package @aws-sdk/client-inspector2

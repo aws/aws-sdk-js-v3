@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1085.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1084.0...v3.1085.0) (2026-07-10)
+
+
+### Features
+
+* **client-cloudwatch:** CloudWatch now assigns a unique identifier to each anomaly detector. PutAnomalyDetector and DescribeAnomalyDetectors return this AnomalyDetectorId, which you can use to describe or delete a specific anomaly detector directly. ([36fc0ee](https://github.com/aws/aws-sdk-js-v3/commit/36fc0ee52f520bcd30676ec8954140309719677f))
+* **client-ec2:** New Amazon EC2 instances. M9g, M9gd, C9g, and C9gd on AWS Graviton5. C8in, M8in, and R8in add 600 Gbps network. C8ib, M8ib, and R8ib add 300 Gbps EBS. C8ine, M8ine, M8idn, R8idn, M8idb, and R8idb round out Intel Xeon 6. Mac-m3ultra with Apple M3 Ultra. G7 with NVIDIA RTX PRO 4500 Blackwell GPUs. ([35aaf38](https://github.com/aws/aws-sdk-js-v3/commit/35aaf38707d66fa250c40fbef879fb9254a38cab))
+* **client-inspector2:** Support for 3 day and 7 day ECR re-scan durations ([4b0b5c8](https://github.com/aws/aws-sdk-js-v3/commit/4b0b5c86d1c0c228751d3ad42287c96599982eab))
+* **client-lambda:** Added TelemetryConfig support for Managed Instances Capacity Provider, enabling customers to configure system log level and custom log group for managed instance logging. ([6338813](https://github.com/aws/aws-sdk-js-v3/commit/6338813981e21da09c2afff2774453bfeed8b0de))
+* **client-license-manager:** Added the ResetUsage field to the CreateLicenseVersion API. When set to true, the entitlement usage counts for the license are reset to 0. If it is false or not specified, entitlement usage is left unchanged. ([52f1c9c](https://github.com/aws/aws-sdk-js-v3/commit/52f1c9c03192532f8d7fd99fbd9a3a1a567df6ad))
+* **client-quicksight:** Provides CreateKnowledgeBase and UpdateKnowledgeBase APIs ([42de552](https://github.com/aws/aws-sdk-js-v3/commit/42de55235e68fccff5f36ba5dddd4f6026b9c4f4))
+* **client-sagemaker:** Release support for g4d, c6g, c7g, c8g instance types for SageMaker HyperPod ([800976d](https://github.com/aws/aws-sdk-js-v3/commit/800976de4cc075bdd3f835982236e646e2871566))
+* **clients:** update client endpoints as of 2026-07-10 ([dffbeab](https://github.com/aws/aws-sdk-js-v3/commit/dffbeab020cb30acaf3e126b70df855fbd644b38))
+
+
+
+
+
 # [3.1084.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1083.0...v3.1084.0) (2026-07-09)
 
 
